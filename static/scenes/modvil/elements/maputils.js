@@ -94,6 +94,8 @@ export class DataManager {
         },
       ];
     }
+
+    this._details = null;
   }
 
   get range() {
@@ -122,6 +124,13 @@ export class DataManager {
   }
 
   get details() {
+    if (this._details === null) {
+      this._details = this._buildDetails();
+    }
+    return this._details;
+  }
+
+  _buildDetails() {
     if (this._nextOrCurrentIndex === 0) {
       return {
         visibleTo: 0,
@@ -173,6 +182,9 @@ export class DataManager {
     if (time === this._time) {
       return;  // ignore for same or no data (assume at least one stop)
     }
+
+    this._details = null;  // invalidate details
+
     if (time < this._time) {
       // We went back in time. Reset the state of everything.
       this._nextOrCurrentIndex = 0;
