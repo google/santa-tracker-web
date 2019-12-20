@@ -6,7 +6,7 @@ import loadMaps from '../../../src/deps/maps.js';
 import mapstyles from '../../../src/deps/mapstyles.json';
 import '../../../src/elements/santa-santa.js';
 import './modvil-tracker-stats.js';
-import {elementMapsOverlay, StopManager, DataManager, northpoleLocation} from './maputils.js';
+import {elementMapsOverlay, StopManager, DataManager, northpoleLocation, fetchRoute} from './maputils.js';
 
 
 common.preload.images(
@@ -48,10 +48,8 @@ class ModvilTracker extends LitElement {
     common.preload.wait(this._preparePromise);
 
     // FIXME: for testing
-    Promise.resolve().then(async () => {
-      const r = await fetch('https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_en.json?alt=media');
-      const data = await r.json();
-      this.destinations = data['destinations'];
+    fetchRoute('https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_en.json?alt=media').then((destinations) => {
+      this.destinations = destinations;
     });
     this.now = 1577192880000;
 

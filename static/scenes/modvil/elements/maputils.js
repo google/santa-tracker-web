@@ -2,15 +2,68 @@ import {_static} from '../../../src/magic.js';
 import * as spherical from '../../../src/api/spherical.js';
 
 
+const lerp = (from, to, ratio) => {
+  const delta = to - from;
+  return from + delta * ratio;
+};
+
+const inverseLerp = (from, to, value) => {
+  const range = to - from;
+  return (value - from) / range;
+};
+
+
 const polylineColor = '#22a528';
 const polylineWeight = 2;
 const trailLength = 20;
+const routeHourDuration = 25;
 
 const PRESENTS_TRANSIT = 0.3;
 const PRESENTS_IN_CITY = 0.7;
 
 
 export const northpoleLocation = {lat: 84.6, lng: 168};
+
+
+export async function fetchRoute(url, year = (new Date().getFullYear())) {
+  // Skews route data over the passed year, suitable for future years if nothing else changes.
+  const from = +Date.UTC(year, 11, 24, 10, 0, 0);  // 24th Dec at 10:00 UTC
+  const to = (function() {
+    const t = new Date(+from);
+    t.setHours(t.getHours() + routeHourDuration);
+    return +t;
+  })();
+
+  const r = await fetch(url);
+  const data = await r.json();
+  const destinations = data['destinations'];
+
+  if (!destinations || !destinations.length) {
+    return destinations || [];
+  }
+
+  const actualFrom = destinations[0].departure;
+  const actualTo = destinations[destinations.length - 1].arrival;
+
+  console.info('range', from, to, 'vs actual', actualFrom, actualTo);
+
+  const skew = (value) => {
+    if (value === 0) {
+      return value;
+    }
+    const ratio = inverseLerp(actualFrom, actualTo, value);
+    return lerp(from, to, ratio);
+  };
+  debugger;
+
+  // skew [actualFrom,actualTo] to [from,to]
+  destinations.forEach((destination) => {
+    destination.departure = skew(destination.departure);
+    destination.arrival = skew(destination.arrival);
+  });
+
+  return destinations;
+}
 
 
 export function elementMapsOverlay(layer = 'floatPane') {
@@ -63,17 +116,6 @@ export function elementMapsOverlay(layer = 'floatPane') {
 }
 
 
-const lerp = (from, to, ratio) => {
-  const delta = to - from;
-  return from + delta * ratio;
-};
-
-const inverseLerp = (from, to, value) => {
-  const range = to - from;
-  return (value - from) / range;
-};
-
-
 export class DataManager {
   constructor(destinations) {
     this._time = 0;
@@ -112,7 +154,8 @@ export class DataManager {
 
   closestArrival(userLocation) {
     if (userLocation === null) {
-      const targetDate = new Date((new Date().getFullYear()), 11, 25);
+      const year = (new Date(this._destinations[0].departure)).getFullYear();
+      const targetDate = new Date(year, 11, 25);
       const target = +targetDate;
       const userOffset = targetDate.getTimezoneOffset() * -60;  // to match remote data
 
