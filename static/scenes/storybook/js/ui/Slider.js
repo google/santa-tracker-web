@@ -23,16 +23,22 @@ class Slider {
     this.slider.addEventListener('mousedown', () => {
       this.container.classList.add('is-grabbing');
     });
+    
+    this.slider.addEventListener('keydown', e => {
+      if (this.slider === document.activeElement) {
+        e.preventDefault();
+      }
+    });
 
     this.slider.addEventListener('mouseup', this.handleSliderMouseUp)
     this.slider.addEventListener('input', this.handleSliderProgress)
   }
 
   handleSliderMouseUp() {
+    this.slider.blur();
     if(this.slider.value == this.activeIndex + 1) { return; }
 
     this.container.classList.remove('is-grabbing');
-    Transition.trigger();
     Transition.trigger();
     Scene.update(this.slider.value);
     Nav.update(this.slider.value - 1);

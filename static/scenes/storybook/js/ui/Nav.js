@@ -63,10 +63,8 @@ class Nav {
 
     if (evt.key == 'ArrowRight') {
       this.next();
-      this.animating = true;
     } else if(evt.key == 'ArrowLeft' && this.activeIndex !== 0) {
       this.prev();
-      this.animating = true;
     }
   }
 
@@ -83,6 +81,7 @@ class Nav {
   }
 
   moveToChapter() {
+    this.animating = true;
     Transition.trigger();
     Scene.update(this.activeIndex + 1);
     Slider.update(this.activeIndex + 1);
