@@ -1,7 +1,7 @@
 &.is-touch-device {
   // add background for if no canvas on touch devices
   .scene__chapter {
-    @for $i from 1 through 21 {
+    @for $i from 1 through 22 {
       &:nth-child(#{$i}) {
         @include backgroundImage("img/desktop/chapter-#{$i}.svg", "img/mobile/chapter-#{$i}.svg");
       }

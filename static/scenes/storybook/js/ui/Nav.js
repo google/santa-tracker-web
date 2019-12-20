@@ -13,7 +13,7 @@ class Nav {
     this.prev = this.prev.bind(this);
     this.next = this.next.bind(this);
     this.handleTouchStart = this.handleTouchStart.bind(this);
-    this.handleTouchMove = this.handleTouchMove.bind(this);
+    this.handleTouchEnd = this.handleTouchEnd.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
@@ -35,29 +35,26 @@ class Nav {
     this.prevBtn.addEventListener('touchstart', this.prev);
     this.nextBtn.addEventListener('touchstart', this.next);
     document.addEventListener('touchstart', this.handleTouchStart);
-    document.addEventListener('touchmove', this.handleTouchMove);
+    document.addEventListener('touchend', this.handleTouchEnd);
     document.addEventListener('keydown', this.handleKeyDown);
   }
 
   handleTouchStart(evt) {
-    this.xDown = evt.touches[0].clientX;
-    this.yDown = evt.touches[0].clientY;
+    if (this.animating) { return; }
+    this.lastXDown = evt.touches[0].clientX;
   }
 
-  handleTouchMove(evt) {
-    if ( !this.xDown || !this.yDown ) { return; }
+  handleTouchEnd() {
+    if (this.animating || !this.lastXDown) { return; }
 
-    const xUp = evt.touches[0].clientX;
-    const yUp = evt.touches[0].clientY;
-    const xDiff = this.xDown - xUp;
-    const yDiff = this.yDown - yUp;
-
-    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
-      xDiff > 0 ? this.next() : this.prev();
+    const currentX = event.changedTouches[0].clientX;
+    if (currentX > this.lastXDown  && this.activeIndex !== 0) {
+      this.prev();
+    } else if(currentX < this.lastXDown) {
+      this.next();
     }
 
-    this.xDown = null;
-    this.yDown = null;
+    this.lastXDown = null;
   }
 
   handleKeyDown(evt) {

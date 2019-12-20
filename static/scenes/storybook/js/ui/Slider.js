@@ -6,6 +6,7 @@ import Transition from '../components/Transition.js';
 
 class Slider {
   constructor() {
+    this.handleSliderMouseDown = this.handleSliderMouseDown.bind(this);
     this.handleSliderMouseUp = this.handleSliderMouseUp.bind(this);
     this.handleSliderProgress = this.handleSliderProgress.bind(this);
     this.update = this.update.bind(this);
@@ -23,21 +24,26 @@ class Slider {
   }
 
   event() {
-    this.slider.addEventListener('mousedown', () => {
-      this.container.classList.add('is-grabbing');
-    });
-
     this.slider.addEventListener('keydown', e => {
       if (this.slider === document.activeElement) {
         e.preventDefault();
       }
     });
 
+    this.slider.addEventListener('mousedown', this.handleSliderMouseDown);
+    this.slider.addEventListener('touchstart', this.handleSliderMouseDown);
     this.slider.addEventListener('mouseup', this.handleSliderMouseUp);
+    this.slider.addEventListener('touchend', this.handleSliderMouseUp);
     this.slider.addEventListener('input', this.handleSliderProgress);
   }
 
+  handleSliderMouseDown() {
+    Nav.animating = true;
+    this.container.classList.add('is-grabbing');
+  }
+
   handleSliderMouseUp() {
+    Nav.animating = false;
     this.slider.blur();
     if(this.slider.value == this.activeIndex + 1) { return; }
 
