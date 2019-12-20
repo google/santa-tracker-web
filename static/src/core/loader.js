@@ -55,9 +55,7 @@ export function buildLoader(loadMethod, fallback=false) {
 
     const locked = (activeSceneName === null);
     loadMethod(url, {route, data, locked}).then((success) => {
-      if (success) {
-        document.title = scenes[route] || _msg`santatracker`;
-      }
+      document.title = scenes[route] || _msg`santatracker`;
     });
 
     return redirectRoute;

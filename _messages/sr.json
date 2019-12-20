@@ -80,6 +80,63 @@
 	"bt_country_name": {
 		"message": "Бутан"
 	},
+	"buildandbolt-build-car-multiple": {
+		"message": "Направи {{count}} аутића!"
+	},
+	"buildandbolt-build-car-single": {
+		"message": "Направи 1 аутић!"
+	},
+	"buildandbolt-build-robot-multiple": {
+		"message": "Направи {{count}} робота!"
+	},
+	"buildandbolt-build-robot-single": {
+		"message": "Направи 1 робота!"
+	},
+	"buildandbolt-build-rocket-multiple": {
+		"message": "Направи {{count}} ракете!"
+	},
+	"buildandbolt-build-rocket-single": {
+		"message": "Направи 1 ракету!"
+	},
+	"buildandbolt-build-teddybear-multiple": {
+		"message": "Направи {{count}} меде од плиша!"
+	},
+	"buildandbolt-build-teddybear-single": {
+		"message": "Направи 1 плишаног меду!"
+	},
+	"buildandbolt-instructions-action-key": {
+		"message": "Подигни и испусти играчке"
+	},
+	"buildandbolt-instructions-label": {
+		"message": "Упутства"
+	},
+	"buildandbolt-instructions-move-key": {
+		"message": "Премести"
+	},
+	"buildandbolt-player-one-label": {
+		"message": "1. играч"
+	},
+	"buildandbolt-player-two-label": {
+		"message": "2. играч"
+	},
+	"buildandbolt-players-selection": {
+		"message": "Колико играча?"
+	},
+	"buildandbolt-players-selection-one": {
+		"message": "1 играч"
+	},
+	"buildandbolt-players-selection-two": {
+		"message": "2 играча"
+	},
+	"buildandbolt-result-tie": {
+		"message": "Нерешено"
+	},
+	"buildandbolt-result-win": {
+		"message": "Победио си"
+	},
+	"buildandbolt-skip": {
+		"message": "Прескочи"
+	},
 	"bw_country_name": {
 		"message": "Боцвана"
 	},
@@ -3278,11 +3335,101 @@
 	"sr_country_name": {
 		"message": "Суринам"
 	},
+	"storybook_paragraph_01": {
+		"message": "Пингвини су се санкали. Вилењаци су клицали од радости."
+	},
+	"storybook_paragraph_02": {
+		"message": "Цео градић је зујао о осветљеном дрвету."
+	},
+	"storybook_paragraph_03": {
+		"message": "Није баш свакоме дан био сјајан. За нарвала Олија, уопште није био бајан."
+	},
+	"storybook_paragraph_04": {
+		"message": "„Да ми је да само једном будем тамо, да видим. Мора да је невероватно гледати како се пали расвета на том великом дрвету.“"
+	},
+	"storybook_paragraph_05": {
+		"message": "„Али ти волиш океан“, одговорила је слатка Мара Међедић. „Све те шкољке и планктони. У дубини само звони!“"
+	},
+	"storybook_paragraph_06": {
+		"message": "„Претпостављам“, рече Оли, „То је сигурно тачно. Али велико плаветнило је понекад баш мрачно.“"
+	},
+	"storybook_paragraph_07": {
+		"message": "„А шта ако дођем тамо данас и мало пливамо заједно?“, предложила је Мара уз охрабрујући осмех."
+	},
+	"storybook_paragraph_08": {
+		"message": "„Идеш у пустоловину? Да сурфујеш по шкољу? Или, знам те, имаш идеју бољу!“"
+	},
+	"storybook_paragraph_09": {
+		"message": "„Могли бисмо само да направимо нашу расвету за дрво.“"
+	},
+	"storybook_paragraph_10": {
+		"message": "Направљен је план. Мара је окупила екипу. Ускочили су и вилењаци и пингвини. Па чак и понеки ирвас!"
+	},
+	"storybook_paragraph_11": {
+		"message": "Оли се радосно смешио свим пријатељима који су дошли. „Хајде да почнемо“, рекла је Мара, „биће забавно!“"
+	},
+	"storybook_paragraph_12": {
+		"message": "За прављење сјајне забаве прво ће им требати дружина сјајних помагача."
+	},
 	"storybook_paragraph_13": {
 		"message": "„Окупите се“, узвикнула је Мери. „Треба нам ваша помоћ да поставимо подморско осветљење на све алге.“"
 	},
+	"storybook_paragraph_14": {
+		"message": "Рибице су се распливале на све стране и гостима пренеле новости. „Ми ћемо решити позивнице, ти реши остало!“"
+	},
+	"storybook_paragraph_15": {
+		"message": "Вилењаци имају искуства са таквим догађајима. Треба им времена да направе све што треба, па су се повукли."
+	},
+	"storybook_paragraph_16": {
+		"message": "Затим су на ред дошли украси. Знали су коме да се обрате. „Господине Крабо, господине Јастоже, да ли бисте нам помогли?“"
+	},
+	"storybook_paragraph_17": {
+		"message": "Остриге су заклепетале: „Имамо ми идеје за дизајн!“ Окачићемо бисере на гране. Да се цакле на све стране.“"
+	},
+	"storybook_paragraph_18": {
+		"message": "Свакој забави је потребна музика, песме у правом духу, да сви почну да скачу са рукама у ваздуху."
+	},
 	"storybook_paragraph_19": {
 		"message": "„Мој ујка Хорације зна све песме старе. А његова пријатељица Каја је краљица гитаре.“"
+	},
+	"storybook_paragraph_19_disused": {
+		"message": "„Мој ујка Хорације зна све песме старе. А његов пријатељ Радомир је краљ гитаре.“"
+	},
+	"storybook_paragraph_20": {
+		"message": "Скоро је време за журку, треба нам још само савршен комплет украсних алги за дрво.“"
+	},
+	"storybook_paragraph_21": {
+		"message": "„То је то! То је то!“"
+	},
+	"storybook_paragraph_22": {
+		"message": "Оли је запљескао од радости. Целе ноћи веселиће се он и гости."
+	},
+	"storybook_paragraph_23": {
+		"message": "Морска звезда је скочила на место и сви украси су се зањихали. Медуза је заплесала, а музичари су засвирали."
+	},
+	"storybook_paragraph_24": {
+		"message": "Било је то прелепо, и украси и звукови. Али најбоље је било кад су се окупили у круг…"
+	},
+	"storybook_paragraph_25": {
+		"message": "…за расвету!"
+	},
+	"storybook_paragraph_26": {
+		"message": "Час је најзад куцнуо! Планктони су почели да сијају. Оли је уздахнуо!"
+	},
+	"storybook_paragraph_27": {
+		"message": "Било је то попут чаролије, сва та треперава светла. Цео град је ућутао и гледао у њих."
+	},
+	"storybook_paragraph_28": {
+		"message": "Беше то најневероватнија ствар коју су икад видели. Светла су засјала жуто, па пурпурно, па зелено као смарагд."
+	},
+	"storybook_paragraph_29": {
+		"message": "Мари се приспавало, већ је било касно. Али Оли се окренуо и за крај рекао гласно,"
+	},
+	"storybook_paragraph_30": {
+		"message": "„Хвала ти што си окупио цео град на вече за које знам да ће сви заувек запамтити.“"
+	},
+	"storybook_paragraph_31": {
+		"message": "Крај"
 	},
 	"sv_country_name": {
 		"message": "Салвадор"

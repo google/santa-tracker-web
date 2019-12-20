@@ -128,6 +128,12 @@
 	"buildandbolt-players-selection-two": {
 		"message": "2 Jogadores"
 	},
+	"buildandbolt-result-tie": {
+		"message": "Empate"
+	},
+	"buildandbolt-result-win": {
+		"message": "Você ganhou"
+	},
 	"buildandbolt-skip": {
 		"message": "Pular"
 	},

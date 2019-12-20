@@ -169,6 +169,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
     this._onWindowResize = dedup(this._onWindowResize.bind(this));
 
+    Loader.timeout = () => 20000;
     const el = this;  // reference for LoaderHandler subclass
     this._loader = new Loader(this._container, new (class extends LoaderHandler {
       unload(frame, href) {
@@ -268,6 +269,7 @@ class SantaGameLoaderElement extends HTMLElement {
   }
 
   _unload(frame, href) {
+    this.purge();
     this._main.classList.add('loading');
 
     const r = resolvable();
@@ -281,6 +283,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
     const port = await prepareMessage(frame, 250);
     if (frame !== this._activeFrame) {
+      window.ga('send', 'event', 'nav', 'preempted', 'load');
       return null;  // check for preempt
     }
 
@@ -303,6 +306,7 @@ class SantaGameLoaderElement extends HTMLElement {
         ready: () => {
           resolve(port ? control : null);  // resolve with null if there's no scene here
           if (frame !== this._activeFrame) {
+            window.ga('send', 'event', 'nav', 'preempted', 'port');
             return false;  // no longer active
           }
           this.purge();

@@ -23,7 +23,7 @@ class Slider {
     this.slider.addEventListener('mousedown', () => {
       this.container.classList.add('is-grabbing');
     });
-    
+
     this.slider.addEventListener('keydown', e => {
       if (this.slider === document.activeElement) {
         e.preventDefault();
