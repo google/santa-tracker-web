@@ -22,11 +22,7 @@ class Transition {
     for (let i = 0; i < 2; i++) {
       const div = document.createElement('div');
       div.id = `storybook-transition-${i}`;
-      Object.assign(div.style, {
-        height: "100%",
-        position: "absolute",
-        width: "100%",
-      });
+      div.className = 'transition-lottie-container';
 
       this.container.appendChild(div);
 
