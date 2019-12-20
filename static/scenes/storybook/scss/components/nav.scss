@@ -9,15 +9,16 @@
   width: 100vw;
 
   @include respond-to(smartphone) {
+    bottom: 40px;
     top: auto;
-    bottom: 0;
+    transform: none;
   }
 
   &-prev,
   &-next {
     border: none;
     cursor: pointer;
-    // height: 300px;
+    height: 300px;
     height: 75px;
     outline: none;
     transition: transform .1s ease, box-shadow .1s linear, opacity .3s linear;

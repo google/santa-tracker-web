@@ -7,7 +7,9 @@ class Scene {
     this.update = this.update.bind(this);
 
     this.appendChapters();
-    this.update(this.active);
+    setTimeout(() => {
+      this.update(this.active);
+    }, 1000);
   }
 
   appendChapters() {

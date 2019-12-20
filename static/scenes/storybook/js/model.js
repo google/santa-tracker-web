@@ -2,6 +2,9 @@ import { _msg } from '../../../src/magic.js';
 
 const CHAPTERS = [
   {
+    text: [_msg`scene_ollieundersea`],
+  },
+  {
     text: [_msg`storybook_paragraph_01`, _msg`storybook_paragraph_02`],
   },
   {
