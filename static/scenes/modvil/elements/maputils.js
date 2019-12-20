@@ -91,11 +91,79 @@ export class DataManager {
           arrival: 0,
           departure: +countdownTo,
           city: 'Santa\'s Village',
+          region: 'North Pole',
+          distance: 0,
+          details: {timezone: 0},
         },
       ];
+    } else {
+      // We aren't given total distance. Just add it to route data when we get it.
+      let previousLocation = destinations[0].location;
+      let totalDistance = 0;
+      destinations.forEach((destination) => {
+        totalDistance += spherical.computeDistanceBetween(previousLocation, destination.location);
+        destination.distance = totalDistance;
+        previousLocation = destination.location;
+      });
     }
 
     this._details = null;
+  }
+
+  closestArrival(userLocation) {
+    if (userLocation === null) {
+      const targetDate = new Date((new Date().getFullYear()), 11, 25);
+      const target = +targetDate;
+      const userOffset = targetDate.getTimezoneOffset() * -60;  // to match remote data
+
+      // Sort first by timezone locality. Use all of the same timezone or the nearest ones.
+      let cands = this._destinations.map((destination) => {
+        return {
+          timezoneDelta: Math.abs(userOffset - destination.details.timezone),
+          arrivalDelta: Math.abs(target - destination.arrival),
+          id: destination.id,
+          arrival: destination.arrival,
+        };
+      });
+      cands.sort((left, right) => left.timezoneDelta - right.timezoneDelta);
+
+      // Limit to candidates with the closest timezone delta.
+      const closestDelta = cands[0].timezoneDelta;
+      let valid;
+      for (valid = 1; valid < cands.length; ++valid) {
+        if (cands[valid].timezoneDelta !== closestDelta) {
+          break;
+        }
+      }
+      cands = cands.slice(0, valid);
+
+      // Sort by arrival delta (this could be done in one pass but we only have a few stops now).
+      cands.sort((left, right) => left.arrivalDelta - right.arrivalDelta);
+
+      if (this._destinations.length > 1) {
+        // Log this, but only if we have real destination data (not just single Village stop).
+        window.ga('send', 'event', 'tracker', 'timezone-guess', cands[0].id);
+        console.info('nearest stop (tz):', cands[0].id);
+      }
+
+      return cands[0].arrival;
+    }
+
+    let index = 0;  // we assume Santa's Village is a poor candidate
+    let bestAngle = 100.0;
+
+    for (let i = 1; i < this._destinations.length; ++i) {
+      const candAngle = spherical.computeAngleBetween(userLocation, this._destinations[i].location);
+      if (candAngle < bestAngle) {
+        bestAngle = candAngle;
+        index = i;
+      }
+    }
+
+    if (this._destinations.length > 1) {
+      console.info('nearest stop (ip):', this._destinations[index].id);
+    }
+    return this._destinations[index].arrival;
   }
 
   get range() {
@@ -133,9 +201,11 @@ export class DataManager {
   _buildDetails() {
     if (this._nextOrCurrentIndex === 0) {
       return {
+        raw: this._destinations[0],
         visibleTo: 0,
         location: northpoleLocation,
         presents: 0,
+        distance: 0,
         heading: 0,
         stop: true,
         home: true,
@@ -152,9 +222,11 @@ export class DataManager {
       const ratio = PRESENTS_TRANSIT +
           inverseLerp(curr.arrival, curr.departure, this._time) * PRESENTS_IN_CITY;
       return {
+        raw: curr,
         visibleTo: this._nextOrCurrentIndex,
         location: curr.location,
         presents: Math.round(lerp(prev.presentsDelivered, curr.presentsDelivered, ratio)),
+        distance: curr.distance,
         heading: spherical.computeHeading(prev.location, curr.location),
         stop: true,
         home: (this._nextOrCurrentIndex + 1 >= this._destinations.length),
@@ -165,10 +237,13 @@ export class DataManager {
     // Otherwise, interpolate during flight.
     const flightRatio = inverseLerp(prev.departure, curr.arrival, this._time);
     const presentsRatio = flightRatio * PRESENTS_TRANSIT;
+    const location = spherical.interpolate(prev.location, curr.location, flightRatio);
     return {
+      raw: curr,
       visibleTo: this._nextOrCurrentIndex - 1,  // don't show upcoming marker
-      location: spherical.interpolate(prev.location, curr.location, flightRatio),
+      location,
       presents: Math.round(lerp(prev.presentsDelivered, curr.presentsDelivered, presentsRatio)),
+      distance: prev.distance + spherical.computeDistanceBetween(prev.location, location),
       heading: spherical.computeHeading(prev.location, curr.location),
       stop: false,
       home: false,
@@ -230,14 +305,14 @@ export class StopManager {
 
     this._markers = [];
     for (let i = 0; i < manager.length; ++i) {
-      const {id, location, city} = manager.stop(i);
+      const {id, location, city, region} = manager.stop(i);
       const isHome = (id === 'takeoff');  // last stop is a real icon, which looks cute
       const marker = new google.maps.Marker({
         position: location,
         map,
         icon: isHome ? homeIcon : markerIcon,
-        visible: false,  // implicit time is zero
-        title: city,
+        visible: (i === 0),  // implicit time is zero, hide by default
+        title: `${city}, ${region}`,
       });
       this._markers.push(marker);
     }

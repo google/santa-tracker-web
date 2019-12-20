@@ -160,7 +160,7 @@ export function computeAngleBetween(from, to) {
  * @param {LatLng} from
  * @param {LatLng} to
  * @param {number=} radius The radius to use (in meters), or Earth's estimated radius.
- * @return {number} Distance between the two LatLngs.
+ * @return {number} Distance between the two LatLngs in meters.
  */
 export function computeDistanceBetween(from, to, radius = EARTH_RADIUS) {
   return computeAngleBetween(from, to) * radius;

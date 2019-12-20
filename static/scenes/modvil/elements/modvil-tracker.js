@@ -5,6 +5,7 @@ import * as common from '../../../src/core/common.js';
 import loadMaps from '../../../src/deps/maps.js';
 import mapstyles from '../../../src/deps/mapstyles.json';
 import '../../../src/elements/santa-santa.js';
+import './modvil-tracker-stats.js';
 import {elementMapsOverlay, StopManager, DataManager, northpoleLocation} from './maputils.js';
 
 
@@ -22,6 +23,7 @@ class ModvilTracker extends LitElement {
       destinations: {type: Array},
       now: {type: Number},
       _ready: {type: Boolean},
+      // nb. _details isn't here as it changes only based on now/destinations
     };
   }
 
@@ -31,6 +33,8 @@ class ModvilTracker extends LitElement {
     this._map = null;
     this._dataManager = null;
     this._stopManager = null;
+    this._details = null;
+    this._closestArrival = 0;
 
     this._mapNode = document.createElement('div');
     this._mapNode.classList.add('map');
@@ -49,6 +53,7 @@ class ModvilTracker extends LitElement {
       const data = await r.json();
       this.destinations = data['destinations'];
     });
+    this.now = 1577192880000;
   }
 
   shouldUpdate(changedProperties) {
@@ -63,6 +68,10 @@ class ModvilTracker extends LitElement {
       this._dataManager.now = this.now;
       this._stopManager = new StopManager(this._map, this._dataManager);
       this._stopManager.update();
+
+      // Find the nearest stop to the user.
+      this._closestArrival = this._dataManager.closestArrival(this._userLocation);
+
     } else if (changedProperties.has('_ready') || changedProperties.has('now')) {
       this._dataManager.now = this.now;
       this._stopManager.update();
@@ -71,20 +80,34 @@ class ModvilTracker extends LitElement {
     }
 
     const details = this._dataManager.details;
-    console.info('details', details);
     this._santaOverlay.position = new google.maps.LatLng(details.location.lat, details.location.lng);
     this._santaNode.heading = details.heading;
     this._santaNode.stop = details.stop;
     this._santaNode.hidden = details.home;
+    this._details = details;
 
     return true;
   }
 
   get details() {
-    return this._dataManager.details;
+    return this._details;
+  }
+
+  get stop() {
+    if (this._details === null) {
+      return null;
+    }
+    return this._dataManager.stop(this._details.visibleTo);
   }
 
   async prepareMaps() {
+    const userLocation = Promise.resolve().then(async () => {
+      const r = await fetch('https://santa-api.appspot.com/info?client=web');
+      const data = await r.json();
+      const raw = data.location.split(',');
+      return {lat: +raw[0], lng: +raw[1]};
+    });
+
     await loadMaps();
 
     this._map = new google.maps.Map(this._mapNode, {
@@ -108,7 +131,7 @@ class ModvilTracker extends LitElement {
           west: -180,
         },
         strictBounds: true,
-      }
+      },
     });
 
     this._santaOverlay = elementMapsOverlay();
@@ -129,10 +152,22 @@ class ModvilTracker extends LitElement {
 
     this._dataManager = new DataManager([]);
     this._stopManager = new StopManager(null, this._dataManager);
+
+    this._userLocation = await userLocation.catch((err) => {
+      console.error('failed to get user location', err);
+      return null;
+    });
   }
 
   render() {
-    return html`${this._mapNode}`;
+    return html`
+<div class="outer">
+  ${this._mapNode}
+  <div class="info">
+    <modvil-tracker-stats .details=${this.details} .arrivalTime=${this._closestArrival - this.now}></modvil-tracker-stats>
+  </div>
+</div>
+`;
   }
 }
 
