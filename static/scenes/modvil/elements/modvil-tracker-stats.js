@@ -55,12 +55,11 @@ function formatArrivalTime(ms) {
 }
 
 
-function formatDistance(m) {
-  if (!(m >= 0)) {
+function formatNumber(v, suffix='') {
+  if (!(v >= 0)) {
     return '?';
   }
-  const km = Math.round(m / 1000);
-  return new Number(km).toLocaleString() + 'km';
+  return new Number(v).toLocaleString() + suffix;
 }
 
 
@@ -97,9 +96,9 @@ class ModvilTrackerStats extends LitElement {
 <div class="outer">
   <div class="grow">
     <h1>${showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`}</h1>
-    <h2>${showArrivalHours ? formatArrivalTime(arrivalTime) : formatDistance(d.distance)}</h2>
+    <h2>${showArrivalHours ? formatArrivalTime(arrivalTime) : formatNumber(Math.round(d.distance / 1000), 'km')}</h2>
     <h1>${_msg`tracker_gifts_delivered`}</h1>
-    <h2>${d.presents}</h2>
+    <h2>${formatNumber(d.presents)}</h2>
   </div>
   <hr />
   <div class="sides grow">

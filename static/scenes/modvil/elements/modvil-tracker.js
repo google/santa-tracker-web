@@ -54,8 +54,8 @@ class ModvilTracker extends LitElement {
     this.now = 1577192880000;
 
     window.setInterval(() => {
-      this.now += 1000;
-    }, 1000);
+      this.now += 100;
+    }, 100);
   }
 
   shouldUpdate(changedProperties) {
