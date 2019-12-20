@@ -1,3 +1,7 @@
+:host([hidden]) {
+  display: none !important;
+}
+
 #outer {
   position: relative;
   display: flex;

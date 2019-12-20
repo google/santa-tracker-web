@@ -138,7 +138,7 @@ export function interpolate(from, to, fraction) {
  *
  * @param {LatLng} from
  * @param {LatLng} to
- * @return {number} Angle between the two locations, in degrees.
+ * @return {number} Angle between the two locations, in radians.
  */
 export function computeAngleBetween(from, to) {
   // the haversine formula
