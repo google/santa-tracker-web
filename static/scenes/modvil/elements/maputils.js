@@ -2,6 +2,14 @@ import {_static} from '../../../src/magic.js';
 import * as spherical from '../../../src/api/spherical.js';
 
 
+const polylineColor = '#22a528';
+const polylineWeight = 2;
+const trailLength = 20;
+
+const PRESENTS_TRANSIT = 0.3;
+const PRESENTS_IN_CITY = 0.7;
+
+
 export const northpoleLocation = {lat: 84.6, lng: 168};
 
 
@@ -55,11 +63,6 @@ export function elementMapsOverlay(layer = 'floatPane') {
 }
 
 
-const trailLength = 20;
-const PRESENTS_TRANSIT = 0.3;
-const PRESENTS_IN_CITY = 0.7;
-
-
 const lerp = (from, to, ratio) => {
   const delta = to - from;
   return from + delta * ratio;
@@ -87,6 +90,7 @@ export class DataManager {
           presentsDelivered: 0,
           arrival: 0,
           departure: +countdownTo,
+          city: 'Santa\'s Village',
         },
       ];
     }
@@ -144,7 +148,7 @@ export class DataManager {
         presents: Math.round(lerp(prev.presentsDelivered, curr.presentsDelivered, ratio)),
         heading: spherical.computeHeading(prev.location, curr.location),
         stop: true,
-        home: false,
+        home: (this._nextOrCurrentIndex + 1 >= this._destinations.length),
         next: (curr.departure - this._time),
       };
     }
@@ -199,13 +203,13 @@ export class StopManager {
     this._map = map;
     this._visibleTo = 0;
 
-    this._markerIcon = /** @type {google.maps.Icon} */ ({
+    const markerIcon = /** @type {google.maps.Icon} */ ({
       url: _static`img/tracker/marker.png`,
       size: new google.maps.Size(15, 18),
       scaledSize: new google.maps.Size(15, 18),
     });
 
-    this._homeIcon = /** @type {google.maps.Icon} */ ({
+    const homeIcon = /** @type {google.maps.Icon} */ ({
       url: _static`img/tracker/northpole.png`,
       size: new google.maps.Size(132, 100),
       scaledSize: new google.maps.Size(66, 50),
@@ -214,15 +218,35 @@ export class StopManager {
 
     this._markers = [];
     for (let i = 0; i < manager.length; ++i) {
-      const {id, location} = manager.stop(i);
-      const isHome = (id === 'takeoff');
+      const {id, location, city} = manager.stop(i);
+      const isHome = (id === 'takeoff');  // last stop is a real icon, which looks cute
       const marker = new google.maps.Marker({
         position: location,
-        map: this._map,
-        icon: isHome ? this._homeIcon : this._markerIcon,
+        map,
+        icon: isHome ? homeIcon : markerIcon,
         visible: false,  // implicit time is zero
+        title: city,
       });
       this._markers.push(marker);
+    }
+
+    this._activeTrail = new google.maps.Polyline({
+      geodesic: true,
+      strokeColor: polylineColor,
+      strokeWeight: polylineWeight,
+      map,
+    });
+
+    this._trail = [];
+    for (let i = 0; i < trailLength; ++i) {
+      const polyline = new google.maps.Polyline({
+        geodesic: true,
+        strokeColor: polylineColor,
+        strokeWeight: polylineWeight,
+        strokeOpacity: 1 - (i / trailLength),
+        map,
+      });
+      this._trail.push(polyline);
     }
 
     this._manager = manager;
@@ -230,18 +254,50 @@ export class StopManager {
 
   update() {
     const details = this._manager.details;
+    const delta = (details.visibleTo - this._visibleTo);
+    const reverseTime = (delta < 0);
 
-    if (details.visibleTo < this._visibleTo) {
+    // Configure marker visibility.
+    if (reverseTime) {
       // we went back in time, clear markers
       for (let i = details.visibleTo + 1; i <= this._visibleTo; ++i) {
-        console.info('setting', i, 'hidden');
         this._markers[i].setVisible(false);
       }
     } else {
       for (let i = this._visibleTo; i <= details.visibleTo; ++i) {
-        console.info('setting', i, 'visible');
         this._markers[i].setVisible(true);
       }
+    }
+
+    // Set trail components if something changed.
+    if (delta) {
+      const usable = Math.min(details.visibleTo, trailLength);
+      let i = 0;
+      if (!details.home) {
+        // Don't draw any lines at home (start or end).
+        for (i = 0; i < usable; ++i) {
+          const polyline = this._trail[i];
+          polyline.setPath([
+            this._manager.stop(details.visibleTo - i).location,
+            this._manager.stop(details.visibleTo - i - 1).location,
+          ]);
+        }
+      }
+      while (i < trailLength) {
+        this._trail[i].setPath([]);
+        ++i;
+      }
+    }
+
+    // Set last trail.
+    if (details.stop) {
+      this._activeTrail.setPath([]);
+    } else {
+      const last = this._manager.stop(details.visibleTo);
+      this._activeTrail.setPath([
+        last.location,
+        details.location,
+      ]);
     }
 
     this._visibleTo = details.visibleTo;

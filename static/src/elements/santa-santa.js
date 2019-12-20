@@ -47,7 +47,7 @@ class SantaSantaElement extends LitElement {
 
   render() {
     const dir = dirForHeading(this.heading);
-    const mode = Math.round(this.heading % 2);  // could be decimal
+    const mode = Math.round(Math.abs(this.heading) % 2);  // could be decimal
     return html`
 <div id="outer">
   <button>${_msg`santasearch_character_santa`}</button>

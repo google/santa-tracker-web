@@ -80,6 +80,10 @@ class ModvilTracker extends LitElement {
     return true;
   }
 
+  get details() {
+    return this._dataManager.details;
+  }
+
   async prepareMaps() {
     await loadMaps();
 
