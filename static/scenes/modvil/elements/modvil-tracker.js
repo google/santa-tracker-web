@@ -54,6 +54,10 @@ class ModvilTracker extends LitElement {
       this.destinations = data['destinations'];
     });
     this.now = 1577192880000;
+
+    window.setInterval(() => {
+      this.now += 1000;
+    }, 1000);
   }
 
   shouldUpdate(changedProperties) {
