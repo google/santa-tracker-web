@@ -15,7 +15,7 @@ class Transition {
   }
 
   event() {
-    window.addEventListener('resize', this.handleResize)
+    window.addEventListener('resize', this.handleResize);
   }
 
   init() {
@@ -33,18 +33,18 @@ class Transition {
       let lottie_path = [
         'img/transition.json',
         'img/transition-mobile.json'
-      ]
+      ];
 
       const anim = lottie.loadAnimation({
-          container: document.getElementById(`storybook-transition-${i}`),
-          renderer: 'svg',
-          loop: false,
-          autoplay: false,
-          path: lottie_path[i],
-          rendererSettings: {
-            preserveAspectRatio: 'none'
-          },
-      })
+        container: document.getElementById(`storybook-transition-${i}`),
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        path: lottie_path[i],
+        rendererSettings: {
+          preserveAspectRatio: 'none'
+        },
+      });
 
       this.anims.push(anim);
     }

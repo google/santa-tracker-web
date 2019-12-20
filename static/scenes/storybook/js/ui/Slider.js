@@ -30,8 +30,8 @@ class Slider {
       }
     });
 
-    this.slider.addEventListener('mouseup', this.handleSliderMouseUp)
-    this.slider.addEventListener('input', this.handleSliderProgress)
+    this.slider.addEventListener('mouseup', this.handleSliderMouseUp);
+    this.slider.addEventListener('input', this.handleSliderProgress);
   }
 
   handleSliderMouseUp() {
