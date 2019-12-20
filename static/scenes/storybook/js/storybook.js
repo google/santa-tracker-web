@@ -14,7 +14,7 @@ export default class Storybook {
     this.slider = this.el.querySelector('[data-slider]');
 
     this.lullabyPlaying = false;
-    this.musicSwitchPage = 8; // page on which to switch to lullaby music
+    this.musicSwitchPage = 19; // page on which to switch to lullaby music
 
     this.init();
   }
