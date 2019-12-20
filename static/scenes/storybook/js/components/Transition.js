@@ -6,7 +6,7 @@ class Transition {
     this.container = document.querySelector('[data-transition-mask]');
     this.anims = [];
     this.MOBILE_SIZE = 768;
-    this.IS_MOBILE = window.innerWidth < this.MOBILE_SIZE;
+    this.IS_MOBILE = window.innerWidth <= this.MOBILE_SIZE;
 
     this.handleResize = this.handleResize.bind(this);
 
@@ -71,7 +71,7 @@ class Transition {
   handleResize() {
     if (window.innerWidth > 768 && this.IS_MOBILE) {
       this.IS_MOBILE = false;
-    } else if(window.innerWidth < 768 && !this.IS_MOBILE) {
+    } else if(window.innerWidth <= 768 && !this.IS_MOBILE) {
       this.IS_MOBILE = true;
     }
   }
