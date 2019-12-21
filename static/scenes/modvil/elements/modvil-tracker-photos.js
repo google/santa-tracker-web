@@ -13,6 +13,7 @@ common.preload.images(
 
 const defaultPhotoAsset = _static`img/tracker/default.png`;
 const displayPhotoCount = 4;
+const delayPhotoLoad = 750;
 
 
 function preparePhoto({url}) {
@@ -30,6 +31,7 @@ class ModvilTrackerStatsElement extends LitElement {
 
   static get properties() {
     return {
+      open: {type: Boolean, reflect: true},
       destination: {type: Object},
       _previousDestination: {type: Object},
       _photoReady: {type: Boolean},  // are any photos for current details ready
@@ -40,6 +42,8 @@ class ModvilTrackerStatsElement extends LitElement {
     super();
     this._photoNode = document.createElement('div');
     this._photoNode.classList.add('photos');
+
+    this.addEventListener('click', () => this.open = !this.open);
   }
 
   shouldUpdate(changedProperties) {
@@ -61,7 +65,7 @@ class ModvilTrackerStatsElement extends LitElement {
       return;
     }
     node.classList.add('gone');
-    node.addEventListener('transitionend', () => node.remove());
+    window.setTimeout(() => node.remove(), delayPhotoLoad / 2);
   }
 
   async photosTask(d, photos) {
@@ -82,7 +86,7 @@ class ModvilTrackerStatsElement extends LitElement {
     // Request a random ~4 photos. If any fail, request more.
     while (photos.length && count) {
       const p = preparePhoto(photos.shift());
-      const delay = promises.timeout(750);
+      const delay = promises.timeout(delayPhotoLoad);
       const node = await p;
       await delay;
 

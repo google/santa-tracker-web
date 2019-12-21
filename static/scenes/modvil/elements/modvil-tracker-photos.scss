@@ -1,4 +1,4 @@
-$border-width: 6px;
+$border-width: 4px;
 
 .outer {
   width: 100%;
@@ -74,7 +74,7 @@ $border-width: 6px;
   height: 100%;
   box-sizing: border-box;
   position: absolute;
-  transform-origin: top center;
+  transform-origin: center;
   transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
 
   &::after {
@@ -89,23 +89,6 @@ $border-width: 6px;
     transition: opacity 0.4s;
   }
 
-  // default at back
-  z-index: -1000;
-  transform: scale(0);
-
-  &:nth-child(1) {
-    &::after {
-      opacity: 1;
-    }
-    transform: translateY(0);
-    z-index: -0;
-
-    &.gone {
-      transform: translateY(12.5%);
-      opacity: 0;
-    }
-  }
-
   img {
     position: absolute;
     top: 0;
@@ -115,19 +98,51 @@ $border-width: 6px;
     object-fit: cover;
   }
 
-  @for $i from 1 through 5 {
-    &:nth-child(#{$i + 1}) {
-      z-index: -$i;
-      $scale: 1.0 - ($i * 0.05);
-      transform: translateY($i * -12px - $scale * $border-width + 6px) scale($scale);
-      opacity: 1.0 - ($i * 0.01);
+  z-index: -1000;
 
-      .outer:hover & {
-        transform: translateY($i * -32px - $scale * $border-width + 6px) scale($scale) rotate($i * 2deg) translateX($i * 4px);
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      z-index: -$i;
+    }
+  }
+}
+
+// Show all photos mode.
+:host([open]) .photos {
+  // TODO: something
+}
+
+// Default state, photos in stack.
+:host(:not([open])) .photos {
+  .photo {
+    // default at back
+    transform: scale(0);
+
+    &:nth-child(1) {
+      &::after {
+        opacity: 1;
       }
+      transform: translateY(0);
 
       &.gone {
-        transform: translateY(0) scale(0) !important;
+        transform: translateY(12.5%);
+        opacity: 0;
+      }
+    }
+
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i + 1}) {
+        $scale: 1.0 - ($i * 0.05);
+        transform: translateY($i * -16px - $scale * $border-width + 6px) scale($scale);
+        opacity: 1.0 - ($i * 0.01);
+
+        .outer:hover & {
+          transform: translateY($i * -32px - $scale * $border-width + 6px) scale($scale) rotate($i * 2deg) translateX($i * 4px);
+        }
+
+        &.gone {
+          transform: translateY(0) scale(0) !important;
+        }
       }
     }
   }
