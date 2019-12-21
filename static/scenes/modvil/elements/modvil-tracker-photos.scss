@@ -108,41 +108,65 @@ $border-width: 4px;
 }
 
 // Show all photos mode.
-:host([open]) .photos {
-  // TODO: something
+:host([open]) {
+  // .outer {
+  //   position: fixed;
+  //   width: 100vw;
+  //   height: 200px;
+  //   left: 0;
+  //   background: red;
+  // }
+
+  // .photos {
+  //   display: flex;
+  //   height: 200px;
+  //   align-items: stretch;
+  //   justify-content: space-around;
+  //   .photo {
+  //     position: relative;
+  //   }
+  // }
+  // // TODO: something
 }
 
 // Default state, photos in stack.
-:host(:not([open])) .photos {
-  .photo {
-    // default at back
-    transform: scale(0);
+:host(:not([open])) {
+  .photos {
+    .photo {
+      // default at back
+      transform: scale(0);
 
-    &:nth-child(1) {
-      &::after {
-        opacity: 1;
-      }
-      transform: translateY(0);
-
-      &.gone {
-        transform: translateY(12.5%);
-        opacity: 0;
-      }
-    }
-
-    @for $i from 1 through 5 {
-      &:nth-child(#{$i + 1}) {
-        $scale: 1.0 - ($i * 0.05);
-        transform: translateY($i * -16px - $scale * $border-width + 6px) scale($scale);
-        opacity: 1.0 - ($i * 0.01);
-
-        .outer:hover & {
-          transform: translateY($i * -32px - $scale * $border-width + 6px) scale($scale) rotate($i * 2deg) translateX($i * 4px);
+      &:nth-child(1) {
+        &::after {
+          opacity: 1;
         }
+        transform: translateY(0);
 
         &.gone {
-          transform: translateY(0) scale(0) !important;
+          transform: translateY(12.5%);
+          opacity: 0;
         }
+      }
+
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i + 1}) {
+          $scale: 1.0 - ($i * 0.05);
+          transform: translateY($i * -16px - $scale * $border-width + 6px) scale($scale);
+          opacity: 1.0 - ($i * 0.01);
+
+          &.gone {
+            transform: translateY(0) scale(0) !important;
+          }
+        }
+      }
+    }
+  }
+
+  .outer:hover .photos {
+    @for $i from 1 through 5 {
+      .photo:nth-child(#{$i + 1}) {
+        $scale: 1.0 - ($i * 0.05);
+        transform: translateY($i * -32px - $scale * $border-width + 6px) scale($scale) rotate($i * 2deg) translateX($i * 4px);
       }
     }
   }
