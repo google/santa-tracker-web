@@ -39,15 +39,7 @@ class ModvilTrackerStatsElement extends LitElement {
   constructor() {
     super();
     this._photoNode = document.createElement('div');
-
-    // const p = preparePhoto({url: defaultPhotoAsset}).catch(() => null).then((photo) => {
-    //   // If for some reason we don't have any photos yet, show a default.
-    //   if (photo && !this._photoNode.children.length) {
-    //     this._photoNodes.append(photo);
-    //     this.requestUpdate();
-    //   }
-    // });
-    // common.preload.wait(p);
+    this._photoNode.classList.add('photos');
   }
 
   shouldUpdate(changedProperties) {
@@ -101,7 +93,7 @@ class ModvilTrackerStatsElement extends LitElement {
         continue;  // try another
       }
 
-      this._photoReady = true;  // we have a photo ready at all
+      this._photoReady = true;  // we have a photo ready at all, show title
       --count;
 
       node.classList.add('gone');

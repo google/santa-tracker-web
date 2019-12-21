@@ -10,7 +10,10 @@ $border-width: 6px;
 
   cursor: pointer;
   position: relative;
+}
 
+
+.photos {
   &::after {
     content: '';
     position: absolute;
@@ -19,6 +22,11 @@ $border-width: 6px;
     width: 50%;
     height: 50%;
     background: _rel("../../../img/tracker/localguides.svg") bottom left / contain no-repeat;
+    transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+    opacity: 1;
+  }
+  &:empty::after {
+    opacity: 0;
   }
 }
 
@@ -76,9 +84,9 @@ $border-width: 6px;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.25);
     opacity: 0;
-    transform: opacity 0.125s;
+    transition: opacity 0.4s;
   }
 
   // default at back
