@@ -5,7 +5,7 @@ import '../../../src/elements/santa-weather.js';
 import * as common from '../../../src/core/common.js';
 
 
-class ModvilVillageConstructor extends LitElement {
+class ModvilVillageElement extends LitElement {
   static get styles() { return [styles]; }
 
   static get properties() {
@@ -97,4 +97,4 @@ class ModvilVillageConstructor extends LitElement {
   }
 }
 
-customElements.define('modvil-village', ModvilVillageConstructor);
+customElements.define('modvil-village', ModvilVillageElement);

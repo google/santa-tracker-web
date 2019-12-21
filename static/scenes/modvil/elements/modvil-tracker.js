@@ -6,6 +6,7 @@ import loadMaps from '../../../src/deps/maps.js';
 import mapstyles from '../../../src/deps/mapstyles.json';
 import '../../../src/elements/santa-santa.js';
 import './modvil-tracker-stats.js';
+import './modvil-tracker-photos.js';
 import {elementMapsOverlay, StopManager, DataManager, northpoleLocation, fetchRoute} from './maputils.js';
 
 
@@ -15,7 +16,7 @@ common.preload.images(
 );
 
 
-class ModvilTracker extends LitElement {
+class ModvilTrackerElement extends LitElement {
   static get styles() { return [styles]; }
 
   static get properties() {
@@ -162,15 +163,17 @@ class ModvilTracker extends LitElement {
   }
 
   render() {
+    const destination = this.details && this.details.raw || null;
     return html`
 <div class="outer">
   ${this._mapNode}
   <div class="info">
     <modvil-tracker-stats .details=${this.details} .arrivalTime=${this._closestArrival - this.now}></modvil-tracker-stats>
+    <modvil-tracker-photos .destination=${destination}></modvil-tracker-photos>
   </div>
 </div>
 `;
   }
 }
 
-customElements.define('modvil-tracker', ModvilTracker);
+customElements.define('modvil-tracker', ModvilTrackerElement);

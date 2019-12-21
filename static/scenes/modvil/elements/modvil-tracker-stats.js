@@ -1,7 +1,6 @@
 import {LitElement, html} from "lit-element";
 import styles from './modvil-tracker-stats.css';
 import {_static, _msg} from '../../../src/magic.js';
-import '../../../src/elements/santa-santa.js';
 
 
 function padDigits(x) {
@@ -24,13 +23,19 @@ function formatDuration(ms) {
   const hours = Math.floor(s) % 24;
   const days = Math.floor(s / 24);
 
+  if (days > 365) {
+    return `?`;
+  } else if (days > 0) {
+    return `${days}d`;
+  }
+
   const parts = [padDigits(seconds)];
   if (hours) {
     parts.unshift(padDigits(mins), padDigits(hours));
   } else {
     parts.unshift(mins);
   }
-  return (days > 0 ? days + 'd ' : '') + parts.join(':');
+  return parts.join(':');
 }
 
 
@@ -63,7 +68,7 @@ function formatNumber(v, suffix='') {
 }
 
 
-class ModvilTrackerStats extends LitElement {
+class ModvilTrackerStatsElement extends LitElement {
   static get styles() { return [styles]; }
 
   static get properties() {
@@ -76,7 +81,7 @@ class ModvilTrackerStats extends LitElement {
   render() {
     const d = this.details || {raw: {}};
     const arrivalTime = this.arrivalTime || 0;
-    const showArrivalHours = arrivalTime > (10 * 60 * 1000);  // don't show in last 10 minutes
+    const showArrivalHours = (arrivalTime > 10 * 60 * 1000);  // don't show in last 10 minutes
 
     // Choose a SVG icon for stop or "in transit".
     const stopIcon = d.stop ?
@@ -119,4 +124,4 @@ class ModvilTrackerStats extends LitElement {
   }
 }
 
-customElements.define('modvil-tracker-stats', ModvilTrackerStats);
+customElements.define('modvil-tracker-stats', ModvilTrackerStatsElement);

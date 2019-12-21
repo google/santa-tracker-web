@@ -26,11 +26,13 @@
     right: 0;
     display: flex;
     justify-content: center;
-  }
-
-  modvil-tracker-stats {
-    margin: 8px;
-    filter: drop-shadow(2px 4px 0 rgba(0, 0, 0, 0.125));
     z-index: 1000000;
+
+    > * {
+      margin: 8px;
+      filter: drop-shadow(2px 4px 0 rgba(0, 0, 0, 0.125));
+      min-width: 240px;
+      min-height: 140px;
+    }
   }
 }

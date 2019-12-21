@@ -10,7 +10,7 @@ const assetPath = _static`scenes/modvil/img/modules/`;
 const noop = () => {};
 
 
-class ModvilModuleConstructor extends LitElement {
+class ModvilModuleElement extends LitElement {
   static get styles() { return [styles]; }
 
   static get properties() {
@@ -243,4 +243,4 @@ class ModvilModuleConstructor extends LitElement {
 }
 
 
-customElements.define('modvil-module', ModvilModuleConstructor);
+customElements.define('modvil-module', ModvilModuleElement);

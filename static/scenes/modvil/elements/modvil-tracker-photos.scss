@@ -1,0 +1,126 @@
+$border-width: 6px;
+
+.outer {
+  width: 100%;
+  height: 100%;
+
+  .grow {
+    flex-grow: 1;
+  }
+
+  cursor: pointer;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    background: _rel("../../../img/tracker/localguides.svg") bottom left / contain no-repeat;
+  }
+}
+
+
+.title {
+  position: absolute;
+  top: $border-width;
+  left: $border-width;
+  right: $border-width;
+  box-sizing: border-box;
+  padding: 4px 12px 0;
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
+
+  &.gone {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+
+  h1 {
+    font-family: 'Lobster';
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 38px;
+    margin: 0 -6px;
+    color: white;
+    transform: rotate(-3.5deg);
+    max-width: 100%;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
+    word-wrap: break-word;
+  }
+  h2 {
+    font-size: 11px;
+    line-height: 13px;
+    color: #eefda5;
+    font-weight: 500;
+  }
+}
+
+
+.photo {
+  pointer-events: none;
+
+  border: $border-width solid white;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  transform-origin: top center;
+  transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: opacity 0.125s;
+  }
+
+  // default at back
+  z-index: -1000;
+  transform: scale(0);
+
+  &:nth-child(1) {
+    &::after {
+      opacity: 1;
+    }
+    transform: translateY(0);
+    z-index: -0;
+
+    &.gone {
+      transform: translateY(12.5%);
+      opacity: 0;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i + 1}) {
+      z-index: -$i;
+      $scale: 1.0 - ($i * 0.05);
+      transform: translateY($i * -12px - $scale * $border-width + 6px) scale($scale);
+      opacity: 1.0 - ($i * 0.01);
+
+      .outer:hover & {
+        transform: translateY($i * -32px - $scale * $border-width + 6px) scale($scale) rotate($i * 2deg) translateX($i * 4px);
+      }
+
+      &.gone {
+        transform: translateY(0) scale(0) !important;
+      }
+    }
+  }
+}

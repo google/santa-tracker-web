@@ -54,7 +54,6 @@ export async function fetchRoute(url, year = (new Date().getFullYear())) {
     const ratio = inverseLerp(actualFrom, actualTo, value);
     return lerp(from, to, ratio);
   };
-  debugger;
 
   // skew [actualFrom,actualTo] to [from,to]
   destinations.forEach((destination) => {
