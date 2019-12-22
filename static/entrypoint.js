@@ -413,6 +413,7 @@ async function prepare(control, data) {
             routes: firebaseConfig.routesSnapshot(),
             featured: firebaseConfig.featuredRoute(),
             play: playNextRoute,
+            data,
           };
           control.send({type: 'data', payload});
         };

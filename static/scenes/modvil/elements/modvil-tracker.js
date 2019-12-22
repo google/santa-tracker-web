@@ -5,6 +5,7 @@ import * as common from '../../../src/core/common.js';
 import loadMaps from '../../../src/deps/maps.js';
 import mapstyles from '../../../src/deps/mapstyles.json';
 import '../../../src/elements/santa-santa.js';
+import '../../../src/elements/santa-button.js';
 import './modvil-tracker-feed.js';
 import './modvil-tracker-stats.js';
 import './modvil-tracker-photos.js';
@@ -17,6 +18,18 @@ common.preload.images(
 );
 
 
+const focusTimeoutDelay = 3 * 1000;  // refocus on Santa after this much inactivity
+let duringResize = false;
+
+window.addEventListener('resize', () => {
+  duringResize = true;
+
+  window.requestAnimationFrame(() => {
+    duringResize = false;
+  });
+});
+
+
 class ModvilTrackerElement extends LitElement {
   static get styles() { return [styles]; }
 
@@ -25,6 +38,7 @@ class ModvilTrackerElement extends LitElement {
       destinations: {type: Array},
       now: {type: Number},
       _ready: {type: Boolean},
+      _focusOnSanta: {type: Boolean},
       // nb. _details isn't here as it changes only based on now/destinations
     };
   }
@@ -37,6 +51,10 @@ class ModvilTrackerElement extends LitElement {
     this._stopManager = null;
     this._details = null;
     this._closestArrival = 0;
+
+    this._focusOnSanta = true;
+    this._focusTimeout = 0;
+    this._duringMapChange = false;
 
     this._mapNode = document.createElement('div');
     this._mapNode.classList.add('map');
@@ -56,13 +74,23 @@ class ModvilTrackerElement extends LitElement {
     this.now = 1577192880000;
 
     window.setInterval(() => {
-      this.now += 100;
-    }, 100);
+      this.now += 1000;
+    }, 1000);
   }
 
   shouldUpdate(changedProperties) {
     if (!this._ready) {
       return true;
+    }
+
+    if (changedProperties.has('_focusOnSanta')) {
+      window.clearTimeout(this._focusTimeout);
+
+      if (!this._focusOnSanta) {
+        this._focusTimeout = window.setTimeout(() => {
+          this._focusOnSanta = true;
+        }, focusTimeoutDelay);
+      }
     }
 
     if (changedProperties.has('_ready') || changedProperties.has('destinations')) {
@@ -79,6 +107,8 @@ class ModvilTrackerElement extends LitElement {
     } else if (changedProperties.has('_ready') || changedProperties.has('now')) {
       this._dataManager.now = this.now;
       this._stopManager.update();
+    } else if (changedProperties.has('_focusOnSanta') && this._focusOnSanta) {
+      // ok
     } else {
       return true;
     }
@@ -89,6 +119,44 @@ class ModvilTrackerElement extends LitElement {
     this._santaNode.stop = details.stop;
     this._santaNode.hidden = details.home;
     this._details = details;
+
+    if (!this._focusOnSanta) {
+      return true;
+    }
+
+    try {
+      this._duringMapChange = true;
+      const infoNode = this._mapNode.nextElementSibling;
+      let usableMap = infoNode.offsetTop;
+
+      const photosNode = infoNode.parentNode.querySelector('modvil-tracker-photos');
+      if (photosNode && photosNode.open) {
+        usableMap -= 100;  // FIXME: random value
+      }
+
+      // TODO(samthor): this is left over from the old codebase, but works fine.
+      // If focused, the zoom is roughly inverse with screen size. Smaller devices see more of the
+      // Earth, because they have less context around Santa.
+      const min = (window.innerWidth + usableMap) / 2;
+      let zoom = Math.round(min / 160);
+      if (details.stop) {
+        zoom += 1;  // zoom in at cities
+      } else {
+//        zoom -= 1;
+      }
+      zoom = Math.max(2, Math.min(6, zoom));
+
+      const shift = this.offsetHeight - usableMap;
+      const bounds = new google.maps.LatLngBounds(this._santaOverlay.position, this._santaOverlay.position);
+
+      // nb. This order is pretty specific, otherwise we lose the center.
+      this._map.fitBounds(bounds);
+      this._map.setZoom(zoom);
+      this._map.panBy(0, shift / 2);
+
+    } finally {
+      this._duringMapChange = false;
+    }
 
     return true;
   }
@@ -127,31 +195,39 @@ class ModvilTrackerElement extends LitElement {
       backgroundColor: '#8ee0dd',
       styles: mapstyles,
       scrollwheel: false,
-      restriction: {
-        latLngBounds: {
-          east: +180,
-          north: +88,  // nb. this is >85 to support easy view of Santa's village
-          south: -85,
-          west: -180,
-        },
-        strictBounds: true,
-      },
+      // nb. breaks our follow logic
+      // restriction: {
+      //   latLngBounds: {
+      //     east: +180,
+      //     north: +88,  // nb. this is >85 to support easy view of Santa's village
+      //     south: -85,
+      //     west: -180,
+      //   },
+      //   strictBounds: true,
+      // },
     });
 
     this._santaOverlay = elementMapsOverlay();
     this._santaOverlay.setMap(this._map);
     this._santaOverlay.container.append(this._santaNode);
+    this._santaNode.addEventListener('click', () => this._focusOnSanta = true);
 
     this._santaOverlay.position = new google.maps.LatLng(northpoleLocation.lat, northpoleLocation.lng);
     this._santaNode.heading = -90;
 
     this._map.addListener('center_changed', () => {
       // If it's not a map change or resize, reset focusOnSanta.
-      // if (!this._duringMapChange && !this._duringResize) {
-      //   this.focusOnSanta = false;
-      //   this._delaySantaFocus();
-//        window.ga('send', 'event', 'tracker', 'map', 'move');
-      // }
+      if (!this._duringMapChange && !duringResize && this._focusOnSanta) {
+        this._focusOnSanta = false;
+        window.ga('send', 'event', 'tracker', 'map', 'move');
+      }
+    });
+
+    this._map.addListener('zoom_changed', () => {
+      if (!this._duringMapChange && !duringResize && this._focusOnSanta) {
+        this._focusOnSanta = false;
+        window.ga('send', 'event', 'tracker', 'map', 'zoom');
+      }
     });
 
     this._dataManager = new DataManager([]);
@@ -172,6 +248,9 @@ class ModvilTrackerElement extends LitElement {
     <modvil-tracker-feed></modvil-tracker-feed>
     <modvil-tracker-stats .details=${this.details} .arrivalTime=${this._closestArrival - this.now}></modvil-tracker-stats>
     <modvil-tracker-photos .destination=${destination}></modvil-tracker-photos>
+  </div>
+  <div class="buttons">
+    <santa-button class=${this._focusOnSanta ? 'gone' : ''} @click=${() => this._focusOnSanta = true}></santa-button>
   </div>
 </div>
 `;

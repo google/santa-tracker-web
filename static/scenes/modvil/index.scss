@@ -113,6 +113,13 @@ modvil-tracker {
   width: 100%;
   height: 1050px;
 
+  @media (max-height: 480px) {
+    max-height: calc(120vh);
+  }
+  @media (max-width: 600px) {
+    max-height: none;
+  }
+
   // Shrink by 0.6.
   @media (max-width: 1024px) {
     height: 720px;

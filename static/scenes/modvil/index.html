@@ -56,12 +56,30 @@ const insertAndroidCards = () => {
 
 let featuredRoute = '';
 let playRoute = '';
+let trackerAdded = false;
+
+function maybeAddTracker() {
+  if (!trackerAdded) {
+    const main = document.querySelector('main');
+    const t = document.createElement('modvil-tracker');
+    main.prepend(t);
+    trackerAdded = true;
+  }
+}
+
+if (api.param('tracker') === 'stuff') {
+  maybeAddTracker();
+}
 
 const featuredAssets = 'boatload buildandbolt codeboogie codelab elfmaker elfski glider gumball jamband jetpack mercator penguindash presentbounce santascanvas santaselfie seasonofgiving snowball snowbox snowflake traditions translations wrapbattle'.split(/\s+/g);
 const fallbackFeaturedImageSrc = featuredImage.src;
 
 api.addEventListener('data', (ev) => {
-  const {routes, android, featured, play} = ev.detail;
+  const {routes, android, featured, play, data} = ev.detail;
+
+  if (data['tracker'] === 'stuff') {
+    maybeAddTracker();
+  }
 
   if (android) {
     insertAndroidCards();
