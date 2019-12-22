@@ -2,7 +2,7 @@ $border-width: 4px;
 $photos-bar-size: 140%;
 $photos-bar-top-size: 54px;
 $photo-width: 24%;
-$photo-height: 90%;
+$photo-height: 96%;
 $_off-4up: (100% - ($photo-width * 4)) / 5;
 
 .outer {
@@ -219,7 +219,6 @@ modvil-tracker-photo {
 
   position: absolute;
   left: -($photo-width / 2);
-  right: 0;
   bottom: (100% - $photo-height) / -2;  // expand from bottom of outer .info div
   height: $photos-bar-size;
 
@@ -235,6 +234,34 @@ modvil-tracker-photo {
     @for $i from 0 through 3 {
       &[data-position="#{$i}"] {
         left: $_off-4up + ($i * ($photo-width + $_off-4up)) + ($photo-width / 2);
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    left: -($photo-width);
+    // bottom: -($photo-height*0.5) + 2%;  // expand from bottom of outer .info div
+    bottom: -34%;  // FIXME: work out how to get this number
+
+    modvil-tracker-photo {
+      width: $photo-width * 2;
+      height: $photo-height / 2;
+  
+      &[data-position="0"] {
+        left: 25%;
+        bottom: 25%;
+      }
+      &[data-position="1"] {
+        left: 75%;
+        bottom: 25%;
+      }
+      &[data-position="2"] {
+        left: 25%;
+        bottom: 75%;
+      }
+      &[data-position="3"] {
+        left: 75%;
+        bottom: 75%;
       }
     }
   }

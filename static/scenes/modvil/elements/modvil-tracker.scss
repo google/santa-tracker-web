@@ -28,10 +28,16 @@
     justify-content: center;
     z-index: 1000000;
 
+    @media (max-width: 600px) {
+      flex-flow: column-reverse;
+      justify-content: stretch;
+    }
+
     > * {
-      margin: 8px;
+      margin: 0 8px 8px;
       min-width: 240px;
       min-height: 140px;
+      height: 140px;  // needed to kick flexbox
 
       &:not(modvil-tracker-photos) {
         position: relative;
