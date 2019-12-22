@@ -5,6 +5,7 @@ import * as common from '../../../src/core/common.js';
 import loadMaps from '../../../src/deps/maps.js';
 import mapstyles from '../../../src/deps/mapstyles.json';
 import '../../../src/elements/santa-santa.js';
+import './modvil-tracker-feed.js';
 import './modvil-tracker-stats.js';
 import './modvil-tracker-photos.js';
 import {elementMapsOverlay, StopManager, DataManager, northpoleLocation, fetchRoute} from './maputils.js';
@@ -168,6 +169,7 @@ class ModvilTrackerElement extends LitElement {
 <div class="outer">
   ${this._mapNode}
   <div class="info">
+    <modvil-tracker-feed></modvil-tracker-feed>
     <modvil-tracker-stats .details=${this.details} .arrivalTime=${this._closestArrival - this.now}></modvil-tracker-stats>
     <modvil-tracker-photos .destination=${destination}></modvil-tracker-photos>
   </div>

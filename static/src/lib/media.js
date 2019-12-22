@@ -4,8 +4,8 @@
  * @return {{promise: !Promise<!Image|!HTMLMediaElement>, asset: !Image|!HTMLMediaElement}}
  */
 export function prepareAsset(src, options) {
-  const extMatch = /\.\w+$/.exec(src);
-  const ext = extMatch && extMatch[0] || null;
+  const extMatch = /(\.\w+)(|\?.*)$/.exec(src);
+  const ext = extMatch && extMatch[1] || null;
 
   options = Object.assign({
     loop: (ext === '.mp4'),
@@ -20,7 +20,7 @@ export function prepareAsset(src, options) {
         asset.loop = options.loop;
         asset.autoplay = options.autoplay;
         asset.muted = true;
-        asset.addEventListener('canplaythrough', () => resolve(asset));
+        asset.addEventListener('canplay', () => resolve(asset));
         break;
 
       case '.mp3':

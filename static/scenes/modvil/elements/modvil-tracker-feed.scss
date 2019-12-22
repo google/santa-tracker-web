@@ -1,0 +1,47 @@
+.outer {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.title {
+  padding: 2px 12px 6px;
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+  display: flex;
+  align-items: center;
+
+  big {
+    font: inherit;
+    color: #ff0030;
+    font-size: 25px;
+    margin-right: 2px;
+  }
+
+  h1 {
+    position: relative;
+    vertical-align: middle;
+    font: inherit;
+    color: #ff0030;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+}
+
+img, video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  object-fit: cover;
+}
