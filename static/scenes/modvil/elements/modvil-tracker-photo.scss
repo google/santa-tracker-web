@@ -70,8 +70,8 @@ $border-width: 4px;
       // big click target
       content: '';
       position: absolute;
-      height: 6em;
-      bottom: 0;
+      height: 4em;
+      transform: translateY(-50%);
       left: 0;
       right: 0;
       opacity: 0.25;

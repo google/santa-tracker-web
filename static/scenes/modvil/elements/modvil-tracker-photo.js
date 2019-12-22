@@ -18,15 +18,8 @@ class ModvilTrackerPhotoElement extends LitElement {
       attributionHtml: {type: String},
       _href: {type: String},
       _author: {type: String},
-      brand: {type: Boolean},
+      _brand: {type: Boolean},
     };
-  }
-
-  constructor() {
-    super();
-
-    // TODO(samthor): Work out if the user is branded.
-    this.brand = true;
   }
 
   shouldUpdate(changedProperties) {
@@ -40,6 +33,8 @@ class ModvilTrackerPhotoElement extends LitElement {
       const link = div.querySelector('a[href]');
       this._href = link ? link.href.toString() : undefined;
       this._author = div.textContent;
+
+      this._brand = this._href && this._href.endsWith('#_lg') || false;
     }
 
     return true;
@@ -49,7 +44,7 @@ class ModvilTrackerPhotoElement extends LitElement {
     return html`
 <div class="inner">
   <slot></slot>
-  <div class="attribution ${this.brand ? 'brand' : ''}">
+  <div class="attribution ${this._brand ? 'brand' : ''}">
     <a target="_blank" href=${ifDefined(this._href)}>${this._author}</a>
   </div>
 </div>

@@ -1,6 +1,9 @@
 $border-width: 4px;
 $photos-bar-size: 140%;
-$photos-bar-top-size: 48px;
+$photos-bar-top-size: 54px;
+$photo-width: 24%;
+$photo-height: 90%;
+$_off-4up: (100% - ($photo-width * 4)) / 5;
 
 .outer {
   width: 100%;
@@ -10,10 +13,34 @@ $photos-bar-top-size: 48px;
     flex-grow: 1;
   }
 
-  cursor: pointer;
   // nb. this MUST be position: static for the open effect to work
   position: static;
   // position: relative;
+}
+
+
+button.hint {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  color: transparent;
+  margin: 0;
+  padding: 0;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  z-index: 1000000;
+  cursor: pointer;
+  background: transparent;
+
+  &:focus {
+    outline: 0;
+    border-color: rgba(0, 0, 0, 0.33);
+  }
 }
 
 
@@ -58,6 +85,10 @@ $photos-bar-top-size: 48px;
     top: 0;
     opacity: 0;
     pointer-events: none;
+
+    .button-open {
+      display: none;
+    }
   }
 }
 
@@ -68,31 +99,59 @@ $photos-bar-top-size: 48px;
   right: 0;
   bottom: 0;  // expand from bottom of outer .info div
   background: #00cc81;
-  height: calc(#{$photos-bar-size} + #{$photos-bar-top-size});
+
+  $_delta: (100% - $photo-height) / 2;
+  height: calc(#{$photos-bar-size - $_delta} + #{$photos-bar-top-size});
+
   transition: opacity 0.25s ease-in-out;
   z-index: 10;
 
+  .button-close {
+    height: $photos-bar-top-size;
+  }
+
   .top {
     height: $photos-bar-top-size;
-    padding: 0 4%;
+    padding: 0 $_off-4up;
 
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
+    overflow-y: hidden;
 
     display: flex;
-    align-items: space-around;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    svg {
+      fill: #eefda5;
+      margin: 0 6px;
+    }
   }
 
   .photos:not(.open) ~ & {
     pointer-events: none;
     opacity: 0;
+
+    .button-close {
+      display: none;
+    }
   }
 }
 
 
 .view-open .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  h1 {
+    font-size: 24px;
+    line-height: 24px;
+    margin: 0;
+    color: #eefda5;
+    font-weight: 500;
+  }
 }
 
 
@@ -154,9 +213,6 @@ modvil-tracker-photo {
 
 // Show all photos mode.
 .photos.open {
-  $photo-width: 24%;
-  $photo-height: 90%;
-
   // This monstrosity occurs so we don't have to use transform on the inner modvil-tracker-photo.
   // Position the .photos.open div with the same "inverse" transform that we might set on the photo
   // to make it appear centered (e.g., transform(-50%, -50%)).
@@ -176,11 +232,9 @@ modvil-tracker-photo {
       --gone-direction: -1;
     }
 
-    $_off: (100% - ($photo-width * 4)) / 5;
-
     @for $i from 0 through 3 {
       &[data-position="#{$i}"] {
-        left: $_off + ($i * ($photo-width + $_off)) + ($photo-width / 2);
+        left: $_off-4up + ($i * ($photo-width + $_off-4up)) + ($photo-width / 2);
       }
     }
   }

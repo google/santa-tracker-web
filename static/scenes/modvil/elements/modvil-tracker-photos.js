@@ -68,8 +68,6 @@ class ModvilTrackerStatsElement extends LitElement {
       }
       node.toggleAttribute('large', this.open);
     });
-
-    this.addEventListener('click', () => this.open = !this.open);
   }
 
   shouldUpdate(changedProperties) {
@@ -102,7 +100,7 @@ class ModvilTrackerStatsElement extends LitElement {
         node.style.transform = null;
       });
 
-      // Extra control of photo attribution visibility.
+      // Extra control.
       if (!this.open) {
         all.forEach(({node}) => node.removeAttribute('large'));
       }
@@ -223,11 +221,16 @@ class ModvilTrackerStatsElement extends LitElement {
       <h1>${d.city}</h1>
       <h2>${d.region}</h2>
     </div>
+    <button class="hint button-open" @click=${() => this.open = true}></button>
   </div>
   <div class="view-open">
+    <button class="hint button-close" @click=${() => this.open = false}></button>
     <div class="top">
-      <h1>${d.city}</h1>
-      <h2>${d.region}</h2>
+      <div class="title ${this._photoReady ? '' : 'gone'}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M22 16V4c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zm-11-4l2.03 2.71L16 11l4 5H8l3-4zM2 6v14c0 1.1.9 2 2 2h14v-2H4V6H2z"/></svg>
+        <h1>${d.city}, ${d.region}</h1>
+      </div>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
     </div>
   </div>
 </div>
