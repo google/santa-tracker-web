@@ -1,4 +1,5 @@
-$border-width: 4px;
+@import "../sass/shared";
+
 $photos-bar-size: 140%;
 $photos-bar-top-size: 54px;
 $photo-width: 24%;
@@ -97,7 +98,7 @@ button.hint {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;  // expand from bottom of outer .info div
+  bottom: -$map-footer-size;  // expand from bottom of outer .info div
   background: #00cc81;
 
   $_delta: (100% - $photo-height) / 2;
@@ -219,7 +220,7 @@ modvil-tracker-photo {
 
   position: absolute;
   left: -($photo-width / 2);
-  bottom: (100% - $photo-height) / -2;  // expand from bottom of outer .info div
+  bottom: calc(#{(100% - $photo-height) / -2} - #{$map-footer-size});  // expand from bottom of outer .info div
   height: $photos-bar-size;
 
   modvil-tracker-photo {

@@ -21,6 +21,21 @@ body {
   overflow-x: hidden;
 }
 
+/** tracker */
+
+modvil-tracker {
+  width: 100%;
+  height: 720px;
+  max-height: calc(100vh + 100px);
+
+  @media (max-height: 480px) {
+    max-height: calc(120vh);
+  }
+  @media (max-width: 600px) {
+    max-height: none;  // at 600px or below, it's the mobile design, so let it go forever
+  }
+}
+
 /** santa-card **/
 
 santa-card {
@@ -106,23 +121,6 @@ santa-card {
     align-items: center;
     width: 100%;
     max-width: $module-max-width;
-  }
-}
-
-modvil-tracker {
-  width: 100%;
-  height: 1050px;
-
-  @media (max-height: 480px) {
-    max-height: calc(120vh);
-  }
-  @media (max-width: 600px) {
-    max-height: none;
-  }
-
-  // Shrink by 0.6.
-  @media (max-width: 1024px) {
-    height: 720px;
   }
 }
 
