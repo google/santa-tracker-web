@@ -170,6 +170,9 @@ class SantaGameLoaderElement extends HTMLElement {
     this._onWindowResize = dedup(this._onWindowResize.bind(this));
 
     Loader.timeout = () => 20000;
+    Loader.unhandledLoad = (frame, href) => {
+      console.warn('FAILING OPEN for unhandled load', frame, href);
+    };
     const el = this;  // reference for LoaderHandler subclass
     this._loader = new Loader(this._container, new (class extends LoaderHandler {
       unload(frame, href) {
@@ -281,7 +284,7 @@ class SantaGameLoaderElement extends HTMLElement {
     frame.classList.add('pending');
     this._activeFrame = frame;  // store most recent active frame
 
-    const port = await prepareMessage(frame, 250);
+    const port = await prepareMessage(frame, 30 * 1000);
     if (frame !== this._activeFrame) {
       window.ga('send', 'event', 'nav', 'preempted', 'load');
       return null;  // check for preempt
