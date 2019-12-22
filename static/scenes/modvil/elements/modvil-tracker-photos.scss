@@ -43,8 +43,8 @@ $photos-bar-top-size: 48px;
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 50%;
-    height: 50%;
+    width: 116px;
+    height: 66px;
     background: _rel("../../../img/tracker/localguides.svg") bottom left / contain no-repeat;
     transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
     opacity: 1;
@@ -57,6 +57,7 @@ $photos-bar-top-size: 48px;
   .photos.open + & {
     top: 0;
     opacity: 0;
+    pointer-events: none;
   }
 }
 
@@ -153,7 +154,7 @@ modvil-tracker-photo {
 
 // Show all photos mode.
 .photos.open {
-  $photo-width: 20%;
+  $photo-width: 24%;
   $photo-height: 90%;
 
   // This monstrosity occurs so we don't have to use transform on the inner modvil-tracker-photo.
@@ -175,9 +176,11 @@ modvil-tracker-photo {
       --gone-direction: -1;
     }
 
+    $_off: (100% - ($photo-width * 4)) / 5;
+
     @for $i from 0 through 3 {
       &[data-position="#{$i}"] {
-        left: 4% + ($i * 24%) + 10%;
+        left: $_off + ($i * ($photo-width + $_off)) + ($photo-width / 2);
       }
     }
   }

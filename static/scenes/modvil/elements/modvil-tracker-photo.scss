@@ -11,6 +11,7 @@ $border-width: 4px;
   border: $border-width solid white;
   position: relative;
   transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
+  overflow: hidden;
 
   &::after {
     content: '';
@@ -22,6 +23,7 @@ $border-width: 4px;
     background: black;
     opacity: var(--photo-darken, 0);
     transition: opacity 0.4s;
+    pointer-events: none;
   }
 
   transform: translateY(0);
@@ -34,6 +36,72 @@ $border-width: 4px;
 
   :host([destroy]) & {
     transform: translateY(0) scale(0);
+  }
+}
+
+.attribution {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  font-size: 11px;
+  line-height: 13px;
+  padding: 30px 0 0;
+  transition: opacity 0.5s;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    padding: 0 10px 8.5px;
+    flex-grow: 100;
+
+    &[href]:hover {
+      text-decoration: underline;
+    }
+
+    &::after {
+      // big click target
+      content: '';
+      position: absolute;
+      height: 6em;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 0.25;
+      z-index: 100;
+    }
+  }
+
+  :host(:not([large])) & {
+    opacity: 0;
+    transition: none;  // hide from weird skew
+  }
+
+  &.brand::after {
+    content: '';
+    background: _rel("../../../img/tracker/localguides.svg") bottom right / contain no-repeat;
+    min-width: 100px;
+    height: 40px;
+    margin-top: -12px;
+    margin-bottom: -4px;
+    filter: drop-shadow(0 1px 0 rgba(0, 0, 0, 0.25));
+    position: relative;
+    right: 0;
+    justify-self: flex-end;
+    flex-grow: 1;
+  }
+}
+
+:host([large]) {
+  .inner {
+    pointer-events: auto !important;
   }
 }
 

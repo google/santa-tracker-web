@@ -61,6 +61,14 @@ class ModvilTrackerStatsElement extends LitElement {
     this._photoNode = document.createElement('div');
     this._photoNode.classList.add('photos');
 
+    this._photoNode.addEventListener('transitionend', (ev) => {
+      const node = ev.target;
+      if (node.localName !== 'modvil-tracker-photo') {
+        return;
+      }
+      node.toggleAttribute('large', this.open);
+    });
+
     this.addEventListener('click', () => this.open = !this.open);
   }
 
@@ -93,6 +101,11 @@ class ModvilTrackerStatsElement extends LitElement {
         node.offsetLeft;  // and forcing layout, important
         node.style.transform = null;
       });
+
+      // Extra control of photo attribution visibility.
+      if (!this.open) {
+        all.forEach(({node}) => node.removeAttribute('large'));
+      }
     }
 
     if (!changedProperties.has('destination')) {
@@ -181,6 +194,7 @@ class ModvilTrackerStatsElement extends LitElement {
         }
       }
 
+      node.toggleAttribute('large', !!this.open);
       node.setAttribute('appear', '');
       this._photoNode.prepend(node);
       await node.updateComplete;
@@ -209,7 +223,6 @@ class ModvilTrackerStatsElement extends LitElement {
       <h1>${d.city}</h1>
       <h2>${d.region}</h2>
     </div>
-    <div class="brand"></div>
   </div>
   <div class="view-open">
     <div class="top">
