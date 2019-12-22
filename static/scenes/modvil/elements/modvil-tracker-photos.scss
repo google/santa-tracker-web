@@ -1,6 +1,6 @@
 $border-width: 4px;
 $photos-bar-size: 140%;
-$photos-bar-top-size: 24px;
+$photos-bar-top-size: 48px;
 
 .outer {
   width: 100%;
@@ -74,6 +74,13 @@ $photos-bar-top-size: 24px;
   .top {
     height: $photos-bar-top-size;
     padding: 0 4%;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    display: flex;
+    align-items: space-around;
   }
 
   .photos:not(.open) ~ & {
@@ -83,7 +90,12 @@ $photos-bar-top-size: 24px;
 }
 
 
-.title {
+.view-open .title {
+
+}
+
+
+.view-closed .title {
   position: absolute;
   top: 0;
   left: 0;
@@ -141,18 +153,23 @@ modvil-tracker-photo {
 
 // Show all photos mode.
 .photos.open {
+  $photo-width: 20%;
+  $photo-height: 90%;
+
+  // This monstrosity occurs so we don't have to use transform on the inner modvil-tracker-photo.
+  // Position the .photos.open div with the same "inverse" transform that we might set on the photo
+  // to make it appear centered (e.g., transform(-50%, -50%)).
+
   position: absolute;
-  left: -10%;
+  left: -($photo-width / 2);
   right: 0;
-  bottom: 50%;  // expand from bottom of outer .info div
+  bottom: (100% - $photo-height) / -2;  // expand from bottom of outer .info div
   height: $photos-bar-size;
 
   modvil-tracker-photo {
     position: absolute;
-    width: 20%;
-    height: 80%;
-    top: 50%;
-//    transform: translate(-50%, -50%);
+    width: $photo-width;
+    height: $photo-height;
 
     &.leave {
       --gone-direction: -1;
