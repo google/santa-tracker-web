@@ -1,4 +1,6 @@
 $border-width: 4px;
+$photos-bar-size: 140%;
+$photos-bar-top-size: 24px;
 
 .outer {
   width: 100%;
@@ -9,11 +11,33 @@ $border-width: 4px;
   }
 
   cursor: pointer;
-  position: relative;
+  // nb. this MUST be position: static for the open effect to work
+  position: static;
+  // position: relative;
 }
 
 
 .photos {
+  filter: drop-shadow(2px 4px 0 rgba(0, 0, 0, 0.125));
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 100;
+}
+
+
+// Fixed content that is visible only while the photos are closed.
+.view-closed {
+  position: relative;
+  top: calc(-100%);
+  left: 0;
+  right: 0;
+  height: 100%;
+  border: $border-width solid transparent;
+  box-sizing: border-box;
+  transition: opacity 0.25s ease-in-out;
+  z-index: 200;
+
   &::after {
     content: '';
     position: absolute;
@@ -24,8 +48,36 @@ $border-width: 4px;
     background: _rel("../../../img/tracker/localguides.svg") bottom left / contain no-repeat;
     transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
     opacity: 1;
+
+    .photos:empty + & {
+      opacity: 0;
+    }
   }
-  &:empty::after {
+
+  .photos.open + & {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+// Fixed content that is visible when photos are open.
+.view-open {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;  // expand from bottom of outer .info div
+  background: #00cc81;
+  height: calc(#{$photos-bar-size} + #{$photos-bar-top-size});
+  transition: opacity 0.25s ease-in-out;
+  z-index: 10;
+
+  .top {
+    height: $photos-bar-top-size;
+    padding: 0 4%;
+  }
+
+  .photos:not(.open) ~ & {
+    pointer-events: none;
     opacity: 0;
   }
 }
@@ -33,10 +85,9 @@ $border-width: 4px;
 
 .title {
   position: absolute;
-  top: $border-width;
-  left: $border-width;
-  right: $border-width;
-  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  right: 0;
   padding: 4px 12px 0;
   transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
 
@@ -66,37 +117,14 @@ $border-width: 4px;
 }
 
 
-.photo {
+modvil-tracker-photo {
   pointer-events: none;
 
-  border: $border-width solid white;
   width: 100%;
   height: 100%;
-  box-sizing: border-box;
   position: absolute;
   transform-origin: center;
-  transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.25);
-    opacity: 0;
-    transition: opacity 0.4s;
-  }
-
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  transition: transform 0.25s ease-in-out;
 
   z-index: -1000;
 
@@ -105,69 +133,60 @@ $border-width: 4px;
       z-index: -$i;
     }
   }
+
+  &[destroy] {
+    z-index: -1000;
+  }
 }
 
 // Show all photos mode.
-:host([open]) {
-  // .outer {
-  //   position: fixed;
-  //   width: 100vw;
-  //   height: 200px;
-  //   left: 0;
-  //   background: red;
-  // }
+.photos.open {
+  position: absolute;
+  left: -10%;
+  right: 0;
+  bottom: 50%;  // expand from bottom of outer .info div
+  height: $photos-bar-size;
 
-  // .photos {
-  //   display: flex;
-  //   height: 200px;
-  //   align-items: stretch;
-  //   justify-content: space-around;
-  //   .photo {
-  //     position: relative;
-  //   }
-  // }
-  // // TODO: something
+  modvil-tracker-photo {
+    position: absolute;
+    width: 20%;
+    height: 80%;
+    top: 50%;
+//    transform: translate(-50%, -50%);
+
+    &.leave {
+      --gone-direction: -1;
+    }
+
+    @for $i from 0 through 3 {
+      &[data-position="#{$i}"] {
+        left: 4% + ($i * 24%) + 10%;
+      }
+    }
+  }
 }
 
 // Default state, photos in stack.
-:host(:not([open])) {
-  .photos {
-    .photo {
-      // default at back
-      transform: scale(0);
+.photos:not(.open) {
+  modvil-tracker-photo {
+    // default at back
+    transform: scale(0);
 
-      &:nth-child(1) {
-        &::after {
-          opacity: 1;
-        }
-        transform: translateY(0);
-
-        &.gone {
-          transform: translateY(12.5%);
-          opacity: 0;
-        }
-      }
-
-      @for $i from 1 through 5 {
-        &:nth-child(#{$i + 1}) {
-          $scale: 1.0 - ($i * 0.05);
-          transform: translateY($i * -16px - $scale * $border-width + 6px) scale($scale);
-          opacity: 1.0 - ($i * 0.01);
-
-          &.gone {
-            transform: translateY(0) scale(0) !important;
-          }
-        }
-      }
+    &:nth-child(1) {
+      --photo-darken: 0.25;
+      transform: translateY(0);
     }
-  }
 
-  .outer:hover .photos {
     @for $i from 1 through 5 {
-      .photo:nth-child(#{$i + 1}) {
+      &:nth-child(#{$i + 1}) {
         $scale: 1.0 - ($i * 0.05);
-        transform: translateY($i * -32px - $scale * $border-width + 6px) scale($scale) rotate($i * 2deg) translateX($i * 4px);
+        transform: translateY($i * -16px - $scale * $border-width + 6px) scale($scale);
+
+        .outer:hover & {
+          transform: translateY($i * -32px - $scale * $border-width + 6px) scale($scale) rotate($i * 2deg) translateX($i * 4px);
+        }
       }
     }
   }
 }
+

@@ -1,0 +1,45 @@
+$border-width: 4px;
+
+:host {
+  display: inline-block;
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: $border-width solid white;
+  position: relative;
+  transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    opacity: var(--photo-darken, 0);
+    transition: opacity 0.4s;
+  }
+
+  transform: translateY(0);
+  opacity: 1;
+
+  :host([appear]) & {
+    transform: translateY(12.5%);
+    opacity: 0;
+  }
+
+  :host([destroy]) & {
+    transform: translateY(0) scale(0);
+  }
+}
+
+::slotted(img) {
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}

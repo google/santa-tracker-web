@@ -4,6 +4,7 @@ import * as common from '../../../src/core/common.js';
 import {_static, _msg} from '../../../src/magic.js';
 import {prepareAsset} from '../../../src/lib/media.js';
 import * as promises from '../../../src/lib/promises.js';
+import './modvil-tracker-photo.js';
 
 
 common.preload.images(
@@ -16,13 +17,30 @@ const displayPhotoCount = 4;
 const delayPhotoLoad = 750;
 
 
-function preparePhoto({url}) {
-  const node = document.createElement('div');
-  node.classList.add('photo');
-  const {asset, promise} = prepareAsset(url);
+function preparePhoto({url, attributionHtml}) {
+  const node = document.createElement('modvil-tracker-photo');
+  node.attributionHtml = attributionHtml;
 
+  const {asset, promise} = prepareAsset(url);
   node.append(asset);
   return promise.then(() => node).catch((err) => null);
+}
+
+
+function boundsDelta(a, b) {
+  const mid = (bounds) => {
+    return {
+      x: (bounds.left + bounds.right) / 2,
+      y: (bounds.top + bounds.bottom) / 2,
+    }
+  };
+  const am = mid(a);
+  const bm = mid(b);
+
+  const sx = (a.width / b.width);
+  const sy = (a.height / b.height);
+
+  return `translate(${am.x - bm.x}px, ${am.y - bm.y}px) scale(${sx}, ${sy})`
 }
 
 
@@ -47,6 +65,36 @@ class ModvilTrackerStatsElement extends LitElement {
   }
 
   shouldUpdate(changedProperties) {
+    if (changedProperties.has('open')) {
+
+      // Determine current position.
+      const all = Array.from(this._photoNode.children).map((node) => {
+        const {transform} = window.getComputedStyle(node);
+        node.style.transform = 'none';
+        const bounds = node.getBoundingClientRect();
+        return {node, bounds, transform};
+      });
+
+      // Toggle UI state, moving actual nodes.
+      this._photoNode.classList.toggle('open', this.open);
+
+      // Transform back to previous location, including previous transform.
+      all.forEach(({node, bounds, transform}) => {
+        if (transform === 'none') {
+          transform = '';  // special-case "none" as it's not additive
+        }
+        const updated = node.getBoundingClientRect();
+        node.style.transform = `${boundsDelta(bounds, updated)} ${transform}`;
+      });
+
+      // Force zero-transform to previous location by reinserting.
+      all.forEach(({node}) => {
+        this._photoNode.append(node);
+        node.offsetLeft;  // and forcing layout, important
+        node.style.transform = null;
+      });
+    }
+
     if (!changedProperties.has('destination')) {
       return true;
     }
@@ -64,13 +112,22 @@ class ModvilTrackerStatsElement extends LitElement {
     if (!node) {
       return;
     }
-    node.classList.add('gone');
+    node.setAttribute('destroy', '');
     window.setTimeout(() => node.remove(), delayPhotoLoad / 2);
   }
 
   async photosTask(d, photos) {
-    const previous = Array.from(this._photoNode.children);
+    const previous =
+        Array.from(this._photoNode.children).filter((node) => !node.hasAttribute('destroy'));
     let count = displayPhotoCount;
+
+    // These are the ~displayPhotoCount positions that each photo can be in (for open mode), that
+    // aren't already used by previous nodes.
+    const positions = new Set();
+    for (let i = 0; i < displayPhotoCount; ++i) {
+      positions.add('' + i);
+    }
+    previous.forEach((node) => positions.delete(node.getAttribute('data-position')));
 
     photos = photos.slice();  // don't clobber real data
     count = Math.max(1, Math.min(photos.length, count));
@@ -100,17 +157,43 @@ class ModvilTrackerStatsElement extends LitElement {
       this._photoReady = true;  // we have a photo ready at all, show title
       --count;
 
-      node.classList.add('gone');
-      this._photoNode.prepend(node);
-      node.offsetLeft;
-      node.classList.remove('gone');
-
-      if (this._photoNode.children.length > displayPhotoCount) {
-        this._removePhoto(previous.pop());
+      let photoToReplace = null;
+      if (this._photoNode.children.length >= displayPhotoCount) {
+        photoToReplace = previous.pop();
       }
+      this._removePhoto(photoToReplace);
+
+      // Steal the position of the photo we're replacing.
+      if (photoToReplace) {
+        node.setAttribute('data-position', photoToReplace.getAttribute('data-position'));
+      }
+
+      // Or find one from the spare position buffer.
+      if (!node.getAttribute('data-position')) {
+        for (const v of positions) {
+          node.setAttribute('data-position', v);
+          positions.delete(v);
+          break;
+        }
+        if (!node.getAttribute('data-position')) {
+          // Should never happen :(
+          console.warn('no known order for new photo', node);
+        }
+      }
+
+      node.setAttribute('appear', '');
+      this._photoNode.prepend(node);
+      await node.updateComplete;
+      await new Promise((resolve) => {
+        window.requestAnimationFrame(() => {
+          node.removeAttribute('appear');
+          resolve();
+        });
+      });
     }
 
-    // remove all remaining
+    // We finished updating to a new location. Remove any remaining (e.g. a place with ~2 photos).
+    // TODO(samthor): We could fill four photos just with dummy social images.
     previous.forEach((node) => this._removePhoto(node));
   }
 
@@ -121,9 +204,18 @@ class ModvilTrackerStatsElement extends LitElement {
 <div class="outer">
   ${this._photoNode}
 
-  <div class="title ${this._photoReady ? '' : 'gone'}">
-    <h1>${d.city}</h1>
-    <h2>${d.region}</h2>
+  <div class="view-closed">
+    <div class="title ${this._photoReady ? '' : 'gone'}">
+      <h1>${d.city}</h1>
+      <h2>${d.region}</h2>
+    </div>
+    <div class="brand"></div>
+  </div>
+  <div class="view-open">
+    <div class="top">
+      <h1>${d.city}</h1>
+      <h2>${d.region}</h2>
+    </div>
   </div>
 </div>
     `;
