@@ -41,6 +41,14 @@ modvil-tracker {
 santa-card {
   --radius: 20px;
   font-size: 22px;
+
+  &[hidden] {
+    display: none !important;
+  }
+
+  &.loud {
+    margin-bottom: 20px;
+  }
 }
 
 @media (max-width: 600px) {

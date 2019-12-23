@@ -80,4 +80,5 @@ export default {
   '@presenttoss': _msg`scene_android_presenttoss`,
   '@rocketsleigh': _msg`scene_android_rocketsleigh`,
   '@snowballrun': _msg`scene_android_snowballrun`,
+  '@tracker': _msg`tracker_track`,
 };

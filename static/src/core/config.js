@@ -235,6 +235,14 @@ export function routeUrl() {
 
 
 /**
+ * @return {string} featureCard
+ */
+export function loudCard() {
+  return remoteConfig.getString('loudCard');
+}
+
+
+/**
  * @return {boolean} whether to show the tracker
  */
 export function showTracker() {

@@ -116,6 +116,7 @@ class ModvilTrackerElement extends LitElement {
     if (!this._ready) {
       return true;
     }
+    const infoNode = this._mapNode.nextElementSibling || document.createElement('div');  // for safety
 
     if (changedProperties.has('_ready') || changedProperties.has('_width')) {
       const mobileMode = (this._width <= 600);
@@ -131,7 +132,6 @@ class ModvilTrackerElement extends LitElement {
       }
 
       // Set the fake control to a height of the infoNode.
-      const infoNode = this._mapNode.nextElementSibling;
       const bounds = infoNode.getBoundingClientRect();
       this._infoOffsetNode.style.height = `${bounds.height}px`;
     }
@@ -179,7 +179,6 @@ class ModvilTrackerElement extends LitElement {
 
     try {
       this._duringMapChange = true;
-      const infoNode = this._mapNode.nextElementSibling;
       let usableMap = infoNode.offsetTop;
 
       const photosNode = infoNode.parentNode.querySelector('modvil-tracker-photos');

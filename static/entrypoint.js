@@ -437,6 +437,7 @@ async function prepare(control, data) {
             play: playNextRoute,
             showTracker: firebaseConfig.showTracker(),
             routeUrl: firebaseConfig.routeUrl(),
+            loudCard: firebaseConfig.loudCard(),
             data,
           };
           control.send({type: 'data', payload});
