@@ -53,6 +53,7 @@ class ModvilTrackerFeedElement extends LitElement {
 
     const run = () => {
       this._prepare().then((asset) => {
+        asset.classList.add('asset');
         this._imageNode = asset;
         return asset;
       }).catch((err) => {
