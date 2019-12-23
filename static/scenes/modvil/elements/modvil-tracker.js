@@ -252,6 +252,8 @@ class ModvilTrackerElement extends LitElement {
   <div class="buttons">
     <santa-button class=${this._focusOnSanta ? 'gone' : ''} @click=${() => this._focusOnSanta = true}></santa-button>
   </div>
+  <div id="top-divider">
+  </div>
 </div>
 `;
   }

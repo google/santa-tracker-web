@@ -3,6 +3,7 @@
 :host {
   display: flex;
   position: relative;
+  padding-bottom: 72px;
 }
 
 .map {
@@ -13,6 +14,17 @@
     display: inline-block;
     transform: translate(-50%, -50%);
   }
+}
+
+#top-divider {
+  position: relative;
+  height: 72px;
+  background: #eee _rel("../img/divider-tracker.svg") center repeat-x;
+  background-size: auto 72px;
+  z-index: 1000000;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.125);
+  max-width: $module-max-width;
+  margin: 0 auto;
 }
 
 .buttons {
