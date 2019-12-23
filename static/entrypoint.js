@@ -131,10 +131,12 @@ chromeElement.addEventListener('sidebar-open', (ev) => {
         break;
       }
     }
-    updatePlayNextCards();
+    updatePlayNextCards(route);
   });
 
-  function updatePlayNextCards() {
+  const localStorage = window.localStorage || {};
+
+  function updatePlayNextCards(currentRoute) {
     // array of all possible games
     const nav = firebaseConfig.nav().filter((x) => x[0] !== '@' && !firebaseConfig.isLocked(x));
 
@@ -163,7 +165,27 @@ chromeElement.addEventListener('sidebar-open', (ev) => {
       card.scene = scene;
       scoreOverlayElement.append(card);
     });
-    global.setState({playNextRoute: cards[0]});
+
+    let playNextRoute = cards[0];
+
+    let featured = firebaseConfig.featuredRoute();
+    if (featured === 'takeoff' || featured === 'liftoff') {
+      // FIXME: hack for HPP
+      featured = 'likealight';
+    }
+
+    if (!featured) {
+      // Do nothing, no featured.
+    } else if (currentRoute === featured) {
+      // We just chose this route. Mark it as "done".
+      localStorage['featured_played'] = featured;
+    } else if (localStorage['featured_played'] !== featured) {
+      // This route hasn't yet been played, so make it the Play Next route.
+      playNextRoute = featured;
+    }
+
+    console.warn('playNext is', playNextRoute);
+    global.setState({playNextRoute});
   }
 }());
 
