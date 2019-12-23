@@ -76,10 +76,10 @@ class ModvilTrackerElement extends LitElement {
     fetchRoute('https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_en.json?alt=media').then((destinations) => {
       this.destinations = destinations;
     });
-    this.now = 1577192880000;
+    this.now = +new Date();
 
     window.setInterval(() => {
-      this.now += 1000;
+      this.now = +new Date();
     }, 1000);
 
     this._onWindowResize = this._onWindowResize.bind(this);
