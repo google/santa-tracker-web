@@ -292,7 +292,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
     // Kick Safari, to work around a scroll issue. Safari refuses to scroll the page unless it is
     // resized first, for some reason. It must be an actual resize, hence the "- 1px" below.
-    frame.style.maxHeight = 'calc(100% - 1px)';
+    frame.style.maxHeight = 'calc(100% - 100px)';
     window.requestAnimationFrame(() => {
       frame.style.maxHeight = null;
     });
@@ -331,6 +331,20 @@ class SantaGameLoaderElement extends HTMLElement {
 
     // If nothing loaded, allow <slot> content and remove itself. This is still "success".
     this._main.classList.toggle('empty', !payload);
+
+    // Kick Safari again.
+    let timeout = 0;
+    const kickHandler = () => {
+      if (!frame.parentNode) {
+        return;
+      }
+      frame.style.maxHeight = 'calc(100% - 1px)';
+      window.requestAnimationFrame(() => {
+        frame.style.maxHeight = null;
+        timeout = window.setTimeout(kickHandler, 1000);
+      });
+    };
+    kickHandler();
   }
 
   get href() {
