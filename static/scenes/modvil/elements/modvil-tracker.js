@@ -19,15 +19,6 @@ common.preload.images(
 
 
 const focusTimeoutDelay = 3 * 1000;  // refocus on Santa after this much inactivity
-let duringResize = false;
-
-window.addEventListener('resize', () => {
-  duringResize = true;
-
-  window.requestAnimationFrame(() => {
-    duringResize = false;
-  });
-});
 
 
 class ModvilTrackerElement extends LitElement {
@@ -35,6 +26,7 @@ class ModvilTrackerElement extends LitElement {
 
   static get properties() {
     return {
+      _width: {type: Number},
       destinations: {type: Array},
       now: {type: Number},
       _ready: {type: Boolean},
@@ -55,6 +47,8 @@ class ModvilTrackerElement extends LitElement {
     this._focusOnSanta = true;
     this._focusTimeout = 0;
     this._duringMapChange = false;
+    this._duringResize = false;
+    this._width = 0;
 
     this._mapNode = document.createElement('div');
     this._mapNode.classList.add('map');
@@ -76,11 +70,52 @@ class ModvilTrackerElement extends LitElement {
     window.setInterval(() => {
       this.now += 1000;
     }, 1000);
+
+    this._onWindowResize = this._onWindowResize.bind(this);
+  }
+
+  _onWindowResize() {
+    this._duringResize = true;
+
+    window.requestAnimationFrame(() => {
+      this._duringResize = false;
+      this._width = window.innerWidth;
+    });
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    window.addEventListener('resize', this._onWindowResize);
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener('resize', this._onWindowResize);
   }
 
   shouldUpdate(changedProperties) {
     if (!this._ready) {
       return true;
+    }
+
+    if (changedProperties.has('_ready') || changedProperties.has('_width')) {
+      const mobileMode = (this._width <= 600);
+      console.warn('setting mobileMode', mobileMode);
+      this._map.setOptions({
+        gestureHandling: mobileMode ? 'none' : 'auto',
+        zoomControl: !mobileMode,
+      });
+
+      // Force immediate focus on Santa, since you can't leave it in this mode.
+      if (mobileMode) {
+        this._focusOnSanta = true;
+        window.clearTimeout(this._focusTimeout);
+      }
+
+      // Set the fake control to a height of the infoNode.
+      const infoNode = this._mapNode.nextElementSibling;
+      const bounds = infoNode.getBoundingClientRect();
+      this._infoOffsetNode.style.height = `${bounds.height}px`;
     }
 
     if (changedProperties.has('_focusOnSanta')) {
@@ -141,8 +176,6 @@ class ModvilTrackerElement extends LitElement {
       let zoom = Math.round(min / 160);
       if (details.stop) {
         zoom += 1;  // zoom in at cities
-      } else {
-//        zoom -= 1;
       }
       zoom = Math.max(2, Math.min(6, zoom));
 
@@ -215,20 +248,15 @@ class ModvilTrackerElement extends LitElement {
     this._santaOverlay.position = new google.maps.LatLng(northpoleLocation.lat, northpoleLocation.lng);
     this._santaNode.heading = -90;
 
-    this._map.addListener('center_changed', () => {
-      // If it's not a map change or resize, reset focusOnSanta.
-      if (!this._duringMapChange && !duringResize && this._focusOnSanta) {
+    const reset = (reason) => {
+      if (!this._duringMapChange && !this._duringResize && this._focusOnSanta) {
         this._focusOnSanta = false;
-        window.ga('send', 'event', 'tracker', 'map', 'move');
+        console.warn('removing focus', reason);
+        window.ga('send', 'event', 'tracker', 'map', reason);
       }
-    });
-
-    this._map.addListener('zoom_changed', () => {
-      if (!this._duringMapChange && !duringResize && this._focusOnSanta) {
-        this._focusOnSanta = false;
-        window.ga('send', 'event', 'tracker', 'map', 'zoom');
-      }
-    });
+    };
+    this._map.addListener('center_changed', () => reset('move'));
+    this._map.addListener('zoom_changed', () => reset('zoom'));
 
     this._dataManager = new DataManager([]);
     this._stopManager = new StopManager(null, this._dataManager);
@@ -237,6 +265,10 @@ class ModvilTrackerElement extends LitElement {
       console.error('failed to get user location', err);
       return null;
     });
+
+    this._infoOffsetNode = document.createElement('span');
+    this._infoOffsetNode.style.height = '100px';
+    this._map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(this._infoOffsetNode);
   }
 
   render() {
@@ -252,8 +284,7 @@ class ModvilTrackerElement extends LitElement {
   <div class="buttons">
     <santa-button class=${this._focusOnSanta ? 'gone' : ''} @click=${() => this._focusOnSanta = true}></santa-button>
   </div>
-  <div id="top-divider">
-  </div>
+  <div id="top-divider"></div>
 </div>
 `;
   }

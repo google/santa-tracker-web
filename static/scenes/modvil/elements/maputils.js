@@ -72,6 +72,8 @@ export function elementMapsOverlay(layer = 'floatPane') {
       this._position = null;
       this._container = document.createElement('div');
       this._container.style.willChange = 'transform';
+      this._container.style.background = 'red';
+      this._container.style.width = '0px';
 
       this._container.addEventListener('click', (ev) => ev.stopPropagation());
     }
