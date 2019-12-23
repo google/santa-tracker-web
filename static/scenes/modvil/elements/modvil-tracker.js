@@ -18,7 +18,7 @@ common.preload.images(
 );
 
 
-const focusTimeoutDelay = 3 * 1000;  // refocus on Santa after this much inactivity
+const focusTimeoutDelay = 20 * 1000;  // refocus on Santa after this much inactivity
 
 
 class ModvilTrackerElement extends LitElement {
@@ -28,6 +28,7 @@ class ModvilTrackerElement extends LitElement {
     return {
       _width: {type: Number},
       destinations: {type: Array},
+      routeUrl: {type: String},
       now: {type: Number},
       _ready: {type: Boolean},
       _focusOnSanta: {type: Boolean},
@@ -72,10 +73,6 @@ class ModvilTrackerElement extends LitElement {
     });
     common.preload.wait(this._preparePromise);
 
-    // FIXME: for testing
-    fetchRoute('https://firebasestorage.googleapis.com/v0/b/santa-tracker-firebase.appspot.com/o/route%2Fsanta_en.json?alt=media').then((destinations) => {
-      this.destinations = destinations;
-    });
     this.now = +new Date();
 
     window.setInterval(() => {
@@ -105,6 +102,17 @@ class ModvilTrackerElement extends LitElement {
   }
 
   shouldUpdate(changedProperties) {
+    if (changedProperties.has('routeUrl')) {
+      const expected = this.routeUrl;
+      console.info('updating fetching', this.routeUrl);
+      fetchRoute(this.routeUrl).then((destinations) => {
+        console.warn('fetched dests', destinations, 'updating?', this.routeUrl, expected);
+        if (this.routeUrl === expected) {
+          this.destinations = destinations;
+        }
+      });
+    }
+
     if (!this._ready) {
       return true;
     }

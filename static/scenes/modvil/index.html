@@ -69,7 +69,7 @@ const featuredAssets = 'boatload buildandbolt codeboogie codelab elfmaker elfski
 const fallbackFeaturedImageSrc = featuredImage.src;
 
 api.addEventListener('data', (ev) => {
-  const {routes, android, featured, play, showTracker} = ev.detail;
+  const {routes, android, featured, play, routeUrl, showTracker} = ev.detail;
 
   if (showTracker) {
     mainElement.prepend(trackerElement);
@@ -77,6 +77,8 @@ api.addEventListener('data', (ev) => {
   } else {
     trackerElement.remove();
   }
+
+  trackerElement.routeUrl = routeUrl;
 
   if (android) {
     insertAndroidCards();

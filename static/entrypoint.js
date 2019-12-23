@@ -436,6 +436,7 @@ async function prepare(control, data) {
             featured: firebaseConfig.featuredRoute(),
             play: playNextRoute,
             showTracker: firebaseConfig.showTracker(),
+            routeUrl: firebaseConfig.routeUrl(),
             data,
           };
           control.send({type: 'data', payload});

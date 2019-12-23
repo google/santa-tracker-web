@@ -227,6 +227,14 @@ export function featuredRoute() {
 
 
 /**
+ * @return {string} route URL with "|LANG|"
+ */
+export function routeUrl() {
+  return remoteConfig.getString('routeUrl');
+}
+
+
+/**
  * @return {boolean} whether to show the tracker
  */
 export function showTracker() {

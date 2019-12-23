@@ -31,7 +31,7 @@ function formatDuration(ms) {
 
   const parts = [padDigits(seconds)];
   if (hours) {
-    parts.unshift(padDigits(mins), padDigits(hours));
+    parts.unshift(padDigits(hours), padDigits(mins));
   } else {
     parts.unshift(mins);
   }

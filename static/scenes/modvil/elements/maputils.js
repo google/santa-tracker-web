@@ -25,6 +25,13 @@ const PRESENTS_IN_CITY = 0.7;
 export const northpoleLocation = {lat: 84.6, lng: 168};
 
 
+async function destinationsFor(url) {
+  const r = await fetch(url);
+  const data = await r.json();
+  return data['destinations'] || [];
+}
+
+
 export async function fetchRoute(url, year = (new Date().getFullYear())) {
   // Skews route data over the passed year, suitable for future years if nothing else changes.
   const from = +Date.UTC(year, 11, 24, 10, 0, 0);  // 24th Dec at 10:00 UTC
@@ -34,9 +41,21 @@ export async function fetchRoute(url, year = (new Date().getFullYear())) {
     return +t;
   })();
 
-  const r = await fetch(url);
-  const data = await r.json();
-  const destinations = data['destinations'];
+  const langUrl = url.replace('|LANG|', document.documentElement.lang || 'en');
+  const fallbackUrl = url.replace('|LANG|', 'en');
+
+  let destinations;
+  try {
+    destinations = await destinationsFor(langUrl);
+  } catch (e) {
+    console.warn('failed to fetch route', langUrl, e);
+    try {
+      // If this is "en" twice, at least we tried twice.
+      destinations = await destinations(fallbackUrl);
+    } catch (e) {
+      console.warn('failed to fetch fallback', fallbackUrl, e);
+    }
+  }
 
   if (!destinations || !destinations.length) {
     return destinations || [];
