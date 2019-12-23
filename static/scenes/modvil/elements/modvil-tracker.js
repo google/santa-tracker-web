@@ -56,6 +56,17 @@ class ModvilTrackerElement extends LitElement {
 
     this._preparePromise = this.prepareMaps().then(() => {
       this._ready = true;
+
+      const tilesPromise = new Promise((resolve) => {
+        const listener = this._map.addListener('tilesloaded', () => {
+          google.maps.event.removeListener(listener);
+          resolve();
+        });
+      });
+      const timeoutPromise = new Promise((r) => window.setTimeout(r, 1500));
+
+      return Promise.race([tilesPromise, timeoutPromise]);
+
     }).catch((err) => {
       console.error('failed to build modvil-tracker', err)
     });
@@ -100,7 +111,6 @@ class ModvilTrackerElement extends LitElement {
 
     if (changedProperties.has('_ready') || changedProperties.has('_width')) {
       const mobileMode = (this._width <= 600);
-      console.warn('setting mobileMode', mobileMode);
       this._map.setOptions({
         gestureHandling: mobileMode ? 'none' : 'auto',
         zoomControl: !mobileMode,

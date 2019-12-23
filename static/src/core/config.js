@@ -227,6 +227,14 @@ export function featuredRoute() {
 
 
 /**
+ * @return {boolean} whether to show the tracker
+ */
+export function showTracker() {
+  return remoteConfig.getBoolean('showTracker');
+}
+
+
+/**
  * @param {?string} route to check
  * @param {boolean} fallback whether we are fallback mode
  * @return {?string} route to serve

@@ -19,6 +19,7 @@ var defaults = {
   videos: ['carpool','comroom','jingle','liftoff','museum','office','onvacation','penguinproof','reindeerworries','reload','santasback','satellite','selfies','slackingoff','takeoff','temptation','tired','wheressanta','workshop','likealight','yulelog'],
   refreshEvery: 60,  // this is low, _because_ we're offline
   useGeoIP: true,
+  showTracker: false,
   routeJitter: 10,
 };
 
