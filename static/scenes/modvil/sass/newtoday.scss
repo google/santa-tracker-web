@@ -8,7 +8,7 @@
   position: absolute;
   display: flex;
   justify-content: flex-end;
-  z-index: 10000;
+  z-index: -1;
 
   // Matches modvil-village, but is not part of it. Sticky seems to fail inside Shadow DOM.
   height: 1050px;
@@ -186,6 +186,7 @@
     overflow-x: hidden;
     display: block;
     text-overflow: ellipsis;
+    padding-right: 8px;
   }
 
   .info {

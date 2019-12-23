@@ -100,8 +100,8 @@ santa-card {
 /** modules **/
 
 #modules {
+  // nb. cannot set "overflow: hidden" due to sticky child
   display: flex;
-  overflow: hidden;
   justify-content: center;  // places <main> in middle even if it's too large
 
   .sidebar,
@@ -124,9 +124,6 @@ santa-card {
   }
 
   main {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
     width: 100%;
     max-width: $module-max-width;
   }
