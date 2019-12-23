@@ -242,7 +242,7 @@ modvil-tracker-photo {
   @media (max-width: 600px) {
     left: -($photo-width);
     // bottom: -($photo-height*0.5) + 2%;  // expand from bottom of outer .info div
-    bottom: -34%;  // FIXME: work out how to get this number
+    bottom: calc(-34% - #{$map-footer-size});  // FIXME: work out how to get this number
 
     modvil-tracker-photo {
       width: $photo-width * 2;
