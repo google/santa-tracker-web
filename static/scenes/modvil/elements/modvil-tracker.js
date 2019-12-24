@@ -20,9 +20,6 @@ common.preload.images(
 
 const focusTimeoutDelay = 20 * 1000;  // refocus on Santa after this much inactivity
 
-function idForDetails(details) {
-  return details && details.raw && details.raw.id || null;
-}
 
 
 class ModvilTrackerElement extends LitElement {
@@ -167,16 +164,12 @@ class ModvilTrackerElement extends LitElement {
     this._santaNode.heading = details.heading;
     this._santaNode.stop = details.stop;
     this._santaNode.hidden = details.home;
-
-    // Optionally update stops, for feed images.
-    const existingStopsLength = (this._stops || []).length;
-    if (idForDetails(this._details) !== idForDetails(details) ||
-        existingStopsLength !== details.visibleTo + 1) {
-      this._stops = (this.destinations || []).slice(0, details.visibleTo + 1).map(({id}) => id);
-    }
-
     this._details = details;
 
+    // Optionally update stops, for feed images. Check if length is unexpected and run.
+    if ((this._stops || []).length !== details.visibleTo + 1) {
+      this._stops = (this.destinations || []).slice(0, details.visibleTo + 1).map(({id}) => id);
+    }
 
     if (!this._focusOnSanta) {
       return true;
