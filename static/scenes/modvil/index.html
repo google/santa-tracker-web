@@ -77,7 +77,6 @@ const fallbackFeaturedImageSrc = featuredImage.src;
 api.addEventListener('data', (ev) => {
   const payload = ev.detail;
   const {trackerFlags} = payload;
-  console.info('got data', payload);
 
   if (trackerFlags.showTracker) {
     if (trackerElement.parentNode !== mainElement) {
