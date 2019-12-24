@@ -111,10 +111,17 @@ function startup() {
       forceStaticScope = startParams.get('static');
     }
     if (forceStaticScope) {
-      try {
-        config.staticScope = sanitizeStaticScope(forceStaticScope);
-      } catch (e) {
-        // don't set an invalid URL
+      if (!isProd) {
+        // This arguably makes no sense here, as the files probably have the wrong suffix (i18n),
+        // and you control your own dev environment.
+        console.warn('ignoring custom static scope for dev', forceStaticScope);
+      } else {
+        console.warn('using custom static scope', forceStaticScope);
+        try {
+          config.staticScope = sanitizeStaticScope(forceStaticScope);
+        } catch (e) {
+          // don't set an invalid URL
+        }
       }
     }
 
