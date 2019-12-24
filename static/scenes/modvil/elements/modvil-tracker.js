@@ -6,6 +6,7 @@ import loadMaps from '../../../src/deps/maps.js';
 import mapstyles from '../../../src/deps/mapstyles.json';
 import '../../../src/elements/santa-santa.js';
 import '../../../src/elements/santa-button.js';
+import {localStorage} from '../../../src/storage.js';
 import './modvil-tracker-feed.js';
 import './modvil-tracker-stats.js';
 import './modvil-tracker-photos.js';
@@ -19,7 +20,7 @@ common.preload.images(
 
 
 const focusTimeoutDelay = 20 * 1000;  // refocus on Santa after this much inactivity
-const localStorage = window.localStorage || {};
+
 
 if (!localStorage['routeJitter']) {
   localStorage['routeJitter'] = (Math.random() * 2) - 1;  // between [-1,+1]

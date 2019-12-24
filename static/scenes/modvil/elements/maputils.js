@@ -1,4 +1,5 @@
 import {_static} from '../../../src/magic.js';
+import {localStorage} from '../../../src/storage.js';
 import * as spherical from '../../../src/api/spherical.js';
 
 
@@ -83,9 +84,6 @@ export async function fetchRoute(url, year = (new Date().getFullYear())) {
 
   return destinations;
 }
-
-
-const localStorage = window.localStorage || {};
 
 
 export class DestinationsCache {

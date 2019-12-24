@@ -6,6 +6,7 @@
  */
 
 import {frame} from '../lib/promises.js';
+import {localStorage} from '../storage.js';
 
 const firebase = window.firebase;
 const remoteConfig = firebase.remoteConfig();
@@ -20,7 +21,6 @@ const memoized = {
 };
 
 const isProd = (window.location.hostname === 'santatracker.google.com');
-const localStorage = window.localStorage || {};
 let isOutOfDate = false;
 
 

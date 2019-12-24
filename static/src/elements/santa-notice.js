@@ -1,9 +1,7 @@
 import {html, LitElement} from 'lit-element';
 import styles from './santa-notice.css';
 import {_msg} from '../magic.js';
-
-
-const localStorage = window.localStorage || {};
+import {localStorage} from '../../src/storage.js';
 
 
 export class SantaNoticeElement extends LitElement {

@@ -20,6 +20,7 @@ import './src/elements/santa-cardnav.js';
 import './src/elements/santa-tutorial.js';
 import './src/elements/santa-orientation.js';
 import './src/elements/santa-interlude.js';
+import {localStorage} from './src/storage.js';
 import maybeLoadCast from './src/deps/cast.js';
 import * as kplay from './src/kplay.js';
 import {buildLoader} from './src/core/loader.js';
@@ -133,8 +134,6 @@ chromeElement.addEventListener('sidebar-open', (ev) => {
     }
     updatePlayNextCards(route);
   });
-
-  const localStorage = window.localStorage || {};
 
   function updatePlayNextCards(currentRoute) {
     // array of all possible games
