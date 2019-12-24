@@ -182,7 +182,7 @@ class ModvilTrackerElement extends LitElement {
       // TODO(samthor): this is left over from the old codebase, but works fine.
       // If focused, the zoom is roughly inverse with screen size. Smaller devices see more of the
       // Earth, because they have less context around Santa.
-      const min = (window.innerWidth + usableMap) / 2;
+      const min = (Math.min(1024, window.innerWidth) + usableMap) / 2;
       let zoom = Math.round(min / 160);
       if (details.stop) {
         zoom += 1;  // zoom in at cities

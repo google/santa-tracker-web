@@ -16,9 +16,9 @@ class ItemChooser {
   next() {
     ++this._count;
     if (this._count >= this._options.length) {
-      last = this._options[this._options.length - 1];
+      const last = this._options[this._options.length - 1];
       this._options.sort(() => Math.random() - 0.5);
-      if (this.options[0] === last) {
+      if (this._options[0] === last) {
         this._count = 1;
       } else {
         this._count = 0;
