@@ -45,22 +45,16 @@ class ModvilTrackerFeedElement extends LitElement {
     this._chooser = new ItemChooser(feed.cards);
     this._done = Promise.resolve();  // can choose next right away
     this._mainNode = document.createElement('div');
-
-    Promise.resolve().then(async () => {
-      for (;;) {
-        try {
-          await this.runner();
-        } catch (e) {
-          console.warn('feed runner failed', e);
-        }
-      }
-    });
   }
 
   async runner() {
     let failure = 0;
 
     for (;;) {
+      if (!this.isConnected) {
+        return;
+      }
+
       const choice = this._chooser.next();
 
       const url = `https://firebasestorage.googleapis.com/v0/b/santa-api.appspot.com/o/feed%2F${encodeURIComponent(choice)}?alt=media`;
@@ -102,6 +96,22 @@ class ModvilTrackerFeedElement extends LitElement {
         this._done = promises.timeout(duration);
       }
     }
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+
+    Promise.resolve().then(async () => {
+      for (;;) {
+        try {
+          await this.runner();
+        } catch (e) {
+          console.warn('feed runner failed', e);
+          continue;
+        }
+        break;
+      }
+    });
   }
 
   render() {
