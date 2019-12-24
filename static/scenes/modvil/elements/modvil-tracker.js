@@ -19,7 +19,12 @@ common.preload.images(
 
 
 const focusTimeoutDelay = 20 * 1000;  // refocus on Santa after this much inactivity
+const localStorage = window.localStorage || {};
 
+if (!localStorage['routeJitter']) {
+  localStorage['routeJitter'] = (Math.random() * 2) - 1;  // between [-1,+1]
+}
+const routeJitterRatio = +localStorage['routeJitter'] || 0;
 
 
 class ModvilTrackerElement extends LitElement {
@@ -42,6 +47,7 @@ class ModvilTrackerElement extends LitElement {
     super();
 
     this.trackerOffset = 0;
+    this.routeJitter = 0;  // in seconds
 
     this._map = null;
     this._dataManager = null;
@@ -80,7 +86,8 @@ class ModvilTrackerElement extends LitElement {
     common.preload.wait(this._preparePromise);
 
     const updateNow = () => {
-      this.now = +new Date() + this.trackerOffset;
+      const jitter = routeJitterRatio * this.routeJitter * 1000;  // adjust to ms
+      this.now = +new Date() + this.trackerOffset + jitter;
     };
     updateNow();
     window.setInterval(updateNow, 1000);

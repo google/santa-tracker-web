@@ -435,8 +435,7 @@ async function prepare(control, data) {
             routes: firebaseConfig.routesSnapshot(),
             featured: firebaseConfig.featuredRoute(),
             play: playNextRoute,
-            showTracker: firebaseConfig.showTracker(),
-            routeUrl: firebaseConfig.routeUrl(),
+            trackerFlags: firebaseConfig.trackerFlags(),
             loudCard: firebaseConfig.loudCard(),
             data,
           };

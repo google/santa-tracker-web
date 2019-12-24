@@ -227,10 +227,15 @@ export function featuredRoute() {
 
 
 /**
- * @return {string} route URL with "|LANG|"
+ * @return {!Object} misc tracker flags
  */
-export function routeUrl() {
-  return remoteConfig.getString('routeUrl');
+export function trackerFlags() {
+  return {
+    routeUrl: remoteConfig.getString('routeUrl'),
+    showTracker: remoteConfig.getBoolean('showTracker'),
+    useGeoIP: remoteConfig.getBoolean('useGeoIP'),
+    routeJitter: remoteConfig.getNumber('routeJitter'),
+  };
 }
 
 
@@ -239,14 +244,6 @@ export function routeUrl() {
  */
 export function loudCard() {
   return remoteConfig.getString('loudCard');
-}
-
-
-/**
- * @return {boolean} whether to show the tracker
- */
-export function showTracker() {
-  return remoteConfig.getBoolean('showTracker');
 }
 
 

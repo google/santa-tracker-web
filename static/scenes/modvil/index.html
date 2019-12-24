@@ -44,15 +44,14 @@ api.preload.images(
   'img/village/divider.svg',
 );
 
-const fauxVillageModule = document.getElementById('village');
+const villageElement = document.getElementById('village');
 const androidModuleTemplate = /** @type {!HTMLTemplateElement} */ (document.getElementById('android-module'));
 const insertAndroidCards = () => {
   if (androidModuleTemplate.parentNode) {
     const node = androidModuleTemplate.content.cloneNode(true);
     androidModuleTemplate.remove();
     const main = document.querySelector('main');
-    // TODO(samthor): If the Village doesn't exist because it's instead a Tracker map, check for this.
-    main.insertBefore(node, fauxVillageModule.nextElementSibling);  // insert after village itself
+    main.insertBefore(node, villageElement.nextElementSibling);  // insert after village itself
   }
 };
 
@@ -77,8 +76,10 @@ const fallbackFeaturedImageSrc = featuredImage.src;
 
 api.addEventListener('data', (ev) => {
   const payload = ev.detail;
+  const {trackerFlags} = payload;
+  console.info('got data', payload);
 
-  if (payload.showTracker) {
+  if (trackerFlags.showTracker) {
     if (trackerElement.parentNode !== mainElement) {
       mainElement.prepend(trackerElement);
       api.preload.wait(trackerElement.updateComplete);
@@ -86,11 +87,12 @@ api.addEventListener('data', (ev) => {
   } else {
     trackerElement.remove();
   }
+  trackerElement.routeJitter = trackerFlags.routeJitter;
 
   loudCardElement.hidden = !payload.loudCard;
   loudCardElement.scene = payload.loudCard || null;
 
-  destinationsCache.routeUrl = payload.routeUrl;
+  destinationsCache.routeUrl = trackerFlags.routeUrl;
 
   if (payload.android) {
     insertAndroidCards();
@@ -191,12 +193,12 @@ async function prepareModules() {
     // No scroll sounds on mobile and tablet.
     const isMobileOrTablet = helpers.mobileAndTabletCheck();
 
-    const topRatio = ratioForElement(fauxVillageModule);
+    const topRatio = ratioForElement(villageElement);
     if (!isMobileOrTablet) {
       // Top isn't a module, but it has audio cues.
       updateModuleSoundRatio('top', topRatio);
     }
-    fauxVillageModule.active = topRatio < 1;  // don't render weather if not needed
+    villageElement.active = topRatio < 1;  // don't render weather if not needed
 
     const modules = Array.from(main.children).filter((m) => m.localName === 'modvil-module');
     modules.forEach((m) => {
