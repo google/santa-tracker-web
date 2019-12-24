@@ -1,6 +1,6 @@
 import {LitElement, html} from "lit-element";
 import styles from './modvil-tracker.css';
-import {_static} from '../../../src/magic.js';
+import {_static, _msg} from '../../../src/magic.js';
 import * as common from '../../../src/core/common.js';
 import loadMaps from '../../../src/deps/maps.js';
 import mapstyles from '../../../src/deps/mapstyles.json';
@@ -185,6 +185,9 @@ class ModvilTrackerElement extends LitElement {
       if (photosNode && photosNode.open) {
         usableMap -= 100;  // FIXME: random value
       }
+      if (this._width > 600) {
+        usableMap += 40;  // heading
+      }
 
       // TODO(samthor): this is left over from the old codebase, but works fine.
       // If focused, the zoom is roughly inverse with screen size. Smaller devices see more of the
@@ -292,6 +295,9 @@ class ModvilTrackerElement extends LitElement {
     const destination = this.details && this.details.raw || null;
     return html`
 <div class="outer">
+  <div class="top">
+    <h1>${_msg`tracker_santa_update_1`}</h1>
+  </div>
   ${this._mapNode}
   <div class="info">
     <modvil-tracker-feed></modvil-tracker-feed>
@@ -299,7 +305,7 @@ class ModvilTrackerElement extends LitElement {
     <modvil-tracker-photos .destination=${destination}></modvil-tracker-photos>
   </div>
   <div class="buttons">
-    <santa-button class=${this._focusOnSanta ? 'gone' : ''} @click=${this._onFocusSantaClick}>
+    <santa-button color="green" class=${this._focusOnSanta ? 'gone' : ''} @click=${this._onFocusSantaClick}>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 257.22 139.5"><defs><style>.cls-1,.cls-3{fill:#fff;}.cls-1,.cls-4{stroke:#f9f9f9;stroke-miterlimit:10;}.cls-2{fill:#e53935;}.cls-4{fill:none;}</style></defs><title>hat_santa</title><g id="Layer_2" data-name="Layer 2"><g id="ART"><path class="cls-1" d="M55.9,28.21A27.7,27.7,0,1,1,28.21.5,27.69,27.69,0,0,1,55.9,28.21Z"/><path class="cls-2" d="M68.45,28.2l-1,0V139H242.87C242.87,77.8,164.78,28.2,68.45,28.2Z"/><rect class="cls-3" x="44.36" y="83.6" width="212.36" height="55.4" rx="16.37" ry="16.37"/><rect class="cls-4" x="44.36" y="83.6" width="212.36" height="55.4" rx="16.37" ry="16.37"/></g></g></svg>
     </santa-button>
   </div>

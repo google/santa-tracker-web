@@ -16,6 +16,29 @@
   }
 }
 
+.top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+
+  h1 {
+    font-family: 'Lobster';
+    color: white;
+    margin-top: 0.5em;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.125);
+    opacity: 0.75;
+  }
+}
+
 #top-divider {
   position: relative;
   height: 72px;
@@ -30,7 +53,7 @@
 .buttons {
   position: absolute;
   right: 16px;
-  top: 48px;
+  top: 72px;
 
   santa-button {
     display: inline-block;
