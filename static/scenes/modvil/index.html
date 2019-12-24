@@ -17,6 +17,7 @@ import * as helpers from './helpers.js';
 import {loadAnimation} from '../../src/deps/lottie.js';
 import {animationSoundTriggers} from './animationSoundTriggers.js'
 import {DestinationsCache} from './elements/maputils.js';
+import './elements/modvil-arrow.js';
 import './elements/modvil-module.js';
 import './elements/modvil-village.js';
 import './elements/modvil-tracker.js';
@@ -324,6 +325,8 @@ api.ready(async () => {
   </modvil-module>
 </template>
 
+<div id="top"></div>
+
 <div id="modules">
   <div class="sidebar left"></div>
   <main>
@@ -335,7 +338,7 @@ api.ready(async () => {
   <img src="img/family-icon.png" width="32" height="32" />
   <span msgid="scene_family"></span>
 </button>
-<button id="featuredButton" class="uibutton" disabled>
+<button id="featuredButton" class="featured-button uibutton" disabled>
   <div class="info" msgid="featured"></div>
   <img id="featuredImage" src="../../img/featured/_video.svg" width="32" height="32" />
   <span id="featuredLabel"></span>
@@ -409,7 +412,7 @@ api.ready(async () => {
 </div>
 
 <footer>
-  <a href="#top" slot="low" class="arrow up"></a>
+  <modvil-arrow dir="up" target="top"></modvil-arrow>
 </footer>
 
 </body>

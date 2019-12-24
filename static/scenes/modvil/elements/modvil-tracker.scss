@@ -141,5 +141,29 @@
         margin-top: -20px;
       }
     }
+
+    .explore {
+      min-width: 0;
+      margin-right: 0;
+      flex-grow: 0;  // shrink
+
+      @media (max-width: 768px - 1px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.explore {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+
+  modvil-arrow {
+    --arrow-dim: 42px;
+    font-size: 16px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
+    margin-right: 6px;
   }
 }

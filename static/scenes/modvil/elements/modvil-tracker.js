@@ -323,6 +323,11 @@ class ModvilTrackerElement extends LitElement {
   ${this._mapNode}
   <div class="overflow">
     <div class="info">
+      <div class="explore">
+        <div class="row">
+          <modvil-arrow dir="down" target="village">${_msg`explore`}</modvil-arrow>
+        </div>
+      </div>
       <modvil-tracker-feed .stops=${this._stops}></modvil-tracker-feed>
       <modvil-tracker-stats .details=${this._details} .arrivalTime=${this._closestArrival - this.now}></modvil-tracker-stats>
       <modvil-tracker-photos .destination=${destination}></modvil-tracker-photos>
