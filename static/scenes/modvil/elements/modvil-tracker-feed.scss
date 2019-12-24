@@ -45,4 +45,13 @@
   height: 100%;
   z-index: 1;
   object-fit: cover;
+  transition: transform 0.5s;
+  transform: translateY(0);
+
+  &.gone {
+    transform: translateY(-100%);
+  }
+  &.appear {
+    transform: translateY(100%);
+  }
 }

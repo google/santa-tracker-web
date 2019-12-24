@@ -78,8 +78,10 @@ api.addEventListener('data', (ev) => {
   const payload = ev.detail;
 
   if (payload.showTracker) {
-    mainElement.prepend(trackerElement);
-    api.preload.wait(trackerElement.updateComplete);
+    if (trackerElement.parentNode !== mainElement) {
+      mainElement.prepend(trackerElement);
+      api.preload.wait(trackerElement.updateComplete);
+    }
   } else {
     trackerElement.remove();
   }

@@ -77,29 +77,68 @@
   width: 100%;
   height: 100%;
 
+  .overflow {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    bottom: 0;
+    overflow: hidden;
+  }
+
   .info {
+    pointer-events: auto;
     position: absolute;
     bottom: $map-footer-size;
     left: 0;
     right: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    max-width: 1024px;
+    margin: 0 auto;
     z-index: 1000000;
 
-    @media (max-width: 600px) {
-      flex-flow: column-reverse;
-      justify-content: stretch;
-    }
-
     > * {
-      margin: 0 8px 8px;
-      min-width: 240px;
+      margin: 0 4px 8px;
+      min-width: 180px;
       min-height: 140px;
       height: 140px;  // needed to kick flexbox
+      flex-grow: 1;
 
       &:not(modvil-tracker-photos) {
         position: relative;
         z-index: -1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      flex-flow: row wrap;
+      justify-content: stretch;
+      max-width: 512px;
+
+      modvil-tracker-photos {
+        order: -100;
+      }
+      modvil-tracker-feed {
+        order: -50;
+      }
+      > * {
+        min-width: 180px;
+      }
+    }
+
+    @media (min-width: 600px + 1) {
+      > * {
+        max-width: 240px;
+      }
+      modvil-tracker-feed {
+        height: 180px;
+        margin-top: -40px;
+      }
+      modvil-tracker-stats {
+        height: 160px;
+        margin-top: -20px;
       }
     }
   }

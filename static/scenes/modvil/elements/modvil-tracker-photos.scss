@@ -99,7 +99,16 @@ button.hint {
   left: 0;
   right: 0;
   bottom: -$map-footer-size;  // expand from bottom of outer .info div
-  background: #00cc81;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -50vw;
+    right: -50vw;
+    background: #00cc81;
+    top: 0;
+    height: 100%;
+  }
 
   $_delta: (100% - $photo-height) / 2;
   height: calc(#{$photos-bar-size - $_delta} + #{$photos-bar-top-size});
@@ -173,13 +182,17 @@ button.hint {
     font-family: 'Lobster';
     font-size: 32px;
     font-weight: 300;
-    line-height: 38px;
-    margin: 0 -6px;
+    line-height: 0.75em;
+    margin: 6px -6px 0;
     color: white;
     transform: rotate(-3.5deg);
     max-width: 100%;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.125);
     word-wrap: break-word;
+
+    @media (max-width: 768px - 1px) {
+      font-size: 24px;
+    }
   }
   h2 {
     font-size: 11px;

@@ -38,6 +38,8 @@ class ModvilTrackerElement extends LitElement {
   constructor() {
     super();
 
+    this.trackerOffset = 0;
+
     this._map = null;
     this._dataManager = null;
     this._stopManager = null;
@@ -53,6 +55,8 @@ class ModvilTrackerElement extends LitElement {
     this._mapNode = document.createElement('div');
     this._mapNode.classList.add('map');
     this._santaNode = document.createElement('santa-santa');
+    this._infoNode = document.createElement('div');  // until replaced later
+    this._photosNode = document.createElement('div');  // until replaced later
 
     this._preparePromise = this.prepareMaps().then(() => {
       this._ready = true;
@@ -72,11 +76,11 @@ class ModvilTrackerElement extends LitElement {
     });
     common.preload.wait(this._preparePromise);
 
-    this.now = +new Date();
-
-    window.setInterval(() => {
-      this.now = +new Date();
-    }, 1000);
+    const updateNow = () => {
+      this.now = +new Date() + this.trackerOffset;
+    };
+    updateNow();
+    window.setInterval(updateNow, 1000);
 
     this._onWindowResize = this._onWindowResize.bind(this);
   }
@@ -104,7 +108,6 @@ class ModvilTrackerElement extends LitElement {
     if (!this._ready) {
       return true;
     }
-    const infoNode = this._mapNode.nextElementSibling || document.createElement('div');  // for safety
 
     if (changedProperties.has('_ready') || changedProperties.has('_width')) {
       const mobileMode = (this._width <= 600);
@@ -120,7 +123,7 @@ class ModvilTrackerElement extends LitElement {
       }
 
       // Set the fake control to a height of the infoNode.
-      const bounds = infoNode.getBoundingClientRect();
+      const bounds = this._infoNode.getBoundingClientRect();
       this._infoOffsetNode.style.height = `${bounds.height}px`;
     }
 
@@ -167,10 +170,9 @@ class ModvilTrackerElement extends LitElement {
 
     try {
       this._duringMapChange = true;
-      let usableMap = infoNode.offsetTop;
+      let usableMap = this._infoNode.offsetTop;
 
-      const photosNode = infoNode.parentNode.querySelector('modvil-tracker-photos');
-      if (photosNode && photosNode.open) {
+      if (this._photosNode.open) {
         usableMap -= 100;  // FIXME: random value
       }
       if (this._width > 600) {
@@ -284,13 +286,15 @@ class ModvilTrackerElement extends LitElement {
     return html`
 <div class="outer">
   <div class="top">
-    <h1>${_msg`tracker_santa_update_1`}</h1>
+    <h1>${_msg`santatracker`}</h1>
   </div>
   ${this._mapNode}
-  <div class="info">
-    <modvil-tracker-feed></modvil-tracker-feed>
-    <modvil-tracker-stats .details=${this.details} .arrivalTime=${this._closestArrival - this.now}></modvil-tracker-stats>
-    <modvil-tracker-photos .destination=${destination}></modvil-tracker-photos>
+  <div class="overflow">
+    <div class="info">
+      <modvil-tracker-feed></modvil-tracker-feed>
+      <modvil-tracker-stats .details=${this.details} .arrivalTime=${this._closestArrival - this.now}></modvil-tracker-stats>
+      <modvil-tracker-photos .destination=${destination}></modvil-tracker-photos>
+    </div>
   </div>
   <div class="buttons">
     <santa-button color="green" class=${this._focusOnSanta ? 'gone' : ''} @click=${this._onFocusSantaClick}>
@@ -300,6 +304,11 @@ class ModvilTrackerElement extends LitElement {
   <div id="top-divider"></div>
 </div>
 `;
+  }
+
+  firstUpdated() {
+    this._infoNode = this.renderRoot.querySelector('.info') || this._infoOffsetNode;
+    this._photosNode = this.renderRoot.querySelector('modvil-tracker-photos') || this._photosNode;
   }
 
   _onFocusSantaClick() {
