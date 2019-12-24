@@ -84,6 +84,61 @@ export async function fetchRoute(url, year = (new Date().getFullYear())) {
 }
 
 
+const localStorage = window.localStorage || {};
+
+
+export class DestinationsCache {
+  constructor(listener) {
+    if (localStorage['destinations']) {
+      try {
+        this._destinations = JSON.parse(localStorage['destinations']);
+      } catch (e) {
+        this._destinations = null;
+        localStorage['routeUrl'] = '';
+      }
+    }
+
+    this._task = null;
+    this._listener = listener;
+
+    if (this._destinations) {
+      console.debug('cache hit for destinations', this._destinations);
+      this._listener(this._destinations);
+    }
+  }
+
+  get destinations() {
+    if (this._task) {
+      return this._task;
+    }
+    return Promise.resolve(this._destinations || []);
+  }
+
+  set routeUrl(routeUrl) {
+    if (localStorage['routeUrl'] === routeUrl) {
+      return;
+    }
+    localStorage['routeUrl'] = routeUrl;
+
+    const p = fetchRoute(routeUrl).then((destinations) => {
+      if (this._task === p) {
+        this._destinations = destinations;
+        console.debug('saved destinations to cache', this._destinations);
+        localStorage['destinations'] = JSON.stringify(destinations);
+        this._listener(destinations);
+        this._task = null;
+      }
+      return destinations;
+    });
+    this._task = p;
+  }
+
+  get routeUrl() {
+    return routeUrl;
+  }
+}
+
+
 export function elementMapsOverlay(layer = 'floatPane') {
   return new class extends google.maps.OverlayView {
     constructor() {

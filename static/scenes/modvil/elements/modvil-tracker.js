@@ -28,7 +28,6 @@ class ModvilTrackerElement extends LitElement {
     return {
       _width: {type: Number},
       destinations: {type: Array},
-      routeUrl: {type: String},
       now: {type: Number},
       _ready: {type: Boolean},
       _focusOnSanta: {type: Boolean},
@@ -102,17 +101,6 @@ class ModvilTrackerElement extends LitElement {
   }
 
   shouldUpdate(changedProperties) {
-    if (changedProperties.has('routeUrl')) {
-      const expected = this.routeUrl;
-      console.info('updating fetching', this.routeUrl);
-      fetchRoute(this.routeUrl).then((destinations) => {
-        console.warn('fetched dests', destinations, 'updating?', this.routeUrl, expected);
-        if (this.routeUrl === expected) {
-          this.destinations = destinations;
-        }
-      });
-    }
-
     if (!this._ready) {
       return true;
     }

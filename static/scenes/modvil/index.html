@@ -16,6 +16,7 @@ import {scenesWithColor} from '../../src/elements/santa-card.js';
 import * as helpers from './helpers.js';
 import {loadAnimation} from '../../src/deps/lottie.js';
 import {animationSoundTriggers} from './animationSoundTriggers.js'
+import {DestinationsCache} from './elements/maputils.js';
 import './elements/modvil-module.js';
 import './elements/modvil-village.js';
 import './elements/modvil-tracker.js';
@@ -61,6 +62,10 @@ const mainElement = document.querySelector('main');
 const trackerElement = document.createElement('modvil-tracker');
 const loudCardElement = document.querySelector('santa-card.loud');
 
+const destinationsCache = new DestinationsCache((destinations) => {
+  trackerElement.destinations = destinations;
+});
+
 // nb. Always show tracker in dev.
 if (window.top == window) {
   mainElement.prepend(trackerElement);
@@ -79,11 +84,10 @@ api.addEventListener('data', (ev) => {
     trackerElement.remove();
   }
 
-  console.info('got card', payload.loudCard);
   loudCardElement.hidden = !payload.loudCard;
   loudCardElement.scene = payload.loudCard || null;
 
-  trackerElement.routeUrl = payload.routeUrl;
+  destinationsCache.routeUrl = payload.routeUrl;
 
   if (payload.android) {
     insertAndroidCards();
