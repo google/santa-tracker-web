@@ -33,6 +33,7 @@ class ModvilTrackerElement extends LitElement {
       _ready: {type: Boolean},
       _focusOnSanta: {type: Boolean},
       _stops: {type: Array},
+      _temporaryDestination: {type: Object},
       // nb. _details isn't here as it changes only based on now/destinations
     };
   }
@@ -140,6 +141,8 @@ class ModvilTrackerElement extends LitElement {
         this._focusTimeout = window.setTimeout(() => {
           this._focusOnSanta = true;
         }, focusTimeoutDelay);
+      } else {
+        this._temporaryDestination = null;
       }
     }
 
@@ -148,7 +151,7 @@ class ModvilTrackerElement extends LitElement {
 
       this._dataManager = new DataManager(this.destinations || []);
       this._dataManager.now = this.now;
-      this._stopManager = new StopManager(this._map, this._dataManager);
+      this._stopManager = new StopManager(this._map, this._dataManager, this._onMarkerClick.bind(this));
       this._stopManager.update();
 
       // Find the nearest stop to the user.
@@ -175,10 +178,13 @@ class ModvilTrackerElement extends LitElement {
       this._stops = (this.destinations || []).slice(0, details.visibleTo + 1).map(({id}) => id);
     }
 
-    if (!this._focusOnSanta) {
-      return true;
+    if (this._focusOnSanta) {
+      this._setLocation(this._santaOverlay.position, details.stop ? 1 : 0);
     }
+    return true;
+  }
 
+  _setLocation(location, offset) {
     try {
       this._duringMapChange = true;
       let usableMap = this._infoNode.offsetTop;
@@ -194,14 +200,11 @@ class ModvilTrackerElement extends LitElement {
       // If focused, the zoom is roughly inverse with screen size. Smaller devices see more of the
       // Earth, because they have less context around Santa.
       const min = (Math.min(1024, window.innerWidth) + usableMap) / 2;
-      let zoom = Math.round(min / 160);
-      if (details.stop) {
-        zoom += 1;  // zoom in at cities
-      }
+      let zoom = Math.round(min / 160) + offset;
       zoom = Math.max(2, Math.min(6, zoom));
 
       const shift = this.offsetHeight - usableMap;
-      const bounds = new google.maps.LatLngBounds(this._santaOverlay.position, this._santaOverlay.position);
+      const bounds = new google.maps.LatLngBounds(location, location);
 
       // nb. This order is pretty specific, otherwise we lose the center.
       this._map.fitBounds(bounds);
@@ -211,8 +214,26 @@ class ModvilTrackerElement extends LitElement {
     } finally {
       this._duringMapChange = false;
     }
+  }
 
-    return true;
+  _onMarkerClick(id) {
+    window.ga('send', 'event', 'tracker', 'click', 'marker');
+    if (this.width <= 600) {
+      return;  // ignore click, mobile UI
+    }
+
+    const cand = this._dataManager.stop(id);
+    if (!cand) {
+      return;  // some problem with data
+    } else if (this.stop === cand) {
+      this._focusOnSanta = true;
+      return;  // clicked on latest stop
+    }
+
+    // Temporarily focus on the place you clicked on.
+    this._focusOnSanta = false;
+    this._temporaryDestination = cand;
+    this._setLocation(this._temporaryDestination.location, 2);
   }
 
   get details() {
@@ -293,7 +314,7 @@ class ModvilTrackerElement extends LitElement {
   }
 
   render() {
-    const destination = this._details && this._details.raw || null;
+    const destination = this._temporaryDestination || this._details && this._details.raw || null;
     return html`
 <div class="outer">
   <div class="top">

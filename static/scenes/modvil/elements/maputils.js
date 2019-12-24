@@ -198,6 +198,11 @@ export class DataManager {
     this._nextOrCurrentIndex = 0;
     this._destinations = destinations;
 
+    this._destinationsByKey = {};
+    destinations.forEach((destination) => {
+      this._destinationsByKey[destination.id] = destination;
+    });
+
     if (this._destinations.length === 0) {
       const year = new Date().getFullYear();
       const countdownTo = +Date.UTC(year, 11, 24, 10, 0, 0);  // 24th Dec at 10:00 UTC
@@ -300,6 +305,9 @@ export class DataManager {
   }
 
   stop(i) {
+    if (typeof i !== 'number') {
+      return this._destinationsByKey[i] || null;
+    }
     if (i < 0) {
       i = this._destinations.length - i;
     }
@@ -405,9 +413,10 @@ export class DataManager {
 
 
 export class StopManager {
-  constructor(map, manager) {
+  constructor(map, manager, listener) {
     this._map = map;
     this._visibleTo = 0;
+    this._listener = listener;
 
     const markerIcon = /** @type {google.maps.Icon} */ ({
       url: _static`img/tracker/marker.png`,
@@ -433,6 +442,7 @@ export class StopManager {
         visible: (i === 0),  // implicit time is zero, hide by default
         title: `${city}, ${region}`,
       });
+      marker.addListener('click', () => listener(id));
       this._markers.push(marker);
     }
 
