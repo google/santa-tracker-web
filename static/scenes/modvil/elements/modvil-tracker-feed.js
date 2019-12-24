@@ -39,7 +39,7 @@ class ModvilTrackerFeedElement extends LitElement {
 
   static get properties() {
     return {
-      _imageNode: {type: Object},
+      _mainNode: {type: Object},
       stops: {type: Array},
     };
   }
@@ -49,7 +49,7 @@ class ModvilTrackerFeedElement extends LitElement {
 
     this._chooser = new ItemChooser(feed.cards);
     this._done = Promise.resolve();  // can choose next right away
-    this._mainNode = document.createElement('div');
+    this._mainNode = document.createElement('main');
     this._visitedStops = new Set();
     this._specialForStop = [];
   }
@@ -83,7 +83,7 @@ class ModvilTrackerFeedElement extends LitElement {
       }
 
       // Use any pending special cards, or the default mechanism. Don't show the same twice.
-      const choice = this._specialForStop.pop() || this._chooser.next();
+      let choice = this._specialForStop.pop() || this._chooser.next();
       if (choice === last) {
         continue;
       }
@@ -100,7 +100,7 @@ class ModvilTrackerFeedElement extends LitElement {
       const asset = await (promise.catch(() => null));
       if (asset === null) {
         ++failure;
-        await promises.timeout(400 * Math.pow(2, failure / 2));  // don't fetch constnatly
+        await promises.timeout(800 * Math.pow(2, failure / 2));  // don't fetch constnatly
         continue;
       }
       failure = 0;
@@ -130,7 +130,7 @@ class ModvilTrackerFeedElement extends LitElement {
           new Promise((r) => asset.addEventListener('ended', r)),
         ]);
       } else {
-        const duration = 4000 * Math.random() + 4000;
+        const duration = 6000 * Math.random() + 6000;
         this._done = promises.timeout(duration);
       }
     }

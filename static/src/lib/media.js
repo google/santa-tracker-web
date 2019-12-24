@@ -1,4 +1,7 @@
 
+const safariCheckTime = 5000;
+const safariCheckInterval = 250;
+
 /**
  * @param {string} src asset to load
  * @return {{promise: !Promise<!Image|!HTMLMediaElement>, asset: !Image|!HTMLMediaElement}}
@@ -20,7 +23,26 @@ export function prepareAsset(src, options) {
         asset.loop = options.loop;
         asset.autoplay = options.autoplay;
         asset.muted = true;
-        asset.addEventListener('canplay', () => resolve(asset));
+
+        // Safari doesn't reliably generate any events on video tags: load or video, without user
+        // interaction.
+        if (navigator.vendor.startsWith('Apple')) {
+          let checks = Math.ceil(safariCheckTime / safariCheckInterval);
+          const interval = window.setInterval(() => {
+            if (--checks <= 0) {
+              window.clearInterval(interval);
+            }
+            if (asset.error) {
+              reject(asset.error);
+            } else if (isFinite(asset.duration) && asset.duration) {
+              resolve(asset);
+            } else if (checks <= 0) {
+              reject(new Error('Safari timeout'));
+            }
+          }, safariCheckInterval);
+        }
+
+        asset.addEventListener('canplaythrough', () => resolve(asset));
         break;
 
       case '.mp3':
