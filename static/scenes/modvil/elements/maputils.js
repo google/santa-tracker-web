@@ -54,6 +54,7 @@ export async function fetchRoute(url, year = (new Date().getFullYear())) {
       destinations = await destinations(fallbackUrl);
     } catch (e) {
       console.warn('failed to fetch fallback', fallbackUrl, e);
+      window.ga('send', 'event', 'tracker', 'destinations', 'failure');
     }
   }
 
@@ -102,7 +103,7 @@ export class DestinationsCache {
     this._listener = listener;
 
     if (this._destinations) {
-      console.debug('cache hit for destinations', this._destinations);
+      window.ga('send', 'event', 'tracker', 'destinations', 'cache-hit');
       this._listener(this._destinations);
     }
   }
@@ -123,10 +124,10 @@ export class DestinationsCache {
     const p = fetchRoute(routeUrl).then((destinations) => {
       if (this._task === p) {
         this._destinations = destinations;
-        console.debug('saved destinations to cache', this._destinations);
         localStorage['destinations'] = JSON.stringify(destinations);
         this._listener(destinations);
         this._task = null;
+        window.ga('send', 'event', 'tracker', 'destinations', 'fetch');
       }
       return destinations;
     });
