@@ -106,6 +106,10 @@ class ModvilTrackerElement extends LitElement {
     window.removeEventListener('resize', this._onWindowResize);
   }
 
+  focusOnSanta() {
+    this._focusOnSanta = true;
+  }
+
   shouldUpdate(changedProperties) {
     if (!this._ready) {
       return true;

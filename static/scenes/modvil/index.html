@@ -306,6 +306,9 @@ api.ready(async () => {
 
   // force lazy-load
   window.dispatchEvent(new CustomEvent('resize'));
+
+  // force focus
+  trackerElement.focusOnSanta();
 });
 
 </script>
