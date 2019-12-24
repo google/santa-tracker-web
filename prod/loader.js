@@ -66,7 +66,8 @@ if ('serviceWorker' in navigator) {
 
 
 // Load support code for fallback browsers like IE11, non-Chromium Edge, and friends. This is
-// needed before using Firebase, as it requires Promise and fetch.
+// needed before using Firebase, as it requires Promise and fetch. This always uses the deployed
+// static version, as we only potentially replace it below after Firebase is ready.
 if (fallback && isProd) {
   load.supportScripts([
     config.staticScope + 'support.js',
@@ -79,6 +80,16 @@ if (fallback && isProd) {
 } else {
   onInteractive(startup);
 }
+
+
+function sanitizeStaticScope(arg) {
+  const staticScopeUrl = new URL(arg, window.location);
+  if (!staticScopeUrl.pathname.match(/\/$/)) {
+    staticScopeUrl.pathname += '/';
+  }
+  return staticScopeUrl.toString();
+}
+
 
 function startup() {
   const startParams = new URLSearchParams(window.location.search);
@@ -94,14 +105,19 @@ function startup() {
       throw new Error('switchOff');
     }
 
-    // Allow optional ?static=... for testing new releases.
+    // Allow Firebase force or optional ?static=... for new releases.
+    let forceStaticScope = remoteConfig.getString('staticScope') || null;
     if (startParams.has('static')) {
-      const staticScopeUrl = new URL(startParams.get('static'), window.location);
-      if (!staticScopeUrl.pathname.match(/\/$/)) {
-        staticScopeUrl.pathname += '/';
-      }
-      config.staticScope = staticScopeUrl.toString();
+      forceStaticScope = startParams.get('static');
     }
+    if (forceStaticScope) {
+      try {
+        config.staticScope = sanitizeStaticScope(forceStaticScope);
+      } catch (e) {
+        // don't set an invalid URL
+      }
+    }
+
     document.body.setAttribute('static', config.staticScope);
 
     // Load entrypoint.
