@@ -138,10 +138,12 @@ function ready() {
   };
 
   playerExtra.addEventListener('error', (event) => {
-    console.warn('error in playerExtra', event.error);
-    if (playerExtra.paused) {
-      fadeToNext();
-    }
+    console.warn('error in playerExtra', event.error, event.target.error);
+    window.setTimeout(() => {
+      if (playerExtra.paused) {
+        fadeToNext();
+      }
+    }, 2000);
   });
   playerExtra.addEventListener('ended', fadeToNext);
 
