@@ -17,9 +17,10 @@ const displayPhotoCount = 4;
 const delayPhotoLoad = 750;
 
 
-function preparePhoto({url, attributionHtml}) {
+function preparePhoto({url, attributionHtml, lg}) {
   const node = document.createElement('modvil-tracker-photo');
   node.attributionHtml = attributionHtml;
+  node.brand = lg;
 
   const {asset, promise} = prepareAsset(url);
   node.append(asset);

@@ -18,7 +18,7 @@ class ModvilTrackerPhotoElement extends LitElement {
       attributionHtml: {type: String},
       _href: {type: String},
       _author: {type: String},
-      _brand: {type: Boolean},
+      brand: {type: Boolean},
     };
   }
 
@@ -33,8 +33,6 @@ class ModvilTrackerPhotoElement extends LitElement {
       const link = div.querySelector('a[href]');
       this._href = link ? link.href.toString() : undefined;
       this._author = div.textContent;
-
-      this._brand = this._href && this._href.endsWith('#_lg') || false;
     }
 
     return true;
@@ -44,7 +42,7 @@ class ModvilTrackerPhotoElement extends LitElement {
     return html`
 <div class="inner">
   <slot></slot>
-  <div class="attribution ${this._brand ? 'brand' : ''}">
+  <div class="attribution ${this.brand ? 'brand' : ''}">
     <a target="_blank" href=${ifDefined(this._href)}>${this._author}</a>
   </div>
 </div>
