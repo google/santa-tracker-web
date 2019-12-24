@@ -20,6 +20,10 @@ common.preload.images(
 
 const focusTimeoutDelay = 20 * 1000;  // refocus on Santa after this much inactivity
 
+function idForDetails(details) {
+  return details && details.raw && details.raw.id || null;
+}
+
 
 class ModvilTrackerElement extends LitElement {
   static get styles() { return [styles]; }
@@ -31,6 +35,7 @@ class ModvilTrackerElement extends LitElement {
       now: {type: Number},
       _ready: {type: Boolean},
       _focusOnSanta: {type: Boolean},
+      _stops: {type: Array},
       // nb. _details isn't here as it changes only based on now/destinations
     };
   }
@@ -162,7 +167,16 @@ class ModvilTrackerElement extends LitElement {
     this._santaNode.heading = details.heading;
     this._santaNode.stop = details.stop;
     this._santaNode.hidden = details.home;
+
+    // Optionally update stops, for feed images.
+    const existingStopsLength = (this._stops || []).length;
+    if (idForDetails(this._details) !== idForDetails(details) ||
+        existingStopsLength !== details.visibleTo + 1) {
+      this._stops = (this.destinations || []).slice(0, details.visibleTo + 1).map(({id}) => id);
+    }
+
     this._details = details;
+
 
     if (!this._focusOnSanta) {
       return true;
@@ -282,7 +296,7 @@ class ModvilTrackerElement extends LitElement {
   }
 
   render() {
-    const destination = this.details && this.details.raw || null;
+    const destination = this._details && this._details.raw || null;
     return html`
 <div class="outer">
   <div class="top">
@@ -291,8 +305,8 @@ class ModvilTrackerElement extends LitElement {
   ${this._mapNode}
   <div class="overflow">
     <div class="info">
-      <modvil-tracker-feed></modvil-tracker-feed>
-      <modvil-tracker-stats .details=${this.details} .arrivalTime=${this._closestArrival - this.now}></modvil-tracker-stats>
+      <modvil-tracker-feed .stops=${this._stops}></modvil-tracker-feed>
+      <modvil-tracker-stats .details=${this._details} .arrivalTime=${this._closestArrival - this.now}></modvil-tracker-stats>
       <modvil-tracker-photos .destination=${destination}></modvil-tracker-photos>
     </div>
   </div>

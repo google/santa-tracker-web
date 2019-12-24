@@ -13,6 +13,10 @@ class ItemChooser {
     this._count = 0;
   }
 
+  get curr() {
+    return this._options[this._count];
+  }
+
   next() {
     ++this._count;
     if (this._count >= this._options.length) {
@@ -36,6 +40,7 @@ class ModvilTrackerFeedElement extends LitElement {
   static get properties() {
     return {
       _imageNode: {type: Object},
+      stops: {type: Array},
     };
   }
 
@@ -45,17 +50,50 @@ class ModvilTrackerFeedElement extends LitElement {
     this._chooser = new ItemChooser(feed.cards);
     this._done = Promise.resolve();  // can choose next right away
     this._mainNode = document.createElement('div');
+    this._visitedStops = new Set();
+    this._specialForStop = [];
+  }
+
+  shouldUpdate(changedProperties) {
+    if (changedProperties.has('stops')) {
+      this._visitedStops = new Set(this.stops || []);
+
+      const lastStop = this.stops.slice(-1)[0] || null;
+      this._specialForStop = [];
+
+      // Find any special cards for this new, last stop.
+      for (const cand in feed.limit) {
+        const stop = feed.limit[cand];
+        if (stop === lastStop) {
+          this._specialForStop.push(cand);
+        }
+      }
+      this._specialForStop.sort(() => Math.random() - 0.5);
+    }
+    return true;
   }
 
   async runner() {
     let failure = 0;
+    let last = null;
 
     for (;;) {
       if (!this.isConnected) {
         return;
       }
 
-      const choice = this._chooser.next();
+      // Use any pending special cards, or the default mechanism. Don't show the same twice.
+      const choice = this._specialForStop.pop() || this._chooser.next();
+      if (choice === last) {
+        continue;
+      }
+      last = choice;
+
+      const requiredStop = feed.limit[choice];
+      if (requiredStop && !this._visitedStops.has(requiredStop)) {
+        // Skip as we're not yet past this stop.
+        continue;
+      }
 
       const url = `https://firebasestorage.googleapis.com/v0/b/santa-api.appspot.com/o/feed%2F${encodeURIComponent(choice)}?alt=media`;
       const {promise} = prepareAsset(url);
