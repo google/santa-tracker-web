@@ -92,9 +92,8 @@ function sanitizeStaticScope(arg) {
 
 
 function startup() {
-  const startParams = new URLSearchParams(window.location.search);
-
   // Check Android TWA, but force it if the "?android=1" param is set.
+  const startParams = new URLSearchParams(window.location.search);
   isAndroidTWA(startParams.has('android'));
 
   // Wait for both Firebase Remote Config and the Service Worker (optional), then load entrypoint.
@@ -106,10 +105,7 @@ function startup() {
     }
 
     // Allow Firebase force or optional ?static=... for new releases.
-    let forceStaticScope = remoteConfig.getString('staticScope') || null;
-    if (startParams.has('static')) {
-      forceStaticScope = startParams.get('static');
-    }
+    const forceStaticScope = remoteConfig.getString('staticScope') || null;
     if (forceStaticScope) {
       if (!isProd) {
         // This arguably makes no sense here, as the files probably have the wrong suffix (i18n),
