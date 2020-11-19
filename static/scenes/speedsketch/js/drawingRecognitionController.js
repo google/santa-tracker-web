@@ -91,9 +91,7 @@ app.DrawingRecognitionController.prototype.processDrawing = function(drawing) {
       console.error(jqXHR, textStatus, errorThrown);
     })
     .done(function(data) {
-      if(data[0] == "SUCCESS") {
         this.processRecognitionResponse(this.handwritingAPI.parseResponse(data));
-      }
     }.bind(this));
   }
 };

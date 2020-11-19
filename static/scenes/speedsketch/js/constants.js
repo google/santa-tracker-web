@@ -28,7 +28,7 @@ app.Constants = {
   // Duration of game in seconds
   INITIAL_COUNTDOWN: 30,
   COUNTDOWN_FLASH: 10,
-  HANDWRITING_URL: "https://inputtools.google.com/request?ime=handwriting&app=santa&dbg=1&cs=1&oe=UTF-8",
+  HANDWRITING_URL: "https://handwriting.googleapis.com/v1beta1/labeledInks:recognizeInks?key=AIzaSyDH0ZhfpNC39Bx_7Z8s9KFNprToZbNP88A",
   HANDWRITING_THRESHOLD: 4.0,
   HANDWRITING_RECOGNITION_THRESHOLD: 2.0,
   // Max allowed rate recognition api can be called in seconds
