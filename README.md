@@ -1,23 +1,44 @@
 # Google Santa Tracker for Web
 
 This repository contains the code to [Google Santa Tracker](https://santatracker.google.com), an educational and entertaining tradition for the December holiday period.
-It is a companion to the [Android](https://github.com/google/santa-tracker-android) app.
+We hope you find this source code useful, but in general, we do not accept external contributions or respond to bug reports from the public.
 
-# Supports
+## Supports
 
-Santa Tracker supports Chrome, Firefox and Safari.
+Santa Tracker supports evergreen versions of Chrome, Firefox and Safari.
 It also supports other Chromium-based browsers (Edge, Opera etc).
 
-We present a "fallback mode" for older browsers, such as IE11.
-Many older scenes support these browsers just fine.
+We also present a "fallback mode" for older browsers, such as IE11, which allow users to play a small number of historic games.
 
 # Run
 
 You'll need `yarn` or `npm`.
 You may also need Java if you're building on Windows, as the binary version of Closure Compiler is unsupported on that platform.
 
-Clone and run `yarn` to install deps, and run `./serve.js` to run a development server.
-This server compiles resources 'on-demand', and will copy the serving URL to your clipboard.
+Clone and run `yarn` or `npm install` to install deps, and run `./serve.js` to run a development server.
+The development URL will be copied to your clipboard.
+
+## Development
+
+The serving script `./serve.js` will listen on both ports 8000 and 8080 by default.
+The lower port serves the contents of `prod/`, which provides the "host" which fundamentally loads scenes in frames (this matches the production https://santatracker.google.com domain).
+
+To load a specific scene, open e.g., http://localhost:8000/boatload.html.
+Once the site is loaded, you can also run `santaApp.route = 'sceneName'` in the console to switch scenes programatically.
+
+If you'd like to load a scene from the static domain—without the "host" code—you can load it at e.g., http://127.0.0.1:8080/st/scenes/elfmaker/.
+This is intentionally not equal to "localhost" so that prod and static run cross-domain.
+The "host" provides scores, audio and some UI, so not all behavior is available in this mode.
+
+As of 2020, development requires Chrome or a Chromium-based browser.
+This is due to the way we identify ESM import requests, where Chromium specifies additional headers.
+(This is a bug, not a feature.)
+
+## Production
+
+While the source code includes a release script, it's not intended for end-users to run and is used by Googlers to deploy the site.
+
+<!--
 
 ## Staging
 
@@ -38,30 +59,14 @@ Santa Tracker is served entirely with static resources, so unlike development, e
 
 TODO(samthor): finish this part.
 
+-->
+
 # Development Guide
-
-The serving script `./serve.js` will listen on http://localhost:8000 by default.
-This serves the contents of `prod/`, which provides the "host" which fundamentally loads scenes in frames.
-
-To load a specific scene, open e.g. http://localhost:8000/boatload.html, or whatever matches the scene's name.
-Once the site is loaded, you can also run `santaApp.route = 'sceneName'` in the console to switch scenes programatically.
-
-## Advanced
-
-Scenes are served from the static host, by default, hosted at http://127.0.0.1:8080/st/.
-This is intentionally not equal to "localhost" so that prod and static run in isolated contexts.
-
-To load individual scenes without their host, find them under http://127.0.0.1:8080/st/static/scenes/.
-In this mode, features like scores, audio, some UI, and gamepads will not function as they are provided by the prod "host".
-
-As of 2019, development requires Chrome or a Chrome-like browser.
-
-The [Staging](#Staging) guide above removes this isolation so that staging is a simple process that only requires a single domain.
 
 ## Add A New Scene
 
 Scenes are fundamentally just pages loaded in an `<iframe>`.
-You can write them in any way you like, but be sure to call out to the 'host API' to play audio, report scores, or request other things like the display of tutorials.
+You can write them in any way you like, but be sure to call out to the "host" to play audio, report scores, or request other things like the display of tutorials.
 
 To add a new scene, you'll need to:
 
@@ -69,7 +74,7 @@ To add a new scene, you'll need to:
 
   1. Ensure you include a `<script type="module">` that imports `src/scene/api.js`, which sets up the connection to the prod "host".
   2. Optionally listen to events from the API, such as 'pause', 'resume', and 'restart'; and configure an `api.ready(() => { ... })` callback that is triggered when the scene is to be swapped in
-  3. Import `./:closure.js` if you're writing Closure-style code―this will compile everything under `js/`
+  3. Import the magic URL `./:closure.js` if you're writing Closure-style code―this will compile everything under `js/`
   4. For more information, see an existing scene like [boatload](static/scenes/boatload/index.html) or [santaselfie](static/scenes/santaselfie/index.html)
 
 * Add associated PNGs:
@@ -83,7 +88,7 @@ To add a new scene, you'll need to:
 
 ## Environment
 
-The build system provides a virtual file system that automatically compiles various source types useful for development.
+The build system provides a virtual file system that automatically compiles various source types useful for development and provides a number of helpers.
 This includes:
 
 * `.css` files are generated for their corresponding `.scss`
@@ -116,10 +121,11 @@ As well as JavaScript itself, Santa Tracker's development environment allows imp
 
 ## Sound
 
-Santa Tracker uses an audio library known as kplay, which is inspired by [Klang](https://jshakansson.se/portfolio/item/santatracker) and reads its config files.
-It exists in the prod "host" only, but can be triggered by API calls in scenes.
+Santa Tracker uses an audio library known which exists in the prod "host" only, but can be triggered by API calls in scenes.
+This is largely undocumented and provided by an external vendor.
+If you're interested in the audio source files, they are in the repo under `static/audio` (and are licensed, as mentioned below, as CC-BY-NC).
 
-It plays audio triggers which play temporary sounds (e.g., a button click) or loops (audio tracks).
+The audio library plays audio triggers which play temporary sounds (e.g., a button click) or loops (audio tracks).
 Scenes can be configured with audio triggers to start with (via `api.config({sound: [...]})`) which will cause all previous audio to stop, good for shutting down previous games.
 
 ## Translations
@@ -136,7 +142,7 @@ All image and audio files (including *.png, *.jpg, *.svg, *.mp3, *.wav
 and *.ogg) are licensed under the CC-BY-NC license. All other files are 
 licensed under the Apache 2 license. See the LICENSE file for details.
 
-    Copyright 2019 Google LLC
+    Copyright 2020 Google LLC
     
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
