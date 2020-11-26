@@ -1,8 +1,9 @@
 {
   "name": "santatracker",
-  "version": "2019.1.0",
+  "version": "2020.1.0",
   "license": "Apache-2.0",
   "scripts": {
+    "dev": "npm run start",
     "start": "./serve.js",
     "release": "./release.js",
     "test": "mocha-headless-server src/api/test.html"
