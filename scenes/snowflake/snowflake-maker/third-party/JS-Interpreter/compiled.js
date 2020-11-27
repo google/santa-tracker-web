@@ -1,3 +1,19 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 (function(a,b){if("object"==typeof exports&&"object"==typeof module)return b(exports);if("function"==typeof define&&define.amd)return define(["exports"],b);b(a.acorn||(a.acorn={}))})(this,function(a){function b(a){k=a||{};for(var b in Sa)Object.prototype.hasOwnProperty.call(k,b)||(k[b]=Sa[b]);ua=k.sourceFile||null}function c(a,b){var c=Ab(h,a);b+=" ("+c.line+":"+c.column+")";var p=new SyntaxError(b);p.pos=a;p.loc=c;p.raisedAt=g;throw p;}function d(a){function b(a){if(1==a.length)return c+="return str === "+
 JSON.stringify(a[0])+";";c+="switch(str){";for(var b=0;b<a.length;++b)c+="case "+JSON.stringify(a[b])+":";c+="return true}return false;"}a=a.split(" ");var c="",p=[],d=0;a:for(;d<a.length;++d){for(var e=0;e<p.length;++e)if(p[e][0].length==a[d].length){p[e].push(a[d]);continue a}p.push([a[d]])}if(3<p.length){p.sort(function(a,b){return b.length-a.length});c+="switch(str.length){";for(d=0;d<p.length;++d)a=p[d],c+="case "+a[0].length+":",b(a);c+="}"}else b(a);return new Function("str",c)}function e(){this.line=
 G;this.column=g-D}function f(a,b){V=g;k.locations&&(ha=new e);l=a;t();H=b;P=a.beforeExpr}function r(){for(var a=g,b=k.onComment&&k.locations&&new e,c=h.charCodeAt(g+=2);g<Q&&10!==c&&13!==c&&8232!==c&&8233!==c;)++g,c=h.charCodeAt(g);if(k.onComment)k.onComment(!1,h.slice(a+2,g),a,g,b,k.locations&&new e)}function t(){for(;g<Q;){var a=h.charCodeAt(g);if(32===a)++g;else if(13===a)++g,a=h.charCodeAt(g),10===a&&++g,k.locations&&(++G,D=g);else if(10===a||8232===a||8233===a)++g,k.locations&&(++G,D=g);else if(8<
