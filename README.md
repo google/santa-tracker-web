@@ -1,5 +1,6 @@
-Google Santa Tracker for Web
-============================
+⚠️ This contains the code for Santa Tracker used up until 2018.
+
+# Intro
 
 This repository contains the code to [Google Santa Tracker](https://santatracker.google.com), an educational and entertaining tradition for the December holiday period.
 It is a companion to the [Android](https://github.com/google/santa-tracker-android) app.
