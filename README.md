@@ -68,7 +68,7 @@ TODO(samthor): finish this part.
 
 # Historic Versions
 
-The previous version of Santa Tracker, used until 2018, is available in the [archive-2018](tree/archive-2018) branch.
+The previous version of Santa Tracker, used until 2018, is available in the [archive-2018](../tree/archive-2018) branch.
 
 # Development Guide
 
