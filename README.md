@@ -1,7 +1,11 @@
 # Google Santa Tracker for Web
 
 This repository contains the code to [Google Santa Tracker](https://santatracker.google.com), an educational and entertaining tradition for the December holiday period.
-We hope you find this source code useful, but in general, we do not accept external contributions or respond to bug reports from the public.
+Santa Tracker is built by Developer Relations within Google.
+
+We hope you find this source code interesting.
+In general, we do not accept external contributions from the public.
+You can file bug reports or feature requests, or contact the engineering lead [@samthor](https://twitter.com/samthor).
 
 ## Supports
 
@@ -17,6 +21,7 @@ You may also need Java if you're building on Windows, as the binary version of C
 
 Clone and run `yarn` or `npm install` to install deps, and run `./serve.js` to run a development server.
 The development URL will be copied to your clipboard.
+Have fun! 🎅🎄🎁
 
 ## Development
 
@@ -60,6 +65,10 @@ Santa Tracker is served entirely with static resources, so unlike development, e
 TODO(samthor): finish this part.
 
 -->
+
+# Historic Versions
+
+The previous version of Santa Tracker, used until 2018, is available in the [2018](tree/2018) branch.
 
 # Development Guide
 
