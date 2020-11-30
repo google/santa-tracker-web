@@ -224,44 +224,42 @@ app.view.CardsView.prototype.fetchAndShowDrawingNeighbors = function(round) {
       console.error(jqXHR, textStatus, errorThrown);
     })
     .done((data) => {
-      if (data[0] == "SUCCESS") {
-        data = this.handwritingAPI.parseResponse(data);
-        var neighbors = data.filter((d) => d.neighbor);
+      data = this.handwritingAPI.parseResponse(data);
+      var neighbors = data.filter((d) => d.neighbor);
 
-        neighbors = neighbors.filter((neighbor) => {
-          return neighbor.word != round.word;
-        });
+      neighbors = neighbors.filter((neighbor) => {
+        return neighbor.word != round.word;
+      });
 
-        neighbors = neighbors.slice(0, 3);
+      neighbors = neighbors.slice(0, 3);
 
-        // Loop over the three neighbors
-        for (var i = 0; i < 3; i++) {
-          if (neighbors.length > i) {
-            var elem = $(neighborElems[i]);
-            elem.show();
+      // Loop over the three neighbors
+      for (var i = 0; i < 3; i++) {
+        if (neighbors.length > i) {
+          var elem = $(neighborElems[i]);
+          elem.show();
 
-            // Set Text
-            var textElem = elem.find('p');
-            textElem.text(app.Utils.getItemTranslation(this.container,
-                neighbors[i].word) || neighbors[i].word);
+          // Set Text
+          var textElem = elem.find('p');
+          textElem.text(app.Utils.getItemTranslation(this.container,
+						     neighbors[i].word) || neighbors[i].word);
 
-            // Set Reference Element
-            var referenceElem = elem.find('.rounddetails-card__similar-drawing-reference');
-            referenceElem.html('');
-            var svgReference = app.SVGUtils.createSvgFromSegments(round.drawing, elem.width(), elem.width() * 0.736, {padding: 10, color: "rgba(0,0,0,0.15)"});
-            referenceElem.append(svgReference);
+          // Set Reference Element
+          var referenceElem = elem.find('.rounddetails-card__similar-drawing-reference');
+          referenceElem.html('');
+          var svgReference = app.SVGUtils.createSvgFromSegments(round.drawing, elem.width(), elem.width() * 0.736, {padding: 10, color: "rgba(0,0,0,0.15)"});
+          referenceElem.append(svgReference);
 
-            // Set Neighbor Element
-            var neighborElem = elem.find('.rounddetails-card__similar-drawing-neighbor');
-            neighborElem.html('');
-            var svgNeighbor = app.SVGUtils.createSvgFromSegments(neighbors[i].neighbor, elem.width(), elem.width() * 0.736, {padding: 10, order: 1});
-            neighborElem.append(svgNeighbor);
+          // Set Neighbor Element
+          var neighborElem = elem.find('.rounddetails-card__similar-drawing-neighbor');
+          neighborElem.html('');
+          var svgNeighbor = app.SVGUtils.createSvgFromSegments(neighbors[i].neighbor, elem.width(), elem.width() * 0.736, {padding: 10, order: 1});
+          neighborElem.append(svgNeighbor);
 
-          } else {
-            $(neighborElems[i]).hide();
-          }
-        } //ENDFOR
-      }
+        } else {
+          $(neighborElems[i]).hide();
+        }
+      } //ENDFOR
     });
   } else {
     neighborElems.hide();
