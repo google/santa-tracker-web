@@ -174,7 +174,7 @@ module.exports = (staticScope, options) => {
 
   // TODO(samthor): Closure doesn't have to be tied to scenes. But, it's mostly for historic code,
   // so maybe it's not worth making it generic.
-  const closureSceneMatch = /^static\/scenes\/(\w+)\/:closure(|-\w+)\.js$/;
+  const closureSceneMatch = /(static\/scenes\/(\w+)\/:closure(|-\w+)\.js)/; // Old regex didn't detect closure paths correctly
   const closurePlugin = {
     match(id) {
       const rooted = path.relative(__dirname, id);
