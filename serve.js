@@ -45,7 +45,7 @@ const yargs = require('yargs')
       default: false,
       describe: 'Serve static on network address'
     })
-    .option('prefix', {
+    /*.option('prefix', { // Prefix removed to solve the issue with js files going outside of the prefix and not being able to get the files
       type: 'string',
       default: 'st',
       describe: 'Static prefix',
@@ -53,7 +53,7 @@ const yargs = require('yargs')
         return v.replace(/[^a-z0-9]/g, '') || 'st';  // ensure prefix is basic ascii only
       },
       requiresArg: true,
-    })
+    })*/
     .option('lang', {
       type: 'string',
       default: 'en',
@@ -92,7 +92,7 @@ log(chalk.red(messages('santatracker')), `[${yargs.lang}]`);
 // nb. matches config in release.js
 const baseurl = `http://127.0.0.1:${yargs.port + 80}/`;
 const config = {
-  staticScope: `${baseurl}${yargs.prefix}/`,
+  staticScope: `${baseurl}`, // Prefix removed to solve the issue with js files going outside of the prefix and not being able to get the files
   version: `dev-${(new Date).toISOString().replace(/[^\d]/g, '')}`,
   baseurl,
 };
@@ -110,7 +110,7 @@ async function serve() {
     serveLink: true,
   });
   const staticServer = polka();
-  staticServer.use(yargs.prefix, vfsMiddleware(vfs, 'static'), staticHost);
+  staticServer.use('/', vfsMiddleware(vfs, 'static'), staticHost); // Prefix removed to solve the issue with js files going outside of the prefix and not being able to get the files
 
   await listen(staticServer, yargs.port + 80, yargs.all);
   log('Static', chalk.green(config.staticScope), yargs.all ? chalk.red('(on all interfaces)') : '');

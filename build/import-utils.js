@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-const path = require('path');
+const path = require('path').posix; // Windows fix: .posix makes paths use '/' instead of '\', and solves issues linked to that.
 
 const alreadyResolvedMatch = /^(\.{0,2}\/|[a-z]\w*\:)/;  // matches start of './' or 'https:' etc
 

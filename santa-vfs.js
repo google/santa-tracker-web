@@ -15,7 +15,7 @@
  */
 
 const fsp = require('./build/fsp.js');
-const path = require('path');
+const path = require('path').posix; // Windows fix: .posix makes paths use '/' instead of '\', and solves issues linked to that.
 const compileStyles = require('./build/compile-santa-sass.js');
 const compileScene = require('./build/compile-scene.js');
 const JSON5 = require('json5');
@@ -185,9 +185,9 @@ module.exports = (staticScope, options) => {
     },
     async load(id) {
       const m = closureSceneMatch.exec(id);
-      const sceneName = m[1];
+      const sceneName = m[2]; // Was m[1]
 
-      const flags = m[2];
+      const flags = m[3]; // Was m[2]
       if (flags) {
         // nb. This previously allowed e.g., ':closure-typeSafe.js'.
         throw new Error(`unsupported Closure flags: ${flags}`);
