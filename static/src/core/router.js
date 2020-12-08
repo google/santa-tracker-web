@@ -302,7 +302,7 @@ export function globalClickHandler(scope, go) {
       return false;
     }
 
-    // TODO(samthor): This eats "#foo" links. That's probably fine.
+    // TODO(samthor): This eats "#foo" links to other pages. That's probably fine.
 
     const data = params.read(target.search);
     go(matchScene[1] || '', data);

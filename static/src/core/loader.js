@@ -35,6 +35,7 @@ function urlFor(sceneName, fallback, route, hash) {
     params.set('fallback', '1');
   }
   params.set('route', route);
+  params.set('referrer', window.location.origin + window.location.pathname);
   const p = `?${params.toString()}`;
   return join(import.meta.url, '../../scenes', sceneName, trailingIndex) + p + (hash || '');
 }

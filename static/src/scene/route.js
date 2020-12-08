@@ -21,12 +21,28 @@
  * TODO: can also be used by prod.
  */
 
+function guessProdUrl() {
+  let params;
+  try {
+    // Scenes are passed this param in referrer=.
+    params = new URLSearchParams(window.location.search);
+  } catch (e) {
+    // ignore
+  }
+  if (params && params.has('referrer')) {
+    return params.get('referrer');
+  }
+  return document.referrer;
+}
+
 function determine() {
-  if (window.top != window && document.referrer) {
-    const scope = new URL('./', document.referrer);
+  const referrer = guessProdUrl();
+
+  if (window.top != window && referrer) {
+    const scope = new URL('./', referrer);
     return {
       scope: scope.toString(),
-      page: document.referrer,
+      page: referrer,
     };
   }
   const scope = new URL('./', window.location);
