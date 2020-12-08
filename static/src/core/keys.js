@@ -53,17 +53,15 @@ export default function configureCustomKeys(loaderElement) {
   });
 
   document.body.addEventListener('keydown', (ev) => {
-    // Steal gameplay key events from the host frame and focus on the loader. Dispatch a fake event
-    // to the scene so that the keyboard feels fluid.
+    // Notice gameplay key events from the host frame and focus on the loader.
     const code = keycodeMap[ev.key];
     if (!code) {
       return false;  // not part of map, just ignore
     }
 
-    const {control} = global.getState();
-    if (control) {
-      control.send({type: 'keydown', payload: {key: ev.key, keyCode: code}});
-    }
+    // We used to dispatch a fake event to the scene so that the keyboard feels fluid, but we never
+    // followed up with keydown so it caused a bunch of problems.
+    // We do this in the gamepad handler, but ALL input is assumed to be coming from the gamepad.
     ev.preventDefault();
     loaderElement.focus();
   });

@@ -268,6 +268,19 @@ class SantaGameLoaderElement extends HTMLElement {
   }
 
   /**
+   * We override focus to actually focus on the activeFrame. This is used to (hopefully) push
+   * keyboard events there.
+   *
+   * @override
+   */
+  focus() {
+    super.focus();
+    if (this._activeFrame) {
+      this._activeFrame.focus();
+    }
+  }
+
+  /**
    * Load a new scene.
    *
    * @param {?string} href
@@ -340,6 +353,9 @@ class SantaGameLoaderElement extends HTMLElement {
     // Success: the frame has reported ready. The following code is entirely non-async, and just
     // cleans up state as the scene is now active and happy.
     this._previousFrameClose();
+
+    // Try to focus the frame so default keyboard input goes here.
+    frame.focus();
 
     // Clean up CSS classes set during load.
     frame.classList.remove('pending');
