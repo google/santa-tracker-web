@@ -42,6 +42,7 @@ $transition-toolbar: $duration-toolbar ease-in-out;
   padding-top: var(--padding-top, env(safe-area-inset-top, 0px));
   padding-left: var(--padding-side, env(safe-area-inset-left, 0px));
   padding-right: var(--padding-side, env(safe-area-inset-right, 0px));
+  pointer-events: none;
 }
 
 header {
