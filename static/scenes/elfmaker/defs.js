@@ -21,6 +21,19 @@ export const width = 320;
 export const height = 500;
 
 
+export const baseSvgDefs = svg`
+<defs>
+<clipPath id="clip-mask-line">
+<path d="M44.88,116.45l-3.81-45.3c2.28,2.28,1.41,2.75,1.41,6.21a12.54,12.54,0,0,1-21.42,8.87C5.91,71.08,44.88,116.45,44.88,116.45Z"/>
+<path d="M109.84,116.45l3.81-45.3c-2.27,2.28-1.41,2.75-1.41,6.21a12.55,12.55,0,0,0,21.43,8.87C148.81,71.08,109.84,116.45,109.84,116.45Z"/>
+</clipPath>
+<clipPath id="clip-mask">
+<path d="M112.59,112.14a49.33,49.33,0,0,1-24.92,13.67,50,50,0,0,1-10.31,1.07,49.38,49.38,0,0,1-35.24-14.72c1.17-11.2.26-27-4.23-30l3.3-5.84c24.76,0,24.67-6.43,36.17-6.43s11.4,6.43,36.17,6.43l3.29,5.84C112.33,85.13,111.43,100.94,112.59,112.14Z"/>
+</clipPath>
+</defs>
+`;
+
+
 export const baseSvgStyle = `
 .high1 {fill: #332e2e;}
 .high2 {fill: #f9ce1d;}
@@ -32,6 +45,36 @@ export const baseSvgStyle = `
 }
 
 .red {fill: #f44336;}
+
+.mask-parts {
+  stroke-width: 5px;
+}
+.mask-parts-clip {
+  stroke-width: 5px;
+  clip-path: url(#clip-mask-line);
+}
+.mask-main {
+  clip-path: url(#clip-mask);
+}
+.mask-line-underlay {
+  stroke-linecap: round;
+  stroke: #7eb7f2;
+}
+.mask-line {
+  stroke: #b5d5f5;
+}
+.mask-line1 {
+  stroke-dasharray: 9.82 2.45;
+}
+.mask-line2 {
+  stroke-dasharray: 7.55 1.89;
+}
+.mask-11 {
+  stroke: #fff;
+  stroke-width: 1.74px;
+  stroke-miterlimit: 10;
+  stroke-linecap: round;
+}
 `;
 
 
@@ -297,8 +340,8 @@ export function drawElf(config, setup=defaultDrawElf) {
     ${head}
     <g class="hair">${categoryChoice(config, 'hair')}</g>
     <g class="glasses">${categoryChoice(config, 'glasses')}</g>
-    <g class="ears">${categoryChoice(config, 'ears')}</g>
     <g class="accessories">${categoryChoice(config, 'accessories')}</g>
+    <g class="ears">${categoryChoice(config, 'ears')}</g>
   </g>
 </g>
   `;
@@ -611,6 +654,38 @@ const ears = [
 ];
 
 
+const buildMask = (inner) => {
+  return svg`<g transform="translate(27.5 98)">
+  <g class="mask-parts">
+    <line class="mask-line-underlay" x1="39.93" y1="80.02" x2="29.93" y2="59.61"/>
+    <line class="mask-line" x1="39.93" y1="80.02" x2="38.17" y2="76.43"/>
+    <line class="mask-line mask-line1" x1="37.09" y1="74.22" x2="32.23" y2="64.31"/>
+    <line class="mask-line" x1="31.69" y1="63.2" x2="29.93" y2="59.61"/>
+
+    <line class="mask-line-underlay" x1="114.79" y1="80.02" x2="124.79" y2="59.61"/>
+    <line class="mask-line" x1="114.79" y1="80.02" x2="116.55" y2="76.43"/>
+    <line class="mask-line mask-line1" x1="117.63" y1="74.22" x2="122.49" y2="64.31"/>
+    <line class="mask-line" x1="123.03" y1="63.2" x2="124.79" y2="59.61"/>
+  </g>
+  <g class="mask-parts-clip">
+    <line class="mask-line-underlay" x1="109.48" y1="110.96" x2="127.09" y2="88.22"/>
+    <line class="mask-line" x1="109.48" y1="110.96" x2="111.93" y2="107.79"/>
+    <line class="mask-line mask-line2" x1="113.08" y1="106.3" x2="124.06" y2="92.13"/>
+    <line class="mask-line" x1="124.64" y1="91.38" x2="127.09" y2="88.22"/>
+
+    <line class="mask-line-underlay" x1="45.24" y1="110.96" x2="27.64" y2="88.22"/>
+    <line class="mask-line" x1="45.24" y1="110.96" x2="42.79" y2="107.79"/>
+    <line class="mask-line mask-line2" x1="41.64" y1="106.3" x2="30.66" y2="92.13"/>
+    <line class="mask-line" x1="30.08" y1="91.38" x2="27.64" y2="88.22"/>
+  </g>
+  <path class="accessories1" d="M112.6,112.13A49.23,49.23,0,0,1,87.68,125.8a50.18,50.18,0,0,1-10.32,1.08,49.38,49.38,0,0,1-35.24-14.72c1.17-11.2.26-27-4.22-30l3.29-5.83c24.76,0,24.67-6.44,36.17-6.44s11.41,6.44,36.17,6.44l3.29,5.83C112.34,85.13,111.44,100.93,112.6,112.13Z"/>
+  <g class="mask-main">
+    ${inner}
+  </g>
+</g>`;
+};
+
+
 const accessories = [
   '',
   svg`
@@ -655,6 +730,117 @@ const accessories = [
 <path class="accessories1" d="M133.19,146.45h0a12.33,12.33,0,0,1,4.85-2,11.65,11.65,0,0,1,2.19-.19,49.08,49.08,0,0,0-70.46,0,11.57,11.57,0,0,1,2.19.19,12.33,12.33,0,0,1,4.85,2,42.63,42.63,0,0,1,56.38,0Z"/>
 <path style="fill:#f5f5f5" d="M159.2,164.42a15.66,15.66,0,0,0-5.36-9.22c-2.18-7.32-8.92-12.06-15.8-10.79a12.33,12.33,0,0,0-4.85,2,42.67,42.67,0,0,1,12.65,44.31c.25,0,.49,0,.74-.1,6.88-1.27,11.48-8.1,10.91-15.72A15.69,15.69,0,0,0,159.2,164.42Z"/>
 `,  // accessories-7-f.svg
+  buildMask(svg`<path style="stroke:#332f2e;stroke-width:6px;opacity:0.15;" d="M59.85,86.62h28c1.94,0,2.72,2.06,1.12,3l-12.44,7c-1.6.91-.82,3,1.13,3H92.89c1.82,0,2.68,1.85,1.31,2.84L82,111.22"/>`),
+  buildMask(svg`
+<g class="mask-10">
+  <line class="mask-11" x1="114.77" y1="100.25" x2="112.07" y2="109.82"/>
+  <polyline class="mask-11" points="117.97 101.98 113.63 104.41 111.2 100.08"/>
+  <line class="mask-11" x1="113.33" y1="106.7" x2="115.73" y2="109.67"/>
+  <line class="mask-11" x1="122.6" y1="110.12" x2="112.66" y2="110.51"/>
+  <polyline class="mask-11" points="121.94 113.69 118.28 110.32 121.66 106.67"/>
+  <line class="mask-11" x1="116.02" y1="110.74" x2="113.93" y2="113.94"/>
+  <line class="mask-11" x1="115.63" y1="120.62" x2="112.18" y2="111.28"/>
+  <polyline class="mask-11" points="112.03 121.09 114.11 116.57 118.62 118.65"/>
+  <line class="mask-11" x1="113.01" y1="114.54" x2="109.31" y2="113.55"/>
+  <line class="mask-11" x1="103.49" y1="117.23" x2="111.3" y2="111.07"/>
+  <polyline class="mask-11" points="101.93 113.95 106.87 114.53 106.29 119.47"/>
+  <line class="mask-11" x1="108.46" y1="112.86" x2="108.26" y2="109.04"/>
+  <line class="mask-11" x1="102.96" y1="104.64" x2="111.24" y2="110.16"/>
+  <polyline class="mask-11" points="105.6 102.14 106.57 107.02 101.69 107.99"/>
+  <line class="mask-11" x1="108.65" y1="108.01" x2="112.22" y2="106.64"/>
+  <line class="mask-11" x1="114.77" y1="100.25" x2="112.07" y2="109.82"/>
+  <polyline class="mask-11" points="117.97 101.98 113.63 104.41 111.2 100.08"/>
+  <line class="mask-11" x1="113.33" y1="106.7" x2="115.73" y2="109.67"/>
+  <line class="mask-11" x1="45.97" y1="96.87" x2="45.97" y2="106.82"/>
+  <polyline class="mask-11" points="49.52 97.67 46 101.19 42.48 97.67"/>
+  <line class="mask-11" x1="56.18" y1="104.25" x2="46.72" y2="107.32"/>
+  <polyline class="mask-11" points="56.51 107.87 52.08 105.61 54.34 101.18"/>
+  <line class="mask-11" x1="52.32" y1="116.24" x2="46.47" y2="108.19"/>
+  <polyline class="mask-11" points="48.98 117.67 49.76 112.76 54.67 113.54"/>
+  <line class="mask-11" x1="39.72" y1="116.27" x2="45.57" y2="108.23"/>
+  <polyline class="mask-11" points="37.33 113.54 42.24 112.76 43.02 117.67"/>
+  <line class="mask-11" x1="35.8" y1="104.3" x2="45.26" y2="107.37"/>
+  <polyline class="mask-11" points="37.66 101.18 39.92 105.61 35.48 107.87"/>
+  <line class="mask-11" x1="45.97" y1="96.87" x2="45.97" y2="106.82"/>
+  <polyline class="mask-11" points="49.52 97.67 46 101.19 42.48 97.67"/>
+  <line class="mask-11" x1="87.25" y1="104.13" x2="87.25" y2="108.1"/>
+  <polyline class="mask-11" points="88.67 104.45 87.26 105.86 85.86 104.45"/>
+  <line class="mask-11" x1="91.33" y1="107.08" x2="87.55" y2="108.3"/>
+  <polyline class="mask-11" points="91.46 108.52 89.69 107.62 90.59 105.85"/>
+  <line class="mask-11" x1="89.79" y1="111.86" x2="87.45" y2="108.65"/>
+  <polyline class="mask-11" points="88.45 112.43 88.76 110.47 90.72 110.78"/>
+  <line class="mask-11" x1="84.76" y1="111.87" x2="87.09" y2="108.66"/>
+  <polyline class="mask-11" points="83.81 110.78 85.76 110.47 86.08 112.43"/>
+  <line class="mask-11" x1="83.19" y1="107.1" x2="86.97" y2="108.32"/>
+  <polyline class="mask-11" points="83.94 105.85 84.84 107.62 83.07 108.52"/>
+  <line class="mask-11" x1="87.25" y1="104.13" x2="87.25" y2="108.1"/>
+  <polyline class="mask-11" points="88.67 104.45 87.26 105.86 85.86 104.45"/>
+  <line class="mask-11" x1="57.7" y1="73.54" x2="61.31" y2="81.45"/>
+  <polyline class="mask-11" points="61.19 73.73 59.67 77.8 55.6 76.28"/>
+  <line class="mask-11" x1="57.72" y1="73.53" x2="55.36" y2="72.82"/>
+  <line class="mask-11" x1="58.73" y1="71.28" x2="57.72" y2="73.53"/>
+  <line class="mask-11" x1="67.03" y1="74.41" x2="61.98" y2="81.49"/>
+  <polyline class="mask-11" points="68.61 77.52 64.33 78.24 63.6 73.96"/>
+  <line class="mask-11" x1="67.05" y1="74.42" x2="66.48" y2="72.02"/>
+  <line class="mask-11" x1="69.5" y1="74.17" x2="67.05" y2="74.42"/>
+  <line class="mask-11" x1="70.94" y1="82.92" x2="62.29" y2="82.1"/>
+  <polyline class="mask-11" points="69.04 85.85 66.27 82.5 69.62 79.73"/>
+  <line class="mask-11" x1="70.94" y1="82.95" x2="72.74" y2="81.26"/>
+  <line class="mask-11" x1="72.38" y1="84.94" x2="70.94" y2="82.95"/>
+  <line class="mask-11" x1="65.53" y1="90.57" x2="61.91" y2="82.66"/>
+  <polyline class="mask-11" points="62.04 90.38 63.56 86.31 67.63 87.83"/>
+  <line class="mask-11" x1="65.5" y1="90.58" x2="67.86" y2="91.29"/>
+  <line class="mask-11" x1="64.5" y1="92.83" x2="65.5" y2="90.58"/>
+  <line class="mask-11" x1="56.2" y1="89.7" x2="61.24" y2="82.62"/>
+  <polyline class="mask-11" points="54.61 86.59 58.9 85.87 59.62 90.15"/>
+  <line class="mask-11" x1="56.18" y1="89.69" x2="56.74" y2="92.09"/>
+  <line class="mask-11" x1="53.73" y1="89.94" x2="56.18" y2="89.69"/>
+  <line class="mask-11" x1="52.29" y1="81.19" x2="60.94" y2="82.01"/>
+  <polyline class="mask-11" points="54.19 78.26 56.96 81.61 53.6 84.38"/>
+  <line class="mask-11" x1="52.29" y1="81.16" x2="50.49" y2="82.85"/>
+  <line class="mask-11" x1="50.84" y1="79.17" x2="52.29" y2="81.16"/>
+  <line class="mask-11" x1="57.7" y1="73.54" x2="61.31" y2="81.45"/>
+  <polyline class="mask-11" points="61.19 73.73 59.67 77.8 55.6 76.28"/>
+  <line class="mask-11" x1="57.72" y1="73.53" x2="55.36" y2="72.82"/>
+  <line class="mask-11" x1="58.73" y1="71.28" x2="57.72" y2="73.53"/>
+  <line class="mask-11" x1="75.69" y1="119.01" x2="75.69" y2="126.87"/>
+  <polyline class="mask-11" points="78.49 119.65 75.72 122.43 72.94 119.65"/>
+  <line class="mask-11" x1="83.76" y1="124.84" x2="76.29" y2="127.27"/>
+  <polyline class="mask-11" points="84.02 127.7 80.52 125.92 82.3 122.42"/>
+  <line class="mask-11" x1="80.71" y1="134.31" x2="76.09" y2="127.96"/>
+  <polyline class="mask-11" points="78.07 135.44 78.68 131.56 82.56 132.18"/>
+  <line class="mask-11" x1="70.76" y1="134.34" x2="75.37" y2="127.98"/>
+  <polyline class="mask-11" points="68.87 132.18 72.75 131.56 73.36 135.44"/>
+  <line class="mask-11" x1="67.66" y1="124.88" x2="75.13" y2="127.31"/>
+  <polyline class="mask-11" points="69.13 122.42 70.91 125.92 67.41 127.7"/>
+  <line class="mask-11" x1="75.69" y1="119.01" x2="75.69" y2="126.87"/>
+  <polyline class="mask-11" points="78.49 119.65 75.72 122.43 72.94 119.65"/>
+  <line class="mask-11" x1="116.55" y1="74.61" x2="116.55" y2="81.73"/>
+  <polyline class="mask-11" points="119.09 75.19 116.57 77.7 114.05 75.19"/>
+  <line class="mask-11" x1="123.86" y1="79.89" x2="117.09" y2="82.09"/>
+  <polyline class="mask-11" points="124.09 82.48 120.92 80.87 122.54 77.69"/>
+  <line class="mask-11" x1="121.1" y1="88.47" x2="116.91" y2="82.72"/>
+  <polyline class="mask-11" points="118.7 89.5 119.26 85.98 122.78 86.54"/>
+  <line class="mask-11" x1="112.08" y1="88.5" x2="116.26" y2="82.74"/>
+  <polyline class="mask-11" points="110.36 86.54 113.88 85.98 114.44 89.5"/>
+  <line class="mask-11" x1="109.27" y1="79.93" x2="116.04" y2="82.13"/>
+  <polyline class="mask-11" points="110.6 77.69 112.22 80.87 109.05 82.48"/>
+  <line class="mask-11" x1="116.55" y1="74.61" x2="116.55" y2="81.73"/>
+  <polyline class="mask-11" points="119.09 75.19 116.57 77.7 114.05 75.19"/>
+  <line class="mask-11" x1="89.01" y1="77.59" x2="91.55" y2="83.07"/>
+  <polyline class="mask-11" points="91.17 77.13 90.13 79.97 87.3 78.93"/>
+  <line class="mask-11" x1="96.51" y1="79.04" x2="92.1" y2="83.15"/>
+  <polyline class="mask-11" points="97.62 80.95 94.61 80.84 94.72 77.83"/>
+  <line class="mask-11" x1="97.45" y1="86.63" x2="92.18" y2="83.7"/>
+  <polyline class="mask-11" points="95.98 88.27 95.16 85.37 98.06 84.54"/>
+  <line class="mask-11" x1="90.53" y1="89.87" x2="91.69" y2="83.94"/>
+  <polyline class="mask-11" points="88.52 88.97 91.02 87.29 92.7 89.79"/>
+  <line class="mask-11" x1="85.31" y1="84.28" x2="91.3" y2="83.56"/>
+  <polyline class="mask-11" points="85.54 82.09 87.91 83.95 86.05 86.32"/>
+  <line class="mask-11" x1="89.01" y1="77.59" x2="91.55" y2="83.07"/>
+  <polyline class="mask-11" points="91.17 77.13 90.13 79.97 87.3 78.93"/>
+</g>
+`),
 ];
 
 
