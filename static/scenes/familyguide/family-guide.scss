@@ -44,3 +44,9 @@ body {
 .fr:not(:lang(fr)) {
   display: none !important;
 }
+
+// For English language users, we show a different string in the Family Guide.
+// nb. :lang(en) matches "en-GB" or "en-AU" and so on.
+.en:not(:lang(en)) {
+  display: none !important;
+}
