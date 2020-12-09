@@ -117,6 +117,11 @@ const models = [
     },
     cards: [
       {
+        id: 'storybook',
+        title: _msg`scene_ollieundersea`,
+        body: _msg`familyguide_card_16_body`,
+      },
+      {
         id: 'museum',
         title: _msg`scene_videoscene_museum`,
         body: _msg`familyguide_card_13_body`,
@@ -131,12 +136,6 @@ const models = [
         title: _msg`scene_videoscene_liftoff`,
         body: _msg`familyguide_card_15_body`,
       },
-      /* TODO: Holding OLLIE UNDER THE SEA card */
-      // {
-      //   id: 'storybook',
-      //   title: _msg`scene_ollieundersea`,
-      //   body: _msg`familyguide_card_16_body`,
-      // },
     ]
   },
 ];
