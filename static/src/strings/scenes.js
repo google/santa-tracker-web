@@ -86,6 +86,7 @@ export default {
   'underconstruction': _msg`underconstruction`,
   'undersea': _msg`scene_undersea`,
   'village':  _msg`santasvillage`,
+  'yulelog':  _msg`scene_videoscene_yulelog`,
   'wheressanta': _msg`scene_videoscene_wheressanta`,  // 2013
   'windtunnel': _msg`scene_windtunnel`,
   'workshop': _msg`scene_videoscene_workshop`,  // 2014
