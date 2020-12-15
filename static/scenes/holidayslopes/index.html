@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GameSnacks Wrapper</title>
+    <style>
+        html, body {
+            margin: 0;
+            overflow: hidden;
+            height: 100%;
+        }
+        #GSFrame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+  </head>
+  <body>
+      <iframe id="GSFrame" src="https://gamesnacks.com/embed/santa/games/holidayslopes"></iframe>
+  </body>
+  <script type="module">
+    import api from '../../src/scene/api.js';
+
+    api.addEventListener('muted', (ev) => sendAudioStatusToGame(false));
+    api.addEventListener('unmuted', (ev) => sendAudioStatusToGame(true));
+
+    api.config({
+        pause: false,
+        sound: [],
+      });
+
+    api.ready(async () => {
+    });
+
+    let gameRef = document.getElementById("GSFrame");
+
+    function sendAudioStatusToGame(audioStatus) {
+      const audioUpdate = {
+        type: "SANTA_AUDIO_UPDATE",
+        isAudioEnabled: audioStatus,
+      };
+      gameRef.contentWindow.postMessage(JSON.stringify(audioUpdate), "*");
+    }
+  </script>
+</html>
