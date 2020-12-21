@@ -203,11 +203,19 @@ class ModvilTrackerElement extends LitElement {
     }
 
     if (this._focusOnSanta) {
-      this._setLocation(this._santaOverlay.position, details.stop ? 1 : 0);
+      let offset = details.stop ? 1 : 0;
+      if (details.home) {
+        offset = -10;  // zoom as far out as possible here
+      }
+      this._setLocation(this._santaOverlay.position, offset);
     }
     return true;
   }
 
+  /**
+   * @param {google.maps.LatLng} location
+   * @param {number} offset zoom offset to use
+   */
   _setLocation(location, offset) {
     try {
       this._duringMapChange = true;

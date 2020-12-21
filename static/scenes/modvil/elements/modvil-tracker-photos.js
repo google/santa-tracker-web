@@ -28,9 +28,16 @@ common.preload.images(
 );
 
 
-const defaultPhotoAsset = _static`img/tracker/default.png`;
+const defaultAssetCount = 4;
 const displayPhotoCount = 4;
 const delayPhotoLoad = 750;
+
+
+function chooseDefaultAsset() {
+  const defaultPhotoAsset = _static`img/tracker/default`;
+  const count = Math.floor(Math.random() * defaultAssetCount)
+  return defaultPhotoAsset + count + '.png';
+}
 
 
 function preparePhoto({url, attributionHtml, lg}) {
@@ -158,8 +165,12 @@ class ModvilTrackerStatsElement extends LitElement {
     previous.forEach((node) => positions.delete(node.getAttribute('data-position')));
 
     photos = photos.slice();  // don't clobber real data
-    count = Math.max(1, Math.min(photos.length, count));
-    photos.push({url: defaultPhotoAsset});
+    photos = photos.slice(0, 1);
+
+    // Insert four fake photos in case we need them.
+    for (let i = 0; i < displayPhotoCount; ++i) {
+      photos.push({url: chooseDefaultAsset()});
+    }
 
     // Reverse the first ~count photos, AND the remaining photos. This means we request in reverse
     // and ideally end up with the best being the most visible.
@@ -223,7 +234,9 @@ class ModvilTrackerStatsElement extends LitElement {
 
     // We finished updating to a new location. Remove any remaining (e.g. a place with ~2 photos).
     // TODO(samthor): We could fill four photos just with dummy social images.
-    previous.forEach((node) => this._removePhoto(node));
+    previous.forEach((node) => {
+      this._removePhoto(node);
+    });
   }
 
   render() {
