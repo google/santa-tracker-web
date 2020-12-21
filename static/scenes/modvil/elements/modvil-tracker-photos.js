@@ -165,7 +165,6 @@ class ModvilTrackerStatsElement extends LitElement {
     previous.forEach((node) => positions.delete(node.getAttribute('data-position')));
 
     photos = photos.slice();  // don't clobber real data
-    photos = photos.slice(0, 1);
 
     // Insert four fake photos in case we need them.
     for (let i = 0; i < displayPhotoCount; ++i) {
