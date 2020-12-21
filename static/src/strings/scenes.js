@@ -37,6 +37,7 @@ export default {
   'familyguide': _msg`scene_family`,
   'glider': _msg`scene_glider`,
   'gumball': _msg`scene_gumball`,
+  'holidayslopes': _msg`scene_elfski`,
   'icecave': _msg`scene_icecave`,
   'island': _msg`scene_island`,
   'jamband': _msg`scene_jamband`,
