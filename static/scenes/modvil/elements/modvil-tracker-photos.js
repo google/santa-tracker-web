@@ -39,11 +39,38 @@ function chooseDefaultAsset() {
   return defaultPhotoAsset + count + '.png';
 }
 
+const sizeTarget = `=w480`;  // This is different than other clients, but matches the size
+const sizingRegexp = /(=\w\d+|)$/;
+
+const lhHostnameRegexp = /^lh\d+\.googleusercontent\.com$/
+
+/**
+ * Process the raw URL from either route data or the feed JSON, and generate a useful URL for an
+ * image to load, including downsizing the asset.
+ *
+ * @param {string} url
+ * @return {string}
+ */
+const urlForPhoto = (url) => {
+  const lhServer = Math.random() < 0.5 ? 3 : 5;
+  const urlBase = `https://lh${lhServer}.googleusercontent.com`;
+
+  const u = new URL(url, urlBase);
+  if (lhHostnameRegexp.test(u.hostname) || u.origin === urlBase) {
+    // This is a configurable URL.
+    u.pathname = u.pathname.replace(sizingRegexp, sizeTarget)
+  }
+
+  return u.toString();
+};
+
 
 function preparePhoto({url, attributionHtml, lg}) {
   const node = document.createElement('modvil-tracker-photo');
   node.attributionHtml = attributionHtml;
   node.brand = lg;
+
+  url = urlForPhoto(url);
 
   const {asset, promise} = prepareAsset(url);
   node.append(asset);
