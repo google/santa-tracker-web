@@ -17,10 +17,7 @@
 
 import {build} from '../lib/params.js';
 
-const isEndorsed = (['santatracker.google.com', 'maps.gstatic.com'].indexOf(location.hostname) !== -1);
-
-const mapsClient = isEndorsed ? 'google-santa-tracker' : '';
-const apiKey = isEndorsed ? '' : 'AIzaSyCd10wMb551oDwcH7tVZRBPifMh6MQpnpU';  // for localhost, testing
+const apiKey = 'AIzaSyCOEXDJAUuz6VHrOu7YEvsb_ol6RhlqgZA';  // from project 'santa-api'
 
 const mapsApiURLBase = 'https://maps.googleapis.com/maps/api/js';
 const callbackName = '__$global_santa_maps_callback_' + Math.random().toString(16).slice(2);
@@ -28,18 +25,10 @@ const callbackName = '__$global_santa_maps_callback_' + Math.random().toString(1
 function mapsApiURL() {
   const params = {
     'callback': callbackName,
-    'v': '3.exp',
-    'libraries': 'drawing,geometry',
-    'use_slippy': true,
+    'key': apiKey,
   };
   if (document.documentElement.lang) {
     params['language'] = document.documentElement.lang;
-  }
-  if (mapsClient) {
-    params['client'] = mapsClient;
-  }
-  if (apiKey) {
-    params['key'] = apiKey;
   }
   return mapsApiURLBase + build(params);
 }
