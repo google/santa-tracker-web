@@ -83,25 +83,29 @@ app.blocks.install = function() {
       letter: app.I18n.getMsg('CL_moveWest'),
       image: 'img/block-west.svg',
       tooltip: app.I18n.getMsg('CL_moveWestTooltip'),
-      symbol: '\u2190'
+      symbol: '\u2190',
+      short: 'west',
     },
     East: {
       letter: app.I18n.getMsg('CL_moveEast'),
       image: 'img/block-east.svg',
       tooltip: app.I18n.getMsg('CL_moveEastTooltip'),
-      symbol: '\u2192'
+      symbol: '\u2192',
+      short: 'east',
     },
     North: {
       letter: app.I18n.getMsg('CL_moveNorth'),
       image: 'img/block-north.svg',
       tooltip: app.I18n.getMsg('CL_moveNorthTooltip'),
-      symbol: '\u2191'
+      symbol: '\u2191',
+      short: 'north',
     },
     South: {
       letter: app.I18n.getMsg('CL_moveSouth'),
       image: 'img/block-south.svg',
       tooltip: app.I18n.getMsg('CL_moveSouthTooltip'),
-      symbol: '\u2193'
+      symbol: '\u2193',
+      short: 'south',
     }
   };
 
@@ -175,13 +179,17 @@ app.blocks.install = function() {
     return results;
   }
 
-  function generateDirectionOptions() {
+  /**
+   * Generate direction options for use by the jump block.
+   */
+  function generateDirectionOptions(englishStepNames) {
     var keys = Object.keys(DIRECTION_CONFIGS);
     var results = [];
     for (var i = 0, key; key = keys[i]; i++) {
+      var config = DIRECTION_CONFIGS[key];
       results.push([
-        DIRECTION_CONFIGS[key].symbol,
-        DIRECTION_CONFIGS[key].letter
+        config.symbol,
+        englishStepNames ? config.short : config.letter,
       ]);
     }
     return results;
@@ -270,7 +278,7 @@ app.blocks.install = function() {
               optionNumberRange(1, 3)), 'LENGTH')
           .appendField('to')
           .appendField(new Blockly.FieldDropdown(
-              generateDirectionOptions()), 'DIRECTION');
+              generateDirectionOptions(true)), 'DIRECTION');
       this.setPreviousStatement(true);
       this.setNextStatement(true);
       this.setTooltip(app.I18n.getMsg('CL_jumpTooltip'));
