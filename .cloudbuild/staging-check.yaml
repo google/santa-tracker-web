@@ -1,0 +1,16 @@
+# This Cloud Build task can kick off the staging deploy if the hash has changed.
+
+steps:
+  - name: node
+    id: 'Install dependencies'
+    entrypoint: npm
+    args: ['ci']
+
+  - name: node
+    id: 'Verify and maybe kick off build for new version'
+    entrypoint: npm
+    args: ['run', 'staging-check']
+
+options:
+  env:
+  - 'PROJECT_ID=$PROJECT_ID'
