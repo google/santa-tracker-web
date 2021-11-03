@@ -17,5 +17,7 @@ rm -rf $STAGING_ROOT/appengine/prod
 mv dist/prod $STAGING_ROOT/appengine/prod
 
 # move static to firebase
+# Note that when we deploy, we clobber the "old" deploy. People mucking with the staging site will
+# be suddenly surprised when they can't load content!
 mkdir -p $STAGING_ROOT/firebase/public
 mv dist/_static/* $STAGING_ROOT/firebase/public
