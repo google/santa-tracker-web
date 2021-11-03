@@ -27,21 +27,6 @@ func main() {
 	http.ListenAndServe(addr, nil)
 }
 
-// // stripPrefix removes a matching prefix from the given URL, but also inserts a
-// // leading slash if one was missing.
-// func stripPrefix(prefix string, wrapped http.Handler) http.Handler {
-// 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-// 		if strings.HasPrefix(r.URL.Path, prefix) {
-// 			update := r.URL.Path[len(prefix):]
-// 			if !strings.HasPrefix(update, "/") {
-// 				update = "/" + update
-// 			}
-// 			r.URL.Path = update
-// 		}
-// 		wrapped.ServeHTTP(w, r)
-// 	})
-// }
-
 // pathForLangFile serves the specified "rest" file for the given lang, falling
 // back to the top-level if it doesn't exist there.
 func pathForLangFile(lang, rest string) string {
