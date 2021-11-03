@@ -14,25 +14,52 @@
  * limitations under the License.
  */
 
-const fs = require('fs').promises;
+const fsRaw = require('fs');
+const fs = fsRaw.promises;
 const rimraf = require('rimraf');
 
 module.exports = Object.assign({}, fs, {
+
+  /**
+   * @param {string} f to load stats for
+   * @return {Promise<fsRaw.Stats|null>}
+   */
   async statOrNull(f) {
     return fs.stat(f).catch((err) => null);
   },
+
+  /**
+   * @param {string} f to check
+   * @return {Promise<boolean>} does this file exits?
+   */
   async exists(f) {
     return this.statOrNull(f).then((out) => out !== null);
   },
-  mkdirp(f) {
-    return fs.mkdir(f, {recursive: true});
+
+  /**
+   * @param {string} dir to create
+   * @return {Promise<void>}
+   */
+  mkdirp(dir) {
+    return fs.mkdir(dir, {recursive: true});
   },
+
+  /**
+   * @param {string} f to unlink
+   * @return {Promise<void>}
+   */
   unlinkAll(f) {
-    // don't use util.promisify as we disable glob
+    if (fs.rm) {
+      return fs.rm(f, { recursive: true, force: true });
+    }
+
+    // We keep rimraf around for Node < 14.14, as `fs.rm` was only added then.
+    // Don't use util.promisify as we pass options to disable glob.
     return new Promise((resolve, reject) => {
       rimraf(f, {glob: false}, (err) => {
         err ? reject(err) : resolve();
       });
     });
   },
+
 });
