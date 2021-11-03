@@ -3,22 +3,22 @@
 steps:
   - name: node
     id: 'Install dependencies'
-    entrypoint: npm
+    entrypoint: npm 
     args: ['ci']
 
   - name: node
-    id: 'Verify and maybe kick off build for new version'
+    id: 'Build'
     entrypoint: bash
     args: ['.cloudbuild/staging-deploy.sh']
 
   - name: 'gcr.io/$PROJECT_ID/firebase'
     dir: '.cloudbuild/staging/firebase'
-    args: ['deploy', '--only', 'hosting']
+    args: ['deploy', '--only', 'hosting', '--project', 'santa-staging']
 
   - name: 'gcr.io/cloud-builders/gcloud'
     dir: '.cloudbuild/staging/appengine'
     entrypoint: 'bash'
-    args: ['-c', 'gcloud app deploy --version hohoho']
+    args: ['-c', 'gcloud app deploy --version hohoho --project santa-staging']
 
 options:
   machineType: 'E2_HIGHCPU_32'  # yolo
