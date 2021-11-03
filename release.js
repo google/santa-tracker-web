@@ -38,6 +38,7 @@ const {Writer} = require('./build/writer.js');
 const JSON5 = require('json5');
 const {Worker} = require('worker_threads');
 const WorkGroup = require('./build/group.js');
+const { getCurrentVersion } = require('./build/git-version.js');
 
 const DISABLED_SCENES = 'poseboogie languagematch'.split(/\s+/);
 
@@ -720,6 +721,13 @@ async function releaseProd(langs) {
   }
 
   log(`Generated ${chalk.cyan(Object.keys(langs).length)} manifest files`);
+
+  // Write git hash and build version to a known location in prod.
+  // We don't use this in an actual production build (since they're not automated), but this is
+  // picked up by the staging code.
+  const siteHashConents = `${await getCurrentVersion()}:${yargs.build}`;
+  await fsp.writeFile(`dist/prod/hash`, siteHashConents);
+  log(`Written build hash: ${siteHashConents}`);
 }
 
 release().catch((err) => {
