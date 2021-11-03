@@ -150,8 +150,11 @@ module.exports = async function compile(sceneName, compile=true) {
     // Use any native image available, as this can be up to 10x (!) speed improvement on Java.
     const nativeImage = closureCompilerUtils.getNativeImagePath();
     if (nativeImage) {
+      console.warn(`Compiling Closure scene ${sceneName} with native image...`);
       compiler.JAR_PATH = undefined;
       compiler.javaPath = nativeImage;
+    } else {
+      console.warn(`Compiling Closure scene ${sceneName} with Java (unsupported platform=${process.platform})...`);
     }
 
     const {status, code, log} = await invokeCompiler(compiler);

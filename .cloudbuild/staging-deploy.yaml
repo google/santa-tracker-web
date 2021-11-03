@@ -6,6 +6,13 @@ steps:
     entrypoint: npm 
     args: ['ci']
 
+  # This is an optional dependency of "google-closure-compiler", but it doesn't always install on
+  # Cloud Build for some reason. We need this as we can't use the Java compiler in the Node image.
+  - name: node
+    id: 'Force install Closure native Linux binary'
+    entrypoint: 'npm'
+    args: ['install', 'google-closure-compiler-linux']
+
   - name: node
     id: 'Build'
     entrypoint: bash
