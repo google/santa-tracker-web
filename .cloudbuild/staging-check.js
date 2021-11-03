@@ -20,38 +20,15 @@
  * different, and no other build tasks are running, we kick off "staging-deploy".
  */
 
-const { default: fetch } = require('node-fetch');
 const { ErrorReporting } = require('@google-cloud/error-reporting');
 const { CloudBuildClient } = require('@google-cloud/cloudbuild');
-const git = require('git-last-commit');
+const { getDeployedVersion, getCurrentVersion } = require('../build/git-version.js');
 
 const client = new CloudBuildClient();
 const errors = new ErrorReporting();
 
 // This is the trigger ID of "staging-deploy" for "santa-staging".
 const deployTriggerId = 'd6401587-de8b-4507-ae71-bc516fdfc64a';
-
-/**
- * @returns {Promise<string>}
- */
-const getDeployedVersion = () => {
-  return fetch('https://santa-staging.appspot.com/hash')
-    .then((res) => (res.ok ? res.text() : ''));
-};
-
-/**
- * @return {Promise<string>}
- */
-const getCurrentVersion = () => {
-  return new Promise((resolve) => {
-    git.getLastCommit((err, commit) => {
-      if (err) {
-        console.warn(`Could not retrieve current git revision`, err)
-      }
-      resolve(commit?.hash ?? '');
-    });
-  });
-};
 
 (async () => {
   const deployedVersion = await getDeployedVersion();
