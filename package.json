@@ -1,13 +1,14 @@
 {
   "name": "santatracker",
-  "version": "2020.1.0",
+  "version": "2021.1.0",
   "license": "Apache-2.0",
   "scripts": {
     "dev": "npm run start",
     "start": "./serve.js",
     "release": "./release.js",
     "test": "mocha-headless-server src/api/test.html",
-    "staging-check": "node .cloudbuild/staging-check.js"
+    "staging-check": "node .cloudbuild/staging-check.js",
+    "postinstall": "ln -s ../node_modules static/node_modules"
   },
   "dependencies": {
     "@babel/core": "^7.6.0",
@@ -25,7 +26,7 @@
     "event-target": "^1.2.3",
     "fancy-log": "^1.3.2",
     "fast-async": "^6.3.8",
-    "firebase": "^7.5.0",
+    "firebase": "^8.10.0",
     "git-last-commit": "^1.0.1",
     "google-closure-compiler": "^20190909.0.0",
     "google-closure-library": "^20190909.0.0",
@@ -45,6 +46,7 @@
     "polka": "^0.5.2",
     "pretty-ms": "^4.0.0",
     "regenerator-runtime": "^0.13.3",
+    "rimraf": "^3.0.2",
     "rollup": "^1.19.4",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",

@@ -21,8 +21,8 @@ const tmp = require('tmp');
 
 const EXTERNS = [
   'build/transpile/magic-externs.js',
-  'static/node_modules/google-closure-compiler/contrib/externs/maps/google_maps_api_v3_exp.js',
-  'static/node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js',
+  'node_modules/google-closure-compiler/contrib/externs/maps/google_maps_api_v3_exp.js',
+  'node_modules/google-closure-compiler/contrib/externs/jquery-3.3.js',
 ];
 
 const CLOSURE_DISABLE_WARNINGS = [
