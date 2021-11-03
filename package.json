@@ -8,7 +8,7 @@
     "release": "./release.js",
     "test": "mocha-headless-server src/api/test.html",
     "staging-check": "node .cloudbuild/staging-check.js",
-    "postinstall": "ln -s ../node_modules static/node_modules"
+    "postinstall": "ln -s ../node_modules static/node_modules || true"
   },
   "dependencies": {
     "@babel/core": "^7.6.0",
