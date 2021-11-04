@@ -38,7 +38,9 @@ common.preload.images(
 const focusTimeoutDelay = 20 * 1000;  // refocus on Santa after this much inactivity
 
 
-// This 
+// The jitter ratio is stored for the current browser window, so if users reload, they'll see Santa
+// "jittered" by the same amount. This lets us randomly skew Santa through the route via Firebase,
+// in case Maps is having a bad time.
 if (!localStorage['routeJitter']) {
   localStorage['routeJitter'] = (Math.random() * 2) - 1;  // between [-1,+1]
 }
