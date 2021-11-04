@@ -106,7 +106,7 @@ function buildLangPlugin(id, lang) {
 
   const raw = JSON.stringify(messages);
 
-  return  {
+  return {
     match(idToMatch) {
       if (idToMatch === id) {
         return id;
@@ -158,7 +158,7 @@ module.exports = (staticScope, options) => {
     },
   };
 
-  const languagesPlugin = buildLangPlugin('static/messages.json', options.lang);
+  const languagesPlugin = buildLangPlugin('static/:messages.json', options.lang);
 
   const jsonPlugin = {
     map(ext) {
