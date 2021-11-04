@@ -243,7 +243,7 @@ export function featuredRoute() {
 
 
 /**
- * @return {!Object} misc tracker flags
+ * @return {!Object} misc tracker flags, subset of Firebase config
  */
 export function trackerFlags() {
   return {

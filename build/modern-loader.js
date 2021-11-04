@@ -104,7 +104,7 @@ module.exports = async (id, content, onwarn=null) => {
     name: id,
     format: 'es',
     sourcemap: true,
-    treeshake: false,  // we want to cache the results
+    //treeshake: false,  // we want to cache the results
   });
 
   if (out.output.length !== 1) {

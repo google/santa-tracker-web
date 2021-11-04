@@ -92,7 +92,7 @@ const fallbackFeaturedImageSrc = featuredImage.src;
 
 api.addEventListener('data', (ev) => {
   const payload = ev.detail;
-  const {trackerFlags} = payload;
+  const {trackerFlags, trackerOffset} = payload;
 
   if (trackerFlags.showTracker) {
     if (trackerElement.parentNode !== mainElement) {
@@ -103,6 +103,7 @@ api.addEventListener('data', (ev) => {
     trackerElement.remove();
   }
   trackerElement.routeJitter = trackerFlags.routeJitter;
+  trackerElement.trackerOffset = trackerOffset ?? 0;
 
   loudCardElement.hidden = !payload.loudCard;
   loudCardElement.scene = payload.loudCard || null;

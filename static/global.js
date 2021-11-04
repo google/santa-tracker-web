@@ -40,6 +40,8 @@ const g = createStore({
   playNextRoute: '',
 
   shareUrl: null,
+
+  trackerOffset: 0,
 });
 
 export default g;

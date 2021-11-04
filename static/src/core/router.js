@@ -165,7 +165,7 @@ function routeToAndroid(route) {
  * @return {{scope: string, go: function(string, !Object<string, string>): void}}
  */
 export function configureProdRouter(callback) {
-  if (window.santaApp) {
+  if (window.santaApp.go) {
     throw new Error('cannot configureProdRouter twice');
   }
 
@@ -204,7 +204,7 @@ export function configureProdRouter(callback) {
   internalRoute(load);
 
   // Provide expected `santaApp` helper.
-  window.santaApp = {
+  Object.assign(window.santaApp, {
     get route() {
       return wh.state && wh.state.route;
     },
@@ -222,7 +222,7 @@ export function configureProdRouter(callback) {
 
       internalRoute({route: normalizeRoute(route), data, hash}, true);
     },
-  };
+  });
 
   // Add global 'go' event listener.
   window.addEventListener(goEvent, (ev) => {
