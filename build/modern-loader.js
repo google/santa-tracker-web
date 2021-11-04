@@ -98,13 +98,13 @@ module.exports = async (id, content, onwarn=null) => {
     // so we should only end up with a single result (checked below).
     preserveModules: true,
     onwarn,
+    treeshake: false,  // we don't want any code thrown away in dev
   });
 
   const out = await bundle.generate({
     name: id,
     format: 'es',
     sourcemap: true,
-    //treeshake: false,  // we want to cache the results
   });
 
   if (out.output.length !== 1) {
