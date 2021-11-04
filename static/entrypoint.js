@@ -51,6 +51,9 @@ import isAndroid from './src/core/android.js';
 import {_msg} from './src/magic.js';
 
 
+window.santaApp = {};
+
+
 maybeLoadCast();
 
 
@@ -212,6 +215,9 @@ document.body.addEventListener('click', globalClickHandler(scope, go));
 const kplayInstance = kplay.prepare();
 
 
+/**
+ * Handles audio.
+ */
 (function() {
   if (isAndroid()) {
     if (kplayInstance.suspended) {
@@ -274,6 +280,10 @@ scoreOverlayElement.addEventListener('resume', () => global.setState({status: ''
 scoreOverlayElement.addEventListener('home', () => go(''));
 
 
+/**
+ * Manage singleton element state based on global state. Just updates things like loaders, score
+ * overlays and so on.
+ */
 global.subscribe((state) => {
   // This happens first, as we modify state as a side-effect.
   if (state.status === 'restart') {
@@ -437,20 +447,22 @@ async function prepare(control, data) {
           return resolve(config);
         }
 
-        // If the page wants a subscription, they're listening to the Firebase config data.
+        // If the page wants a subscription, they're listening to the Firebase config data PLUS
+        // the page's params (in "data" key). This only happens for modvil.
         const listener = () => {
           if (control.done) {
             firebaseConfig.remove(listener);
             global.unsubscribe(listener);
             return;
           }
-          const {playNextRoute} = global.getState();
+          const {playNextRoute, trackerOffset} = global.getState();
           const payload = {
             android: isAndroid(),
             routes: firebaseConfig.routesSnapshot(),
             featured: firebaseConfig.featuredRoute(),
             play: playNextRoute,
             trackerFlags: firebaseConfig.trackerFlags(),
+            trackerOffset,
             loudCard: firebaseConfig.loudCard(),
             data,
           };
@@ -735,3 +747,25 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
 
 
 configureCustomKeys(loaderElement);
+
+
+// Support skewing the tracker.
+(function() {
+
+  /**
+   * Adjust Santa's location between 0-1 along his total route.
+   */
+  window.santaApp.adjustSanta = (ratio, offset = 0) => {
+    const year = new Date().getFullYear();
+    const santaStart = +Date.UTC(year, 11, 24, 10, 0, 0);  // 24th Dec at 10:00 UTC
+    const flightDuration = 25 * 60 * 60 * 1000;
+
+    const timeUntilStart = santaStart - +new Date();
+
+    const trackerOffset = timeUntilStart + (ratio * flightDuration) + offset;
+    console.warn('setting trackerOffset', trackerOffset);
+
+    global.setState({trackerOffset});
+  };
+
+}());

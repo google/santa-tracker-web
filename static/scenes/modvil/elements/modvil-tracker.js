@@ -38,6 +38,7 @@ common.preload.images(
 const focusTimeoutDelay = 20 * 1000;  // refocus on Santa after this much inactivity
 
 
+// This 
 if (!localStorage['routeJitter']) {
   localStorage['routeJitter'] = (Math.random() * 2) - 1;  // between [-1,+1]
 }
@@ -56,6 +57,7 @@ class ModvilTrackerElement extends LitElement {
       _focusOnSanta: {type: Boolean},
       _stops: {type: Array},
       _temporaryDestination: {type: Object},
+      trackerOffset: {type: Number, attribute: 'tracker-offset'},
       // nb. _details isn't here as it changes only based on now/destinations
     };
   }
