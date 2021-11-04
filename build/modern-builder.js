@@ -14,14 +14,18 @@
  * limitations under the License.
  */
 
-const resolveNode = require('./resolve-node.js');
 const rollup = require('rollup');
 const transformFutureModules = require('./transform-future-modules.js');
-const rollupPluginCJS = require('rollup-plugin-commonjs');
+const rollupPluginCJS = require('@rollup/plugin-commonjs');
+const {default: rollupPluginNode} = require('@rollup/plugin-node-resolve');
 const path = require('path');
 const importUtils = require('./import-utils.js');
+const fs = require('fs');
 
 
+/**
+ * @param {{[id: string]: string|undefined}} entrypoints undefined to use loader, string to use this code
+ */
 module.exports = async (entrypoints, options) => {
   options = Object.assign({
     loader: () => {},
@@ -32,7 +36,8 @@ module.exports = async (entrypoints, options) => {
     format: 'esm',
   }, options);
 
-  const resolveNodePlugin = {resolveId: resolveNode};
+  /** @type {{[id: stirng]: string}} */
+  let loadCache = {};
 
   const virtualPlugin = {
     async load(idToLoad) {
@@ -44,9 +49,15 @@ module.exports = async (entrypoints, options) => {
         idToLoad = path.relative(process.cwd(), idToLoad);
       }
 
+      // If we were provided code for this entrypoint, return it first.
       const entrypoint = entrypoints[idToLoad];
       if (entrypoint) {
         return entrypoint;
+      }
+
+      // We just resolved this, so use the cache.
+      if (idToLoad in loadCache) {
+        return loadCache[idToLoad];
       }
 
       return options.loader(idToLoad);
@@ -56,16 +67,27 @@ module.exports = async (entrypoints, options) => {
         return transformFutureModules(id, content.code || content);
       }
     },
-    resolveId(importee, importer) {
+    async resolveId(importee, importer) {
       let id = undefined;
 
       if (importer === undefined) {
         id = importee;
       } else if (importee.match(/^\.{1,2}\//)) {
         id = path.join(path.dirname(importer), importee);
+
+        // This looks like something that's relative or resolved, but it might not be, perhaps
+        // because it's a commonJS import that has no suffix.
+        // See if our loader understands it, if so, cache and return.
+        if (!fs.existsSync(id)) {
+          const checkLoad = await options.loader(id);
+          if (!checkLoad) {
+            return;
+          }
+          loadCache[id] = checkLoad;
+        }
       }
 
-      // support marking depepdencies as external with a possible rewrite
+      // support marking depedencies as external with a possible rewrite
       if (id) {
         const ret = options.external(id);
         if (ret) {
@@ -98,9 +120,10 @@ module.exports = async (entrypoints, options) => {
     input[id] = id;
   });
 
-  const plugins = [resolveNodePlugin, virtualPlugin];
+  const resolveNodePlugin = rollupPluginNode({ browser: true });
+  const plugins = [virtualPlugin, resolveNodePlugin];
   if (options.commonJS) {
-    plugins.push(rollupPluginCJS());
+    plugins.unshift(rollupPluginCJS({ extensions: [ '.js', '.mjs' ]}));
   }
 
   const bundle = await rollup.rollup({input, plugins});

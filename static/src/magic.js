@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import messages from '../messages.json?module';
+import messages from '../:messages.json?module';
 import {join} from './lib/url.js';
 
 /**

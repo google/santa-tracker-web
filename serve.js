@@ -66,12 +66,18 @@ const yargs = require('yargs')
     })
     .argv;
 
+/**
+ * @param {polka.Polka} server
+ * @param {number} port
+ * @param {boolean} all
+ */
 function listen(server, port, all) {
+  // Always listen on IPv4 in dev.
   return new Promise((resolve) => {
     if (all) {
-      server.listen(port, resolve);
+      server.listen(port, '0.0.0.0', resolve);
     } else {
-      server.listen(port, 'localhost', resolve);
+      server.listen(port, '127.0.0.1', resolve);
     }
   });
 }

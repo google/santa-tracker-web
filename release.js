@@ -102,6 +102,7 @@ const yargs = require('yargs')
     })
     .argv;
 
+// These assets are copied verbatim into the dist static/prod folders. Note the ! exclusions below.
 const assetsToCopy = [
   'static/audio/*',
   'static/fallback-audio/*',
@@ -139,6 +140,13 @@ const releaseWriter = new Writer({
 });
 
 const workGroup = WorkGroup();
+
+/**
+ * Terser is slow and CPU-bound, so push it out to multiple cores.
+ *
+ * @param {string} code to minify
+ * @return {Promise<string>}
+ */
 async function optionalMinify(code) {
   if (!yargs.minify) {
     return code;
@@ -200,6 +208,10 @@ async function findStaticHtml() {
 
 async function release() {
   log(`Building Santa Tracker ${chalk.red(yargs.build)}...`);
+  log(`Platform: ${chalk.red(process.platform)}`);
+
+  const gitRevision = await getCurrentVersion();
+  log(`git revision: ${chalk.red(gitRevision)}`);
 
   if (await fsp.exists('dist')) {
     log(`Removing previous release...`);
@@ -607,6 +619,13 @@ async function release() {
     });
   }
 
+  // Write git hash and build version to a known location in prod.
+  // We don't use this in an actual production build (since they're not automated), but this is
+  // picked up by the staging code.
+  const siteHashConents = `${gitRevision}:${yargs.build}`;
+  log(`Written build hash: ${siteHashConents}`);
+  releaseWriter.file('prod/hash', siteHashConents);
+
   // Wait for writing to complete and announce success! \o/
   const count = await releaseWriter.wait();
   log(`Done! Written ${chalk.cyan(count)} files`);
@@ -721,13 +740,6 @@ async function releaseProd(langs) {
   }
 
   log(`Generated ${chalk.cyan(Object.keys(langs).length)} manifest files`);
-
-  // Write git hash and build version to a known location in prod.
-  // We don't use this in an actual production build (since they're not automated), but this is
-  // picked up by the staging code.
-  const siteHashConents = `${await getCurrentVersion()}:${yargs.build}`;
-  await fsp.writeFile(`dist/prod/hash`, siteHashConents);
-  log(`Written build hash: ${siteHashConents}`);
 }
 
 release().catch((err) => {
