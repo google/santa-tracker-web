@@ -37,7 +37,7 @@ const getCurrentVersion = () => {
       if (err) {
         console.warn(`Could not retrieve current git revision`, err)
       }
-      resolve(commit?.hash ?? '');
+      resolve(commit && commit.hash || '');
     });
   });
 };
