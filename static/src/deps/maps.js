@@ -26,6 +26,11 @@ function mapsApiURL() {
   const params = {
     'callback': callbackName,
     'key': apiKey,
+    // To keep things relatively stable, use quarterly version.
+    // See https://developers.google.com/maps/documentation/javascript/versions
+    'v': 'quarterly',
+    // Required for the map quiz game (/mercator.html)
+    'libraries': 'drawing,geometry',
   };
   if (document.documentElement.lang) {
     params['language'] = document.documentElement.lang;
