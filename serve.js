@@ -17,7 +17,6 @@
 
 
 const chalk = require('chalk');
-const clipboardy = require('clipboardy');
 const fs = require('fs').promises;
 const i18n = require('./build/i18n.js');
 const santaVfs = require('./santa-vfs.js');
@@ -84,6 +83,7 @@ function listen(server, port, all) {
 
 function clipboardCopy(v) {
   try {
+    const clipboardy = require('clipboardy');
     clipboardy.writeSync(v);
   } catch (e) {
     return e;

@@ -17,10 +17,11 @@
 const importUtils = require('./import-utils.js');
 const path = require('path');
 const rollup = require('rollup');
-const resolveNode = require('./resolve-node.js');
 const transformFutureModules = require('./transform-future-modules.js');
+const esmResolve = require('esm-resolve').default;
 
 
+/** @type {(id: string) => string} */
 const ensureModuleQuery = (id) => {
   if (!id || importUtils.isUrl(id)) {
     return id;
@@ -31,22 +32,21 @@ const ensureModuleQuery = (id) => {
 
 
 /**
- * Rewrites the given file to operate correctly as an ES6 module. This is not
- * used in production.
+ * Rewrites the given file to operate correctly as an ES6 module. This is not used in production.
  *
- * While this (currently) internally uses Rollup, it does not read file contents
- * from disk, or have any knowledge of external modules (aside resolving the
- * correct path to node_modules/ content).
+ * While this (currently) internally uses Rollup, it does not read file contents from disk, or have
+ * any knowledge of external modules (aside resolving the correct path to node_modules/ content).
  *
  * @param {string} id
  * @param {string|{code: string, map: Object}} content
- * @param {?function(RollupWarning): void} onwarn
+ * @param {(warn: rollup.RollupWarning) => void} onwarn
  * @return {{code: string, map: SourceMap}|null}
  */
-module.exports = async (id, content, onwarn=null) => {
+module.exports = async (id, content, onwarn = () => {}) => {
   id = path.resolve(id);
 
   // If this is not a JS file, then skip Rollup and just rewrite it for the module case.
+  // The "transformFutureModules" handles files like ".json", which we should be able to import.
   const ext = path.extname(id);
   if (ext !== '.js' && ext !== '.mjs') {
     if (!content) {
@@ -54,16 +54,22 @@ module.exports = async (id, content, onwarn=null) => {
     }
 
     const transformed = await transformFutureModules(id, content.code || content);
-    content = typeof transformed === 'string' ? {code: transformed} : transformed;
+    if (!transformed) {
+      return;
+    }
+    content = { code: transformed.code };
 
-    // HTML Modules can have further imports, so rewrite them too.
-    // TODO(samthor): can we return this from transformFutureModules?
-    if (ext !== '.html') {
+    // If we transform a HTML file into a HTML module, we get back JavaScript, but there can be
+    // further imports. Only bail out here if we had some other type.
+    if (transformed && !transformed.needsModuleRewrite) {
       return content;
     }
   }
 
+  /** @type {rollup.Plugin} */
   const virtualPlugin = {
+    name: 'modern-loader',
+
     load(idToLoad) {
       idToLoad = idToLoad.split('?')[0];
       if (idToLoad !== id) {
@@ -71,16 +77,25 @@ module.exports = async (id, content, onwarn=null) => {
       }
       return content;
     },
-    async resolveId(importee, importer) {
+
+    resolveId(importee, importer) {
       // Resolve ourselves, and anything that Rollup doesn't need to (./, ../, etc).
       if (importee === id || importUtils.alreadyResolved(importee)) {
         return ensureModuleQuery(importee);
       }
+
+      // This isn't valid (null prefix is used to say "don't touch me").
+      if (importee.startsWith('\0') || !importer) {
+        return;
+      }
+
       // Otherwise, use our custom Node resolver. This works around issues in the defacto standard
       // module 'rollup-plugin-node-resolve', such as:
       //  * lets us point to the nearest node_modules/ only (including a symlink)
       //  * resolved IDs that return as an object aren't passed to .external (below)
-      return ensureModuleQuery(await resolveNode(importee, importer));
+      const resolver = esmResolve(importer, { allowMissing: true });
+      const resolved = resolver(importee);
+      return ensureModuleQuery(resolved);
     },
   };
 
