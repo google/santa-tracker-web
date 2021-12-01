@@ -32,3 +32,5 @@ options:
   env:
   - 'PROJECT_ID=$PROJECT_ID'
   - 'NODE_OPTIONS="--max-old-space-size=32768"'
+
+timeout: 1800s
