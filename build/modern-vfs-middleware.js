@@ -18,13 +18,19 @@ const modernLoader = require('./modern-loader.js');
 const mimeTypes = require('mime-types');
 const path = require('path');
 const fs = require('fs').promises;
+const polka = require('polka');
+const { statOrNull } = require('../build/fsp.js');
 
 
-const statOrNull = async (p) => fs.stat(p).catch((err) => null);
+const debug = false;
 
 
 /**
  * Builds and returns HTTP middleware that defers to a virtual loader and serves as ES6 modules.
+ * 
+ * @param {(id: string) => Promise<string>} vfsLoad
+ * @param {string?} prefix
+ * @return {polka.Middleware}
  */
 module.exports = (vfsLoad, prefix=null) => {
   return async (req, res, next) => {
@@ -55,6 +61,7 @@ module.exports = (vfsLoad, prefix=null) => {
 
     if (stat === null) {
       try {
+        debug && console.warn('loading vfs', id);
         content = await vfsLoad(id);
       } catch (e) {
         // TODO: pass to caller, internal error in VFS
@@ -101,6 +108,7 @@ module.exports = (vfsLoad, prefix=null) => {
       // TODO(samthor): We should decide on this earlier, before we read the file from disk.
       return next();  // can't be rewritten to a module: wrong type, serve file as-is
     }
+    debug && console.warn('rewritten', id);
 
     headers['Content-Type'] = 'application/javascript';
     return end(200, result.code);
