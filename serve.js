@@ -24,7 +24,7 @@ const vfsMiddleware = require('./build/modern-vfs-middleware.js');
 
 
 const polka = require('polka');
-const dhost = require('dhost');
+const dhost = require('dhost').default;
 
 const log = require('fancy-log');
 const path = require('path');
