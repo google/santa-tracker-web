@@ -107,6 +107,11 @@ export class DestinationsCache {
     if (localStorage['destinations']) {
       try {
         this._destinations = JSON.parse(localStorage['destinations']);
+        if (!this._destinations.length) {
+          // For some reason, we cached an empty destinations array. Force us to be refreshed, this
+          // is basically like we had bad/invalid JSON stored.
+          throw new Error('trigger exception block');
+        }
       } catch (e) {
         this._destinations = null;
         localStorage['routeUrl'] = '';
