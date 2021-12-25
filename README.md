@@ -29,7 +29,7 @@ The serving script `./serve.js` will listen on both ports 8000 and 8080 by defau
 The lower port serves the contents of `prod/`, which provides the "host" which fundamentally loads scenes in frames (this matches the production https://santatracker.google.com domain).
 
 To load a specific scene, open e.g., http://localhost:8000/boatload.html.
-Once the site is loaded, you can also run `santaApp.route = 'sceneName'` in the console to switch scenes programatically.
+Once the site is loaded, you can also run `santaApp.route = 'sceneName'` in the console to switch scenes programmatically.
 
 If you'd like to load a scene from the static domain—without the "host" code—you can load it at e.g., http://127.0.0.1:8080/st/scenes/elfmaker/.
 This is intentionally not equal to "localhost" so that prod and static run cross-domain.
