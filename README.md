@@ -132,7 +132,7 @@ As well as JavaScript itself, Santa Tracker's development environment allows imp
 
 Santa Tracker uses an audio library known which exists in the prod "host" only, but can be triggered by API calls in scenes.
 This is largely undocumented and provided by an external vendor.
-If you're interested in the audio source files, they are in the repo under `static/audio` (and are licensed, as mentioned below, as CC-BY-NC).
+If you're interested in the audio source files, they are in the repo under `static/audio` (and are licensed, as mentioned below, as CC-BY).
 
 The audio library plays audio triggers which play temporary sounds (e.g., a button click) or loops (audio tracks).
 Scenes can be configured with audio triggers to start with (via `api.config({sound: [...]})`) which will cause all previous audio to stop, good for shutting down previous games.
@@ -148,7 +148,7 @@ If you'd building Santa Tracker for production, you'll need the string to be tra
 # License
 
 All image and audio files (including *.png, *.jpg, *.svg, *.mp3, *.wav 
-and *.ogg) are licensed under the CC-BY-NC license. All other files are 
+and *.ogg) are licensed under the CC-BY license. All other files are 
 licensed under the Apache 2 license. See the LICENSE file for details.
 
     Copyright 2020 Google LLC
