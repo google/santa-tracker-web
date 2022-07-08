@@ -1,7 +1,6 @@
 # Google Santa Tracker for Web
 
 This repository contains the code to [Google Santa Tracker](https://santatracker.google.com), an educational and entertaining tradition for the December holiday period.
-Santa Tracker is built by Developer Relations within Google.
 
 We hope you find this source code interesting.
 In general, we do not accept external contributions from the public.
@@ -43,34 +42,17 @@ This is due to the way we identify ESM import requests, where Chromium specifies
 
 While the source code includes a release script, it's not intended for end-users to run and is used by Googlers to deploy the site.
 
-<!--
-
-## Staging
-
-To build Santa Tracker into a single folder for staging, run `./release.js` script with a local `--baseurl` (like `--baseurl=/`).
-For example:
-
-```bash
-# see --help for more flags
-./release.js -o --scene=newscene --baseurl=/
-```
-
-This will generate a self-contained release under `dist/prod`.
-You can serve this folder on its own, or perhaps, deploy it to Firebase Hosting—run `firebase deploy` from the top-level of the project (you'll need to sign in and choose a default project).
-
-## Build and Release
-
-Santa Tracker is served entirely with static resources, so unlike development, every file must be compiled at once.
-
-TODO(samthor): finish this part.
-
--->
-
 # Historic Versions
 
 The previous version of Santa Tracker, used until 2018, is available in the [archive-2018](https://github.com/google/santa-tracker-web/tree/archive-2018) branch.
 
 # Development Guide
+
+## Structure
+
+Each page on the Santa Tracker corresponds to one scene. This includes the main page [modvil](static/scenes/modvil/index.html), as well as all the other pages. The scenes are in the [static/scenes/](static/scenes/) directory.
+
+There is common code that loads each scene, as well as handles music, the score UI, etc.
 
 ## Add A New Scene
 
