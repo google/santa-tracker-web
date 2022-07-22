@@ -12,20 +12,25 @@ Santa Tracker supports evergreen versions of Chrome, Firefox and Safari.
 It also supports other Chromium-based browsers (Edge, Opera etc).
 
 We also present a "fallback mode" for older browsers, such as IE11, which allow users to play a small number of historic games.
+# Site Structure
 
-# Run
+The Santa Tracker code consists of a host, and scenes.
+
+Each page on the Santa Tracker corresponds to one scene. This includes the main village page, [modvil](static/scenes/modvil/index.html), as well as all the other pages. The scenes are in the [static/scenes/](static/scenes/) directory. Each scene is loaded as an iframe, and is relatively self contained.
+
+The host handles the loading of each scene, as well as the music and common UI, like the game score or tutorial. There's an API between the host and the scenes, which allows the host to notify the scenes when events like the scene loading happens, and allows the scenes to tell the host to do things like play a song or update the score.
+
+# Development Guide
+
+## Running locally
 
 You'll need `yarn` or `npm`.
 You may also need Java if you're building on Windows, as the binary version of Closure Compiler is unsupported on that platform.
 
 Clone and run `yarn` or `npm install` to install deps, and run `./serve.js` to run a development server.
 The development URL will be copied to your clipboard.
-Have fun! 🎅🎄🎁
 
-## Development
-
-The serving script `./serve.js` will listen on both ports 8000 and 8080 by default.
-The lower port serves the contents of `prod/`, which provides the "host" which fundamentally loads scenes in frames (this matches the production https://santatracker.google.com domain).
+The serving script `./serve.js` will listen on both ports 8000 and 8080 by default. Port 8000 serves the host part of the site (this corresponds to the production https://santatracker.google.com domain), and port 8080 serves the static content, including the scenes.
 
 To load a specific scene, open e.g., http://localhost:8000/boatload.html.
 Once the site is loaded, you can also run `santaApp.route = 'sceneName'` in the console to switch scenes programatically.
@@ -37,22 +42,6 @@ The "host" provides scores, audio and some UI, so not all behavior is available 
 As of 2020, development requires Chrome or a Chromium-based browser.
 This is due to the way we identify ESM import requests, where Chromium specifies additional headers.
 (This is a bug, not a feature.)
-
-## Production
-
-While the source code includes a release script, it's not intended for end-users to run and is used by Googlers to deploy the site.
-
-# Historic Versions
-
-The previous version of Santa Tracker, used until 2018, is available in the [archive-2018](https://github.com/google/santa-tracker-web/tree/archive-2018) branch.
-
-# Development Guide
-
-## Structure
-
-Each page on the Santa Tracker corresponds to one scene. This includes the main page [modvil](static/scenes/modvil/index.html), as well as all the other pages. The scenes are in the [static/scenes/](static/scenes/) directory.
-
-There is common code that loads each scene, as well as handles music, the score UI, etc.
 
 ## Add A New Scene
 
@@ -126,6 +115,14 @@ These translations are sourced from Google's internal translation tool.
 
 If you're adding a string for development, please modify `en_src_messages.json` and ask a Google employee to request a translation run.
 If you'd building Santa Tracker for production, you'll need the string to be translated and the final output contained within `lang/`.
+
+## Production
+
+While the source code includes a release script, it's not intended for end-users to run and is used by Googlers to deploy the site.
+
+# Historic Versions
+
+The previous version of Santa Tracker, used until 2018, is available in the [archive-2018](https://github.com/google/santa-tracker-web/tree/archive-2018) branch.
 
 # License
 
