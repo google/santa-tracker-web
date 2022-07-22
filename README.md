@@ -14,11 +14,9 @@ It also supports other Chromium-based browsers (Edge, Opera etc).
 We also present a "fallback mode" for older browsers, such as IE11, which allow users to play a small number of historic games.
 # Site Structure
 
-The Santa Tracker code consists of a host, and scenes.
+Santa Tracker is split up into different scenes. Each page on the Santa Tracker corresponds to one scene, including the main village page, [modvil](static/scenes/modvil/index.html). The scenes are in the [static/scenes/](static/scenes/) directory. Each scene is loaded as an iframe, and is relatively self contained.
 
-Each page on the Santa Tracker corresponds to one scene. This includes the main village page, [modvil](static/scenes/modvil/index.html), as well as all the other pages. The scenes are in the [static/scenes/](static/scenes/) directory. Each scene is loaded as an iframe, and is relatively self contained.
-
-The host handles the loading of each scene, as well as the music and common UI, like the game score or tutorial. There's an API between the host and the scenes, which allows the host to notify the scenes when events like the scene loading happens, and allows the scenes to tell the host to do things like play a song or update the score.
+The host part of the site handles the loading of each scene, as well as the music and common UI, like the game score or tutorial. There's an [API](static/src/scene/api.js) between the host and the scenes, which allows the host to notify the scenes when events like the scene loading happens, and allows the scenes to tell the host to do things like play a song or update the score.
 
 # Development Guide
 
