@@ -12,6 +12,7 @@ Santa Tracker supports evergreen versions of Chrome, Firefox and Safari.
 It also supports other Chromium-based browsers (Edge, Opera etc).
 
 We also present a "fallback mode" for older browsers, such as IE11, which allow users to play a small number of historic games.
+
 # Site Structure
 
 Santa Tracker is split up into different scenes. Each page on the Santa Tracker corresponds to one scene, including the main village page, [modvil](static/scenes/modvil/index.html). The scenes are in the [static/scenes/](static/scenes/) directory. Each scene is loaded as an iframe, and is relatively self contained.
