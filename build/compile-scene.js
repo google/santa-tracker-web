@@ -41,7 +41,6 @@ const CLOSURE_DISABLE_WARNINGS = [
   'missingSourcesWarnings',
   'extraRequire',
   'missingProvide',
-  'strictMissingRequire',
   'missingRequire',
 ];
 
@@ -130,7 +129,7 @@ module.exports = async function compile(sceneName, compile=true) {
     externs: EXTERNS,
     create_source_map: sourceMapTemp.name,
     assume_function_wrapper: true,
-    dependency_mode: 'STRICT',  // ignore all but exported via _globalExportEntry, below
+    dependency_mode: 'PRUNE',  // ignore all but exported via _globalExportEntry, below
     entry_point: '_globalExportEntry',
     compilation_level: compile ? 'SIMPLE_OPTIMIZATIONS' : 'WHITESPACE_ONLY',
     warning_level: 'VERBOSE',
