@@ -100,6 +100,11 @@ For example, if you `import {LitElement} from 'lit-element';`, this will be rewr
 
 As well as JavaScript itself, Santa Tracker's development environment allows imports of future module types: CSS, JSON and HTML.
 
+## Input
+
+When possible support touch, keyboard, and gamepad input.  Note that basic gamepad
+support is offered via synthetic keyboard events in [keys.js](static/src/core/keys.js).
+
 ## Sound
 
 Santa Tracker uses an audio library known which exists in the prod "host" only, but can be triggered by API calls in scenes.
