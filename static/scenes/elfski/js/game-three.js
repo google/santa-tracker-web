@@ -210,11 +210,11 @@ export default class GameThree {
 
   /**
    * @param {number} delta fraction of second
-   * @param {vec.Vector} pointer position relative to player
+   * @param {?number} targetAngle in radians. 0 is straight down == positive y axis.
    * @param {boolean} ended whether to not move the player
    * @export
    */
-  tick(delta, pointer, ended) {
+  tick(delta, targetAngle, ended) {
     if (this._decorator) {
       this._decorator.tick(delta);
     }
@@ -245,7 +245,7 @@ export default class GameThree {
       return true;
     }
 
-    const change = ended ? {x: 0, y: 0} : this._character.tick(delta, pointer);
+    const change = ended ? {x: 0, y: 0} : this._character.tick(delta, targetAngle);
     const cv = vec.multVec(change, unitScale);
     if (cv.x || cv.y) {
       this._internalTick(cv);
