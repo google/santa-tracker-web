@@ -17,6 +17,16 @@
 import global from '../../global.js';
 
 /**
+ * Basic gamepad support is routed to games as synthetic keyboard events.
+ * Arrow keys and space can be received via document keydown / keyup messages.
+ * Example:
+ *   document.addEventListener('keydown', (e) => {
+ *     if (e.key == 'ArrowLeft')
+ *       console.log('Left keyboard arrow or gamepad pressed.');
+ *   }
+ */
+
+/**
  * Configures key and gamepad handlers for the host frame.
  */
 export default function configureCustomKeys(loaderElement) {
