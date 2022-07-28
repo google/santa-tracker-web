@@ -35,6 +35,7 @@
 <script type="module">
   import api from '../../src/scene/api.js';
   import GameThree from './js/game-three.js';
+  import * as vec from './js/vec.js';
 
   api.preload.images(
     'img/tiles.png',
@@ -68,6 +69,13 @@
       this._game.render();
     }
 
+    dismissTutorial() {
+      if (!this._tutorialDismissed) {
+        this._tutorialDismissed = true;
+        api.tutorialDismiss('elfski.mp4');
+      }
+    }
+
     onResize({width, height}) {
       this._canvas.width = width;
       this._canvas.height = height;
@@ -92,18 +100,44 @@
         x: ev.offsetX - (ev.target.offsetWidth / 2),
         y: ev.offsetY - (ev.target.offsetHeight / 3),
       };
-      if (!this._tutorialDismissed) {
-        this._tutorialDismissed = true;
-        api.tutorialDismiss('elfski.mp4');
-      }
+      this.dismissTutorial();
     }
 
     onPointerUp(ev) {
       this._pointer = null;
     }
 
+    onKeyDown(ev) {
+      this._trackedKeys[ev.key] = true;
+      this.dismissTutorial();
+    }
+
+    onKeyUp(ev) {
+      this._trackedKeys[ev.key] = false;
+    }
+
     get score() {
       return this._game.score;
+    }
+
+    /**
+     * @return {?number} targetAngle in radians. 0 is straight down == positive y axis.
+     */
+    targetAngle() {
+      if (this._pointer) {
+        return Math.atan2(this._pointer.x, this._pointer.y);
+      }
+
+      const left = this._trackedKeys['ArrowLeft'] || false;
+      const right = this._trackedKeys['ArrowRight'] || false;
+      const down = this._trackedKeys['ArrowDown'] || false;
+      if (left || right || down) {
+        // Average the direction of all current held keys.
+        // Gives one of 5 possible directions: left, down, right, and two downward diagonals.
+        return (left * (-Math.PI/2) + right * Math.PI/2) / (left + right + down);
+      }
+
+      return undefined;
     }
 
     tick(now) {
@@ -114,7 +148,7 @@
         this._gameStartAt = now;
       }
 
-      const crashed = this._game.tick(delta, this._pointer, Boolean(this._gameEndAt));
+      const crashed = this._game.tick(delta, this.targetAngle(), Boolean(this._gameEndAt));
       this.skiingNoises = Boolean(this._game.speed) && !this._gameEndAt;
 
       if (!crashed) {
@@ -159,6 +193,7 @@
       this._lastValidScore = 0;
       this._lastPresentsFound = 0;
       this.skiingNoises = false;
+      this._trackedKeys = {};
 
       this._game && this._game.dispose();
       this._game = new GameThree(this._canvas, './');
@@ -188,8 +223,6 @@
       window.requestAnimationFrame(draw);
       lg.render();
     })();
-
-    // TODO(samthor): Keyboard/gamepad events.
 
     // Install event handlers, including fallback events.
 
@@ -226,6 +259,8 @@
       mountain.addEventListener('touchup', (ev) => lg.onPointerUp(ev));
     }
 
+    document.addEventListener('keydown', (ev) => lg.onKeyDown(ev));
+    document.addEventListener('keyup', (ev) => lg.onKeyUp(ev));
   });
 
 </script>
