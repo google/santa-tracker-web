@@ -101,7 +101,7 @@ As well as JavaScript itself, Santa Tracker's development environment allows imp
 ## Input
 
 When possible support touch, keyboard, and gamepad input.  Note that basic gamepad
-support is offered via synthetic keyboard events in [keys.js](src/core/keys.js).
+support is offered via synthetic keyboard events in [keys.js](static/src/core/keys.js).
 
 ## Sound
 
