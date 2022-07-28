@@ -6,6 +6,8 @@ We hope you find this source code interesting.
 In general, we do not accept external contributions from the public.
 You can file bug reports or feature requests, or contact the engineering lead [Jez Swanson](https://twitter.com/jezzamonn).
 
+(This text duplicated in [contributing.md](docs/contributing.md))
+
 ## Supports
 
 Santa Tracker supports evergreen versions of Chrome, Firefox and Safari.
