@@ -1,7 +1,12 @@
 # How to Contribute
 
-We'd love to accept your patches and contributions to this project. There are
-just a few small guidelines you need to follow.
+This repository contains the code to [Google Santa Tracker](https://santatracker.google.com), an educational and entertaining tradition for the December holiday period.
+
+We hope you find this source code interesting.
+In general, we do not accept external contributions from the public.
+You can file bug reports or feature requests, or contact the engineering lead [Jez Swanson](https://twitter.com/jezzamonn).
+
+(This text duplicated in [README.md](../README.md))
 
 ## Contributor License Agreement
 
