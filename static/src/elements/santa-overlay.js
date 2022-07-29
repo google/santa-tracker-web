@@ -113,10 +113,10 @@ export class SantaOverlayElement extends LitElement {
         <input aria-label=${_msg`copy-me-short`} type="text" value=${until(this._shortUrl, this.shareUrl)} readonly @click=${this._copyUrl} />
       </div>
       <div class="buttons">
-        <santa-button aria-label=${_msg`play`} color="purple" @click="${this._dispatchResume}" ?hidden=${!this.isPaused}>
+        <santa-button aria-label=${_msg`play`} color="purple" @click="${this._dispatchResume}" ?hidden=${!this.isPaused} id="playButton">
           <svg class="icon"><path d="M8 5v14l11-7z"/></svg>
         </santa-button>
-        <santa-button aria-label=${_msg`playagain`} color="purple" @click="${this._dispatchRestart}">
+        <santa-button aria-label=${_msg`playagain`} color="purple" @click="${this._dispatchRestart}" id="playagainButton">
           <svg class="icon"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
         </santa-button>
         <santa-button aria-label=${_msg`santasvillage`} color="theme" @click="${this._dispatchHome}" data-action="home">
@@ -130,6 +130,14 @@ export class SantaOverlayElement extends LitElement {
   </div>
 </div>
 `;
+  }
+
+  focus() {
+    if (this.isPaused) {
+      this.shadowRoot.querySelector('#playButton').focus();
+    } else {
+      this.shadowRoot.querySelector('#playagainButton').focus();
+    }
   }
 
   _onBelowClick(event) {

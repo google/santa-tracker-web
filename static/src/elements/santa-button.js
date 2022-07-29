@@ -83,6 +83,10 @@ export class SantaButtonElement extends LitElement {
     return html`<button class="${this.color || ''}" .disabled=${this.disabled} @click=${this._maybePreventClick}>${inner}</button>`;
   }
 
+  focus() {
+    this.shadowRoot.querySelector('button').focus();
+  }
+
   _maybePreventClick(event) {
     if (this.disabled) {
       event.stopImmediatePropagation();
