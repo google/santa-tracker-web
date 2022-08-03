@@ -309,6 +309,9 @@ global.subscribe((state) => {
   scoreOverlayElement.hidden = (state.status === '') || orientationChangeNeeded;
   scoreOverlayElement.isPaused = (!gameover && state.sceneHasPause);
   scoreOverlayElement.shareUrl = state.shareUrl;
+  if (!scoreOverlayElement.hidden) {
+    scoreOverlayElement.focus();
+  }
 
   loaderElement.disabled = !playing;                               // paused/disabled
   loaderElement.toggleAttribute('tilt', orientationChangeNeeded);  // pretend to be rotated
