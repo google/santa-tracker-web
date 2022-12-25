@@ -18,7 +18,7 @@ import styles from './santa-gameloader.css';
 
 import {dedup, resolvable} from '../lib/promises.js';
 
-import {Loader, LoaderHandler} from 'iframe-load';
+import {Loader, LoaderHandler} from '../deps/iframe-load/main.js';
 import {prepareMessage} from '../lib/iframe.js';
 
 
