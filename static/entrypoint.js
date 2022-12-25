@@ -37,7 +37,6 @@ import './src/elements/santa-tutorial.js';
 import './src/elements/santa-orientation.js';
 import './src/elements/santa-interlude.js';
 import {localStorage} from './src/storage.js';
-import maybeLoadCast from './src/deps/cast.js';
 import * as kplay from './src/kplay.js';
 import {buildLoader} from './src/core/loader.js';
 import {configureProdRouter, globalClickHandler} from './src/core/router.js';
@@ -52,9 +51,6 @@ import {_msg} from './src/magic.js';
 
 
 window.santaApp = {};
-
-
-maybeLoadCast();
 
 
 const noticesElement = document.createElement('div');
