@@ -1,0 +1,1 @@
+Modified from https://github.com/samthor/iframe-load, adding the allow-popups-to-escape-sandbox parameter.
