@@ -60,7 +60,7 @@
     "yargs": "^12.0.2"
   },
   "devDependencies": {
-    "@google-cloud/cloudbuild": "^2.6.0",
+    "@google-cloud/cloudbuild": "^3.8.0",
     "@google-cloud/error-reporting": "^2.0.4"
   }
 }
