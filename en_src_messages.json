@@ -2351,6 +2351,10 @@
     "description": "Title of a scene/game. Race Rudolph through the snow, collecting the most presents along the way.",
     "message": "Rudolph Racer"
   },
+  "scene_railroad": {
+    "description": "Title of a scene/game. Ride on a train, throwing presents to elves.",
+    "message": "Railroad Ride"
+  },
   "scene_rollercoaster": {
     "description": "Title of a scene/game. Elves visiting an icey theme park, riding a rollercoaster.",
     "message": "Elf Rollercoaster"
