@@ -1,5 +1,5 @@
 import api from '../../src/scene/api.js';
-import { Game } from './game/game.js';
+import { Game } from './js/game.js';
 
 api.ready(() => initialize());
 
