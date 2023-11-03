@@ -1,13 +1,15 @@
-// Creates a scene. TODO: Load scenes from a gltf or glb file.
+// Load scenes from a glb file.
+
+const gltfLoader = new THREE.GLTFLoader();
 
 export class PlaceholderScene {
   constructor() {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x71a7db);
   
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
     scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.castShadow = true;
     directionalLight.shadow.camera.top = 10;
     directionalLight.shadow.camera.bottom = -10;
@@ -17,37 +19,13 @@ export class PlaceholderScene {
     directionalLight.lookAt(0,0,0);
   
     scene.add(directionalLight);
-  
-    // Create a big plane for the ground
-    const planeGeometry = new THREE.PlaneGeometry( 20, 20 );
-    const planeMaterial = new THREE.MeshStandardMaterial( {color: 0x999999} );
-    const plane = new THREE.Mesh( planeGeometry, planeMaterial );
-    plane.rotation.set(-Math.PI / 2, 0, 0);
-    plane.castShadow = false;
-    plane.receiveShadow = true;
-    scene.add(plane);
-  
-    // Add some cubes. Positions chosen arbitrarily to avoid collisions.
-    const cubePositions = [
-      [0, 0],
-      [1, 2],
-      [3, 8],
-      [-6, 8],
-      [-7, -7],
-      [0, -9],
-      [9, 0],
-      [7, -5],
-      [-5, 0],
-      [3, -4],
-    ]
-    const cubeGeometry = new THREE.BoxGeometry( 1, 1, 1 );
-    const cubeMaterial = new THREE.MeshStandardMaterial( { color: 0xffffff } );
-    for (const [x, y] of cubePositions) {
-      const cube = new THREE.Mesh( cubeGeometry, cubeMaterial );
-      cube.position.set(x, 0.5, y);
-      cube.castShadow = true;
-      scene.add(cube);
-    }
+
+    // TODO: Consolidate loading of assets so that there isn't a jump when assets appear in the scene.
+    gltfLoader.load('models/demo-scene.glb', (loadedScene) => {
+      // Swap out the default material with toon materials
+      replaceMaterialsWithToonMaterials(loadedScene.scene);
+      scene.add(loadedScene.scene);
+    });
 
     this.scene = scene;
   }
@@ -63,4 +41,21 @@ export class PlaceholderScene {
       radius * Math.sin(angle),
     );
   }  
+}
+
+function replaceMaterialsWithToonMaterials(scene) {
+  const toonReplacementMaterials = new Map();
+  scene.traverse(node => {
+    // Only replace textures marked as toon textures.
+    if (!node.material || !node.material.name.startsWith('Toon')) {
+      return;
+    }
+    if (!toonReplacementMaterials.has(node.material.name)) {
+      // Create a new toon material with the same color as the existng material.
+      const replacementMaterial = new THREE.MeshToonMaterial( { color: node.material.color });
+      replacementMaterial.shininess = 0;
+      toonReplacementMaterials.set(node.material.name, replacementMaterial);
+    }
+    node.material = toonReplacementMaterials.get(node.material.name);
+  });
 }
