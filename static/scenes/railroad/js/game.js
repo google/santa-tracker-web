@@ -6,7 +6,15 @@ import { PlaceholderScene } from "./scene.js";
 export class Game {
 
   /**
-   * @param {HTMLElement} container The element that hosts the rendering for the game.
+   * Initializes everything that stays across runs of the game, such as the
+   * renderer and resize event listeners.
+   *
+   * For the moment this initializes a placeholder scene, but eventually that
+   * logic should be put somewhere else to allow levels to be restarted without
+   * needing to re-create the renderer.
+   *
+   * @param {HTMLElement} container The element that hosts the rendering for the
+   * game.
    */
   start(container) {
     this.renderer = new THREE.WebGLRenderer();
@@ -26,6 +34,7 @@ export class Game {
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
+    // TODO: Put this in a level initialization section.
     this.placeholderScene = new PlaceholderScene();
     this.cameraSystem = new CameraSystem(this.camera, this.placeholderScene);
 
@@ -43,7 +52,12 @@ export class Game {
     this.renderer.render(this.placeholderScene.scene, this.camera);
   }
 
-  /** Does the main logic for the game. */
+  /**
+   * Handles the main logic for the game by making each system update.
+   *
+   * TODO: There should be some delta time calculated here and passed to the
+   * update methods so the game runs at a consistent time rate.
+   */
   update() {
     this.cameraSystem.update();
   }

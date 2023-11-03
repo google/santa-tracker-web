@@ -20,9 +20,10 @@ export class PlaceholderScene {
   
     scene.add(directionalLight);
 
-    // TODO: Consolidate loading of assets so that there isn't a jump when assets appear in the scene.
+    // TODO: Consolidate loading of assets so that there isn't a jump when
+    // assets appear in the scene.
     gltfLoader.load('models/demo-scene.glb', (loadedScene) => {
-      // Swap out the default material with toon materials
+      // Swap out the default material with toon materials.
       replaceMaterialsWithToonMaterials(loadedScene.scene);
       scene.add(loadedScene.scene);
     });
@@ -51,7 +52,7 @@ function replaceMaterialsWithToonMaterials(scene) {
       return;
     }
     if (!toonReplacementMaterials.has(node.material.name)) {
-      // Create a new toon material with the same color as the existng material.
+      // Create a new toon material with the same color as the existing material.
       const replacementMaterial = new THREE.MeshToonMaterial( { color: node.material.color });
       replacementMaterial.shininess = 0;
       toonReplacementMaterials.set(node.material.name, replacementMaterial);
