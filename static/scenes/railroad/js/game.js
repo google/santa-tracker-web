@@ -5,6 +5,9 @@ import { PlaceholderScene } from "./scene.js";
 
 export class Game {
 
+  paused = false;
+  previousSeconds = Date.now() / 1000;
+
   /**
    * Initializes everything that stays across runs of the game, such as the
    * renderer and resize event listeners.
@@ -41,7 +44,27 @@ export class Game {
     this.mainLoop();
   }
 
+  pause() {
+    this.paused = true;
+    this.previousSeconds = null;
+  }
+
+  resume() {
+    this.paused = false;
+    this.previousSeconds = Date.now() / 1000;
+    this.mainLoop();
+  }
+
+  restart() {
+    console.log('TODO');
+    this.paused = false;
+    this.mainLoop();
+  }
+
   mainLoop() {
+    if (this.paused) {
+      return;
+    }
     this.update();
     this.render();
 
@@ -54,11 +77,12 @@ export class Game {
 
   /**
    * Handles the main logic for the game by making each system update.
-   *
-   * TODO: There should be some delta time calculated here and passed to the
-   * update methods so the game runs at a consistent time rate.
    */
   update() {
-    this.cameraSystem.update();
+    const nowSeconds = Date.now() / 1000;
+    const deltaSeconds = nowSeconds - this.previousSeconds;
+    this.cameraSystem.update(deltaSeconds);
+    this.previousSeconds = nowSeconds;
+    
   }
 }
