@@ -1,8 +1,10 @@
 // Load scenes from a glb file.
 
+goog.provide('app.PlaceholderScene');
+
 const gltfLoader = new THREE.GLTFLoader();
 
-export class PlaceholderScene {
+class PlaceholderScene {
   constructor() {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x71a7db);
@@ -60,3 +62,5 @@ function replaceMaterialsWithToonMaterials(scene) {
     node.material = toonReplacementMaterials.get(node.material.name);
   });
 }
+
+app.PlaceholderScene = PlaceholderScene;

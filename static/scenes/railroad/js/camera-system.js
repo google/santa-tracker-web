@@ -1,4 +1,6 @@
-export class CameraSystem {
+goog.provide('app.CameraSystem');
+
+class CameraSystem {
 
   constructor(camera, placeholderScene) {
     this.camera = camera;
@@ -15,3 +17,5 @@ export class CameraSystem {
     this.seconds = this.seconds + deltaSeconds;
   }
 }
+
+app.CameraSystem = CameraSystem;
