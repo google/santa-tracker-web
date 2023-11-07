@@ -1,6 +1,7 @@
 // Entry point for the railroad game itself. This sets up the main loop of the game.
 
 import { CameraSystem } from "./camera-system.js";
+import { PresentSystem } from "./present-system.js";
 import { PlaceholderScene } from "./scene.js";
 
 export class Game {
@@ -37,6 +38,7 @@ export class Game {
     // TODO: Put this in a level initialization section.
     this.placeholderScene = new PlaceholderScene();
     this.cameraSystem = new CameraSystem(this.camera, this.placeholderScene);
+    this.presentSystem = new PresentSystem(this.placeholderScene);
 
     this.mainLoop();
   }
@@ -60,5 +62,6 @@ export class Game {
    */
   update() {
     this.cameraSystem.update();
+    this.presentSystem.update();
   }
 }
