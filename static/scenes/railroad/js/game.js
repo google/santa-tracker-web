@@ -5,6 +5,7 @@ goog.provide('app.Game');
 goog.require('app.CameraSystem');
 goog.require('app.Constants');
 goog.require('app.PlaceholderScene');
+goog.require('app.RaycasterSystem');
 goog.require('app.shared.Scoreboard');
 
 class Game {
@@ -43,12 +44,13 @@ class Game {
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
-    this.raycaster = new THREE.Raycaster();
     this.scoreboard = new app.shared.Scoreboard(this, undefined, app.Constants.NUM_LEVELS);
 
     // TODO: Put this in a level initialization section.
     this.placeholderScene = new app.PlaceholderScene();
     this.cameraSystem = new app.CameraSystem(this.camera, this.placeholderScene);
+
+    this.raycasterSystem = new app.RaycasterSystem(this.renderer, this.camera, this.placeholderScene, this.scoreboard);
 
     this.setUpListeners();
     this.mainLoop();
@@ -60,12 +62,20 @@ class Game {
   }
 
   resume() {
+    if (!this.paused) {
+      console.warn('Game must be paused before it can be resumed');
+      return;
+    }
     this.paused = false;
     this.previousSeconds = Date.now() / 1000;
     this.mainLoop();
   }
 
   restart() {
+    if (!this.paused) {
+      console.warn('Game must be paused before it can be restarted');
+      return;
+    }
     console.log('TODO');
     this.paused = false;
     this.mainLoop();
@@ -108,14 +118,7 @@ class Game {
   }
 
   handleClick(clickEvent) {
-    // calculate pointer position in normalized device coordinates
-    // (-1 to +1) for both components
-    const ray = new THREE.Vector2(0, 0);
-    ray.x = (clickEvent.clientX / this.renderer.domElement.width) * 2 - 1;
-    ray.y = -(clickEvent.clientY / this.renderer.domElement.height) * 2 + 1; 
-    this.raycaster.setFromCamera(ray, this.camera);
-    const intersects = this.raycaster.intersectObjects(this.placeholderScene.scene.children, true);
-    this.scoreboard.addScore(intersects.length);
+    this.raycasterSystem.cast(clickEvent);
   }
 }
 
