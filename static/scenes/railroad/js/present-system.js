@@ -18,10 +18,25 @@ export class PresentSystem {
     constructor(placeholderScene) {
         this.loader = new THREE.OBJLoader();
         this.placeholderScene = placeholderScene;
-        const geometry = new THREE.BoxGeometry(0.3, 0.3, 0.3); 
-        const material = new THREE.MeshToonMaterial( {color: 0xff0000} ); 
-        this.currentPresent = new THREE.Mesh( geometry, material ); 
-        this.placeholderScene.getScene().add(this.currentPresent);
+        const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231} ); 
+        const material1 = new THREE.MeshToonMaterial( {color: 0x009BFF});
+
+        this.currentPresent = null;
+        
+
+        this.loader.load( "models/gift.obj", obj => {
+            obj.scale.setScalar(0.001);
+            for (let i = 0; i < obj.children.length; i++) {          
+                if (i !== 4) {
+                  obj.children[i].material = material0
+                } else {
+                  obj.children[i].material = material1
+                }
+              }
+            this.currentPresent = obj;
+            this.placeholderScene.getScene().add(obj);
+            console.log("Present added");
+        });
     }
 
     teardown(game) {
@@ -31,7 +46,9 @@ export class PresentSystem {
     update() {
         const nowSeconds = Date.now() / 1000;
         // Set present in front of camera
-        this.currentPresent.position.copy(this.placeholderScene.getCameraPosition(nowSeconds + 2));
+        if (this.currentPresent) {
+          this.currentPresent.position.copy(this.placeholderScene.getCameraPosition(nowSeconds + 2));
+        }
     }
 
 }
