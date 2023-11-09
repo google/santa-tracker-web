@@ -1560,7 +1560,7 @@
     "message": "Tensor is Santa's Machine Learning robot that helps Santa with the letters that he receives from children all over the world. It's been trained to quickly decipher text and images and loves to guess what someone is drawing. Draw a picture of each holiday word on the screen and it will tell you what it sees."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Help Tensor practice its image recognition!"
+    "message": "Play with Tensor, the Image Recognising Robot!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor recognised {{recognized}} of your drawings."

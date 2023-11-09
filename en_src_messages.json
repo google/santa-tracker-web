@@ -2005,7 +2005,7 @@
   },
   "quickdraw-splashview-title": {
     "description": "Title referring to a robot, named Tensor (who is gender neutral), that wants to do automated image recognition.",
-    "message": "Help Tensor practice its image recognition!"
+    "message": "Play with Tensor, the Image Recognizing Robot!"
   },
   "quickdraw-splashview-description": {
     "description": "Description about how Tensor (gender neutral) the robot operates, to recognize different objects.",
@@ -2350,6 +2350,10 @@
   "scene_racer": {
     "description": "Title of a scene/game. Race Rudolph through the snow, collecting the most presents along the way.",
     "message": "Rudolph Racer"
+  },
+  "scene_railroad": {
+    "description": "Title of a scene/game. Ride on a train, throwing presents to elves.",
+    "message": "Railroad Ride"
   },
   "scene_rollercoaster": {
     "description": "Title of a scene/game. Elves visiting an icey theme park, riding a rollercoaster.",
