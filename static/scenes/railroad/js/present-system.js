@@ -28,9 +28,9 @@ export class PresentSystem {
             obj.scale.setScalar(0.001);
             for (let i = 0; i < obj.children.length; i++) {          
                 if (i !== 4) {
-                  obj.children[i].material = material0
+                  obj.children[i].material = material0;
                 } else {
-                  obj.children[i].material = material1
+                  obj.children[i].material = material1;
                 }
               }
             this.currentPresent = obj;
