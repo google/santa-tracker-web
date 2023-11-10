@@ -1,10 +1,20 @@
 // Entry point for the railroad game itself. This sets up the main loop of the game.
 
-import { CameraSystem } from "./camera-system.js";
-import { PresentSystem } from "./present-system.js";
-import { PlaceholderScene } from "./scene.js";
+goog.provide('app.Game');
 
-export class Game {
+goog.require('app.CameraSystem');
+goog.require('app.Constants');
+goog.require('app.PlaceholderScene');
+goog.require('app.RaycasterSystem');
+goog.require('app.shared.Scoreboard');
+goog.require('app.PresentSystem');
+
+class Game {
+
+  constructor() {
+    this.paused = false;
+    this.previousSeconds = Date.now() / 1000;
+  }
 
   /**
    * Initializes everything that stays across runs of the game, such as the
@@ -39,11 +49,51 @@ export class Game {
     this.placeholderScene = new PlaceholderScene();
     this.cameraSystem = new CameraSystem(this.camera, this.placeholderScene);
     this.presentSystem = new PresentSystem(this.placeholderScene);
+    this.scoreboard = new app.shared.Scoreboard(this, undefined, app.Constants.NUM_LEVELS);
 
+    // TODO: Put this in a level initialization section.
+    this.placeholderScene = new app.PlaceholderScene();
+    this.cameraSystem = new app.CameraSystem(this.camera, this.placeholderScene);
+
+    this.raycasterSystem = new app.RaycasterSystem(this.renderer, this.camera, this.placeholderScene, this.scoreboard);
+
+    this.setUpListeners();
     this.mainLoop();
   }
 
+  pause() {
+    this.paused = true;
+    this.previousSeconds = null;
+  }
+
+  resume() {
+    if (!this.paused) {
+      console.warn('Game must be paused before it can be resumed');
+      return;
+    }
+    this.paused = false;
+    this.previousSeconds = Date.now() / 1000;
+    this.mainLoop();
+  }
+
+  restart() {
+    if (!this.paused) {
+      console.warn('Game must be paused before it can be restarted');
+      return;
+    }
+    console.log('TODO');
+    this.paused = false;
+    this.mainLoop();
+  }
+
+  gameover() {
+    console.error('TODO');
+  }
+
   mainLoop() {
+    if (this.paused) {
+      return;
+    }
     this.update();
     this.render();
 
@@ -56,12 +106,26 @@ export class Game {
 
   /**
    * Handles the main logic for the game by making each system update.
-   *
-   * TODO: There should be some delta time calculated here and passed to the
-   * update methods so the game runs at a consistent time rate.
    */
   update() {
-    this.cameraSystem.update();
     this.presentSystem.update();
+    const nowSeconds = Date.now() / 1000;
+    const deltaSeconds = nowSeconds - this.previousSeconds;
+    this.cameraSystem.update(deltaSeconds);
+    this.scoreboard.onFrame(deltaSeconds);
+    this.previousSeconds = nowSeconds;
+    
+  }
+
+  setUpListeners() {
+    this.clickListener = this.renderer.domElement.addEventListener('click', (click) => {
+      this.handleClick(click);
+    });
+  }
+
+  handleClick(clickEvent) {
+    this.raycasterSystem.cast(clickEvent);
   }
 }
+
+app.Game = Game;
