@@ -7,6 +7,7 @@ goog.require('app.Constants');
 goog.require('app.PlaceholderScene');
 goog.require('app.RaycasterSystem');
 goog.require('app.shared.Scoreboard');
+goog.require('app.PresentSystem');
 
 class Game {
 
@@ -49,6 +50,7 @@ class Game {
     // TODO: Put this in a level initialization section.
     this.placeholderScene = new app.PlaceholderScene();
     this.cameraSystem = new app.CameraSystem(this.camera, this.placeholderScene);
+    this.presentSystem = new app.PresentSystem(this.placeholderScene);
 
     this.raycasterSystem = new app.RaycasterSystem(this.renderer, this.camera, this.placeholderScene, this.scoreboard);
 
@@ -106,6 +108,7 @@ class Game {
     const nowSeconds = Date.now() / 1000;
     const deltaSeconds = nowSeconds - this.previousSeconds;
     this.cameraSystem.update(deltaSeconds);
+    this.presentSystem.update();
     this.scoreboard.onFrame(deltaSeconds);
     this.previousSeconds = nowSeconds;
     

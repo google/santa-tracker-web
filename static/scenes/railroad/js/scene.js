@@ -44,6 +44,10 @@ class PlaceholderScene {
       radius * Math.sin(angle),
     );
   }  
+
+  getScene() {
+    return this.scene;
+  }
 }
 
 function replaceMaterialsWithToonMaterials(scene) {
