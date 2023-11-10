@@ -45,10 +45,7 @@ class Game {
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
-    // TODO: Put this in a level initialization section.
-    this.placeholderScene = new PlaceholderScene();
-    this.cameraSystem = new CameraSystem(this.camera, this.placeholderScene);
-    this.presentSystem = new PresentSystem(this.placeholderScene);
+    this.presentSystem = new app.PresentSystem(this.placeholderScene);
     this.scoreboard = new app.shared.Scoreboard(this, undefined, app.Constants.NUM_LEVELS);
 
     // TODO: Put this in a level initialization section.
