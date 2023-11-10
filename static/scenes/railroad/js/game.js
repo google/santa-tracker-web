@@ -46,18 +46,12 @@ class Game {
       this.renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
-<<<<<<<<< Temporary merge branch 1
-    // TODO: Put this in a level initialization section.
-    this.placeholderScene = new PlaceholderScene();
-    this.cameraSystem = new CameraSystem(this.camera, this.placeholderScene);
-    this.presentSystem = new PresentSystem(this.placeholderScene);
-=========
     this.scoreboard = new app.shared.Scoreboard(this, undefined, app.Constants.NUM_LEVELS);
 
     // TODO: Put this in a level initialization section.
     this.placeholderScene = new app.PlaceholderScene();
     this.cameraSystem = new app.CameraSystem(this.camera, this.placeholderScene);
-    this.presentSystem = new PresentSystem(this.placeholderScene);
+    this.presentSystem = new app.PresentSystem(this.placeholderScene);
 
     this.raycasterSystem = new app.RaycasterSystem(this.renderer, this.camera, this.placeholderScene, this.scoreboard);
 
@@ -112,10 +106,6 @@ class Game {
    * Handles the main logic for the game by making each system update.
    */
   update() {
-<<<<<<<<< Temporary merge branch 1
-    this.cameraSystem.update();
-    this.presentSystem.update();
-=========
     const nowSeconds = Date.now() / 1000;
     const deltaSeconds = nowSeconds - this.previousSeconds;
     this.cameraSystem.update(deltaSeconds);
