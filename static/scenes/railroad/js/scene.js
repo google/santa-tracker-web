@@ -24,7 +24,7 @@ class PlaceholderScene {
 
     // TODO: Consolidate loading of assets so that there isn't a jump when
     // assets appear in the scene.
-    gltfLoader.load('models/demo-scene.glb', (loadedScene) => {
+    gltfLoader.load('models/new-scene.glb', (loadedScene) => {
       // Swap out the default material with toon materials.
       replaceMaterialsWithToonMaterials(loadedScene.scene);
       scene.add(loadedScene.scene);
