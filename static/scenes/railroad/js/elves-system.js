@@ -10,19 +10,28 @@ const ELVES_IMAGES = [
 
 class ElvesSystem {
 
-  constructor(camera, placeholderScene) {
+  constructor(camera, placeholderScene, readFromScene = true) {
     this.camera = camera;
     this.placeholderScene = placeholderScene;
     this.seconds = 0;
     this.lastSpawn = 0;
     this.spawnPeriod = 5;
-    this.elves = this.generateElves();
+    this.readFromScene = readFromScene;
+    if (this.readFromScene) {
+      // Hacky way to ensure scene is loaded.
+      // We should add a promise from the scene we can chain on.
+      setTimeout(() => {
+        this.generateElvesFromScene();
+      }, 1000);
+    } else {
+      this.elves = this.generateElves();
+    }
     this.nextElfIndex = 0;
   }
 
   update(deltaSeconds) {
     this.seconds = this.seconds + deltaSeconds;
-    if (this.seconds - this.lastSpawn >= this.spawnPeriod) {
+    if (!this.readFromScene && this.seconds - this.lastSpawn >= this.spawnPeriod) {
       this.spawnElf();
       this.lastSpawn = this.seconds;
     }
@@ -47,6 +56,23 @@ class ElvesSystem {
       elves.push(sprite);
     }
     return elves;
+  }
+
+  generateElvesFromScene() {
+    for (const scene of this.placeholderScene.scene.children) {
+      if (!scene.isScene) continue;
+      for (const obj of scene.children) {
+        if (obj.userData.type === 'elf') {
+          new THREE.TextureLoader().load(`img/${obj.userData.assetUrl}`, (elfTexture) => {
+            const material = new THREE.SpriteMaterial({map: elfTexture});
+            const sprite = new THREE.Sprite(material);
+            sprite.material.rotation = (obj.rotation.y);
+            sprite.userData.isElf = true;
+            obj.add(sprite);
+          });
+        }
+      }
+    }
   }
 }
 
