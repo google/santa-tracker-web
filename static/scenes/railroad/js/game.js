@@ -4,6 +4,7 @@ goog.provide('app.Game');
 
 goog.require('app.CameraSystem');
 goog.require('app.Constants');
+goog.require('app.ElvesSystem');
 goog.require('app.PlaceholderScene');
 goog.require('app.RaycasterSystem');
 goog.require('app.shared.Scoreboard');
@@ -49,6 +50,7 @@ class Game {
     // TODO: Put this in a level initialization section.
     this.placeholderScene = new app.PlaceholderScene();
     this.cameraSystem = new app.CameraSystem(this.camera, this.placeholderScene);
+    this.elvesSystem = new app.ElvesSystem(this.camera, this.placeholderScene);
 
     this.raycasterSystem = new app.RaycasterSystem(this.renderer, this.camera, this.placeholderScene, this.scoreboard);
 
@@ -106,6 +108,7 @@ class Game {
     const nowSeconds = Date.now() / 1000;
     const deltaSeconds = nowSeconds - this.previousSeconds;
     this.cameraSystem.update(deltaSeconds);
+    this.elvesSystem.update(deltaSeconds);
     this.scoreboard.onFrame(deltaSeconds);
     this.previousSeconds = nowSeconds;
     
