@@ -15,7 +15,7 @@
  */
 goog.provide('app.PresentSystem');
 
-export class PresentSystem {
+class PresentSystem {
     constructor(placeholderScene) {
         this.loader = new THREE.OBJLoader();
         this.placeholderScene = placeholderScene;
@@ -53,3 +53,5 @@ export class PresentSystem {
     }
 
 }
+
+app.PresentSystem = PresentSystem;
