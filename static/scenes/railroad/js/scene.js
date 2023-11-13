@@ -1,8 +1,10 @@
 // Load scenes from a glb file.
 
+goog.provide('app.PlaceholderScene');
+
 const gltfLoader = new THREE.GLTFLoader();
 
-export class PlaceholderScene {
+class PlaceholderScene {
   constructor() {
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x71a7db);
@@ -22,7 +24,7 @@ export class PlaceholderScene {
 
     // TODO: Consolidate loading of assets so that there isn't a jump when
     // assets appear in the scene.
-    gltfLoader.load('models/demo-scene.glb', (loadedScene) => {
+    gltfLoader.load('models/new-scene.glb', (loadedScene) => {
       // Swap out the default material with toon materials.
       replaceMaterialsWithToonMaterials(loadedScene.scene);
       scene.add(loadedScene.scene);
@@ -42,6 +44,10 @@ export class PlaceholderScene {
       radius * Math.sin(angle),
     );
   }  
+
+  getScene() {
+    return this.scene;
+  }
 }
 
 function replaceMaterialsWithToonMaterials(scene) {
@@ -60,3 +66,5 @@ function replaceMaterialsWithToonMaterials(scene) {
     node.material = toonReplacementMaterials.get(node.material.name);
   });
 }
+
+app.PlaceholderScene = PlaceholderScene;
