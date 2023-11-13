@@ -23,7 +23,7 @@ class PresentSystem {
         const material1 = new THREE.MeshToonMaterial( {color: 0x009BFF});
 
         this.currentPresent = null;
-        
+        this.seconds = 0;
 
         this.loader.load( "models/gift.obj", obj => {
             obj.scale.setScalar(0.001);
@@ -44,11 +44,11 @@ class PresentSystem {
         this.currentPresent = null;
     }
 
-    update() {
-        const nowSeconds = Date.now() / 1000;
+    update(deltaSeconds) {
+        this.seconds = this.seconds + deltaSeconds;
         // Set present in front of camera
         if (this.currentPresent) {
-          this.currentPresent.position.copy(this.placeholderScene.getCameraPosition(nowSeconds + 2));
+          this.currentPresent.position.copy(this.placeholderScene.getCameraPosition(this.seconds + 2));
         }
     }
 
