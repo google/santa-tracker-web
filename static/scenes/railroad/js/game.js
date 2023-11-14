@@ -112,7 +112,7 @@ class Game {
     const deltaSeconds = nowSeconds - this.previousSeconds;
     this.cameraSystem.update(deltaSeconds);
     this.elvesSystem.update(deltaSeconds);
-    this.presentSystem.update();
+    this.presentSystem.update(deltaSeconds);
     this.scoreboard.onFrame(deltaSeconds);
     this.previousSeconds = nowSeconds;
     

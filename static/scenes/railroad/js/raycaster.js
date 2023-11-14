@@ -28,7 +28,6 @@ class RaycasterSystem {
   updateScore(intersections) {
     let score = 0;
     for (const {object} of intersections) {
-      console.log(object.userData);
       if (object.userData.isElf === true) {
         score += 1;
       }
