@@ -5,7 +5,7 @@ goog.provide('app.Game');
 goog.require('app.CameraSystem');
 goog.require('app.Constants');
 goog.require('app.ElvesSystem');
-goog.require('app.PlaceholderScene');
+goog.require('app.Scene');
 goog.require('app.RaycasterSystem');
 goog.require('app.shared.Scoreboard');
 goog.require('app.PresentSystem');
@@ -33,31 +33,40 @@ class Game {
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.shadowMap.enabled = true;
     container.appendChild(this.renderer.domElement);
-  
-    this.camera = new THREE.PerspectiveCamera(
-      50,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000);
+
+
+    const gltfLoader = new THREE.GLTFLoader();
+    const loading = new Promise((resolve) => {
+      gltfLoader.load('models/demo-scene-animated.glb', (loadedScene) => {
+        resolve(loadedScene);
+      });
+    });
+
+    loading.then((loadedScene) => {
+      this.placeholderScene = new app.Scene(loadedScene.scene, loadedScene.cameras[0], loadedScene.animations);
+      this.camera = this.placeholderScene.getCamera();
+      this.camera.fov = 50;
+      this.camera.near = 0.1;
+      this.camera.far = 2000;
+      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.updateProjectionMatrix();
+      this.scoreboard = new app.shared.Scoreboard(this, undefined, app.Constants.NUM_LEVELS);
+
+      this.elvesSystem = new app.ElvesSystem(this.camera, this.placeholderScene);
+      this.presentSystem = new app.PresentSystem(this.placeholderScene);
+
+      this.raycasterSystem = new app.RaycasterSystem(this.renderer, this.camera, this.placeholderScene, this.scoreboard);
+
+      this.setUpListeners();
+      this.mainLoop();
+    });
 
     window.addEventListener('resize', () => {
       this.camera.aspect = window.innerWidth / window.innerHeight;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(window.innerWidth, window.innerHeight);
+      console.log(this.camera);
     });
-
-    this.scoreboard = new app.shared.Scoreboard(this, undefined, app.Constants.NUM_LEVELS);
-
-    // TODO: Put this in a level initialization section.
-    this.placeholderScene = new app.PlaceholderScene();
-    this.cameraSystem = new app.CameraSystem(this.camera, this.placeholderScene);
-    this.elvesSystem = new app.ElvesSystem(this.camera, this.placeholderScene);
-    this.presentSystem = new app.PresentSystem(this.placeholderScene);
-
-    this.raycasterSystem = new app.RaycasterSystem(this.renderer, this.camera, this.placeholderScene, this.scoreboard);
-
-    this.setUpListeners();
-    this.mainLoop();
   }
 
   pause() {
@@ -109,7 +118,7 @@ class Game {
   update() {
     const nowSeconds = Date.now() / 1000;
     const deltaSeconds = nowSeconds - this.previousSeconds;
-    this.cameraSystem.update(deltaSeconds);
+    this.placeholderScene.update(deltaSeconds);
     this.elvesSystem.update(deltaSeconds);
     this.presentSystem.update(deltaSeconds);
     this.scoreboard.onFrame(deltaSeconds);

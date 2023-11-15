@@ -1,16 +1,15 @@
-// Load scenes from a glb file.
 
-goog.provide('app.PlaceholderScene');
+goog.provide('app.Scene');
 
 const gltfLoader = new THREE.GLTFLoader();
 
-class PlaceholderScene {
-  constructor() {
-    const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x71a7db);
+class Scene {
+  constructor(loadedScene, camera, animations) {
+    this.scene = new THREE.Scene();
+    this.scene.background = new THREE.Color(0x71a7db);
   
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
-    scene.add(ambientLight);
+    this.scene.add(ambientLight);
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.castShadow = true;
     directionalLight.shadow.camera.top = 10;
@@ -20,17 +19,32 @@ class PlaceholderScene {
     directionalLight.position.set(30, 40, 20);
     directionalLight.lookAt(0,0,0);
   
-    scene.add(directionalLight);
+    this.scene.add(directionalLight);
 
-    // TODO: Consolidate loading of assets so that there isn't a jump when
-    // assets appear in the scene.
-    gltfLoader.load('models/new-scene.glb', (loadedScene) => {
-      // Swap out the default material with toon materials.
-      replaceMaterialsWithToonMaterials(loadedScene.scene);
-      scene.add(loadedScene.scene);
+    this.mixer = new THREE.AnimationMixer(loadedScene);
+    this.mixer.timeScale = 0.5;
+    this.clips = animations;
+    this.clips.forEach((clip) => {
+    	this.mixer.clipAction(clip).play();
     });
 
-    this.scene = scene;
+    replaceMaterialsWithToonMaterials(loadedScene);
+    this.scene.add(loadedScene);
+    this.camera = camera;
+    this.camera.fov = 50;
+    this.camera.updateProjectionMatrix();
+  }
+
+  update(deltaSeconds) {
+    this.mixer.update(deltaSeconds);
+  }
+
+  getCamera() {
+    return this.camera;
+  }
+
+  setTimeScale(scale) {
+    this.mixer.timeScale = scale * 0.5;  // Since our scale starts out at 0.5;
   }
 
   getCameraPosition(timeInSeconds) {
@@ -67,4 +81,4 @@ function replaceMaterialsWithToonMaterials(scene) {
   });
 }
 
-app.PlaceholderScene = PlaceholderScene;
+app.Scene = Scene;
