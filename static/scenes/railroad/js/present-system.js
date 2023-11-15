@@ -17,6 +17,11 @@ goog.provide('app.PresentSystem');
 
 goog.require('app.Present');
 
+const material1 = new THREE.MeshToonMaterial( {color: 0x009BFF}); // blue
+const material2 = new THREE.MeshToonMaterial( {color: 0x9445B5}); // purple
+const material3 = new THREE.MeshToonMaterial( {color: 0x63BC71}); // green
+const material4 = new THREE.MeshToonMaterial( {color: 0xFF2400}); // red
+
 class PresentSystem {
     constructor(placeholderScene) {
         this.loader = new THREE.OBJLoader();
@@ -33,13 +38,13 @@ class PresentSystem {
       var box_color = Math.floor(Math.random() * 5);
       var giftWrapMaterial;
       if (box_color === 0) {                  
-        giftWrapMaterial = new THREE.MeshToonMaterial( {color: 0x009BFF}); // blue
+        giftWrapMaterial = material1;
       } else if (box_color === 1) {
-        giftWrapMaterial =new THREE.MeshToonMaterial( {color: 0x9445B5}); // purple
+        giftWrapMaterial = material2;
       } else if (box_color === 2) {
-        giftWrapMaterial = new THREE.MeshToonMaterial( {color: 0x63BC71}); // green
+        giftWrapMaterial = material3;
       } else {
-        giftWrapMaterial = new THREE.MeshToonMaterial( {color: 0xFF2400}); // red
+        giftWrapMaterial = material4;
       }
       var present = new Present(this.loader, this.placeholderScene, giftWrapMaterial);
       this.presents.push(present);
@@ -62,13 +67,12 @@ class PresentSystem {
         for (let i = 0; i < this.presents.length; i++) {
           const present = this.presents[i];
           if (present.landed) {
-            const index = this.presents.indexOf(present);
-            if (index > -1) {
-              this.presents.splice(index, 1);
-            }
+            this.presents.splice(i, 1);
+            i--;
             this.placeholderScene.getScene().remove(present.model);
+            console.log('Removed present');
           } else {
-            present.update(this.seconds);
+            present.update(this.seconds, deltaSeconds);
           }
         }
     }

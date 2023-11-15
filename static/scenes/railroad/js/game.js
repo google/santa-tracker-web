@@ -128,7 +128,7 @@ class Game {
     this.raycasterSystem.cast(clickEvent);
 
     // Test present shot
-    const aim = this.placeholderScene.getCameraPosition(nowSeconds + 4);
+    const aim = this.placeholderScene.getCameraPosition(nowSeconds + 30);
     this.presentSystem.shoot(aim);
   }
 }

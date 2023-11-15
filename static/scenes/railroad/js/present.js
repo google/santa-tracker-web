@@ -1,14 +1,14 @@
 goog.provide('app.Present');
 
-class Present {
+const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231}); 
 
+class Present {
     constructor(loader, scene, giftWrapMaterial) {
         this.scene = scene;
         this.inFlight = false;
         this.landed = false;
-        this.pointIndex = 0;
-
-        const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231}); 
+        this.totalFlightTime = 4;
+        this.currentFlightTime = 0;
 
         loader.load( "models/gift.obj", obj => {
             obj.scale.setScalar(0.001);
@@ -29,22 +29,25 @@ class Present {
         this.targetPosition = targetPosition;
         this.startPosition = this.model.position;
 
-        const midpoint = new THREE.Vector3().add(this.targetPosition, this.startPosition).multiplyScalar(0.5);
+        var midpoint = new THREE.Vector3().add(this.targetPosition, this.startPosition).multiplyScalar(0.5);
         midpoint.setY(midpoint.y + 3);
         this.curve = new THREE.QuadraticBezierCurve3(this.startPosition, midpoint, this.targetPosition);
-        this.points = this.curve.getPoints(175);
-
         this.inFlight = true;
     }
 
-    update(seconds) {
+    update(seconds, deltaSeconds) {
         if (this.inFlight) {
-            if (this.pointIndex == this.points.length) {
+            if (this.currentFlightTime > this.totalFlightTime) {
                 this.landed = true;
                 // call some kind of function to update score if good hit
             } else if (this.model) {
-                this.model.position.copy(this.points[this.pointIndex]);
-                this.pointIndex++;
+                var t = this.currentFlightTime/this.totalFlightTime;
+                console.log(t);
+                console.log(this.currentFlightTime);
+                console.log(this.totalFlightTime);
+                this.model.position.copy(this.curve.getPoint(t));
+                console.log(this.curve.getPoint(t));
+                this.currentFlightTime = this.currentFlightTime + deltaSeconds;
             }
         } else if (!this.landed && this.model) {
             // Maybe change this later but for now just float in front of the camera
