@@ -64,9 +64,6 @@ class ElvesSystem {
             const material = new THREE.SpriteMaterial({map: elfTexture});
             const sprite = new THREE.Sprite(material);
             sprite.material.rotation = (obj.rotation.y);
-	    //const width = material.map.image.width;
-	    //const height = material.map.image.height;
-	    //sprite.scale.set(width / 4, height / 4, 1);
             sprite.userData.isElf = true;
             obj.add(sprite);
             console.log(obj);

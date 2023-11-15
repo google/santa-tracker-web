@@ -38,13 +38,12 @@ class Game {
     const gltfLoader = new THREE.GLTFLoader();
     const loading = new Promise((resolve) => {
       gltfLoader.load('models/demo-scene-animated.glb', (loadedScene) => {
-	const scene = new app.Scene(loadedScene.scene, loadedScene.cameras[0], loadedScene.animations);
-        resolve(scene);
+        resolve(loadedScene);
       });
     });
 
-    loading.then((scene) => {
-      this.placeholderScene = scene;
+    loading.then((loadedScene) => {
+      this.placeholderScene = new app.Scene(loadedScene.scene, loadedScene.cameras[0], loadedScene.animations);
       this.camera = this.placeholderScene.getCamera();
       this.camera.fov = 50;
       this.camera.near = 0.1;
