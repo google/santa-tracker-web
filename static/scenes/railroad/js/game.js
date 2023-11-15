@@ -9,7 +9,6 @@ goog.require('app.PlaceholderScene');
 goog.require('app.RaycasterSystem');
 goog.require('app.shared.Scoreboard');
 goog.require('app.PresentSystem');
-goog.require('app.PresentSystem');
 
 class Game {
 
