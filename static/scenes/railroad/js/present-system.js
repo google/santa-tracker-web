@@ -15,53 +15,61 @@
  */
 goog.provide('app.PresentSystem');
 
+goog.require('app.Present');
+
 class PresentSystem {
     constructor(placeholderScene) {
         this.loader = new THREE.OBJLoader();
         this.placeholderScene = placeholderScene;
-        const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231}); 
-        const material1 = new THREE.MeshToonMaterial( {color: 0x009BFF}); // blue
-        const material2 = new THREE.MeshToonMaterial( {color: 0x9445B5}); // purple
-        const material3 = new THREE.MeshToonMaterial( {color: 0x63BC71}); // green
-        const material4 = new THREE.MeshToonMaterial( {color: 0xFF2400}); // red
 
         this.currentPresent = null;
+        this.presents = [];
         this.seconds = 0;
 
-        this.loader.load( "models/gift.obj", obj => {
-            obj.scale.setScalar(0.001);
-            for (let i = 0; i < obj.children.length; i++) {          
-                if (i !== 4) {
-                  obj.children[i].material = material0;
-                } else {
-                  var box_color = Math.floor(Math.random() * 5);
-                  console.log("box_color: " + box_color);
-                  if (box_color === 0) {                  
-                    obj.children[i].material = material1;
-                  } else if (box_color === 1) {
-                    obj.children[i].material = material2;
-                  } else if (box_color === 2) {
-                    obj.children[i].material = material3;
-                  } else {
-                    obj.children[i].material = material4;
-                  }
-                }
-              }
-            this.currentPresent = obj;
-            this.placeholderScene.getScene().add(obj);
-            console.log("Present added");
-        });
+        this.addNewPresent();
+    }
+
+    addNewPresent() {
+      var box_color = Math.floor(Math.random() * 5);
+      var giftWrapMaterial;
+      if (box_color === 0) {                  
+        giftWrapMaterial = new THREE.MeshToonMaterial( {color: 0x009BFF}); // blue
+      } else if (box_color === 1) {
+        giftWrapMaterial =new THREE.MeshToonMaterial( {color: 0x9445B5}); // purple
+      } else if (box_color === 2) {
+        giftWrapMaterial = new THREE.MeshToonMaterial( {color: 0x63BC71}); // green
+      } else {
+        giftWrapMaterial = new THREE.MeshToonMaterial( {color: 0xFF2400}); // red
+      }
+      var present = new Present(this.loader, this.placeholderScene, giftWrapMaterial);
+      this.presents.push(present);
+      this.currentPresent = present;
+    }
+
+    shoot(targetPosition) {
+      this.currentPresent.shoot(targetPosition);
+      this.addNewPresent();
     }
 
     teardown(game) {
-        this.currentPresent = null;
+      this.presents = [];
+      this.currentPresent = null;
     }
 
     update(deltaSeconds) {
         this.seconds = this.seconds + deltaSeconds;
-        // Set present in front of camera
-        if (this.currentPresent) {
-          this.currentPresent.position.copy(this.placeholderScene.getCameraPosition(this.seconds + 2));
+
+        for (let i = 0; i < this.presents.length; i++) {
+          const present = this.presents[i];
+          if (present.landed) {
+            const index = this.presents.indexOf(present);
+            if (index > -1) {
+              this.presents.splice(index, 1);
+            }
+            this.placeholderScene.getScene().remove(present.model);
+          } else {
+            present.update(this.seconds);
+          }
         }
     }
 
