@@ -18,11 +18,7 @@ class ElvesSystem {
     this.spawnPeriod = 5;
     this.readFromScene = readFromScene;
     if (this.readFromScene) {
-      // Hacky way to ensure scene is loaded.
-      // We should add a promise from the scene we can chain on.
-      setTimeout(() => {
-        this.generateElvesFromScene();
-      }, 1000);
+      this.generateElvesFromScene();
     } else {
       this.elves = this.generateElves();
     }
@@ -59,16 +55,18 @@ class ElvesSystem {
   }
 
   generateElvesFromScene() {
-    for (const scene of this.placeholderScene.scene.children) {
+    for (const scene of this.placeholderScene.getScene().children) {
       if (!scene.isScene) continue;
       for (const obj of scene.children) {
         if (obj.userData.type === 'elf') {
+          console.log(obj);
           new THREE.TextureLoader().load(`img/${obj.userData.assetUrl}`, (elfTexture) => {
             const material = new THREE.SpriteMaterial({map: elfTexture});
             const sprite = new THREE.Sprite(material);
             sprite.material.rotation = (obj.rotation.y);
             sprite.userData.isElf = true;
             obj.add(sprite);
+            console.log(obj);
           });
         }
       }

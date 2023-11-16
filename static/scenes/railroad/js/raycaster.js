@@ -28,9 +28,10 @@ class RaycasterSystem {
   updateScore(intersections) {
     let score = 0;
     for (const {object} of intersections) {
-      console.log(object.userData);
       if (object.userData.isElf === true) {
         score += 1;
+      } else if (object.userData.type === 'ice') {
+        this.placeholderScene.setTimeScale(0.5);
       }
     }
     this.scoreboard.addScore(score);

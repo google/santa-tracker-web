@@ -15,40 +15,65 @@
  */
 goog.provide('app.PresentSystem');
 
+goog.require('app.Present');
+
+const material1 = new THREE.MeshToonMaterial( {color: 0x009BFF}); // blue
+const material2 = new THREE.MeshToonMaterial( {color: 0x9445B5}); // purple
+const material3 = new THREE.MeshToonMaterial( {color: 0x63BC71}); // green
+const material4 = new THREE.MeshToonMaterial( {color: 0xFF2400}); // red
+
 class PresentSystem {
     constructor(placeholderScene) {
         this.loader = new THREE.OBJLoader();
         this.placeholderScene = placeholderScene;
-        const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231} ); 
-        const material1 = new THREE.MeshToonMaterial( {color: 0x009BFF});
 
         this.currentPresent = null;
-        
+        this.presents = [];
+        this.seconds = 0;
 
-        this.loader.load( "models/gift.obj", obj => {
-            obj.scale.setScalar(0.001);
-            for (let i = 0; i < obj.children.length; i++) {          
-                if (i !== 4) {
-                  obj.children[i].material = material0;
-                } else {
-                  obj.children[i].material = material1;
-                }
-              }
-            this.currentPresent = obj;
-            this.placeholderScene.getScene().add(obj);
-            console.log("Present added");
-        });
+        this.addNewPresent();
+    }
+
+    addNewPresent() {
+      var box_color = Math.floor(Math.random() * 5);
+      var giftWrapMaterial;
+      if (box_color === 0) {                  
+        giftWrapMaterial = material1;
+      } else if (box_color === 1) {
+        giftWrapMaterial = material2;
+      } else if (box_color === 2) {
+        giftWrapMaterial = material3;
+      } else {
+        giftWrapMaterial = material4;
+      }
+      var present = new Present(this.loader, this.placeholderScene, giftWrapMaterial);
+      this.presents.push(present);
+      this.currentPresent = present;
+    }
+
+    shoot(targetPosition) {
+      this.currentPresent.shoot(targetPosition);
+      this.addNewPresent();
     }
 
     teardown(game) {
-        this.currentPresent = null;
+      this.presents = [];
+      this.currentPresent = null;
     }
 
-    update() {
-        const nowSeconds = Date.now() / 1000;
-        // Set present in front of camera
-        if (this.currentPresent) {
-          this.currentPresent.position.copy(this.placeholderScene.getCameraPosition(nowSeconds + 2));
+    update(deltaSeconds) {
+        this.seconds = this.seconds + deltaSeconds;
+
+        for (let i = 0; i < this.presents.length; i++) {
+          const present = this.presents[i];
+          if (present.landed) {
+            this.presents.splice(i, 1);
+            i--;
+            this.placeholderScene.getScene().remove(present.model);
+            console.log('Removed present');
+          } else {
+            present.update(this.seconds, deltaSeconds);
+          }
         }
     }
 

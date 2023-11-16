@@ -9,10 +9,10 @@ class CameraSystem {
   }
 
   update(deltaSeconds) {
-    this.camera.position.copy(this.placeholderScene.getCameraPosition(this.seconds + deltaSeconds));
-    // Look at where we're going to be.
-    this.camera.lookAt(this.placeholderScene.getCameraPosition(this.seconds + deltaSeconds + 3));
     this.seconds = this.seconds + deltaSeconds;
+    this.camera.position.copy(this.placeholderScene.getCameraPosition(this.seconds));
+    // Look at where we're going to be.
+    this.camera.lookAt(this.placeholderScene.getCameraPosition(this.seconds + 3));
   }
 }
 
