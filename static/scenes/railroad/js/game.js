@@ -127,7 +127,12 @@ class Game {
   }
 
   handleClick(clickEvent) {
+    const nowSeconds = Date.now() / 1000;
     this.raycasterSystem.cast(clickEvent);
+
+    // Test present shot
+    const aim = this.placeholderScene.getCameraPosition(nowSeconds + 30);
+    this.presentSystem.shoot(aim);
   }
 }
 
