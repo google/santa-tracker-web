@@ -28,7 +28,7 @@ class Game {
    * @param {HTMLElement} container The element that hosts the rendering for the
    * game.
    */
-  start(container) {
+  async start(container) {
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.shadowMap.enabled = true;
@@ -36,30 +36,24 @@ class Game {
 
 
     const gltfLoader = new THREE.GLTFLoader();
-    const loading = new Promise((resolve) => {
-      gltfLoader.load('models/demo-scene-animated.glb', (loadedScene) => {
-        resolve(loadedScene);
-      });
-    });
 
-    loading.then((loadedScene) => {
-      this.placeholderScene = new app.Scene(loadedScene.scene, loadedScene.cameras[0], loadedScene.animations);
-      this.camera = this.placeholderScene.getCamera();
-      this.camera.fov = 50;
-      this.camera.near = 0.1;
-      this.camera.far = 2000;
-      this.camera.aspect = window.innerWidth / window.innerHeight;
-      this.camera.updateProjectionMatrix();
-      this.scoreboard = new app.shared.Scoreboard(this, undefined, app.Constants.NUM_LEVELS);
+    const loadedScene = await gltfLoader.loadAsync('models/demo-scene-animated.glb');
+    this.placeholderScene = new app.Scene(loadedScene.scene, loadedScene.cameras[0], loadedScene.animations);
+    this.camera = this.placeholderScene.getCamera();
+    this.camera.fov = 50;
+    this.camera.near = 0.1;
+    this.camera.far = 2000;
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
+    this.scoreboard = new app.shared.Scoreboard(this, undefined, app.Constants.NUM_LEVELS);
 
-      this.elvesSystem = new app.ElvesSystem(this.camera, this.placeholderScene);
-      this.presentSystem = new app.PresentSystem(this.placeholderScene);
+    this.elvesSystem = new app.ElvesSystem(this.camera, this.placeholderScene);
+    this.presentSystem = new app.PresentSystem(this.placeholderScene);
 
-      this.raycasterSystem = new app.RaycasterSystem(this.renderer, this.camera, this.placeholderScene, this.scoreboard);
+    this.raycasterSystem = new app.RaycasterSystem(this.renderer, this.camera, this.placeholderScene, this.scoreboard);
 
-      this.setUpListeners();
-      this.mainLoop();
-    });
+    this.setUpListeners();
+    this.mainLoop();
 
     window.addEventListener('resize', () => {
       this.camera.aspect = window.innerWidth / window.innerHeight;
