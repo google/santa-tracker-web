@@ -2,6 +2,12 @@ goog.provide('app.Present');
 
 const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231}); 
 
+// the distance to the target scaled by this number is how high we go
+const midpointOffset = .25;
+
+// a value from 0 to 1 that defines the peak height
+const midpointT = .25;
+
 class Present {
     constructor(loader, scene, giftWrapMaterial) {
         this.scene = scene;
@@ -22,7 +28,6 @@ class Present {
             this.model = obj;
             this.scene.camera.add(obj);
             obj.position.set(.125, -.125, -1);
-            console.log("Present added");
         });
     }
 
@@ -32,11 +37,22 @@ class Present {
         this.startPosition = new THREE.Vector3();
         this.model.getWorldPosition(this.startPosition);
 
-        var midpoint = new THREE.Vector3(this.targetPosition, this.startPosition);
-        midpoint.multiplyScalar(0.5);
-        midpoint.setY(midpoint.y + 3);
-        this.curve = new THREE.QuadraticBezierCurve3(this.startPosition, midpoint, this.targetPosition);
+        var midpoint = this.startPosition.clone()
+            .multiplyScalar(1-midpointT)
+            .addScaledVector(this.targetPosition, midpointT)
+            .add(new THREE.Vector3(0, this.startPosition.distanceTo(this.targetPosition) * midpointOffset));
+
+        this.curve = new THREE.QuadraticBezierCurve3(this.startPosition.clone(), midpoint.clone(), this.targetPosition.clone());
+
         this.inFlight = true;
+    }
+
+    addDebugGeo() {
+        const points = this.curve.getPoints(50);
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+        const material = new THREE.LineBasicMaterial({color: 0x00ff00});
+        const curveObject = new THREE.Line(geometry, material);
+        this.scene.scene.add(curveObject);
     }
 
     update(seconds, deltaSeconds) {
@@ -47,23 +63,9 @@ class Present {
                 // call some kind of function to update score if good hit
             } else if (this.model) {
                 var t = this.currentFlightTime/this.totalFlightTime;
-                console.log(t);
-                // console.log(this.currentFlightTime);
-                // console.log(this.totalFlightTime);
-                // this.model.position.copy(this.curve.getPoint(t));
-                var vec = new THREE.Vector3();
-                vec.copy(this.targetPosition);
-                vec.multiplyScalar(t);
-                vec.addScaledVector(this.startPosition, 1-t);
-                this.model.position.copy(vec);
-                // this.model.position.copy(t * this.targetPosition + (1-t) * this.startPosition);
-                // console.log(this.curve.getPoint(t));
-                // this.model.position.copy(this.targetPosition);
+                this.model.position.copy(this.curve.getPoint(t));
                 this.currentFlightTime = this.currentFlightTime + deltaSeconds;
             }
-        } else if (!this.landed && this.model) {
-            // Maybe change this later but for now just float in front of the camera
-            // this.model.position.copy(this.scene.getCameraPosition(seconds + 2));
         }
     }
 }

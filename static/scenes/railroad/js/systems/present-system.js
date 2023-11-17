@@ -70,7 +70,6 @@ class PresentSystem {
             this.presents.splice(i, 1);
             i--;
             this.placeholderScene.getScene().remove(present.model);
-            console.log('Removed present');
           } else {
             present.update(this.seconds, deltaSeconds);
           }
