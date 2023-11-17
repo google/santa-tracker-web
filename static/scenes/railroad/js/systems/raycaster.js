@@ -1,4 +1,4 @@
-goog.provide('app.RaycasterSystem');
+goog.provide('app.systems.RaycasterSystem');
 
 class RaycasterSystem {
 

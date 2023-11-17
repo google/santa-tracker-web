@@ -1,4 +1,4 @@
-goog.provide('app.ElvesSystem');
+goog.provide('app.systems.ElvesSystem');
 
 const ELVES_IMAGES = [
   'img/Elf1@2x.png',
