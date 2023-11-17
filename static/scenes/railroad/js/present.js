@@ -22,7 +22,7 @@ class Present {
         this.totalFlightTime = 4;
         this.currentFlightTime = 0;
 
-        this.model = obj.clone();
+        this.model = loadedObj.clone();
         this.model.scale.setScalar(0.001);
         for (let i = 0; i < this.model.children.length; i++) {          
             if (i !== 4) {
