@@ -1,28 +1,37 @@
 goog.provide('app.Present');
 
-const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231}); 
+const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231});
+const loader = new THREE.OBJLoader();
+
+let loadedObj;
 
 class Present {
-    constructor(loader, scene, giftWrapMaterial) {
+
+    static async preload() {
+        loadedObj = await loader.loadAsync("models/gift.obj");
+    }
+
+    constructor(scene, giftWrapMaterial) {
+        if (loadedScene == undefined) {
+            throw 'Must call Present.preload() before constructing instance.'
+        }
+
         this.scene = scene;
         this.inFlight = false;
         this.landed = false;
         this.totalFlightTime = 4;
         this.currentFlightTime = 0;
 
-        loader.load( "models/gift.obj", obj => {
-            obj.scale.setScalar(0.001);
-            for (let i = 0; i < obj.children.length; i++) {          
-                if (i !== 4) {
-                  obj.children[i].material = material0;
-                } else {
-                  obj.children[i].material = giftWrapMaterial;
-                }
-              }
-            this.model = obj;
-            this.scene.getScene().add(obj);
-            console.log("Present added");
-        });
+        this.model = obj.clone();
+        this.model.scale.setScalar(0.001);
+        for (let i = 0; i < this.model.children.length; i++) {          
+            if (i !== 4) {
+                this.model.children[i].material = material0;
+            } else {
+                this.model.children[i].material = giftWrapMaterial;
+            }
+        }
+        console.log("Present added");
     }
 
     shoot(targetPosition) {

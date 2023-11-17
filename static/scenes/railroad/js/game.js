@@ -4,6 +4,7 @@ goog.provide('app.Game');
 
 goog.require('app.Constants');
 goog.require('app.Scene');
+goog.require('app.Present');
 goog.require('app.shared.Scoreboard');
 goog.require('app.systems.CameraSystem');
 goog.require('app.systems.ElvesSystem');
@@ -34,22 +35,14 @@ class Game {
     this.renderer.shadowMap.enabled = true;
     container.appendChild(this.renderer.domElement);
 
+    await app.Scene.preload();
+    await app.Present.preload();
 
-    const gltfLoader = new THREE.GLTFLoader();
-
-    const loadedScene = await gltfLoader.loadAsync('models/demo-scene-animated.glb');
-    this.placeholderScene = new app.Scene(loadedScene.scene, loadedScene.cameras[0], loadedScene.animations);
+    this.placeholderScene = new app.Scene();
     this.camera = this.placeholderScene.getCamera();
-    this.camera.fov = 50;
-    this.camera.near = 0.1;
-    this.camera.far = 2000;
-    this.camera.aspect = window.innerWidth / window.innerHeight;
-    this.camera.updateProjectionMatrix();
     this.scoreboard = new app.shared.Scoreboard(this, undefined, app.Constants.NUM_LEVELS);
-
     this.elvesSystem = new app.ElvesSystem(this.camera, this.placeholderScene);
     this.presentSystem = new app.PresentSystem(this.placeholderScene);
-
     this.raycasterSystem = new app.RaycasterSystem(this.renderer, this.camera, this.placeholderScene, this.scoreboard);
 
     this.setUpListeners();

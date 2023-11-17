@@ -24,7 +24,6 @@ const material4 = new THREE.MeshToonMaterial( {color: 0xFF2400}); // red
 
 class PresentSystem {
     constructor(placeholderScene) {
-        this.loader = new THREE.OBJLoader();
         this.placeholderScene = placeholderScene;
 
         this.currentPresent = null;
@@ -46,8 +45,9 @@ class PresentSystem {
       } else {
         giftWrapMaterial = material4;
       }
-      var present = new Present(this.loader, this.placeholderScene, giftWrapMaterial);
+      var present = new Present(this.placeholderScene, giftWrapMaterial);
       this.presents.push(present);
+      this.placeholderScene.getScene().add(this.model);
       this.currentPresent = present;
     }
 
@@ -68,8 +68,8 @@ class PresentSystem {
           const present = this.presents[i];
           if (present.landed) {
             this.presents.splice(i, 1);
-            i--;
             this.placeholderScene.getScene().remove(present.model);
+            i--;
             console.log('Removed present');
           } else {
             present.update(this.seconds, deltaSeconds);

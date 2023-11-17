@@ -2,9 +2,27 @@
 goog.provide('app.Scene');
 
 const gltfLoader = new THREE.GLTFLoader();
+// Initialized in preload.
+let loadedScene;
 
 class Scene {
-  constructor(loadedScene, camera, animations) {
+
+  static async preload() {
+    loadedScene = await gltfLoader.loadAsync('models/demo-scene-animated.glb');
+  }
+
+  constructor() {
+    if (loadedScene == undefined) {
+      throw 'Must call Scene.preload() before constructing instance.'
+    }
+
+    this.camera = loadedScene.cameras[0];
+    this.camera.fov = 50;
+    this.camera.near = 0.1;
+    this.camera.far = 2000;
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
+
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x71a7db);
   
@@ -21,18 +39,15 @@ class Scene {
   
     this.scene.add(directionalLight);
 
-    this.mixer = new THREE.AnimationMixer(loadedScene);
+    this.mixer = new THREE.AnimationMixer(loadedScene.scene);
     this.mixer.timeScale = 0.5;
-    this.clips = animations;
+    this.clips = loadedScene.animations;
     this.clips.forEach((clip) => {
     	this.mixer.clipAction(clip).play();
     });
 
-    replaceMaterialsWithToonMaterials(loadedScene);
-    this.scene.add(loadedScene);
-    this.camera = camera;
-    this.camera.fov = 50;
-    this.camera.updateProjectionMatrix();
+    replaceMaterialsWithToonMaterials(loadedScene.scene);
+    this.scene.add(loadedScene.scene);
   }
 
   update(deltaSeconds) {
