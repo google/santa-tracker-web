@@ -2,13 +2,13 @@
 
 goog.provide('app.Game');
 
-goog.require('app.CameraSystem');
 goog.require('app.Constants');
-goog.require('app.ElvesSystem');
 goog.require('app.Scene');
-goog.require('app.RaycasterSystem');
 goog.require('app.shared.Scoreboard');
-goog.require('app.PresentSystem');
+goog.require('app.systems.CameraSystem');
+goog.require('app.systems.ElvesSystem');
+goog.require('app.systems.RaycasterSystem');
+goog.require('app.systems.PresentSystem');
 
 class Game {
 
