@@ -7,7 +7,7 @@ class Present {
         this.scene = scene;
         this.inFlight = false;
         this.landed = false;
-        this.totalFlightTime = 4;
+        this.totalFlightTime = .25;
         this.currentFlightTime = 0;
 
         loader.load( "models/gift.obj", obj => {
@@ -20,16 +20,20 @@ class Present {
                 }
               }
             this.model = obj;
-            this.scene.getScene().add(obj);
+            this.scene.camera.add(obj);
+            obj.position.set(.125, -.125, -1);
             console.log("Present added");
         });
     }
 
     shoot(targetPosition) {
-        this.targetPosition = targetPosition;
-        this.startPosition = this.model.position;
+        this.scene.scene.attach(this.model);
+        this.targetPosition = targetPosition.clone();
+        this.startPosition = new THREE.Vector3();
+        this.model.getWorldPosition(this.startPosition);
 
-        var midpoint = new THREE.Vector3().add(this.targetPosition, this.startPosition).multiplyScalar(0.5);
+        var midpoint = new THREE.Vector3(this.targetPosition, this.startPosition);
+        midpoint.multiplyScalar(0.5);
         midpoint.setY(midpoint.y + 3);
         this.curve = new THREE.QuadraticBezierCurve3(this.startPosition, midpoint, this.targetPosition);
         this.inFlight = true;
@@ -39,19 +43,27 @@ class Present {
         if (this.inFlight) {
             if (this.currentFlightTime > this.totalFlightTime) {
                 this.landed = true;
+                this.model.position.copy(this.targetPosition);
                 // call some kind of function to update score if good hit
             } else if (this.model) {
                 var t = this.currentFlightTime/this.totalFlightTime;
                 console.log(t);
-                console.log(this.currentFlightTime);
-                console.log(this.totalFlightTime);
-                this.model.position.copy(this.curve.getPoint(t));
-                console.log(this.curve.getPoint(t));
+                // console.log(this.currentFlightTime);
+                // console.log(this.totalFlightTime);
+                // this.model.position.copy(this.curve.getPoint(t));
+                var vec = new THREE.Vector3();
+                vec.copy(this.targetPosition);
+                vec.multiplyScalar(t);
+                vec.addScaledVector(this.startPosition, 1-t);
+                this.model.position.copy(vec);
+                // this.model.position.copy(t * this.targetPosition + (1-t) * this.startPosition);
+                // console.log(this.curve.getPoint(t));
+                // this.model.position.copy(this.targetPosition);
                 this.currentFlightTime = this.currentFlightTime + deltaSeconds;
             }
         } else if (!this.landed && this.model) {
             // Maybe change this later but for now just float in front of the camera
-            this.model.position.copy(this.scene.getCameraPosition(seconds + 2));
+            // this.model.position.copy(this.scene.getCameraPosition(seconds + 2));
         }
     }
 }
