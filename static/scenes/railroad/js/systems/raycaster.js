@@ -29,7 +29,7 @@ class RaycasterSystem {
   updateScore(intersections) {
     let score = 0;
     for (const {object} of intersections) {
-      if (object.userData.isElf === true) {
+      if (object.userData.clickable.type === 'elf') {
         score += 1;
       } else if (object.userData.clickable && object.userData.clickable.type === 'ice') {
         this.placeholderScene.setTimeScale(0.5);
