@@ -13,6 +13,7 @@ class RaycasterSystem {
   cast(clickEvent) {
     const intersections = this.getIntersections(clickEvent);
     this.updateScore(intersections);
+    return intersections;
   }
 
   getIntersections(clickEvent) {

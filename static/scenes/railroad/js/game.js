@@ -123,11 +123,13 @@ class Game {
 
   handleClick(clickEvent) {
     const nowSeconds = Date.now() / 1000;
-    this.raycasterSystem.cast(clickEvent);
+    const intersections = this.raycasterSystem.cast(clickEvent);
 
     // Test present shot
-    const aim = this.placeholderScene.getCameraPosition(nowSeconds + 30);
-    this.presentSystem.shoot(aim);
+    // const aim = this.placeholderScene.getCameraPosition(nowSeconds + 30);
+    if (intersections.length > 0) {
+      this.presentSystem.shoot(intersections[0].point);
+    }
   }
 }
 
