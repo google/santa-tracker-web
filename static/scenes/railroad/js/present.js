@@ -36,8 +36,10 @@ class Present {
                 this.model.children[i].material = giftWrapMaterial;
             }
         }
-        this.scene.camera.add(obj);
-        obj.position.set(.125, -.125, -1);
+
+        // TODO: after this commit move this pack out to present-system.
+        this.scene.camera.add(this.model);
+        this.model.position.set(.125, -.125, -1);
     }
 
     shoot(targetPosition) {
@@ -65,6 +67,7 @@ class Present {
     }
 
     update(seconds, deltaSeconds) {
+        // TODO: move this all into present system
         if (this.inFlight) {
             if (this.currentFlightTime > this.totalFlightTime) {
                 this.landed = true;

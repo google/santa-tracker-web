@@ -47,7 +47,6 @@ class PresentSystem {
       }
       var present = new Present(this.placeholderScene, giftWrapMaterial);
       this.presents.push(present);
-      this.placeholderScene.getScene().add(present.model);
       this.currentPresent = present;
     }
 
