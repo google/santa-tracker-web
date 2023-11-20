@@ -24,14 +24,13 @@ class Present {
 
         this.model = loadedObj.clone();
         this.model.scale.setScalar(0.001);
-        for (let i = 0; i < this.model.children.length; i++) {          
+        for (let i = 0; i < this.model.children.length; i++) {
             if (i !== 4) {
                 this.model.children[i].material = material0;
             } else {
                 this.model.children[i].material = giftWrapMaterial;
             }
         }
-        console.log("Present added");
     }
 
     shoot(targetPosition) {

@@ -36,7 +36,7 @@ class PresentSystem {
     addNewPresent() {
       var box_color = Math.floor(Math.random() * 5);
       var giftWrapMaterial;
-      if (box_color === 0) {                  
+      if (box_color === 0) {
         giftWrapMaterial = material1;
       } else if (box_color === 1) {
         giftWrapMaterial = material2;
@@ -70,7 +70,6 @@ class PresentSystem {
             this.presents.splice(i, 1);
             this.placeholderScene.getScene().remove(present.model);
             i--;
-            console.log('Removed present');
           } else {
             present.update(this.seconds, deltaSeconds);
           }
