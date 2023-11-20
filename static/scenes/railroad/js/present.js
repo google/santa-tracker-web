@@ -1,6 +1,9 @@
 goog.provide('app.Present');
 
-const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231}); 
+const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231});
+const loader = new THREE.OBJLoader();
+
+let loadedObj;
 
 // the distance to the target scaled by this number is how high we go
 const midpointOffset = .25;
@@ -9,26 +12,32 @@ const midpointOffset = .25;
 const midpointT = .25;
 
 class Present {
-    constructor(loader, scene, giftWrapMaterial) {
+
+    static async preload() {
+        loadedObj = await loader.loadAsync("models/gift.obj");
+    }
+
+    constructor(scene, giftWrapMaterial) {
+        if (loadedScene == undefined) {
+            throw 'Must call Present.preload() before constructing instance.'
+        }
+
         this.scene = scene;
         this.inFlight = false;
         this.landed = false;
         this.totalFlightTime = .25;
         this.currentFlightTime = 0;
-
-        loader.load( "models/gift.obj", obj => {
-            obj.scale.setScalar(0.001);
-            for (let i = 0; i < obj.children.length; i++) {          
-                if (i !== 4) {
-                  obj.children[i].material = material0;
-                } else {
-                  obj.children[i].material = giftWrapMaterial;
-                }
-              }
-            this.model = obj;
-            this.scene.camera.add(obj);
-            obj.position.set(.125, -.125, -1);
-        });
+        this.model = loadedObj.clone();
+        this.model.scale.setScalar(0.001);
+        for (let i = 0; i < this.model.children.length; i++) {
+            if (i !== 4) {
+                this.model.children[i].material = material0;
+            } else {
+                this.model.children[i].material = giftWrapMaterial;
+            }
+        }
+        this.scene.camera.add(obj);
+        obj.position.set(.125, -.125, -1);
     }
 
     shoot(targetPosition) {
