@@ -8,7 +8,7 @@ let loadedScene;
 class Scene {
 
   static async preload() {
-    loadedScene = await gltfLoader.loadAsync('models/demo-scene-animated.glb');
+    loadedScene = await gltfLoader.loadAsync('models/toy-shop.glb');
   }
 
   constructor() {
@@ -25,7 +25,7 @@ class Scene {
 
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x71a7db);
-  
+
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
     this.scene.add(ambientLight);
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -36,11 +36,10 @@ class Scene {
     directionalLight.shadow.camera.right = 10;
     directionalLight.position.set(30, 40, 20);
     directionalLight.lookAt(0,0,0);
-  
+
     this.scene.add(directionalLight);
 
     this.mixer = new THREE.AnimationMixer(loadedScene.scene);
-    this.mixer.timeScale = 0.5;
     this.clips = loadedScene.animations;
     this.clips.forEach((clip) => {
     	this.mixer.clipAction(clip).play();
@@ -59,7 +58,7 @@ class Scene {
   }
 
   setTimeScale(scale) {
-    this.mixer.timeScale = scale * 0.5;  // Since our scale starts out at 0.5;
+    this.mixer.timeScale = scale;
   }
 
   getCameraPosition(timeInSeconds) {
@@ -72,7 +71,7 @@ class Scene {
       height,
       radius * Math.sin(angle),
     );
-  }  
+  }
 
   getScene() {
     return this.scene;
