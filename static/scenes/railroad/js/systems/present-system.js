@@ -45,7 +45,20 @@ class PresentSystem {
       } else {
         giftWrapMaterial = material4;
       }
-      var present = new Present(this.placeholderScene, giftWrapMaterial);
+      
+      // right now I just parent the object to the camera with an offset in the
+      // future we probably want a fixed node
+      const presentParent = this.placeholderScene.camera;
+
+      // currently I choose a hand tuned offset. We eventually want to push
+      // this off to art with a special node (or not show the present entirely
+      const presentOffset = new THREE.Vector3(.125, -.125, -1);
+
+      var present = new Present(
+        this.placeholderScene,
+        giftWrapMaterial,
+        presentParent,
+        presentOffset);
       this.presents.push(present);
       this.currentPresent = present;
     }
@@ -67,7 +80,8 @@ class PresentSystem {
           const present = this.presents[i];
           if (present.landed) {
             this.presents.splice(i, 1);
-            this.placeholderScene.getScene().remove(present.model);
+
+            present.removeFromScene();
             i--;
           } else {
             present.update(this.seconds, deltaSeconds);

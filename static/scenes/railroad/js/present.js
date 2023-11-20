@@ -17,9 +17,15 @@ class Present {
         loadedObj = await loader.loadAsync("models/gift.obj");
     }
 
-    constructor(scene, giftWrapMaterial) {
+    constructor(scene, giftWrapMaterial, parent, offset) {
         if (loadedScene == undefined) {
             throw 'Must call Present.preload() before constructing instance.'
+        }
+
+        if (parent == undefined) {
+            // Note: in the future we may want it to spawn outside of the scene
+            // the logic will have to rework a little
+            throw 'Present must be parented to something';
         }
 
         this.scene = scene;
@@ -37,9 +43,10 @@ class Present {
             }
         }
 
-        // TODO: after this commit move this pack out to present-system.
         this.scene.camera.add(this.model);
-        this.model.position.set(.125, -.125, -1);
+        if (offset) {
+            this.model.position.copy(offset);
+        }
     }
 
     shoot(targetPosition) {
@@ -67,7 +74,6 @@ class Present {
     }
 
     update(seconds, deltaSeconds) {
-        // TODO: move this all into present system
         if (this.inFlight) {
             if (this.currentFlightTime > this.totalFlightTime) {
                 this.landed = true;
@@ -79,6 +85,10 @@ class Present {
                 this.currentFlightTime = this.currentFlightTime + deltaSeconds;
             }
         }
+    }
+
+    removeFromScene() {
+        this.model.removeFromParent();
     }
 }
 
