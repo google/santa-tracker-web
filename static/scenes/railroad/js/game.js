@@ -35,10 +35,10 @@ class Game {
     this.renderer.shadowMap.enabled = true;
     container.appendChild(this.renderer.domElement);
 
-    await Promise.all(
+    await Promise.all([
       app.Scene.preload(),
       app.Present.preload(),
-    )
+    ])
 
     this.placeholderScene = new app.Scene();
     this.camera = this.placeholderScene.getCamera();
