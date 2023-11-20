@@ -43,7 +43,7 @@ class Present {
             }
         }
 
-        this.scene.camera.add(this.model);
+        parent.add(this.model);
         if (offset) {
             this.model.position.copy(offset);
         }
@@ -74,6 +74,7 @@ class Present {
     }
 
     update(seconds, deltaSeconds) {
+        // TODO: move this all into present system
         if (this.inFlight) {
             if (this.currentFlightTime > this.totalFlightTime) {
                 this.landed = true;
