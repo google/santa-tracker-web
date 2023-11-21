@@ -7,6 +7,7 @@ let loadedObj;
 
 const gravity = -20; // acceleration along y
 const linearThrowSpeed = 20; // velocity in the x/z plane
+const maxThrowVelocity = 8; // after we get to this dy, switch to changing gravity
 
 class Present {
 
@@ -43,6 +44,9 @@ class Present {
 
         // Velocity y to create a nice arch
         this.velocityY = 0;
+
+        // Gravity to use
+        this.gravity = gravity;
 
         // Scene stuff
         this.scene = scene;
@@ -83,6 +87,18 @@ class Present {
         // we can choose a start y velocity that will last through the throw
         this.velocityY = (this.targetPosition.y - this.startPosition.y) / this.durationOfThrow
             - gravity * this.durationOfThrow / 2;
+        
+        console.log(`Throw velocity: ${this.velocityY}`);
+
+        if (this.velocityY > maxThrowVelocity) {
+            // cap the throw velocity and change gravity
+            this.velocityY = maxThrowVelocity;
+            this.gravity = 2 * (targetPosition.y - this.startPosition.y) / (this.durationOfThrow * this.durationOfThrow)
+                - 2 * this.velocityY / this.durationOfThrow;
+        }
+        else {
+            this.gravity = gravity;
+        }
 
         // update the state
         this.currentFlightTime = 0;
@@ -96,19 +112,19 @@ class Present {
                 this.model.position.copy(this.targetPosition);
             } else {
                 var t = this.currentFlightTime/this.durationOfThrow;
-
+        
                 // we move in the x/z plane with a lerp. This could be
                 // optimized by not doing y stuff yere, but it wouldn't be as
                 // readable
                 var position = this.startPosition.clone();
                 position.lerp(this.targetPosition, t);
-
+        
                 // This is the most basic ballistic trajectory equation you can
                 // have. Only effects y
                 position.y = this.startPosition.y
                     + this.velocityY * this.currentFlightTime
-                    + 1/2 * gravity * this.currentFlightTime * this.currentFlightTime;
-
+                    + 1/2 * this.gravity * this.currentFlightTime * this.currentFlightTime;
+        
                 this.model.position.copy(position);
 
                 this.currentFlightTime = this.currentFlightTime + deltaSeconds;
