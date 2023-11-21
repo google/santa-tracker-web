@@ -53,6 +53,11 @@ class Scene {
     this.mixer.update(deltaSeconds);
   }
 
+  updateCameraSize() {
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
+  }
+
   getCamera() {
     return this.camera;
   }
