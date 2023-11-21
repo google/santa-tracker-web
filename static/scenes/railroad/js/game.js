@@ -2,19 +2,34 @@
 
 goog.provide('app.Game');
 
-goog.require('app.Constants');
 goog.require('app.Scene');
 goog.require('app.Present');
+goog.require('app.Constants');
+goog.require('app.Level');
 goog.require('app.shared.Scoreboard');
-goog.require('app.systems.CameraSystem');
-goog.require('app.systems.ElvesSystem');
-goog.require('app.systems.RaycasterSystem');
-goog.require('app.systems.PresentSystem');
+goog.require('app.shared.Gameover');
+
+/**
+ * Maximum time allowed between updates. If the player's computer was locked or
+ * the window was inactive, we could potentially have a very large delta between
+ * frames. This keeps the game somewhat paused when the user is inactive.
+ */
+const maxTimeStep = 0.5;
 
 class Game {
 
   constructor() {
     this.paused = false;
+
+    this.scoreboard = new app.shared.Scoreboard(this, null, app.Constants.LEVEL_COUNT);
+    this.gameoverView = new app.shared.Gameover(this);
+
+    this.renderer = new THREE.WebGLRenderer();
+    this.renderer.setSize(window.innerWidth, window.innerHeight);
+    this.renderer.shadowMap.enabled = true;
+
+    this.level = undefined;
+
     this.previousSeconds = Date.now() / 1000;
   }
 
@@ -30,9 +45,6 @@ class Game {
    * game.
    */
   async start(container) {
-    this.renderer = new THREE.WebGLRenderer();
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
-    this.renderer.shadowMap.enabled = true;
     container.appendChild(this.renderer.domElement);
 
     await Promise.all([
@@ -40,27 +52,21 @@ class Game {
       app.Present.preload(),
     ]);
 
-    this.placeholderScene = new app.Scene();
-    this.camera = this.placeholderScene.getCamera();
-    this.scoreboard = new app.shared.Scoreboard(this, undefined, app.Constants.NUM_LEVELS);
-    this.elvesSystem = new app.ElvesSystem(this.camera, this.placeholderScene);
-    this.presentSystem = new app.PresentSystem(this.placeholderScene);
-    this.raycasterSystem = new app.RaycasterSystem(this.renderer, this.camera, this.placeholderScene, this.scoreboard);
-
     this.setUpListeners();
     this.mainLoop();
 
-    window.addEventListener('resize', () => {
-      this.camera.aspect = window.innerWidth / window.innerHeight;
-      this.camera.updateProjectionMatrix();
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
-      console.log(this.camera);
-    });
+    this.startLevel();
+  }
+
+  startLevel() {
+    if (this.level) {
+      this.level.cleanUp();
+    }
+    this.level = new Level(this.renderer, (score) => this.scoreboard.addScore(score));
   }
 
   pause() {
     this.paused = true;
-    this.previousSeconds = null;
   }
 
   resume() {
@@ -74,17 +80,13 @@ class Game {
   }
 
   restart() {
-    if (!this.paused) {
-      console.warn('Game must be paused before it can be restarted');
-      return;
-    }
-    console.log('TODO');
-    this.paused = false;
-    this.mainLoop();
+    this.scoreboard.restart()
+    this.startLevel();
   }
 
   gameover() {
-    console.error('TODO');
+    this.paused = true;
+    this.gameoverView.show();
   }
 
   mainLoop() {
@@ -98,7 +100,13 @@ class Game {
   }
 
   render() {
-    this.renderer.render(this.placeholderScene.scene, this.camera);
+    if (this.paused) {
+      return;
+    }
+
+    if (this.level) {
+      this.level.render(this.renderer);
+    }
   }
 
   /**
@@ -106,29 +114,32 @@ class Game {
    */
   update() {
     const nowSeconds = Date.now() / 1000;
-    const deltaSeconds = nowSeconds - this.previousSeconds;
-    this.placeholderScene.update(deltaSeconds);
-    this.elvesSystem.update(deltaSeconds);
-    this.presentSystem.update(deltaSeconds);
-    this.scoreboard.onFrame(deltaSeconds);
+    const deltaSeconds = Math.min(nowSeconds - this.previousSeconds, maxTimeStep);
+
+    if (!this.paused && this.level) {
+      this.level.update(deltaSeconds);
+      this.scoreboard.onFrame(deltaSeconds);
+    }
+
     this.previousSeconds = nowSeconds;
-    
   }
 
   setUpListeners() {
-    this.clickListener = this.renderer.domElement.addEventListener('click', (click) => {
+    this.renderer.domElement.addEventListener('click', (click) => {
       this.handleClick(click);
+    });
+
+    window.addEventListener('resize', () => {
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+      if (this.level) {
+        this.level.scene.updateCameraSize();
+      }
     });
   }
 
   handleClick(clickEvent) {
-    const nowSeconds = Date.now() / 1000;
-    const intersections = this.raycasterSystem.cast(clickEvent);
-
-    // Test present shot
-    // const aim = this.placeholderScene.getCameraPosition(nowSeconds + 30);
-    if (intersections.length > 0) {
-      this.presentSystem.shoot(intersections[0].point);
+    if (!this.paused && this.level) {
+      this.level.handleClick(clickEvent);
     }
   }
 }
