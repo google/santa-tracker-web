@@ -2,11 +2,17 @@ goog.provide('app.systems.RaycasterSystem');
 
 class RaycasterSystem {
 
-  constructor(renderer, camera, placeholderScene, scoreboard) {
+  /**
+   * @param {*} renderer ThreeJS renderer.
+   * @param {*} camera ThreeJS camera.
+   * @param { app.Scene } placeholderScene Our scene class
+   * @param { function(number):void } addScore Function for adding to the game's score.
+   */
+  constructor(renderer, camera, scene, addScore) {
     this.renderer = renderer;
     this.camera = camera;
-    this.placeholderScene = placeholderScene;
-    this.scoreboard = scoreboard;
+    this.scene = scene;
+    this.addScore = addScore;
     this.raycaster = new THREE.Raycaster();
   }
 
@@ -23,7 +29,7 @@ class RaycasterSystem {
     ray.x = (clickEvent.clientX / this.renderer.domElement.width) * 2 - 1;
     ray.y = -(clickEvent.clientY / this.renderer.domElement.height) * 2 + 1; 
     this.raycaster.setFromCamera(ray, this.camera);
-    return this.raycaster.intersectObjects(this.placeholderScene.scene.children, true);
+    return this.raycaster.intersectObjects(this.scene.scene.children, true);
   }
 
   updateScore(intersections) {
@@ -35,10 +41,10 @@ class RaycasterSystem {
       if (object.userData.clickable.type === 'elf') {
         score += 1;
       } else if (object.userData.clickable.type === 'ice') {
-        this.placeholderScene.setTimeScale(0.5);
+        this.scene.setTimeScale(0.5);
       }
     }
-    this.scoreboard.addScore(score);
+    this.addScore(score);
   }
 }
 
