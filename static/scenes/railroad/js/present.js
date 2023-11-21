@@ -36,7 +36,7 @@ class Present {
         this.endPosition = new THREE.Vector3();
 
         // how long it's going to take to complete the throw
-        this.lengthOfThrow = 0;
+        this.durationOfThrow = 0;
 
         // how long we've been throwing
         this.currentFlightTime = 0;
@@ -77,12 +77,12 @@ class Present {
 
         // calculate variables we need to calculate physics stuff
         var throwDistance = this.startPosition.distanceTo(this.targetPosition);
-        this.lengthOfThrow = throwDistance/linearThrowSpeed;
+        this.durationOfThrow = throwDistance/linearThrowSpeed;
 
         // if we know gravity, the height delta, and how long the throw takes,
         // we can choose a start y velocity that will last through the throw
-        this.velocityY = (this.targetPosition.y - this.startPosition.y) / this.lengthOfThrow
-            - gravity * this.lengthOfThrow / 2;
+        this.velocityY = (this.targetPosition.y - this.startPosition.y) / this.durationOfThrow
+            - gravity * this.durationOfThrow / 2;
 
         // update the state
         this.currentFlightTime = 0;
@@ -91,11 +91,11 @@ class Present {
 
     update(seconds, deltaSeconds) {
         if (this.inFlight && !this.landed) {
-            if (this.currentFlightTime > this.lengthOfThrow) {
+            if (this.currentFlightTime > this.durationOfThrow) {
                 this.landed = true;
                 this.model.position.copy(this.targetPosition);
             } else {
-                var t = this.currentFlightTime/this.lengthOfThrow;
+                var t = this.currentFlightTime/this.durationOfThrow;
 
                 // we move in the x/z plane with a lerp. This could be
                 // optimized by not doing y stuff yere, but it wouldn't be as
