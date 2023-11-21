@@ -76,12 +76,12 @@ class Game {
     }
     this.paused = false;
     this.previousSeconds = Date.now() / 1000;
-    this.mainLoop();
   }
 
   restart() {
-    this.scoreboard.restart()
     this.startLevel();
+    this.paused = false;
+    this.scoreboard.restart()
   }
 
   gameover() {
@@ -90,9 +90,6 @@ class Game {
   }
 
   mainLoop() {
-    if (this.paused) {
-      return;
-    }
     this.update();
     this.render();
 
