@@ -5,11 +5,8 @@ const loader = new THREE.OBJLoader();
 
 let loadedObj;
 
-// the distance to the target scaled by this number is how high we go
-const midpointOffset = .25;
-
-// a value from 0 to 1 that defines the peak height
-const midpointT = .25;
+const gravity = -20; // acceleration along y
+const linearThrowSpeed = 20; // velocity in the x/z plane
 
 class Present {
 
@@ -28,11 +25,27 @@ class Present {
             throw 'Present must be parented to something';
         }
 
-        this.scene = scene;
+        // Physics stuff
         this.inFlight = false;
         this.landed = false;
-        this.totalFlightTime = .25;
+
+        // start of the throw
+        this.startPosition = new THREE.Vector3();
+
+        // end of the throw
+        this.endPosition = new THREE.Vector3();
+
+        // how long it's going to take to complete the throw
+        this.lengthOfThrow = 0;
+
+        // how long we've been throwing
         this.currentFlightTime = 0;
+
+        // Velocity y to create a nice arch
+        this.velocityY = 0;
+
+        // Scene stuff
+        this.scene = scene;
         this.model = loadedObj.clone();
         this.model.scale.setScalar(0.001);
         for (let i = 0; i < this.model.children.length; i++) {
@@ -50,39 +63,54 @@ class Present {
     }
 
     shoot(targetPosition) {
+        // Move to world space to handle the throw
         this.scene.scene.attach(this.model);
+
+        // new throwing algorithm
+        // specify fixed throwing velocity V_x
+        // calculate maxT to travel linear distance to target
+        // a V_y is chosen given a gravity constant to always look good
+
+        // cache the start and end positions for math later
         this.targetPosition = targetPosition.clone();
-        this.startPosition = new THREE.Vector3();
         this.model.getWorldPosition(this.startPosition);
 
-        var midpoint = this.startPosition.clone()
-            .multiplyScalar(1-midpointT)
-            .addScaledVector(this.targetPosition, midpointT)
-            .add(new THREE.Vector3(0, this.startPosition.distanceTo(this.targetPosition) * midpointOffset));
+        // calculate variables we need to calculate physics stuff
+        var throwDistance = this.startPosition.distanceTo(this.targetPosition);
+        this.lengthOfThrow = throwDistance/linearThrowSpeed;
 
-        this.curve = new THREE.QuadraticBezierCurve3(this.startPosition.clone(), midpoint.clone(), this.targetPosition.clone());
+        // if we know gravity, the height delta, and how long the throw takes,
+        // we can choose a start y velocity that will last through the throw
+        this.velocityY = (this.targetPosition.y - this.startPosition.y) / this.lengthOfThrow
+            - gravity * this.lengthOfThrow / 2;
 
+        // update the state
+        this.currentFlightTime = 0;
         this.inFlight = true;
     }
 
-    addDebugGeo() {
-        const points = this.curve.getPoints(50);
-        const geometry = new THREE.BufferGeometry().setFromPoints(points);
-        const material = new THREE.LineBasicMaterial({color: 0x00ff00});
-        const curveObject = new THREE.Line(geometry, material);
-        this.scene.scene.add(curveObject);
-    }
-
     update(seconds, deltaSeconds) {
-        // TODO: move this all into present system
-        if (this.inFlight) {
-            if (this.currentFlightTime > this.totalFlightTime) {
+        if (this.inFlight && !this.landed) {
+            if (this.currentFlightTime > this.lengthOfThrow) {
                 this.landed = true;
                 this.model.position.copy(this.targetPosition);
-                // call some kind of function to update score if good hit
-            } else if (this.model) {
-                var t = this.currentFlightTime/this.totalFlightTime;
-                this.model.position.copy(this.curve.getPoint(t));
+            } else {
+                var t = this.currentFlightTime/this.lengthOfThrow;
+
+                // we move in the x/z plane with a lerp. This could be
+                // optimized by not doing y stuff yere, but it wouldn't be as
+                // readable
+                var position = this.startPosition.clone();
+                position.lerp(this.targetPosition, t);
+
+                // This is the most basic ballistic trajectory equation you can
+                // have. Only effects y
+                position.y = this.startPosition.y
+                    + this.velocityY * this.currentFlightTime
+                    + 1/2 * gravity * this.currentFlightTime * this.currentFlightTime;
+
+                this.model.position.copy(position);
+
                 this.currentFlightTime = this.currentFlightTime + deltaSeconds;
             }
         }
