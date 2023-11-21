@@ -87,12 +87,13 @@ class Present {
         // we can choose a start y velocity that will last through the throw
         this.velocityY = (this.targetPosition.y - this.startPosition.y) / this.durationOfThrow
             - gravity * this.durationOfThrow / 2;
-        
-        console.log(`Throw velocity: ${this.velocityY}`);
 
-        if (this.velocityY > maxThrowVelocity) {
+        // the predicted linear Vy assuming no gravity
+        const initialVy = this.targetPosition.clone().sub(this.startPosition).normalize().y * linearThrowSpeed;
+
+        if (this.velocityY > maxThrowVelocity + initialVy) {
             // cap the throw velocity and change gravity
-            this.velocityY = maxThrowVelocity;
+            this.velocityY = maxThrowVelocity + initialVy;
             this.gravity = 2 * (targetPosition.y - this.startPosition.y) / (this.durationOfThrow * this.durationOfThrow)
                 - 2 * this.velocityY / this.durationOfThrow;
         }
