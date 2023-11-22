@@ -26,9 +26,9 @@ class Scene {
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x71a7db);
 
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 2);
     this.scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
     directionalLight.castShadow = true;
     directionalLight.shadow.camera.top = 10;
     directionalLight.shadow.camera.bottom = -10;
