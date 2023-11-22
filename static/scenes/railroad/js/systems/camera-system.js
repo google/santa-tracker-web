@@ -1,4 +1,4 @@
-goog.provide('app.CameraSystem');
+goog.provide('app.systems.CameraSystem');
 
 class CameraSystem {
 

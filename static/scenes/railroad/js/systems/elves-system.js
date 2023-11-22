@@ -1,4 +1,4 @@
-goog.provide('app.ElvesSystem');
+goog.provide('app.systems.ElvesSystem');
 
 const ELVES_IMAGES = [
   'img/Elf1@2x.png',
@@ -56,17 +56,14 @@ class ElvesSystem {
 
   generateElvesFromScene() {
     for (const scene of this.placeholderScene.getScene().children) {
-      if (!scene.isScene) continue;
       for (const obj of scene.children) {
-        if (obj.userData.type === 'elf') {
-          console.log(obj);
-          new THREE.TextureLoader().load(`img/${obj.userData.assetUrl}`, (elfTexture) => {
-            const material = new THREE.SpriteMaterial({map: elfTexture});
+        if (obj.userData.doodle_components.includes('clickable') && obj.userData.clickable.type === 'elf') {
+          new THREE.TextureLoader().load(`img/${obj.userData.sprite.assetUrl}`, (elfTexture) => {
+            const material = new THREE.SpriteMaterial({map: elfTexture, transparent: true});
             const sprite = new THREE.Sprite(material);
             sprite.material.rotation = (obj.rotation.y);
             sprite.userData.isElf = true;
             obj.add(sprite);
-            console.log(obj);
           });
         }
       }

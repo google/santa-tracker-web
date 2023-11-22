@@ -2,12 +2,30 @@
 goog.provide('app.Scene');
 
 const gltfLoader = new THREE.GLTFLoader();
+// Initialized in preload.
+let loadedScene;
 
 class Scene {
-  constructor(loadedScene, camera, animations) {
+
+  static async preload() {
+    loadedScene = await gltfLoader.loadAsync('models/toy-shop.glb');
+  }
+
+  constructor() {
+    if (loadedScene == undefined) {
+      throw 'Must call Scene.preload() before constructing instance.'
+    }
+
+    this.camera = loadedScene.cameras[0];
+    this.camera.fov = 50;
+    this.camera.near = 0.1;
+    this.camera.far = 2000;
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
+
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x71a7db);
-  
+
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
     this.scene.add(ambientLight);
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -18,25 +36,26 @@ class Scene {
     directionalLight.shadow.camera.right = 10;
     directionalLight.position.set(30, 40, 20);
     directionalLight.lookAt(0,0,0);
-  
+
     this.scene.add(directionalLight);
 
-    this.mixer = new THREE.AnimationMixer(loadedScene);
-    this.mixer.timeScale = 0.5;
-    this.clips = animations;
+    this.mixer = new THREE.AnimationMixer(loadedScene.scene);
+    this.clips = loadedScene.animations;
     this.clips.forEach((clip) => {
     	this.mixer.clipAction(clip).play();
     });
 
-    replaceMaterialsWithToonMaterials(loadedScene);
-    this.scene.add(loadedScene);
-    this.camera = camera;
-    this.camera.fov = 50;
-    this.camera.updateProjectionMatrix();
+    replaceMaterialsWithToonMaterials(loadedScene.scene);
+    this.scene.add(loadedScene.scene);
   }
 
   update(deltaSeconds) {
     this.mixer.update(deltaSeconds);
+  }
+
+  updateCameraSize() {
+    this.camera.aspect = window.innerWidth / window.innerHeight;
+    this.camera.updateProjectionMatrix();
   }
 
   getCamera() {
@@ -44,7 +63,7 @@ class Scene {
   }
 
   setTimeScale(scale) {
-    this.mixer.timeScale = scale * 0.5;  // Since our scale starts out at 0.5;
+    this.mixer.timeScale = scale;
   }
 
   getCameraPosition(timeInSeconds) {
@@ -57,7 +76,7 @@ class Scene {
       height,
       radius * Math.sin(angle),
     );
-  }  
+  }
 
   getScene() {
     return this.scene;

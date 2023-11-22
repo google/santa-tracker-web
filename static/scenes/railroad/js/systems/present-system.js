@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-goog.provide('app.PresentSystem');
+goog.provide('app.systems.PresentSystem');
 
 goog.require('app.Present');
 
@@ -24,7 +24,6 @@ const material4 = new THREE.MeshToonMaterial( {color: 0xFF2400}); // red
 
 class PresentSystem {
     constructor(placeholderScene) {
-        this.loader = new THREE.OBJLoader();
         this.placeholderScene = placeholderScene;
 
         this.currentPresent = null;
@@ -37,7 +36,7 @@ class PresentSystem {
     addNewPresent() {
       var box_color = Math.floor(Math.random() * 5);
       var giftWrapMaterial;
-      if (box_color === 0) {                  
+      if (box_color === 0) {
         giftWrapMaterial = material1;
       } else if (box_color === 1) {
         giftWrapMaterial = material2;
@@ -46,7 +45,20 @@ class PresentSystem {
       } else {
         giftWrapMaterial = material4;
       }
-      var present = new Present(this.loader, this.placeholderScene, giftWrapMaterial);
+      
+      // right now I just parent the object to the camera with an offset in the
+      // future we probably want a fixed node
+      const presentParent = this.placeholderScene.camera;
+
+      // currently I choose a hand tuned offset. We eventually want to push
+      // this off to art with a special node (or not show the present entirely
+      const presentOffset = new THREE.Vector3(.125, -.125, -1);
+
+      var present = new Present(
+        this.placeholderScene,
+        giftWrapMaterial,
+        presentParent,
+        presentOffset);
       this.presents.push(present);
       this.currentPresent = present;
     }
@@ -68,9 +80,9 @@ class PresentSystem {
           const present = this.presents[i];
           if (present.landed) {
             this.presents.splice(i, 1);
+
+            present.removeFromScene();
             i--;
-            this.placeholderScene.getScene().remove(present.model);
-            console.log('Removed present');
           } else {
             present.update(this.seconds, deltaSeconds);
           }
