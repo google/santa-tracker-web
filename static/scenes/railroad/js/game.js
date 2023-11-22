@@ -27,6 +27,7 @@ class Game {
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize(window.innerWidth, window.innerHeight);
     this.renderer.shadowMap.enabled = true;
+    this.renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
 
     this.level = undefined;
 
