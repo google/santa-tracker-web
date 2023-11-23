@@ -2,21 +2,55 @@
 goog.provide('app.Scene');
 
 const gltfLoader = new THREE.GLTFLoader();
+const textureLoader = new THREE.TextureLoader();
+
 // Initialized in preload.
-let loadedScene;
+let loadedGlb;
+
+const ELF_IMAGE_NAMES = [
+  'Elf1@2x.png',
+  'Elf2@2x.png',
+  'Elf3@2x.png',
+  'Elf4@2x.png',
+  'Elf5@2x.png',
+  'Elf_throw.png',
+];
+/** @type {Map<string, THREE.Texture>} */
+const elfImages = new Map();
 
 class Scene {
 
   static async preload() {
-    loadedScene = await gltfLoader.loadAsync('models/toy-shop.glb');
+    // Start the images loading
+    const imagesPromise = this.preloadImages();
+
+    const glb = await gltfLoader.loadAsync('models/toy-shop.glb')
+    await imagesPromise;
+
+    replaceElvesWithSprites(glb.scene);
+    replaceMaterialsWithToonMaterials(glb.scene);
+    loadedGlb = glb;
+  }
+
+  /** Preload all the images in parallel. */
+  static async preloadImages() {
+    const promises = [];
+    for (const imageName of ELF_IMAGE_NAMES) {
+      const imagePromise = textureLoader
+        .loadAsync(`img/${imageName}`)
+        .then(texture => elfImages.set(imageName, texture))
+        .then(_ => console.log(`Loaded ${imageName}`))
+      promises.push(imagePromise);
+    }
+    await Promise.all(promises);
   }
 
   constructor() {
-    if (loadedScene == undefined) {
+    if (loadedGlb == undefined) {
       throw 'Must call Scene.preload() before constructing instance.'
     }
 
-    this.camera = loadedScene.cameras[0];
+    this.camera = loadedGlb.cameras[0];
     this.camera.fov = 50;
     this.camera.near = 0.1;
     this.camera.far = 2000;
@@ -39,14 +73,14 @@ class Scene {
 
     this.scene.add(directionalLight);
 
-    this.mixer = new THREE.AnimationMixer(loadedScene.scene);
-    this.clips = loadedScene.animations;
+    this.mixer = new THREE.AnimationMixer(loadedGlb.scene);
+    this.clips = loadedGlb.animations;
     this.clips.forEach((clip) => {
     	this.mixer.clipAction(clip).play();
     });
 
-    replaceMaterialsWithToonMaterials(loadedScene.scene);
-    this.scene.add(loadedScene.scene);
+    replaceMaterialsWithToonMaterials(loadedGlb.scene);
+    this.scene.add(loadedGlb.scene);
   }
 
   update(deltaSeconds) {
@@ -97,6 +131,27 @@ function replaceMaterialsWithToonMaterials(scene) {
       toonReplacementMaterials.set(node.material.name, replacementMaterial);
     }
     node.material = toonReplacementMaterials.get(node.material.name);
+  });
+}
+
+function replaceElvesWithSprites(scene) {
+  scene.traverse(node => {
+    if (!node.userData || !node.userData.sprite) {
+      return;
+    }
+
+    const assetUrl = node.userData.sprite.assetUrl;
+    if (!elfImages.has(assetUrl)) {
+      console.error(`Invalid elf asset URL: "${assetUrl}"`);
+      return;
+    }
+    const elfTexture = elfImages.get(assetUrl);
+
+    const material = new THREE.SpriteMaterial({map: elfTexture, transparent: true});
+    const sprite = new THREE.Sprite(material);
+    sprite.material.rotation = (node.rotation.y);
+    sprite.userData.isElf = true;
+    node.add(sprite);
   });
 }
 

@@ -16,7 +16,7 @@ class Present {
     }
 
     constructor(scene, giftWrapMaterial, parent, offset) {
-        if (loadedScene == undefined) {
+        if (loadedObj == undefined) {
             throw 'Must call Present.preload() before constructing instance.'
         }
 
