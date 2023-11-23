@@ -13,7 +13,7 @@ const ELF_IMAGE_NAMES = [
   'Elf3@2x.png',
   'Elf4@2x.png',
   'Elf5@2x.png',
-  'Elf_throw.png',
+  'Elf_Throw@2x.png',
 ];
 /** @type {Map<string, THREE.Texture>} */
 const elfImages = new Map();
