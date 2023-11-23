@@ -149,6 +149,9 @@ function replaceElvesWithSprites(scene) {
 
     const material = new THREE.SpriteMaterial({map: elfTexture, transparent: true});
     const sprite = new THREE.Sprite(material);
+    // Scale the sprite's width to match the texture dimensions
+    sprite.scale.set(elfTexture.image.width / elfTexture.image.height, 1, 1);
+
     sprite.material.rotation = (node.rotation.y);
     sprite.userData.isElf = true;
     node.add(sprite);
