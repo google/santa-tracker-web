@@ -40,7 +40,7 @@ class Level {
     const intersections = this.raycasterSystem.cast(clickEvent);
 
     if (intersections.length > 0) {
-      this.presentSystem.shoot(intersections[0].point);
+      this.presentSystem.shoot(intersections[0].point, intersections[0].object);
     }
   }
 }

@@ -13,6 +13,11 @@ const ELF_IMAGE_NAMES = [
   'Elf3@2x.png',
   'Elf4@2x.png',
   'Elf5@2x.png',
+  'Elf1_Holding@2x.png',
+  'Elf2_Holding@2x.png',
+  'Elf3_Holding@2x.png',
+  'Elf4_Holding@2x.png',
+  'Elf5_Holding@2x.png',
   'Elf_Throw@2x.png',
 ];
 /** @type {Map<string, THREE.Texture>} */
@@ -157,8 +162,14 @@ function replaceElvesWithSprites(scene) {
 
     sprite.material.rotation = (node.rotation.y);
     sprite.userData.isElf = true;
+    sprite.userData.assetUrl = assetUrl;
     node.add(sprite);
   });
 }
 
+function getElfImage(assetUrl) {
+  return elfImages.get(assetUrl);
+}
+
 app.Scene = Scene;
+app.getElfImage = getElfImage;

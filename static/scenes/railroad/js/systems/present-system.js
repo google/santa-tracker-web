@@ -66,8 +66,8 @@ class PresentSystem {
     this.currentPresent = present;
   }
 
-  shoot(targetPosition) {
-    this.currentPresent.shoot(targetPosition);
+  shoot(targetPosition, targetObject) {
+    this.currentPresent.shoot(targetPosition, targetObject);
     this.addNewPresent();
   }
 

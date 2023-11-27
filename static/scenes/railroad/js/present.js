@@ -1,4 +1,5 @@
 goog.provide('app.Present');
+goog.provide('app.getElfImage');
 
 const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231});
 const loader = new THREE.OBJLoader();
@@ -52,6 +53,7 @@ class Present {
         this.scene = scene;
         this.model = loadedObj.clone();
         this.model.scale.setScalar(0.0015);
+        this.model.rotation.set(0, Math.PI / 2, 0);
         for (let i = 0; i < this.model.children.length; i++) {
             if (i !== 4) {
                 this.model.children[i].material = material0;
@@ -61,9 +63,11 @@ class Present {
         }
 
         parent.add(this.model);
+
+        this.targetObject = undefined;
     }
 
-    shoot(targetPosition) {
+    shoot(targetPosition, targetObject) {
         // Move to world space to handle the throw
         this.scene.scene.attach(this.model);
 
@@ -78,7 +82,7 @@ class Present {
 
         // calculate variables we need to calculate physics stuff
         var throwDistance = this.startPosition.distanceTo(this.targetPosition);
-        this.durationOfThrow = throwDistance/linearThrowSpeed;
+        this.durationOfThrow = throwDistance / linearThrowSpeed;
 
         // if we know gravity, the height delta, and how long the throw takes,
         // we can choose a start y velocity that will last through the throw
@@ -101,6 +105,9 @@ class Present {
         // update the state
         this.currentFlightTime = 0;
         this.inFlight = true;
+        if (targetObject instanceof THREE.Sprite && targetObject.userData.isElf) {
+            this.targetObject = targetObject;
+        }
     }
 
     update(deltaSeconds) {
@@ -108,6 +115,12 @@ class Present {
             if (this.currentFlightTime > this.durationOfThrow) {
                 this.landed = true;
                 this.model.position.copy(this.targetPosition);
+                if (this.targetObject) {
+                    const textureWithGift = getTextureWithGift(this.targetObject);
+                    if (textureWithGift) {
+                        this.targetObject.material.map = textureWithGift;
+                    }
+                }
             } else {
                 var t = this.currentFlightTime/this.durationOfThrow;
 
@@ -133,6 +146,12 @@ class Present {
     removeFromScene() {
         this.model.removeFromParent();
     }
+}
+
+function getTextureWithGift(originalSprite) {
+    const assetUrl = originalSprite.userData.assetUrl;
+    const newAssetUrl = assetUrl.replace('@', '_Holding@');
+    return getElfImage(newAssetUrl);
 }
 
 app.Present = Present;
