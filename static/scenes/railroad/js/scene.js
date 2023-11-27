@@ -38,7 +38,10 @@ class Scene {
     for (const imageName of ELF_IMAGE_NAMES) {
       const imagePromise = textureLoader
         .loadAsync(`img/${imageName}`)
-        .then(texture => elfImages.set(imageName, texture))
+        .then(texture => {
+          texture.colorSpace = THREE.SRGBColorSpace;
+          elfImages.set(imageName, texture);
+        })
         .then(_ => console.log(`Loaded ${imageName}`))
       promises.push(imagePromise);
     }
