@@ -63,13 +63,14 @@ class Present {
 
         parent.add(this.model);
 
-        this.shootPromise = undefined;;
+        this.shootPromise = undefined;
         this.shootResolveFunction = undefined;
     }
 
     async shoot(targetPosition) {
         if (this.shootPromise !== undefined) {
-            return this.shootPromise;
+            await this.shootPromise;
+            return;
         }
 
         // Move to world space to handle the throw
