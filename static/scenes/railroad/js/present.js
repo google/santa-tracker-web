@@ -15,8 +15,8 @@ class Present {
         loadedObj = await loader.loadAsync("models/gift.obj");
     }
 
-    constructor(scene, giftWrapMaterial, parent, offset) {
-        if (loadedScene == undefined) {
+    constructor(scene, giftWrapMaterial, parent) {
+        if (loadedObj == undefined) {
             throw 'Must call Present.preload() before constructing instance.'
         }
 
@@ -51,7 +51,7 @@ class Present {
         // Scene stuff
         this.scene = scene;
         this.model = loadedObj.clone();
-        this.model.scale.setScalar(0.001);
+        this.model.scale.setScalar(0.0015);
         for (let i = 0; i < this.model.children.length; i++) {
             if (i !== 4) {
                 this.model.children[i].material = material0;
@@ -61,9 +61,6 @@ class Present {
         }
 
         parent.add(this.model);
-        if (offset) {
-            this.model.position.copy(offset);
-        }
     }
 
     shoot(targetPosition) {
@@ -106,26 +103,26 @@ class Present {
         this.inFlight = true;
     }
 
-    update(seconds, deltaSeconds) {
+    update(deltaSeconds) {
         if (this.inFlight && !this.landed) {
             if (this.currentFlightTime > this.durationOfThrow) {
                 this.landed = true;
                 this.model.position.copy(this.targetPosition);
             } else {
                 var t = this.currentFlightTime/this.durationOfThrow;
-        
+
                 // we move in the x/z plane with a lerp. This could be
                 // optimized by not doing y stuff yere, but it wouldn't be as
                 // readable
                 var position = this.startPosition.clone();
                 position.lerp(this.targetPosition, t);
-        
+
                 // This is the most basic ballistic trajectory equation you can
                 // have. Only effects y
                 position.y = this.startPosition.y
                     + this.velocityY * this.currentFlightTime
                     + 1/2 * this.gravity * this.currentFlightTime * this.currentFlightTime;
-        
+
                 this.model.position.copy(position);
 
                 this.currentFlightTime = this.currentFlightTime + deltaSeconds;

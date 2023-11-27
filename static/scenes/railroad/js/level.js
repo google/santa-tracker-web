@@ -2,7 +2,6 @@ goog.provide('app.Level');
 
 goog.require('app.Scene');
 goog.require('app.systems.CameraSystem');
-goog.require('app.systems.ElvesSystem');
 goog.require('app.systems.RaycasterSystem');
 goog.require('app.systems.PresentSystem');
 
@@ -20,7 +19,6 @@ class Level {
   constructor(renderer, addScore) {
     this.scene = new app.Scene();
     this.camera = this.scene.getCamera();
-    this.elvesSystem = new app.ElvesSystem(this.camera, this.scene);
     this.presentSystem = new app.PresentSystem(this.scene);
     this.raycasterSystem = new app.RaycasterSystem(renderer, this.camera, this.scene, addScore);
   }
@@ -35,7 +33,6 @@ class Level {
 
   update(deltaSeconds) {
     this.scene.update(deltaSeconds);
-    this.elvesSystem.update(deltaSeconds);
     this.presentSystem.update(deltaSeconds);
   }
 

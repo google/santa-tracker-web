@@ -23,71 +23,67 @@ const material3 = new THREE.MeshToonMaterial( {color: 0x63BC71}); // green
 const material4 = new THREE.MeshToonMaterial( {color: 0xFF2400}); // red
 
 class PresentSystem {
-    constructor(placeholderScene) {
-        this.placeholderScene = placeholderScene;
+  /**
+   * @param {app.Scene} scene
+   */
+  constructor(scene) {
+    /** @private {app.Scene} */
+    this.scene = scene;
 
-        this.currentPresent = null;
-        this.presents = [];
-        this.seconds = 0;
+    /** @private {app.Present} */
+    this.currentPresent = null;
+    /** @private {Array<app.Present>} */
+    this.presents = [];
 
-        this.addNewPresent();
+    /** @private {THREE.Object3D} */
+    this.presentThrowPosition = scene.getScene().getObjectByName('PresentThrowPosition');
+    if (this.presentThrowPosition == undefined) {
+      throw new Error('Could not find present start position');
+    }
+    this.addNewPresent();
+  }
+
+  addNewPresent() {
+    // For the moment, remove the other colors of presents until we have matching assets.
+    var box_color = Math.floor(Math.random() * 5);
+    let giftWrapMaterial = material1;
+    if (box_color === 0) {
+      giftWrapMaterial = material1;
+    } else if (box_color === 1) {
+      giftWrapMaterial = material2;
+    } else if (box_color === 2) {
+      giftWrapMaterial = material3;
+    } else {
+      giftWrapMaterial = material4;
     }
 
-    addNewPresent() {
-      var box_color = Math.floor(Math.random() * 5);
-      var giftWrapMaterial;
-      if (box_color === 0) {
-        giftWrapMaterial = material1;
-      } else if (box_color === 1) {
-        giftWrapMaterial = material2;
-      } else if (box_color === 2) {
-        giftWrapMaterial = material3;
+    let present = new app.Present(
+      this.scene,
+      giftWrapMaterial,
+      this.presentThrowPosition,
+    );
+    this.presents.push(present);
+    this.currentPresent = present;
+  }
+
+  shoot(targetPosition) {
+    this.currentPresent.shoot(targetPosition);
+    this.addNewPresent();
+  }
+
+  update(deltaSeconds) {
+    for (let i = 0; i < this.presents.length; i++) {
+      const present = this.presents[i];
+      if (present.landed) {
+        this.presents.splice(i, 1);
+
+        present.removeFromScene();
+        i--;
       } else {
-        giftWrapMaterial = material4;
+        present.update(deltaSeconds);
       }
-      
-      // right now I just parent the object to the camera with an offset in the
-      // future we probably want a fixed node
-      const presentParent = this.placeholderScene.camera;
-
-      // currently I choose a hand tuned offset. We eventually want to push
-      // this off to art with a special node (or not show the present entirely
-      const presentOffset = new THREE.Vector3(.125, -.125, -1);
-
-      var present = new Present(
-        this.placeholderScene,
-        giftWrapMaterial,
-        presentParent,
-        presentOffset);
-      this.presents.push(present);
-      this.currentPresent = present;
     }
-
-    shoot(targetPosition) {
-      this.currentPresent.shoot(targetPosition);
-      this.addNewPresent();
-    }
-
-    teardown(game) {
-      this.presents = [];
-      this.currentPresent = null;
-    }
-
-    update(deltaSeconds) {
-        this.seconds = this.seconds + deltaSeconds;
-
-        for (let i = 0; i < this.presents.length; i++) {
-          const present = this.presents[i];
-          if (present.landed) {
-            this.presents.splice(i, 1);
-
-            present.removeFromScene();
-            i--;
-          } else {
-            present.update(this.seconds, deltaSeconds);
-          }
-        }
-    }
+  }
 
 }
 

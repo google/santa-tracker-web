@@ -71,7 +71,6 @@ class Game {
 
   resume() {
     if (!this.paused) {
-      console.warn('Game must be paused before it can be resumed');
       return;
     }
     this.paused = false;
