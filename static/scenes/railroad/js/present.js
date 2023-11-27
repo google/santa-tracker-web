@@ -52,6 +52,7 @@ class Present {
         this.scene = scene;
         this.model = loadedObj.clone();
         this.model.scale.setScalar(0.0015);
+        this.model.rotation.set(0, Math.PI / 2, 0);
         for (let i = 0; i < this.model.children.length; i++) {
             if (i !== 4) {
                 this.model.children[i].material = material0;
@@ -61,9 +62,17 @@ class Present {
         }
 
         parent.add(this.model);
+
+        this.shootPromise = undefined;
+        this.shootResolveFunction = undefined;
     }
 
-    shoot(targetPosition) {
+    async shoot(targetPosition) {
+        if (this.shootPromise !== undefined) {
+            await this.shootPromise;
+            return;
+        }
+
         // Move to world space to handle the throw
         this.scene.scene.attach(this.model);
 
@@ -78,7 +87,7 @@ class Present {
 
         // calculate variables we need to calculate physics stuff
         var throwDistance = this.startPosition.distanceTo(this.targetPosition);
-        this.durationOfThrow = throwDistance/linearThrowSpeed;
+        this.durationOfThrow = throwDistance / linearThrowSpeed;
 
         // if we know gravity, the height delta, and how long the throw takes,
         // we can choose a start y velocity that will last through the throw
@@ -101,6 +110,12 @@ class Present {
         // update the state
         this.currentFlightTime = 0;
         this.inFlight = true;
+
+        // Create a promise that will be resolved when the gift lands.
+        this.shootPromise = new Promise(r => {
+            this.shootResolveFunction = r;
+        });
+        await this.shootPromise;
     }
 
     update(deltaSeconds) {
@@ -108,6 +123,9 @@ class Present {
             if (this.currentFlightTime > this.durationOfThrow) {
                 this.landed = true;
                 this.model.position.copy(this.targetPosition);
+                if (this.shootResolveFunction) {
+                    this.shootResolveFunction();
+                }
             } else {
                 var t = this.currentFlightTime/this.durationOfThrow;
 
