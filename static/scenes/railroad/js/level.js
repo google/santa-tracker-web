@@ -1,6 +1,7 @@
 goog.provide('app.Level');
 
 goog.require('app.Scene');
+goog.require('app.getElfImage');
 goog.require('app.systems.CameraSystem');
 goog.require('app.systems.RaycasterSystem');
 goog.require('app.systems.PresentSystem');
@@ -36,11 +37,24 @@ class Level {
     this.presentSystem.update(deltaSeconds);
   }
 
-  handleClick(clickEvent) {
+  async handleClick(clickEvent) {
     const intersections = this.raycasterSystem.cast(clickEvent);
 
     if (intersections.length > 0) {
-      this.presentSystem.shoot(intersections[0].point, intersections[0].object);
+      const presentLanded = this.presentSystem.shoot(intersections[0].point);
+      const targetObject = intersections[0].object;
+      if (targetObject instanceof THREE.Sprite &&
+          targetObject.userData.clickable &&
+          targetObject.userData.clickable.type === 'elf' &&
+          targetObject.userData.assetUrl !== undefined) {
+        // Wait for the present to hit its target and then update the elf's sprite.
+        await presentLanded;
+        const textureWithPresent =
+            getElfImage(targetObject.userData.assetUrl.replace('@', '_Holding@'));
+        if (textureWithPresent) {
+            targetObject.material.map = textureWithPresent;
+        }
+      }
     }
   }
 }

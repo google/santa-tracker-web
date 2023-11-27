@@ -162,6 +162,7 @@ function replaceElvesWithSprites(scene) {
 
     sprite.material.rotation = (node.rotation.y);
     sprite.userData.isElf = true;
+    sprite.userData.clickable = {type: 'elf'};
     sprite.userData.assetUrl = assetUrl;
     node.add(sprite);
   });

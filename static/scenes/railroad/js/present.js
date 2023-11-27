@@ -1,5 +1,4 @@
 goog.provide('app.Present');
-goog.provide('app.getElfImage');
 
 const material0 = new THREE.MeshToonMaterial( {color: 0xF9D231});
 const loader = new THREE.OBJLoader();
@@ -64,10 +63,15 @@ class Present {
 
         parent.add(this.model);
 
-        this.targetObject = undefined;
+        this.shootPromise = undefined;;
+        this.shootResolveFunction = undefined;
     }
 
-    shoot(targetPosition, targetObject) {
+    async shoot(targetPosition) {
+        if (this.shootPromise !== undefined) {
+            return this.shootPromise;
+        }
+
         // Move to world space to handle the throw
         this.scene.scene.attach(this.model);
 
@@ -105,9 +109,12 @@ class Present {
         // update the state
         this.currentFlightTime = 0;
         this.inFlight = true;
-        if (targetObject instanceof THREE.Sprite && targetObject.userData.isElf) {
-            this.targetObject = targetObject;
-        }
+
+        // Create a promise that will be resolved when the gift lands.
+        this.shootPromise = new Promise(r => {
+            this.shootResolveFunction = r;
+        });
+        await this.shootPromise;
     }
 
     update(deltaSeconds) {
@@ -115,11 +122,8 @@ class Present {
             if (this.currentFlightTime > this.durationOfThrow) {
                 this.landed = true;
                 this.model.position.copy(this.targetPosition);
-                if (this.targetObject) {
-                    const textureWithGift = getTextureWithGift(this.targetObject);
-                    if (textureWithGift) {
-                        this.targetObject.material.map = textureWithGift;
-                    }
+                if (this.shootResolveFunction) {
+                    this.shootResolveFunction();
                 }
             } else {
                 var t = this.currentFlightTime/this.durationOfThrow;
@@ -146,12 +150,6 @@ class Present {
     removeFromScene() {
         this.model.removeFromParent();
     }
-}
-
-function getTextureWithGift(originalSprite) {
-    const assetUrl = originalSprite.userData.assetUrl;
-    const newAssetUrl = assetUrl.replace('@', '_Holding@');
-    return getElfImage(newAssetUrl);
 }
 
 app.Present = Present;
