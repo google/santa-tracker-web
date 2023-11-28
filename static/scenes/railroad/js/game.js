@@ -63,6 +63,10 @@ class Game {
       this.level.cleanUp();
     }
     this.level = new Level(this.renderer, (score) => this.scoreboard.addScore(score));
+
+    window.santaApp.fire('sound-trigger', 'bl_game_start');
+    window.santaApp.fire('sound-ambient', 'music_start_ingame');
+    window.santaApp.fire('analytics-track-game-start', {gameid: 'railroad'});
   }
 
   pause() {
@@ -77,7 +81,10 @@ class Game {
     this.previousSeconds = Date.now() / 1000;
   }
 
-  restart() {
+  async restart() {
+    // Hack: We need to reload the scene GLB file otherwise the elves will still have the presents from before.
+    await Scene.preload();
+
     this.startLevel();
     this.paused = false;
     this.scoreboard.restart()
@@ -86,6 +93,13 @@ class Game {
   gameover() {
     this.paused = true;
     this.gameoverView.show();
+
+    window.santaApp.fire('sound-trigger', 'bl_game_stop');
+    window.santaApp.fire('sound-trigger', 'music_ingame_gameover');
+    window.santaApp.fire('analytics-track-game-over', {
+      gameid: 'railroad',
+      score: this.scoreboard.score,
+    });
   }
 
   mainLoop() {

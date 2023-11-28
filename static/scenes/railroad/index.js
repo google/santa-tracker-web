@@ -5,6 +5,9 @@ import THREE from './three.js';
 import api from '../../src/scene/api.js';
 import Game from './:closure.js';
 
+// Quick hack: Load sounds from an existing game.
+api.preload.sounds('bl_load_sounds');
+
 api.ready(() => initialize());
 
 api.config({

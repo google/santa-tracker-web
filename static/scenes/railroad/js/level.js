@@ -21,7 +21,9 @@ class Level {
     this.scene = new app.Scene();
     this.camera = this.scene.getCamera();
     this.presentSystem = new app.PresentSystem(this.scene);
-    this.raycasterSystem = new app.RaycasterSystem(renderer, this.camera, this.scene, addScore);
+    this.raycasterSystem = new app.RaycasterSystem(renderer, this.camera, this.scene);
+    /** @type { function(number):void } */
+    this.addScore = addScore;
   }
 
   cleanUp() {
@@ -46,14 +48,18 @@ class Level {
       if (targetObject instanceof THREE.Sprite &&
           targetObject.userData.clickable &&
           targetObject.userData.clickable.type === 'elf' &&
-          targetObject.userData.assetUrl !== undefined) {
+          targetObject.userData.assetUrl !== undefined &&
+          !targetObject.userData.hasPresent) {
         // Wait for the present to hit its target and then update the elf's sprite.
+        targetObject.userData.hasPresent = true;
         await presentLanded;
         const textureWithPresent =
             getElfImage(targetObject.userData.assetUrl.replace('@', '_Holding@'));
         if (textureWithPresent) {
             targetObject.material.map = textureWithPresent;
         }
+        window.santaApp.fire('sound-trigger', 'bl_score_red');
+        this.addScore(100);
       }
     }
   }
