@@ -16,18 +16,18 @@ class RaycasterSystem {
     this.raycaster = new THREE.Raycaster();
   }
 
-  cast(clickEvent) {
-    const intersections = this.getIntersections(clickEvent);
+  cast(clientX, clientY) {
+    const intersections = this.getIntersections(clientX, clientY);
     this.updateScore(intersections);
     return intersections;
   }
 
-  getIntersections(clickEvent) {
+  getIntersections(clientX, clientY) {
     // calculate pointer position in normalized device coordinates
     // (-1 to +1) for both components
     const ray = new THREE.Vector2(0, 0);
-    ray.x = (clickEvent.clientX / this.renderer.domElement.width) * 2 - 1;
-    ray.y = -(clickEvent.clientY / this.renderer.domElement.height) * 2 + 1; 
+    ray.x = (clientX / this.renderer.domElement.width) * 2 - 1;
+    ray.y = -(clientY / this.renderer.domElement.height) * 2 + 1; 
     this.raycaster.setFromCamera(ray, this.camera);
     return this.raycaster.intersectObjects(this.scene.scene.children, true);
   }
