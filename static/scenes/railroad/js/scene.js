@@ -164,6 +164,7 @@ function replaceElvesWithSprites(scene) {
     sprite.userData.isElf = true;
     sprite.userData.clickable = {type: 'elf'};
     sprite.userData.assetUrl = assetUrl;
+    sprite.userData.hasPresent = false;
     node.add(sprite);
   });
 }
