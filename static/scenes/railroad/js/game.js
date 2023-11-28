@@ -121,8 +121,19 @@ class Game {
   }
 
   setUpListeners() {
-    this.renderer.domElement.addEventListener('pointerdown', (click) => {
-      this.handleClick(click);
+    const canvas = this.renderer.domElement;
+
+    // Use `touchstart` for touch interfaces.
+    canvas.addEventListener('touchstart', e => {
+      const touch = e.changedTouches[0];
+      this.handleClick(touch.clientX, touch.clientY);
+      // Prevent generation of corresponding MouseEvents so we don't double-click.
+      e.preventDefault();
+    }, {passive: false});
+
+    // Use `mouseup` for mouse interfaces.
+    canvas.addEventListener('mouseup', e => {
+      this.handleClick(e.clientX, e.clientY);
     });
 
     window.addEventListener('resize', () => {
@@ -133,9 +144,13 @@ class Game {
     });
   }
 
-  handleClick(clickEvent) {
+  /**
+   * @param {number} clientX
+   * @param {number} clientY 
+   */
+  handleClick(clientX, clientY) {
     if (!this.paused && this.level) {
-      this.level.handleClick(clickEvent);
+      this.level.handleClick(clientX, clientY);
     }
   }
 }

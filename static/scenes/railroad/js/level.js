@@ -37,8 +37,8 @@ class Level {
     this.presentSystem.update(deltaSeconds);
   }
 
-  async handleClick(clickEvent) {
-    const intersections = this.raycasterSystem.cast(clickEvent);
+  async handleClick(clientX, clientY) {
+    const intersections = this.raycasterSystem.cast(clientX, clientY);
 
     if (intersections.length > 0) {
       const presentLanded = this.presentSystem.shoot(intersections[0].point);
