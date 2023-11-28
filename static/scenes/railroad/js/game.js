@@ -121,8 +121,18 @@ class Game {
   }
 
   setUpListeners() {
-    this.renderer.domElement.addEventListener('pointerdown', (click) => {
+    const canvas = this.renderer.domElement;
+
+    // Use `touchstart` for touch interfaces.
+    canvas.addEventListener('touchstart', (click) => {
       this.handleClick(click);
+      // Prevent generation of corresponding MouseEvents so we don't double-click.
+      click.preventDefault();
+    });
+
+    // Use `mouseup` for mouse interfaces.
+    canvas.addEventListener('mouseup', event => {
+      this.handleClick(event);
     });
 
     window.addEventListener('resize', () => {
