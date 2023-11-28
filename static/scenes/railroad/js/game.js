@@ -121,7 +121,7 @@ class Game {
   }
 
   setUpListeners() {
-    this.renderer.domElement.addEventListener('click', (click) => {
+    this.renderer.domElement.addEventListener('pointerdown', (click) => {
       this.handleClick(click);
     });
 
