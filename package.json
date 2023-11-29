@@ -45,6 +45,7 @@
     "mime-types": "^2.1.21",
     "mocha": "^5.2.0",
     "mocha-headless-server": "^0.1.2",
+    "node": "^21.1.0",
     "parse5": "^5.1.0",
     "polka": "^0.5.2",
     "pretty-ms": "^4.0.0",
