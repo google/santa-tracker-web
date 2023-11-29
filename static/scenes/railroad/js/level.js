@@ -1,10 +1,17 @@
 goog.provide('app.Level');
 
 goog.require('app.Scene');
+goog.require('app.PlayerElfStates');
 goog.require('app.getElfImage');
 goog.require('app.systems.CameraSystem');
 goog.require('app.systems.RaycasterSystem');
 goog.require('app.systems.PresentSystem');
+
+/** @enum {userEvents} */
+const UserEvents = {
+  NONE: 'none',
+  TAP: 'tap',
+} 
 
 /**
  * Handles everything that lives within one level.
@@ -24,6 +31,11 @@ class Level {
     this.raycasterSystem = new app.RaycasterSystem(renderer, this.camera, this.scene);
     /** @type { function(number):void } */
     this.addScore = addScore;
+    this.currentUserEvent = UserEvents.NONE;
+
+    // TODO: breakout into helper class
+    this.playerElfState = app.PlayerElfStates.READY;
+    this.animateCooldown = 0;
   }
 
   cleanUp() {
@@ -36,12 +48,47 @@ class Level {
 
   update(deltaSeconds) {
     this.scene.update(deltaSeconds);
+    // TODO: update present system so that a new present appears only
+    // when elf is ready again
     this.presentSystem.update(deltaSeconds);
+  
+    // TODO: break out into helper class
+    // Update elf and game state transitions.
+    if (this.playerElfState == app.PlayerElfStates.READY) {
+      if (this.currentUserEvent == UserEvents.TAP) {
+        this.currentUserEvent = UserEvents.NONE;
+        this.playerElfState = app.PlayerElfStates.THROWING;
+        // TODO: tune
+        this.animateCooldown = 0.17;
+      }
+    } else if (this.playerElfState == app.PlayerElfStates.THROWING) {
+      this.animateCooldown -= deltaSeconds;
+      if (this.animateCooldown < 0) {
+        this.playerElfState = app.PlayerElfStates.READY;
+      }
+    }
+
+    // update elf view model
+    const playerElf = this.scene.scene.getObjectByName('PlayerElf');
+    if (this.playerElfState == app.PlayerElfStates.READY) {
+      playerElf.children[0].material.map = getElfImage('Elf_Throw@2x.png');
+    } else if (this.playerElfState == app.PlayerElfStates.THROWING) {
+      playerElf.children[0].material.map = getElfImage('Elf_Throw2@2x.png');
+    }
   }
 
   async handleClick(clientX, clientY) {
-    const intersections = this.raycasterSystem.cast(clientX, clientY);
+    // register event
+    if (this.currentUserEvent == UserEvents.NONE &&
+        // Ignore events while Elf is throwing. We could change this if we
+        // want to interrupt the "animation" so we can more quickly spam
+        // throws, but the current cooldown is short enough that we can get 
+        // multiple throws per second already. 
+        this.playerElfState != app.PlayerElfStates.THROWING) {
+      this.currentUserEvent = UserEvents.TAP;
+    }
 
+    const intersections = this.raycasterSystem.cast(clientX, clientY);
     if (intersections.length > 0) {
       const presentLanded = this.presentSystem.shoot(intersections[0].point);
       const targetObject = intersections[0].object;
