@@ -19,6 +19,7 @@ const ELF_IMAGE_NAMES = [
   'Elf4_Holding@2x.png',
   'Elf5_Holding@2x.png',
   'Elf_Throw@2x.png',
+  'Elf_Throw2@2x.png',
 ];
 /** @type {Map<string, THREE.Texture>} */
 const elfImages = new Map();
@@ -153,6 +154,7 @@ function replaceElvesWithSprites(scene) {
       console.error(`Invalid elf asset URL: "${assetUrl}"`);
       return;
     }
+
     const elfTexture = elfImages.get(assetUrl);
 
     const material = new THREE.SpriteMaterial({map: elfTexture, transparent: true});
