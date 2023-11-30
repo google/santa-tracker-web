@@ -2005,11 +2005,11 @@
   },
   "quickdraw-splashview-title": {
     "description": "Title referring to a robot, named Tensor (who is gender neutral), that wants to do automated image recognition.",
-    "message": "Help Tensor practice its image recognition!"
+    "message": "Play with Tensor, the Image Recognizing Robot!"
   },
   "quickdraw-splashview-description": {
     "description": "Description about how Tensor (gender neutral) the robot operates, to recognize different objects.",
-    "message": "Tensor is Santa's Machine Learning robot that helps him quickly decipher the letters he receives from children all over the world. To help Tensor practice, draw a picture of each holiday word on the screen and it will tell you what it sees. The more you draw, the smarter Tensor will get, so let's help Santa be more efficient than ever this holiday season!"
+    "message": "Tensor is Santa's Machine Learning robot that helps Santa with the letters he receives from children all over the world. It's been trained to quickly decipher text and images and loves to guess what someone is drawing. Draw a picture of each holiday word on the screen and it will tell you what it sees."
   },
   "quickdraw-slate": {
     "description": "Action/order/verb. Text that appears above the word to draw.",
