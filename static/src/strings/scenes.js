@@ -60,6 +60,7 @@ export default {
   'presentdrop': _msg`scene_presentdrop`,
   'racer': _msg`scene_racer`,
   'reindeerworries': _msg`scene_videoscene_reindeerworries`,  // 2015
+  'railroad': _msg`scene_railroad`,
   'reload': _msg`scene_videoscene_reload`,
   'rollercoaster': _msg`scene_rollercoaster`,
   'runner': _msg`scene_runner`,
