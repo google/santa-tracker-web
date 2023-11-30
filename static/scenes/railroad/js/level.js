@@ -24,13 +24,16 @@ class Level {
    * @param {*} renderer ThreeJS renderer.
    * @param { function(number):void } addScore Function for adding to the game's score.
    */
-  constructor(renderer, addScore) {
+  constructor(renderer, scoreboard) {
     this.scene = new app.Scene();
     this.camera = this.scene.getCamera();
     this.presentSystem = new app.PresentSystem(this.scene);
     this.raycasterSystem = new app.RaycasterSystem(renderer, this.camera, this.scene);
-    /** @type { function(number):void } */
-    this.addScore = addScore;
+    this.scoreboard = scoreboard;
+
+    /** @type { boolean } */
+    this.trainIsMoving = false;
+
     this.currentUserEvent = UserEvents.NONE;
 
     // TODO: breakout into helper class
@@ -47,11 +50,14 @@ class Level {
   }
 
   update(deltaSeconds) {
-    this.scene.update(deltaSeconds);
+    if (this.trainIsMoving) {
+      this.scene.update(deltaSeconds);
+      this.scoreboard.onFrame(deltaSeconds);
+    }
     // TODO: update present system so that a new present appears only
     // when elf is ready again
     this.presentSystem.update(deltaSeconds);
-  
+
     // TODO: break out into helper class
     // Update elf and game state transitions.
     if (this.playerElfState == app.PlayerElfStates.READY) {
@@ -106,7 +112,10 @@ class Level {
             targetObject.material.map = textureWithPresent;
         }
         window.santaApp.fire('sound-trigger', 'bl_score_red');
-        this.addScore(100);
+
+        this.scoreboard.addScore(100);
+        // Start the train if it isn't already moving.
+        this.trainIsMoving = true;
       }
     }
   }

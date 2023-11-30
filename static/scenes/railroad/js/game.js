@@ -62,7 +62,7 @@ class Game {
     if (this.level) {
       this.level.cleanUp();
     }
-    this.level = new Level(this.renderer, (score) => this.scoreboard.addScore(score));
+    this.level = new Level(this.renderer, this.scoreboard);
 
     window.santaApp.fire('sound-trigger', 'bl_game_start');
     window.santaApp.fire('sound-ambient', 'music_start_ingame');
@@ -128,7 +128,7 @@ class Game {
 
     if (!this.paused && this.level) {
       this.level.update(deltaSeconds);
-      this.scoreboard.onFrame(deltaSeconds);
+      // Scoreboard update is handled in level.
     }
 
     this.previousSeconds = nowSeconds;
