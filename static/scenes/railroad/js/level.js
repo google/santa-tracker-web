@@ -66,11 +66,19 @@ class Level {
         window.santaApp.fire('sound-trigger', 'bl_score_red');
 
         this.scoreboard.addScore(100);
-        // Start the train if it isn't already moving.
-        this.trainIsMoving = true;
+        // Start the train if it isn't already moving. Ok to call this multiple times.
+        this.startTrain();
       }
     }
   }
+
+  startTrain() {
+    this.trainIsMoving = true;
+
+    const hand = document.querySelector('.tutorial-hand');
+    hand.classList.add('hidden');
+  }
+
 }
 
 app.Level = Level;
