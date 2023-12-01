@@ -5,3 +5,39 @@ body {
   overflow: hidden;
   touch-action: none;
 }
+
+.tutorial-hand {
+  position: absolute;
+  top: 58%;
+  left: calc(50% + 15vh);
+  scale: 0.6;
+  animation: 5s infinite tutorial-hand-click;
+  pointer-events: none;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes tutorial-hand-click {
+  0% {
+    scale: 0.6;
+    translate: 50vw 50vh;
+  }
+  30% {
+    scale: 0.6;
+    translate: 0;
+  }
+  45% {
+    scale: 0.6;
+  }
+  50% {
+    scale: 0.66;
+  }
+  53% {
+    scale: 0.53;
+  }
+  56% {
+    scale: 0.6;
+  }
+}
