@@ -12,7 +12,7 @@ api.ready(() => initialize());
 
 api.config({
     pause: true,
-    orientation: 'landscape',
+    orientation: 'portrait',
     sound: ['music_start_scene'],
   });
 
