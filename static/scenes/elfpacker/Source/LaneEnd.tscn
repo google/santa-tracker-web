@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://LaneEnd.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 32.5 )
+
+[node name="LaneEnd" type="Area2D" groups=["LaneEnds"]]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.5 )
+shape = SubResource( 1 )
+
+[connection signal="area_shape_entered" from="." to="." method="_on_LaneEnd_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_LaneEnd_body_entered"]
