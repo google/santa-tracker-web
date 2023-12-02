@@ -33,7 +33,6 @@ class Scene {
     const glb = await gltfLoader.loadAsync('models/toy-shop.glb')
     await imagesPromise;
 
-    correctSRGBMaterials(glb.scene);
     replaceElvesWithSprites(glb.scene);
     replaceMaterialsWithToonMaterials(glb.scene);
     loadedGlb = glb;
@@ -125,26 +124,6 @@ class Scene {
   getScene() {
     return this.scene;
   }
-}
-
-/**
- * @param {THREE.Object3D} scene
- */
-function correctSRGBMaterials(scene) {
-  /** @type {Set<THREE.Material>} */
-  const correctedMaterials = new Set();
-  const roomInterior = scene.getObjectByName('room_interior');
-  roomInterior.traverse(child => {
-    if (!child.material) {
-      return;
-    }
-    // Skip materials we've already corrected.
-    if (correctedMaterials.has(child.material)) {
-      return;
-    }
-    child.material.color.convertSRGBToLinear();
-    correctedMaterials.add(child.material);
-  });
 }
 
 function replaceMaterialsWithToonMaterials(scene) {
