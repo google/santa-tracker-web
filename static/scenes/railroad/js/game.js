@@ -141,7 +141,10 @@ class Game {
     canvas.addEventListener('touchstart', e => {
       const touch = e.changedTouches[0];
       this.handleClick(touch.clientX, touch.clientY);
-      // Prevent generation of corresponding MouseEvents so we don't double-click.
+    });
+
+    // Prevent touch up events triggering mouse up events.
+    canvas.addEventListener('touchend', e => {
       e.preventDefault();
     }, {passive: false});
 
