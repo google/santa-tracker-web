@@ -38,6 +38,7 @@ export class SantaButtonElement extends LitElement {
       path: {type: String},
       color: {type: String},
       disabled: {type: Boolean, reflect: true},
+      'aria-label': {type: String, reflect: true}
     };
   }
 
@@ -80,7 +81,7 @@ export class SantaButtonElement extends LitElement {
     }
 
 
-    return html`<button class="${this.color || ''}" .disabled=${this.disabled} @click=${this._maybePreventClick}>${inner}</button>`;
+    return html`<button class="${this.color || ''}" .disabled=${this.disabled} @click=${this._maybePreventClick} aria-label=${this['aria-label']}>${inner}</button>`;
   }
 
   focus() {
