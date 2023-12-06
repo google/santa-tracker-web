@@ -15,6 +15,17 @@ body {
   pointer-events: none;
 }
 
+.throw-accessibility-button {
+  position: absolute;
+  pointer-events: none;
+  border: none;
+  background: none;
+  top: 100px;
+  bottom: 2%;
+  right: 2%;
+  left: 2%;
+}
+
 .hidden {
   display: none;
 }

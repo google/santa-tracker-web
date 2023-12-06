@@ -156,6 +156,13 @@ class Game {
         this.level.scene.updateCameraSize();
       }
     });
+
+    const throwButton = document.querySelector('.throw-accessibility-button');
+    throwButton.addEventListener('click', () => {
+      if (this.level) {
+        this.level.throwToClosest();
+      }
+    });
   }
 
   /**
