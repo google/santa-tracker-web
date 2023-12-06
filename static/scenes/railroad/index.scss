@@ -16,6 +16,9 @@ body {
 }
 
 .canvas-button {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   position: absolute;
   border: none;
   background: none;
@@ -23,6 +26,10 @@ body {
   right: 0;
   top: 0;
   bottom: 0;
+}
+
+.canvas-button:focus-visible {
+  outline-offset: -8px;
 }
 
 .hidden {
