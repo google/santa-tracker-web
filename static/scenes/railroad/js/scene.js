@@ -1,6 +1,8 @@
 
 goog.provide('app.Scene');
 
+goog.require('app.isElf');
+
 const gltfLoader = new THREE.GLTFLoader();
 const textureLoader = new THREE.TextureLoader();
 
@@ -109,20 +111,47 @@ class Scene {
     this.mixer.timeScale = scale;
   }
 
-  getCameraPosition(timeInSeconds) {
-    const rotatePeriodSeconds = 30;
-    const radius = 7;
-    const height = 0.8;
-    const angle = 2 * Math.PI * timeInSeconds / rotatePeriodSeconds;
-    return new THREE.Vector3(
-      radius * Math.cos(angle),
-      height,
-      radius * Math.sin(angle),
-    );
-  }
-
   getScene() {
     return this.scene;
+  }
+
+  /**
+   * @returns {THREE.Sprite | undefined} The closest elf if there's one close enough, otherwise undefined.
+   */
+  findClosestElf() {
+    // Frustum for checking if the elf is in view of the camera
+    const cameraGlobal = new THREE.Vector3();
+    this.camera.getWorldPosition(cameraGlobal);
+    const cameraMatrix = new THREE.Matrix4().multiplyMatrices(
+      this.camera.projectionMatrix, this.camera.matrixWorldInverse);
+    const frustum = new THREE.Frustum();
+    frustum.setFromProjectionMatrix(cameraMatrix);
+
+    const elves = [];
+    this.scene.traverse(node => {
+      if (app.isElf(node)) {
+        elves.push(node)
+      }
+    });
+
+    let closest = undefined;
+    let closestSqDist = Infinity;
+
+    const elfGlobal = new THREE.Vector3();
+    for (const elf of elves) {
+      if (!frustum.intersectsObject(elf)) {
+        continue;
+      }
+
+      elf.getWorldPosition(elfGlobal);
+      const sqDist = cameraGlobal.distanceToSquared(elfGlobal);
+      if (sqDist < closestSqDist) {
+        closestSqDist = sqDist;
+        closest = elf;
+      }
+    };
+
+    return closest;
   }
 }
 
@@ -163,10 +192,12 @@ function replaceElvesWithSprites(scene) {
     sprite.scale.set(elfTexture.image.width / elfTexture.image.height, 1, 1);
 
     sprite.material.rotation = (node.rotation.y);
-    sprite.userData.isElf = true;
-    sprite.userData.clickable = {type: 'elf'};
-    sprite.userData.assetUrl = assetUrl;
-    sprite.userData.hasPresent = false;
+    if (!assetUrl.includes("Throw")) {
+      sprite.userData.isElf = true;
+      sprite.userData.clickable = {type: 'elf'};
+      sprite.userData.assetUrl = assetUrl;
+      sprite.userData.hasPresent = false;
+    }
     node.add(sprite);
   });
 }

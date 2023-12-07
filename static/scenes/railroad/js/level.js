@@ -3,7 +3,7 @@ goog.provide('app.Level');
 goog.require('app.Scene');
 goog.require('app.PlayerElfStates');
 goog.require('app.getElfImage');
-goog.require('app.systems.CameraSystem');
+goog.require('app.isElf');
 goog.require('app.systems.RaycasterSystem');
 goog.require('app.systems.PresentSystem');
 
@@ -11,7 +11,7 @@ goog.require('app.systems.PresentSystem');
 const UserEvents = {
   NONE: 'none',
   TAP: 'tap',
-} 
+}
 
 /**
  * Handles everything that lives within one level.
@@ -96,28 +96,44 @@ class Level {
 
     const intersections = this.raycasterSystem.cast(clientX, clientY);
     if (intersections.length > 0) {
-      const presentLanded = this.presentSystem.shoot(intersections[0].point);
-      const targetObject = intersections[0].object;
-      if (targetObject instanceof THREE.Sprite &&
-          targetObject.userData.clickable &&
-          targetObject.userData.clickable.type === 'elf' &&
-          targetObject.userData.assetUrl !== undefined &&
-          !targetObject.userData.hasPresent) {
-        // Wait for the present to hit its target and then update the elf's sprite.
-        targetObject.userData.hasPresent = true;
-        await presentLanded;
-        const textureWithPresent =
-            getElfImage(targetObject.userData.assetUrl.replace('@', '_Holding@'));
-        if (textureWithPresent) {
-            targetObject.material.map = textureWithPresent;
-        }
-        window.santaApp.fire('sound-trigger', 'bl_score_red');
-
-        this.scoreboard.addScore(100);
-        // Start the train if it isn't already moving. Ok to call this multiple times.
-        this.startTrain();
-      }
+      await this.throwAt(intersections[0].point, intersections[0].object);
     }
+  }
+
+  async throwAt(position, targetObject) {
+    console.log('throw present')
+    console.log(position)
+    console.log(targetObject);
+
+    const presentLanded = this.presentSystem.shoot(position);
+    if (app.isElf(targetObject) && !targetObject.userData.hasPresent) {
+      // Wait for the present to hit its target and then update the elf's sprite.
+      targetObject.userData.hasPresent = true;
+      await presentLanded;
+      const textureWithPresent =
+          getElfImage(targetObject.userData.assetUrl.replace('@', '_Holding@'));
+      if (textureWithPresent) {
+          targetObject.material.map = textureWithPresent;
+      }
+      window.santaApp.fire('sound-trigger', 'bl_score_red');
+
+      this.scoreboard.addScore(100);
+      // Start the train if it isn't already moving. Ok to call this multiple times.
+      this.startTrain();
+    }
+  }
+
+  async throwToClosest() {
+    const closest = this.scene.findClosestElf();
+    if (!closest) {
+      console.log('no closest elf');
+      return;
+    }
+
+    const position = new THREE.Vector3();
+    closest.getWorldPosition(position);
+
+    this.throwAt(position, closest);
   }
 
   startTrain() {

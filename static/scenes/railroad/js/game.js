@@ -31,6 +31,12 @@ class Game {
     this.level = undefined;
 
     this.previousSeconds = Date.now() / 1000;
+
+    // Accessibility devices on Android fire off click events in the center of
+    // the Canvas element. We use these counters to guess if the user is using
+    // an accessibility tool.
+    this.numSuspectedAccessibilityClicks = 0;
+    this.numSuspectedNotAccessibilityClicks = 0;
   }
 
   /**
@@ -44,15 +50,16 @@ class Game {
    * @param {HTMLElement} container The element that hosts the rendering for the
    * game.
    */
-  async start(container) {
-    container.appendChild(this.renderer.domElement);
+  async start(containerButton) {
+    this.containerButton = containerButton;
+    containerButton.appendChild(this.renderer.domElement);
 
     await Promise.all([
       app.Scene.preload(),
       app.Present.preload(),
     ]);
 
-    this.setUpListeners();
+    this.setUpListeners(containerButton);
     this.mainLoop();
 
     this.startLevel();
@@ -134,20 +141,34 @@ class Game {
     this.previousSeconds = nowSeconds;
   }
 
-  setUpListeners() {
-    const canvas = this.renderer.domElement;
-
+  setUpListeners(containerButton) {
     // Use `touchstart` for touch interfaces.
-    canvas.addEventListener('touchstart', e => {
+    containerButton.addEventListener('touchstart', e => {
       const touch = e.changedTouches[0];
       this.handleClick(touch.clientX, touch.clientY);
-      // Prevent generation of corresponding MouseEvents so we don't double-click.
-      e.preventDefault();
-    }, {passive: false});
+    });
 
-    // Use `mouseup` for mouse interfaces.
-    canvas.addEventListener('mouseup', e => {
-      this.handleClick(e.clientX, e.clientY);
+    // Prevent the click event from firing on touch devices.
+    containerButton.addEventListener('touchend', e => {
+      e.preventDefault();
+    }, {passive: false})
+
+    // Use `click` for mouse interfaces and for accessibility
+    containerButton.addEventListener('click', e => {
+      console.log(e);
+      if (isPossibleClickFromAccessibiltyTool(containerButton, e)) {
+        this.numSuspectedAccessibilityClicks++;
+      }
+      else {
+        this.numSuspectedNotAccessibilityClicks++;
+      }
+
+      if (this.numSuspectedAccessibilityClicks > this.numSuspectedNotAccessibilityClicks) {
+        this.level.throwToClosest();
+      }
+      else {
+        this.handleClick(e.clientX, e.clientY);
+      }
     });
 
     window.addEventListener('resize', () => {
@@ -160,13 +181,33 @@ class Game {
 
   /**
    * @param {number} clientX
-   * @param {number} clientY 
+   * @param {number} clientY
    */
   handleClick(clientX, clientY) {
     if (!this.paused && this.level) {
       this.level.handleClick(clientX, clientY);
     }
   }
+}
+
+/**
+ * @param {HTMLElement} element Element that handles click events
+ * @param {MouseEvent} e Click event
+ * @returns {boolean} Whether this click could've been fired from an accessibility tool (e.g. TalkBack).
+ */
+function isPossibleClickFromAccessibiltyTool(element, e) {
+  if (e.clientX === 0 && e.clientY === 0) {
+    return true;
+  }
+  if (e.clientX === undefined || e.clientY === undefined) {
+    return true;
+  }
+
+  const rect = element.getBoundingClientRect();
+  const elemCenterX = rect.x + rect.width / 2;
+  const elemCenterY = rect.y + rect.height / 2;
+
+  return (Math.abs(elemCenterX - e.clientX) < 1 && Math.abs(elemCenterY - e.clientY) < 1);
 }
 
 app.Game = Game;
