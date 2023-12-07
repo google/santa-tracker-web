@@ -597,6 +597,13 @@ async function runner(control, route) {
       case 'tutorial-dismiss':
         tutorialOverlayElement.dismiss(...payload);
         continue;
+
+      case 'focus-on-menu':
+        // We dig into the shadow root of this component, which sort of breaks
+        // encapsulation. A 'nicer' approach might be to add some functionality
+        // into the santa-chrome element. But for the moment this works and is a
+        // quick fix for an accessibility issue.
+        document.querySelector('santa-chrome').shadowRoot.querySelector('.menu-button').focus();
     }
 
     console.debug('running scene unhandled', op);

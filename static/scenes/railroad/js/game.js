@@ -95,6 +95,9 @@ class Game {
     this.startLevel();
     this.paused = false;
     this.scoreboard.restart()
+
+    // Focus on the main button for keyboard controls after restarting.
+    this.containerButton.focus();
   }
 
   gameover() {
