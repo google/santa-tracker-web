@@ -38,6 +38,7 @@ export class SantaButtonElement extends LitElement {
       path: {type: String},
       color: {type: String},
       disabled: {type: Boolean, reflect: true},
+      ariaLabel: {reflect: true, attribute: 'aria-label'}
     };
   }
 
@@ -80,7 +81,11 @@ export class SantaButtonElement extends LitElement {
     }
 
 
-    return html`<button class="${this.color || ''}" .disabled=${this.disabled} @click=${this._maybePreventClick}>${inner}</button>`;
+    return html`<button
+      class="${this.color || ''}"
+      .disabled=${this.disabled}
+      @click=${this._maybePreventClick}
+      aria-label=${this.ariaLabel || nothing}>${inner}</button>`;
   }
 
   focus() {
@@ -91,6 +96,11 @@ export class SantaButtonElement extends LitElement {
     if (this.disabled) {
       event.stopImmediatePropagation();
     }
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.role = 'presentation';
   }
 }
 
