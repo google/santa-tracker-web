@@ -88,11 +88,6 @@ button {
     transform: translate(0, 0);
   }
 
-  &:focus {
-    border-color: rgba(0, 0, 0, 0.33);
-    outline: none;
-  }
-
   @mixin theme($color) {
     background: $color;
     box-shadow: $offset-x $offset-y 0 rgba(0, 0, 0, 0.3),
