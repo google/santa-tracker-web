@@ -155,6 +155,7 @@ const sceneApi = (function() {
   const bufferNames = {
     'tutorialQueue': true,
     'tutorialDismiss': true,
+    'focusOnMenu': true,
     'ga': true,
     'play': true,
     'data': false,
