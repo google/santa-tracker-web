@@ -96,31 +96,49 @@ class Level {
 
     const intersections = this.raycasterSystem.cast(clientX, clientY);
     if (intersections.length > 0) {
-      await this.throwAt(intersections[0].point, intersections[0].object);
+      const targetObject = intersections[0].object;
+      const presentLanded = this.throwAt(intersections[0].point, targetObject);
+      if (app.isElf(targetObject) && !targetObject.userData.hasPresent) {
+        const score = 100;
+        await this.showElfCaughtText(clientX, clientY, score);
+	await this.handleElfCatch(targetObject, presentLanded, score);
+      }
     }
   }
 
   async throwAt(position, targetObject) {
-    console.log('throw present')
-    console.log(position)
-    console.log(targetObject);
+    return this.presentSystem.shoot(position);
+  }
 
-    const presentLanded = this.presentSystem.shoot(position);
-    if (app.isElf(targetObject) && !targetObject.userData.hasPresent) {
-      // Wait for the present to hit its target and then update the elf's sprite.
-      targetObject.userData.hasPresent = true;
-      await presentLanded;
-      const textureWithPresent =
-          getElfImage(targetObject.userData.assetUrl.replace('@', '_Holding@'));
-      if (textureWithPresent) {
-          targetObject.material.map = textureWithPresent;
-      }
-      window.santaApp.fire('sound-trigger', 'bl_score_red');
-
-      this.scoreboard.addScore(100);
-      // Start the train if it isn't already moving. Ok to call this multiple times.
-      this.startTrain();
+  async handleElfCatch(targetObject, presentLanded, score) {
+    // Wait for the present to hit its target and then update the elf's sprite.
+    targetObject.userData.hasPresent = true;
+    await presentLanded;
+    const textureWithPresent =
+        getElfImage(targetObject.userData.assetUrl.replace('@', '_Holding@'));
+    if (textureWithPresent) {
+        targetObject.material.map = textureWithPresent;
     }
+    window.santaApp.fire('sound-trigger', 'bl_score_red');
+
+    this.scoreboard.addScore(score);
+    // Start the train if it isn't already moving. Ok to call this multiple times.
+    this.startTrain();
+  }
+  
+  async showElfCaughtText(clientX, clientY, score) {
+    console.log(`${clientX}, ${clientY}`);
+    const div = document.getElementsByClassName('score-animation')[0];
+    div.innerText = `${score}`;
+    console.log(`${clientY} ${div.offsetHeight / 2}`);
+    console.log(`${clientX} ${div.offsetWidth / 2}`);
+    div.style.top = `${clientY + (div.offsetHeight / 2)}px`;
+    div.style.left = `${clientX - (div.offsetWidth / 2)}px`;
+    // Trigger CSS animation.
+    div.classList.remove('animating');
+    await new Promise(resolve => setTimeout(resolve, 0));
+    //const width = div.offsetWidth; // trigger reflow
+    div.classList.add('animating');
   }
 
   async throwToClosest() {
