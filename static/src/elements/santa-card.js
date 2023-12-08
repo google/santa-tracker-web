@@ -42,6 +42,7 @@ export const scenesWithColor = {
   presentbounce: '#29b6f6',
   presentdrop: '#2c84db',
   racer: '#2a57ad',
+  railroad: '#8053fa',
   runner: '#d92626',
   santascanvas: '#1b69c1',
   santasearch: '#e7ad03',
