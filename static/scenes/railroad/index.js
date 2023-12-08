@@ -17,7 +17,7 @@ api.config({
   });
 
 function initialize() {
-  const contentElement = document.querySelector('.canvas-button');
+  const contentElement = document.querySelector('#content');
 
   const game = new Game();
   api.addEventListener('pause', (ev) => game.pause());

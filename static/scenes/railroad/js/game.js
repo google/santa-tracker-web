@@ -144,35 +144,27 @@ class Game {
     this.previousSeconds = nowSeconds;
   }
 
-  setUpListeners(containerButton) {
+  setUpListeners(container) {
     // Use `touchstart` for touch interfaces.
-    containerButton.addEventListener('touchstart', e => {
+    container.addEventListener('touchstart', e => {
       const touch = e.changedTouches[0];
       this.handleClick(touch.clientX, touch.clientY);
     });
 
     // Prevent the click event from firing on touch devices.
-    containerButton.addEventListener('touchend', e => {
+    container.addEventListener('touchend', e => {
       e.preventDefault();
     }, {passive: false})
 
     // Use `click` for mouse interfaces and for accessibility
-    containerButton.addEventListener('click', e => {
-      console.log(e);
-      if (isPossibleClickFromAccessibiltyTool(containerButton, e)) {
-        this.numSuspectedAccessibilityClicks++;
-      }
-      else {
-        this.numSuspectedNotAccessibilityClicks++;
-      }
-
-      if (this.numSuspectedAccessibilityClicks > this.numSuspectedNotAccessibilityClicks) {
-        this.level.throwToClosest();
-      }
-      else {
-        this.handleClick(e.clientX, e.clientY);
-      }
+    container.addEventListener('click', e => {
+      this.handleClick(e.clientX, e.clientY);
     });
+
+    document.querySelector('.throw-accessibility-button').addEventListener('click', e => {
+      this.level.throwToClosest();
+      e.stopPropagation();
+    })
 
     window.addEventListener('resize', () => {
       this.renderer.setSize(window.innerWidth, window.innerHeight);
