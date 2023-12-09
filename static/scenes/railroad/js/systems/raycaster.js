@@ -18,6 +18,14 @@ class RaycasterSystem {
     return this.getIntersections(clientX, clientY);
   }
 
+  project(worldPosition) {
+    const v = worldPosition.project(this.camera);
+    v.x = ( v.x + 1) * this.renderer.domElement.width / 2;
+    v.y = - ( v.y - 1) * this.renderer.domElement.height / 2;
+    v.z = 0;
+    return v;
+  }
+
   getIntersections(clientX, clientY) {
     // calculate pointer position in normalized device coordinates
     // (-1 to +1) for both components

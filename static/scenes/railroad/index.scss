@@ -38,7 +38,10 @@ body {
   color: white;
   font-size: 10em;
   text-align: center;
+  // Text shadow so text shows up even against white background.
   text-shadow: #F99 0 0 5px;
+  // Center text based on top/left positioning.
+  transform: translateX(-50%);
   width: fit-content;
 }
 
@@ -46,14 +49,14 @@ body {
   from {
     opacity: 100%;
     visibility: visible;
-    transform: translateY(0);
     font-size: 10em;
   }
 
   to {
     opacity: 0%;
     visibility: hidden;
-    transform: translateY(-100px);
+    top: 0px;
+    left: 50%;
     font-size: 1em;
   }
 }
@@ -61,6 +64,8 @@ body {
 .score-animation.animating {
   animation-name: animated-score;
   animation-duration: 1s;
+  // Forwards means end state of animation is persisted, so text doesn't
+  // reappear.
   animation-fill-mode: forwards;
 }
 
