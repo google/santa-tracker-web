@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Vẽ"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor là rô bốt Máy học của ông già Noel giúp ông nhanh chóng giải mã các bức thư nhận được từ trẻ em trên khắp thế giới. Để giúp Tensor luyện tập, hãy vẽ một bức tranh mô tả mỗi từ vựng về Lễ Giáng sinh trên màn hình. Sau đó, Tensor sẽ nói cho bạn biết những gì Tensor nhìn thấy. Bạn càng vẽ nhiều thì Tensor càng thông minh. Hãy cùng giúp ông già Noel làm việc hiệu quả hơn bao giờ hết vào mùa Giáng sinh này nhé!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hãy giúp Tensor luyện tập khả năng nhận dạng hình ảnh!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor đã nhận ra {{recognized}} bức tranh của bạn."
 	},

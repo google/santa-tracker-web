@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Zīmēt"
 	},
+	"quickdraw-splashview-description": {
+		"message": "“Tensor” ir Ziemassvētku vecīša mašīnmācīšanās robots, kas viņam palīdz ātri atšifrēt vēstules no bērniem visā pasaulē. Lai palīdzētu robotam “Tensor” vingrināties, ekrānā uzzīmējiet katra svētku vārda attēlu un tas jums pateiks, ko redz. Jo vairāk zīmēsit, jo gudrāks kļūs robots “Tensor”. Palīdzēsim Ziemassvētku vecītim šajā svētku sezonā darboties efektīvāk nekā jebkad agrāk."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Palīdziet robotam “Tensor” vingrināties attēlu atpazīšanā."
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Robots “Tensor” atpazina {{recognized}} no jūsu zīmējumiem."
 	},

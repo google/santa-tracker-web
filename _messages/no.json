@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Tegning"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor er julenissens maskinlæringsrobot og hjelper julenissen slik at han raskt kan tyde brevene han får fra barn over hele verden. For å hjelpe Tensor med å øve kan du tegne et bilde av hvert juleord som vises på skjermen, så forteller Tensor deg hva den ser. Jo mer du tegner, desto smartere blir Tensor. La oss hjelpe julenissen med å bli enda mer effektiv denne julen!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hjelp Tensor med å øve på å kjenne igjen bilder."
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor kjente igjen {{recognized}} av tegningene dine."
 	},

@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Tegn"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor er julemandens maskinlæringsrobot, der hjælper ham med hurtigt at tyde de breve, han modtager fra børn over hele verden. Du kan hjælpe Tensor med at øve sig ved at tegne et billede af hvert juleord på skærmen, og så fortæller han dig, hvad han ser. Jo mere du tegner, desto klogere bliver Tensor. Lad os hjælpe julemanden med at være mere effektiv end nogensinde før denne jul!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hjælp Tensor med at øve sig i at genkende billeder."
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor genkendte {{recognized}} af dine tegninger."
 	},

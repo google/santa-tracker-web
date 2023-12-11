@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Desenhar"
 	},
+	"quickdraw-splashview-description": {
+		"message": "O Tensor é um robô de aprendizado de máquina que ajuda o Papai Noel a decifrar as cartas que ele recebe das crianças do mundo todo. Ajude o Tensor a praticar: desenhe os itens que aparecem na tela, e ele dirá o que vê. Quanto mais você desenha, mais inteligente o Tensor fica. Vamos ajudar o Papai Noel a ser mais eficiente do que nunca nesta época de festas!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Ajude o Tensor a praticar o reconhecimento de imagens."
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "O robô Tensor reconheceu {{recognized}} dos seus desenhos."
 	},

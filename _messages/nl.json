@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Tekenen"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor is een Machine Learning-robot die de Kerstman helpt snel alle brieven te ontcijferen die hij ontvangt van kinderen over de hele wereld. Help Tensor te oefenen en maak een tekening van elk kerstwoord dat op het scherm verschijnt. Tensor vertelt je dan wat hij ziet. Hoe meer je tekent, hoe slimmer Tensor wordt en hoe efficiënter de Kerstman deze Kerst zijn werk kan doen!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Help Tensor te oefenen met het herkennen van beelden!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor heeft {{recognized}} van je tekeningen herkend."
 	},

@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Rajzolás"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tenzor egy gépi tanulással fejlődő robot, amely a Mikulás segítségére van a gyerekek által a világ minden tájáról írt levelek gyors megfejtésében. Ha segíteni szeretnél Tenzornak a gyakorlásban, rajzolj a képernyőn megjelenő, az ünneppel kapcsolatos szavaknak megfelelő ábrákat, Tenzor pedig megmondja, mit lát a rajzokon. Minél többet rajzolsz, Tenzor annál okosabb lesz. Segíts a Mikulásnak, hogy idén karácsonykor minden eddiginél hatékonyabban dolgozhasson!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Segíts Tenzornak a képfelismerés gyakorlásában!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tenzor {{recognized}} rajzodat ismerte fel."
 	},

@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Crtaj"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor je Djedov robot sa strojnim učenjem koji mu pomaže da brzo pročita pisma koja prima od djece sa svih strana svijeta. Da bi se Tensor brže uvježbao, na zaslonu nacrtaj sliku svake praznične riječi, a on će ti reći što vidi. Što više crtaš, Tensor postaje pametniji; pomozimo Djedu da ovih blagdana podijeli više darova nego ikada dosad!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Pomozi Tensoru da uvježba prepoznavanje slika!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor je od svih tvojih crteža prepoznao {{recognized}}."
 	},

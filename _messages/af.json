@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Skets"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor is Kersvader se masjienleer-robot wat hom help om die briewe wat hy vanaf kinders wêreldwyd ontvang, vinnig te ontsyfer. Help Tensor oefen deur 'n prent van elke vakansiewoord op die skerm te teken en dit sal jou sê wat dit sien. Hoe meer jy teken, hoe slimmer sal Tensor word. So kom ons help Kersvader om hierdie vakansie nog doeltreffender as ooit tevore te wees!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Help Tensor om prentherkenning te oefen!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor het {{recognized}} van jou tekeninge herken."
 	},

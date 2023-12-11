@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Teikna"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor er vélmenni jólaveinsins sem getur lært vélrænt þannig að hann getur með fljótum hætti þýtt öll bréf sem hann fær frá börnum um heim allan. Til að hjálpa Tensor að æfa sig skaltu teikna mynd af öllum jólaorðunum á skjánum og þá segir Tensor þér hvað það sér. Því fleira sem þú teiknar því snjallari verður Tensor. Hjálpum Sveinka að gera enn betur þessi jól!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hjálpaðu Tensor að þjálfa myndakennsl sín!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor þekkti {{recognized}} af teikningunum þínum."
 	},

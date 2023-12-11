@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Dibuix"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor és el robot d'aprenentatge automàtic del Pare Noel, que l'ajuda a desxifrar ràpidament les cartes que rep dels nens de tot el món. Per ajudar Tensor a practicar, dibuixa una imatge de cada paraula relacionada amb el Nadal a la pantalla i et dirà què veu. Com més dibuixis, més intel·ligent es farà Tensor. Ajudem el Pare Noel a ser més eficient que mai durant aquestes festes!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Ajuda Tensor a practicar el reconeixement d'imatges!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor ha reconegut {{recognized}} dels teus dibuixos."
 	},

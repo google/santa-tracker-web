@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Teckna"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor är tomtens maskininlärningsrobot som hjälper honom att snabbt dechiffrera breven som han får från barn över hela världen. Du kan hjälpa Tensor att öva genom att rita en teckning av varje ord på skärmen så berättar den vad den ser. Ju mer du ritar, desto smartare blir Tensor, så låt oss hjälpa tomten att bli effektivare än någonsin under den här julen!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Hjälp Tensor öva på sin bildigenkänningsförmåga!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor identifierade {{recognized}} av dina teckningar."
 	},

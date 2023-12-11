@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Marraztu"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor Bizarzuriren ikasketa automatikoko robota da. Mundu osoko umeek bidaltzen dizkioten eskutitzak azkarrago deszifratzen laguntzen dio Bizarzuriri. Tensor-i praktikatzen laguntzeko, marraztu pantailan Gabonetako hitz bakoitzaren irudi bat, eta ikusten duena esango dizu. Zenbat eta gehiago marraztu, are eta adimentsuagoa izango da Tensor; beraz, lagundu Bizarzuriri aurtengo Gabonetan inoiz baino lan gehiago egiten."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Lagundu Tensor robotari irudiak hobeto igartzen!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Zure marrazkietako {{recognized}} igarri ditu Tensor robotak."
 	},

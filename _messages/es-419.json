@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Dibujar"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor es el robot de Santa, que usa aprendizaje automático para descifrar las cartas que le envían los niños de todo el mundo. Para ayudar a Tensor a practicar, haz un dibujo de cada palabra relacionada con la Navidad que aparecerá en pantalla. Luego, Tensor te dirá qué ve. Cuanto más dibujes, más inteligente se volverá. Ayudemos a Santa a ser más eficiente que nunca esta Navidad."
+	},
+	"quickdraw-splashview-title": {
+		"message": "Ayuda a Tensor a practicar para reconocer imágenes."
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor reconoció {{recognized}} de tus dibujos."
 	},

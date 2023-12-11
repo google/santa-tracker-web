@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Kresliť"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tenzor je Santov robot strojového učenia, ktorý mu pomáha rýchlo rozlúštiť listy, ktoré dostáva od detí z celého sveta. Aby si túto schopnosť mohol tenzor precvičovať, nakreslite obrázky jednotlivých sviatočných slov na obrazovke a on vám povie, čo vidí. Čím viac nakreslíte, tým bude tenzor šikovnejší. Poďme preto Santovi pomôcť, aby mohol tieto sviatky pracovať efektívnejšie ako kedykoľvek predtým!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Pomôžte tenzoru precvičiť si rozpoznávanie obrázkov."
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tenzor rozpoznal {{recognized}} z vašich kresieb."
 	},

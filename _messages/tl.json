@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Iguhit"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Si Tensor ang Machine Learning robot ni Santa na tumutulong sa kanya na mabilis na maunawaan ang mga liham na natatanggap niya mula sa mga bata sa buong mundo. Upang tulungang magsanay si Tensor, gumuhit ng isang larawan ng bawat salita ng kapaskuhan sa screen at sasabihin niya sa iyo kung ano ang nakikita niya. Mas marami kang iginuguhit, mas tumatalino si Tensor, kaya tulungan natin si Santa na maging mas mahusay kaysa dati ngayong kapaskuhan!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Tulungan si Tensor na sanayin ang kanyang pagkilala sa larawan!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Nakilala ni Tensor ang {{recognized}} sa iyong mga drawing."
 	},

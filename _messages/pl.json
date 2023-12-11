@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Rysuj"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor to robot Świętego Mikołaja wykorzystujący systemy uczące się. Pomaga Mikołajowi szybko czytać listy od dzieci z całego świata. Aby pomóc Tensorowi w nauce, rysuj obrazki przedstawiające rzeczy opisywane przez wyświetlane na ekranie słowa związane ze Świętami. Tensor powie Ci, co widzi, a im więcej rzeczy narysujesz, tym będzie mądrzejszy. Pomóżmy Mikołajowi jeszcze lepiej wywiązać się ze swojego zadania w te Święta!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Tensor potrzebuje Twojej pomocy w nauce rozpoznawania obrazu."
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor rozpoznał następującą liczbę Twoich rysunków: {{recognized}}."
 	},

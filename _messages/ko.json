@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "그리기"
 	},
+	"quickdraw-splashview-description": {
+		"message": "텐서는 산타가 온 세상 어린이들이 보내는 편지를 빨리 알아볼 수 있도록 도와주는 머신러닝 로봇입니다. 화면에 표시된 명절과 관련된 단어를 그림으로 그리면 텐서가 무엇인지 말해줍니다. 많이 그릴수록 텐서가 똑똑해져서 산타를 훨씬 더 잘 도와드릴 수 있답니다."
+	},
+	"quickdraw-splashview-title": {
+		"message": "텐서의 이미지 인식 연습 돕기"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor가 그림 중 {{recognized}}개를 알아보았습니다."
 	},

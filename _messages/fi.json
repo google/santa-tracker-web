@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Piirrä"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor on oppiva kone, joka auttaa Joulupukkia saamaan nopeasti selvää lasten kirjoittamista kirjeistä. Piirrä jouluisia sanoja esittäviä kuvia ja anna Tensorin arvata, mitä olet piirtämässä. Mitä enemmän piirrät, sitä etevämpi Tensorista tulee ja sitä enemmän apua siitä on Joulupukille!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Auta Tensoria tunnistamaan paremmin kuvia!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor tunnisti {{recognized}} piirustustasi."
 	},

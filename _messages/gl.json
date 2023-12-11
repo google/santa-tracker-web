@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Debuxar"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor é un robot de Papá Noel especializado na aprendizaxe automática, que lle axuda a descifrar rapidamente as cartas que lle envían os nenos de todo o mundo. Gustaríache axudarlle a practicar? Fai un debuxo das palabras que saen na pantalla e dirache o que ve. Todas elas están relacionadas co Nadal! Botamos unha man a Papá Noel para que Tensor sexa máis eficiente estas festas? Cantos máis debuxos fagas, máis intelixente se volverá!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Axuda a Tensor a practicar o recoñecemento de imaxes!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor recoñeceu {{recognized}} dos teus debuxos."
 	},

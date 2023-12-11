@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "Gambar"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor adalah robot Machine Learning Sinterklas, yang membantunya memahami dengan cepat berbagai surat yang diterimanya dari anak-anak di seluruh dunia. Untuk membantu Tensor berlatih, gambar setiap kata liburan di layar dan dia akan memberi tahu Anda apa yang dilihatnya. Semakin sering Anda menggambar, Tensor akan semakin cerdas menebak. Jadi, ayo bantu Sinterklas agar semakin efisien di musim liburan ini!"
+	},
+	"quickdraw-splashview-title": {
+		"message": "Bantu Tensor berlatih mengenali gambar!"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor mengenali {{recognized}} dari gambar Anda."
 	},

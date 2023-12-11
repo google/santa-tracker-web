@@ -1556,6 +1556,12 @@
 	"quickdraw-slate": {
 		"message": "繪製"
 	},
+	"quickdraw-splashview-description": {
+		"message": "Tensor 是聖誕老人的機器學習機器人。全世界的小朋友都會寄信給聖誕老人，而 Tensor 的工作就是幫助聖誕老人快速閱讀信件內容。為了讓 Tensor 有更多練習機會，請針對和聖誕節相關的單字在螢幕上畫圖，然後 Tensor 就會猜猜看你畫了什麼。你畫的圖越多，Tensor 的辨識能力就會變得越強。讓我們一起幫助聖誕老人更有效率地瀏覽全球小朋友在今年聖誕佳節寄來的信件！"
+	},
+	"quickdraw-splashview-title": {
+		"message": "幫助 Tensor 練習辨識繪畫的內容！"
+	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor 猜出你畫的 {{recognized}} 幅作品。"
 	},
