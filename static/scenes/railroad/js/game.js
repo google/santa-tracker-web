@@ -33,7 +33,7 @@ class Game {
     this.previousSeconds = Date.now() / 1000;
 
     // Previous clicks, used to guess if the user is using an accessibilty tool.
-    /** @type {Array<MouseEvent>} */
+    /** @type {Array<MouseEvent|Touch>} */
     this.previousClicks = []
   }
 
@@ -146,7 +146,12 @@ class Game {
     // Use `touchstart` for touch interfaces.
     container.addEventListener('touchstart', e => {
       const touch = e.changedTouches[0];
-      this.handleClick(touch.clientX, touch.clientY);
+      if (this.isSuspectedEventFromAccessibilityTool(container, touch)) {
+        this.level.throwToClosest();
+      }
+      else {
+        this.handleClick(touch.clientX, touch.clientY);
+      }
     });
 
     // Prevent the click event from firing on touch devices.
@@ -156,7 +161,7 @@ class Game {
 
     // Use `click` for mouse interfaces and for accessibility
     container.addEventListener('click', e => {
-      if (this.isSuspectedClickFromAccessibilityTool(container, e)) {
+      if (this.isSuspectedEventFromAccessibilityTool(container, e)) {
         this.level.throwToClosest();
       }
       else {
@@ -190,24 +195,29 @@ class Game {
 
   /**
    * @param {HTMLElement} element Element that handles click events
-   * @param {MouseEvent} e Click event
+   * @param {MouseEvent|Touch} e Mouse event, or a touch from a touch event.
    * @returns {boolean} Whether this click is likely from an accessibility tool (e.g. TalkBack).
    */
-  isSuspectedClickFromAccessibilityTool(element, e) {
+  isSuspectedEventFromAccessibilityTool(element, e) {
     // Keep track of the first few clicks. Only need the first few to detect
     // accessibility tools.
     if (this.previousClicks.length < 25) {
       this.previousClicks.push(e);
     }
+    console.log(this.previousClicks);
+    console.log(e);
+    console.log(mouseEventToString(e))
 
     // Not enough clicks to compare them without having false positives
     if (this.previousClicks.length < 3) {
       // Use the click positions that a few accessibility tools use. This
       // doesn't detect all tools so we have the fallback below.
+      console.log('Checking for accessibility position')
       return this.previousClicks
         .every(click => isPossibleAccessibilityToolClickPosition(element, click));
     }
     else {
+      console.log('Checking for being in the same place')
       // Return whether this click is in the same position as 90% of the previous clicks.
       const numClicksPerPosition = new Map();
       for (const click of this.previousClicks) {
@@ -218,6 +228,7 @@ class Game {
         const prevValue = numClicksPerPosition.get(clickStr);
         numClicksPerPosition.set(clickStr, prevValue + 1)
       }
+      console.log(numClicksPerPosition)
 
       const percentOfClicksAtThisPosition =
         numClicksPerPosition.get(mouseEventToString(e)) / this.previousClicks.length
@@ -227,7 +238,7 @@ class Game {
 }
 
 /**
- * @param {MouseEvent} e Mouse event
+ * @param {MouseEvent|Touch} e Mouse event, or a touch from a touch event.
  * @returns A string representation that works in a map.
  */
 function mouseEventToString(e) {
@@ -239,7 +250,7 @@ function mouseEventToString(e) {
  * accessibility tools send their events.
  *
  * @param {HTMLElement} element Element that handles click events
- * @param {MouseEvent} e Click event
+ * @param {MouseEvent|Touch} e Mouse event, or a touch from a touch event.
  * @returns {boolean} Whether this click could've been fired from an
  * accessibility tool (e.g. TalkBack).
  */
@@ -255,7 +266,8 @@ function isPossibleAccessibilityToolClickPosition(element, e) {
   const elemCenterX = rect.x + rect.width / 2;
   const elemCenterY = rect.y + rect.height / 2;
 
-  return (Math.abs(elemCenterX - e.clientX) < 1 && Math.abs(elemCenterY - e.clientY) < 1);
+  // Devices might round this a little differently, so 1.5 handles for that.
+  return (Math.abs(elemCenterX - e.clientX) < 1.5 && Math.abs(elemCenterY - e.clientY) < 1.5);
 }
 
 app.Game = Game;
