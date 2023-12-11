@@ -33,6 +33,7 @@ class Game {
     this.previousSeconds = Date.now() / 1000;
 
     // Previous clicks, used to guess if the user is using an accessibilty tool.
+    /** @type {Array<MouseEvent>} */
     this.previousClicks = []
   }
 
@@ -155,22 +156,39 @@ class Game {
 
     // Use `click` for mouse interfaces and for accessibility
     container.addEventListener('click', e => {
-      this.previousClicks.push(e);
-      while (this.previousClicks.length > 5) {
-        this.previousClicks.shift();
+      // Keep track of the first few clicks
+      if (this.previousClicks.length < 25) {
+        this.previousClicks.push(e);
       }
 
-      const allClicksInSamePosition = this.previousClicks.every(e => clickAtSamePosition(this.previousClicks[0], e));
-      const allClicksPossibleAccessibilityClick = this.previousClicks.every(isPossibleClickFromAccessibiltyTool);
+      const numClicksPerPosition = new Map();
+      for (const click of this.previousClicks) {
+        const clickStr = mouseEventToString(click);
+        if (!numClicksPerPosition.has(clickStr)) {
+          numClicksPerPosition.set(clickStr, 0);
+        }
+        const prevValue = numClicksPerPosition.get(clickStr);
+        numClicksPerPosition.set(clickStr, prevValue + 1)
+      }
+
+      const percentOfClicksAtThisPosition =
+        numClicksPerPosition.get(mouseEventToString(e)) / this.previousClicks.length
+      // Whether this click is in the same position as 90% of the previous clicks.
+      const thisClickIsCommonClickPosition = percentOfClicksAtThisPosition >= 0.9;
+
+      const allClicksPossibleAccessibilityClick =
+        this.previousClicks.every(click => isPossibleClickFromAccessibiltyTool(container, click));
 
       // If we have 1 to 3 clicks, use their position to guess if they're from
       // an accessibility tool
       if (this.previousClicks.length <= 3 && allClicksPossibleAccessibilityClick) {
+        console.log('throw to closest because of allClicksPossibleAccessibilityClick');
         this.level.throwToClosest();
       }
       // If we have more than 3 clicks, if they're from an accessibility tool
       // they should all be in the same place so use that instead.
-      if (this.previousClicks.length > 3 && allClicksInSamePosition) {
+      else if (this.previousClicks.length > 3 && thisClickIsCommonClickPosition) {
+        console.log('throw to closest because of common click position');
         this.level.throwToClosest();
       }
       else {
@@ -179,6 +197,7 @@ class Game {
     });
 
     document.querySelector('.throw-accessibility-button').addEventListener('click', e => {
+      console.log('throw to closest from button');
       this.level.throwToClosest();
       e.stopPropagation();
     })
@@ -203,11 +222,11 @@ class Game {
 }
 
 /**
- * @param {MouseEvent} e1 Click event
- * @param {MouseEvent} e2 Click event
+ * @param {MouseEvent} e Mouse event
+ * @returns A string representation that works in a map.
  */
-function clickAtSamePosition(e1, e2) {
-  return (e1.clientX == e1.clientX && e2.clientX == e2.clientY);
+function mouseEventToString(e) {
+  return Math.round(e.clientX) + ":" + Math.round(e.clientY);
 }
 
 /**
