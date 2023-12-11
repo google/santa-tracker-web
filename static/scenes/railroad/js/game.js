@@ -32,11 +32,9 @@ class Game {
 
     this.previousSeconds = Date.now() / 1000;
 
-    // Accessibility devices on Android fire off click events in the center of
-    // the Canvas element. We use these counters to guess if the user is using
-    // an accessibility tool.
-    this.numSuspectedAccessibilityClicks = 0;
-    this.numSuspectedNotAccessibilityClicks = 0;
+    // Previous clicks, used to guess if the user is using an accessibilty tool.
+    /** @type {Array<MouseEvent>} */
+    this.previousClicks = []
   }
 
   /**
@@ -144,35 +142,33 @@ class Game {
     this.previousSeconds = nowSeconds;
   }
 
-  setUpListeners(containerButton) {
+  setUpListeners(container) {
     // Use `touchstart` for touch interfaces.
-    containerButton.addEventListener('touchstart', e => {
+    container.addEventListener('touchstart', e => {
       const touch = e.changedTouches[0];
       this.handleClick(touch.clientX, touch.clientY);
     });
 
     // Prevent the click event from firing on touch devices.
-    containerButton.addEventListener('touchend', e => {
+    container.addEventListener('touchend', e => {
       e.preventDefault();
     }, {passive: false})
 
     // Use `click` for mouse interfaces and for accessibility
-    containerButton.addEventListener('click', e => {
-      console.log(e);
-      if (isPossibleClickFromAccessibiltyTool(containerButton, e)) {
-        this.numSuspectedAccessibilityClicks++;
-      }
-      else {
-        this.numSuspectedNotAccessibilityClicks++;
-      }
-
-      if (this.numSuspectedAccessibilityClicks > this.numSuspectedNotAccessibilityClicks) {
+    container.addEventListener('click', e => {
+      if (this.isSuspectedClickFromAccessibilityTool(container, e)) {
         this.level.throwToClosest();
       }
       else {
         this.handleClick(e.clientX, e.clientY);
       }
     });
+
+    document.querySelector('.throw-accessibility-button').addEventListener('click', e => {
+      console.log('throw to closest from button');
+      this.level.throwToClosest();
+      e.stopPropagation();
+    })
 
     window.addEventListener('resize', () => {
       this.renderer.setSize(window.innerWidth, window.innerHeight);
@@ -191,14 +187,63 @@ class Game {
       this.level.handleClick(clientX, clientY);
     }
   }
+
+  /**
+   * @param {HTMLElement} element Element that handles click events
+   * @param {MouseEvent} e Click event
+   * @returns {boolean} Whether this click is likely from an accessibility tool (e.g. TalkBack).
+   */
+  isSuspectedClickFromAccessibilityTool(element, e) {
+    // Keep track of the first few clicks. Only need the first few to detect
+    // accessibility tools.
+    if (this.previousClicks.length < 25) {
+      this.previousClicks.push(e);
+    }
+
+    // Not enough clicks to compare them without having false positives
+    if (this.previousClicks.length < 3) {
+      // Use the click positions that a few accessibility tools use. This
+      // doesn't detect all tools so we have the fallback below.
+      return this.previousClicks
+        .every(click => isPossibleAccessibilityToolClickPosition(element, click));
+    }
+    else {
+      // Return whether this click is in the same position as 90% of the previous clicks.
+      const numClicksPerPosition = new Map();
+      for (const click of this.previousClicks) {
+        const clickStr = mouseEventToString(click);
+        if (!numClicksPerPosition.has(clickStr)) {
+          numClicksPerPosition.set(clickStr, 0);
+        }
+        const prevValue = numClicksPerPosition.get(clickStr);
+        numClicksPerPosition.set(clickStr, prevValue + 1)
+      }
+
+      const percentOfClicksAtThisPosition =
+        numClicksPerPosition.get(mouseEventToString(e)) / this.previousClicks.length
+      return percentOfClicksAtThisPosition >= 0.9;
+    }
+  }
 }
 
 /**
+ * @param {MouseEvent} e Mouse event
+ * @returns A string representation that works in a map.
+ */
+function mouseEventToString(e) {
+  return Math.round(e.clientX) + ":" + Math.round(e.clientY);
+}
+
+/**
+ * Checks if this click was in one of the specific places that some
+ * accessibility tools send their events.
+ *
  * @param {HTMLElement} element Element that handles click events
  * @param {MouseEvent} e Click event
- * @returns {boolean} Whether this click could've been fired from an accessibility tool (e.g. TalkBack).
+ * @returns {boolean} Whether this click could've been fired from an
+ * accessibility tool (e.g. TalkBack).
  */
-function isPossibleClickFromAccessibiltyTool(element, e) {
+function isPossibleAccessibilityToolClickPosition(element, e) {
   if (e.clientX === 0 && e.clientY === 0) {
     return true;
   }
