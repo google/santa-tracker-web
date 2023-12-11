@@ -2087,6 +2087,10 @@
     "description": "A title that explains how a robot guessed your drawings.",
     "message": "It learned by looking at these examples drawn by other people."
   },
+  "railroad_throw": {
+    "description": "Accessibility label used on a button that causes the player's character to throw a present for other elves to catch. Text will be read by screen readers.",
+    "message": "Throw"
+  },
   "readyquestion": {
     "description": "Short string with an explicit question mark, asking if the user is ready.",
     "message": "Ready?"
