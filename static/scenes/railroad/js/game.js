@@ -143,10 +143,19 @@ class Game {
   }
 
   setUpListeners(container) {
+
+    const throwAccessibilityButton = document.querySelector('.throw-accessibility-button');
+
+    throwAccessibilityButton.addEventListener('click', e => {
+      console.log('throw to closest from button');
+      this.level.throwToClosest();
+      e.stopPropagation();
+    })
+
     // Use `touchstart` for touch interfaces.
     container.addEventListener('touchstart', e => {
       const touch = e.changedTouches[0];
-      if (this.isSuspectedEventFromAccessibilityTool(container, touch)) {
+      if (this.isSuspectedEventFromAccessibilityTool([container, throwAccessibilityButton], touch)) {
         this.level.throwToClosest();
       }
       else {
@@ -161,7 +170,7 @@ class Game {
 
     // Use `click` for mouse interfaces and for accessibility
     container.addEventListener('click', e => {
-      if (this.isSuspectedEventFromAccessibilityTool(container, e)) {
+      if (this.isSuspectedEventFromAccessibilityTool([container, throwAccessibilityButton], e)) {
         this.level.throwToClosest();
       }
       else {
@@ -194,11 +203,13 @@ class Game {
   }
 
   /**
-   * @param {HTMLElement} element Element that handles click events
+   * @param {Array<HTMLElement>} elements Elements that might get an event at
+   * their center.
    * @param {MouseEvent|Touch} e Mouse event, or a touch from a touch event.
-   * @returns {boolean} Whether this click is likely from an accessibility tool (e.g. TalkBack).
+   * @returns {boolean} Whether this click is likely from an accessibility tool
+   * (e.g. TalkBack).
    */
-  isSuspectedEventFromAccessibilityTool(element, e) {
+  isSuspectedEventFromAccessibilityTool(elements, e) {
     // Keep track of the first few clicks. Only need the first few to detect
     // accessibility tools.
     if (this.previousClicks.length < 25) {
@@ -249,12 +260,13 @@ function mouseEventToString(e) {
  * Checks if this click was in one of the specific places that some
  * accessibility tools send their events.
  *
- * @param {HTMLElement} element Element that handles click events
+  * @param {Array<HTMLElement>} elements Elements that might get an event at
+  * their center.
  * @param {MouseEvent|Touch} e Mouse event, or a touch from a touch event.
  * @returns {boolean} Whether this click could've been fired from an
  * accessibility tool (e.g. TalkBack).
  */
-function isPossibleAccessibilityToolClickPosition(element, e) {
+function isPossibleAccessibilityToolClickPosition(elements, e) {
   if (e.clientX === 0 && e.clientY === 0) {
     return true;
   }
@@ -262,12 +274,18 @@ function isPossibleAccessibilityToolClickPosition(element, e) {
     return true;
   }
 
-  const rect = element.getBoundingClientRect();
-  const elemCenterX = rect.x + rect.width / 2;
-  const elemCenterY = rect.y + rect.height / 2;
+  for (const element of elements) {
+    const rect = element.getBoundingClientRect();
+    const elemCenterX = rect.x + rect.width / 2;
+    const elemCenterY = rect.y + rect.height / 2;
 
-  // Devices might round this a little differently, so 1.5 handles for that.
-  return (Math.abs(elemCenterX - e.clientX) < 1.5 && Math.abs(elemCenterY - e.clientY) < 1.5);
+    // Devices might round this a little differently, so 1.5 handles for that.
+    if (Math.abs(elemCenterX - e.clientX) < 1.5 &&
+        Math.abs(elemCenterY - e.clientY) < 1.5) {
+      return true;
+    }
+  }
+  return false;
 }
 
 app.Game = Game;
