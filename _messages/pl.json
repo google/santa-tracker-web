@@ -813,7 +813,7 @@
 		"message": "Aby w pełni korzystać z zalet internetu, dzieci muszą umieć podejmować mądre decyzje. Dzięki programowi „Asy internetu” dzieci mogą poznać podstawy bezpieczeństwa i udziału w społeczności internetowej, by bez obaw odkrywać świat online."
 	},
 	"familyguide_doublecard_card02_title": {
-		"message": "Zostań praktykiem internetowym"
+		"message": "Zostań asem internetu"
 	},
 	"familyguide_doublecard_title": {
 		"message": "Więcej od Google"
@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Rysuj"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor to robot Świętego Mikołaja wykorzystujący systemy uczące się. Pomaga Mikołajowi szybko czytać listy od dzieci z całego świata. Aby pomóc Tensorowi w nauce, rysuj obrazki przedstawiające rzeczy opisywane przez wyświetlane na ekranie słowa związane ze Świętami. Tensor powie Ci, co widzi, a im więcej rzeczy narysujesz, tym będzie mądrzejszy. Pomóżmy Mikołajowi jeszcze lepiej wywiązać się ze swojego zadania w te Święta!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Tensor potrzebuje Twojej pomocy w nauce rozpoznawania obrazu."
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor rozpoznał następującą liczbę Twoich rysunków: {{recognized}}."
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "Wyścigi z Rudolfem"
+	},
+	"scene_railroad": {
+		"message": "Przejażdżka kolejką"
 	},
 	"scene_rollercoaster": {
 		"message": "Elfy na kolejce górskiej"
@@ -3480,7 +3477,7 @@
 		"message": "Zagraj w Wieżę Skarbów"
 	},
 	"tracker-game_be-internet-awesome": {
-		"message": "Zostań praktykiem internetowym"
+		"message": "Zostań asem internetu"
 	},
 	"tracker_arrival": {
 		"message": "Przylot"

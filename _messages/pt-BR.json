@@ -867,7 +867,7 @@
 		"message": "No dia 24 de dezembro, a vila do Papai Noel se transforma em uma experiência incrível em que você pode seguir o bom velhinho e as renas dele enquanto eles entregam presentes para as crianças ao redor do mundo."
 	},
 	"familyguide_secondary_cta_01": {
-		"message": "Acompanhe o trajeto no site ou no app para Android do Siga o Papai Noel"
+		"message": "Acompanhe o trajeto no site ou no app Android do Siga o Papai Noel"
 	},
 	"familyguide_secondary_cta_02": {
 		"message": "Psiu, Você sabia que a jornada do Papai Noel dura 25 horas? Ele faz a primeira parada logo após às 22h no horário local da parte leste da Rússia. Às 5h ele passa em Nova York e às 11h em Paris."
@@ -888,7 +888,7 @@
 		"message": "Faça o download do app Siga o Papai Noel para Android na Play Store. Aproveite uma cena exclusiva na vila com jogos que você só encontra no app."
 	},
 	"familyguide_tips_tip02_title": {
-		"message": "App para Android"
+		"message": "App Android"
 	},
 	"familyguide_tips_tip03_body": {
 		"message": "Tenha o trajeto do Papai Noel na sua mão com a integração com Android Wear."
@@ -1203,7 +1203,7 @@
 		"message": "Nigéria"
 	},
 	"nl_country_name": {
-		"message": "Holanda"
+		"message": "Países Baixos"
 	},
 	"nl_language_name": {
 		"message": "Holandês"
@@ -1320,7 +1320,7 @@
 		"message": "O Google utiliza cookies para analisar o tráfego deste site e otimizar sua experiência. As informações de como você usa nosso site são compartilhadas com o Google para esse fim."
 	},
 	"notice_cookies_details": {
-		"message": "Ver detalhes"
+		"message": "Mais detalhes"
 	},
 	"notification": {
 		"message": "Notificações"
@@ -1356,7 +1356,7 @@
 		"message": "A vila do Papai Noel agora está disponível off-line. Os duendes também poderão trazer conteúdo novo durante dezembro."
 	},
 	"offline_notification_nothanks": {
-		"message": "Não, obrigado"
+		"message": "Agora não"
 	},
 	"offline_user_message": {
 		"message": "Você está off-line"
@@ -1413,7 +1413,7 @@
 		"message": "Jogar novamente"
 	},
 	"playdescription": {
-		"message": "Jogue o \"Siga o Papai Noel\" com seus amigos no app para Android."
+		"message": "Jogue o \"Siga o Papai Noel\" com seus amigos no app Android."
 	},
 	"playextra": {
 		"message": "Jogar níveis extras"
@@ -1503,7 +1503,7 @@
 		"message": "Uma nova maneira de seguir o Papai Noel:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Se você quiser entrar no clima do fim de ano, confira os adesivos de fim de ano disponíveis no Gboard para \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e e nosso \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eapp para Android\u003c/a\u003e. Além disso, peça para o Google Assistente \"Chamar o Papai Noel\" e depois \"Contar uma história de Natal\" para relaxar ouvindo uma boa história."
+		"message": "Se você quiser entrar no clima do fim de ano, confira os adesivos de fim de ano disponíveis no Gboard para \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e e nosso \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eapp Android\u003c/a\u003e. Além disso, peça para o Google Assistente \"Chamar o Papai Noel\" e depois \"Contar uma história de Natal\" para relaxar ouvindo uma boa história."
 	},
 	"press-whatsnew4-title": {
 		"message": "Mais diversão de fim de ano:"
@@ -1555,12 +1555,6 @@
 	},
 	"quickdraw-slate": {
 		"message": "Desenhar"
-	},
-	"quickdraw-splashview-description": {
-		"message": "O Tensor é um robô de aprendizado de máquina que ajuda o Papai Noel a decifrar as cartas que ele recebe das crianças do mundo todo. Ajude o Tensor a praticar: desenhe os itens que aparecem na tela, e ele dirá o que vê. Quanto mais você desenha, mais inteligente o Tensor fica. Vamos ajudar o Papai Noel a ser mais eficiente do que nunca nesta época de festas!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Ajude o Tensor a praticar o reconhecimento de imagens."
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "O robô Tensor reconheceu {{recognized}} dos seus desenhos."
@@ -1665,7 +1659,7 @@
 		"message": "Corrida da bola de neve"
 	},
 	"scene_app": {
-		"message": "App para Android"
+		"message": "App Android"
 	},
 	"scene_blimp": {
 		"message": "Presentes recarregados"
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "Corrida do Rodolfo"
+	},
+	"scene_railroad": {
+		"message": "Vagão natalino"
 	},
 	"scene_rollercoaster": {
 		"message": "Montanha-russa dos duendes"
@@ -3335,6 +3332,9 @@
 	"sr_country_name": {
 		"message": "Suriname"
 	},
+	"storybook_new_language": {
+		"message": "Gostou de ler sobre as aventuras de Ollie? Tente explorar a história em outro idioma."
+	},
 	"storybook_paragraph_01": {
 		"message": "Os pinguins andavam de trenó. Os duendes aplaudiram com alegria."
 	},
@@ -4527,7 +4527,7 @@
 		"message": "México"
 	},
 	"trivia_beginner_080_answer1": {
-		"message": "Holanda"
+		"message": "Países Baixos"
 	},
 	"trivia_beginner_080_answer2": {
 		"message": "Turquia"
@@ -5595,7 +5595,7 @@
 		"message": "França"
 	},
 	"trivia_hard_072_answer1": {
-		"message": "Holanda"
+		"message": "Países Baixos"
 	},
 	"trivia_hard_072_answer2": {
 		"message": "Romênia"
@@ -5715,7 +5715,7 @@
 		"message": "Bélgica"
 	},
 	"trivia_hard_082_answer1": {
-		"message": "Holanda"
+		"message": "Países Baixos"
 	},
 	"trivia_hard_082_answer2": {
 		"message": "Islândia"
@@ -6522,7 +6522,7 @@
 		"message": "Bangladesh"
 	},
 	"trivia_medium_044_answer2": {
-		"message": "Holanda"
+		"message": "Países Baixos"
 	},
 	"trivia_medium_045": {
 		"message": "Qual destes países tem o maior litoral?"
@@ -6996,7 +6996,7 @@
 		"message": "Rotterdam fica em um delta próximo ao Mar do Norte em que país europeu?"
 	},
 	"trivia_medium_084_answer0": {
-		"message": "Holanda"
+		"message": "Países Baixos"
 	},
 	"trivia_medium_084_answer1": {
 		"message": "Suécia"
@@ -7188,7 +7188,7 @@
 		"message": "Haia, sede da Corte Internacional de Justiça, é uma cidade na costa oeste de que país europeu?"
 	},
 	"trivia_medium_100_answer0": {
-		"message": "Holanda"
+		"message": "Países Baixos"
 	},
 	"trivia_medium_100_answer1": {
 		"message": "Finlândia"

@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Piešti"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tenzorius yra Kalėdų Senelio mašininio mokymosi robotas, Seneliui padedantis greitai dešifruoti iš viso pasaulio vaikų gaunamus laiškus. Kad Tenzoriui padėtumėte treniruotis, ekrane nupieškite kiekvieną žodžio „šventė“ raidę ir jis pasakys, ką mato. Kuo daugiau raidžių nupiešite, tuo sumanesnis taps Tenzorius, taigi padėkime Kalėdų Seneliui šį švenčių sezoną tvarkytis efektyviau nei bet kada anksčiau!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Padėkite Tenzoriui treniruotis atpažinti vaizdus!"
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tenzorius atpažino {{recognized}} iš jūsų piešinių."
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfas lenktynininkas"
+	},
+	"scene_railroad": {
+		"message": "Pasivažinėjimas geležinkeliu"
 	},
 	"scene_rollercoaster": {
 		"message": "Elfų atrakcionas"

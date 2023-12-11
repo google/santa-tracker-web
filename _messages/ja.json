@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "絵を描く"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor はサンタさんの機械学習ロボットで、サンタさんが世界中の子供たちから届いた手紙を速く読めるように手伝っています。Tensor が練習できるように、画面に表示されているクリスマスにまつわる言葉の絵を描いてください。すると、Tensor はそれが何に見えるかを答えます。たくさん描くほど Tensor は賢くなります。Tensor がもっとサンタさんの助けになるように、手を貸してください。"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Tensor の画像認識の練習を手伝ってください"
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "{{recognized}} 個の絵がわかりました。"
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "赤鼻のトナカイのレース"
+	},
+	"scene_railroad": {
+		"message": "列車の旅"
 	},
 	"scene_rollercoaster": {
 		"message": "妖精のローラーコースター"
@@ -3334,6 +3331,9 @@
 	},
 	"sr_country_name": {
 		"message": "スリナム"
+	},
+	"storybook_new_language": {
+		"message": "オーリーの冒険のお話は楽しかったかな？新しい言語でも読んでみてね。"
 	},
 	"storybook_paragraph_01": {
 		"message": "ペンギンたちはそり滑りをしています。エルフたちは楽しそうな声をあげています。"

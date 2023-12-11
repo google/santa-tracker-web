@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "繪圖"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor 是聖誕老人的機器學習機械人，會幫助聖誕老人快速解讀世界各地孩子寄來的信。要幫助 Tensor 練習，只需在畫面上畫出每個節日詞語的圖畫，他便會告訴您他看到什麼。您畫得越多，Tensor 便會越聰明；快來幫助聖誕老人，讓他在今年聖誕更有效率地解讀全球各地的來信吧！"
-	},
-	"quickdraw-splashview-title": {
-		"message": "幫助 Tensor 練習圖像識別技巧！"
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor 猜對了您其中 {{recognized}} 幅作品。"
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "聖誕馴鹿競賽"
+	},
+	"scene_railroad": {
+		"message": "鐵路之旅"
 	},
 	"scene_rollercoaster": {
 		"message": "小精靈過山車"
@@ -3335,6 +3332,9 @@
 	"sr_country_name": {
 		"message": "蘇里南"
 	},
+	"storybook_new_language": {
+		"message": "喜歡 Ollie 的冒險故事嗎？立即探索其他語言版本的故事。"
+	},
 	"storybook_paragraph_01": {
 		"message": "企鵝在玩雪橇，精靈們愉悅地歡呼。"
 	},
@@ -4668,7 +4668,7 @@
 		"message": "美國哪個州被稱為「孤星之州」(Lone Star State)，旗幟上有一顆星，而且曾經是一個獨立國家/地區？"
 	},
 	"trivia_beginner_092_answer0": {
-		"message": "德克薩斯州"
+		"message": "德薩斯州"
 	},
 	"trivia_beginner_092_answer1": {
 		"message": "威斯康辛"
@@ -7269,7 +7269,7 @@
 		"message": "新增至主畫面"
 	},
 	"village_santa_a2hs_chromeos": {
-		"message": "新增至檔案櫃"
+		"message": "新增至捷徑列"
 	},
 	"village_santa_a2hs_desktop": {
 		"message": "新增至桌面"

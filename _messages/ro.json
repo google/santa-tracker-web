@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Desen"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor este robotul de învățare automată al lui Moș Crăciun, care-l ajută să descifreze rapid scrisorile pe care le primește de la copiii din întreaga lume. Pentru a-l ajuta pe Tensor să exerseze, desenează o imagine a fiecărui cuvânt festiv de pe ecran, iar el îți va spune ce vede. Cu cât desenezi mai mult, cu atât mai inteligent va fi Tensor. Ajută-l pe Moș Crăciun să fie mai eficient în timpul sărbătorilor!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Ajută-l pe Tensor să exerseze recunoașterea imaginilor!"
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor a ghicit {{recognized}} dintre desenele tale."
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "Cursa lui Rudolph"
+	},
+	"scene_railroad": {
+		"message": "Călătorie cu trenul"
 	},
 	"scene_rollercoaster": {
 		"message": "Elfi în parcul de distracții"

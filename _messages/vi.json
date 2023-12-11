@@ -552,10 +552,10 @@
 		"message": "Đã sao chép!"
 	},
 	"copy-me": {
-		"message": "Sao chép liên kết này để chia sẻ tin nhắn của bạn"
+		"message": "Sao chép đường liên kết này để chia sẻ tin nhắn của bạn"
 	},
 	"copy-me-short": {
-		"message": "Sao chép liên kết để chia sẻ"
+		"message": "Sao chép đường liên kết để chia sẻ"
 	},
 	"countdown_days": {
 		"message": "Ngày"
@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Vẽ"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor là rô bốt Máy học của ông già Noel giúp ông nhanh chóng giải mã các bức thư nhận được từ trẻ em trên khắp thế giới. Để giúp Tensor luyện tập, hãy vẽ một bức tranh mô tả mỗi từ vựng về Lễ Giáng sinh trên màn hình. Sau đó, Tensor sẽ nói cho bạn biết những gì Tensor nhìn thấy. Bạn càng vẽ nhiều thì Tensor càng thông minh. Hãy cùng giúp ông già Noel làm việc hiệu quả hơn bao giờ hết vào mùa Giáng sinh này nhé!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Hãy giúp Tensor luyện tập khả năng nhận dạng hình ảnh!"
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor đã nhận ra {{recognized}} bức tranh của bạn."
 	},
@@ -1778,6 +1772,9 @@
 	"scene_racer": {
 		"message": "Cuộc đua của Rudolph mũi đỏ"
 	},
+	"scene_railroad": {
+		"message": "Đi trên đường ray"
+	},
 	"scene_rollercoaster": {
 		"message": "Chú lùn đi tàu lượn siêu tốc"
 	},
@@ -1788,7 +1785,7 @@
 		"message": "Tìm kiếm ông già Noel"
 	},
 	"scene_santaselfie": {
-		"message": "Ảnh tự sướng của ông già Noel"
+		"message": "Ảnh tự chụp chân dung của ông già Noel"
 	},
 	"scene_seasonofcaring": {
 		"message": "Mùa yêu thương"
@@ -1824,7 +1821,7 @@
 		"message": "Dịch thuật"
 	},
 	"scene_trivia": {
-		"message": "Trắc nghiệm kiến thức"
+		"message": "Đố vui"
 	},
 	"scene_undersea": {
 		"message": "Dưới mặt biển"
@@ -2916,7 +2913,7 @@
 		"message": "kem que"
 	},
 	"speedsketch_item~portrait": {
-		"message": "chân dung"
+		"message": "dọc"
 	},
 	"speedsketch_item~postcard": {
 		"message": "bưu thiếp"
@@ -3334,6 +3331,9 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_new_language": {
+		"message": "Bạn rất thích đọc về chuyến phiêu lưu của Ollie phải không? Hãy thử đọc câu chuyện này bằng một ngôn ngữ khác."
 	},
 	"storybook_paragraph_01": {
 		"message": "Chim cánh cụt đang trượt tuyết. Các chú lùn thì reo vui."

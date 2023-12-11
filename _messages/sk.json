@@ -813,7 +813,7 @@
 		"message": "Ak chcú deti vyťažiť z internetu maximum, musia robiť múdre rozhodnutia. Be Internet Awesome učí deti základom digitálneho občianstva a bezpečnosti, aby mohli sebavedomo objavovať online svet."
 	},
 	"familyguide_doublecard_card02_title": {
-		"message": "Be Internet Awesome"
+		"message": "Hrdinovia internetu"
 	},
 	"familyguide_doublecard_title": {
 		"message": "Viac od Googlu"
@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Kresliť"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tenzor je Santov robot strojového učenia, ktorý mu pomáha rýchlo rozlúštiť listy, ktoré dostáva od detí z celého sveta. Aby si túto schopnosť mohol tenzor precvičovať, nakreslite obrázky jednotlivých sviatočných slov na obrazovke a on vám povie, čo vidí. Čím viac nakreslíte, tým bude tenzor šikovnejší. Poďme preto Santovi pomôcť, aby mohol tieto sviatky pracovať efektívnejšie ako kedykoľvek predtým!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Pomôžte tenzoru precvičiť si rozpoznávanie obrázkov."
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tenzor rozpoznal {{recognized}} z vašich kresieb."
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "Pretekár Rudolf"
+	},
+	"scene_railroad": {
+		"message": "Jazda železnicou"
 	},
 	"scene_rollercoaster": {
 		"message": "Horská dráha pre škriatkov"
@@ -3335,6 +3332,9 @@
 	"sr_country_name": {
 		"message": "Surinam"
 	},
+	"storybook_new_language": {
+		"message": "Radi ste si prečítali o dobrodružstve veľryby Ollie? Skúste si ho prečítať v novom jazyku."
+	},
 	"storybook_paragraph_01": {
 		"message": "Tučniaci sa sánkovali. Škriatkovia ich natešene povzbudzovali."
 	},
@@ -3477,7 +3477,7 @@
 		"message": "Hrať Tower of Treasure"
 	},
 	"tracker-game_be-internet-awesome": {
-		"message": "Be Internet Awesome"
+		"message": "Hrdinovia internetu"
 	},
 	"tracker_arrival": {
 		"message": "Prílet"
@@ -3555,7 +3555,7 @@
 		"message": "Počasie"
 	},
 	"tracker_world_facts": {
-		"message": "VEDELI STE?"
+		"message": "VIETE, ŽE…"
 	},
 	"tracker_world_facts_1": {
 		"message": "Fakty o svete"
@@ -4200,7 +4200,7 @@
 		"message": "Skalnaté vrchy sa tiahnu cez Kanadu a ktorú ďalšiu krajinu?"
 	},
 	"trivia_beginner_053_answer0": {
-		"message": "USA"
+		"message": "Spojené štáty"
 	},
 	"trivia_beginner_053_answer1": {
 		"message": "Venezuela"
@@ -6783,7 +6783,7 @@
 		"message": "Austrália"
 	},
 	"trivia_medium_066_answer1": {
-		"message": "USA"
+		"message": "Spojené štáty"
 	},
 	"trivia_medium_066_answer2": {
 		"message": "Kanada"
@@ -7230,7 +7230,7 @@
 		"message": "Ojoj! Prehliadač nepodporuje aplikáciu „Kde je Santa“ alebo je zakázaný JavaScript. Na prístup k aplikácii „Kde je Santa“ treba stiahnuť novší prehliadač alebo povoliť JavaScript."
 	},
 	"us_country_name": {
-		"message": "USA"
+		"message": "Spojené štáty"
 	},
 	"us_tradition": {
 		"message": "V Spojených štátoch sa na Štedrý večer vešajú pančuchy. Legenda hovorí, že sv. Mikuláš počul o rodine v núdzi. Chcel ich prekvapiť, a tak zliezol dole komínom a do zavesených pančúch vložil cenné vrecúška plné zlata. Odvtedy sa sv. Mikuláš nazýva Santa Claus, ktorý nosí darčeky."

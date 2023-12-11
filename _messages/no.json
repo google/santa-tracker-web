@@ -696,7 +696,7 @@
 		"message": "Dette er en utdatert versjon av Julenissens landsby! Prøv å åpne Følg julenissen på nytt for å se den nyeste versjonen."
 	},
 	"error-try-again": {
-		"message": "Prøv igjen"
+		"message": "Prøv på nytt"
 	},
 	"error-unsupported": {
 		"message": "Følg julenissen støttes ikke av nettleseren din. Hvis du vil spille flere spill og følge julenissen 24. desember, kan du prøve å bruke telefonen din eller en annen nettleser."
@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Tegning"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor er julenissens maskinlæringsrobot og hjelper julenissen slik at han raskt kan tyde brevene han får fra barn over hele verden. For å hjelpe Tensor med å øve kan du tegne et bilde av hvert juleord som vises på skjermen, så forteller Tensor deg hva den ser. Jo mer du tegner, desto smartere blir Tensor. La oss hjelpe julenissen med å bli enda mer effektiv denne julen!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Hjelp Tensor med å øve på å kjenne igjen bilder."
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor kjente igjen {{recognized}} av tegningene dine."
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolf-løpet"
+	},
+	"scene_railroad": {
+		"message": "Togtur"
 	},
 	"scene_rollercoaster": {
 		"message": "Alv-og-dal-bane"
@@ -3334,6 +3331,9 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_new_language": {
+		"message": "Liker du å lese om Ollies eventyr? Prøv å lese dem på et nytt språk."
 	},
 	"storybook_paragraph_01": {
 		"message": "Pingvinene akte, og alvene heiet,"

@@ -534,7 +534,7 @@
 		"message": "Alam mo bang matatapos mo ang level na ito sa pamamagitan lang ng {{ideal}} (na) block?"
 	},
 	"codelab-try-again": {
-		"message": "Subukang Muli"
+		"message": "Subukan Ulit"
 	},
 	"controller_gamepad": {
 		"message": "Controller"
@@ -1098,7 +1098,7 @@
 		"message": "Matuto"
 	},
 	"learnmore": {
-		"message": "Matuto Nang Higit Pa"
+		"message": "Matuto Pa"
 	},
 	"level": {
 		"message": "Level"
@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Iguhit"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Si Tensor ang Machine Learning robot ni Santa na tumutulong sa kanya na mabilis na maunawaan ang mga liham na natatanggap niya mula sa mga bata sa buong mundo. Upang tulungang magsanay si Tensor, gumuhit ng isang larawan ng bawat salita ng kapaskuhan sa screen at sasabihin niya sa iyo kung ano ang nakikita niya. Mas marami kang iginuguhit, mas tumatalino si Tensor, kaya tulungan natin si Santa na maging mas mahusay kaysa dati ngayong kapaskuhan!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Tulungan si Tensor na sanayin ang kanyang pagkilala sa larawan!"
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Nakilala ni Tensor ang {{recognized}} sa iyong mga drawing."
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolph Racer"
+	},
+	"scene_railroad": {
+		"message": "Ride sa Riles"
 	},
 	"scene_rollercoaster": {
 		"message": "Elf Rollercoaster"
@@ -3334,6 +3331,9 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_new_language": {
+		"message": "Gustong-gusto mo bang magbasa ng tungkol sa adventure ni Ollie? Subukang mag-explore ng bagong wika."
 	},
 	"storybook_paragraph_01": {
 		"message": "The penguins were sledding. Elves cheered with delight."

@@ -720,7 +720,7 @@
 		"message": "在 12 月，您可以通过 Google 助理了解有关圣诞老人的更多动态！此集成功能仅适用于部分语言。"
 	},
 	"familyguide_assistant_body_02": {
-		"message": "在经过家长许可的情况下，不满 13 周岁的孩子也可以登录其通过 \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e 进行管理的帐号，获得个性化的 Google 助理体验。"
+		"message": "在经过家长许可的情况下，不满 13 周岁的孩子也可以登录其通过 \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e 进行管理的账号，获得个性化的 Google 助理体验。"
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google 助理将为您连线北极，圣诞老人正在那里忙着排练音乐会。他只会一首歌曲，您能帮助他找到演奏这首歌曲的最佳方式吗？"
@@ -882,7 +882,7 @@
 		"message": "每天询问 Google 助理，了解小精灵 Dimplesticks 的有趣动态。"
 	},
 	"familyguide_tips_tip01_title": {
-		"message": "“Ok Google，北极有什么新情况？”"
+		"message": "“Hey Google，北极有什么新情况？”"
 	},
 	"familyguide_tips_tip02_body": {
 		"message": "在 Play 商店下载 Android 版“追踪圣诞老人”应用。该应用中有一个专属的小镇场景，里面有一些别处找不到的游戏。"
@@ -915,7 +915,7 @@
 		"message": "阖家共享的假日乐趣"
 	},
 	"familylink": {
-		"message": "添加您孩子的通过 Family Link 管理的 Google 帐号"
+		"message": "添加您孩子的通过 Family Link 管理的 Google 账号"
 	},
 	"featured": {
 		"message": "精选"
@@ -1431,7 +1431,7 @@
 		"message": "“追踪圣诞老人”简介"
 	},
 	"press-about-tracker1": {
-		"message": "我们将在 12 月 24 日推出“追踪圣诞老人”，圣诞迷们可以在这个信息平台上追踪圣诞老人的足迹，随他赶着驯鹿走过一个又一个城市。您还可以在 Google 地图上查看他的实时位置，为此，只需对 Google 助理说：“Ok Google, Where’s Santa?”（Ok Google，圣诞老人在哪里？）。无论您在哪里，都能随时随地掌握圣诞老人的行踪。"
+		"message": "我们将在 12 月 24 日推出“追踪圣诞老人”，圣诞迷们可以在这个信息平台上追踪圣诞老人的足迹，随他赶着驯鹿走过一个又一个城市。您还可以在 Google 地图上查看他的实时位置，为此，只需对 Google 助理说：“Hey Google, Where’s Santa?”（Hey Google，圣诞老人在哪里？）。无论您在哪里，都能随时随地掌握圣诞老人的行踪。"
 	},
 	"press-about-village": {
 		"message": "圣诞老人小镇简介"
@@ -1555,12 +1555,6 @@
 	},
 	"quickdraw-slate": {
 		"message": "绘图"
-	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor 是圣诞老人的机器学习机器人，可以帮他快速解读世界各地的孩子们寄来的信件。为了帮助 Tensor 练习这项技能，请在屏幕上画出与节日词语相关的图画，然后让它猜猜是什么。您画得越多，Tensor 就会变得越聪明。这个假期，让我们一起来帮助圣诞老人，让他以前所未有的非凡效率完成工作吧！"
-	},
-	"quickdraw-splashview-title": {
-		"message": "帮助 Tensor 练习识图吧！"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor 认出了 {{recognized}} 幅画。"
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "驯鹿狂飙"
+	},
+	"scene_railroad": {
+		"message": "火车之旅"
 	},
 	"scene_rollercoaster": {
 		"message": "精灵过山车"
@@ -3334,6 +3331,9 @@
 	},
 	"sr_country_name": {
 		"message": "苏里南"
+	},
+	"storybook_new_language": {
+		"message": "喜欢读奥利的探险故事？不妨用新的语言试一试。"
 	},
 	"storybook_paragraph_01": {
 		"message": "企鹅们划着雪橇。精灵们欢呼喝彩。"

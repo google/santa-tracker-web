@@ -141,7 +141,7 @@
 		"message": "Botswana"
 	},
 	"by_country_name": {
-		"message": "Bielorússia"
+		"message": "Belarús"
 	},
 	"bz_country_name": {
 		"message": "Belize"
@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Dibuix"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor és el robot d'aprenentatge automàtic del Pare Noel, que l'ajuda a desxifrar ràpidament les cartes que rep dels nens de tot el món. Per ajudar Tensor a practicar, dibuixa una imatge de cada paraula relacionada amb el Nadal a la pantalla i et dirà què veu. Com més dibuixis, més intel·ligent es farà Tensor. Ajudem el Pare Noel a ser més eficient que mai durant aquestes festes!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Ajuda Tensor a practicar el reconeixement d'imatges!"
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor ha reconegut {{recognized}} dels teus dibuixos."
 	},
@@ -1778,6 +1772,9 @@
 	"scene_racer": {
 		"message": "La cursa de trineus de Rudolph"
 	},
+	"scene_railroad": {
+		"message": "Viatge en ferrocarril"
+	},
 	"scene_rollercoaster": {
 		"message": "La muntanya russa dels elfs"
 	},
@@ -1824,7 +1821,7 @@
 		"message": "Traduccions"
 	},
 	"scene_trivia": {
-		"message": "Joc de preguntes i respostes"
+		"message": "Cultura general"
 	},
 	"scene_undersea": {
 		"message": "Submarí"
@@ -1941,7 +1938,7 @@
 		"message": "Eslovac"
 	},
 	"skip-intro": {
-		"message": "Omet la presentació"
+		"message": "Omet la introducció"
 	},
 	"skip-training": {
 		"message": "Omet la introducció"
@@ -2595,7 +2592,7 @@
 		"message": "banyera d'hidromassatge"
 	},
 	"speedsketch_item~hourglass": {
-		"message": "rellotge de sorra"
+		"message": "rellotge d'arena"
 	},
 	"speedsketch_item~house": {
 		"message": "casa"
@@ -2700,7 +2697,7 @@
 		"message": "amor"
 	},
 	"speedsketch_item~mailbox": {
-		"message": "bústia"
+		"message": "bústia de correu"
 	},
 	"speedsketch_item~man": {
 		"message": "home"
@@ -3504,7 +3501,7 @@
 		"message": "Distància recorreguda"
 	},
 	"tracker_feed": {
-		"message": "Feed en temps real"
+		"message": "Feed publicat"
 	},
 	"tracker_flight_nearby": {
 		"message": "El Pare Noel és a prop; esbrineu on"
@@ -3972,7 +3969,7 @@
 		"message": "Amèrica del Sud"
 	},
 	"trivia_beginner_034": {
-		"message": "A quin continent trobem el Parc Nacional del Serengeti, amb fauna que atreu molts turistes?"
+		"message": "A quin continent trobem el parc nacional del Serengeti, amb fauna que atreu molts turistes?"
 	},
 	"trivia_beginner_034_answer0": {
 		"message": "Àfrica"
@@ -4914,7 +4911,7 @@
 		"message": "Croàcia"
 	},
 	"trivia_hard_015_answer1": {
-		"message": "Bielorússia"
+		"message": "Belarús"
 	},
 	"trivia_hard_015_answer2": {
 		"message": "Hongria"
@@ -5448,7 +5445,7 @@
 		"message": "Sucre"
 	},
 	"trivia_hard_060": {
-		"message": "Quina ciutat, important centre de comerç agrícola al sud d'Àfrica, és la més gran de Zimbàbue?"
+		"message": "Quina ciutat, important centre de comerç agrícola a l'Àfrica meridional, és la més gran de Zimbàbue?"
 	},
 	"trivia_hard_060_answer0": {
 		"message": "Harare"
@@ -5862,7 +5859,7 @@
 		"message": "Estònia"
 	},
 	"trivia_hard_094_answer1": {
-		"message": "Bielorússia"
+		"message": "Belarús"
 	},
 	"trivia_hard_094_answer2": {
 		"message": "Espanya"
@@ -6672,7 +6669,7 @@
 		"message": "Japó"
 	},
 	"trivia_medium_057": {
-		"message": "El Parc Nacional del Serengeti es troba a l'Est del llac Victòria. A quin país?"
+		"message": "El parc nacional del Serengeti es troba a l'Est del llac Victòria. A quin país?"
 	},
 	"trivia_medium_057_answer0": {
 		"message": "Tanzània"
@@ -6822,7 +6819,7 @@
 		"message": "Xina"
 	},
 	"trivia_medium_069_answer1": {
-		"message": "Bielorússia"
+		"message": "Belarús"
 	},
 	"trivia_medium_069_answer2": {
 		"message": "Afganistan"

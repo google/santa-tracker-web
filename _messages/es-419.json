@@ -756,7 +756,7 @@
 		"message": "Los duendes están de vuelta para seguir codificando y, al mismo tiempo, mejorar sus técnicas de baile. Usa código para crear la coreografía de los duendes, pero ten cuidado: a medida que mejoras, los bailes serán más complejos."
 	},
 	"familyguide_card_04_body": {
-		"message": "Haz clic en los marcadores del mapa para conocer las tradiciones navideñas de todo el mundo, como usar gorros de lana en Canadá o trajes de baño en Australia."
+		"message": "Haz clic en los pines del mapa para conocer las tradiciones navideñas de todo el mundo, como usar gorros de lana en Canadá o trajes de baño en Australia."
 	},
 	"familyguide_card_05_body": {
 		"message": "Aprende términos festivos de todo el mundo, como “Feliz Año Nuevo” en el idioma de los duendes y “Дед Мороз” (Ded Moroz)."
@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Dibujar"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor es el robot de Santa, que usa aprendizaje automático para descifrar las cartas que le envían los niños de todo el mundo. Para ayudar a Tensor a practicar, haz un dibujo de cada palabra relacionada con la Navidad que aparecerá en pantalla. Luego, Tensor te dirá qué ve. Cuanto más dibujes, más inteligente se volverá. Ayudemos a Santa a ser más eficiente que nunca esta Navidad."
-	},
-	"quickdraw-splashview-title": {
-		"message": "Ayuda a Tensor a practicar para reconocer imágenes."
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor reconoció {{recognized}} de tus dibujos."
 	},
@@ -1778,6 +1772,9 @@
 	"scene_racer": {
 		"message": "Trineo de carrera de Rudolph"
 	},
+	"scene_railroad": {
+		"message": "Viaje en tren"
+	},
 	"scene_rollercoaster": {
 		"message": "Montaña rusa del duende"
 	},
@@ -1800,7 +1797,7 @@
 		"message": "Tormenta de bolas de nieve"
 	},
 	"scene_snowbox": {
-		"message": "Zona de pruebas en la nieve"
+		"message": "Juego libre en la nieve"
 	},
 	"scene_snowflake": {
 		"message": "Codifica un copo de nieve"
@@ -3335,6 +3332,9 @@
 	"sr_country_name": {
 		"message": "Surinam"
 	},
+	"storybook_new_language": {
+		"message": "¿Te encanta leer la aventura de Oli? Hazlo en un idioma nuevo."
+	},
 	"storybook_paragraph_01": {
 		"message": "Los pingüinos andaban en trineo. Los duendes aplaudían con alegría."
 	},
@@ -3468,7 +3468,7 @@
 		"message": "Solo por hoy"
 	},
 	"tr_country_name": {
-		"message": "Turquía"
+		"message": "Türkiye"
 	},
 	"tr_language_name": {
 		"message": "Turco"
@@ -4530,7 +4530,7 @@
 		"message": "Países Bajos"
 	},
 	"trivia_beginner_080_answer2": {
-		"message": "Turquía"
+		"message": "Türkiye"
 	},
 	"trivia_beginner_081": {
 		"message": "¿A qué país deberías viajar para visitar la Catedral de San Patricio en Dublin y disfrutar del Festival de Artes en Kilkenny?"
@@ -4791,7 +4791,7 @@
 		"message": "Irán"
 	},
 	"trivia_hard_005_answer1": {
-		"message": "Turquía"
+		"message": "Türkiye"
 	},
 	"trivia_hard_005_answer2": {
 		"message": "Bután"
@@ -4902,7 +4902,7 @@
 		"message": "Ucrania"
 	},
 	"trivia_hard_014_answer2": {
-		"message": "Turquía"
+		"message": "Türkiye"
 	},
 	"trivia_hard_015": {
 		"message": "¿Qué país tiene salida al mar?"
@@ -5151,7 +5151,7 @@
 		"message": "Italia"
 	},
 	"trivia_hard_035_answer1": {
-		"message": "Turquía"
+		"message": "Türkiye"
 	},
 	"trivia_hard_035_answer2": {
 		"message": "Reino Unido"
@@ -5616,7 +5616,7 @@
 		"message": "¿Qué país está rodeado por el mar Mediterráneo, el mar Negro y el mar Egeo?"
 	},
 	"trivia_hard_074_answer0": {
-		"message": "Turquía"
+		"message": "Türkiye"
 	},
 	"trivia_hard_074_answer1": {
 		"message": "Bulgaria"
@@ -6345,7 +6345,7 @@
 		"message": "Belmopán"
 	},
 	"trivia_medium_030": {
-		"message": "¿Qué ciudad capital, ubicada al sur del Mar Negro, constituye el centro del sistema de transporte de Turquía?"
+		"message": "¿Qué ciudad capital, ubicada al sur del Mar Negro, constituye el centro del sistema de transporte de Türkiye?"
 	},
 	"trivia_medium_030_answer0": {
 		"message": "Ankara"
@@ -6648,7 +6648,7 @@
 		"message": "¿Qué país tiene la mayor parte de su superficie en la península de Asia Menor?"
 	},
 	"trivia_medium_055_answer0": {
-		"message": "Turquía"
+		"message": "Türkiye"
 	},
 	"trivia_medium_055_answer1": {
 		"message": "Birmania (Myanmar)"
@@ -7044,7 +7044,7 @@
 		"message": "¿En qué país se sitúa la ciudad de Estambul, considerada un punto de encuentro de las culturas oriental y occidental?"
 	},
 	"trivia_medium_088_answer0": {
-		"message": "Turquía"
+		"message": "Türkiye"
 	},
 	"trivia_medium_088_answer1": {
 		"message": "Eslovaquia"

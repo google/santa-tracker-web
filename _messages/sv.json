@@ -1245,7 +1245,7 @@
 		"message": "Dela dina mästerverk med vänner och familj så att de också kan lära sig."
 	},
 	"nonprofit-intro-type": {
-		"message": "Vi samarbetar med Google.org för att berätta om fem ideella utbildningsorganisationer som ger till andra året om. Rulla nedåt och lär dig om hur varje organisation arbetar. Visa ditt stöd genom att färglägga de här dekorationerna och hänga dem i granen eller ge dem till personer du tycker om."
+		"message": "Vi samarbetar med Google.org för att berätta om fem ideella utbildningsorganisationer som ger till andra året om. Scrolla nedåt och lär dig om hur varje organisation arbetar. Visa ditt stöd genom att färglägga de här dekorationerna och hänga dem i granen eller ge dem till personer du tycker om."
 	},
 	"nonprofit-jane-description": {
 		"message": "Schimpanser är de närmaste nu levande släktingar mänskligheten har i djurriket! I dag finns färre än 300 000 schimpanser kvar i världen på grund av minskade utbredningsområden, sjukdomar och olaglig handel. Jane Goodall Institute (JGI) arbetar för att skydda schimpanserna genom att observera och förstå deras beteende och livsmiljö. JGI strävar efter att bygga upp ett nätverk av människor som skyddar och bevarar vilda djur och vår gemensamma miljö. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforska schimpansernas livsmiljö\u003c/a\u003e i Gombe i Tanzania."
@@ -1449,7 +1449,7 @@
 		"message": "För press"
 	},
 	"press-asset-screenshot": {
-		"message": "Skärmdump"
+		"message": "Skärmbild"
 	},
 	"press-device-text": {
 		"message": "Julstämningen är på topp i alla dina enheter!"
@@ -1555,12 +1555,6 @@
 	},
 	"quickdraw-slate": {
 		"message": "Teckna"
-	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor är tomtens maskininlärningsrobot som hjälper honom att snabbt dechiffrera breven som han får från barn över hela världen. Du kan hjälpa Tensor att öva genom att rita en teckning av varje ord på skärmen så berättar den vad den ser. Ju mer du ritar, desto smartare blir Tensor, så låt oss hjälpa tomten att bli effektivare än någonsin under den här julen!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Hjälp Tensor öva på sin bildigenkänningsförmåga!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor identifierade {{recognized}} av dina teckningar."
@@ -1778,6 +1772,9 @@
 	"scene_racer": {
 		"message": "Rudolfloppet"
 	},
+	"scene_railroad": {
+		"message": "Järnvägsturen"
+	},
 	"scene_rollercoaster": {
 		"message": "Berg-och-dalbanenissar"
 	},
@@ -1932,7 +1929,7 @@
 		"message": "Google Maps: Jultomtens plats"
 	},
 	"sidebar_trends": {
-		"message": "Google Trender: Julsökningar"
+		"message": "Google Trends: Julsökningar"
 	},
 	"sk_country_name": {
 		"message": "Slovakien"
@@ -4554,7 +4551,7 @@
 		"message": "Brasilien"
 	},
 	"trivia_beginner_082_answer1": {
-		"message": "Storbritannien"
+		"message": "Förenade kungariket"
 	},
 	"trivia_beginner_082_answer2": {
 		"message": "Vietnam"
@@ -4893,7 +4890,7 @@
 		"message": "Danmark"
 	},
 	"trivia_hard_013_answer2": {
-		"message": "Storbritannien"
+		"message": "Förenade kungariket"
 	},
 	"trivia_hard_014": {
 		"message": "Vilket land ligger inte vid Svarta havet?"
@@ -5157,7 +5154,7 @@
 		"message": "Turkiet"
 	},
 	"trivia_hard_035_answer2": {
-		"message": "Storbritannien"
+		"message": "Förenade kungariket"
 	},
 	"trivia_hard_036": {
 		"message": "Vilken öken täcker stora delar av området mellan Peking och Ulaanbaatar?"
@@ -6378,7 +6375,7 @@
 		"message": "Norge"
 	},
 	"trivia_medium_032_answer1": {
-		"message": "Storbritannien"
+		"message": "Förenade kungariket"
 	},
 	"trivia_medium_032_answer2": {
 		"message": "Sri Lanka"
@@ -6642,7 +6639,7 @@
 		"message": "Island"
 	},
 	"trivia_medium_054_answer1": {
-		"message": "Storbritannien"
+		"message": "Förenade kungariket"
 	},
 	"trivia_medium_054_answer2": {
 		"message": "Polen"
@@ -7215,7 +7212,7 @@
 		"message": "Uganda"
 	},
 	"uk_country_name": {
-		"message": "Storbritannien"
+		"message": "Förenade kungariket"
 	},
 	"uk_tradition": {
 		"message": "I Storbritannien njuter både stora och små av smällkarameller på bordet vid middagen. Smällkarameller är rör inslagna i färgglatt papper med dragflikar i varje ände. När man drar i dem spricker röret med en hög smäll! Inuti dem finns pappershattar, leksaker, skämtgrejer och priser att njuta av under julkvällen."

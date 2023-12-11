@@ -141,7 +141,7 @@
 		"message": "Botswana"
 	},
 	"by_country_name": {
-		"message": "Hviderusland"
+		"message": "Belarus"
 	},
 	"bz_country_name": {
 		"message": "Belize"
@@ -810,7 +810,7 @@
 		"message": "Din plan, din planet"
 	},
 	"familyguide_doublecard_card02_body": {
-		"message": "Børn skal lære at tage gode beslutninger, så de kan få mest muligt ud af internettet. Be Internet Awesome lærer børnene de grundlæggende ting om digitalt medborgerskab og sikkerhed, så de kan gå på opdagelse i onlineverdenen på en god og tryg måde."
+		"message": "Børn skal lære at tage gode beslutninger, så de kan få mest muligt ud af internettet. Programmet lærer børnene de grundlæggende ting om digitalt medborgerskab og sikkerhed, så de kan gå på opdagelse i onlineverdenen på en god og tryg måde."
 	},
 	"familyguide_doublecard_card02_title": {
 		"message": "Bliv en internetekspert"
@@ -1203,10 +1203,10 @@
 		"message": "Nigeria"
 	},
 	"nl_country_name": {
-		"message": "Holland"
+		"message": "Nederlandene"
 	},
 	"nl_language_name": {
-		"message": "Hollandsk"
+		"message": "Nederlandsk"
 	},
 	"no_country_name": {
 		"message": "Norge"
@@ -1431,7 +1431,7 @@
 		"message": "Om Følg julemanden"
 	},
 	"press-about-tracker1": {
-		"message": "Den 24. december lancerer vi Følg julemanden, et kontrolpanel, som giver julemandens største fans mulighed for at følge hans kanetur fra by til by. Du kan også se hans aktuelle placering i Google Maps og spørge Google Assistent \"Ok Google, hvor er julemanden?\"– så du hele tiden ved, hvor julemanden er."
+		"message": "Den 24. december lancerer vi Følg julemanden, et kontrolpanel, som giver julemandens største fans mulighed for at følge hans kanetur fra by til by. Du kan også se hans aktuelle lokation i Google Maps og spørge Google Assistent \"Hey Google, hvor er julemanden?\"– så du hele tiden ved, hvor julemanden er."
 	},
 	"press-about-village": {
 		"message": "Om Julemandens landsby"
@@ -1497,7 +1497,7 @@
 		"message": "Danser med nisser:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Du kan også se julemandens aktuelle placering i Google Maps – tryk bare på hamburgerknappen og derefter på \"Placeringsdeling\" for at se præcis, hvor julemanden er under hele turen. Du kan også gå til \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e for at få en nem genvej!"
+		"message": "Du kan også se julemandens aktuelle lokation i Google Maps – tryk bare på hamburgerknappen og derefter på \"Lokationsdeling\" for at se præcis, hvor julemanden er under hele turen. Du kan også gå til \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e for at få en nem genvej!"
 	},
 	"press-whatsnew3-title": {
 		"message": "En ny måde at følge julemanden på:"
@@ -1555,12 +1555,6 @@
 	},
 	"quickdraw-slate": {
 		"message": "Tegn"
-	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor er julemandens maskinlæringsrobot, der hjælper ham med hurtigt at tyde de breve, han modtager fra børn over hele verden. Du kan hjælpe Tensor med at øve sig ved at tegne et billede af hvert juleord på skærmen, og så fortæller han dig, hvad han ser. Jo mere du tegner, desto klogere bliver Tensor. Lad os hjælpe julemanden med at være mere effektiv end nogensinde før denne jul!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Hjælp Tensor med at øve sig i at genkende billeder."
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor genkendte {{recognized}} af dine tegninger."
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "Racer-Rudolf"
+	},
+	"scene_railroad": {
+		"message": "Jernbanetur"
 	},
 	"scene_rollercoaster": {
 		"message": "Nissernes rutsjebane"
@@ -3335,6 +3332,9 @@
 	"sr_country_name": {
 		"message": "Surinam"
 	},
+	"storybook_new_language": {
+		"message": "Kunne du lide at læse om Ollies eventyr? Prøv at gå på opdagelse på et nyt sprog."
+	},
 	"storybook_paragraph_01": {
 		"message": "Pingvinerne kælkede. Nisserne var glade."
 	},
@@ -4527,7 +4527,7 @@
 		"message": "Mexico"
 	},
 	"trivia_beginner_080_answer1": {
-		"message": "Holland"
+		"message": "Nederlandene"
 	},
 	"trivia_beginner_080_answer2": {
 		"message": "Tyrkiet"
@@ -4911,7 +4911,7 @@
 		"message": "Kroatien"
 	},
 	"trivia_hard_015_answer1": {
-		"message": "Hviderusland"
+		"message": "Belarus"
 	},
 	"trivia_hard_015_answer2": {
 		"message": "Ungarn"
@@ -5595,7 +5595,7 @@
 		"message": "Frankrig"
 	},
 	"trivia_hard_072_answer1": {
-		"message": "Holland"
+		"message": "Nederlandene"
 	},
 	"trivia_hard_072_answer2": {
 		"message": "Rumænien"
@@ -5715,7 +5715,7 @@
 		"message": "Belgien"
 	},
 	"trivia_hard_082_answer1": {
-		"message": "Holland"
+		"message": "Nederlandene"
 	},
 	"trivia_hard_082_answer2": {
 		"message": "Island"
@@ -5859,7 +5859,7 @@
 		"message": "Estland"
 	},
 	"trivia_hard_094_answer1": {
-		"message": "Hviderusland"
+		"message": "Belarus"
 	},
 	"trivia_hard_094_answer2": {
 		"message": "Spanien"
@@ -6522,7 +6522,7 @@
 		"message": "Bangladesh"
 	},
 	"trivia_medium_044_answer2": {
-		"message": "Holland"
+		"message": "Nederlandene"
 	},
 	"trivia_medium_045": {
 		"message": "Hvilket af disse lande har den længste kystlinje?"
@@ -6819,7 +6819,7 @@
 		"message": "Kina"
 	},
 	"trivia_medium_069_answer1": {
-		"message": "Hviderusland"
+		"message": "Belarus"
 	},
 	"trivia_medium_069_answer2": {
 		"message": "Afghanistan"
@@ -6996,7 +6996,7 @@
 		"message": "Rotterdam ligger på et delta tæt ved Nordsøen i hvilket europæisk land?"
 	},
 	"trivia_medium_084_answer0": {
-		"message": "Holland"
+		"message": "Nederlandene"
 	},
 	"trivia_medium_084_answer1": {
 		"message": "Sverige"
@@ -7188,7 +7188,7 @@
 		"message": "Haag, som huser Den Internationale Domstol, er en by på vestkysten af hvilket europæisk land?"
 	},
 	"trivia_medium_100_answer0": {
-		"message": "Holland"
+		"message": "Nederlandene"
 	},
 	"trivia_medium_100_answer1": {
 		"message": "Finland"

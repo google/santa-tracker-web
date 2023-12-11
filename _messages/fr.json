@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Match nul"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor est le robot de machine learning (apprentissage automatique) du père Noël. Il l'aide à lire les lettres qu'il reçoit des enfants du monde entier. Pour aider Tensor à s'entraîner, faites un dessin pour chaque mot lié aux fêtes affiché à l'écran, et il vous dira ce qu'il voit. Plus vous dessinez, plus Tensor devient intelligent. Aidons le père Noël à être encore plus efficace pendant les fêtes de fin d'année !"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Aidez Tensor à reconnaître des images"
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor a reconnu {{recognized}} de vos dessins."
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "La course de Rudolphe"
+	},
+	"scene_railroad": {
+		"message": "Tour en petit train"
 	},
 	"scene_rollercoaster": {
 		"message": "La montagne russe des lutins"
@@ -3334,6 +3331,9 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_new_language": {
+		"message": "Vous avez aimé les aventures d'Ollie ? Essayez de les lire dans une autre langue."
 	},
 	"storybook_paragraph_01": {
 		"message": "Les pingouins faisaient de la luge et les lutins poussaient des cris de joie."

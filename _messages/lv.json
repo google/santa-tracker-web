@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Zīmēt"
 	},
-	"quickdraw-splashview-description": {
-		"message": "“Tensor” ir Ziemassvētku vecīša mašīnmācīšanās robots, kas viņam palīdz ātri atšifrēt vēstules no bērniem visā pasaulē. Lai palīdzētu robotam “Tensor” vingrināties, ekrānā uzzīmējiet katra svētku vārda attēlu un tas jums pateiks, ko redz. Jo vairāk zīmēsit, jo gudrāks kļūs robots “Tensor”. Palīdzēsim Ziemassvētku vecītim šajā svētku sezonā darboties efektīvāk nekā jebkad agrāk."
-	},
-	"quickdraw-splashview-title": {
-		"message": "Palīdziet robotam “Tensor” vingrināties attēlu atpazīšanā."
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Robots “Tensor” atpazina {{recognized}} no jūsu zīmējumiem."
 	},
@@ -1778,6 +1772,9 @@
 	"scene_racer": {
 		"message": "Ziemeļbrieža Rūdolfa brauciens"
 	},
+	"scene_railroad": {
+		"message": "Brauciens pa dzelzceļu"
+	},
 	"scene_rollercoaster": {
 		"message": "Rūķīšu amerikāņu kalniņi"
 	},
@@ -1971,7 +1968,7 @@
 		"message": "Izvēlieties fonu"
 	},
 	"snowflake_choose_postcard": {
-		"message": "Lai izvēlētos pastkarti, izmantojiet bulttaustiņus"
+		"message": "Lai izvēlētos pastkarti, izmantojiet bultiņas"
 	},
 	"snowflake_code": {
 		"message": "Izveidojiet sniegpārsliņu, izmantojot kodu"
@@ -3334,6 +3331,9 @@
 	},
 	"sr_country_name": {
 		"message": "Surinama"
+	},
+	"storybook_new_language": {
+		"message": "Vai jums patīk lasīt Olija piedzīvojumus? Izmēģiniet izpēti jaunā valodā."
 	},
 	"storybook_paragraph_01": {
 		"message": "Pingvīni brauca ar kamanām. Rūķīši gavilēja."

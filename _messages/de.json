@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Zeichnen"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor ist der Roboter des Weihnachtsmanns. Er lernt fortlaufend dazu und hilft dem Weihnachtsmann dabei, die Briefe von Kindern aus aller Welt zu verstehen – und mit deiner Hilfe wird der Roboter immer besser! Male dazu die festlichen Begriffe, die auf dem Bildschirm stehen. Tensor sagt dir dann, was er sieht. Je mehr du zeichnest, desto intelligenter wird der Roboter. Wenn wir ihm alle helfen, kann der Weihnachtsmann seine Geschenke dieses Jahr bestimmt noch schneller als sonst ausliefern."
-	},
-	"quickdraw-splashview-title": {
-		"message": "Hilf Tensor dabei, Zeichnungen noch besser zu erkennen."
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor hat {{recognized}} deiner Zeichnungen richtig erkannt."
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfs Rennen"
+	},
+	"scene_railroad": {
+		"message": "Bimmelbahnfahrt"
 	},
 	"scene_rollercoaster": {
 		"message": "Achterbahn für Wichtel"
@@ -3334,6 +3331,9 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_new_language": {
+		"message": "Du findest Ollies Abenteuer toll? Dann versuch doch mal, die Geschichte in einer anderen Sprache zu lesen."
 	},
 	"storybook_paragraph_01": {
 		"message": "Die Pinguine und die Elfen hatten strahlende Gesichter."

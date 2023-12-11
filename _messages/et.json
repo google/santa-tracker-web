@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Joonista"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor on jõuluvana masinõpperobot, mis aitab tal kogu maailma lastelt saadud kirju kiiresti analüüsida. Aidake Tensoril harjutada – joonistage ekraanile pühadega seotud sõnale vastav pilt ja laske tal sõna ära arvata. Mida rohkem joonistate, seda rohkem Tensor õpib ja seda paremini oskab jõuluvana laste soove täita!"
-	},
-	"quickdraw-splashview-title": {
-		"message": "Aidake Tensoril pildituvastust harjutada!"
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor tundis ära {{recognized}} teie joonistust."
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfi võidusõit"
+	},
+	"scene_railroad": {
+		"message": "Rongisõit"
 	},
 	"scene_rollercoaster": {
 		"message": "Päkapikutivoli"

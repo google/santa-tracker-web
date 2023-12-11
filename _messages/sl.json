@@ -1556,12 +1556,6 @@
 	"quickdraw-slate": {
 		"message": "Nariši"
 	},
-	"quickdraw-splashview-description": {
-		"message": "Tensor je Božičkov strojno učeči se robot. Pomaga mu hitro razvozlati pisma, ki mu jih pošljejo otroci z vsega sveta. Če želite Tensorju pomagati vaditi, narišite sliko vsake praznične besede na zaslonu in povedal vam bo, kaj vidi. Več risb narišete, pametnejši bo Tensor postal. Pomagajmo Božičku, da bo te praznike bolj učinkovit kot kadar koli prej."
-	},
-	"quickdraw-splashview-title": {
-		"message": "Pomagajte Tensorju pri vadbi prepoznavanja slik."
-	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor je prepoznal toliko vaših slik: {{recognized}}."
 	},
@@ -1777,6 +1771,9 @@
 	},
 	"scene_racer": {
 		"message": "Hitri Rudolf"
+	},
+	"scene_railroad": {
+		"message": "Vožnja z vlakom"
 	},
 	"scene_rollercoaster": {
 		"message": "Palčji vlakec smrti"
@@ -2916,7 +2913,7 @@
 		"message": "ledena lučka"
 	},
 	"speedsketch_item~portrait": {
-		"message": "portret"
+		"message": "pokončno"
 	},
 	"speedsketch_item~postcard": {
 		"message": "razglednica"
