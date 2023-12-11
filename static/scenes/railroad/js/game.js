@@ -205,7 +205,7 @@ class Game {
       // Use the click positions that a few accessibility tools use. This
       // doesn't detect all tools so we have the fallback below.
       return this.previousClicks
-        .every(click => isPossibleClickFromAccessibiltyTool(element, click));
+        .every(click => isPossibleAccessibilityToolClickPosition(element, click));
     }
     else {
       // Return whether this click is in the same position as 90% of the previous clicks.
@@ -243,7 +243,7 @@ function mouseEventToString(e) {
  * @returns {boolean} Whether this click could've been fired from an
  * accessibility tool (e.g. TalkBack).
  */
-function isSuspectedClickFromAccessibilityToolFromPosition(element, e) {
+function isPossibleAccessibilityToolClickPosition(element, e) {
   if (e.clientX === 0 && e.clientY === 0) {
     return true;
   }
