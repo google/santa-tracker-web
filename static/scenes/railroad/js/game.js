@@ -156,39 +156,7 @@ class Game {
 
     // Use `click` for mouse interfaces and for accessibility
     container.addEventListener('click', e => {
-      // Keep track of the first few clicks
-      if (this.previousClicks.length < 25) {
-        this.previousClicks.push(e);
-      }
-
-      const numClicksPerPosition = new Map();
-      for (const click of this.previousClicks) {
-        const clickStr = mouseEventToString(click);
-        if (!numClicksPerPosition.has(clickStr)) {
-          numClicksPerPosition.set(clickStr, 0);
-        }
-        const prevValue = numClicksPerPosition.get(clickStr);
-        numClicksPerPosition.set(clickStr, prevValue + 1)
-      }
-
-      const percentOfClicksAtThisPosition =
-        numClicksPerPosition.get(mouseEventToString(e)) / this.previousClicks.length
-      // Whether this click is in the same position as 90% of the previous clicks.
-      const thisClickIsCommonClickPosition = percentOfClicksAtThisPosition >= 0.9;
-
-      const allClicksPossibleAccessibilityClick =
-        this.previousClicks.every(click => isPossibleClickFromAccessibiltyTool(container, click));
-
-      // If we have 1 to 3 clicks, use their position to guess if they're from
-      // an accessibility tool
-      if (this.previousClicks.length <= 3 && allClicksPossibleAccessibilityClick) {
-        console.log('throw to closest because of allClicksPossibleAccessibilityClick');
-        this.level.throwToClosest();
-      }
-      // If we have more than 3 clicks, if they're from an accessibility tool
-      // they should all be in the same place so use that instead.
-      else if (this.previousClicks.length > 3 && thisClickIsCommonClickPosition) {
-        console.log('throw to closest because of common click position');
+      if (this.isSuspectedClickFromAccessibilityTool(container, e)) {
         this.level.throwToClosest();
       }
       else {
@@ -219,6 +187,43 @@ class Game {
       this.level.handleClick(clientX, clientY);
     }
   }
+
+  /**
+   * @param {HTMLElement} element Element that handles click events
+   * @param {MouseEvent} e Click event
+   * @returns {boolean} Whether this click is likely from an accessibility tool (e.g. TalkBack).
+   */
+  isSuspectedClickFromAccessibilityTool(element, e) {
+    // Keep track of the first few clicks. Only need the first few to detect
+    // accessibility tools.
+    if (this.previousClicks.length < 25) {
+      this.previousClicks.push(e);
+    }
+
+    // Not enough clicks to compare them without having false positives
+    if (this.previousClicks.length < 3) {
+      // Use the click positions that a few accessibility tools use. This
+      // doesn't detect all tools so we have the fallback below.
+      return this.previousClicks
+        .every(click => isPossibleClickFromAccessibiltyTool(element, click));
+    }
+    else {
+      // Return whether this click is in the same position as 90% of the previous clicks.
+      const numClicksPerPosition = new Map();
+      for (const click of this.previousClicks) {
+        const clickStr = mouseEventToString(click);
+        if (!numClicksPerPosition.has(clickStr)) {
+          numClicksPerPosition.set(clickStr, 0);
+        }
+        const prevValue = numClicksPerPosition.get(clickStr);
+        numClicksPerPosition.set(clickStr, prevValue + 1)
+      }
+
+      const percentOfClicksAtThisPosition =
+        numClicksPerPosition.get(mouseEventToString(e)) / this.previousClicks.length
+      return percentOfClicksAtThisPosition >= 0.9;
+    }
+  }
 }
 
 /**
@@ -230,11 +235,15 @@ function mouseEventToString(e) {
 }
 
 /**
+ * Checks if this click was in one of the specific places that some
+ * accessibility tools send their events.
+ *
  * @param {HTMLElement} element Element that handles click events
  * @param {MouseEvent} e Click event
- * @returns {boolean} Whether this click could've been fired from an accessibility tool (e.g. TalkBack).
+ * @returns {boolean} Whether this click could've been fired from an
+ * accessibility tool (e.g. TalkBack).
  */
-function isPossibleClickFromAccessibiltyTool(element, e) {
+function isSuspectedClickFromAccessibilityToolFromPosition(element, e) {
   if (e.clientX === 0 && e.clientY === 0) {
     return true;
   }
