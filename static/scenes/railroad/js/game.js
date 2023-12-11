@@ -32,11 +32,8 @@ class Game {
 
     this.previousSeconds = Date.now() / 1000;
 
-    // Accessibility devices on Android fire off click events in the center of
-    // the Canvas element. We use these counters to guess if the user is using
-    // an accessibility tool.
-    this.numSuspectedAccessibilityClicks = 0;
-    this.numSuspectedNotAccessibilityClicks = 0;
+    // Previous clicks, used to guess if the user is using an accessibilty tool.
+    this.previousClicks = []
   }
 
   /**
@@ -158,7 +155,27 @@ class Game {
 
     // Use `click` for mouse interfaces and for accessibility
     container.addEventListener('click', e => {
-      this.handleClick(e.clientX, e.clientY);
+      this.previousClicks.push(e);
+      while (this.previousClicks.length > 5) {
+        this.previousClicks.shift();
+      }
+
+      const allClicksInSamePosition = this.previousClicks.every(e => clickAtSamePosition(this.previousClicks[0], e));
+      const allClicksPossibleAccessibilityClick = this.previousClicks.every(isPossibleClickFromAccessibiltyTool);
+
+      // If we have 1 to 3 clicks, use their position to guess if they're from
+      // an accessibility tool
+      if (this.previousClicks.length <= 3 && allClicksPossibleAccessibilityClick) {
+        this.level.throwToClosest();
+      }
+      // If we have more than 3 clicks, if they're from an accessibility tool
+      // they should all be in the same place so use that instead.
+      if (this.previousClicks.length > 3 && allClicksInSamePosition) {
+        this.level.throwToClosest();
+      }
+      else {
+        this.handleClick(e.clientX, e.clientY);
+      }
     });
 
     document.querySelector('.throw-accessibility-button').addEventListener('click', e => {
@@ -183,6 +200,14 @@ class Game {
       this.level.handleClick(clientX, clientY);
     }
   }
+}
+
+/**
+ * @param {MouseEvent} e1 Click event
+ * @param {MouseEvent} e2 Click event
+ */
+function clickAtSamePosition(e1, e2) {
+  return (e1.clientX == e1.clientX && e2.clientX == e2.clientY);
 }
 
 /**
