@@ -2,6 +2,7 @@
 // Game and its deps refer to it in module scope.
 import THREE from './three.js';
 
+import { _msg } from '../../src/magic.js';
 import api from '../../src/scene/api.js';
 import Game from './:closure.js';
 
@@ -18,6 +19,10 @@ api.config({
 
 function initialize() {
   const contentElement = document.querySelector('#content');
+
+  // Update button label with translation.
+  const accessibilityButton = document.querySelector('.throw-accessibility-button')
+  accessibilityButton.ariaLabel = _msg`railroad_throw`
 
   const game = new Game();
   api.addEventListener('pause', (ev) => game.pause());
