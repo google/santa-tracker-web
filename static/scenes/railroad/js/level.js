@@ -126,16 +126,26 @@ class Level {
   }
   
   async showScoreText(targetObject, score) {
-    const div = document.getElementsByClassName('score-animation')[0];
-    if (!div) return;
+    const parent = document.getElementById('content');
+    if (!parent) return;
+
+    const  div = document.createElement("div");
+    div.className = 'score-animation';
     div.innerText = `${score}`;
     const screenSpace = this.raycasterSystem.project(targetObject.getWorldPosition(new THREE.Vector3()));
     div.style.top = screenSpace.y + 'px';
     div.style.left = screenSpace.x + 'px';
+    parent.appendChild(div);
+
     // (Re-)Trigger CSS animation.
     div.classList.remove('animating');
     await new Promise(resolve => setTimeout(resolve, 0));
     div.classList.add('animating');
+
+    // Clean up text div from DOM.
+    setTimeout(() => {
+      parent.removeChild(div);
+    }, 1100);  // CSS animation is 1s.
   }
 
   async throwToClosest() {
