@@ -131,6 +131,7 @@ class Level {
 
     const  div = document.createElement("div");
     div.className = 'score-animation';
+    div.setAttribute('role', 'presentation');  // Keep screenreaders from seeing the transient element.
     div.innerText = `${score}`;
     const screenSpace = this.raycasterSystem.project(targetObject.getWorldPosition(new THREE.Vector3()));
     div.style.top = screenSpace.y + 'px';
