@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Ojej!"
 	},
+	"railroad_throw": {
+		"message": "Vrzi"
+	},
 	"readyquestion": {
 		"message": "Ste pripravljeni?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "Hitri Rudolf"
+	},
+	"scene_railroad": {
+		"message": "Vožnja z vlakom"
 	},
 	"scene_rollercoaster": {
 		"message": "Palčji vlakec smrti"
@@ -2916,7 +2922,7 @@
 		"message": "ledena lučka"
 	},
 	"speedsketch_item~portrait": {
-		"message": "portret"
+		"message": "pokončno"
 	},
 	"speedsketch_item~postcard": {
 		"message": "razglednica"

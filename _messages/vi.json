@@ -552,10 +552,10 @@
 		"message": "Đã sao chép!"
 	},
 	"copy-me": {
-		"message": "Sao chép liên kết này để chia sẻ tin nhắn của bạn"
+		"message": "Sao chép đường liên kết này để chia sẻ tin nhắn của bạn"
 	},
 	"copy-me-short": {
-		"message": "Sao chép liên kết để chia sẻ"
+		"message": "Sao chép đường liên kết để chia sẻ"
 	},
 	"countdown_days": {
 		"message": "Ngày"
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Rất tiếc!"
 	},
+	"railroad_throw": {
+		"message": "Ném"
+	},
 	"readyquestion": {
 		"message": "Bạn đã sẵn sàng chưa?"
 	},
@@ -1778,6 +1781,9 @@
 	"scene_racer": {
 		"message": "Cuộc đua của Rudolph mũi đỏ"
 	},
+	"scene_railroad": {
+		"message": "Đi trên đường ray"
+	},
 	"scene_rollercoaster": {
 		"message": "Chú lùn đi tàu lượn siêu tốc"
 	},
@@ -1788,7 +1794,7 @@
 		"message": "Tìm kiếm ông già Noel"
 	},
 	"scene_santaselfie": {
-		"message": "Ảnh tự sướng của ông già Noel"
+		"message": "Ảnh tự chụp chân dung của ông già Noel"
 	},
 	"scene_seasonofcaring": {
 		"message": "Mùa yêu thương"
@@ -1824,7 +1830,7 @@
 		"message": "Dịch thuật"
 	},
 	"scene_trivia": {
-		"message": "Trắc nghiệm kiến thức"
+		"message": "Đố vui"
 	},
 	"scene_undersea": {
 		"message": "Dưới mặt biển"
@@ -2916,7 +2922,7 @@
 		"message": "kem que"
 	},
 	"speedsketch_item~portrait": {
-		"message": "chân dung"
+		"message": "dọc"
 	},
 	"speedsketch_item~postcard": {
 		"message": "bưu thiếp"
@@ -3334,6 +3340,9 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_new_language": {
+		"message": "Bạn rất thích đọc về chuyến phiêu lưu của Ollie phải không? Hãy thử đọc câu chuyện này bằng một ngôn ngữ khác."
 	},
 	"storybook_paragraph_01": {
 		"message": "Chim cánh cụt đang trượt tuyết. Các chú lùn thì reo vui."

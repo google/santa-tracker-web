@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "噢！"
 	},
+	"railroad_throw": {
+		"message": "丟"
+	},
 	"readyquestion": {
 		"message": "準備好了嗎？"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "聖誕馴鹿競賽"
+	},
+	"scene_railroad": {
+		"message": "鐵路之旅"
 	},
 	"scene_rollercoaster": {
 		"message": "小精靈過山車"
@@ -3335,6 +3341,9 @@
 	"sr_country_name": {
 		"message": "蘇里南"
 	},
+	"storybook_new_language": {
+		"message": "喜歡 Ollie 的冒險故事嗎？立即探索其他語言版本的故事。"
+	},
 	"storybook_paragraph_01": {
 		"message": "企鵝在玩雪橇，精靈們愉悅地歡呼。"
 	},
@@ -4668,7 +4677,7 @@
 		"message": "美國哪個州被稱為「孤星之州」(Lone Star State)，旗幟上有一顆星，而且曾經是一個獨立國家/地區？"
 	},
 	"trivia_beginner_092_answer0": {
-		"message": "德克薩斯州"
+		"message": "德薩斯州"
 	},
 	"trivia_beginner_092_answer1": {
 		"message": "威斯康辛"
@@ -7269,7 +7278,7 @@
 		"message": "新增至主畫面"
 	},
 	"village_santa_a2hs_chromeos": {
-		"message": "新增至檔案櫃"
+		"message": "新增至捷徑列"
 	},
 	"village_santa_a2hs_desktop": {
 		"message": "新增至桌面"

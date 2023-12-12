@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oi!"
 	},
+	"railroad_throw": {
+		"message": "Mesti"
+	},
 	"readyquestion": {
 		"message": "Pasiruošę?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfas lenktynininkas"
+	},
+	"scene_railroad": {
+		"message": "Pasivažinėjimas geležinkeliu"
 	},
 	"scene_rollercoaster": {
 		"message": "Elfų atrakcionas"

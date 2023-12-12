@@ -33,7 +33,7 @@
 		"message": "Arabisch"
 	},
 	"ar_tradition": {
-		"message": "In Argentinië begint Kerstmis om klokslag middernacht. Veel families beginnen deze dag met feestelijkheden bij hen thuis, waar ze cadeautjes uitpakken met hun dierbaren. Vroeg in de ochtend steken ze vuurwerk af."
+		"message": "In Argentinië begint Kerstmis om klokslag middernacht. Veel gezinnen beginnen deze dag met feestelijkheden bij hen thuis, waar ze cadeautjes uitpakken met hun dierbaren. Vroeg in de ochtend steken ze vuurwerk af."
 	},
 	"at_country_name": {
 		"message": "Oostenrijk"
@@ -141,7 +141,7 @@
 		"message": "Botswana"
 	},
 	"by_country_name": {
-		"message": "Wit-Rusland"
+		"message": "Belarus"
 	},
 	"bz_country_name": {
 		"message": "Belize"
@@ -384,7 +384,7 @@
 		"message": "Maak een split."
 	},
 	"codeboogie-choose-game-mode": {
-		"message": "Kies een gamemodus"
+		"message": "Kies een gamemode"
 	},
 	"codeboogie-choose-stage": {
 		"message": "Kies een podium"
@@ -1056,7 +1056,7 @@
 		"message": "IJsland"
 	},
 	"is_tradition": {
-		"message": "In IJsland geven alle gezinsleden elkaar met Kerstmis warme kleding. Volgens een legende verslindt een angstaanjagende kerstkat iedereen die niet goed is voorbereid op het koude, winterse weer. Met hun cadeaus zorgen de families dat niemand het volgende slachtoffer wordt van de kerstkat."
+		"message": "In IJsland geven alle gezinsleden elkaar met Kerstmis warme kleding. Volgens een legende verslindt een angstaanjagende kerstkat iedereen die niet goed is voorbereid op het koude, winterse weer. Met hun cadeaus zorgen de gezinnen dat niemand het volgende slachtoffer wordt van de kerstkat."
 	},
 	"it_country_name": {
 		"message": "Italië"
@@ -1122,7 +1122,7 @@
 		"message": "Litouwen"
 	},
 	"lt_tradition": {
-		"message": "In Litouwen maken ze traditionele kerstversieringen van riet of hooi. De mensen weven ze tot geometrische vormen zoals sterren, sneeuwvlokken of klokken. Veel families gebruiken ook hooi om de eettafel te versieren voor een grote maaltijd, de Kūčios."
+		"message": "In Litouwen maken ze traditionele kerstversieringen van riet of hooi. De mensen weven ze tot geometrische vormen zoals sterren, sneeuwvlokken of klokken. Veel gezinnen gebruiken ook hooi om de eettafel te versieren voor een grote maaltijd, de Kūčios."
 	},
 	"lv_country_name": {
 		"message": "Letland"
@@ -1299,7 +1299,7 @@
 		"message": "Bron"
 	},
 	"nonprofit-wheelmap-description": {
-		"message": "Voor rolstoelgebruikers kan het lastig zijn om goed toegankelijke locaties te vinden: bioscopen, restaurants en allerlei andere plekken kunnen een hele uitdaging zijn. Wheelmap laat zien welke locaties rolstoelvriendelijk zijn, zodat rolstoelgebruikers minder tijd kwijt zijn aan het plannen van hun route en meer tijd kunnen besteden aan het ontdekken van de wereld!"
+		"message": "Voor rolstoelgebruikers kan het lastig zijn om goed toegankelijke locaties te vinden: bioscopen, restaurants en allerlei andere plekken kunnen een hele uitdaging zijn. Wheelmap laat zien welke locaties rolstoeltoegankelijk zijn, zodat rolstoelgebruikers minder tijd kwijt zijn aan het plannen van hun route en meer tijd kunnen besteden aan het ontdekken van de wereld!"
 	},
 	"nonprofit-wheelmap-type": {
 		"message": "Mobiliteit"
@@ -1311,7 +1311,7 @@
 		"message": "IJsbeer"
 	},
 	"nonprofit-wwh-description": {
-		"message": "Uit onderzoek blijkt dat 95% van de mensen met gehoorverlies baat heeft bij een gehoortoestel. Helaas krijgt minder dan 1% van deze mensen in landen met lage en middellage inkomens ook daadwerkelijk zo'n apparaat. World Wide Hearing (WWH) brengt kinderen weer in contact met de wereld om hen heen door hen toegang te bieden tot hoortoestellen en -services. WWH werkt momenteel aan een betaalbare diagnostische tool voor gehoorverlies speciaal voor tablets. Deze tool is bestemd voor gebruik in ontwikkelingslanden, zodat meer mensen die een hoortoestel nodig hebben, er ook een krijgen."
+		"message": "Uit onderzoek blijkt dat 95% van de mensen met gehoorverlies baat heeft bij een hoortoestel. Helaas krijgt minder dan 1% van deze mensen in landen met lage en middellage inkomens ook daadwerkelijk zo'n apparaat. World Wide Hearing (WWH) brengt kinderen weer in contact met de wereld om hen heen door hen toegang te bieden tot hoortoestellen en de nodige services. WWH werkt momenteel aan een betaalbare diagnostische tool voor gehoorverlies speciaal voor tablets. Deze tool is bestemd voor gebruik in ontwikkelingslanden, zodat meer mensen die een hoortoestel nodig hebben, er ook een krijgen."
 	},
 	"nonprofit-wwh-type": {
 		"message": "Gehoor"
@@ -1320,7 +1320,7 @@
 		"message": "Google gebruikt cookies om het verkeer naar deze site te analyseren en je optimaal gebruiksgemak te bieden. Informatie over je gebruik van deze site wordt voor dit doeleinde met Google gedeeld."
 	},
 	"notice_cookies_details": {
-		"message": "Details weergeven"
+		"message": "Details bekijken"
 	},
 	"notification": {
 		"message": "Meldingen"
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oeps!"
 	},
+	"railroad_throw": {
+		"message": "Gooien"
+	},
 	"readyquestion": {
 		"message": "Klaar?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "Racen met Rudolf"
+	},
+	"scene_railroad": {
+		"message": "Treinreis"
 	},
 	"scene_rollercoaster": {
 		"message": "Elfenachtbaan"
@@ -2424,7 +2430,7 @@
 		"message": "gezicht"
 	},
 	"speedsketch_item~family": {
-		"message": "familie"
+		"message": "gezin"
 	},
 	"speedsketch_item~fan": {
 		"message": "waaier"
@@ -3334,6 +3340,9 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_new_language": {
+		"message": "Wil je meer lezen over Ollie's avontuur? Probeer het eens in een andere taal."
 	},
 	"storybook_paragraph_01": {
 		"message": "De pinguïns waren aan het sleeën. De elfen juichten van plezier."
@@ -4911,7 +4920,7 @@
 		"message": "Kroatië"
 	},
 	"trivia_hard_015_answer1": {
-		"message": "Wit-Rusland"
+		"message": "Belarus"
 	},
 	"trivia_hard_015_answer2": {
 		"message": "Hongarije"
@@ -5859,7 +5868,7 @@
 		"message": "Estland"
 	},
 	"trivia_hard_094_answer1": {
-		"message": "Wit-Rusland"
+		"message": "Belarus"
 	},
 	"trivia_hard_094_answer2": {
 		"message": "Spanje"
@@ -6819,7 +6828,7 @@
 		"message": "China"
 	},
 	"trivia_medium_069_answer1": {
-		"message": "Wit-Rusland"
+		"message": "Belarus"
 	},
 	"trivia_medium_069_answer2": {
 		"message": "Afghanistan"
@@ -7227,13 +7236,13 @@
 		"message": "Dempen opheffen"
 	},
 	"upgrade-warning": {
-		"message": "Oeps! 'Kerstman vinden' wordt niet ondersteund door je browser of JavaScript is niet ingeschakeld. Download een nieuwere browserversie of schakel JavaScript in."
+		"message": "Oeps! 'Kerstman vinden' wordt niet ondersteund door je browser of JavaScript is niet aangezet. Download een nieuwere browserversie of zet JavaScript aan."
 	},
 	"us_country_name": {
 		"message": "United States"
 	},
 	"us_tradition": {
-		"message": "In de VS hangt iedereen op Kerstavond een sok op. Volgens de legende hoorde Sint Nicolaas over een familie die het zwaar had. Als verrassing klom hij door hun schoorsteen en liet kostbare zakken met goud achter in hun sokken. Sindsdien is Sint Nicolaas daar bekend als 'Santa Claus', de grote weldoener."
+		"message": "In de VS hangt iedereen op Kerstavond een sok op. Volgens de legende hoorde Sint Nicolaas over een gezin dat het zwaar had. Als verrassing klom hij door hun schoorsteen en liet kostbare zakken met goud achter in hun sokken. Sindsdien is Sint Nicolaas daar bekend als 'Santa Claus', de grote weldoener."
 	},
 	"uy_country_name": {
 		"message": "Uruguay"

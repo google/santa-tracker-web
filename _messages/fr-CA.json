@@ -609,7 +609,7 @@
 		"message": "Décorer"
 	},
 	"deckdescription": {
-		"message": "Décorez votre navigateur avec une extension Google Chrome spécial Noël."
+		"message": "Décorez votre navigateur avec une extension Chrome spécial Noël."
 	},
 	"decmonth": {
 		"message": "déc."
@@ -1299,7 +1299,7 @@
 		"message": "Bien"
 	},
 	"nonprofit-wheelmap-description": {
-		"message": "Il peut être difficile pour les utilisateurs de fauteuils roulants de connaître les lieux qui leur sont accessibles : cinémas, restaurants, peu importe là où ils veulent aller. L'application Wheelmap leur montre les lieux accessibles aux fauteuils roulants afin que ces personnes puissent passer moins de temps à planifier leurs itinéraires et plus de temps à découvrir le monde!"
+		"message": "Il peut être difficile pour les utilisateurs de fauteuils roulants de connaître les lieux qui leur sont accessibles : cinémas, restaurants, peu importe là où ils veulent aller. L'application Wheelmap leur montre les lieux accessibles aux personnes en fauteuil roulant afin que ces personnes puissent passer moins de temps à planifier leurs itinéraires et plus de temps à découvrir le monde!"
 	},
 	"nonprofit-wheelmap-type": {
 		"message": "Mobilité"
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oups!"
 	},
+	"railroad_throw": {
+		"message": "Lancer"
+	},
 	"readyquestion": {
 		"message": "Prêt?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "La course avec Rudolphe"
+	},
+	"scene_railroad": {
+		"message": "Voyage en train"
 	},
 	"scene_rollercoaster": {
 		"message": "Montagnes russes des lutins"
@@ -3334,6 +3340,9 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_new_language": {
+		"message": "Vous avez aimé lire les aventures d'Ollie? Essayez de les découvrir dans une nouvelle langue."
 	},
 	"storybook_paragraph_01": {
 		"message": "Les pingouins faisaient de la luge. Les lutins criaient de joie."

@@ -51,7 +51,7 @@
 		"message": "Atrás"
 	},
 	"back_to_tracker": {
-		"message": "Volver a rastreador"
+		"message": "Volver al rastreador"
 	},
 	"bd_country_name": {
 		"message": "Bangladés"
@@ -768,7 +768,7 @@
 		"message": "¿Cuánto sabes de la historia de estas fiestas? Pon a prueba tus conocimientos con un cuestionario de nueve preguntas."
 	},
 	"familyguide_card_07_title": {
-		"message": "Cuestionario sobre tradiciones típicas de estas fiestas"
+		"message": "Cuestionario sobre tradiciones festivas"
 	},
 	"familyguide_card_08_body": {
 		"message": "¿Te pica el gusanillo? Descubre todo tipo de platos y manjares exquisitos de los distintos rincones del mundo."
@@ -810,10 +810,10 @@
 		"message": "Hagamos planes para ayudar al planeta"
 	},
 	"familyguide_doublecard_card02_body": {
-		"message": "Para sacar el máximo partido a Internet, los niños deben estar preparados para tomar decisiones acertadas. La Academia de internautas ejemplares les enseña los conceptos fundamentales de seguridad y ciudadanía digital para que puedan explorar el mundo online con confianza."
+		"message": "Para sacar el máximo partido a Internet, los niños deben estar preparados para tomar decisiones acertadas. Sé genial en Internet les enseña los conceptos fundamentales de seguridad y ciudadanía digital para que puedan explorar el mundo online con confianza."
 	},
 	"familyguide_doublecard_card02_title": {
-		"message": "Academia de internautas ejemplares"
+		"message": "Sé genial en Internet"
 	},
 	"familyguide_doublecard_title": {
 		"message": "Más de Google"
@@ -888,7 +888,7 @@
 		"message": "Descarga la aplicación Sigue a Papá Noel (Android) en Play Store. En ella, podrás disfrutar de una escena exclusiva de la aldea con juegos que no encontrarás en ningún otro sitio."
 	},
 	"familyguide_tips_tip02_title": {
-		"message": "Aplicación para Android"
+		"message": "Aplicación Android"
 	},
 	"familyguide_tips_tip03_body": {
 		"message": "Gracias a la integración con Android Wear, puedes seguir a Papá Noel desde tu muñeca."
@@ -1281,7 +1281,7 @@
 		"message": "Lectura"
 	},
 	"nonprofit-rnib-description": {
-		"message": "Hay miles de personas en todo el mundo que, pese a cierta pérdida, conservan algo de visión. Google.org colabora con RNIB para desarrollar \"gafas inteligentes\" con las que las personas con escasa visión puedan percibir mejor formas y siluetas. Estas gafas inteligentes permiten ver el mundo con otros ojos, ya que ayudan a recuperar la confianza y la independencia."
+		"message": "Hay miles de personas en todo el mundo que, pese a cierta pérdida, conservan algo de visión. Google.org colabora con RNIB para desarrollar \"gafas inteligentes\" con las que las personas con baja visión puedan percibir mejor formas y siluetas. Estas gafas inteligentes permiten ver el mundo con otros ojos, ya que ayudan a recuperar la confianza y la independencia."
 	},
 	"nonprofit-rnib-type": {
 		"message": "Gafas inteligentes"
@@ -1461,7 +1461,7 @@
 		"message": "Aventuras educativas"
 	},
 	"press-edu1": {
-		"message": "Hemos ampliado nuestra \u003ca href=\"./educators.html\"\u003epágina de recursos para educadores\u003c/a\u003e. Ahora, los docentes disponen de una serie de guías en formato de vídeo (disponibles en cinco idiomas) que pueden compaginar con sus unidades didácticas. Podrás seguir disfrutando de todos tus juegos favoritos, en los que no solo se abordan conceptos básicos de programación, sino que también sirven para familiarizarse con las tradiciones navideñas de todo el mundo. Con Sigue a Papá Noel, queremos que la experiencia de aprendizaje sea mucho más divertida, gracias a su toque navideño. Para obtener más información, echa un vistazo a \u003ca href=\"./educators.html\"\u003enuestros juegos educativos\u003c/a\u003e."
+		"message": "Hemos ampliado nuestra \u003ca href=\"./educators.html\"\u003epágina de recursos para educadores\u003c/a\u003e. Ahora, los docentes disponen de una serie de guías en formato de vídeo (disponibles en cinco idiomas) que pueden compaginar con sus unidades didácticas. Podrás seguir disfrutando de todos tus juegos favoritos, en los que no solo se abordan conceptos básicos de programación, sino que también sirven para familiarizarse con las tradiciones festivas de todo el mundo. Con Sigue a Papá Noel, queremos que la experiencia de aprendizaje sea mucho más divertida, gracias a su toque festivo. Para obtener más información, echa un vistazo a \u003ca href=\"./educators.html\"\u003enuestros juegos educativos\u003c/a\u003e."
 	},
 	"press-games-title": {
 		"message": "Todos los juegos y actividades divertidas"
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "¡Vaya!"
 	},
+	"railroad_throw": {
+		"message": "Tirar"
+	},
 	"readyquestion": {
 		"message": "¿Todo listo?"
 	},
@@ -1605,7 +1608,7 @@
 		"message": "Mamá Noel"
 	},
 	"santasearch_character_pegman": {
-		"message": "Hombrecito naranja"
+		"message": "Hombrecito"
 	},
 	"santasearch_character_penguin": {
 		"message": "Pingüino"
@@ -1665,7 +1668,7 @@
 		"message": "¡A escapar de la bola de nieve!"
 	},
 	"scene_app": {
-		"message": "Aplicación para Android"
+		"message": "Aplicación Android"
 	},
 	"scene_blimp": {
 		"message": "Repostando regalos"
@@ -1778,6 +1781,9 @@
 	"scene_racer": {
 		"message": "Carrera de obstáculos de Rudolph"
 	},
+	"scene_railroad": {
+		"message": "Viaje en ferrocarril"
+	},
 	"scene_rollercoaster": {
 		"message": "La montaña rusa élfica"
 	},
@@ -1815,10 +1821,10 @@
 		"message": "Street View"
 	},
 	"scene_traditions": {
-		"message": "Tradiciones navideñas"
+		"message": "Tradiciones festivas"
 	},
 	"scene_traditionsquiz": {
-		"message": "Cuestionario sobre tradiciones típicas de estas fiestas"
+		"message": "Cuestionario sobre tradiciones festivas"
 	},
 	"scene_translations": {
 		"message": "Traducciones"
@@ -1926,7 +1932,7 @@
 		"message": "Made with Code: Emoji navideño"
 	},
 	"sidebar_earth_quiz": {
-		"message": "Google Earth: Cuestionario sobre tradiciones navideñas"
+		"message": "Google Earth: Cuestionario sobre tradiciones festivas"
 	},
 	"sidebar_santas_location": {
 		"message": "Google Maps: Ubicación de Papá Noel"
@@ -3480,7 +3486,7 @@
 		"message": "Jugar a La torre del tesoro"
 	},
 	"tracker-game_be-internet-awesome": {
-		"message": "Academia de internautas ejemplares"
+		"message": "Sé genial en Internet"
 	},
 	"tracker_arrival": {
 		"message": "Llegada"
@@ -7269,7 +7275,7 @@
 		"message": "¿Qué más puedes hacer?"
 	},
 	"village_santa_a2hs": {
-		"message": "Añadir a la pantalla de inicio"
+		"message": "Añadir a pantalla de inicio"
 	},
 	"village_santa_a2hs_chromeos": {
 		"message": "Añadir a la estantería"

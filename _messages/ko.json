@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "앗!"
 	},
+	"railroad_throw": {
+		"message": "던지다"
+	},
 	"readyquestion": {
 		"message": "준비되셨나요?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "루돌프 경주"
+	},
+	"scene_railroad": {
+		"message": "레일로드 라이드"
 	},
 	"scene_rollercoaster": {
 		"message": "엘프 롤러코스터"
@@ -3334,6 +3340,9 @@
 	},
 	"sr_country_name": {
 		"message": "수리남"
+	},
+	"storybook_new_language": {
+		"message": "올리의 모험 이야기가 마음에 드시나요? 새로운 언어로 만나보세요."
 	},
 	"storybook_paragraph_01": {
 		"message": "펭귄들은 썰매를 타고 있었습니다. 엘프들은 신나게 응원하고 있었습니다."

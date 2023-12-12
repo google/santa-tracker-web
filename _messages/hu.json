@@ -1497,7 +1497,7 @@
 		"message": "Tánc(ok) a manókkal:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Ezenkívül valós időben láthatod a Mikulás helyzetét a Google Térképen – mindössze koppints a hamburgergombra, majd a „Helyzetmegosztás” elemre, hogy láthasd, pontosan hol tart a Mikulás az útja során. Még egyszerűbb, ha ellátogatsz a \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e oldalra!"
+		"message": "Ezenkívül valós időben láthatod a Mikulás helyzetét a Google Térképen – mindössze koppints a hamburgergombra, majd a „Helymegosztás” elemre, hogy láthasd, pontosan hol tart a Mikulás az útja során. Még egyszerűbb, ha ellátogatsz a \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e oldalra!"
 	},
 	"press-whatsnew3-title": {
 		"message": "A Mikulás követésének új módja:"
@@ -1576,6 +1576,9 @@
 	},
 	"quickdraw-timesup-title-noguess": {
 		"message": "Hoppá!"
+	},
+	"railroad_throw": {
+		"message": "Dob"
 	},
 	"readyquestion": {
 		"message": "Készen állsz?"
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolffutam"
+	},
+	"scene_railroad": {
+		"message": "Vonatozás"
 	},
 	"scene_rollercoaster": {
 		"message": "Manók a hullámvasúton"

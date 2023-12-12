@@ -630,7 +630,7 @@
 		"message": "Dominikanska Republika"
 	},
 	"donate_button": {
-		"message": "Doniraj"
+		"message": "Donirajte"
 	},
 	"donate_text": {
 		"message": "Pomozi u financiranju projekta za osobe s posebnim potrebama na adresi DonorsChoose.org. Ovog prosinca udvostručujemo učinak uplatom dodatnih 50% na svaku donaciju, sve dok naše donacije ne dosegnu ciljani iznos od 1 milijun USD. Zajedno možemo učionice učiniti prilagođenijima svoj djeci, #ForEveryKid"
@@ -1098,7 +1098,7 @@
 		"message": "Saznaj"
 	},
 	"learnmore": {
-		"message": "Saznaj više"
+		"message": "Saznajte više"
 	},
 	"level": {
 		"message": "Razina"
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Žao nam je!"
 	},
+	"railroad_throw": {
+		"message": "Baciti"
+	},
 	"readyquestion": {
 		"message": "Jesi li spreman?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolf trkač"
+	},
+	"scene_railroad": {
+		"message": "Vožnja željeznicom"
 	},
 	"scene_rollercoaster": {
 		"message": "Vilenjački vlak smrti"
@@ -2586,7 +2592,7 @@
 		"message": "bolnica"
 	},
 	"speedsketch_item~hot air balloon": {
-		"message": "balon na topli zrak"
+		"message": "balon na vrući zrak"
 	},
 	"speedsketch_item~hot dog": {
 		"message": "hot-dog"
@@ -3334,6 +3340,9 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_new_language": {
+		"message": "Voliš li čitati o Olliejevoj avanturi? Pokušaj je istražiti na novom jeziku."
 	},
 	"storybook_paragraph_01": {
 		"message": "Pingvini su se sanjkali. Vilenjaci su ih radosno bodrili."

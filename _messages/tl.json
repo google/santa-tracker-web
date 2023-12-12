@@ -534,7 +534,7 @@
 		"message": "Alam mo bang matatapos mo ang level na ito sa pamamagitan lang ng {{ideal}} (na) block?"
 	},
 	"codelab-try-again": {
-		"message": "Subukang Muli"
+		"message": "Subukan Ulit"
 	},
 	"controller_gamepad": {
 		"message": "Controller"
@@ -1098,7 +1098,7 @@
 		"message": "Matuto"
 	},
 	"learnmore": {
-		"message": "Matuto Nang Higit Pa"
+		"message": "Matuto Pa"
 	},
 	"level": {
 		"message": "Level"
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Oops!"
 	},
+	"railroad_throw": {
+		"message": "Itapon"
+	},
 	"readyquestion": {
 		"message": "Handa ka na?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolph Racer"
+	},
+	"scene_railroad": {
+		"message": "Ride sa Riles"
 	},
 	"scene_rollercoaster": {
 		"message": "Elf Rollercoaster"
@@ -3334,6 +3340,9 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_new_language": {
+		"message": "Gustong-gusto mo bang magbasa ng tungkol sa adventure ni Ollie? Subukang mag-explore ng bagong wika."
 	},
 	"storybook_paragraph_01": {
 		"message": "The penguins were sledding. Elves cheered with delight."

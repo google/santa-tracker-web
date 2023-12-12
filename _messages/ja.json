@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "クリア失敗"
 	},
+	"railroad_throw": {
+		"message": "投げる"
+	},
 	"readyquestion": {
 		"message": "準備は OK？"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "赤鼻のトナカイのレース"
+	},
+	"scene_railroad": {
+		"message": "列車の旅"
 	},
 	"scene_rollercoaster": {
 		"message": "妖精のローラーコースター"
@@ -3334,6 +3340,9 @@
 	},
 	"sr_country_name": {
 		"message": "スリナム"
+	},
+	"storybook_new_language": {
+		"message": "オーリーの冒険のお話は楽しかったかな？新しい言語でも読んでみてね。"
 	},
 	"storybook_paragraph_01": {
 		"message": "ペンギンたちはそり滑りをしています。エルフたちは楽しそうな声をあげています。"

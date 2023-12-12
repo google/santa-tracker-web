@@ -954,7 +954,7 @@
 		"message": "Stigin þín:"
 	},
 	"getgooglemaps": {
-		"message": "Sækja Google kort"
+		"message": "Sækja Google-kort"
 	},
 	"getready": {
 		"message": "Þetta er að gerast!"
@@ -1497,7 +1497,7 @@
 		"message": "Dans með álfum:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Þú munt líka geta séð staðsetningu jólasveinsins í rauntíma í Google kort. Þú þarft bara að ýta á hamborgaratáknið og síðan á „Staðsetningardeiling“ til að sjá nákvæmlega hvar jólasveinninn er staddur á ferðalagi sínu Þú getur líka nýtt þér flýtileið og farið á \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+		"message": "Þú munt líka geta séð staðsetningu jólasveinsins í rauntíma í Google-kort. Þú þarft bara að ýta á hamborgaratáknið og síðan á „Staðsetningardeiling“ til að sjá nákvæmlega hvar jólasveinninn er staddur á ferðalagi sínu Þú getur líka nýtt þér flýtileið og farið á \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
 	},
 	"press-whatsnew3-title": {
 		"message": "Ný leið til að fylgjast með Sveinka:"
@@ -1576,6 +1576,9 @@
 	},
 	"quickdraw-timesup-title-noguess": {
 		"message": "Úbbs!"
+	},
+	"railroad_throw": {
+		"message": "Kasta"
 	},
 	"readyquestion": {
 		"message": "Allt tilbúið?"
@@ -1778,6 +1781,9 @@
 	"scene_racer": {
 		"message": "Rúdólfhlaup"
 	},
+	"scene_railroad": {
+		"message": "Lestarferð"
+	},
 	"scene_rollercoaster": {
 		"message": "Álfarússíbani"
 	},
@@ -1929,7 +1935,7 @@
 		"message": "Google Jörð: Spurningakeppni um hátíðarhefðir"
 	},
 	"sidebar_santas_location": {
-		"message": "Google kort: Staðsetning jólasveinsins"
+		"message": "Google-kort: Staðsetning jólasveinsins"
 	},
 	"sidebar_trends": {
 		"message": "Google Trends: Leitir um hátíðarnar"

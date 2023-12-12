@@ -507,7 +507,7 @@
 		"message": "Novo desafío"
 	},
 	"codelab-oops": {
-		"message": "Vaia!"
+		"message": "Vaia…"
 	},
 	"codelab-result-empty-repeat-fail": {
 		"message": "O bloque Repetir debe ter outros bloques dentro para que funcione."
@@ -519,16 +519,16 @@
 		"message": "Parece que te perdiches!"
 	},
 	"codelab-result-missing-block-fail": {
-		"message": "Proba cunha ou con máis pezas das que aparecen debaixo para resolver o crebacabezas."
+		"message": "Proba cunha ou con máis pezas das que aparecen debaixo para resolver o quebracabezas."
 	},
 	"codelab-result-missing-block-success": {
 		"message": "Sabías que podes completar este nivel con tan só {{ideal}} pezas? Proba a usar a peza que tes debaixo."
 	},
 	"codelab-result-perfect-success": {
-		"message": "Parabéns! Remataches o crebacabezas correctamente."
+		"message": "Parabéns! Remataches o quebracabezas correctamente."
 	},
 	"codelab-result-too-few-blocks-fail": {
-		"message": "Estás utilizando as pezas adecuadas, pero proba a utilizar máis para finalizar este crebacabezas."
+		"message": "Estás utilizando as pezas adecuadas, pero proba a utilizar máis para finalizar este quebracabezas."
 	},
 	"codelab-result-too-many-blocks-success": {
 		"message": "Sabías que podes finalizar este nivel con {{ideal}} bloques?"
@@ -570,10 +570,10 @@
 		"message": "Seg"
 	},
 	"countdown_until": {
-		"message": "Papá Noel despegará en"
+		"message": "Papá Noel engalará en"
 	},
 	"countdownlabel": {
-		"message": "Ata que Papá Noel despegue"
+		"message": "Ata que Papá Noel engalaxe"
 	},
 	"cr_country_name": {
 		"message": "Costa Rica"
@@ -792,7 +792,7 @@
 		"message": "Hai moitos elfos, renos e homiños laranxas no Polo Norte. Mira como van dun lugar a outro."
 	},
 	"familyguide_card_15_body": {
-		"message": "Papá Noel e os renos están listos para saír, pero necesitan a axuda dos elfos programadores antes de despegar."
+		"message": "Papá Noel e os renos están listos para saír, pero necesitan a axuda dos elfos programadores antes de engalar."
 	},
 	"familyguide_card_16_body": {
 		"message": "Os nosos amigos da aldea únense ao narval Ollie para pasar o día baixo o mar e montar a primeira festa anual de alumeamento festivo con algas."
@@ -810,10 +810,10 @@
 		"message": "Fagamos plans para axudarlle ao planeta"
 	},
 	"familyguide_doublecard_card02_body": {
-		"message": "Os nenos poderán sacar o máximo proveito de Internet se se preparan para tomar decisións de forma intelixente. Be Internet Awesome ensínalles os conceptos básicos da cidadanía dixital e de seguranza para que poidan explorar con confianza o mundo en liña."
+		"message": "Os nenos poderán sacar o máximo proveito de Internet se se preparan para tomar decisións de forma intelixente. O programa Sé xenial en Internet ensínalles os conceptos básicos da cidadanía dixital e de seguranza para que poidan explorar con confianza o mundo en liña."
 	},
 	"familyguide_doublecard_card02_title": {
-		"message": "Be Internet Awesome"
+		"message": "Sé xenial en Internet"
 	},
 	"familyguide_doublecard_title": {
 		"message": "Máis de Google"
@@ -867,7 +867,7 @@
 		"message": "O 24 de decembro, a aldea de Papá Noel transformarase para ofrecerche unha experiencia na que poderás seguir a Papá Noel e os seu renos mentres lles van deixando regalos aos nenos de todo o mundo."
 	},
 	"familyguide_secondary_cta_01": {
-		"message": "Utiliza o sitio web, ou a aplicación Android, Sigue a Papá Noel"
+		"message": "Utiliza o sitio web, ou a aplicación para Android, Sigue a Papá Noel"
 	},
 	"familyguide_secondary_cta_02": {
 		"message": "Sabías que a viaxe de Papá Noel dura 25 horas? A súa primeira parada é na Rusia oriental ás 22:00 (hora local), cando en Nova York son as 5:00 e en París son as 11:00."
@@ -885,10 +885,10 @@
 		"message": "\"Ok Google, que novidades hai no Polo Norte?\""
 	},
 	"familyguide_tips_tip02_body": {
-		"message": "Descarga a aplicación Android Sigue a Papá Noel desde Play Store. Na aldea atoparás unha escena con xogos exclusivos para esta aplicación."
+		"message": "Descarga a aplicación para Android Sigue a Papá Noel desde Play Store. Na aldea atoparás unha escena con xogos exclusivos para esta aplicación."
 	},
 	"familyguide_tips_tip02_title": {
-		"message": "Aplicación de Android"
+		"message": "Aplicación para Android"
 	},
 	"familyguide_tips_tip03_body": {
 		"message": "Sigue a Papá Noel desde o teu pulso grazas á integración con Android Wear."
@@ -1107,7 +1107,7 @@
 		"message": "Acender"
 	},
 	"lightdescription": {
-		"message": "Ilumina a televisión coa aplicación de Android Sigue a Papá Noel e Chromecast"
+		"message": "Ilumina a televisión coa aplicación para Android Sigue a Papá Noel e Chromecast"
 	},
 	"lk_country_name": {
 		"message": "Sri Lanka"
@@ -1131,7 +1131,7 @@
 		"message": "Libia"
 	},
 	"md_country_name": {
-		"message": "Moldavia"
+		"message": "República Moldova"
 	},
 	"medium_difficulty": {
 		"message": "Dificultade media"
@@ -1281,7 +1281,7 @@
 		"message": "Lectura"
 	},
 	"nonprofit-rnib-description": {
-		"message": "Hai moitas persoas en todo o mundo que viven cunha importante perda visual pero que conservan algo de visión. Google.org colabora con RNIB para desenvolver \"gafas intelixentes\" coas que as persoas con escasa visión poidan percibir mellor formas e siluetas. Estas gafas intelixentes permiten ver o mundo con outros ollos, xa que axudan a recuperar a confianza e a independencia."
+		"message": "Hai moitas persoas en todo o mundo que viven cunha importante perda visual pero que conservan algo de visión. Google.org colabora con RNIB para desenvolver \"lentes intelixentes\" coas que as persoas con escasa visión poidan percibir mellor formas e siluetas. Estas lentes intelixentes permiten ver o mundo con outros ollos, xa que axudan a recuperar a confianza e a independencia."
 	},
 	"nonprofit-rnib-type": {
 		"message": "Lentes intelixentes"
@@ -1413,7 +1413,7 @@
 		"message": "Xogar de novo"
 	},
 	"playdescription": {
-		"message": "Xoga cos amigos na aplicación de Android Sigue a Papá Noel."
+		"message": "Xoga cos amigos na aplicación para Android Sigue a Papá Noel."
 	},
 	"playextra": {
 		"message": "Xoga a outros niveis."
@@ -1575,7 +1575,10 @@
 		"message": "Ben feito!"
 	},
 	"quickdraw-timesup-title-noguess": {
-		"message": "Vaia!"
+		"message": "Vaia…"
+	},
+	"railroad_throw": {
+		"message": "Tirar"
 	},
 	"readyquestion": {
 		"message": "Listo?"
@@ -1665,7 +1668,7 @@
 		"message": "Escapar da bóla de neve"
 	},
 	"scene_app": {
-		"message": "Aplicación de Android"
+		"message": "Aplicación para Android"
 	},
 	"scene_blimp": {
 		"message": "Recarga de agasallos"
@@ -1778,6 +1781,9 @@
 	"scene_racer": {
 		"message": "Carreira de Rudolph"
 	},
+	"scene_railroad": {
+		"message": "Paseo en vagoneta"
+	},
 	"scene_rollercoaster": {
 		"message": "Montaña rusa élfica"
 	},
@@ -1839,7 +1845,7 @@
 		"message": "Elfos cantando e bailando"
 	},
 	"scene_videoscene_liftoff": {
-		"message": "Despegue de Papá Noel"
+		"message": "Engalaxe de Papá Noel"
 	},
 	"scene_videoscene_likealight": {
 		"message": "Luces apagadas"
@@ -1875,7 +1881,7 @@
 		"message": "Facendo o vago"
 	},
 	"scene_videoscene_takeoff": {
-		"message": "Despegue"
+		"message": "Engalaxe"
 	},
 	"scene_videoscene_temptation": {
 		"message": "Tentación"
@@ -2709,7 +2715,7 @@
 		"message": "mapa"
 	},
 	"speedsketch_item~marker": {
-		"message": "marcador"
+		"message": "rotulador"
 	},
 	"speedsketch_item~matches": {
 		"message": "mistos"
@@ -2772,7 +2778,7 @@
 		"message": "boca"
 	},
 	"speedsketch_item~mug": {
-		"message": "xerra"
+		"message": "cunca"
 	},
 	"speedsketch_item~mushroom": {
 		"message": "cogomelo"
@@ -3387,7 +3393,7 @@
 		"message": "As decoracións viñan a continuación. Sabían a quen recorrer exactamente. “Señor Cangrexo e señora Lagosta, poden axudar, por favor e grazas?”"
 	},
 	"storybook_paragraph_17": {
-		"message": "As ostras interviñeron dicindo: “Podemos axudar co deseño! Colga as nosas perlas das ramas para que brillen e resplandezan”."
+		"message": "As ostras interviñeron dicindo “Podemos axudar co deseño! Colga as nosas perlas das ramas para que brillen e resplandezan”."
 	},
 	"storybook_paragraph_18": {
 		"message": "Toda festa precisa música, cancións co ritmo axeitado para que todo o mundo baile e estea animado."
@@ -3480,7 +3486,7 @@
 		"message": "Xogar á Torre do tesouro"
 	},
 	"tracker-game_be-internet-awesome": {
-		"message": "Be Internet Awesome"
+		"message": "Sé xenial en Internet"
 	},
 	"tracker_arrival": {
 		"message": "Chegada"
@@ -4035,7 +4041,7 @@
 		"message": "En que cidade australiana se atopan a Casa da Ópera e a Ponte da Baía?"
 	},
 	"trivia_beginner_039_answer0": {
-		"message": "Sidney"
+		"message": "Sydney"
 	},
 	"trivia_beginner_039_answer1": {
 		"message": "Iacarta"
@@ -4062,7 +4068,7 @@
 		"message": "Atenas"
 	},
 	"trivia_beginner_041_answer1": {
-		"message": "Kiev"
+		"message": "Kíiv"
 	},
 	"trivia_beginner_041_answer2": {
 		"message": "Lima"
@@ -4152,7 +4158,7 @@
 		"message": "Os Ánxeles"
 	},
 	"trivia_beginner_049": {
-		"message": "A ponte de Golden Gate conecta unha cidade de Estados Unidos coa península de Marín. De que cidade se trata?"
+		"message": "A ponte de Golden Gate conecta unha cidade dos Estados Unidos coa península de Marín. De que cidade se trata?"
 	},
 	"trivia_beginner_049_answer0": {
 		"message": "San Francisco"
@@ -4164,7 +4170,7 @@
 		"message": "Baltimore"
 	},
 	"trivia_beginner_050": {
-		"message": "O Arco Gateway, que simboliza a expansión cara ao oeste dos Estados Unidos en 1800, está situado ao longo do río Mississippi. En que cidade de Estados Unidos se atopa?"
+		"message": "O Arco Gateway, que simboliza a expansión cara ao oeste dos Estados Unidos en 1800, está situado ao longo do río Mississippi. En que cidade dos Estados Unidos se atopa?"
 	},
 	"trivia_beginner_050_answer0": {
 		"message": "St. Louis"
@@ -4776,7 +4782,7 @@
 		"message": "Lago Erie"
 	},
 	"trivia_hard_004": {
-		"message": "Cal destas cidades de Estados Unidos é a máis poboada?"
+		"message": "Cal destas cidades dos Estados Unidos é a máis poboada?"
 	},
 	"trivia_hard_004_answer0": {
 		"message": "Chicago"
@@ -5145,7 +5151,7 @@
 		"message": "Finlandia"
 	},
 	"trivia_hard_034_answer2": {
-		"message": "Moldavia"
+		"message": "República Moldova"
 	},
 	"trivia_hard_035": {
 		"message": "A que país pertence a illa de Sardeña?"
@@ -5433,7 +5439,7 @@
 		"message": "Berlín"
 	},
 	"trivia_hard_058_answer2": {
-		"message": "Kiev"
+		"message": "Kíiv"
 	},
 	"trivia_hard_059": {
 		"message": "Que cidade, a cal é unha importante parada na Estrada Panamericana, é a cidade máis grande de Costa Rica?"
@@ -6777,7 +6783,7 @@
 		"message": "Siria"
 	},
 	"trivia_medium_065_answer2": {
-		"message": "Moldavia"
+		"message": "República Moldova"
 	},
 	"trivia_medium_066": {
 		"message": "Victoria e Nova Gales do Sur son dous estados. En que país se atopan?"
@@ -7230,7 +7236,7 @@
 		"message": "Activar o son"
 	},
 	"upgrade-warning": {
-		"message": "Ai! Parece que o teu navegador non é compatible con Sigue a Papá Noel ou que tes JavaScript desactivado. Para acceder ao sitio web, descarga un navegador máis recente ou activa JavaScript."
+		"message": "Ai, parece que o teu navegador non é compatible con Sigue a Papá Noel ou que tes JavaScript desactivado. Para acceder ao sitio web, descarga un navegador máis recente ou activa JavaScript."
 	},
 	"us_country_name": {
 		"message": "Estados Unidos"
@@ -7296,7 +7302,7 @@
 		"message": "Toca \u003cspan\u003e\u003c/span\u003e e despois Engadir á pantalla de inicio"
 	},
 	"village_takesoff": {
-		"message": "Papá Noel despega en"
+		"message": "Papá Noel engala en"
 	},
 	"vn_country_name": {
 		"message": "Vietnam"

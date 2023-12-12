@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Hoppla!"
 	},
+	"railroad_throw": {
+		"message": "Werfen"
+	},
 	"readyquestion": {
 		"message": "Bereit?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "Rudolfs Rennen"
+	},
+	"scene_railroad": {
+		"message": "Bimmelbahnfahrt"
 	},
 	"scene_rollercoaster": {
 		"message": "Achterbahn für Wichtel"
@@ -3334,6 +3340,9 @@
 	},
 	"sr_country_name": {
 		"message": "Suriname"
+	},
+	"storybook_new_language": {
+		"message": "Du findest Ollies Abenteuer toll? Dann versuch doch mal, die Geschichte in einer anderen Sprache zu lesen."
 	},
 	"storybook_paragraph_01": {
 		"message": "Die Pinguine und die Elfen hatten strahlende Gesichter."

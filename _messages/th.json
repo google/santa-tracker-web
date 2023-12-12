@@ -933,7 +933,7 @@
 		"message": "ฝรั่งเศส"
 	},
 	"fr_language_name": {
-		"message": "ภาษาฝรั่งเศส"
+		"message": "ฝรั่งเศส"
 	},
 	"fr_tradition": {
 		"message": "ในฝรั่งเศสมีประเพณีที่เด็กๆ จะวางรองเท้าไว้ข้างเตาผิงเพื่อรอให้ Père Noël มาถึง ถ้าพวกเขาเป็นเด็กดีตลอดทั้งปี Père Noël' จะวางของขวัญไว้ในรองเท้า"
@@ -1152,7 +1152,7 @@
 		"message": "มาลี"
 	},
 	"mm_country_name": {
-		"message": "เมียนมาร์"
+		"message": "เมียนมา"
 	},
 	"mr_country_name": {
 		"message": "มอริเตเนีย"
@@ -1317,7 +1317,7 @@
 		"message": "การได้ยิน"
 	},
 	"notice_cookies": {
-		"message": "Google ให้บริการคุกกี้เพื่อวิเคราะห์การเข้าชมไซต์นี้และเพื่อให้คุณได้รับประสบการณ์ที่ดีที่สุด ข้อมูลเกี่ยวกับการใช้ไซต์นี้ของคุณจะแชร์กับ Google เพื่อวัตถุประสงค์ดังกล่าว"
+		"message": "Google ให้บริการคุกกี้เพื่อวิเคราะห์การเข้าชมเว็บไซต์นี้และเพื่อให้คุณได้รับประสบการณ์ที่ดีที่สุด ข้อมูลเกี่ยวกับการใช้ไซต์นี้ของคุณจะแชร์กับ Google เพื่อวัตถุประสงค์ดังกล่าว"
 	},
 	"notice_cookies_details": {
 		"message": "ดูรายละเอียด"
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "อ๊ะ!"
 	},
+	"railroad_throw": {
+		"message": "โยน"
+	},
 	"readyquestion": {
 		"message": "พร้อมไหม"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "รูดอล์ฟนักวิ่งแข่ง"
+	},
+	"scene_railroad": {
+		"message": "นั่งรถไฟ"
 	},
 	"scene_rollercoaster": {
 		"message": "รถไฟเหาะเอลฟ์"
@@ -2109,7 +2115,7 @@
 		"message": "ตะกร้า"
 	},
 	"speedsketch_item~basketball": {
-		"message": "บาสเก็ตบอล"
+		"message": "บาสเกตบอล"
 	},
 	"speedsketch_item~bat": {
 		"message": "ค้างคาว"
@@ -2916,7 +2922,7 @@
 		"message": "ไอศกรีมแท่ง"
 	},
 	"speedsketch_item~portrait": {
-		"message": "ภาพบุคคล"
+		"message": "แนวตั้ง"
 	},
 	"speedsketch_item~postcard": {
 		"message": "โปสการ์ด"
@@ -2976,7 +2982,7 @@
 		"message": "รถไฟเหาะ"
 	},
 	"speedsketch_item~rollerskates": {
-		"message": "โรลเลอร์สเกต"
+		"message": "โรลเลอร์สเก็ต"
 	},
 	"speedsketch_item~sadness": {
 		"message": "ความเศร้า"
@@ -3334,6 +3340,9 @@
 	},
 	"sr_country_name": {
 		"message": "ซูรินาเม"
+	},
+	"storybook_new_language": {
+		"message": "หากชอบอ่านเรื่องราวการผจญภัยของ Ollie ลองอ่านเป็นภาษาอื่นดูสิ"
 	},
 	"storybook_paragraph_01": {
 		"message": "ขณะที่เพนกวินเล่นสไลด์เลื่อนหิมะ เหล่าเอลฟ์ก็ต่างส่งเสียงเชียร์ด้วยความปิติยินดี"
@@ -6651,7 +6660,7 @@
 		"message": "ตุรกี"
 	},
 	"trivia_medium_055_answer1": {
-		"message": "เมียนมาร์"
+		"message": "เมียนมา"
 	},
 	"trivia_medium_055_answer2": {
 		"message": "เอสโตเนีย"

@@ -813,7 +813,7 @@
 		"message": "Aby w pełni korzystać z zalet internetu, dzieci muszą umieć podejmować mądre decyzje. Dzięki programowi „Asy internetu” dzieci mogą poznać podstawy bezpieczeństwa i udziału w społeczności internetowej, by bez obaw odkrywać świat online."
 	},
 	"familyguide_doublecard_card02_title": {
-		"message": "Zostań praktykiem internetowym"
+		"message": "Zostań asem internetu"
 	},
 	"familyguide_doublecard_title": {
 		"message": "Więcej od Google"
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Ups!"
 	},
+	"railroad_throw": {
+		"message": "Rzucić"
+	},
 	"readyquestion": {
 		"message": "Zaczynamy?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "Wyścigi z Rudolfem"
+	},
+	"scene_railroad": {
+		"message": "Przejażdżka kolejką"
 	},
 	"scene_rollercoaster": {
 		"message": "Elfy na kolejce górskiej"
@@ -3480,7 +3486,7 @@
 		"message": "Zagraj w Wieżę Skarbów"
 	},
 	"tracker-game_be-internet-awesome": {
-		"message": "Zostań praktykiem internetowym"
+		"message": "Zostań asem internetu"
 	},
 	"tracker_arrival": {
 		"message": "Przylot"

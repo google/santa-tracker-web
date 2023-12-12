@@ -141,7 +141,7 @@
 		"message": "Ботсвана"
 	},
 	"by_country_name": {
-		"message": "Белоруссия"
+		"message": "Беларусь"
 	},
 	"bz_country_name": {
 		"message": "Белиз"
@@ -810,10 +810,10 @@
 		"message": "Как спасти планету"
 	},
 	"familyguide_doublecard_card02_body": {
-		"message": "Детям может быть непросто ориентироваться в Сети. Чтобы помочь им чувствовать себя уверенно, мы создали сайт \"Как вести себя в Интернете\". На нем рассказывается об основах сетевого этикета и безопасности."
+		"message": "Детям может быть непросто ориентироваться в Сети. Чтобы помочь им чувствовать себя уверенно, мы создали сайт \"Как вести себя в интернете\". На нем рассказывается об основах сетевого этикета и безопасности."
 	},
 	"familyguide_doublecard_card02_title": {
-		"message": "Как вести себя в Интернете"
+		"message": "Как вести себя в интернете"
 	},
 	"familyguide_doublecard_title": {
 		"message": "Другие предложения Google"
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Не повезло!"
 	},
+	"railroad_throw": {
+		"message": "Бросать"
+	},
 	"readyquestion": {
 		"message": "Готовы?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "Гонки с Рудольфом"
+	},
+	"scene_railroad": {
+		"message": "Эльфийская доставка"
 	},
 	"scene_rollercoaster": {
 		"message": "Эльфийские горки"
@@ -3335,6 +3341,9 @@
 	"sr_country_name": {
 		"message": "Суринам"
 	},
+	"storybook_new_language": {
+		"message": "Хотите погрузиться в приключения Олли ещё раз? Вы можете прочитать о них на другом языке."
+	},
 	"storybook_paragraph_01": {
 		"message": "Пингвины и эльфы были в восторге."
 	},
@@ -3477,7 +3486,7 @@
 		"message": "Играть в Tower of Treasure"
 	},
 	"tracker-game_be-internet-awesome": {
-		"message": "Как вести себя в Интернете"
+		"message": "Как вести себя в интернете"
 	},
 	"tracker_arrival": {
 		"message": "Прибытие"
@@ -4911,7 +4920,7 @@
 		"message": "Хорватия"
 	},
 	"trivia_hard_015_answer1": {
-		"message": "Белоруссия"
+		"message": "Беларусь"
 	},
 	"trivia_hard_015_answer2": {
 		"message": "Венгрия"
@@ -5859,7 +5868,7 @@
 		"message": "Эстония"
 	},
 	"trivia_hard_094_answer1": {
-		"message": "Белоруссия"
+		"message": "Беларусь"
 	},
 	"trivia_hard_094_answer2": {
 		"message": "Испания"
@@ -6819,7 +6828,7 @@
 		"message": "Китай"
 	},
 	"trivia_medium_069_answer1": {
-		"message": "Белоруссия"
+		"message": "Беларусь"
 	},
 	"trivia_medium_069_answer2": {
 		"message": "Афганистан"

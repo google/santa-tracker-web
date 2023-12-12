@@ -813,7 +813,7 @@
 		"message": "Per usare Internet al meglio, i bambini devono essere preparati a prendere decisioni consapevoli. Il programma \"Vivi Internet, al meglio\" insegna ai bambini i principi base della sicurezza e della cittadinanza digitale affinché possano navigare su Internet in tutta sicurezza."
 	},
 	"familyguide_doublecard_card02_title": {
-		"message": "Vivi Internet, al sicuro"
+		"message": "Vivi Internet, al meglio"
 	},
 	"familyguide_doublecard_title": {
 		"message": "Altro da Google"
@@ -1317,7 +1317,7 @@
 		"message": "Apparecchi acustici"
 	},
 	"notice_cookies": {
-		"message": "Google si serve dei cookie per analizzare il traffico verso questo sito e per ottimizzare la tua esperienza d'uso. I dati relativi al tuo utilizzo del nostro sito vengono condivisi con Google a tale scopo."
+		"message": "Google si serve dei cookie per analizzare il traffico verso questo sito e per ottimizzare la tua esperienza d'uso. Le informazioni relative al tuo utilizzo del nostro sito vengono condivise con Google a questo scopo."
 	},
 	"notice_cookies_details": {
 		"message": "Vedi dettagli"
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Mannaggia!"
 	},
+	"railroad_throw": {
+		"message": "Gettare"
+	},
 	"readyquestion": {
 		"message": "Cominciamo?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "La corsa di Rudolph"
+	},
+	"scene_railroad": {
+		"message": "Giro in treno"
 	},
 	"scene_rollercoaster": {
 		"message": "Le montagne russe dei folletti"
@@ -3480,7 +3486,7 @@
 		"message": "Gioca alla Torre del Tesoro"
 	},
 	"tracker-game_be-internet-awesome": {
-		"message": "Vivi Internet, al sicuro"
+		"message": "Vivi Internet, al meglio"
 	},
 	"tracker_arrival": {
 		"message": "Arrivo"

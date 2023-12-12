@@ -207,7 +207,7 @@
 		"message": "Norsunluurannikko"
 	},
 	"citylights-contribute": {
-		"message": "Lisää omia valokuvia paikasta {{location}}"
+		"message": "Lisää omia kuvia paikasta {{location}}"
 	},
 	"citylights-panorama-01-description": {
 		"message": "Rockefeller Plaza"
@@ -684,7 +684,7 @@
 		"message": "Ilmeni ongelma, mutta tontut selvittävät asiaa."
 	},
 	"error-internal": {
-		"message": "Voi voi, jokin meni vikaan! Olemme kertoneet ongelmasta tontuille. Yritä sillä välin palata \u003ca href=\"./\"\u003ePukin kylään\u003c/a\u003e."
+		"message": "Voi voi, jotain meni vikaan! Olemme kertoneet ongelmasta tontuille. Yritä sillä välin palata \u003ca href=\"./\"\u003ePukin kylään\u003c/a\u003e."
 	},
 	"error-lost-connection": {
 		"message": "Menetimme juuri yhteyden Korvatunturille. Joulupukin tontut yrittävät kovasti korjata yhteyttä – pysy linjoilla!"
@@ -882,7 +882,7 @@
 		"message": "Pyydä Google Assistantilta Dimplesticks-tontun keksimiä päivän piristyksiä."
 	},
 	"familyguide_tips_tip01_title": {
-		"message": "\"Hei Google, mitä uutta Korvatunturilta?\""
+		"message": "\"OK Google, mitä uutta Korvatunturilta?\""
 	},
 	"familyguide_tips_tip02_body": {
 		"message": "Lataa Joulupukin jäljitin Android-sovelluksena Play Kaupasta. Sovelluksessa on aivan omanlainen Joulupukin kylä ja omat pelit."
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Hups!"
 	},
+	"railroad_throw": {
+		"message": "Heittää"
+	},
 	"readyquestion": {
 		"message": "Valmis?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "Petterin kilpa-ajo"
+	},
+	"scene_railroad": {
+		"message": "Rautatieajelu"
 	},
 	"scene_rollercoaster": {
 		"message": "Tonttuvuoristorata"
@@ -2916,7 +2922,7 @@
 		"message": "mehujää"
 	},
 	"speedsketch_item~portrait": {
-		"message": "muotokuva"
+		"message": "pystysuunta"
 	},
 	"speedsketch_item~postcard": {
 		"message": "postikortti"
@@ -4554,7 +4560,7 @@
 		"message": "Brasilia"
 	},
 	"trivia_beginner_082_answer1": {
-		"message": "Iso-Britannia"
+		"message": "Yhdistynyt kuningaskunta"
 	},
 	"trivia_beginner_082_answer2": {
 		"message": "Vietnam"
@@ -4893,7 +4899,7 @@
 		"message": "Tanska"
 	},
 	"trivia_hard_013_answer2": {
-		"message": "Iso-Britannia"
+		"message": "Yhdistynyt kuningaskunta"
 	},
 	"trivia_hard_014": {
 		"message": "Mikä maa ei rajoitu Mustaanmereen?"
@@ -5157,7 +5163,7 @@
 		"message": "Turkki"
 	},
 	"trivia_hard_035_answer2": {
-		"message": "Iso-Britannia"
+		"message": "Yhdistynyt kuningaskunta"
 	},
 	"trivia_hard_036": {
 		"message": "Mikä autiomaa kattaa suurimman osan Pekingin ja Ulan Batorin välisestä alueesta?"
@@ -6378,7 +6384,7 @@
 		"message": "Norja"
 	},
 	"trivia_medium_032_answer1": {
-		"message": "Iso-Britannia"
+		"message": "Yhdistynyt kuningaskunta"
 	},
 	"trivia_medium_032_answer2": {
 		"message": "Sri Lanka"
@@ -6642,7 +6648,7 @@
 		"message": "Islanti"
 	},
 	"trivia_medium_054_answer1": {
-		"message": "Iso-Britannia"
+		"message": "Yhdistynyt kuningaskunta"
 	},
 	"trivia_medium_054_answer2": {
 		"message": "Puola"
@@ -7215,7 +7221,7 @@
 		"message": "Uganda"
 	},
 	"uk_country_name": {
-		"message": "Iso-Britannia"
+		"message": "Yhdistynyt kuningaskunta"
 	},
 	"uk_tradition": {
 		"message": "Iso-Britanniassa kaikenikäiset joulunviettäjät pitävät illallispöydän paukkukaramelleista. Karamellit on kääritty värikkääseen paperiin, ja kun käärön päitä vedetään vastakkaisiin suuntiin, se repeää äänekkäästi. Paketin sisältä voi löytyä pahvihattu, lelu, vitsi tai palkinto jouluillan iloksi."

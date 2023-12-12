@@ -807,7 +807,7 @@
 		"message": "每個人都希望這顆星球能一直充滿生機。看看 Google 提供的幾個小秘訣，協助人們與這顆星球共存共榮。"
 	},
 	"familyguide_doublecard_card01_title": {
-		"message": "你的星球你規劃"
+		"message": "Your Plan, Your Planet"
 	},
 	"familyguide_doublecard_card02_body": {
 		"message": "孩子必須做好準備，懂得如何做出聰明的決定，才能真正善用網際網路的優勢。「Be Internet Awesome」教導孩子認識數位公民和安全的基礎概念，幫助他們安心探索網路世界。"
@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "糟糕！"
 	},
+	"railroad_throw": {
+		"message": "丟"
+	},
 	"readyquestion": {
 		"message": "準備好了嗎？"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "飆風馴鹿"
+	},
+	"scene_railroad": {
+		"message": "鐵道送禮之旅"
 	},
 	"scene_rollercoaster": {
 		"message": "精靈雲霄飛車"
@@ -3335,6 +3341,9 @@
 	"sr_country_name": {
 		"message": "蘇利南"
 	},
+	"storybook_new_language": {
+		"message": "喜歡奧利的探險故事嗎？快來探索其他語言版本的故事。"
+	},
 	"storybook_paragraph_01": {
 		"message": "企鵝滑著雪橇，精靈們開心地歡呼。"
 	},
@@ -3495,7 +3504,7 @@
 		"message": "聖誕老人距離你 {{distance_away}} 公里"
 	},
 	"tracker_distance_from_you": {
-		"message": "與您相距多遠"
+		"message": "與你相距多遠"
 	},
 	"tracker_distance_travelled": {
 		"message": "累積里程數"
@@ -3561,7 +3570,7 @@
 		"message": "世界小知識"
 	},
 	"tracker_your_location": {
-		"message": "您的位置"
+		"message": "你的位置"
 	},
 	"traditions-next": {
 		"message": "下個傳統"
@@ -7266,7 +7275,7 @@
 		"message": "其他探索方式"
 	},
 	"village_santa_a2hs": {
-		"message": "新增至主螢幕"
+		"message": "新增至主畫面"
 	},
 	"village_santa_a2hs_chromeos": {
 		"message": "新增至檔案櫃"
@@ -7290,7 +7299,7 @@
 		"message": "安裝"
 	},
 	"village_santa_intall_ios": {
-		"message": "只要依序輕觸 \u003cspan\u003e\u003c/span\u003e 和 [新增至主螢幕] 即可"
+		"message": "只要依序輕觸 \u003cspan\u003e\u003c/span\u003e 和「新增至主畫面」即可"
 	},
 	"village_takesoff": {
 		"message": "距離聖誕老人出發時間還有"

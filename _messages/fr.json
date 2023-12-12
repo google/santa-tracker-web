@@ -1577,6 +1577,9 @@
 	"quickdraw-timesup-title-noguess": {
 		"message": "Raté !"
 	},
+	"railroad_throw": {
+		"message": "Lancer"
+	},
 	"readyquestion": {
 		"message": "OK ?"
 	},
@@ -1777,6 +1780,9 @@
 	},
 	"scene_racer": {
 		"message": "La course de Rudolphe"
+	},
+	"scene_railroad": {
+		"message": "Tour en petit train"
 	},
 	"scene_rollercoaster": {
 		"message": "La montagne russe des lutins"
@@ -3334,6 +3340,9 @@
 	},
 	"sr_country_name": {
 		"message": "Surinam"
+	},
+	"storybook_new_language": {
+		"message": "Vous avez aimé les aventures d'Ollie ? Essayez de les lire dans une autre langue."
 	},
 	"storybook_paragraph_01": {
 		"message": "Les pingouins faisaient de la luge et les lutins poussaient des cris de joie."
