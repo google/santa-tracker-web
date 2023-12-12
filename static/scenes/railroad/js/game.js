@@ -225,7 +225,7 @@ class Game {
       // doesn't detect all tools so we have the fallback below.
       console.log('Checking for accessibility position')
       return this.previousClicks
-        .every(click => isPossibleAccessibilityToolClickPosition(element, click));
+        .every(click => isPossibleAccessibilityToolClickPosition(elements, click));
     }
     else {
       console.log('Checking for being in the same place')
