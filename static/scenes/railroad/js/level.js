@@ -101,11 +101,11 @@ class Level {
   }
 
   async throwAt(position, targetObject) {
-    console.log('throw present')
-    console.log(position)
-    console.log(targetObject);
-
     const presentLanded = this.presentSystem.shoot(position);
+    await this.handleElfCatch(targetObject, presentLanded);
+  }
+
+  async handleElfCatch(targetObject, presentLanded) {
     if (app.isElf(targetObject) && !targetObject.userData.hasPresent) {
       // Wait for the present to hit its target and then update the elf's sprite.
       targetObject.userData.hasPresent = true;
@@ -117,10 +117,36 @@ class Level {
       }
       window.santaApp.fire('sound-trigger', 'bl_score_red');
 
-      this.scoreboard.addScore(100);
+      const score = 100;
+      await this.showScoreText(targetObject, score);
+      this.scoreboard.addScore(score);
       // Start the train if it isn't already moving. Ok to call this multiple times.
       this.startTrain();
     }
+  }
+  
+  async showScoreText(targetObject, score) {
+    const parent = document.getElementById('content');
+    if (!parent) return;
+
+    const  div = document.createElement("div");
+    div.className = 'score-animation';
+    div.setAttribute('role', 'presentation');  // Keep screenreaders from seeing the transient element.
+    div.innerText = `${score}`;
+    const screenSpace = this.raycasterSystem.project(targetObject.getWorldPosition(new THREE.Vector3()));
+    div.style.top = screenSpace.y + 'px';
+    div.style.left = screenSpace.x + 'px';
+    parent.appendChild(div);
+
+    // (Re-)Trigger CSS animation.
+    div.classList.remove('animating');
+    await new Promise(resolve => setTimeout(resolve, 0));
+    div.classList.add('animating');
+
+    // Clean up text div from DOM.
+    setTimeout(() => {
+      parent.removeChild(div);
+    }, 1100);  // CSS animation is 1s.
   }
 
   async throwToClosest() {

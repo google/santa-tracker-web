@@ -35,6 +35,46 @@ body {
   outline-offset: -8px;
 }
 
+.score-animation {
+  position: absolute;
+  visiblity: hidden;
+  color: white;
+  font-size: 5em;
+  text-align: center;
+  // Text shadow so text shows up even against white background.
+  text-shadow: #F99 0 0 5px;
+  // Center text based on top/left positioning.
+  // Also move it up so it appears above the elf even though it's
+  // positioned based on center of elf.
+  transform: translate(-50%, -120%);
+  width: fit-content;
+}
+
+@keyframes animated-score {
+  from {
+    opacity: 100%;
+    visibility: visible;
+    font-size: 5em;
+  }
+
+  to {
+    opacity: 0%;
+    visibility: hidden;
+    top: 0px;
+    left: 50%;
+    font-size: 1em;
+  }
+}
+
+.score-animation.animating {
+  animation-name: animated-score;
+  animation-duration: 1s;
+  // Forwards means end state of animation is persisted, so text doesn't
+  // reappear.
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
+}
+
 .hidden {
   display: none;
 }
