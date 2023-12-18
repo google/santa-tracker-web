@@ -15,6 +15,7 @@
  */
 
 import {html, LitElement} from 'lit-element';
+import {nothing} from 'lit-html';
 import * as common from '../../src/core/common.js';
 import styles from './santa-button.css';
 
