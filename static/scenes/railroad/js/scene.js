@@ -1,9 +1,14 @@
-
 goog.provide('app.Scene');
 
 goog.require('app.isElf');
 
+const dracoLoader = new THREE.DRACOLoader()
+dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+dracoLoader.setDecoderConfig({type: 'js'});
+dracoLoader.preload();
+
 const gltfLoader = new THREE.GLTFLoader();
+gltfLoader.setDRACOLoader(dracoLoader);
 const textureLoader = new THREE.TextureLoader();
 
 // Initialized in preload.
