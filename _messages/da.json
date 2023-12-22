@@ -1320,7 +1320,7 @@
 		"message": "Google bruger cookies til at analysere trafik til dette website samt til at optimere din oplevelse. Oplysninger om din brug af dette website deles med Google til dette formål."
 	},
 	"notice_cookies_details": {
-		"message": "Se info"
+		"message": "Se oplysninger"
 	},
 	"notification": {
 		"message": "Notifikationer"
@@ -1557,10 +1557,10 @@
 		"message": "Tegn"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor er julemandens maskinlæringsrobot, der hjælper ham med hurtigt at tyde de breve, han modtager fra børn over hele verden. Du kan hjælpe Tensor med at øve sig ved at tegne et billede af hvert juleord på skærmen, og så fortæller han dig, hvad han ser. Jo mere du tegner, desto klogere bliver Tensor. Lad os hjælpe julemanden med at være mere effektiv end nogensinde før denne jul!"
+		"message": "Tensor er julemandens maskinlæringsrobot, der hjælper julemanden med de breve, han modtager fra børn over hele verden. Den er trænet i hurtigt at tyde tekst og billeder og elsker at gætte, hvad tegninger forestiller. Tegn et billede af hvert juleord på skærmen, så får du at vide, hvad den ser."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Hjælp Tensor med at øve sig i at genkende billeder."
+		"message": "Leg med billedgenkendelsesrobotten Tensor"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor genkendte {{recognized}} af dine tegninger."
@@ -1578,7 +1578,7 @@
 		"message": "Ups!"
 	},
 	"railroad_throw": {
-		"message": "Kaste"
+		"message": "Kast"
 	},
 	"readyquestion": {
 		"message": "Klar?"
@@ -5850,7 +5850,7 @@
 		"message": "Ungarn"
 	},
 	"trivia_hard_093": {
-		"message": "Abruzzo er et bjergrigt område ved Adriaterhavet i hvilket land?"
+		"message": "Abruzzo er en bjergrig region ved Adriaterhavet i hvilket land?"
 	},
 	"trivia_hard_093_answer0": {
 		"message": "Italien"

@@ -1557,10 +1557,10 @@
 		"message": "Desen"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor este robotul de învățare automată al lui Moș Crăciun, care-l ajută să descifreze rapid scrisorile pe care le primește de la copiii din întreaga lume. Pentru a-l ajuta pe Tensor să exerseze, desenează o imagine a fiecărui cuvânt festiv de pe ecran, iar el îți va spune ce vede. Cu cât desenezi mai mult, cu atât mai inteligent va fi Tensor. Ajută-l pe Moș Crăciun să fie mai eficient în timpul sărbătorilor!"
+		"message": "Tensor este robotul de învățare automată al lui Moș Crăciun, care îl ajută pe Moș cu scrisorile pe care le primește de la copiii din întreaga lume. A fost învățat să descifreze rapid textul și imaginile și îi place să ghicească ce desenează cineva. Desenați pe ecran o imagine pentru fiecare cuvânt care are legătură cu sărbătorile, iar el vă va spune ce vede."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Ajută-l pe Tensor să exerseze recunoașterea imaginilor!"
+		"message": "Jucați-vă cu Tensor, robotul care recunoaște imagini!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor a ghicit {{recognized}} dintre desenele tale."
@@ -1578,7 +1578,7 @@
 		"message": "Hopa!"
 	},
 	"railroad_throw": {
-		"message": "Arunca"
+		"message": "Aruncați"
 	},
 	"readyquestion": {
 		"message": "Ești gata?"
@@ -1806,7 +1806,7 @@
 		"message": "Furtună cu bulgări de zăpadă"
 	},
 	"scene_snowbox": {
-		"message": "Snowbox"
+		"message": "Forme de zăpadă"
 	},
 	"scene_snowflake": {
 		"message": "Scrie codul unui fulg de zăpadă"

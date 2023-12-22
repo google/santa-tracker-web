@@ -1557,10 +1557,10 @@
 		"message": "Disegna"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor è il robot di machine learning di Babbo Natale. Lo aiuta a decifrare velocemente le lettere che riceve dai bambini di tutto il mondo. Per aiutare Tensor a esercitarsi, raffigura le parole associate al periodo natalizio sullo schermo: ti dirà cosa vede. Più parole raffigurerai, più Tensor affinerà le sue capacità. Aiutiamo Babbo Natale a essere più efficiente che mai durante le feste."
+		"message": "Tensor è il robot di machine learning di Babbo Natale che lo aiuta con le lettere che riceve dai bambini di tutto il mondo. È stato addestrato a decifrare rapidamente testo e immagini e ama indovinare ciò che qualcuno sta disegnando. Disegna un'immagine di ogni parola relativa alle festività sullo schermo e ti dirà cosa vede."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Aiuta Tensor a esercitarsi con il riconoscimento delle immagini."
+		"message": "Gioca con Tensor, il robot che riconosce le immagini."
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor ha riconosciuto {{recognized}} dei tuoi disegni."
@@ -1578,7 +1578,7 @@
 		"message": "Mannaggia!"
 	},
 	"railroad_throw": {
-		"message": "Gettare"
+		"message": "Lancia"
 	},
 	"readyquestion": {
 		"message": "Cominciamo?"
@@ -1776,7 +1776,7 @@
 		"message": "Sgancia il regalo"
 	},
 	"scene_quickdraw": {
-		"message": "Quick, Draw!"
+		"message": "Presto, disegna!"
 	},
 	"scene_racer": {
 		"message": "La corsa di Rudolph"

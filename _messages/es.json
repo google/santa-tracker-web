@@ -1557,10 +1557,10 @@
 		"message": "Dibujar"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor es un robot de Papá Noel especializado en aprendizaje automático, que le ayuda a descifrar rápidamente las cartas que le envían niños y niñas de todo el mundo. ¿Te gustaría ayudarle a practicar? Haz un dibujo de las palabras que salen en la pantalla y te dirá lo que ve. ¡Todas ellas están relacionadas con la Navidad! ¿Echamos una mano a Papá Noel para que Tensor sea más eficiente estas fiestas? ¡Cuantos más dibujos hagas, más inteligente se volverá!"
+		"message": "Tensor es el robot de aprendizaje automático que ayuda a Papá Noel con las cartas que recibe de niños de todo el mundo. Se ha entrenado para descifrar rápidamente texto e imágenes, y le encanta adivinar dibujos. Haz un dibujo de cada palabra festiva en la pantalla y te dirá qué ve."
 	},
 	"quickdraw-splashview-title": {
-		"message": "¡Ayuda a Tensor a practicar el reconocimiento de imágenes!"
+		"message": "Juega con Tensor, el robot que reconoce imágenes"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor ha reconocido {{recognized}} de tus dibujos."
@@ -1578,7 +1578,7 @@
 		"message": "¡Vaya!"
 	},
 	"railroad_throw": {
-		"message": "Tirar"
+		"message": "Lanzar"
 	},
 	"readyquestion": {
 		"message": "¿Todo listo?"
@@ -1776,7 +1776,7 @@
 		"message": "Entrega los regalos"
 	},
 	"scene_quickdraw": {
-		"message": "Quick Draw"
+		"message": "Dibujo rápido"
 	},
 	"scene_racer": {
 		"message": "Carrera de obstáculos de Rudolph"
@@ -1806,7 +1806,7 @@
 		"message": "Pelea de bolas de nieve"
 	},
 	"scene_snowbox": {
-		"message": "Zona nevada de pruebas"
+		"message": "Zona de pruebas nevada"
 	},
 	"scene_snowflake": {
 		"message": "Crea un copo de nieve con código"

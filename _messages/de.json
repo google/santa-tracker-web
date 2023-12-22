@@ -1557,10 +1557,10 @@
 		"message": "Zeichnen"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor ist der Roboter des Weihnachtsmanns. Er lernt fortlaufend dazu und hilft dem Weihnachtsmann dabei, die Briefe von Kindern aus aller Welt zu verstehen – und mit deiner Hilfe wird der Roboter immer besser! Male dazu die festlichen Begriffe, die auf dem Bildschirm stehen. Tensor sagt dir dann, was er sieht. Je mehr du zeichnest, desto intelligenter wird der Roboter. Wenn wir ihm alle helfen, kann der Weihnachtsmann seine Geschenke dieses Jahr bestimmt noch schneller als sonst ausliefern."
+		"message": "Tensor ist der Roboter des Weihnachtsmanns. Tensor basiert auf maschinellem Lernen und hilft dem Weihnachtsmann mit den Briefen, die dieser von Kindern aus aller Welt erhält. Tensor wurde darauf trainiert, Texte und Bilder in Windeseile zu enträtseln. Dabei macht es Tensor besonders Spaß, zu erraten, was jemand gemalt hat. Probier es doch einmal aus und male zu jedem Wort auf dem Bildschirm ein passendes Bild. Tensor rät dann, was auf dem Bild zu erkennen ist."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Hilf Tensor dabei, Zeichnungen noch besser zu erkennen."
+		"message": "Bilderraten mit dem Roboter Tensor"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor hat {{recognized}} deiner Zeichnungen richtig erkannt."
@@ -1776,7 +1776,7 @@
 		"message": "Bescherung"
 	},
 	"scene_quickdraw": {
-		"message": "Schnelles Zeichnen"
+		"message": "Flugs gezeichnet"
 	},
 	"scene_racer": {
 		"message": "Rudolfs Rennen"

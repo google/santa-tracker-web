@@ -1557,10 +1557,10 @@
 		"message": "Dibuix"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor és el robot d'aprenentatge automàtic del Pare Noel, que l'ajuda a desxifrar ràpidament les cartes que rep dels nens de tot el món. Per ajudar Tensor a practicar, dibuixa una imatge de cada paraula relacionada amb el Nadal a la pantalla i et dirà què veu. Com més dibuixis, més intel·ligent es farà Tensor. Ajudem el Pare Noel a ser més eficient que mai durant aquestes festes!"
+		"message": "Tensor és el robot d'aprenentatge automàtic que ajuda el Pare Noel amb les cartes que rep de nens de tot el món. S'ha entrenat per desxifrar ràpidament text i imatges, i li encanta endevinar dibuixos. Dibuixa una imatge de cada paraula festiva de la pantalla i et dirà què hi veu."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Ajuda Tensor a practicar el reconeixement d'imatges!"
+		"message": "Juga amb Tensor, el robot que reconeix imatges"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor ha reconegut {{recognized}} dels teus dibuixos."
@@ -1578,7 +1578,7 @@
 		"message": "Vaja!"
 	},
 	"railroad_throw": {
-		"message": "Llançar"
+		"message": "Llança"
 	},
 	"readyquestion": {
 		"message": "Preparat?"
@@ -1806,7 +1806,7 @@
 		"message": "Tempesta de boles de neu"
 	},
 	"scene_snowbox": {
-		"message": "Zona de jocs nevada"
+		"message": "Zona de proves nevada"
 	},
 	"scene_snowflake": {
 		"message": "Crea un floc de neu amb codi"

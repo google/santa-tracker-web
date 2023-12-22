@@ -1557,10 +1557,10 @@
 		"message": "Marraztu"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor Bizarzuriren ikasketa automatikoko robota da. Mundu osoko umeek bidaltzen dizkioten eskutitzak azkarrago deszifratzen laguntzen dio Bizarzuriri. Tensor-i praktikatzen laguntzeko, marraztu pantailan Gabonetako hitz bakoitzaren irudi bat, eta ikusten duena esango dizu. Zenbat eta gehiago marraztu, are eta adimentsuagoa izango da Tensor; beraz, lagundu Bizarzuriri aurtengo Gabonetan inoiz baino lan gehiago egiten."
+		"message": "Bizarzuriren ikasketa automatikoko robota da Tensor. Mundu osoko haurrek bidaltzen dizkioten eskutitzak kudeatzen laguntzen dio Bizarzuriri. Testua eta irudiak bizkor deszifratzeko trebatu da, eta marrazten ari zarena asmatzea gustatzen zaio. Marraztu pantailan Gabonetako hitz bakoitzaren irudi bat, eta Tensor-ek ikusten duena esango dizu."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Lagundu Tensor robotari irudiak hobeto igartzen!"
+		"message": "Jokatu Tensor-ekin, irudiak ezagutzeko robotarekin"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Zure marrazkietako {{recognized}} igarri ditu Tensor robotak."
@@ -1782,7 +1782,7 @@
 		"message": "Rudolphen lera-lasterketa"
 	},
 	"scene_railroad": {
-		"message": "Trenbide-bidaia"
+		"message": "Bagoneta-bidaia"
 	},
 	"scene_rollercoaster": {
 		"message": "Iratxoen errusiar mendia"
@@ -2970,7 +2970,7 @@
 		"message": "errinozeroa"
 	},
 	"speedsketch_item~ribbon": {
-		"message": "xingola bat"
+		"message": "zinta bat"
 	},
 	"speedsketch_item~river": {
 		"message": "ibai bat"

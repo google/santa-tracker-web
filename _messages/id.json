@@ -1557,10 +1557,10 @@
 		"message": "Gambar"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor adalah robot Machine Learning Sinterklas, yang membantunya memahami dengan cepat berbagai surat yang diterimanya dari anak-anak di seluruh dunia. Untuk membantu Tensor berlatih, gambar setiap kata liburan di layar dan dia akan memberi tahu Anda apa yang dilihatnya. Semakin sering Anda menggambar, Tensor akan semakin cerdas menebak. Jadi, ayo bantu Sinterklas agar semakin efisien di musim liburan ini!"
+		"message": "Tensor adalah robot Machine Learning Sinterklas yang dapat membantu Sinterklas memahami surat dari anak-anak di seluruh dunia. Robot ini telah dilatih untuk menguraikan teks dan gambar dengan cepat dan suka menebak apa yang sedang digambar seseorang. Buat gambar dari setiap kata bertema liburan di layar dan Tensor akan memberi tahu Anda apa yang dilihatnya."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Bantu Tensor berlatih mengenali gambar!"
+		"message": "Bermainlah dengan Tensor, Robot Pengenalan Gambar!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor mengenali {{recognized}} dari gambar Anda."
@@ -1578,7 +1578,7 @@
 		"message": "Ups!"
 	},
 	"railroad_throw": {
-		"message": "Melemparkan"
+		"message": "Lempar"
 	},
 	"readyquestion": {
 		"message": "Sudah siap?"
@@ -1806,7 +1806,7 @@
 		"message": "Badai Bola Salju"
 	},
 	"scene_snowbox": {
-		"message": "Kotak salju"
+		"message": "Snowbox"
 	},
 	"scene_snowflake": {
 		"message": "Buat Kode Snowflake"

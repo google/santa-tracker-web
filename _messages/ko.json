@@ -1557,10 +1557,10 @@
 		"message": "그리기"
 	},
 	"quickdraw-splashview-description": {
-		"message": "텐서는 산타가 온 세상 어린이들이 보내는 편지를 빨리 알아볼 수 있도록 도와주는 머신러닝 로봇입니다. 화면에 표시된 명절과 관련된 단어를 그림으로 그리면 텐서가 무엇인지 말해줍니다. 많이 그릴수록 텐서가 똑똑해져서 산타를 훨씬 더 잘 도와드릴 수 있답니다."
+		"message": "Tensor는 전 세계 아이들에게서 편지를 받는 산타를 돕는 머신러닝 로봇입니다. 텍스트와 이미지를 빠르게 파악하도록 학습되었으며, 다른 사람이 무슨 그림을 그리는지 추측하는 것을 좋아합니다. 화면에 크리스마스와 관련된 그림을 그려 보세요. Tensor가 무엇인지 맞춥니다."
 	},
 	"quickdraw-splashview-title": {
-		"message": "텐서의 이미지 인식 연습 돕기"
+		"message": "이미지 인식 로봇 Tensor와 함께 놀기"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor가 그림 중 {{recognized}}개를 알아보았습니다."
@@ -1578,7 +1578,7 @@
 		"message": "앗!"
 	},
 	"railroad_throw": {
-		"message": "던지다"
+		"message": "던지기"
 	},
 	"readyquestion": {
 		"message": "준비되셨나요?"
@@ -1776,7 +1776,7 @@
 		"message": "선물 떨구기"
 	},
 	"scene_quickdraw": {
-		"message": "퀵드로우"
+		"message": "그림 맞히기"
 	},
 	"scene_racer": {
 		"message": "루돌프 경주"
@@ -1806,7 +1806,7 @@
 		"message": "맹공의 눈싸움"
 	},
 	"scene_snowbox": {
-		"message": "Snowbox"
+		"message": "스노우 블록 꾸미기"
 	},
 	"scene_snowflake": {
 		"message": "눈송이 코드"
