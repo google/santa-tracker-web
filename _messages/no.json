@@ -141,7 +141,7 @@
 		"message": "Botswana"
 	},
 	"by_country_name": {
-		"message": "Hviterussland"
+		"message": "Belarus"
 	},
 	"bz_country_name": {
 		"message": "Belize"
@@ -1557,10 +1557,10 @@
 		"message": "Tegning"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor er julenissens maskinlæringsrobot og hjelper julenissen slik at han raskt kan tyde brevene han får fra barn over hele verden. For å hjelpe Tensor med å øve kan du tegne et bilde av hvert juleord som vises på skjermen, så forteller Tensor deg hva den ser. Jo mer du tegner, desto smartere blir Tensor. La oss hjelpe julenissen med å bli enda mer effektiv denne julen!"
+		"message": "Tensor er Julenissens maskinlæringsrobot som hjelper nissen med brevene han får fra barn over hele verden. Den er lært opp til å tolke tekst og bilder raskt, og den er veldig glad i å gjette hva folk tegner. Tegn et bilde av hvert høytidsord på skjermen, så forteller den deg hva den ser."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Hjelp Tensor med å øve på å kjenne igjen bilder."
+		"message": "Spill med Tensor – roboten for bildegjenkjenning!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor kjente igjen {{recognized}} av tegningene dine."
@@ -1578,7 +1578,7 @@
 		"message": "Oi sann!"
 	},
 	"railroad_throw": {
-		"message": "Kaste"
+		"message": "Avbryt med en feil"
 	},
 	"readyquestion": {
 		"message": "Klar?"
@@ -4920,7 +4920,7 @@
 		"message": "Kroatia"
 	},
 	"trivia_hard_015_answer1": {
-		"message": "Hviterussland"
+		"message": "Belarus"
 	},
 	"trivia_hard_015_answer2": {
 		"message": "Ungarn"
@@ -5868,7 +5868,7 @@
 		"message": "Estland"
 	},
 	"trivia_hard_094_answer1": {
-		"message": "Hviterussland"
+		"message": "Belarus"
 	},
 	"trivia_hard_094_answer2": {
 		"message": "Spania"
@@ -6828,7 +6828,7 @@
 		"message": "Kina"
 	},
 	"trivia_medium_069_answer1": {
-		"message": "Hviterussland"
+		"message": "Belarus"
 	},
 	"trivia_medium_069_answer2": {
 		"message": "Afghanistan"

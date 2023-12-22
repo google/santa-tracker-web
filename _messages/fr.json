@@ -1557,10 +1557,10 @@
 		"message": "Match nul"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor est le robot de machine learning (apprentissage automatique) du père Noël. Il l'aide à lire les lettres qu'il reçoit des enfants du monde entier. Pour aider Tensor à s'entraîner, faites un dessin pour chaque mot lié aux fêtes affiché à l'écran, et il vous dira ce qu'il voit. Plus vous dessinez, plus Tensor devient intelligent. Aidons le père Noël à être encore plus efficace pendant les fêtes de fin d'année !"
+		"message": "Tensor est le robot de machine learning (apprentissage automatique) du Père Noël, qui l'aide à s'occuper des lettres qu'il reçoit d'enfants du monde entier. Il est entraîné à déchiffrer rapidement le texte et les images, et adore deviner ce qu'on dessine. Dessinez à l'écran une image de chaque mot lié aux fêtes pour que Tensor vous dise ce qu'il voit."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Aidez Tensor à reconnaître des images"
+		"message": "Amusez-vous avec Tensor, le robot de reconnaissance d'images !"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor a reconnu {{recognized}} de vos dessins."
@@ -1776,7 +1776,7 @@
 		"message": "Le lâcher de cadeaux"
 	},
 	"scene_quickdraw": {
-		"message": "Dessin rapide"
+		"message": "1, 2, 3, dessinez !"
 	},
 	"scene_racer": {
 		"message": "La course de Rudolphe"

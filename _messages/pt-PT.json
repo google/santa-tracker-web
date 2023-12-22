@@ -1557,10 +1557,10 @@
 		"message": "Desenhar"
 	},
 	"quickdraw-splashview-description": {
-		"message": "O Tensor é o robô de aprendizagem automática do Pai Natal que o ajuda a decifrar rapidamente as cartas que recebe de crianças de todo o mundo. Para ajudar o Tensor a praticar, desenhe uma imagem de cada palavra do Natal no ecrã e ele diz-lhe o que vê. Quanto mais desenha, mais inteligente fica o robô, por isso, vamos ajudar o Pai Natal a ser mais eficiente do que nunca nesta época festiva."
+		"message": "O Tensor é o robô de aprendizagem automática do Pai Natal que o ajuda com as cartas que recebe de crianças de todo o mundo. Foi treinado para decifrar rapidamente texto e imagens, e adora adivinhar o que alguém está a desenhar. Desenhe uma imagem de cada palavra da época festiva no ecrã e ele diz-lhe o que vê."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Ajude o robô Tensor a exercitar a sua capacidade de reconhecimento de imagens!"
+		"message": "Jogue com o Tensor, o robô de reconhecimento de imagens!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "O robô Tensor reconheceu {{recognized}} dos seus desenhos."

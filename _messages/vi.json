@@ -1557,10 +1557,10 @@
 		"message": "Vẽ"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor là rô bốt Máy học của ông già Noel giúp ông nhanh chóng giải mã các bức thư nhận được từ trẻ em trên khắp thế giới. Để giúp Tensor luyện tập, hãy vẽ một bức tranh mô tả mỗi từ vựng về Lễ Giáng sinh trên màn hình. Sau đó, Tensor sẽ nói cho bạn biết những gì Tensor nhìn thấy. Bạn càng vẽ nhiều thì Tensor càng thông minh. Hãy cùng giúp ông già Noel làm việc hiệu quả hơn bao giờ hết vào mùa Giáng sinh này nhé!"
+		"message": "Tensor là rô bốt học máy chuyên giúp ông già Noel đọc thư do trẻ em trên khắp thế giới gửi cho ông. Chú rô bốt này được huấn luyện để giải mã nhanh văn bản, hình ảnh, đồng thời chú rất thích đoán xem người khác đang vẽ hình gì. Hãy vẽ một bức tranh tương ứng với từng từ vựng về ngày lễ trên màn hình và chú rô bốt sẽ mô tả cho bạn nội dung mà chú nhìn thấy."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Hãy giúp Tensor luyện tập khả năng nhận dạng hình ảnh!"
+		"message": "Vui chơi cùng Tenso – rô bốt nhận dạng hình ảnh!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor đã nhận ra {{recognized}} bức tranh của bạn."
@@ -1578,7 +1578,7 @@
 		"message": "Rất tiếc!"
 	},
 	"railroad_throw": {
-		"message": "Ném"
+		"message": "Ném quà"
 	},
 	"readyquestion": {
 		"message": "Bạn đã sẵn sàng chưa?"

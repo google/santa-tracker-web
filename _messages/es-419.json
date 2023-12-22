@@ -1557,10 +1557,10 @@
 		"message": "Dibujar"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor es el robot de Santa, que usa aprendizaje automático para descifrar las cartas que le envían los niños de todo el mundo. Para ayudar a Tensor a practicar, haz un dibujo de cada palabra relacionada con la Navidad que aparecerá en pantalla. Luego, Tensor te dirá qué ve. Cuanto más dibujes, más inteligente se volverá. Ayudemos a Santa a ser más eficiente que nunca esta Navidad."
+		"message": "Tensor es el robot de aprendizaje automático de Santa que lo ayuda con las cartas que recibe de niños de todo el mundo. Fue entrenado para descifrar rápidamente imágenes y texto, y le encanta adivinar qué está dibujando una persona. Haz un dibujo de cada palabra festiva en la pantalla y te dirá lo que ve."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Ayuda a Tensor a practicar para reconocer imágenes."
+		"message": "Juega con Tensor, el robot que reconoce imágenes"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor reconoció {{recognized}} de tus dibujos."
@@ -1578,7 +1578,7 @@
 		"message": "¡Uy!"
 	},
 	"railroad_throw": {
-		"message": "Tirar"
+		"message": "Arrojar"
 	},
 	"readyquestion": {
 		"message": "¿Listo?"
@@ -1776,7 +1776,7 @@
 		"message": "Entrega de regalos"
 	},
 	"scene_quickdraw": {
-		"message": "Dibujo veloz"
+		"message": "1, 2, 3, a dibujar!"
 	},
 	"scene_racer": {
 		"message": "Trineo de carrera de Rudolph"
