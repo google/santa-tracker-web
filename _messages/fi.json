@@ -1557,10 +1557,10 @@
 		"message": "Piirrä"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor on oppiva kone, joka auttaa Joulupukkia saamaan nopeasti selvää lasten kirjoittamista kirjeistä. Piirrä jouluisia sanoja esittäviä kuvia ja anna Tensorin arvata, mitä olet piirtämässä. Mitä enemmän piirrät, sitä etevämpi Tensorista tulee ja sitä enemmän apua siitä on Joulupukille!"
+		"message": "Tensor on koneoppimista hyödyntävä robotti. Se auttaa joulupukkia kirjeiden kanssa, joita hän saa lapsilta eri puolilta maailmaa. Se on opetettu tulkitsemaan tekstiä ja kuvia nopeasti. Se myös arvailee mielellään, mitä joku piirtää. Piirrä näytölle kuva juhlapyhäsanoista, niin se kertoo sinulle, mitä se näkee."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Auta Tensoria tunnistamaan paremmin kuvia!"
+		"message": "Pelaa kuvantunnistusrobotti Tensorilla!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor tunnisti {{recognized}} piirustustasi."
@@ -1578,7 +1578,7 @@
 		"message": "Hups!"
 	},
 	"railroad_throw": {
-		"message": "Heittää"
+		"message": "Heitä"
 	},
 	"readyquestion": {
 		"message": "Valmis?"

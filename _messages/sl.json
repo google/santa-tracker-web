@@ -1557,10 +1557,10 @@
 		"message": "Nariši"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor je Božičkov strojno učeči se robot. Pomaga mu hitro razvozlati pisma, ki mu jih pošljejo otroci z vsega sveta. Če želite Tensorju pomagati vaditi, narišite sliko vsake praznične besede na zaslonu in povedal vam bo, kaj vidi. Več risb narišete, pametnejši bo Tensor postal. Pomagajmo Božičku, da bo te praznike bolj učinkovit kot kadar koli prej."
+		"message": "Tensor je Božičkov robot s strojnim učenjem, ki Božičku pomaga s pismi, ki jih prejme od otrok z vsega sveta. Usposobili smo ga, da hitro razvozla besedilo in slike, poleg tega pa prav rad ugiba, kaj je kdo narisal. Narišite sliko vsake praznične besede na zaslonu in povedal vam bo, kaj vidi."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Pomagajte Tensorju pri vadbi prepoznavanja slik."
+		"message": "Igrajte s Tensorjem, robotom, ki prepoznava slike."
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor je prepoznal toliko vaših slik: {{recognized}}."
@@ -1578,7 +1578,7 @@
 		"message": "Ojej!"
 	},
 	"railroad_throw": {
-		"message": "Vrzi"
+		"message": "Met"
 	},
 	"readyquestion": {
 		"message": "Ste pripravljeni?"

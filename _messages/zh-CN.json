@@ -1557,10 +1557,10 @@
 		"message": "绘图"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor 是圣诞老人的机器学习机器人，可以帮他快速解读世界各地的孩子们寄来的信件。为了帮助 Tensor 练习这项技能，请在屏幕上画出与节日词语相关的图画，然后让它猜猜是什么。您画得越多，Tensor 就会变得越聪明。这个假期，让我们一起来帮助圣诞老人，让他以前所未有的非凡效率完成工作吧！"
+		"message": "Tensor 是圣诞老人的机器学习机器人，它会帮助圣诞老人处理世界各地的小朋友写给他的信。Tensor 接受过训练，能够快速解读文本和图像，并且喜欢猜测别人在画什么。只要在屏幕上画出与各个节日字词相关的图，它就会说出猜测结果。"
 	},
 	"quickdraw-splashview-title": {
-		"message": "帮助 Tensor 练习识图吧！"
+		"message": "快来与图像识别机器人 Tensor 一起玩游戏！"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor 认出了 {{recognized}} 幅画。"
@@ -1578,7 +1578,7 @@
 		"message": "糟糕！"
 	},
 	"railroad_throw": {
-		"message": "扔"
+		"message": "抛出"
 	},
 	"readyquestion": {
 		"message": "准备好了吗？"

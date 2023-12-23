@@ -1557,10 +1557,10 @@
 		"message": "Rajzolás"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tenzor egy gépi tanulással fejlődő robot, amely a Mikulás segítségére van a gyerekek által a világ minden tájáról írt levelek gyors megfejtésében. Ha segíteni szeretnél Tenzornak a gyakorlásban, rajzolj a képernyőn megjelenő, az ünneppel kapcsolatos szavaknak megfelelő ábrákat, Tenzor pedig megmondja, mit lát a rajzokon. Minél többet rajzolsz, Tenzor annál okosabb lesz. Segíts a Mikulásnak, hogy idén karácsonykor minden eddiginél hatékonyabban dolgozhasson!"
+		"message": "Tensor a Mikulás gépi tanulási robotja: célja, hogy segítsen a Mikulásnak a világ minden táján élő gyermekektől érkező leveleivel. Arra lett betanítva, hogy gyorsan értelmezze a szövegeket és képeket, és imádja kitalálni, hogy mit rajzolnak a felhasználók. Rajzolja le a képernyőn látható ünnepi szavakat, és a robot elmondja, hogy mit lát."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Segíts Tenzornak a képfelismerés gyakorlásában!"
+		"message": "Játsszon a Tensorral, a képfelismerő robottal!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tenzor {{recognized}} rajzodat ismerte fel."
@@ -1578,7 +1578,7 @@
 		"message": "Hoppá!"
 	},
 	"railroad_throw": {
-		"message": "Dob"
+		"message": "Dobás"
 	},
 	"readyquestion": {
 		"message": "Készen állsz?"
@@ -1776,7 +1776,7 @@
 		"message": "Ajándékledobás"
 	},
 	"scene_quickdraw": {
-		"message": "Vázlatrajz"
+		"message": "Rajzrejtvény"
 	},
 	"scene_racer": {
 		"message": "Rudolffutam"
@@ -1806,7 +1806,7 @@
 		"message": "Hógolyócsata"
 	},
 	"scene_snowbox": {
-		"message": "Hóverem"
+		"message": "Hóépítő"
 	},
 	"scene_snowflake": {
 		"message": "Hópehelykódolás"

@@ -1521,7 +1521,7 @@
 		"message": "または"
 	},
 	"quickdraw-machine-see": {
-		"message": "わかった"
+		"message": "了解した"
 	},
 	"quickdraw-newround-button": {
 		"message": "スタート"
@@ -1557,10 +1557,10 @@
 		"message": "絵を描く"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor はサンタさんの機械学習ロボットで、サンタさんが世界中の子供たちから届いた手紙を速く読めるように手伝っています。Tensor が練習できるように、画面に表示されているクリスマスにまつわる言葉の絵を描いてください。すると、Tensor はそれが何に見えるかを答えます。たくさん描くほど Tensor は賢くなります。Tensor がもっとサンタさんの助けになるように、手を貸してください。"
+		"message": "Tensor はサンタの機械学習ロボットで、世界中の子供たちから受け取った手紙をサンタが読むのを助けてくれます。テキストや画像をすばやく解釈するように訓練されており、人が描いたものを推測するのが大好きです。画面にクリスマスの言葉に関する絵を描くと、それが何に見えるかを教えてくれます。"
 	},
 	"quickdraw-splashview-title": {
-		"message": "Tensor の画像認識の練習を手伝ってください"
+		"message": "画像認識ロボットの Tensor を使ってみましょう。"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "{{recognized}} 個の絵がわかりました。"
@@ -1776,7 +1776,7 @@
 		"message": "プレゼント ドロップ"
 	},
 	"scene_quickdraw": {
-		"message": "Quick Draw"
+		"message": "お絵かきゲーム"
 	},
 	"scene_racer": {
 		"message": "赤鼻のトナカイのレース"
