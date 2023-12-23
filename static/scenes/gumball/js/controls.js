@@ -34,11 +34,15 @@ app.Controls = function(game) {
   this.onKeyDown_ = this.onKeyDown_.bind(this);
   this.onKeyUp_ = this.onKeyUp_.bind(this);
   this.onDeviceOrientation_ = this.onDeviceOrientation_.bind(this);
+  this.onTouchStart_ = this.onTouchStart_.bind(this);
+  this.onTouchEnd_ = this.onTouchEnd_.bind(this);
 
   // Events are cleared by app.Game in its dispose method.
   $(window).on('keydown.gumball', this.onKeyDown_);
   $(window).on('keyup.gumball', this.onKeyUp_);
   $(window).on('deviceorientation.gumball', this.onDeviceOrientation_);
+  $(window).on('touchstart.gumball', this.onTouchStart_);
+  $(window).on('touchend.gumball', this.onTouchEnd_);
 };
 
 /**
@@ -120,4 +124,36 @@ app.Controls.prototype.onKeyUp_ = function(e) {
   } else if (e.keyCode === 39) { // Right
     this.isRightDown = false;
   }
+};
+
+/**
+ * Handles the on Touch Start. Called dynamically.
+ * @param {!Event} e The event object.
+ * @private
+ */
+app.Controls.prototype.onTouchStart_ = function(e) {
+  // Get the horizontal position where the touch started
+  var touchX = e.touches[0].clientX;
+
+  if (touchX < window.innerWidth / 2) { // Left
+    this.isLeftDown = true;
+  } else { // Right
+    this.isRightDown = true;
+  }
+
+  // Let tutorial know about touch so it can hide the tutorial.
+  if (!this.touchStarted) {
+    this.tutorial.off('device-tilt');
+    this.touchStarted = true;
+  }
+};
+
+/**
+ * Handles the on Touch End. Called dynamically.
+ * @param {!Event} e The event object.
+ * @private
+ */
+app.Controls.prototype.onTouchEnd_ = function(e) {
+  this.isLeftDown = false;
+  this.isRightDown = false;
 };
