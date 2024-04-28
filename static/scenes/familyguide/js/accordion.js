@@ -59,7 +59,7 @@ class Accordion {
       if (models[i].id) {
         group.id = models[i].id;
       }
-      group.innerHTML = `
+      group.innerText = `
 <div class="accordion__info">
   <h5 class="accordion__info-title">${models[i].heading.title}</h5>
   <p class="accordion__info-body">${models[i].heading.body}</p>
