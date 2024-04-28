@@ -68,7 +68,7 @@ export function _static(path) {
       return;
     }
 
-    el.innerHTML = _msg(el.getAttribute('msgid'));
+    el.innerText = _msg(el.getAttribute('msgid'));
   }
 
   Array.from(document.body.querySelectorAll('[msgid]')).map(upgrade);
