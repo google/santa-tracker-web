@@ -98,7 +98,7 @@ function applyToNode(string, node) {
   } else if (node.closest('head') && node.localName !== 'title') {
     throw new Error(`unhandled <head> node: ${node.localName}`);
   } else {
-    node.innerHTML = (string !== null ? string : '');
+    node.innerText = (string !== null ? string : '');
   }
 }
 
