@@ -50,7 +50,7 @@ module.exports = async (filename, options) => {
     } else if (node.closest('head') && node.localName !== 'title') {
       throw new Error(`unhandled <head> node: ${node.localName}`);
     } else {
-      node.innerHTML = string;
+      node.innerText = string;
     }
 
     node.removeAttribute('msgid');
