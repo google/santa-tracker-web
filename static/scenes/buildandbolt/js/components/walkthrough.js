@@ -42,10 +42,10 @@ class Walkthrough {
   updateLevel() {
     const { toyType, toysCapacity } = app.LevelManager;
     // update text
-    this.dom.text.innerHTML = this.getMessage(toyType, toysCapacity);
+    this.dom.text.innerText = this.getMessage(toyType, toysCapacity);
 
     // update toys
-    this.dom.toys.innerHTML = '';
+    this.dom.toys.innerText = '';
 
     for (let i = 0; i < toyType.size; i++) {
       const domToypart = document.createElement('div');
