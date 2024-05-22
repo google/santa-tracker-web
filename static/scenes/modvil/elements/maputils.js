@@ -71,7 +71,7 @@ export async function fetchRoute(url, year = (new Date().getFullYear())) {
       destinations = await destinations(fallbackUrl);
     } catch (e) {
       console.warn('failed to fetch fallback', fallbackUrl, e);
-      window.ga('send', 'event', 'tracker', 'destinations', 'failure');
+      window.gtag('event', 'tracker', {action: 'failure', label: 'destinations'});
     }
   }
 
@@ -122,7 +122,7 @@ export class DestinationsCache {
     this._listener = listener;
 
     if (this._destinations) {
-      window.ga('send', 'event', 'tracker', 'destinations', 'cache-hit');
+      window.gtag('event', 'tracker', {action: 'cache-hit', label: 'destinations'});
       this._listener(this._destinations);
     }
   }
@@ -146,7 +146,7 @@ export class DestinationsCache {
         localStorage['destinations'] = JSON.stringify(destinations);
         this._listener(destinations);
         this._task = null;
-        window.ga('send', 'event', 'tracker', 'destinations', 'fetch');
+        window.gtag('event', 'tracker', {action: 'fetch', label: 'destinations'});
       }
       return destinations;
     });
@@ -285,7 +285,7 @@ export class DataManager {
 
       if (this._destinations.length > 1) {
         // Log this, but only if we have real destination data (not just single Village stop).
-        window.ga('send', 'event', 'tracker', 'timezone-guess', cands[0].id);
+        window.gtag('event', 'tracker', {action: 'timezone-guess', label: 'destinations', value: cands[0].id});
         console.info('nearest stop (tz):', cands[0].id);
       }
 

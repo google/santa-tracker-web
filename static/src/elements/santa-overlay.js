@@ -89,7 +89,7 @@ export class SantaOverlayElement extends LitElement {
     input.select();
     document.execCommand('copy');
     input.setSelectionRange(0, 0);
-    window.ga('send', 'event', 'nav', 'click', 'copy-url');
+    window.gtag('event', 'nav', {action: 'copy-url'});
 
     input.classList.add('copy');
     window.requestAnimationFrame(() => {
@@ -142,7 +142,7 @@ export class SantaOverlayElement extends LitElement {
 
   _onBelowClick(event) {
     if (event.target && event.target.localName === 'santa-card') {
-      window.ga('send', 'event', 'nav', 'click', 'below-card');
+      window.gtag('event', 'nav', {action: 'below-card'});
     }
   }
 }

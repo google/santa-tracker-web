@@ -121,7 +121,7 @@ app.view.CardsView.prototype.showTimesUpCard = function(rounds, callback) {
       roundsRecognized));
   }
 
-  window.ga('send', 'event', 'game', 'recognized', 'speedsketch', roundsRecognized);
+  gtag('event', 'gameAction', {game: 'speedsketch', action: 'recognized', extra: roundsRecognized});
 
   var modelWidth = 300;
   var modelHeight = 225;

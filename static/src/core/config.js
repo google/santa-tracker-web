@@ -61,11 +61,11 @@ function checkUpgrade() {
   // otherwise, reload or complain
   console.warn('got out-of-date version, have', siteVersion, 'want', upgradeToVersion);
   if (!isProd || localStorage['upgradeToVersion'] === upgradeToVersion) {
-    ga('send', 'event', 'site', 'upgrade-warn', upgradeToVersion);
+    gtag('event', 'site', {action: 'upgrade-warn', label: upgradeToVersion});
     isOutOfDate = true;
     notifyListeners();
   } else {
-    ga('send', 'event', 'site', 'upgrade-attempt', upgradeToVersion);
+    gtag('event', 'site', {action: 'upgrade-attempt', label: upgradeToVersion});
     localStorage['upgradeToVersion'] = upgradeToVersion;
     window.location.href = window.location.href;
   }

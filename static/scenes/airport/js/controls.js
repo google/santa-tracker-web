@@ -45,7 +45,7 @@ app.Controls.prototype = {
    * @private
    */
   updateState_: function(direction) {
-    window.ga('send', 'event', 'game', 'interact', 'airport');
+    gtag('event', 'gameAction', {game: 'airport', action: 'interact'});
     if (direction > 0) {
       this.state.nextState();
     } else if (direction < 0) {

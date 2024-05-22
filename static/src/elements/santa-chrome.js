@@ -155,16 +155,16 @@ export class SantaChromeElement extends LitElement {
   }
 
   _onAudioClick() {
-    window.ga('send', 'event', 'nav', 'click', this.muted ? 'unmute' : 'mute');
+    window.gtag('event', 'nav', {action: this.muted ? 'unmute' : 'mute'});
     this.dispatchEvent(new CustomEvent('audio', {detail: this.muted}));
   }
 
   _onMenuClick() {
     if (this.showHome) {
-      window.ga('send', 'event', 'nav', 'click', 'home');
+      window.gtag('event', 'nav', {action: 'home'});
       window.dispatchEvent(new CustomEvent(common.goEvent));  // home
     } else {
-      window.ga('send', 'event', 'nav', 'click', 'menu');
+      window.gtag('event', 'nav', {action: 'menu'});
       this.navOpen = !this.navOpen;
     }
   }
@@ -181,7 +181,7 @@ export class SantaChromeElement extends LitElement {
 
 
   _onActionClick(e) {
-    window.ga('send', 'event', 'nav', 'click', this.action);
+    window.gtag('event', 'nav', {action: this.action});
     this.dispatchEvent(new CustomEvent('action', {
       detail: this.action,
       bubbles: true,

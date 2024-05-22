@@ -37,7 +37,7 @@ window.santaApp.fire = function(name, ...data) {}
  * @param {...?} var_args
  * @return {?}
  */
-function ga(methodName, var_args) {}
+function gtag(methodName, var_args) {}
 
 /**
  * @constructor

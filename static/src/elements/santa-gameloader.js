@@ -315,7 +315,7 @@ class SantaGameLoaderElement extends HTMLElement {
 
     const port = await prepareMessage(frame, 30 * 1000);
     if (frame !== this._activeFrame) {
-      window.ga('send', 'event', 'nav', 'preempted', 'load');
+      window.gtag('event', 'nav', {action: 'preempted-load'});
       return null;  // check for preempt
     }
 
@@ -331,7 +331,7 @@ class SantaGameLoaderElement extends HTMLElement {
         ready: () => {
           resolve(port ? control : null);  // resolve with null if there's no scene here
           if (frame !== this._activeFrame) {
-            window.ga('send', 'event', 'nav', 'preempted', 'port');
+            window.gtag('event', 'nav', {action: 'preempted-port'});
             return false;  // no longer active
           }
           this.purge();

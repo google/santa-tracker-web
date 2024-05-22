@@ -79,10 +79,11 @@
     </p>
   </div>
   <script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-37048309-' + (location.hostname === 'santatracker.google.com' ? 1 : 2), 'auto');
-ga('send', 'pageview');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', location.hostname === 'santatracker.google.com' ? 'G-NK3LZ78Q1G' : 'G-S9MKN6FWD0');
   </script>
-  <script async src="https://www.google-analytics.com/analytics.js"></script>
 </body>
 </html>
