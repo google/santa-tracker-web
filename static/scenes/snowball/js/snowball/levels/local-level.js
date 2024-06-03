@@ -83,7 +83,7 @@ export class LocalLevel extends MainLevel {
       window.santaApp.fire('game-stop', {
         score: population.knockedOut,
       });
-      window.ga('send', 'event', 'game', 'win', 'snowball');
+      gtag('event', 'gameAction', {game: 'snowball', action: 'win'});
     }
   }
 }

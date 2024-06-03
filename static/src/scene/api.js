@@ -156,7 +156,7 @@ const sceneApi = (function() {
     'tutorialQueue': true,
     'tutorialDismiss': true,
     'focusOnMenu': true,
-    'ga': true,
+    'gtag': true,
     'play': true,
     'data': false,
     'score': false,
@@ -172,7 +172,7 @@ const sceneApi = (function() {
   }
 
   // Add global Analytics passthrough.
-  window.ga = target.ga;
+  window.gtag = target.gtag;
 
   // Handle common sound playback code. This is buffered just like `api.play()`.
   window.addEventListener(common.playEvent, (ev) => target.play(...ev.detail));

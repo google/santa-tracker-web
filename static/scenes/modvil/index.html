@@ -296,17 +296,17 @@ const configureActionButton = (button, callback) => {
 };
 
 configureActionButton(document.getElementById('play'), () => {
-  ga('send', 'event', 'village', 'click', 'play-round');
+  gtag('event', 'village', {action: 'click', label: 'play-round'});
   api.go(playRoute);
 });
 
 configureActionButton(document.getElementById('featuredButton'), () => {
-  ga('send', 'event', 'village', 'click', 'featured');
+  gtag('event', 'village', {action: 'click', label: 'featured'});
   api.go(featuredRoute);
 });
 
 configureActionButton(document.getElementById('familyguide'), () => {
-  ga('send', 'event', 'village', 'click', 'familyguide');
+  gtag('event', 'village', {action: 'click', label: 'familyguide'});
   api.go('familyguide');
 });
 

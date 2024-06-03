@@ -77,7 +77,7 @@ share.addEventListener('click', (ev) => {
 random.addEventListener('click', (ev) => {
   window.santaApp.fire('sound-trigger', 'elfmaker_switch_item');
   control.chooseRandom();
-  window.ga('send', 'event', 'game', 'random', 'elfmaker');
+  gtag('event', 'gameAction', {game: 'elfmaker', action: 'random'});
 });
 
 downloadButton.addEventListener('click', (ev) => {
@@ -91,7 +91,7 @@ camera.addEventListener('click', (ev) => {
     download.setAttribute('href', src);
     downloadButton.disabled = false;
   });
-  window.ga('send', 'event', 'game', 'photo', 'elfmaker');
+  gtag('event', 'gameAction', {game: 'elfmaker', action: 'photo'});
 });
 
 photo.addEventListener('hide', (ev) => {
@@ -100,7 +100,7 @@ photo.addEventListener('hide', (ev) => {
 });
 
 download.addEventListener('click', (ev) => {
-  window.ga('send', 'event', 'game', 'download', 'elfmaker');
+  gtag('event', 'gameAction', {game: 'elfmaker', action: 'download'});
   window.setTimeout(() => {
     // dismiss clears href, so delay it
     photo.dismiss();
@@ -207,7 +207,7 @@ api.ready(async (data) => {
   };
   applyRandomMove((Math.random() < 0.5 ? 'left' : 'right') + 'Wave');  // kicks off random timer
   elf.addEventListener('click', (ev) => {
-    window.ga('send', 'event', 'game', 'poke', 'elfmaker');
+    gtag('event', 'gameAction', {game: 'elfmaker', action: 'poke'});
     applyRandomMove();
   });
 

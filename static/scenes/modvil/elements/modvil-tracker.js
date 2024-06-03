@@ -253,7 +253,7 @@ class ModvilTrackerElement extends LitElement {
   }
 
   _onMarkerClick(id) {
-    window.ga('send', 'event', 'tracker', 'click', 'marker');
+    gtag('event', 'tracker', {action: 'click', label: 'marker'});
     if (this.width <= 600) {
       return;  // ignore click, mobile UI
     }
@@ -330,7 +330,7 @@ class ModvilTrackerElement extends LitElement {
       if (!this._duringMapChange && !this._duringResize && this._focusOnSanta) {
         this._focusOnSanta = false;
         console.warn('removing focus', reason);
-        window.ga('send', 'event', 'tracker', 'map', reason);
+        gtag('event', 'tracker', {action: 'unfocusSanta', label: 'map', reason});
       }
     };
     this._map.addListener('center_changed', () => reset('move'));
@@ -386,7 +386,7 @@ class ModvilTrackerElement extends LitElement {
 
   _onFocusSantaClick() {
     this._focusOnSanta = true;
-    ga('send', 'event', 'tracker', 'click', 'focus-santa');
+    gtag('event', 'tracker', {action: 'click', label: 'focusSanta'});
   }
 }
 

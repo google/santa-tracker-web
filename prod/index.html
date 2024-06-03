@@ -54,12 +54,14 @@
   <link id="favicon" rel="shortcut icon" href="/images/favicon-96.png" sizes="96x96" />
 
   <!-- Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js"></script>
   <script>
-    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-    ga('create', 'UA-37048309-' + (location.hostname === 'santatracker.google.com' ? 1 : 2), 'auto');
-    ga('set', 'transport', 'beacon');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', location.hostname === 'santatracker.google.com' ? 'G-NK3LZ78Q1G' : 'G-S9MKN6FWD0');
   </script>
-  <script async src="https://www.google-analytics.com/analytics.js"></script>
 
   <!-- CSS -->
   <style>

@@ -67,8 +67,14 @@ export function buildLoader(loadMethod, fallback=false) {
 
     window.dispatchEvent(new CustomEvent('loader-route', {detail: route}));
 
-    ga('set', 'page', `/${route}`);
-    ga('send', 'pageview');
+    // We must manually track page views for this application because
+    // it is a single page application, and automatically tracking all
+    // url changes will capture query parameter changes that should
+    // not be tracked as page views.
+    gtag('event', 'page_view', {
+      page_title: sceneName,
+      page_location: `/${route}`
+    });
 
     const locked = (activeSceneName === null);
     loadMethod(url, {route, data, locked}).then((success) => {

@@ -136,7 +136,7 @@ export class EasterEggTicTacToeElement extends LitElement {
 
     if (!this.cellsAvailable_.length) {
       // Draw
-      window.ga('send', 'event', 'village', 'tic-tac', 'draw', {nonInteraction: true});
+      window.gtag('event', 'village', {action: 'none', label: 'tic-tac-draw'});
     }
 
     this.turn = !this.turn;
@@ -154,7 +154,7 @@ export class EasterEggTicTacToeElement extends LitElement {
   async showWin_(player, w) {
     this.isPlaying = false;
 
-    window.ga('send', 'event', 'village', 'tic-tac', player, {nonInteraction: true});
+    window.gtag('event', 'village', {action: 'none', label: 'tic-tac-win', player});
 
     await delay(SHOW_LINE_TIME);
     this.winClass = `${player} pos-${w}`;

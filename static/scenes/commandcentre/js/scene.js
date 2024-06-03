@@ -84,7 +84,7 @@ app.Scene.prototype = {
       window.santaApp.fire('sound-trigger', 'command_map');
     }
 
-    window.ga('send', 'event', 'game', 'interact', 'commandcentre');
+    gtag('event', 'gameAction', {game: 'commandcentre', action: 'interact'});
   },
 
   /**

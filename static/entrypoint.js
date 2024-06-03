@@ -284,7 +284,7 @@ global.subscribe((state) => {
   // This happens first, as we modify state as a side-effect.
   if (state.status === 'restart') {
     state.status = '';  // nb. modifies state as side effect
-    ga('send', 'event', 'game', 'start', state.route);
+    gtag('event', 'gameAction', {game: state.route, action: 'start'});
     state.control.send({type: 'restart'});
   }
 
@@ -535,14 +535,15 @@ async function runner(control, route) {
   let recentScore = null;
 
   // nb. we also call this as a result of 'restart'
-  ga('send', 'event', 'game', 'start', route);
+  gtag('event', 'gameAction', {game: route, action: 'start'});
   const analyticsLogEnd = () => {
     if (!recentScore) {
       return;
     }
-    ga('send', 'event', 'game', 'end', route);
-    recentScore.score && ga('send', 'event', 'game', 'score', route, recentScore.score);
-    recentScore.level && ga('send', 'event', 'game', 'level', route, recentScore.level);
+    // These could probably all be a single event with level+score being optional fields.
+    gtag('event', 'gameAction', {game: route, action: 'end'});
+    recentScore.score && gtag('event', 'gameAction', {game: route, action: 'score', extra: recentScore.score});
+    recentScore.level && gtag('event', 'gameAction', {game: route, action: 'level', extra: recentScore.level});
     recentScore = null;
   };
 
