@@ -775,4 +775,16 @@ configureCustomKeys(loaderElement);
     global.setState({trackerOffset});
   };
 
+  // Outside of production, allow adjusting Santa's location using a query parameter.
+  if (window.location.hostname !== 'santatracker.google.com') {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const testLocation = params.get('adjustSanta');
+      if (testLocation >= 0 && testLocation <= 1) {
+        window.santaApp.adjustSanta(testLocation);
+      }
+    } catch (e) {
+      // ignore
+    }
+  }
 }());
