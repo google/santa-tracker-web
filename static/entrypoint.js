@@ -779,7 +779,7 @@ configureCustomKeys(loaderElement);
   if (window.location.hostname !== 'santatracker.google.com') {
     try {
       const params = new URLSearchParams(window.location.search);
-      const testLocation = params.get('adjustSanta');
+      const testLocation = Number.parseFloat(params.get('adjustSanta'));
       if (testLocation >= 0 && testLocation <= 1) {
         window.santaApp.adjustSanta(testLocation);
       }
