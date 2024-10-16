@@ -45,7 +45,7 @@ const g = createStore({
 
   // These values are only used for debugging purposes and should not be set in production.
   featured: undefined, // Test the "featured game" functionality on the homepage.
-  showTracker: undefined, // For the tracker to show or hide.
+  showTracker: undefined, // This forces the tracker to show or hide when set to true/false.
 });
 
 export default g;
