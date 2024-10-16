@@ -42,6 +42,10 @@ const g = createStore({
   shareUrl: null,
 
   trackerOffset: 0,
+
+  // These values are only used for debugging purposes and should not be set in production.
+  featured: undefined, // Test the "featured game" functionality on the homepage.
+  showTracker: undefined, // For the tracker to show or hide.
 });
 
 export default g;
