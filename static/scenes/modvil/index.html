@@ -92,9 +92,11 @@ const fallbackFeaturedImageSrc = featuredImage.src;
 
 api.addEventListener('data', (ev) => {
   const payload = ev.detail;
-  const {trackerFlags, trackerOffset} = payload;
+  const {showTracker, trackerFlags, trackerOffset} = payload;
 
-  if (trackerFlags.showTracker) {
+  // The 'showTracker' value from the state overrides the trackerFlags and
+  // is only used for debugging outside of production.
+  if (showTracker || (showTracker !== false && trackerFlags.showTracker)) {
     if (trackerElement.parentNode !== mainElement) {
       mainElement.prepend(trackerElement);
       api.preload.wait(trackerElement.updateComplete);
