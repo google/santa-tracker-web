@@ -62,7 +62,17 @@ export const internalNavigation = (cand) => {
  * @return {string} href with scope as appropriate
  */
 export const href = (cand) => {
-  return cand == null ? cand : new URL(cand, page);
+  if (cand === null) {
+    return null;
+  }
+  let protocol = null;
+  try {
+    protocol = (new URL(cand, page)).protocol;
+  } catch(e) {
+    // ignore
+  }
+  // Make sure the protocol is http/https to avoid XSS.
+  return ["http:", "https:"].includes(protocol) ? new URL(cand, page) : null;
 };
 
 /**
@@ -86,7 +96,9 @@ export const rectify = (el) => {
   for (let i = 0; i < hrefs.length; ++i) {
     const c = hrefs[i];
     const url = href(c.getAttribute('href'));
-    c.setAttribute('href', url.toString());
+    if (url !== null) {
+      c.setAttribute('href', url.toString());
+    }
   }
 };
 
