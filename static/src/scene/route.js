@@ -65,14 +65,14 @@ export const href = (cand) => {
   if (cand === null) {
     return null;
   }
-  let protocol = null;
+  let url = null;
   try {
-    protocol = (new URL(cand, page)).protocol;
+    url = new URL(cand, page);
   } catch(e) {
     // ignore
   }
   // Make sure the protocol is http/https to avoid XSS.
-  return ["http:", "https:"].includes(protocol) ? new URL(cand, page) : null;
+  return ["http:", "https:"].includes(url?.protocol) ? url : null;
 };
 
 /**
