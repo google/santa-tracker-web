@@ -72,7 +72,7 @@ export const href = (cand) => {
     // ignore
   }
   // Make sure the protocol is http/https to avoid XSS.
-  return ["http:", "https:"].includes(url?.protocol) ? url : null;
+  return url && ["http:", "https:"].includes(url.protocol) ? url : null;
 };
 
 /**
