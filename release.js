@@ -163,7 +163,9 @@ async function optionalMinify(code) {
     w.unref();
     w.terminate();
     if (result.error) {
-      throw new TypeError(`Terser error on ${fileName}: ${result.error}`);
+      throw new TypeError(
+        `Terser error[${result.error.filename}, l: ${result.error.line}]: ${result.error.message}`
+      );
     }
     code = result.code;
   });
