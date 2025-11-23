@@ -97,6 +97,15 @@ export class Game {
     this.elves.forEach(elf => elf.update(dt));
     this.snowballs.forEach(snowball => snowball.update(dt));
 
+    // Spawn new snowballs for any that need replacement
+    this.snowballs.forEach(snowball => {
+      if (snowball.needsReplacement) {
+        snowball.needsReplacement = false;
+        // Create a new snowball at the original spawn position
+        this.snowballs.push(new Snowball(snowball.spawnX, snowball.spawnY));
+      }
+    });
+
     // Check for elf-snowball collisions (pickup)
     this.elves.forEach(elf => {
       // Only allow pickup if elf doesn't already have a snowball
@@ -109,6 +118,7 @@ export class Game {
         if (snowball.collidesWithElf(elf)) {
           snowball.heldBy = elf;
           elf.heldSnowball = snowball;
+          snowball.respawnTimer = snowball.respawnDelay; // Start respawn timer
         }
       });
     });
@@ -151,7 +161,7 @@ export class Game {
     // Check if clicked on an elf
     const clickedElf = this.elves.find(elf => elf.contains(x, y));
 
-    if (clickedElf && clickedElf.team === Teams.BOTTOM) {
+    if (clickedElf && clickedElf.team === Teams.PLAYER) {
       // Select the elf
       if (this.selectedElf) this.selectedElf.selected = false;
       this.selectedElf = clickedElf;
