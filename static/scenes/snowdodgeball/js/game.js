@@ -18,6 +18,16 @@ export class Game {
     this.opponentHealth = 100;
     this.friendlyFire = false;
 
+    // Arena dimensions (fixed size, centered on screen)
+    this.arenaWidth = 1200;
+    this.arenaHeight = 900;
+    this.arenaX = 0;
+    this.arenaY = 0;
+
+    // Spawn point management - tracks timers for each spawn location
+    this.spawnPoints = []; // Array of {x, y, timer, active}
+    this.spawnRespawnDelay = 4; // seconds
+
     this.resize();
     window.addEventListener('resize', () => this.resize());
 
@@ -30,7 +40,10 @@ export class Game {
     this.height = window.innerHeight;
     this.canvas.width = this.width;
     this.canvas.height = this.height;
-    // Re-position elves if needed, or just let them be
+
+    // Center the arena
+    this.arenaX = (this.width - this.arenaWidth) / 2;
+    this.arenaY = (this.height - this.arenaHeight) / 2;
   }
 
   start() {
@@ -43,24 +56,29 @@ export class Game {
   initLevel() {
     this.elves = [];
     this.snowballs = [];
-    const centerX = this.width / 2;
-    const centerY = this.height / 2;
+    // Use arena center, not screen center
+    const centerX = this.arenaX + this.arenaWidth / 2;
+    const centerY = this.arenaY + this.arenaHeight / 2;
 
     // Top team (AI/Opponent)
-    this.elves.push(new Elf(centerX - 100, centerY - 150, Teams.OPPONENT));
-    this.elves.push(new Elf(centerX, centerY - 200, Teams.OPPONENT));
-    this.elves.push(new Elf(centerX + 100, centerY - 150, Teams.OPPONENT));
+    this.elves.push(new Elf(centerX - 100, centerY - 100, Teams.OPPONENT));
+    this.elves.push(new Elf(centerX, centerY - 150, Teams.OPPONENT));
+    this.elves.push(new Elf(centerX + 100, centerY - 100, Teams.OPPONENT));
 
     // Bottom team (Player)
-    this.elves.push(new Elf(centerX - 100, centerY + 150, Teams.PLAYER));
-    this.elves.push(new Elf(centerX, centerY + 200, Teams.PLAYER));
-    this.elves.push(new Elf(centerX + 100, centerY + 150, Teams.PLAYER));
+    this.elves.push(new Elf(centerX - 100, centerY + 100, Teams.PLAYER));
+    this.elves.push(new Elf(centerX, centerY + 150, Teams.PLAYER));
+    this.elves.push(new Elf(centerX + 100, centerY + 100, Teams.PLAYER));
 
-    // Spawn snowballs along the center divider
+    // Initialize spawn points along the center divider
     const snowballCount = 5;
-    const spacing = this.width / (snowballCount + 1);
+    const spacing = this.arenaWidth / (snowballCount + 1);
+    this.spawnPoints = [];
     for (let i = 1; i <= snowballCount; i++) {
-      this.snowballs.push(new Snowball(spacing * i, centerY));
+      const x = this.arenaX + spacing * i;
+      const y = centerY;
+      this.spawnPoints.push({ x, y, timer: 0, hasSnowball: true });
+      this.snowballs.push(new Snowball(x, y));
     }
   }
 
@@ -99,6 +117,30 @@ export class Game {
   }
 
   update(dt) {
+    // Update AI for non-player-controlled elves
+    const playerElves = this.elves.filter(e => e.team === Teams.PLAYER);
+    const opponentElves = this.elves.filter(e => e.team === Teams.OPPONENT);
+
+    // Arena bounds for AI
+    const arenaBounds = {
+      x: this.arenaX,
+      y: this.arenaY,
+      width: this.arenaWidth,
+      height: this.arenaHeight
+    };
+
+    // Player's uncontrolled elves just wander
+    playerElves.forEach(elf => {
+      if (!elf.selected) {
+        elf.updatePlayerAI(dt, arenaBounds);
+      }
+    });
+
+    // Opponent elves have smarter AI
+    opponentElves.forEach(elf => {
+      elf.updateOpponentAI(dt, arenaBounds, this.snowballs, playerElves);
+    });
+
     this.elves.forEach(elf => elf.update(dt));
     this.snowballs.forEach(snowball => snowball.update(dt));
 
@@ -129,12 +171,33 @@ export class Game {
       }
     });
 
-    // Spawn new snowballs for any that need replacement (only if spawn point is free)
-    this.snowballs.forEach(snowball => {
-      if (snowball.needsReplacement) {
-        snowball.needsReplacement = false;
-        if (this.isSpawnPointFree(snowball.spawnX, snowball.spawnY)) {
-          this.snowballs.push(new Snowball(snowball.spawnX, snowball.spawnY));
+    // Update spawn point timers and spawn new snowballs when ready
+    this.spawnPoints.forEach(sp => {
+      // Check if this spawn point currently has a snowball sitting there
+      const hasSnowballAtSpawn = this.snowballs.some(s =>
+        !s.heldBy && !s.thrown &&
+        Math.abs(s.x - sp.x) < 5 && Math.abs(s.y - sp.y) < 5
+      );
+
+      if (hasSnowballAtSpawn) {
+        // Spawn point is occupied, reset timer
+        sp.timer = 0;
+        sp.hasSnowball = true;
+      } else {
+        // Spawn point is empty
+        if (sp.hasSnowball) {
+          // Just became empty, start timer
+          sp.hasSnowball = false;
+          sp.timer = this.spawnRespawnDelay;
+        } else if (sp.timer > 0) {
+          // Timer counting down
+          sp.timer -= dt;
+          if (sp.timer <= 0) {
+            // Timer expired, spawn new snowball
+            this.snowballs.push(new Snowball(sp.x, sp.y));
+            sp.hasSnowball = true;
+            sp.timer = 0;
+          }
         }
       }
     });
@@ -151,41 +214,55 @@ export class Game {
         if (snowball.collidesWithElf(elf)) {
           snowball.heldBy = elf;
           elf.heldSnowball = snowball;
-          snowball.respawnTimer = snowball.respawnDelay; // Start respawn timer
         }
       });
     });
 
-    // Clean up off-screen snowballs and those marked for removal
+    // Clean up snowballs that leave the arena and those marked for removal
     this.snowballs = this.snowballs.filter(snowball => {
       if (snowball.markedForRemoval) return false;
       if (!snowball.thrown) return true; // Keep non-thrown snowballs
       const margin = 50;
-      const offScreen = snowball.x < -margin || snowball.x > this.width + margin ||
-                        snowball.y < -margin || snowball.y > this.height + margin;
-      return !offScreen;
+      const outOfArena = snowball.x < this.arenaX - margin ||
+        snowball.x > this.arenaX + this.arenaWidth + margin ||
+        snowball.y < this.arenaY - margin ||
+        snowball.y > this.arenaY + this.arenaHeight + margin;
+      return !outOfArena;
     });
   }
 
   // Check if a spawn point has a snowball sitting there (not held, not thrown)
   isSpawnPointFree(x, y) {
+    const tolerance = 5; // pixels
     return !this.snowballs.some(snowball =>
       !snowball.heldBy &&
       !snowball.thrown &&
-      snowball.x === x &&
-      snowball.y === y
+      Math.abs(snowball.x - x) < tolerance &&
+      Math.abs(snowball.y - y) < tolerance
     );
   }
 
   render() {
-    this.ctx.clearRect(0, 0, this.width, this.height);
+    // Fill background outside arena
+    this.ctx.fillStyle = '#e8e8e8';
+    this.ctx.fillRect(0, 0, this.width, this.height);
 
-    // Draw center line
+    // Draw arena background (white)
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillRect(this.arenaX, this.arenaY, this.arenaWidth, this.arenaHeight);
+
+    // Draw arena border
+    this.ctx.strokeStyle = '#333';
+    this.ctx.lineWidth = 3;
+    this.ctx.strokeRect(this.arenaX, this.arenaY, this.arenaWidth, this.arenaHeight);
+
+    // Draw center line (within arena)
+    const centerY = this.arenaY + this.arenaHeight / 2;
     this.ctx.beginPath();
-    this.ctx.moveTo(0, this.height / 2);
-    this.ctx.lineTo(this.width, this.height / 2);
-    this.ctx.strokeStyle = 'rgba(0, 0, 0, 0.1)';
-    this.ctx.lineWidth = 4;
+    this.ctx.moveTo(this.arenaX, centerY);
+    this.ctx.lineTo(this.arenaX + this.arenaWidth, centerY);
+    this.ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)';
+    this.ctx.lineWidth = 2;
     this.ctx.stroke();
 
     // Draw snowballs that are not held (on the ground)
@@ -205,9 +282,9 @@ export class Game {
       }
     });
 
-    // Draw Health Bars
-    this.renderHealthBar(10, 10, this.opponentHealth, '#e74c3c'); // Top (Opponent)
-    this.renderHealthBar(10, this.height - 30, this.playerHealth, '#3498db'); // Bottom (Player)
+    // Draw Health Bars (inside arena)
+    this.renderHealthBar(this.arenaX + 10, this.arenaY + 10, this.opponentHealth, '#e74c3c'); // Top (Opponent)
+    this.renderHealthBar(this.arenaX + 10, this.arenaY + this.arenaHeight - 30, this.playerHealth, '#3498db'); // Bottom (Player)
   }
 
   renderHealthBar(x, y, health, color) {
@@ -233,6 +310,9 @@ export class Game {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
+    // Arena center line Y position
+    const arenaCenterY = this.arenaY + this.arenaHeight / 2;
+
     // Check if clicked on an elf
     const clickedElf = this.elves.find(elf => elf.contains(x, y));
 
@@ -242,14 +322,17 @@ export class Game {
       this.selectedElf = clickedElf;
       clickedElf.selected = true;
     } else if (this.selectedElf) {
-      // Check if clicking on opponent's side (top half) while holding a snowball
-      if (y < this.height / 2 && this.selectedElf.heldSnowball) {
+      // Check if clicking on opponent's side (top half of arena) while holding a snowball
+      if (y < arenaCenterY && this.selectedElf.heldSnowball) {
         // Throw the snowball
         this.selectedElf.heldSnowball.throw(x, y);
-      } else if (y > this.height / 2) {
-        // Move selected elf if clicked on valid ground (bottom half)
-        this.selectedElf.targetX = x;
-        this.selectedElf.targetY = y;
+      } else if (y > arenaCenterY) {
+        // Move selected elf if clicked on valid ground (bottom half of arena)
+        // Clamp to arena bounds
+        const clampedX = Math.max(this.arenaX, Math.min(this.arenaX + this.arenaWidth, x));
+        const clampedY = Math.max(arenaCenterY, Math.min(this.arenaY + this.arenaHeight, y));
+        this.selectedElf.targetX = clampedX;
+        this.selectedElf.targetY = clampedY;
       }
     }
   }
