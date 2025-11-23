@@ -34,12 +34,11 @@
     import { Game } from './js/game.js';
 
     const canvas = document.getElementById('game-canvas');
-    const game = new Game(canvas);
+    const game = new Game(canvas, api);
 
     api.addEventListener('pause', () => game.pause());
     api.addEventListener('resume', () => game.resume());
     api.addEventListener('restart', () => game.restart());
-    window.addEventListener('snowdodgeball-home', () => api.go(''));
 
     api.ready(async () => {
       game.start();

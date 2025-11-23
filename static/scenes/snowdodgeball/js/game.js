@@ -4,8 +4,9 @@ import { Snowball } from './snowball.js';
 import { Teams } from './constants.js';
 
 export class Game {
-  constructor(canvas) {
+  constructor(canvas, api) {
     this.canvas = canvas;
+    this.api = api;
     this.ctx = canvas.getContext('2d');
     this.width = 0;
     this.height = 0;
@@ -319,7 +320,7 @@ export class Game {
   }
 
   goToHome() {
-    window.dispatchEvent(new CustomEvent('snowdodgeball-home'));
+    this.api.go('');
   }
 
   loop() {
