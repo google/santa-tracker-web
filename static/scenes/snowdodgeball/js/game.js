@@ -159,12 +159,8 @@ export class Game {
               this.opponentHealth = Math.max(0, this.opponentHealth - 20);
             }
 
-            // Only respawn if spawn point is not occupied
-            if (this.isSpawnPointFree(snowball.spawnX, snowball.spawnY)) {
-              snowball.respawn();
-            } else {
-              snowball.markedForRemoval = true;
-            }
+            // Remove the snowball - spawn point timer will handle respawn
+            snowball.markedForRemoval = true;
             break; // Stop checking other elves after hit
           }
         }
