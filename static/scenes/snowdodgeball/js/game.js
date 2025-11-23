@@ -33,6 +33,21 @@ export class Game {
 
     // Input handling
     this.canvas.addEventListener('pointerdown', (e) => this.onPointerDown(e));
+    window.addEventListener('keydown', (e) => this.onKeyDown(e));
+  }
+
+  onKeyDown(e) {
+    if (e.key === 'Escape') {
+      this.togglePause();
+    }
+  }
+
+  togglePause() {
+    if (this.isPlaying) {
+      this.pause();
+    } else {
+      this.resume();
+    }
   }
 
   resize() {
@@ -84,6 +99,38 @@ export class Game {
 
   pause() {
     this.isPlaying = false;
+    this.renderPauseScreen();
+  }
+
+  renderPauseScreen() {
+    // Dim the background
+    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+    this.ctx.fillRect(0, 0, this.width, this.height);
+
+    // Draw red modal box
+    const modalWidth = 300;
+    const modalHeight = 200;
+    const modalX = (this.width - modalWidth) / 2;
+    const modalY = (this.height - modalHeight) / 2;
+
+    this.ctx.fillStyle = '#c0392b';
+    this.ctx.fillRect(modalX, modalY, modalWidth, modalHeight);
+
+    // Draw border
+    this.ctx.strokeStyle = '#922b21';
+    this.ctx.lineWidth = 4;
+    this.ctx.strokeRect(modalX, modalY, modalWidth, modalHeight);
+
+    // Draw "PAUSED" text
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.font = 'bold 36px Arial';
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.fillText('PAUSED', this.width / 2, this.height / 2 - 20);
+
+    // Draw instruction text
+    this.ctx.font = '18px Arial';
+    this.ctx.fillText('Press ESC to resume', this.width / 2, this.height / 2 + 30);
   }
 
   resume() {
