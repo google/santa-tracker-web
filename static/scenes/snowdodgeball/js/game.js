@@ -1,6 +1,7 @@
 
 import { Elf } from './elf.js';
 import { Snowball } from './snowball.js';
+import { Teams } from './constants.js';
 
 export class Game {
   constructor(canvas) {
@@ -43,14 +44,14 @@ export class Game {
     const centerY = this.height / 2;
 
     // Top team (AI/Opponent)
-    this.elves.push(new Elf(centerX - 100, centerY - 150, 'top'));
-    this.elves.push(new Elf(centerX, centerY - 200, 'top'));
-    this.elves.push(new Elf(centerX + 100, centerY - 150, 'top'));
+    this.elves.push(new Elf(centerX - 100, centerY - 150, Teams.OPPONENT));
+    this.elves.push(new Elf(centerX, centerY - 200, Teams.OPPONENT));
+    this.elves.push(new Elf(centerX + 100, centerY - 150, Teams.OPPONENT));
 
     // Bottom team (Player)
-    this.elves.push(new Elf(centerX - 100, centerY + 150, 'bottom'));
-    this.elves.push(new Elf(centerX, centerY + 200, 'bottom'));
-    this.elves.push(new Elf(centerX + 100, centerY + 150, 'bottom'));
+    this.elves.push(new Elf(centerX - 100, centerY + 150, Teams.PLAYER));
+    this.elves.push(new Elf(centerX, centerY + 200, Teams.PLAYER));
+    this.elves.push(new Elf(centerX + 100, centerY + 150, Teams.PLAYER));
 
     // Spawn snowballs along the center divider
     const snowballCount = 5;
@@ -150,7 +151,7 @@ export class Game {
     // Check if clicked on an elf
     const clickedElf = this.elves.find(elf => elf.contains(x, y));
 
-    if (clickedElf && clickedElf.team === 'bottom') {
+    if (clickedElf && clickedElf.team === Teams.BOTTOM) {
       // Select the elf
       if (this.selectedElf) this.selectedElf.selected = false;
       this.selectedElf = clickedElf;

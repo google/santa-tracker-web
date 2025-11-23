@@ -1,11 +1,12 @@
 
+import { Teams } from './constants.js';
 export class Elf {
   constructor(x, y, team) {
     this.x = x;
     this.y = y;
     this.team = team; // 'top' or 'bottom'
     this.radius = 20;
-    this.color = team === 'top' ? '#e74c3c' : '#3498db'; // Red for top, Blue for bottom
+    this.color = team === Teams.OPPONENT ? '#e74c3c' : '#3498db'; // Red for top, Blue for bottom
     this.selected = false;
     this.targetX = x;
     this.targetY = y;
