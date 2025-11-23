@@ -11,6 +11,8 @@ export class Game {
     this.height = 0;
     this.lastTime = 0;
     this.isPlaying = false;
+    this.showingStartScreen = true;
+    this.startButtonBounds = null; // Will store {x, y, width, height}
     this.elves = [];
     this.snowballs = [];
     this.selectedElf = null;
@@ -43,6 +45,9 @@ export class Game {
   }
 
   togglePause() {
+    // Don't toggle pause on start screen
+    if (this.showingStartScreen) return;
+
     if (this.isPlaying) {
       this.pause();
     } else {
@@ -62,10 +67,73 @@ export class Game {
   }
 
   start() {
+    this.showingStartScreen = true;
+    this.renderStartScreen();
+  }
+
+  startGame() {
+    this.showingStartScreen = false;
     this.isPlaying = true;
     this.lastTime = performance.now();
     this.initLevel();
     this.loop();
+  }
+
+  renderStartScreen() {
+    // Fill background
+    this.ctx.fillStyle = '#e8e8e8';
+    this.ctx.fillRect(0, 0, this.width, this.height);
+
+    // Draw title box
+    const boxWidth = 500;
+    const boxHeight = 350;
+    const boxX = (this.width - boxWidth) / 2;
+    const boxY = (this.height - boxHeight) / 2;
+
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillRect(boxX, boxY, boxWidth, boxHeight);
+    this.ctx.strokeStyle = '#333';
+    this.ctx.lineWidth = 3;
+    this.ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
+
+    // Title
+    this.ctx.fillStyle = '#2c3e50';
+    this.ctx.font = 'bold 42px Arial';
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.fillText('SNOWDODGEBALL', this.width / 2, boxY + 50);
+
+    // Instructions
+    this.ctx.fillStyle = '#555';
+    this.ctx.font = '18px Arial';
+    const instructions = [
+      'Click your elves (blue) to select them',
+      'Click in your area to move',
+      'Pick up snowballs from the center line',
+      'Click enemy side to throw and deal damage!',
+      'Reduce enemy health to zero to win'
+    ];
+    instructions.forEach((text, i) => {
+      this.ctx.fillText(text, this.width / 2, boxY + 110 + i * 28);
+    });
+
+    // Start button
+    const btnWidth = 180;
+    const btnHeight = 50;
+    const btnX = (this.width - btnWidth) / 2;
+    const btnY = boxY + boxHeight - 80;
+
+    this.startButtonBounds = { x: btnX, y: btnY, width: btnWidth, height: btnHeight };
+
+    this.ctx.fillStyle = '#27ae60';
+    this.ctx.fillRect(btnX, btnY, btnWidth, btnHeight);
+    this.ctx.strokeStyle = '#1e8449';
+    this.ctx.lineWidth = 3;
+    this.ctx.strokeRect(btnX, btnY, btnWidth, btnHeight);
+
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.font = 'bold 24px Arial';
+    this.ctx.fillText('START', this.width / 2, btnY + btnHeight / 2);
   }
 
   initLevel() {
@@ -98,6 +166,11 @@ export class Game {
   }
 
   pause() {
+    // Don't pause if on start screen
+    if (this.showingStartScreen) {
+      this.renderStartScreen();
+      return;
+    }
     this.isPlaying = false;
     this.renderPauseScreen();
   }
@@ -134,6 +207,11 @@ export class Game {
   }
 
   resume() {
+    // Don't resume if on start screen
+    if (this.showingStartScreen) {
+      this.renderStartScreen();
+      return;
+    }
     if (!this.isPlaying) {
       this.isPlaying = true;
       this.lastTime = performance.now();
@@ -142,11 +220,18 @@ export class Game {
   }
 
   restart() {
+    // If on start screen, just re-render it
+    if (this.showingStartScreen) {
+      this.renderStartScreen();
+      return;
+    }
     this.playerHealth = 100;
     this.opponentHealth = 100;
     this.initLevel();
     if (!this.isPlaying) {
-      this.start();
+      this.isPlaying = true;
+      this.lastTime = performance.now();
+      this.loop();
     }
   }
 
@@ -352,6 +437,18 @@ export class Game {
     const rect = this.canvas.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
+
+    // Handle start screen button click
+    if (this.showingStartScreen && this.startButtonBounds) {
+      const btn = this.startButtonBounds;
+      if (x >= btn.x && x <= btn.x + btn.width && y >= btn.y && y <= btn.y + btn.height) {
+        this.startGame();
+        return;
+      }
+    }
+
+    // Don't process game input if not playing
+    if (!this.isPlaying) return;
 
     // Arena center line Y position
     const arenaCenterY = this.arenaY + this.arenaHeight / 2;
