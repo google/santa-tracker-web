@@ -12,7 +12,11 @@ export class Game {
     this.lastTime = 0;
     this.isPlaying = false;
     this.showingStartScreen = true;
+    this.gameOver = false;
+    this.playerWon = false;
     this.startButtonBounds = null; // Will store {x, y, width, height}
+    this.restartButtonBounds = null;
+    this.homeButtonBounds = null;
     this.elves = [];
     this.snowballs = [];
     this.selectedElf = null;
@@ -206,6 +210,73 @@ export class Game {
     this.ctx.fillText('Press ESC to resume', this.width / 2, this.height / 2 + 30);
   }
 
+  renderGameOverScreen() {
+    // Dim the background
+    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    this.ctx.fillRect(0, 0, this.width, this.height);
+
+    // Draw modal box
+    const modalWidth = 400;
+    const modalHeight = 280;
+    const modalX = (this.width - modalWidth) / 2;
+    const modalY = (this.height - modalHeight) / 2;
+
+    // Background color based on win/lose
+    this.ctx.fillStyle = this.playerWon ? '#27ae60' : '#c0392b';
+    this.ctx.fillRect(modalX, modalY, modalWidth, modalHeight);
+
+    // Draw border
+    this.ctx.strokeStyle = this.playerWon ? '#1e8449' : '#922b21';
+    this.ctx.lineWidth = 4;
+    this.ctx.strokeRect(modalX, modalY, modalWidth, modalHeight);
+
+    // Draw title text
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.font = 'bold 42px Arial';
+    this.ctx.textAlign = 'center';
+    this.ctx.textBaseline = 'middle';
+    this.ctx.fillText(this.playerWon ? 'YOU WIN!' : 'GAME OVER', this.width / 2, modalY + 60);
+
+    // Draw subtitle
+    this.ctx.font = '20px Arial';
+    this.ctx.fillText(
+      this.playerWon ? 'You defeated the opponents!' : 'The opponents won!',
+      this.width / 2, modalY + 110
+    );
+
+    // Restart button
+    const btnWidth = 150;
+    const btnHeight = 45;
+    const btnSpacing = 20;
+    const restartX = this.width / 2 - btnWidth - btnSpacing / 2;
+    const btnY = modalY + modalHeight - 90;
+
+    this.restartButtonBounds = { x: restartX, y: btnY, width: btnWidth, height: btnHeight };
+
+    this.ctx.fillStyle = '#3498db';
+    this.ctx.fillRect(restartX, btnY, btnWidth, btnHeight);
+    this.ctx.strokeStyle = '#2980b9';
+    this.ctx.lineWidth = 2;
+    this.ctx.strokeRect(restartX, btnY, btnWidth, btnHeight);
+
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.font = 'bold 20px Arial';
+    this.ctx.fillText('RESTART', restartX + btnWidth / 2, btnY + btnHeight / 2);
+
+    // Home button
+    const homeX = this.width / 2 + btnSpacing / 2;
+    this.homeButtonBounds = { x: homeX, y: btnY, width: btnWidth, height: btnHeight };
+
+    this.ctx.fillStyle = '#7f8c8d';
+    this.ctx.fillRect(homeX, btnY, btnWidth, btnHeight);
+    this.ctx.strokeStyle = '#636e72';
+    this.ctx.lineWidth = 2;
+    this.ctx.strokeRect(homeX, btnY, btnWidth, btnHeight);
+
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillText('HOME', homeX + btnWidth / 2, btnY + btnHeight / 2);
+  }
+
   resume() {
     // Don't resume if on start screen
     if (this.showingStartScreen) {
@@ -233,6 +304,22 @@ export class Game {
       this.lastTime = performance.now();
       this.loop();
     }
+  }
+
+  restartGame() {
+    this.gameOver = false;
+    this.playerWon = false;
+    this.playerHealth = 100;
+    this.opponentHealth = 100;
+    this.selectedElf = null;
+    this.initLevel();
+    this.isPlaying = true;
+    this.lastTime = performance.now();
+    this.loop();
+  }
+
+  goToHome() {
+    window.dispatchEvent(new CustomEvent('snowdodgeball-home'));
   }
 
   loop() {
@@ -357,6 +444,17 @@ export class Game {
         snowball.y > this.arenaY + this.arenaHeight + margin;
       return !outOfArena;
     });
+
+    // Check for game over
+    if (this.playerHealth <= 0) {
+      this.gameOver = true;
+      this.playerWon = false;
+      this.isPlaying = false;
+    } else if (this.opponentHealth <= 0) {
+      this.gameOver = true;
+      this.playerWon = true;
+      this.isPlaying = false;
+    }
   }
 
   // Check if a spawn point has a snowball sitting there (not held, not thrown)
@@ -413,6 +511,11 @@ export class Game {
     // Draw Health Bars (inside arena)
     this.renderHealthBar(this.arenaX + 10, this.arenaY + 10, this.opponentHealth, '#e74c3c'); // Top (Opponent)
     this.renderHealthBar(this.arenaX + 10, this.arenaY + this.arenaHeight - 30, this.playerHealth, '#3498db'); // Bottom (Player)
+
+    // Draw Game Over screen on top if game is over
+    if (this.gameOver) {
+      this.renderGameOverScreen();
+    }
   }
 
   renderHealthBar(x, y, health, color) {
@@ -445,6 +548,27 @@ export class Game {
         this.startGame();
         return;
       }
+    }
+
+    // Handle game over screen buttons
+    if (this.gameOver) {
+      // Check restart button
+      if (this.restartButtonBounds) {
+        const btn = this.restartButtonBounds;
+        if (x >= btn.x && x <= btn.x + btn.width && y >= btn.y && y <= btn.y + btn.height) {
+          this.restartGame();
+          return;
+        }
+      }
+      // Check home button
+      if (this.homeButtonBounds) {
+        const btn = this.homeButtonBounds;
+        if (x >= btn.x && x <= btn.x + btn.width && y >= btn.y && y <= btn.y + btn.height) {
+          this.goToHome();
+          return;
+        }
+      }
+      return; // Don't process other input on game over screen
     }
 
     // Don't process game input if not playing
