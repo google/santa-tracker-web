@@ -10,6 +10,7 @@ export class Elf {
     this.targetX = x;
     this.targetY = y;
     this.speed = 200; // pixels per second
+    this.heldSnowball = null; // Reference to snowball being held
   }
 
   update(dt) {

@@ -1,5 +1,6 @@
 
 import { Elf } from './elf.js';
+import { Snowball } from './snowball.js';
 
 export class Game {
   constructor(canvas) {
@@ -10,6 +11,7 @@ export class Game {
     this.lastTime = 0;
     this.isPlaying = false;
     this.elves = [];
+    this.snowballs = [];
     this.selectedElf = null;
 
     this.resize();
@@ -36,6 +38,7 @@ export class Game {
 
   initLevel() {
     this.elves = [];
+    this.snowballs = [];
     const centerX = this.width / 2;
     const centerY = this.height / 2;
 
@@ -48,6 +51,13 @@ export class Game {
     this.elves.push(new Elf(centerX - 100, centerY + 150, 'bottom'));
     this.elves.push(new Elf(centerX, centerY + 200, 'bottom'));
     this.elves.push(new Elf(centerX + 100, centerY + 150, 'bottom'));
+
+    // Spawn snowballs along the center divider
+    const snowballCount = 5;
+    const spacing = this.width / (snowballCount + 1);
+    for (let i = 1; i <= snowballCount; i++) {
+      this.snowballs.push(new Snowball(spacing * i, centerY));
+    }
   }
 
   pause() {
@@ -84,6 +94,23 @@ export class Game {
 
   update(dt) {
     this.elves.forEach(elf => elf.update(dt));
+    this.snowballs.forEach(snowball => snowball.update(dt));
+
+    // Check for elf-snowball collisions (pickup)
+    this.elves.forEach(elf => {
+      // Only allow pickup if elf doesn't already have a snowball
+      if (elf.heldSnowball) return;
+
+      this.snowballs.forEach(snowball => {
+        // Only pick up snowballs that aren't already held
+        if (snowball.heldBy) return;
+
+        if (snowball.collidesWithElf(elf)) {
+          snowball.heldBy = elf;
+          elf.heldSnowball = snowball;
+        }
+      });
+    });
   }
 
   render() {
@@ -97,8 +124,22 @@ export class Game {
     this.ctx.lineWidth = 4;
     this.ctx.stroke();
 
+    // Draw snowballs that are not held (on the ground)
+    this.snowballs.forEach(snowball => {
+      if (!snowball.heldBy) {
+        snowball.render(this.ctx);
+      }
+    });
+
     // Draw elves
     this.elves.forEach(elf => elf.render(this.ctx));
+
+    // Draw held snowballs on top of elves
+    this.snowballs.forEach(snowball => {
+      if (snowball.heldBy) {
+        snowball.render(this.ctx);
+      }
+    });
   }
 
   onPointerDown(e) {
