@@ -352,7 +352,7 @@ export class Game {
     // Player's uncontrolled elves just wander
     playerElves.forEach(elf => {
       if (!elf.selected) {
-        elf.updatePlayerAI(dt, arenaBounds);
+        elf.updatePlayerAI(dt, arenaBounds, this.snowballs);
       }
     });
 

@@ -76,9 +76,26 @@ export class Elf {
   }
 
   // Simple wandering AI for player's non-controlled elves
-  updatePlayerAI(dt, arena) {
+  updatePlayerAI(dt, arena, snowballs) {
     this.wanderTimer -= dt;
+    this.seekSnowballCooldown -= dt;
 
+    // If not holding a snowball, occasionally try to get one
+    if (!this.heldSnowball) {
+      if (this.seekSnowballCooldown <= 0) {
+        const availableSnowball = this.findNearestSnowball(snowballs);
+        if (availableSnowball && Math.random() < 0.7) { // 40% chance to go for it
+          this.targetX = availableSnowball.x;
+          this.targetY = availableSnowball.y;
+          this.seekSnowballCooldown = 3 + Math.random() * 2; // Wait 3-5 seconds before considering again
+          this.wanderTimer = this.wanderInterval; // Reset wander timer to avoid interrupting snowball seek
+          return;
+        }
+        this.seekSnowballCooldown = 1.5; // Check again in 1.5 seconds
+      }
+    }
+
+    // Otherwise, wander in bottom half
     if (this.wanderTimer <= 0) {
       this.wanderTimer = this.wanderInterval + Math.random();
 
@@ -110,10 +127,10 @@ export class Elf {
     // Only seek snowballs occasionally (cooldown prevents rushing)
     if (this.seekSnowballCooldown <= 0) {
       const availableSnowball = this.findNearestSnowball(snowballs);
-      if (availableSnowball && Math.random() < 0.3) { // 30% chance to go for it
+      if (availableSnowball && Math.random() < 0.5) {
         this.targetX = availableSnowball.x;
         this.targetY = availableSnowball.y;
-        this.seekSnowballCooldown = 2 + Math.random() * 2; // Wait 2-4 seconds before considering again
+        this.seekSnowballCooldown = 2; // Wait 2 seconds before considering again
         return;
       }
       this.seekSnowballCooldown = 1; // Check again in 1 second
