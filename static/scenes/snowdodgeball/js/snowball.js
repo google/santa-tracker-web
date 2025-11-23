@@ -12,7 +12,8 @@ export class Snowball {
     this.velocityY = 0;
     this.speed = 500; // pixels per second when thrown
     this.respawnTimer = 0;
-    this.respawnDelay = 4; // seconds until new snowball spawns
+    this.respawnDelay = 4; // seconds until respawn
+    this.team = null; // Team that threw the snowball
     this.needsReplacement = false; // When true, a new snowball should spawn at original position
   }
 
@@ -28,6 +29,7 @@ export class Snowball {
 
     // Release from elf
     if (this.heldBy) {
+      this.team = this.heldBy.team; // Track which team threw the snowball
       this.heldBy.heldSnowball = null;
       this.heldBy = null;
     }
@@ -76,5 +78,16 @@ export class Snowball {
     const dy = this.y - elf.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
     return dist < (this.radius + elf.radius);
+  }
+
+  respawn() {
+    this.x = this.spawnX;
+    this.y = this.spawnY;
+    this.thrown = false;
+    this.velocityX = 0;
+    this.velocityY = 0;
+    this.respawnTimer = 0;
+    this.needsReplacement = false;
+    this.team = null;
   }
 }

@@ -14,6 +14,9 @@ export class Game {
     this.elves = [];
     this.snowballs = [];
     this.selectedElf = null;
+    this.playerHealth = 100;
+    this.opponentHealth = 100;
+    this.friendlyFire = false;
 
     this.resize();
     window.addEventListener('resize', () => this.resize());
@@ -74,6 +77,8 @@ export class Game {
   }
 
   restart() {
+    this.playerHealth = 100;
+    this.opponentHealth = 100;
     this.initLevel();
     if (!this.isPlaying) {
       this.start();
@@ -97,12 +102,40 @@ export class Game {
     this.elves.forEach(elf => elf.update(dt));
     this.snowballs.forEach(snowball => snowball.update(dt));
 
-    // Spawn new snowballs for any that need replacement
+    // Check for snowball hits on elves
+    this.snowballs.forEach(snowball => {
+      if (!snowball.thrown) return;
+
+      for (const elf of this.elves) {
+        if (snowball.collidesWithElf(elf)) {
+          // Check if it's a valid hit (different team or friendly fire on)
+          if (this.friendlyFire || snowball.team !== elf.team) {
+            // Apply damage
+            if (elf.team === Teams.PLAYER) {
+              this.playerHealth = Math.max(0, this.playerHealth - 20);
+            } else {
+              this.opponentHealth = Math.max(0, this.opponentHealth - 20);
+            }
+
+            // Only respawn if spawn point is not occupied
+            if (this.isSpawnPointFree(snowball.spawnX, snowball.spawnY)) {
+              snowball.respawn();
+            } else {
+              snowball.markedForRemoval = true;
+            }
+            break; // Stop checking other elves after hit
+          }
+        }
+      }
+    });
+
+    // Spawn new snowballs for any that need replacement (only if spawn point is free)
     this.snowballs.forEach(snowball => {
       if (snowball.needsReplacement) {
         snowball.needsReplacement = false;
-        // Create a new snowball at the original spawn position
-        this.snowballs.push(new Snowball(snowball.spawnX, snowball.spawnY));
+        if (this.isSpawnPointFree(snowball.spawnX, snowball.spawnY)) {
+          this.snowballs.push(new Snowball(snowball.spawnX, snowball.spawnY));
+        }
       }
     });
 
@@ -122,6 +155,26 @@ export class Game {
         }
       });
     });
+
+    // Clean up off-screen snowballs and those marked for removal
+    this.snowballs = this.snowballs.filter(snowball => {
+      if (snowball.markedForRemoval) return false;
+      if (!snowball.thrown) return true; // Keep non-thrown snowballs
+      const margin = 50;
+      const offScreen = snowball.x < -margin || snowball.x > this.width + margin ||
+                        snowball.y < -margin || snowball.y > this.height + margin;
+      return !offScreen;
+    });
+  }
+
+  // Check if a spawn point has a snowball sitting there (not held, not thrown)
+  isSpawnPointFree(x, y) {
+    return !this.snowballs.some(snowball =>
+      !snowball.heldBy &&
+      !snowball.thrown &&
+      snowball.x === x &&
+      snowball.y === y
+    );
   }
 
   render() {
@@ -151,6 +204,28 @@ export class Game {
         snowball.render(this.ctx);
       }
     });
+
+    // Draw Health Bars
+    this.renderHealthBar(10, 10, this.opponentHealth, '#e74c3c'); // Top (Opponent)
+    this.renderHealthBar(10, this.height - 30, this.playerHealth, '#3498db'); // Bottom (Player)
+  }
+
+  renderHealthBar(x, y, health, color) {
+    const width = 200;
+    const height = 20;
+
+    // Background
+    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+    this.ctx.fillRect(x, y, width, height);
+
+    // Health
+    this.ctx.fillStyle = color;
+    this.ctx.fillRect(x, y, (health / 100) * width, height);
+
+    // Border
+    this.ctx.strokeStyle = '#fff';
+    this.ctx.lineWidth = 2;
+    this.ctx.strokeRect(x, y, width, height);
   }
 
   onPointerDown(e) {
