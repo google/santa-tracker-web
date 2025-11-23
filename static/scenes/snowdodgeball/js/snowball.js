@@ -5,6 +5,28 @@ export class Snowball {
     this.y = y;
     this.radius = 10;
     this.heldBy = null; // Reference to the elf holding this snowball
+    this.thrown = false;
+    this.velocityX = 0;
+    this.velocityY = 0;
+    this.speed = 500; // pixels per second when thrown
+  }
+
+  throw(targetX, targetY) {
+    // Calculate direction to target
+    const dx = targetX - this.x;
+    const dy = targetY - this.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+
+    // Normalize and set velocity
+    this.velocityX = (dx / dist) * this.speed;
+    this.velocityY = (dy / dist) * this.speed;
+
+    // Release from elf
+    if (this.heldBy) {
+      this.heldBy.heldSnowball = null;
+      this.heldBy = null;
+    }
+    this.thrown = true;
   }
 
   update(dt) {
@@ -12,6 +34,10 @@ export class Snowball {
     if (this.heldBy) {
       this.x = this.heldBy.x;
       this.y = this.heldBy.y;
+    } else if (this.thrown) {
+      // Move in straight line
+      this.x += this.velocityX * dt;
+      this.y += this.velocityY * dt;
     }
   }
 

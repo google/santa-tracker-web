@@ -102,8 +102,8 @@ export class Game {
       if (elf.heldSnowball) return;
 
       this.snowballs.forEach(snowball => {
-        // Only pick up snowballs that aren't already held
-        if (snowball.heldBy) return;
+        // Only pick up snowballs that aren't already held or thrown
+        if (snowball.heldBy || snowball.thrown) return;
 
         if (snowball.collidesWithElf(elf)) {
           snowball.heldBy = elf;
@@ -156,11 +156,14 @@ export class Game {
       this.selectedElf = clickedElf;
       clickedElf.selected = true;
     } else if (this.selectedElf) {
-      // Move selected elf if clicked on valid ground (bottom half)
-      if (y > this.height / 2) {
+      // Check if clicking on opponent's side (top half) while holding a snowball
+      if (y < this.height / 2 && this.selectedElf.heldSnowball) {
+        // Throw the snowball
+        this.selectedElf.heldSnowball.throw(x, y);
+      } else if (y > this.height / 2) {
+        // Move selected elf if clicked on valid ground (bottom half)
         this.selectedElf.targetX = x;
         this.selectedElf.targetY = y;
-        // Deselect after moving? Or keep selected? Let's keep selected for now.
       }
     }
   }
