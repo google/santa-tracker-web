@@ -28,7 +28,6 @@ export class Elf {
   }
 
   update(dt) {
-    // Simple movement logic
     const dx = this.targetX - this.x;
     const dy = this.targetY - this.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
@@ -69,7 +68,6 @@ export class Elf {
     return (dx * dx + dy * dy) <= (this.radius * this.radius);
   }
 
-  // Get current velocity (for shot leading calculations)
   getVelocity() {
     const dx = this.targetX - this.x;
     const dy = this.targetY - this.y;
@@ -81,48 +79,49 @@ export class Elf {
     };
   }
 
-  // Simple wandering AI for player's non-controlled elves
-  updatePlayerAI(dt, arena, snowballs) {
-    this.wanderTimer -= dt;
-    this.seekSnowballCooldown -= dt;
+  // =========================================================================
+  // AI METHODS
+  // =========================================================================
 
-    // If not holding a snowball, occasionally try to get one
-    if (!this.heldSnowball) {
-      if (this.seekSnowballCooldown <= 0) {
-        const availableSnowball = this.findNearestSnowball(snowballs);
-        if (availableSnowball && Math.random() < PlayerAI.SEEK_SNOWBALL_CHANCE) {
-          this.targetX = availableSnowball.x;
-          this.targetY = availableSnowball.y;
-          this.seekSnowballCooldown = PlayerAI.SEEK_COOLDOWN_AFTER_SEEK + Math.random() * PlayerAI.SEEK_COOLDOWN_RANDOM_EXTRA;
-          this.wanderTimer = this.wanderInterval; // Reset wander timer to avoid interrupting snowball seek
-          return;
-        }
-        this.seekSnowballCooldown = PlayerAI.SEEK_COOLDOWN_AFTER_CHECK;
-      }
+  /**
+   * Get a random point within this elf's territory (based on team)
+   * @param {Object} arena - Arena bounds {x, y, width, height}
+   * @returns {Object} - {x, y} coordinates
+   */
+  getRandomPointInTerritory(arena) {
+    const margin = ElfConfig.WANDER_MARGIN;
+    const centerY = arena.y + arena.height / 2;
+
+    const x = arena.x + margin + Math.random() * (arena.width - margin * 2);
+
+    let y;
+    if (this.team === Teams.OPPONENT) {
+      // Top half
+      y = arena.y + margin + Math.random() * (centerY - arena.y - margin * 2);
+    } else {
+      // Bottom half
+      y = centerY + margin + Math.random() * (arena.y + arena.height - centerY - margin * 2);
     }
 
-    // Otherwise, wander in bottom half
-    if (this.wanderTimer <= 0) {
-      this.wanderTimer = this.wanderInterval + Math.random();
-
-      // Pick a random point within bottom half (player territory)
-      const margin = ElfConfig.WANDER_MARGIN;
-      const centerY = arena.y + arena.height / 2;
-      this.targetX = arena.x + margin + Math.random() * (arena.width - margin * 2);
-      this.targetY = centerY + margin + Math.random() * (arena.y + arena.height - centerY - margin * 2);
-    }
+    return { x, y };
   }
 
-  // Opponent AI - less aggressive, inaccurate throws
-  updateOpponentAI(dt, arena, snowballs, playerElves) {
+  /**
+   * Unified AI update method
+   * @param {number} dt - Delta time
+   * @param {Object} arena - Arena bounds
+   * @param {Array} snowballs - Available snowballs
+   * @param {Object} config - AI configuration {seekChance, seekCooldownAfterSeek, seekCooldownRandomExtra, seekCooldownAfterCheck}
+   * @param {Array} [targets=null] - If provided, elf will throw at these targets when holding a snowball
+   */
+  updateAI(dt, arena, snowballs, config, targets = null) {
     this.wanderTimer -= dt;
     this.seekSnowballCooldown -= dt;
 
-    // If holding a snowball, look for a target to throw at
-    if (this.heldSnowball) {
-      const target = this.findBestTarget(playerElves);
+    // If holding a snowball and we have targets, try to throw
+    if (this.heldSnowball && targets && targets.length > 0) {
+      const target = this.findNearestTarget(targets);
       if (target) {
-        // Throw at target's current position with random inaccuracy (no lead)
         const offsetX = (Math.random() - 0.5) * this.throwInaccuracy * 2;
         const offsetY = (Math.random() - 0.5) * this.throwInaccuracy * 2;
         this.heldSnowball.throw(target.x + offsetX, target.y + offsetY);
@@ -130,29 +129,52 @@ export class Elf {
       return;
     }
 
-    // Only seek snowballs occasionally (cooldown prevents rushing)
-    if (this.seekSnowballCooldown <= 0) {
+    // If not holding a snowball, occasionally try to get one
+    if (!this.heldSnowball && this.seekSnowballCooldown <= 0) {
       const availableSnowball = this.findNearestSnowball(snowballs);
-      if (availableSnowball && Math.random() < OpponentAI.SEEK_SNOWBALL_CHANCE) {
+      if (availableSnowball && Math.random() < config.seekChance) {
         this.targetX = availableSnowball.x;
         this.targetY = availableSnowball.y;
-        this.seekSnowballCooldown = OpponentAI.SEEK_COOLDOWN_AFTER_SEEK;
+        this.seekSnowballCooldown = config.seekCooldownAfterSeek +
+          Math.random() * (config.seekCooldownRandomExtra || 0);
+        this.wanderTimer = this.wanderInterval;
         return;
       }
-      this.seekSnowballCooldown = OpponentAI.SEEK_COOLDOWN_AFTER_CHECK;
+      this.seekSnowballCooldown = config.seekCooldownAfterCheck;
     }
 
-    // Otherwise, wander in top half
+    // Wander in territory
     if (this.wanderTimer <= 0) {
       this.wanderTimer = this.wanderInterval + Math.random();
-      const margin = ElfConfig.WANDER_MARGIN;
-      const centerY = arena.y + arena.height / 2;
-      this.targetX = arena.x + margin + Math.random() * (arena.width - margin * 2);
-      this.targetY = arena.y + margin + Math.random() * (centerY - arena.y - margin * 2);
+      const point = this.getRandomPointInTerritory(arena);
+      this.targetX = point.x;
+      this.targetY = point.y;
     }
   }
 
-  // Find nearest available snowball (not held, not thrown)
+  // Convenience methods that use the unified updateAI with preset configs
+  updatePlayerAI(dt, arena, snowballs) {
+    this.updateAI(dt, arena, snowballs, {
+      seekChance: PlayerAI.SEEK_SNOWBALL_CHANCE,
+      seekCooldownAfterSeek: PlayerAI.SEEK_COOLDOWN_AFTER_SEEK,
+      seekCooldownRandomExtra: PlayerAI.SEEK_COOLDOWN_RANDOM_EXTRA,
+      seekCooldownAfterCheck: PlayerAI.SEEK_COOLDOWN_AFTER_CHECK
+    });
+  }
+
+  updateOpponentAI(dt, arena, snowballs, playerElves) {
+    this.updateAI(dt, arena, snowballs, {
+      seekChance: OpponentAI.SEEK_SNOWBALL_CHANCE,
+      seekCooldownAfterSeek: OpponentAI.SEEK_COOLDOWN_AFTER_SEEK,
+      seekCooldownRandomExtra: 0,
+      seekCooldownAfterCheck: OpponentAI.SEEK_COOLDOWN_AFTER_CHECK
+    }, playerElves);
+  }
+
+  // =========================================================================
+  // TARGETING HELPERS
+  // =========================================================================
+
   findNearestSnowball(snowballs) {
     let nearest = null;
     let nearestDist = Infinity;
@@ -172,38 +194,32 @@ export class Elf {
     return nearest;
   }
 
-  // Find best target among player elves
-  findBestTarget(playerElves) {
-    // For now, just pick the nearest player elf
+  findNearestTarget(targets) {
     let nearest = null;
     let nearestDist = Infinity;
 
-    for (const elf of playerElves) {
-      const dx = elf.x - this.x;
-      const dy = elf.y - this.y;
+    for (const target of targets) {
+      const dx = target.x - this.x;
+      const dy = target.y - this.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
 
       if (dist < nearestDist) {
         nearestDist = dist;
-        nearest = elf;
+        nearest = target;
       }
     }
     return nearest;
   }
 
-  // Calculate where to aim to hit a moving target (lead the shot)
   calculateLeadPosition(target, snowballSpeed) {
     const { vx, vy } = target.getVelocity();
 
-    // Distance to target
     const dx = target.x - this.x;
     const dy = target.y - this.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
 
-    // Time for snowball to reach target's current position
     const timeToTarget = dist / snowballSpeed;
 
-    // Predict where target will be
     return {
       x: target.x + vx * timeToTarget,
       y: target.y + vy * timeToTarget
