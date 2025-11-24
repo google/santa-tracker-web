@@ -1,7 +1,13 @@
 
 import { Elf } from './elf.js';
 import { Snowball } from './snowball.js';
-import { Teams } from './constants.js';
+import {
+  Teams,
+  Arena,
+  Gameplay,
+  UIColors,
+  HealthBar
+} from './constants.js';
 
 export class Game {
   constructor(canvas, api) {
@@ -15,25 +21,25 @@ export class Game {
     this.showingStartScreen = true;
     this.gameOver = false;
     this.playerWon = false;
-    this.startButtonBounds = null; // Will store {x, y, width, height}
+    this.startButtonBounds = null;
     this.restartButtonBounds = null;
     this.homeButtonBounds = null;
     this.elves = [];
     this.snowballs = [];
     this.selectedElf = null;
-    this.playerHealth = 100;
-    this.opponentHealth = 100;
-    this.friendlyFire = false;
+    this.playerHealth = Gameplay.STARTING_HEALTH;
+    this.opponentHealth = Gameplay.STARTING_HEALTH;
+    this.friendlyFire = Gameplay.FRIENDLY_FIRE;
 
     // Arena dimensions (fixed size, centered on screen)
-    this.arenaWidth = 1200;
-    this.arenaHeight = 900;
+    this.arenaWidth = Arena.WIDTH;
+    this.arenaHeight = Arena.HEIGHT;
     this.arenaX = 0;
     this.arenaY = 0;
 
-    // Spawn point management - tracks timers for each spawn location
-    this.spawnPoints = []; // Array of {x, y, timer, active}
-    this.spawnRespawnDelay = 4; // seconds
+    // Spawn point management
+    this.spawnPoints = [];
+    this.spawnRespawnDelay = Gameplay.SPAWN_RESPAWN_DELAY;
 
     this.resize();
     window.addEventListener('resize', () => this.resize());
@@ -50,7 +56,6 @@ export class Game {
   }
 
   togglePause() {
-    // Don't toggle pause on start screen
     if (this.showingStartScreen) return;
 
     if (this.isPlaying) {
@@ -86,7 +91,7 @@ export class Game {
 
   renderStartScreen() {
     // Fill background
-    this.ctx.fillStyle = '#e8e8e8';
+    this.ctx.fillStyle = UIColors.BACKGROUND;
     this.ctx.fillRect(0, 0, this.width, this.height);
 
     // Draw title box
@@ -95,21 +100,21 @@ export class Game {
     const boxX = (this.width - boxWidth) / 2;
     const boxY = (this.height - boxHeight) / 2;
 
-    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillStyle = Arena.BACKGROUND_COLOR;
     this.ctx.fillRect(boxX, boxY, boxWidth, boxHeight);
-    this.ctx.strokeStyle = '#333';
-    this.ctx.lineWidth = 3;
+    this.ctx.strokeStyle = Arena.BORDER_COLOR;
+    this.ctx.lineWidth = Arena.BORDER_WIDTH;
     this.ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
 
     // Title
-    this.ctx.fillStyle = '#2c3e50';
+    this.ctx.fillStyle = UIColors.TITLE_COLOR;
     this.ctx.font = 'bold 42px Arial';
     this.ctx.textAlign = 'center';
     this.ctx.textBaseline = 'middle';
     this.ctx.fillText('SNOWDODGEBALL', this.width / 2, boxY + 50);
 
     // Instructions
-    this.ctx.fillStyle = '#555';
+    this.ctx.fillStyle = UIColors.TEXT_COLOR;
     this.ctx.font = '18px Arial';
     const instructions = [
       'Click your elves (blue) to select them',
@@ -130,13 +135,13 @@ export class Game {
 
     this.startButtonBounds = { x: btnX, y: btnY, width: btnWidth, height: btnHeight };
 
-    this.ctx.fillStyle = '#27ae60';
+    this.ctx.fillStyle = UIColors.START_BUTTON;
     this.ctx.fillRect(btnX, btnY, btnWidth, btnHeight);
-    this.ctx.strokeStyle = '#1e8449';
+    this.ctx.strokeStyle = UIColors.START_BUTTON_BORDER;
     this.ctx.lineWidth = 3;
     this.ctx.strokeRect(btnX, btnY, btnWidth, btnHeight);
 
-    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillStyle = UIColors.BUTTON_TEXT_COLOR;
     this.ctx.font = 'bold 24px Arial';
     this.ctx.fillText('START', this.width / 2, btnY + btnHeight / 2);
   }
@@ -144,7 +149,6 @@ export class Game {
   initLevel() {
     this.elves = [];
     this.snowballs = [];
-    // Use arena center, not screen center
     const centerX = this.arenaX + this.arenaWidth / 2;
     const centerY = this.arenaY + this.arenaHeight / 2;
 
@@ -159,7 +163,7 @@ export class Game {
     this.elves.push(new Elf(centerX + 100, centerY + 100, Teams.PLAYER));
 
     // Initialize spawn points along the center divider
-    const snowballCount = 5;
+    const snowballCount = Gameplay.SNOWBALL_COUNT;
     const spacing = this.arenaWidth / (snowballCount + 1);
     this.spawnPoints = [];
     for (let i = 1; i <= snowballCount; i++) {
@@ -171,7 +175,6 @@ export class Game {
   }
 
   pause() {
-    // Don't pause if on start screen
     if (this.showingStartScreen) {
       this.renderStartScreen();
       return;
@@ -191,16 +194,16 @@ export class Game {
     const modalX = (this.width - modalWidth) / 2;
     const modalY = (this.height - modalHeight) / 2;
 
-    this.ctx.fillStyle = '#c0392b';
+    this.ctx.fillStyle = UIColors.LOSE_BACKGROUND;
     this.ctx.fillRect(modalX, modalY, modalWidth, modalHeight);
 
     // Draw border
-    this.ctx.strokeStyle = '#922b21';
+    this.ctx.strokeStyle = UIColors.LOSE_BORDER;
     this.ctx.lineWidth = 4;
     this.ctx.strokeRect(modalX, modalY, modalWidth, modalHeight);
 
     // Draw "PAUSED" text
-    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillStyle = UIColors.BUTTON_TEXT_COLOR;
     this.ctx.font = 'bold 36px Arial';
     this.ctx.textAlign = 'center';
     this.ctx.textBaseline = 'middle';
@@ -223,16 +226,16 @@ export class Game {
     const modalY = (this.height - modalHeight) / 2;
 
     // Background color based on win/lose
-    this.ctx.fillStyle = this.playerWon ? '#27ae60' : '#c0392b';
+    this.ctx.fillStyle = this.playerWon ? UIColors.WIN_BACKGROUND : UIColors.LOSE_BACKGROUND;
     this.ctx.fillRect(modalX, modalY, modalWidth, modalHeight);
 
     // Draw border
-    this.ctx.strokeStyle = this.playerWon ? '#1e8449' : '#922b21';
+    this.ctx.strokeStyle = this.playerWon ? UIColors.WIN_BORDER : UIColors.LOSE_BORDER;
     this.ctx.lineWidth = 4;
     this.ctx.strokeRect(modalX, modalY, modalWidth, modalHeight);
 
     // Draw title text
-    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillStyle = UIColors.BUTTON_TEXT_COLOR;
     this.ctx.font = 'bold 42px Arial';
     this.ctx.textAlign = 'center';
     this.ctx.textBaseline = 'middle';
@@ -254,13 +257,13 @@ export class Game {
 
     this.restartButtonBounds = { x: restartX, y: btnY, width: btnWidth, height: btnHeight };
 
-    this.ctx.fillStyle = '#3498db';
+    this.ctx.fillStyle = UIColors.RESTART_BUTTON;
     this.ctx.fillRect(restartX, btnY, btnWidth, btnHeight);
-    this.ctx.strokeStyle = '#2980b9';
+    this.ctx.strokeStyle = UIColors.RESTART_BUTTON_BORDER;
     this.ctx.lineWidth = 2;
     this.ctx.strokeRect(restartX, btnY, btnWidth, btnHeight);
 
-    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillStyle = UIColors.BUTTON_TEXT_COLOR;
     this.ctx.font = 'bold 20px Arial';
     this.ctx.fillText('RESTART', restartX + btnWidth / 2, btnY + btnHeight / 2);
 
@@ -268,18 +271,17 @@ export class Game {
     const homeX = this.width / 2 + btnSpacing / 2;
     this.homeButtonBounds = { x: homeX, y: btnY, width: btnWidth, height: btnHeight };
 
-    this.ctx.fillStyle = '#7f8c8d';
+    this.ctx.fillStyle = UIColors.HOME_BUTTON;
     this.ctx.fillRect(homeX, btnY, btnWidth, btnHeight);
-    this.ctx.strokeStyle = '#636e72';
+    this.ctx.strokeStyle = UIColors.HOME_BUTTON_BORDER;
     this.ctx.lineWidth = 2;
     this.ctx.strokeRect(homeX, btnY, btnWidth, btnHeight);
 
-    this.ctx.fillStyle = '#ffffff';
+    this.ctx.fillStyle = UIColors.BUTTON_TEXT_COLOR;
     this.ctx.fillText('HOME', homeX + btnWidth / 2, btnY + btnHeight / 2);
   }
 
   resume() {
-    // Don't resume if on start screen
     if (this.showingStartScreen) {
       this.renderStartScreen();
       return;
@@ -292,13 +294,12 @@ export class Game {
   }
 
   restart() {
-    // If on start screen, just re-render it
     if (this.showingStartScreen) {
       this.renderStartScreen();
       return;
     }
-    this.playerHealth = 100;
-    this.opponentHealth = 100;
+    this.playerHealth = Gameplay.STARTING_HEALTH;
+    this.opponentHealth = Gameplay.STARTING_HEALTH;
     this.initLevel();
     if (!this.isPlaying) {
       this.isPlaying = true;
@@ -310,8 +311,8 @@ export class Game {
   restartGame() {
     this.gameOver = false;
     this.playerWon = false;
-    this.playerHealth = 100;
-    this.opponentHealth = 100;
+    this.playerHealth = Gameplay.STARTING_HEALTH;
+    this.opponentHealth = Gameplay.STARTING_HEALTH;
     this.selectedElf = null;
     this.initLevel();
     this.isPlaying = true;
@@ -337,11 +338,9 @@ export class Game {
   }
 
   update(dt) {
-    // Update AI for non-player-controlled elves
     const playerElves = this.elves.filter(e => e.team === Teams.PLAYER);
     const opponentElves = this.elves.filter(e => e.team === Teams.OPPONENT);
 
-    // Arena bounds for AI
     const arenaBounds = {
       x: this.arenaX,
       y: this.arenaY,
@@ -349,14 +348,14 @@ export class Game {
       height: this.arenaHeight
     };
 
-    // Player's uncontrolled elves just wander
+    // Player's uncontrolled elves
     playerElves.forEach(elf => {
       if (!elf.selected) {
         elf.updatePlayerAI(dt, arenaBounds, this.snowballs);
       }
     });
 
-    // Opponent elves have smarter AI
+    // Opponent elves
     opponentElves.forEach(elf => {
       elf.updateOpponentAI(dt, arenaBounds, this.snowballs, playerElves);
     });
@@ -370,46 +369,37 @@ export class Game {
 
       for (const elf of this.elves) {
         if (snowball.collidesWithElf(elf)) {
-          // Check if it's a valid hit (different team or friendly fire on)
           if (this.friendlyFire || snowball.team !== elf.team) {
-            // Apply damage
             if (elf.team === Teams.PLAYER) {
-              this.playerHealth = Math.max(0, this.playerHealth - 20);
+              this.playerHealth = Math.max(0, this.playerHealth - Gameplay.DAMAGE_PER_HIT);
             } else {
-              this.opponentHealth = Math.max(0, this.opponentHealth - 20);
+              this.opponentHealth = Math.max(0, this.opponentHealth - Gameplay.DAMAGE_PER_HIT);
             }
-
-            // Remove the snowball - spawn point timer will handle respawn
             snowball.markedForRemoval = true;
-            break; // Stop checking other elves after hit
+            break;
           }
         }
       }
     });
 
-    // Update spawn point timers and spawn new snowballs when ready
+    // Update spawn point timers
     this.spawnPoints.forEach(sp => {
-      // Check if this spawn point currently has a snowball sitting there
       const hasSnowballAtSpawn = this.snowballs.some(s =>
         !s.heldBy && !s.thrown &&
-        Math.abs(s.x - sp.x) < 5 && Math.abs(s.y - sp.y) < 5
+        Math.abs(s.x - sp.x) < Gameplay.SPAWN_POINT_TOLERANCE &&
+        Math.abs(s.y - sp.y) < Gameplay.SPAWN_POINT_TOLERANCE
       );
 
       if (hasSnowballAtSpawn) {
-        // Spawn point is occupied, reset timer
         sp.timer = 0;
         sp.hasSnowball = true;
       } else {
-        // Spawn point is empty
         if (sp.hasSnowball) {
-          // Just became empty, start timer
           sp.hasSnowball = false;
           sp.timer = this.spawnRespawnDelay;
         } else if (sp.timer > 0) {
-          // Timer counting down
           sp.timer -= dt;
           if (sp.timer <= 0) {
-            // Timer expired, spawn new snowball
             this.snowballs.push(new Snowball(sp.x, sp.y));
             sp.hasSnowball = true;
             sp.timer = 0;
@@ -420,11 +410,9 @@ export class Game {
 
     // Check for elf-snowball collisions (pickup)
     this.elves.forEach(elf => {
-      // Only allow pickup if elf doesn't already have a snowball
       if (elf.heldSnowball) return;
 
       this.snowballs.forEach(snowball => {
-        // Only pick up snowballs that aren't already held or thrown
         if (snowball.heldBy || snowball.thrown) return;
 
         if (snowball.collidesWithElf(elf)) {
@@ -434,11 +422,11 @@ export class Game {
       });
     });
 
-    // Clean up snowballs that leave the arena and those marked for removal
+    // Clean up snowballs
     this.snowballs = this.snowballs.filter(snowball => {
       if (snowball.markedForRemoval) return false;
-      if (!snowball.thrown) return true; // Keep non-thrown snowballs
-      const margin = 50;
+      if (!snowball.thrown) return true;
+      const margin = Arena.OUT_OF_BOUNDS_MARGIN;
       const outOfArena = snowball.x < this.arenaX - margin ||
         snowball.x > this.arenaX + this.arenaWidth + margin ||
         snowball.y < this.arenaY - margin ||
@@ -458,41 +446,30 @@ export class Game {
     }
   }
 
-  // Check if a spawn point has a snowball sitting there (not held, not thrown)
-  isSpawnPointFree(x, y) {
-    const tolerance = 5; // pixels
-    return !this.snowballs.some(snowball =>
-      !snowball.heldBy &&
-      !snowball.thrown &&
-      Math.abs(snowball.x - x) < tolerance &&
-      Math.abs(snowball.y - y) < tolerance
-    );
-  }
-
   render() {
     // Fill background outside arena
-    this.ctx.fillStyle = '#e8e8e8';
+    this.ctx.fillStyle = UIColors.BACKGROUND;
     this.ctx.fillRect(0, 0, this.width, this.height);
 
-    // Draw arena background (white)
-    this.ctx.fillStyle = '#ffffff';
+    // Draw arena background
+    this.ctx.fillStyle = Arena.BACKGROUND_COLOR;
     this.ctx.fillRect(this.arenaX, this.arenaY, this.arenaWidth, this.arenaHeight);
 
     // Draw arena border
-    this.ctx.strokeStyle = '#333';
-    this.ctx.lineWidth = 3;
+    this.ctx.strokeStyle = Arena.BORDER_COLOR;
+    this.ctx.lineWidth = Arena.BORDER_WIDTH;
     this.ctx.strokeRect(this.arenaX, this.arenaY, this.arenaWidth, this.arenaHeight);
 
-    // Draw center line (within arena)
+    // Draw center line
     const centerY = this.arenaY + this.arenaHeight / 2;
     this.ctx.beginPath();
     this.ctx.moveTo(this.arenaX, centerY);
     this.ctx.lineTo(this.arenaX + this.arenaWidth, centerY);
-    this.ctx.strokeStyle = 'rgba(0, 0, 0, 0.15)';
-    this.ctx.lineWidth = 2;
+    this.ctx.strokeStyle = Arena.CENTER_LINE_COLOR;
+    this.ctx.lineWidth = Arena.CENTER_LINE_WIDTH;
     this.ctx.stroke();
 
-    // Draw snowballs that are not held (on the ground)
+    // Draw snowballs that are not held
     this.snowballs.forEach(snowball => {
       if (!snowball.heldBy) {
         snowball.render(this.ctx);
@@ -509,9 +486,9 @@ export class Game {
       }
     });
 
-    // Draw Health Bars (inside arena)
-    this.renderHealthBar(this.arenaX + 10, this.arenaY + 10, this.opponentHealth, '#e74c3c'); // Top (Opponent)
-    this.renderHealthBar(this.arenaX + 10, this.arenaY + this.arenaHeight - 30, this.playerHealth, '#3498db'); // Bottom (Player)
+    // Draw Health Bars
+    this.renderHealthBar(this.arenaX + 10, this.arenaY + 10, this.opponentHealth, HealthBar.OPPONENT_COLOR);
+    this.renderHealthBar(this.arenaX + 10, this.arenaY + this.arenaHeight - 30, this.playerHealth, HealthBar.PLAYER_COLOR);
 
     // Draw Game Over screen on top if game is over
     if (this.gameOver) {
@@ -520,21 +497,18 @@ export class Game {
   }
 
   renderHealthBar(x, y, health, color) {
-    const width = 200;
-    const height = 20;
-
     // Background
-    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-    this.ctx.fillRect(x, y, width, height);
+    this.ctx.fillStyle = HealthBar.BACKGROUND_COLOR;
+    this.ctx.fillRect(x, y, HealthBar.WIDTH, HealthBar.HEIGHT);
 
     // Health
     this.ctx.fillStyle = color;
-    this.ctx.fillRect(x, y, (health / 100) * width, height);
+    this.ctx.fillRect(x, y, (health / Gameplay.STARTING_HEALTH) * HealthBar.WIDTH, HealthBar.HEIGHT);
 
     // Border
-    this.ctx.strokeStyle = '#fff';
-    this.ctx.lineWidth = 2;
-    this.ctx.strokeRect(x, y, width, height);
+    this.ctx.strokeStyle = HealthBar.BORDER_COLOR;
+    this.ctx.lineWidth = HealthBar.BORDER_WIDTH;
+    this.ctx.strokeRect(x, y, HealthBar.WIDTH, HealthBar.HEIGHT);
   }
 
   onPointerDown(e) {
@@ -553,7 +527,6 @@ export class Game {
 
     // Handle game over screen buttons
     if (this.gameOver) {
-      // Check restart button
       if (this.restartButtonBounds) {
         const btn = this.restartButtonBounds;
         if (x >= btn.x && x <= btn.x + btn.width && y >= btn.y && y <= btn.y + btn.height) {
@@ -561,7 +534,6 @@ export class Game {
           return;
         }
       }
-      // Check home button
       if (this.homeButtonBounds) {
         const btn = this.homeButtonBounds;
         if (x >= btn.x && x <= btn.x + btn.width && y >= btn.y && y <= btn.y + btn.height) {
@@ -569,31 +541,22 @@ export class Game {
           return;
         }
       }
-      return; // Don't process other input on game over screen
+      return;
     }
 
-    // Don't process game input if not playing
     if (!this.isPlaying) return;
 
-    // Arena center line Y position
     const arenaCenterY = this.arenaY + this.arenaHeight / 2;
-
-    // Check if clicked on an elf
     const clickedElf = this.elves.find(elf => elf.contains(x, y));
 
     if (clickedElf && clickedElf.team === Teams.PLAYER) {
-      // Select the elf
       if (this.selectedElf) this.selectedElf.selected = false;
       this.selectedElf = clickedElf;
       clickedElf.selected = true;
     } else if (this.selectedElf) {
-      // Check if clicking on opponent's side (top half of arena) while holding a snowball
       if (y < arenaCenterY && this.selectedElf.heldSnowball) {
-        // Throw the snowball
         this.selectedElf.heldSnowball.throw(x, y);
       } else if (y > arenaCenterY) {
-        // Move selected elf if clicked on valid ground (bottom half of arena)
-        // Clamp to arena bounds
         const clampedX = Math.max(this.arenaX, Math.min(this.arenaX + this.arenaWidth, x));
         const clampedY = Math.max(arenaCenterY, Math.min(this.arenaY + this.arenaHeight, y));
         this.selectedElf.targetX = clampedX;

@@ -1,24 +1,30 @@
 
-import { Teams } from './constants.js';
+import {
+  Teams,
+  Elf as ElfConfig,
+  ElfColors,
+  PlayerAI,
+  OpponentAI
+} from './constants.js';
 
 export class Elf {
   constructor(x, y, team) {
     this.x = x;
     this.y = y;
     this.team = team;
-    this.radius = 20;
-    this.color = team === Teams.OPPONENT ? '#e74c3c' : '#3498db'; // Red for top, Blue for bottom
+    this.radius = ElfConfig.RADIUS;
+    this.color = team === Teams.OPPONENT ? ElfColors.OPPONENT : ElfColors.PLAYER;
     this.selected = false;
     this.targetX = x;
     this.targetY = y;
-    this.speed = 200; // pixels per second
-    this.heldSnowball = null; // Reference to snowball being held
+    this.speed = ElfConfig.SPEED;
+    this.heldSnowball = null;
 
     // AI properties
     this.wanderTimer = 0;
-    this.wanderInterval = 2; // seconds between picking new wander target
-    this.seekSnowballCooldown = 0; // Delay before going for snowballs
-    this.throwInaccuracy = 80; // Random spread when throwing (pixels)
+    this.wanderInterval = ElfConfig.WANDER_INTERVAL;
+    this.seekSnowballCooldown = 0;
+    this.throwInaccuracy = OpponentAI.THROW_INACCURACY;
   }
 
   update(dt) {
@@ -44,15 +50,15 @@ export class Elf {
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
     ctx.fillStyle = this.color;
     ctx.fill();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#fff';
+    ctx.lineWidth = ElfConfig.STROKE_WIDTH;
+    ctx.strokeStyle = ElfConfig.STROKE_COLOR;
     ctx.stroke();
 
     if (this.selected) {
       ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius + 5, 0, Math.PI * 2);
-      ctx.strokeStyle = '#f1c40f'; // Yellow selection ring
-      ctx.lineWidth = 3;
+      ctx.arc(this.x, this.y, this.radius + ElfColors.SELECTION_RING_OFFSET, 0, Math.PI * 2);
+      ctx.strokeStyle = ElfColors.SELECTION_RING;
+      ctx.lineWidth = ElfColors.SELECTION_RING_WIDTH;
       ctx.stroke();
     }
   }
@@ -84,14 +90,14 @@ export class Elf {
     if (!this.heldSnowball) {
       if (this.seekSnowballCooldown <= 0) {
         const availableSnowball = this.findNearestSnowball(snowballs);
-        if (availableSnowball && Math.random() < 0.7) { // 40% chance to go for it
+        if (availableSnowball && Math.random() < PlayerAI.SEEK_SNOWBALL_CHANCE) {
           this.targetX = availableSnowball.x;
           this.targetY = availableSnowball.y;
-          this.seekSnowballCooldown = 3 + Math.random() * 2; // Wait 3-5 seconds before considering again
+          this.seekSnowballCooldown = PlayerAI.SEEK_COOLDOWN_AFTER_SEEK + Math.random() * PlayerAI.SEEK_COOLDOWN_RANDOM_EXTRA;
           this.wanderTimer = this.wanderInterval; // Reset wander timer to avoid interrupting snowball seek
           return;
         }
-        this.seekSnowballCooldown = 1.5; // Check again in 1.5 seconds
+        this.seekSnowballCooldown = PlayerAI.SEEK_COOLDOWN_AFTER_CHECK;
       }
     }
 
@@ -100,7 +106,7 @@ export class Elf {
       this.wanderTimer = this.wanderInterval + Math.random();
 
       // Pick a random point within bottom half (player territory)
-      const margin = this.radius + 10;
+      const margin = ElfConfig.WANDER_MARGIN;
       const centerY = arena.y + arena.height / 2;
       this.targetX = arena.x + margin + Math.random() * (arena.width - margin * 2);
       this.targetY = centerY + margin + Math.random() * (arena.y + arena.height - centerY - margin * 2);
@@ -127,19 +133,19 @@ export class Elf {
     // Only seek snowballs occasionally (cooldown prevents rushing)
     if (this.seekSnowballCooldown <= 0) {
       const availableSnowball = this.findNearestSnowball(snowballs);
-      if (availableSnowball && Math.random() < 0.5) {
+      if (availableSnowball && Math.random() < OpponentAI.SEEK_SNOWBALL_CHANCE) {
         this.targetX = availableSnowball.x;
         this.targetY = availableSnowball.y;
-        this.seekSnowballCooldown = 2; // Wait 2 seconds before considering again
+        this.seekSnowballCooldown = OpponentAI.SEEK_COOLDOWN_AFTER_SEEK;
         return;
       }
-      this.seekSnowballCooldown = 1; // Check again in 1 second
+      this.seekSnowballCooldown = OpponentAI.SEEK_COOLDOWN_AFTER_CHECK;
     }
 
     // Otherwise, wander in top half
     if (this.wanderTimer <= 0) {
       this.wanderTimer = this.wanderInterval + Math.random();
-      const margin = this.radius + 10;
+      const margin = ElfConfig.WANDER_MARGIN;
       const centerY = arena.y + arena.height / 2;
       this.targetX = arena.x + margin + Math.random() * (arena.width - margin * 2);
       this.targetY = arena.y + margin + Math.random() * (centerY - arena.y - margin * 2);

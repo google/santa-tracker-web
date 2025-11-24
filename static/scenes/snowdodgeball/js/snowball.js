@@ -1,20 +1,19 @@
 
+import { Snowball as SnowballConfig } from './constants.js';
+
 export class Snowball {
   constructor(x, y) {
     this.x = x;
     this.y = y;
     this.spawnX = x; // Original spawn position
     this.spawnY = y;
-    this.radius = 10;
+    this.radius = SnowballConfig.RADIUS;
     this.heldBy = null; // Reference to the elf holding this snowball
     this.thrown = false;
     this.velocityX = 0;
     this.velocityY = 0;
-    this.speed = 500; // pixels per second when thrown
-    this.respawnTimer = 0;
-    this.respawnDelay = 4; // seconds until respawn
+    this.speed = SnowballConfig.SPEED;
     this.team = null; // Team that threw the snowball
-    this.needsReplacement = false; // When true, a new snowball should spawn at original position
   }
 
   throw(targetX, targetY) {
@@ -37,14 +36,6 @@ export class Snowball {
   }
 
   update(dt) {
-    // Count down respawn timer when held or thrown
-    if (this.respawnTimer > 0) {
-      this.respawnTimer -= dt;
-      if (this.respawnTimer <= 0) {
-        this.needsReplacement = true; // Signal that a new snowball should spawn
-      }
-    }
-
     // If held by an elf, follow the elf's position
     if (this.heldBy) {
       this.x = this.heldBy.x;
@@ -59,10 +50,10 @@ export class Snowball {
   render(ctx) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = '#ffffff';
+    ctx.fillStyle = SnowballConfig.FILL_COLOR;
     ctx.fill();
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#ccc';
+    ctx.lineWidth = SnowballConfig.STROKE_WIDTH;
+    ctx.strokeStyle = SnowballConfig.STROKE_COLOR;
     ctx.stroke();
   }
 
@@ -86,8 +77,6 @@ export class Snowball {
     this.thrown = false;
     this.velocityX = 0;
     this.velocityY = 0;
-    this.respawnTimer = 0;
-    this.needsReplacement = false;
     this.team = null;
   }
 }
