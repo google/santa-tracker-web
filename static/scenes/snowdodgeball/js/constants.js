@@ -55,6 +55,14 @@ export const PlayerAI = {
   SEEK_COOLDOWN_AFTER_CHECK: 1.5       // seconds to wait before checking again
 };
 
+// Config preset for player helper AI (used by updateAI)
+export const PlayerAIConfig = {
+  seekChance: PlayerAI.SEEK_SNOWBALL_CHANCE,
+  seekCooldownAfterSeek: PlayerAI.SEEK_COOLDOWN_AFTER_SEEK,
+  seekCooldownRandomExtra: PlayerAI.SEEK_COOLDOWN_RANDOM_EXTRA,
+  seekCooldownAfterCheck: PlayerAI.SEEK_COOLDOWN_AFTER_CHECK
+};
+
 // =============================================================================
 // OPPONENT AI
 // =============================================================================
@@ -65,6 +73,14 @@ export const OpponentAI = {
   SEEK_SNOWBALL_CHANCE: 0.3,           // % chance to go for snowball
   SEEK_COOLDOWN_AFTER_SEEK: 2,         // seconds to wait after seeking
   SEEK_COOLDOWN_AFTER_CHECK: 2         // seconds to wait before checking again
+};
+
+// Config preset for opponent AI (used by updateAI)
+export const OpponentAIConfig = {
+  seekChance: OpponentAI.SEEK_SNOWBALL_CHANCE,
+  seekCooldownAfterSeek: OpponentAI.SEEK_COOLDOWN_AFTER_SEEK,
+  seekCooldownRandomExtra: 0,
+  seekCooldownAfterCheck: OpponentAI.SEEK_COOLDOWN_AFTER_CHECK
 };
 
 // =============================================================================

@@ -3,8 +3,9 @@ import {
   Teams,
   Elf as ElfConfig,
   ElfColors,
-  PlayerAI,
-  OpponentAI
+  OpponentAI,
+  PlayerAIConfig,
+  OpponentAIConfig
 } from './constants.js';
 
 export class Elf {
@@ -81,13 +82,11 @@ export class Elf {
   }
 
   // =========================================================================
-  // AI METHODS
+  // AI HELPERS
   // =========================================================================
 
   /**
    * Get a random point within this elf's territory (based on team)
-   * @param {Object} arena - Arena bounds {x, y, width, height}
-   * @returns {Object} - {x, y} coordinates
    */
   getRandomPointInTerritory(arena) {
     const margin = ElfConfig.WANDER_MARGIN;
@@ -107,36 +106,76 @@ export class Elf {
     return { x, y };
   }
 
+  // =========================================================================
+  // AI BEHAVIORS
+  // =========================================================================
+
   /**
-   * Unified AI update method
-   * @param {number} dt - Delta time
-   * @param {Object} arena - Arena bounds
-   * @param {Array} snowballs - Available snowballs
-   * @param {Object} config - AI configuration {seekChance, seekCooldownAfterSeek, seekCooldownRandomExtra, seekCooldownAfterCheck}
-   * @param {Array} [targets=null] - If provided, elf will throw at these targets when holding a snowball
+   * Unified AI update - runs behaviors in priority order
    */
   updateAI(dt, arena, snowballs, config, targets = null) {
     this.wanderTimer -= dt;
     this.seekSnowballCooldown -= dt;
     this.throwDelayTimer -= dt;
 
-    // If holding a snowball and we have targets
-    if (this.heldSnowball && targets && targets.length > 0) {
-      // Wait for throw delay before throwing
-      if (this.throwDelayTimer <= 0) {
-        const target = this.findNearestTarget(targets);
-        if (target) {
-          const offsetX = (Math.random() - 0.5) * this.throwInaccuracy * 2;
-          const offsetY = (Math.random() - 0.5) * this.throwInaccuracy * 2;
-          this.heldSnowball.throw(target.x + offsetX, target.y + offsetY);
-        }
-        return;
+    if (this.tryThrow(targets)) return;
+    if (this.trySeek(snowballs, config)) return;
+    this.wander(arena);
+  }
+
+  /**
+   * Behavior: Try to throw snowball at a target
+   * @returns {boolean} - True if threw (blocks other actions)
+   */
+  tryThrow(targets) {
+    if (!this.heldSnowball || !targets || targets.length === 0) return false;
+
+    // Wait for throw delay before throwing
+    if (this.throwDelayTimer <= 0) {
+      const target = this.findNearestTarget(targets);
+      if (target) {
+        const offsetX = (Math.random() - 0.5) * this.throwInaccuracy * 2;
+        const offsetY = (Math.random() - 0.5) * this.throwInaccuracy * 2;
+        this.heldSnowball.throw(target.x + offsetX, target.y + offsetY);
       }
-      // While waiting to throw, wander in territory (fall through to wander logic)
+      return true;
     }
 
-    // If holding a snowball, wander back to territory
-    // Only force wander if our current target is not already in our territory
+    // Still waiting - allow wandering while holding snowball
+    return false;
+  }
+
+  /**
+   * Behavior: Try to seek a snowball
+   * @returns {boolean} - True if seeking
+   */
+  trySeek(snowballs, config) {
+    // If holding a snowball, we don't need to seek
+    if (this.heldSnowball) return false;
+
+    // Check cooldown
+    if (this.seekSnowballCooldown > 0) return false;
+
+    const availableSnowball = this.findNearestSnowball(snowballs);
+    if (availableSnowball && Math.random() < config.seekChance) {
+      this.targetX = availableSnowball.x;
+      this.targetY = availableSnowball.y;
+      this.seekSnowballCooldown = config.seekCooldownAfterSeek +
+        Math.random() * (config.seekCooldownRandomExtra || 0);
+      this.wanderTimer = this.wanderInterval; // Reset wander timer
+      return true; // Action taken (seeking)
+    }
+
+    // Failed check, reset cooldown
+    this.seekSnowballCooldown = config.seekCooldownAfterCheck;
+    return false;
+  }
+
+  /**
+   * Behavior: Wander around territory
+   */
+  wander(arena) {
+    // If holding a snowball, ensure we wander back to our territory
     if (this.heldSnowball) {
       const centerY = arena.y + arena.height / 2;
       const targetInOurTerritory = this.team === Teams.OPPONENT
@@ -148,21 +187,6 @@ export class Elf {
       }
     }
 
-    // If not holding a snowball, occasionally try to get one
-    if (!this.heldSnowball && this.seekSnowballCooldown <= 0) {
-      const availableSnowball = this.findNearestSnowball(snowballs);
-      if (availableSnowball && Math.random() < config.seekChance) {
-        this.targetX = availableSnowball.x;
-        this.targetY = availableSnowball.y;
-        this.seekSnowballCooldown = config.seekCooldownAfterSeek +
-          Math.random() * (config.seekCooldownRandomExtra || 0);
-        this.wanderTimer = this.wanderInterval;
-        return;
-      }
-      this.seekSnowballCooldown = config.seekCooldownAfterCheck;
-    }
-
-    // Wander in territory
     if (this.wanderTimer <= 0) {
       this.wanderTimer = this.wanderInterval + Math.random();
       const point = this.getRandomPointInTerritory(arena);
@@ -171,23 +195,13 @@ export class Elf {
     }
   }
 
-  // Convenience methods that use the unified updateAI with preset configs
+  // Convenience methods using preset configs from constants.js
   updatePlayerAI(dt, arena, snowballs) {
-    this.updateAI(dt, arena, snowballs, {
-      seekChance: PlayerAI.SEEK_SNOWBALL_CHANCE,
-      seekCooldownAfterSeek: PlayerAI.SEEK_COOLDOWN_AFTER_SEEK,
-      seekCooldownRandomExtra: PlayerAI.SEEK_COOLDOWN_RANDOM_EXTRA,
-      seekCooldownAfterCheck: PlayerAI.SEEK_COOLDOWN_AFTER_CHECK
-    });
+    this.updateAI(dt, arena, snowballs, PlayerAIConfig);
   }
 
   updateOpponentAI(dt, arena, snowballs, playerElves) {
-    this.updateAI(dt, arena, snowballs, {
-      seekChance: OpponentAI.SEEK_SNOWBALL_CHANCE,
-      seekCooldownAfterSeek: OpponentAI.SEEK_COOLDOWN_AFTER_SEEK,
-      seekCooldownRandomExtra: 0,
-      seekCooldownAfterCheck: OpponentAI.SEEK_COOLDOWN_AFTER_CHECK
-    }, playerElves);
+    this.updateAI(dt, arena, snowballs, OpponentAIConfig, playerElves);
   }
 
   // =========================================================================
@@ -230,6 +244,7 @@ export class Elf {
     return nearest;
   }
 
+  // Helper to make opponents better, unused for now.
   calculateLeadPosition(target, snowballSpeed) {
     const { vx, vy } = target.getVelocity();
 
