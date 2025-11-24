@@ -61,6 +61,7 @@ export const PlayerAI = {
 
 export const OpponentAI = {
   THROW_INACCURACY: 80,                // random spread in pixels when throwing
+  THROW_DELAY: 1.5,                    // seconds to wander before throwing
   SEEK_SNOWBALL_CHANCE: 0.3,           // % chance to go for snowball
   SEEK_COOLDOWN_AFTER_SEEK: 2,         // seconds to wait after seeking
   SEEK_COOLDOWN_AFTER_CHECK: 2         // seconds to wait before checking again

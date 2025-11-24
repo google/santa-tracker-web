@@ -6,7 +6,8 @@ import {
   Arena,
   Gameplay,
   UIColors,
-  HealthBar
+  HealthBar,
+  OpponentAI
 } from './constants.js';
 
 export class Game {
@@ -418,6 +419,7 @@ export class Game {
         if (snowball.collidesWithElf(elf)) {
           snowball.heldBy = elf;
           elf.heldSnowball = snowball;
+          elf.throwDelayTimer = OpponentAI.THROW_DELAY; // Start throw delay countdown
         }
       });
     });

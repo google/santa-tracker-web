@@ -25,6 +25,7 @@ export class Elf {
     this.wanderInterval = ElfConfig.WANDER_INTERVAL;
     this.seekSnowballCooldown = 0;
     this.throwInaccuracy = OpponentAI.THROW_INACCURACY;
+    this.throwDelayTimer = 0; // Time before elf can throw after picking up snowball
   }
 
   update(dt) {
@@ -117,19 +118,24 @@ export class Elf {
   updateAI(dt, arena, snowballs, config, targets = null) {
     this.wanderTimer -= dt;
     this.seekSnowballCooldown -= dt;
+    this.throwDelayTimer -= dt;
 
-    // If holding a snowball and we have targets, try to throw
+    // If holding a snowball and we have targets
     if (this.heldSnowball && targets && targets.length > 0) {
-      const target = this.findNearestTarget(targets);
-      if (target) {
-        const offsetX = (Math.random() - 0.5) * this.throwInaccuracy * 2;
-        const offsetY = (Math.random() - 0.5) * this.throwInaccuracy * 2;
-        this.heldSnowball.throw(target.x + offsetX, target.y + offsetY);
+      // Wait for throw delay before throwing
+      if (this.throwDelayTimer <= 0) {
+        const target = this.findNearestTarget(targets);
+        if (target) {
+          const offsetX = (Math.random() - 0.5) * this.throwInaccuracy * 2;
+          const offsetY = (Math.random() - 0.5) * this.throwInaccuracy * 2;
+          this.heldSnowball.throw(target.x + offsetX, target.y + offsetY);
+        }
+        return;
       }
-      return;
+      // While waiting to throw, wander in territory (fall through to wander logic)
     }
 
-    // If holding a snowball (but no targets), immediately wander back to territory
+    // If holding a snowball, wander back to territory
     // Only force wander if our current target is not already in our territory
     if (this.heldSnowball) {
       const centerY = arena.y + arena.height / 2;
