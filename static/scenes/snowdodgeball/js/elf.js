@@ -187,7 +187,13 @@ export class Elf {
       }
     }
 
-    if (this.wanderTimer <= 0) {
+    // Check if we've reached our destination
+    const dx = this.targetX - this.x;
+    const dy = this.targetY - this.y;
+    const atDestination = (dx * dx + dy * dy) < 25; // Within 5 pixels
+
+    // Pick new wander point if timer expired OR we've arrived
+    if (this.wanderTimer <= 0 || atDestination) {
       this.wanderTimer = this.wanderInterval + Math.random();
       const point = this.getRandomPointInTerritory(arena);
       this.targetX = point.x;
