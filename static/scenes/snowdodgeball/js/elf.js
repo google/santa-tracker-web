@@ -129,6 +129,19 @@ export class Elf {
       return;
     }
 
+    // If holding a snowball (but no targets), immediately wander back to territory
+    // Only force wander if our current target is not already in our territory
+    if (this.heldSnowball) {
+      const centerY = arena.y + arena.height / 2;
+      const targetInOurTerritory = this.team === Teams.OPPONENT
+        ? this.targetY < centerY
+        : this.targetY > centerY;
+
+      if (!targetInOurTerritory) {
+        this.wanderTimer = 0; // Force immediate wander
+      }
+    }
+
     // If not holding a snowball, occasionally try to get one
     if (!this.heldSnowball && this.seekSnowballCooldown <= 0) {
       const availableSnowball = this.findNearestSnowball(snowballs);
