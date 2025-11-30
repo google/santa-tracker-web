@@ -55,10 +55,44 @@ canvas {
   width: 200%;
   height: 200%;
   transform: translate(-25%, -50%);
+  transition: transform 0.1s ease-out;
 }
 
 .elf__inner.is-flipped {
   transform: translate(-25%, -50%) scaleX(-1);
+}
+
+/* Throwing animation */
+@keyframes throw-forward {
+  0% {
+    transform: translate(-25%, -50%) rotate(0deg);
+  }
+  50% {
+    transform: translate(-25%, -45%) rotate(-15deg) scale(1.05);
+  }
+  100% {
+    transform: translate(-25%, -50%) rotate(0deg);
+  }
+}
+
+@keyframes throw-forward-flipped {
+  0% {
+    transform: translate(-25%, -50%) scaleX(-1) rotate(0deg);
+  }
+  50% {
+    transform: translate(-25%, -45%) scaleX(-1) rotate(15deg) scale(1.05);
+  }
+  100% {
+    transform: translate(-25%, -50%) scaleX(-1) rotate(0deg);
+  }
+}
+
+.elf__inner.is-throwing {
+  animation: throw-forward 0.3s ease-out;
+}
+
+.elf__inner.is-throwing.is-flipped {
+  animation: throw-forward-flipped 0.3s ease-out;
 }
 
 .animation {

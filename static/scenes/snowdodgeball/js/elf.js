@@ -59,6 +59,16 @@ export class Elf {
     }
   }
 
+  playThrowAnimation() {
+    // Add throwing animation class
+    this.innerElem.classList.add('is-throwing');
+
+    // Remove it after animation completes
+    setTimeout(() => {
+      this.innerElem.classList.remove('is-throwing');
+    }, 300);
+  }
+
   update(dt) {
     const dx = this.targetX - this.x;
     const dy = this.targetY - this.y;

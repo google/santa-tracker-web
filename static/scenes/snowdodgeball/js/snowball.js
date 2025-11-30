@@ -26,9 +26,10 @@ export class Snowball {
     this.velocityX = (dx / dist) * this.speed;
     this.velocityY = (dy / dist) * this.speed;
 
-    // Release from elf
+    // Release from elf and trigger throw animation
     if (this.heldBy) {
       this.team = this.heldBy.team; // Track which team threw the snowball
+      this.heldBy.playThrowAnimation(); // Play throwing animation
       this.heldBy.heldSnowball = null;
       this.heldBy = null;
     }
