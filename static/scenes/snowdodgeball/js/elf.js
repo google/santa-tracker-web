@@ -9,10 +9,12 @@ import {
 } from './constants.js';
 
 export class Elf {
-  constructor(x, y, team) {
+  constructor(x, y, team, index, animations) {
     this.x = x;
     this.y = y;
     this.team = team;
+    this.index = index;
+    this.animations = animations;
     this.radius = ElfConfig.RADIUS;
     this.color = team === Teams.OPPONENT ? ElfColors.OPPONENT : ElfColors.PLAYER;
     this.selected = false;
@@ -27,6 +29,16 @@ export class Elf {
     this.seekSnowballCooldown = 0;
     this.throwInaccuracy = OpponentAI.THROW_INACCURACY;
     this.throwDelayTimer = 0; // Time before elf can throw after picking up snowball
+
+    // DOM elements
+    const teamClass = team === Teams.OPPONENT ? 'opponent' : 'player';
+    this.elem = document.querySelector(`.elf--${teamClass}-${index}`);
+    this.innerElem = this.elem.querySelector('.elf__inner');
+
+    // Animation state
+    this.currentDirection = 'front';
+    this.currentFrame = 0;
+    this.lastAnimationUpdate = 0;
   }
 
   update(dt) {
@@ -47,20 +59,102 @@ export class Elf {
   }
 
   render(ctx) {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-    ctx.fillStyle = this.color;
-    ctx.fill();
-    ctx.lineWidth = ElfConfig.STROKE_WIDTH;
-    ctx.strokeStyle = ElfConfig.STROKE_COLOR;
-    ctx.stroke();
+    // Position the DOM element
+    this.elem.style.left = `${this.x}px`;
+    this.elem.style.top = `${this.y}px`;
 
+    // Update selection state
     if (this.selected) {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius + ElfColors.SELECTION_RING_OFFSET, 0, Math.PI * 2);
-      ctx.strokeStyle = ElfColors.SELECTION_RING;
-      ctx.lineWidth = ElfColors.SELECTION_RING_WIDTH;
-      ctx.stroke();
+      this.elem.classList.add('is-selected');
+    } else {
+      this.elem.classList.remove('is-selected');
+    }
+
+    // Update animation direction and frame
+    this.updateAnimation();
+  }
+
+  updateAnimation() {
+    if (!this.animations) return;
+
+    // Determine direction based on movement
+    const dx = this.targetX - this.x;
+    const dy = this.targetY - this.y;
+    const isMoving = Math.abs(dx) > 1 || Math.abs(dy) > 1;
+
+    // Set direction
+    let newDirection = this.currentDirection;
+    if (isMoving) {
+      if (Math.abs(dy) > Math.abs(dx)) {
+        newDirection = dy > 0 ? 'front' : 'back';
+      } else {
+        newDirection = 'side';
+      }
+    }
+
+    // Update direction class if changed
+    if (newDirection !== this.currentDirection) {
+      this.innerElem.classList.remove(`direction--${this.currentDirection}`);
+      this.innerElem.classList.add(`direction--${newDirection}`);
+      this.currentDirection = newDirection;
+    }
+
+    // Handle left/right flipping for side view
+    if (newDirection === 'side') {
+      if (dx < 0) {
+        this.innerElem.classList.add('is-flipped');
+      } else {
+        this.innerElem.classList.remove('is-flipped');
+      }
+    }
+
+    // Determine frame ranges based on holding state
+    const isHolding = !!this.heldSnowball;
+    let frameStart, frameEnd, frameSpeed;
+
+    if (isHolding) {
+      if (isMoving) {
+        // Holding + Walking animation
+        frameStart = 50;
+        frameEnd = 70;
+        frameSpeed = 50;
+      } else {
+        // Holding + Idle animation
+        frameStart = 40;
+        frameEnd = 49;
+        frameSpeed = 100;
+      }
+    } else {
+      if (isMoving) {
+        // Walking animation
+        frameStart = 10;
+        frameEnd = 30;
+        frameSpeed = 50;
+      } else {
+        // Idle animation
+        frameStart = 0;
+        frameEnd = 9;
+        frameSpeed = 100;
+      }
+    }
+
+    // Animate frames
+    const now = performance.now();
+    const frameRange = frameEnd - frameStart + 1;
+
+    if (now - this.lastAnimationUpdate > frameSpeed) {
+      // Ensure frame is within current range
+      if (this.currentFrame < frameStart || this.currentFrame > frameEnd) {
+        this.currentFrame = frameStart;
+      } else {
+        this.currentFrame = frameStart + ((this.currentFrame - frameStart + 1) % frameRange);
+      }
+      this.lastAnimationUpdate = now;
+    }
+
+    // Update Lottie animation frame
+    if (this.animations[this.currentDirection]) {
+      this.animations[this.currentDirection].goToAndStop(this.currentFrame, true);
     }
   }
 

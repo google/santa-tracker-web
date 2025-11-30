@@ -26,15 +26,42 @@
 <body>
 
   <div id="module-snowdodgeball">
-    <canvas id="game-canvas"></canvas>
+    <div id="arena">
+      <div id="elves">
+        <!-- Player team elves (bottom) -->
+        <div class="elf elf--player elf--player-0">
+          <div class="elf__inner"></div>
+        </div>
+        <div class="elf elf--player elf--player-1">
+          <div class="elf__inner"></div>
+        </div>
+        <div class="elf elf--player elf--player-2">
+          <div class="elf__inner"></div>
+        </div>
+
+        <!-- Opponent team elves (top) -->
+        <div class="elf elf--opponent elf--opponent-0">
+          <div class="elf__inner"></div>
+        </div>
+        <div class="elf elf--opponent elf--opponent-1">
+          <div class="elf__inner"></div>
+        </div>
+        <div class="elf elf--opponent elf--opponent-2">
+          <div class="elf__inner"></div>
+        </div>
+      </div>
+
+      <canvas id="game-canvas"></canvas>
+    </div>
   </div>
 
   <script type="module">
     import api from '../../src/scene/api.js';
+    import { prepareAnimation } from '../../src/deps/lottie.js';
     import { Game } from './js/game.js';
 
     const canvas = document.getElementById('game-canvas');
-    const game = new Game(canvas, api);
+    const game = new Game(canvas, api, prepareAnimation);
 
     api.addEventListener('pause', () => game.pause());
     api.addEventListener('resume', () => game.resume());

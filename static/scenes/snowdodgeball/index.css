@@ -15,11 +15,88 @@ html, body {
   align-items: center;
 }
 
-canvas {
-  display: block;
-  /* Canvas will be resized by JS, but max-width ensures it fits */
+#arena {
+  position: relative;
+  width: 1200px;
+  height: 900px;
   max-width: 100%;
   max-height: 100%;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
   background: white;
+}
+
+#elves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Elf styling */
+.elf {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  pointer-events: all;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+}
+
+.elf__inner {
+  position: relative;
+  width: 200%;
+  height: 200%;
+  transform: translate(-25%, -50%);
+}
+
+.elf__inner.is-flipped {
+  transform: translate(-25%, -50%) scaleX(-1);
+}
+
+.animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.elf__inner.direction--front .animation--front,
+.elf__inner.direction--back .animation--back,
+.elf__inner.direction--side .animation--side {
+  display: block;
+}
+
+/* Team color filters */
+.elf--player .elf__inner {
+  /* Blue team - keep original colors */
+  filter: hue-rotate(0deg);
+}
+
+.elf--opponent .elf__inner {
+  /* Red team - shift hue to make blue elements red */
+  filter: hue-rotate(240deg) saturate(1.2);
+}
+
+/* Selection ring */
+.elf.is-selected::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f1c40f;
+  border-radius: 50%;
+  pointer-events: none;
 }
