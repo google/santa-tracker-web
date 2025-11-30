@@ -55,7 +55,6 @@ canvas {
   width: 200%;
   height: 200%;
   transform: translate(-25%, -50%);
-  transition: transform 0.1s ease-out;
 }
 
 .elf__inner.is-flipped {
