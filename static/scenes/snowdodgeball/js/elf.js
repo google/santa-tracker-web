@@ -34,11 +34,29 @@ export class Elf {
     const teamClass = team === Teams.OPPONENT ? 'opponent' : 'player';
     this.elem = document.querySelector(`.elf--${teamClass}-${index}`);
     this.innerElem = this.elem.querySelector('.elf__inner');
+    this.snowballElem = this.elem.querySelector('.elf__snowball');
 
     // Animation state
     this.currentDirection = 'front';
     this.currentFrame = 0;
     this.lastAnimationUpdate = 0;
+  }
+
+  updateHeldSnowballDisplay() {
+    if (this.heldSnowball && this.snowballElem) {
+      // Show snowball
+      if (!this.snowballElem.hasChildNodes()) {
+        const img = document.createElement('img');
+        img.src = 'img/snowball.svg';
+        img.style.width = '100%';
+        img.style.height = '100%';
+        this.snowballElem.appendChild(img);
+      }
+      this.snowballElem.classList.add('is-visible');
+    } else if (this.snowballElem) {
+      // Hide snowball
+      this.snowballElem.classList.remove('is-visible');
+    }
   }
 
   update(dt) {
@@ -69,6 +87,9 @@ export class Elf {
     } else {
       this.elem.classList.remove('is-selected');
     }
+
+    // Update held snowball display
+    this.updateHeldSnowballDisplay();
 
     // Update animation direction and frame
     this.updateAnimation();

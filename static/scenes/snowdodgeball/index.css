@@ -87,6 +87,41 @@ canvas {
   filter: hue-rotate(240deg) saturate(1.2);
 }
 
+/* Snowball container */
+.elf__snowball {
+  position: absolute;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  display: none; /* Hidden by default */
+  pointer-events: none;
+}
+
+.elf__snowball.is-visible {
+  display: block;
+}
+
+/* Position snowball based on elf direction */
+.elf__inner.direction--front .elf__snowball {
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.elf__inner.direction--back .elf__snowball {
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  z-index: 0; /* Behind elf when facing back */
+}
+
+.elf__inner.direction--side .elf__snowball {
+  right: 15%;
+  top: 60%;
+  transform: translateY(-50%) rotate(-90deg);
+  /* No special case needed for flipped - parent's scaleX(-1) handles the mirroring */
+}
+
 /* Selection ring */
 .elf.is-selected::after {
   content: '';

@@ -514,8 +514,12 @@ export class Game {
     this.ctx.lineWidth = Arena.CENTER_LINE_WIDTH;
     this.ctx.stroke();
 
-    // Draw snowballs (both held and not held)
-    this.snowballs.forEach(snowball => snowball.render(this.ctx));
+    // Draw snowballs (only those not held - held ones are rendered as DOM elements)
+    this.snowballs.forEach(snowball => {
+      if (!snowball.heldBy) {
+        snowball.render(this.ctx);
+      }
+    });
 
     // Update elf DOM positions and animations
     this.elves.forEach(elf => elf.render(this.ctx));
