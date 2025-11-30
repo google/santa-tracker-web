@@ -131,51 +131,57 @@ export class Elf {
 
     // Determine frame ranges based on holding state
     const isHolding = !!this.heldSnowball;
-    let frameStart, frameEnd, frameSpeed;
+    let targetFrame;
 
     if (isHolding) {
       if (isMoving) {
-        // Holding + Walking animation
-        frameStart = 50;
-        frameEnd = 70;
-        frameSpeed = 50;
+        // Holding + Walking animation - cycle through frames
+        const frameStart = 50;
+        const frameEnd = 70;
+        const frameSpeed = 50;
+        const now = performance.now();
+
+        if (now - this.lastAnimationUpdate > frameSpeed) {
+          if (this.currentFrame < frameStart || this.currentFrame > frameEnd) {
+            this.currentFrame = frameStart;
+          } else {
+            const frameRange = frameEnd - frameStart + 1;
+            this.currentFrame = frameStart + ((this.currentFrame - frameStart + 1) % frameRange);
+          }
+          this.lastAnimationUpdate = now;
+        }
+        targetFrame = this.currentFrame;
       } else {
-        // Holding + Idle animation
-        frameStart = 40;
-        frameEnd = 49;
-        frameSpeed = 100;
+        // Holding + Idle - static frame
+        targetFrame = 40;
       }
     } else {
       if (isMoving) {
-        // Walking animation
-        frameStart = 10;
-        frameEnd = 30;
-        frameSpeed = 50;
-      } else {
-        // Idle animation
-        frameStart = 0;
-        frameEnd = 9;
-        frameSpeed = 100;
-      }
-    }
+        // Walking animation - cycle through frames
+        const frameStart = 10;
+        const frameEnd = 30;
+        const frameSpeed = 50;
+        const now = performance.now();
 
-    // Animate frames
-    const now = performance.now();
-    const frameRange = frameEnd - frameStart + 1;
-
-    if (now - this.lastAnimationUpdate > frameSpeed) {
-      // Ensure frame is within current range
-      if (this.currentFrame < frameStart || this.currentFrame > frameEnd) {
-        this.currentFrame = frameStart;
+        if (now - this.lastAnimationUpdate > frameSpeed) {
+          if (this.currentFrame < frameStart || this.currentFrame > frameEnd) {
+            this.currentFrame = frameStart;
+          } else {
+            const frameRange = frameEnd - frameStart + 1;
+            this.currentFrame = frameStart + ((this.currentFrame - frameStart + 1) % frameRange);
+          }
+          this.lastAnimationUpdate = now;
+        }
+        targetFrame = this.currentFrame;
       } else {
-        this.currentFrame = frameStart + ((this.currentFrame - frameStart + 1) % frameRange);
+        // Idle - static frame
+        targetFrame = 0;
       }
-      this.lastAnimationUpdate = now;
     }
 
     // Update Lottie animation frame
     if (this.animations[this.currentDirection]) {
-      this.animations[this.currentDirection].goToAndStop(this.currentFrame, true);
+      this.animations[this.currentDirection].goToAndStop(targetFrame, true);
     }
   }
 
