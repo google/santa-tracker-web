@@ -604,10 +604,19 @@ export class Game {
       this.selectedElf = clickedElf;
       clickedElf.selected = true;
     } else if (this.selectedElf) {
-      // Move selected elf or throw snowball
-      if (y < arenaCenterY && this.selectedElf.heldSnowball) {
-        this.selectedElf.heldSnowball.throw(x, y);
-      } else if (y > arenaCenterY) {
+      // Handle clicks in top half (enemy territory)
+      if (y < arenaCenterY) {
+        if (this.selectedElf.heldSnowball) {
+          // Throw snowball if holding one
+          this.selectedElf.heldSnowball.throw(x, y);
+        } else {
+          // Move to center line if not holding a snowball
+          const clampedX = Math.max(0, Math.min(this.arenaWidth, x));
+          this.selectedElf.targetX = clampedX;
+          this.selectedElf.targetY = arenaCenterY; // Stop at the line
+        }
+      } else {
+        // Handle clicks in bottom half (your territory) - move normally
         const clampedX = Math.max(0, Math.min(this.arenaWidth, x));
         const clampedY = Math.max(arenaCenterY, Math.min(this.arenaHeight, y));
         this.selectedElf.targetX = clampedX;
