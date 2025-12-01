@@ -423,6 +423,10 @@ export class Game {
             } else {
               this.opponentHealth = Math.max(0, this.opponentHealth - Gameplay.DAMAGE_PER_HIT);
             }
+
+            // Play hit animation and drop snowball
+            elf.playHitAnimation();
+
             snowball.markedForRemoval = true;
             break;
           }

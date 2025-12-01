@@ -36,6 +36,15 @@ export class Snowball {
     this.thrown = true;
   }
 
+  drop() {
+    // Drop the snowball without throwing it (just release it)
+    if (this.heldBy) {
+      this.heldBy.heldSnowball = null;
+      this.heldBy = null;
+    }
+    // Snowball stays at current position, not thrown
+  }
+
   update(dt) {
     // If held by an elf, follow the elf's position with offset based on direction
     if (this.heldBy) {

@@ -72,6 +72,33 @@ export class Elf {
     }, 300);
   }
 
+  playHitAnimation() {
+    // Add hit animation class
+    this.elem.classList.add('is-hit');
+
+    // Drop snowball if holding one
+    if (this.heldSnowball) {
+      // Offset the snowball position based on direction so it doesn't get picked up immediately
+      const offsetDistance = 30;
+      if (this.currentDirection === 'front') {
+        this.heldSnowball.y += offsetDistance;
+      } else if (this.currentDirection === 'back') {
+        this.heldSnowball.y -= offsetDistance;
+      } else if (this.currentDirection === 'side') {
+        const isFlipped = this.innerElem.classList.contains('is-flipped');
+        this.heldSnowball.x += isFlipped ? -offsetDistance : offsetDistance;
+      }
+
+      this.heldSnowball.drop();
+      this.heldSnowball = null;
+    }
+
+    // Remove animation class after it completes
+    setTimeout(() => {
+      this.elem.classList.remove('is-hit');
+    }, 400);
+  }
+
   update(dt) {
     const dx = this.targetX - this.x;
     const dy = this.targetY - this.y;

@@ -257,6 +257,26 @@ canvas {
   pointer-events: none;
 }
 
+/* Hit flash - turn red twice */
+.elf.is-hit .elf__inner {
+  animation: hit-flash-red 0.4s ease-out !important;
+}
+
+@keyframes hit-flash-red {
+  0%, 100% {
+    filter: none;
+  }
+  25% {
+    filter: sepia(1) saturate(4) hue-rotate(-50deg) brightness(1.2);
+  }
+  50% {
+    filter: none;
+  }
+  75% {
+    filter: sepia(1) saturate(4) hue-rotate(-50deg) brightness(1.2);
+  }
+}
+
 /* Christmas decorations */
 #decorations {
   position: fixed;
