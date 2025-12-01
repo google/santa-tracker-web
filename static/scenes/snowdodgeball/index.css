@@ -115,19 +115,22 @@ body {
   font-weight: bold;
   color: white;
   background: #4a9d5f;
-  border: 4px solid #2d6b3f;
+  border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.1s, background 0.2s;
+  box-shadow: 3px 6px 0 #2d6b3f, 8px 9px 0 rgba(0, 0, 0, 0.16);
+  transform: translate(-3px, -6px);
+  transition: box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out, background 0.2s;
 }
 
 .start-button:hover {
   background: #5bb371;
-  transform: scale(1.05);
 }
 
 .start-button:active {
-  transform: scale(0.98);
+  box-shadow: 0 0 0 #2d6b3f, 0 0 2px rgba(0, 0, 0, 0.16);
+  transform: translate(0, 0);
+  transition-duration: 0.05s;
 }
 
 /* Snowfall animation */
