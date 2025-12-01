@@ -79,7 +79,7 @@ export class Elf {
     // Drop snowball if holding one
     if (this.heldSnowball) {
       // Offset the snowball position based on direction so it doesn't get picked up immediately
-      const offsetDistance = 30;
+      const offsetDistance = 100;
       if (this.currentDirection === 'front') {
         this.heldSnowball.y += offsetDistance;
       } else if (this.currentDirection === 'back') {

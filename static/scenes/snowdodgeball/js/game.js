@@ -50,6 +50,15 @@ export class Game {
     };
     this.animationsLoaded = false;
 
+    // Gift images for health display
+    this.giftImages = {
+      blueTrue: new Image(),
+      blueFalse: new Image(),
+      greenTrue: new Image(),
+      greenFalse: new Image()
+    };
+    this.loadGiftImages();
+
     this.resize();
     window.addEventListener('resize', () => this.resize());
 
@@ -122,6 +131,13 @@ export class Game {
         initAnimation('opponent', direction, i);
       });
     }
+  }
+
+  loadGiftImages() {
+    this.giftImages.blueTrue.src = 'img/gift_blue_true.png';
+    this.giftImages.blueFalse.src = 'img/gift_blue_false.png';
+    this.giftImages.greenTrue.src = 'img/gift_green_true.png';
+    this.giftImages.greenFalse.src = 'img/gift_green_false.png';
   }
 
   start() {
@@ -528,9 +544,9 @@ export class Game {
     // Update elf DOM positions and animations
     this.elves.forEach(elf => elf.render(this.ctx));
 
-    // Draw Health Bars
-    this.renderHealthBar(10, 10, this.opponentHealth, HealthBar.OPPONENT_COLOR);
-    this.renderHealthBar(10, this.arenaHeight - 30, this.playerHealth, HealthBar.PLAYER_COLOR);
+    // Draw Health as Gifts
+    this.renderGifts(10, 10, this.opponentHealth, 'green'); // Opponent uses green gifts
+    this.renderGifts(10, this.arenaHeight - 60, this.playerHealth, 'blue'); // Player uses blue gifts
 
     // Draw Game Over screen on top if game is over
     if (this.gameOver) {
@@ -538,19 +554,25 @@ export class Game {
     }
   }
 
-  renderHealthBar(x, y, health, color) {
-    // Background
-    this.ctx.fillStyle = HealthBar.BACKGROUND_COLOR;
-    this.ctx.fillRect(x, y, HealthBar.WIDTH, HealthBar.HEIGHT);
+  renderGifts(x, y, health, color) {
+    const maxGifts = Gameplay.STARTING_HEALTH / Gameplay.DAMAGE_PER_HIT; // 5 gifts
+    const aliveGifts = Math.ceil(health / Gameplay.DAMAGE_PER_HIT); // How many gifts should be "true"
+    const giftSize = 40; // Size of each gift
+    const giftSpacing = 5; // Space between gifts
 
-    // Health
-    this.ctx.fillStyle = color;
-    this.ctx.fillRect(x, y, (health / Gameplay.STARTING_HEALTH) * HealthBar.WIDTH, HealthBar.HEIGHT);
+    // Select the appropriate gift images based on color
+    const trueImg = color === 'blue' ? this.giftImages.blueTrue : this.giftImages.greenTrue;
+    const falseImg = color === 'blue' ? this.giftImages.blueFalse : this.giftImages.greenFalse;
 
-    // Border
-    this.ctx.strokeStyle = HealthBar.BORDER_COLOR;
-    this.ctx.lineWidth = HealthBar.BORDER_WIDTH;
-    this.ctx.strokeRect(x, y, HealthBar.WIDTH, HealthBar.HEIGHT);
+    // Draw gifts from left to right
+    for (let i = 0; i < maxGifts; i++) {
+      const giftX = x + i * (giftSize + giftSpacing);
+      const img = i < aliveGifts ? trueImg : falseImg;
+
+      if (img.complete) {
+        this.ctx.drawImage(img, giftX, y, giftSize, giftSize);
+      }
+    }
   }
 
   onPointerDown(e) {
