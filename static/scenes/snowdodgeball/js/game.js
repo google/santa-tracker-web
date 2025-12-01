@@ -368,7 +368,7 @@ export class Game {
       elf.updateOpponentAI(dt, arenaBounds, this.snowballs, playerElves);
     });
 
-    this.elves.forEach(elf => elf.update(dt));
+    this.elves.forEach(elf => elf.update(dt, arenaBounds));
     this.snowballs.forEach(snowball => snowball.update(dt));
 
     // Check for snowball hits on elves
