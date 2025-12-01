@@ -23,7 +23,6 @@ export class Game {
     this.showingStartScreen = true;
     this.gameOver = false;
     this.playerWon = false;
-    this.startButtonBounds = null;
     this.restartButtonBounds = null;
     this.homeButtonBounds = null;
     this.elves = [];
@@ -164,59 +163,6 @@ export class Game {
     this.loop();
   }
 
-  renderStartScreen() {
-    // Fill background with festive color
-    this.ctx.fillStyle = '#f4d03f'; // Yellow background like buildandbolt
-    this.ctx.fillRect(0, 0, this.arenaWidth, this.arenaHeight);
-
-    // Left side - Title
-    this.ctx.fillStyle = '#2d8659'; // Green title color
-    this.ctx.font = 'italic bold 72px Georgia';
-    this.ctx.textAlign = 'center';
-    this.ctx.textBaseline = 'middle';
-    this.ctx.fillText('Snowdodgeball', this.arenaWidth / 4, this.arenaHeight / 2 - 100);
-
-    // Center divider line
-    this.ctx.strokeStyle = '#aaa';
-    this.ctx.lineWidth = 3;
-    this.ctx.beginPath();
-    this.ctx.moveTo(this.arenaWidth / 2, 100);
-    this.ctx.lineTo(this.arenaWidth / 2, this.arenaHeight - 100);
-    this.ctx.stroke();
-
-    // Right side - Instructions header
-    this.ctx.fillStyle = '#333';
-    this.ctx.font = 'bold 32px Arial';
-    this.ctx.fillText('Instructions', this.arenaWidth * 0.75, 150);
-
-    // Additional instructions text
-    this.ctx.fillStyle = '#555';
-    this.ctx.font = '16px Arial';
-    this.ctx.textAlign = 'center';
-    this.ctx.fillText('Click your elves to select them', this.arenaWidth * 0.75, 570);
-    this.ctx.fillText('Pick up snowballs from the center', this.arenaWidth * 0.75, 595);
-    this.ctx.fillText('Reduce enemy health to zero to win!', this.arenaWidth * 0.75, 620);
-
-    // Start button
-    const btnWidth = 200;
-    const btnHeight = 60;
-    const btnX = (this.arenaWidth - btnWidth) / 2;
-    const btnY = this.arenaHeight - 120;
-
-    this.startButtonBounds = { x: btnX, y: btnY, width: btnWidth, height: btnHeight };
-
-    this.ctx.fillStyle = '#4a9d5f'; // Green button
-    this.ctx.fillRect(btnX, btnY, btnWidth, btnHeight);
-    this.ctx.strokeStyle = '#2d6b3f';
-    this.ctx.lineWidth = 4;
-    this.ctx.strokeRect(btnX, btnY, btnWidth, btnHeight);
-
-    this.ctx.fillStyle = '#ffffff';
-    this.ctx.font = 'bold 28px Arial';
-    this.ctx.textAlign = 'center';
-    this.ctx.fillText('START', this.arenaWidth / 2, btnY + btnHeight / 2 + 2);
-  }
-
   initLevel() {
     this.elves = [];
     this.snowballs = [];
@@ -246,10 +192,7 @@ export class Game {
   }
 
   pause() {
-    if (this.showingStartScreen) {
-      this.renderStartScreen();
-      return;
-    }
+    if (this.showingStartScreen) return;
     this.isPlaying = false;
     this.renderPauseScreen();
   }
@@ -353,10 +296,7 @@ export class Game {
   }
 
   resume() {
-    if (this.showingStartScreen) {
-      this.renderStartScreen();
-      return;
-    }
+    if (this.showingStartScreen) return;
     if (!this.isPlaying) {
       this.isPlaying = true;
       this.lastTime = performance.now();
@@ -365,10 +305,7 @@ export class Game {
   }
 
   restart() {
-    if (this.showingStartScreen) {
-      this.renderStartScreen();
-      return;
-    }
+    if (this.showingStartScreen) return;
     this.playerHealth = Gameplay.STARTING_HEALTH;
     this.opponentHealth = Gameplay.STARTING_HEALTH;
     this.initLevel();
@@ -587,15 +524,6 @@ export class Game {
     const rect = arena.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
-    // Handle start screen button click
-    if (this.showingStartScreen && this.startButtonBounds) {
-      const btn = this.startButtonBounds;
-      if (x >= btn.x && x <= btn.x + btn.width && y >= btn.y && y <= btn.y + btn.height) {
-        this.startGame();
-        return;
-      }
-    }
 
     // Handle game over screen buttons
     if (this.gameOver) {
