@@ -1,10 +1,31 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: #f0f4f8; /* Light snow color */
+  background: repeating-linear-gradient(
+    45deg,
+    #165B33 0px,
+    #165B33 30px,
+    #187F42 30px,
+    #187F42 60px,
+    #E50000 60px,
+    #E50000 90px,
+    #38985e 90px,
+    #38985e 120px,
+    #F8B229 120px,
+    #F8B229 150px,
+    #5db383 150px,
+    #5db383 180px,
+    #91060D 180px,
+    #91060D 210px,
+    #187F42 210px,
+    #187F42 240px,
+    #165B33 240px,
+    #165B33 270px
+  );
 }
 
 #module-snowdodgeball {
@@ -13,6 +34,7 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 #arena {
@@ -21,8 +43,46 @@ html, body {
   height: 900px;
   max-width: 100%;
   max-height: 100%;
-  box-shadow: 0 0 20px rgba(0,0,0,0.1);
-  background: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    radial-gradient(circle at 80% 10%, rgba(230, 240, 255, 0.8) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 40% 90%, rgba(255, 255, 255, 0.7) 1px, transparent 1px),
+    radial-gradient(circle at 90% 50%, rgba(230, 240, 255, 0.6) 1.2px, transparent 1.2px),
+    radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    radial-gradient(circle at 50% 20%, rgba(230, 240, 255, 0.7) 1.3px, transparent 1.3px),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, #f0f8ff 0%, #ffffff 50%, #f0f8ff 100%);
+  background-size:
+    200px 200px,
+    250px 250px,
+    180px 180px,
+    220px 220px,
+    190px 190px,
+    210px 210px,
+    230px 230px,
+    200px 200px,
+    100% 100%;
+  background-position: 0 0, 40px 60px, 80px 20px, 120px 100px, 30px 140px, 90px 180px, 150px 50px, 60px 130px, 0 0;
+}
+
+/* Snow drifts */
+#arena::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background:
+    radial-gradient(ellipse 150px 40px at 10% 100%, rgba(255, 255, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(ellipse 180px 50px at 30% 100%, rgba(240, 248, 255, 0.8) 0%, transparent 100%),
+    radial-gradient(ellipse 140px 35px at 60% 100%, rgba(255, 255, 255, 0.85) 0%, transparent 100%),
+    radial-gradient(ellipse 170px 45px at 85% 100%, rgba(240, 248, 255, 0.9) 0%, transparent 100%),
+    radial-gradient(ellipse 200px 55px at 50% 100%, rgba(255, 255, 255, 0.7) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
 }
 
 #elves {
@@ -66,9 +126,11 @@ canvas {
   0% {
     transform: translate(-25%, -50%) rotate(0deg);
   }
+
   50% {
     transform: translate(-25%, -45%) rotate(-15deg) scale(1.05);
   }
+
   100% {
     transform: translate(-25%, -50%) rotate(0deg);
   }
@@ -78,9 +140,11 @@ canvas {
   0% {
     transform: translate(-25%, -50%) scaleX(-1) rotate(0deg);
   }
+
   50% {
     transform: translate(-25%, -45%) scaleX(-1) rotate(15deg) scale(1.05);
   }
+
   100% {
     transform: translate(-25%, -50%) scaleX(-1) rotate(0deg);
   }
@@ -126,7 +190,8 @@ canvas {
   z-index: 2;
   width: 24px;
   height: 24px;
-  display: none; /* Hidden by default */
+  display: none;
+  /* Hidden by default */
   pointer-events: none;
 }
 
@@ -145,7 +210,8 @@ canvas {
   top: 35%;
   left: 50%;
   transform: translateX(-50%) rotate(180deg);
-  z-index: 0; /* Behind elf when facing back */
+  z-index: 0;
+  /* Behind elf when facing back */
 }
 
 .elf__inner.direction--side .elf__snowball {
@@ -167,4 +233,116 @@ canvas {
   border: 3px solid #f1c40f;
   border-radius: 50%;
   pointer-events: none;
+}
+
+/* Christmas decorations */
+#decorations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  display: none; /* Hidden - using CSS pattern instead */
+}
+
+.decoration {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Trees on left and right sides - outside the arena */
+.decoration--trees-left {
+  left: 1%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40%;
+  width: auto;
+  max-width: 150px;
+}
+
+.decoration--trees-right {
+  right: 1%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 40%;
+  width: auto;
+  max-width: 150px;
+}
+
+/* Reindeer on sides */
+.decoration--reindeer-left {
+  left: 3%;
+  top: 25%;
+  transform: translateY(-50%);
+  height: 100px;
+  width: auto;
+}
+
+.decoration--reindeer-right {
+  right: 3%;
+  top: 75%;
+  transform: translateY(-50%) scaleX(-1);
+  height: 100px;
+  width: auto;
+}
+
+/* Top decorations */
+.decoration--snowman {
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 120px;
+  width: auto;
+}
+
+.decoration--tree-top-left {
+  top: 3%;
+  left: 25%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: auto;
+}
+
+.decoration--tree-top-right {
+  top: 3%;
+  right: 25%;
+  transform: translateX(50%);
+  height: 100px;
+  width: auto;
+}
+
+/* Bottom spectators */
+.decoration--spectator-left {
+  bottom: 5%;
+  left: 35%;
+  transform: translateX(-50%);
+  height: 120px;
+  width: auto;
+}
+
+.decoration--spectator-right {
+  bottom: 5%;
+  right: 35%;
+  transform: translateX(50%);
+  height: 120px;
+  width: auto;
+}
+
+/* Bottom trees */
+.decoration--tree-bottom-left {
+  bottom: 3%;
+  left: 12%;
+  transform: translateX(-50%);
+  height: 150px;
+  width: auto;
+}
+
+.decoration--tree-bottom-right {
+  bottom: 3%;
+  right: 12%;
+  transform: translateX(50%);
+  height: 150px;
+  width: auto;
 }
