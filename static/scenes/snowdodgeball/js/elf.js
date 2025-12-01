@@ -40,6 +40,9 @@ export class Elf {
     this.currentDirection = 'front';
     this.currentFrame = 0;
     this.lastAnimationUpdate = 0;
+
+    // Set initial direction class
+    this.innerElem.classList.add('direction--front');
   }
 
   updateHeldSnowballDisplay() {
@@ -127,6 +130,11 @@ export class Elf {
     if (newDirection !== this.currentDirection) {
       this.innerElem.classList.remove(`direction--${this.currentDirection}`);
       this.innerElem.classList.add(`direction--${newDirection}`);
+
+      // Reset frame when changing direction to avoid animation glitches
+      this.currentFrame = 0;
+      this.lastAnimationUpdate = 0;
+
       this.currentDirection = newDirection;
     }
 
