@@ -142,11 +142,22 @@ export class Game {
 
   start() {
     this.showingStartScreen = true;
-    this.renderStartScreen();
+    const startScreen = document.getElementById('start-screen');
+    const startButton = document.getElementById('start-button');
+
+    // Show start screen
+    startScreen.classList.remove('hidden');
+
+    // Add click handler to start button
+    startButton.addEventListener('click', () => this.startGame());
   }
 
   startGame() {
     this.showingStartScreen = false;
+
+    // Hide start screen
+    const startScreen = document.getElementById('start-screen');
+    startScreen.classList.add('hidden');
     this.isPlaying = true;
     this.lastTime = performance.now();
     this.initLevel();
@@ -154,60 +165,56 @@ export class Game {
   }
 
   renderStartScreen() {
-    // Fill background
-    this.ctx.fillStyle = UIColors.BACKGROUND;
+    // Fill background with festive color
+    this.ctx.fillStyle = '#f4d03f'; // Yellow background like buildandbolt
     this.ctx.fillRect(0, 0, this.arenaWidth, this.arenaHeight);
 
-    // Draw title box
-    const boxWidth = 500;
-    const boxHeight = 350;
-    const boxX = (this.arenaWidth - boxWidth) / 2;
-    const boxY = (this.arenaHeight - boxHeight) / 2;
-
-    this.ctx.fillStyle = Arena.BACKGROUND_COLOR;
-    this.ctx.fillRect(boxX, boxY, boxWidth, boxHeight);
-    this.ctx.strokeStyle = Arena.BORDER_COLOR;
-    this.ctx.lineWidth = Arena.BORDER_WIDTH;
-    this.ctx.strokeRect(boxX, boxY, boxWidth, boxHeight);
-
-    // Title
-    this.ctx.fillStyle = UIColors.TITLE_COLOR;
-    this.ctx.font = 'bold 42px Arial';
+    // Left side - Title
+    this.ctx.fillStyle = '#2d8659'; // Green title color
+    this.ctx.font = 'italic bold 72px Georgia';
     this.ctx.textAlign = 'center';
     this.ctx.textBaseline = 'middle';
-    this.ctx.fillText('SNOWDODGEBALL', this.arenaWidth / 2, boxY + 50);
+    this.ctx.fillText('Snowdodgeball', this.arenaWidth / 4, this.arenaHeight / 2 - 100);
 
-    // Instructions
-    this.ctx.fillStyle = UIColors.TEXT_COLOR;
-    this.ctx.font = '18px Arial';
-    const instructions = [
-      'Click your elves (blue) to select them',
-      'Click in your area to move',
-      'Pick up snowballs from the center line',
-      'Click enemy side to throw and deal damage!',
-      'Reduce enemy health to zero to win'
-    ];
-    instructions.forEach((text, i) => {
-      this.ctx.fillText(text, this.arenaWidth / 2, boxY + 110 + i * 28);
-    });
+    // Center divider line
+    this.ctx.strokeStyle = '#aaa';
+    this.ctx.lineWidth = 3;
+    this.ctx.beginPath();
+    this.ctx.moveTo(this.arenaWidth / 2, 100);
+    this.ctx.lineTo(this.arenaWidth / 2, this.arenaHeight - 100);
+    this.ctx.stroke();
+
+    // Right side - Instructions header
+    this.ctx.fillStyle = '#333';
+    this.ctx.font = 'bold 32px Arial';
+    this.ctx.fillText('Instructions', this.arenaWidth * 0.75, 150);
+
+    // Additional instructions text
+    this.ctx.fillStyle = '#555';
+    this.ctx.font = '16px Arial';
+    this.ctx.textAlign = 'center';
+    this.ctx.fillText('Click your elves to select them', this.arenaWidth * 0.75, 570);
+    this.ctx.fillText('Pick up snowballs from the center', this.arenaWidth * 0.75, 595);
+    this.ctx.fillText('Reduce enemy health to zero to win!', this.arenaWidth * 0.75, 620);
 
     // Start button
-    const btnWidth = 180;
-    const btnHeight = 50;
+    const btnWidth = 200;
+    const btnHeight = 60;
     const btnX = (this.arenaWidth - btnWidth) / 2;
-    const btnY = boxY + boxHeight - 80;
+    const btnY = this.arenaHeight - 120;
 
     this.startButtonBounds = { x: btnX, y: btnY, width: btnWidth, height: btnHeight };
 
-    this.ctx.fillStyle = UIColors.START_BUTTON;
+    this.ctx.fillStyle = '#4a9d5f'; // Green button
     this.ctx.fillRect(btnX, btnY, btnWidth, btnHeight);
-    this.ctx.strokeStyle = UIColors.START_BUTTON_BORDER;
-    this.ctx.lineWidth = 3;
+    this.ctx.strokeStyle = '#2d6b3f';
+    this.ctx.lineWidth = 4;
     this.ctx.strokeRect(btnX, btnY, btnWidth, btnHeight);
 
-    this.ctx.fillStyle = UIColors.BUTTON_TEXT_COLOR;
-    this.ctx.font = 'bold 24px Arial';
-    this.ctx.fillText('START', this.arenaWidth / 2, btnY + btnHeight / 2);
+    this.ctx.fillStyle = '#ffffff';
+    this.ctx.font = 'bold 28px Arial';
+    this.ctx.textAlign = 'center';
+    this.ctx.fillText('START', this.arenaWidth / 2, btnY + btnHeight / 2 + 2);
   }
 
   initLevel() {
