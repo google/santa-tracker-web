@@ -151,6 +151,24 @@ export class Elf {
     this.updateAnimation();
   }
 
+  /**
+   * Helper to cycle through animation frames
+   */
+  cycleAnimationFrames(frameStart, frameEnd, frameSpeed) {
+    const now = performance.now();
+
+    if (now - this.lastAnimationUpdate > frameSpeed) {
+      if (this.currentFrame < frameStart || this.currentFrame > frameEnd) {
+        this.currentFrame = frameStart;
+      } else {
+        const frameRange = frameEnd - frameStart + 1;
+        this.currentFrame = frameStart + ((this.currentFrame - frameStart + 1) % frameRange);
+      }
+      this.lastAnimationUpdate = now;
+    }
+    return this.currentFrame;
+  }
+
   updateAnimation() {
     if (!this.animations) return;
 
@@ -190,54 +208,18 @@ export class Elf {
       }
     }
 
-    // Determine frame ranges based on holding state
+    // Determine frame based on holding and moving state
     const isHolding = !!this.heldSnowball;
     let targetFrame;
 
     if (isHolding) {
-      if (isMoving) {
-        // Holding + Walking animation - cycle through frames
-        const frameStart = 50;
-        const frameEnd = 70;
-        const frameSpeed = 50;
-        const now = performance.now();
-
-        if (now - this.lastAnimationUpdate > frameSpeed) {
-          if (this.currentFrame < frameStart || this.currentFrame > frameEnd) {
-            this.currentFrame = frameStart;
-          } else {
-            const frameRange = frameEnd - frameStart + 1;
-            this.currentFrame = frameStart + ((this.currentFrame - frameStart + 1) % frameRange);
-          }
-          this.lastAnimationUpdate = now;
-        }
-        targetFrame = this.currentFrame;
-      } else {
-        // Holding + Idle - static frame
-        targetFrame = 40;
-      }
+      targetFrame = isMoving
+        ? this.cycleAnimationFrames(50, 70, 50)  // Holding + Walking
+        : 40;                                     // Holding + Idle
     } else {
-      if (isMoving) {
-        // Walking animation - cycle through frames
-        const frameStart = 10;
-        const frameEnd = 30;
-        const frameSpeed = 50;
-        const now = performance.now();
-
-        if (now - this.lastAnimationUpdate > frameSpeed) {
-          if (this.currentFrame < frameStart || this.currentFrame > frameEnd) {
-            this.currentFrame = frameStart;
-          } else {
-            const frameRange = frameEnd - frameStart + 1;
-            this.currentFrame = frameStart + ((this.currentFrame - frameStart + 1) % frameRange);
-          }
-          this.lastAnimationUpdate = now;
-        }
-        targetFrame = this.currentFrame;
-      } else {
-        // Idle - static frame
-        targetFrame = 0;
-      }
+      targetFrame = isMoving
+        ? this.cycleAnimationFrames(10, 30, 50)  // Walking
+        : 0;                                      // Idle
     }
 
     // Update Lottie animation frame
