@@ -112,6 +112,9 @@
     import { prepareAnimation } from '../../src/deps/lottie.js';
     import { Game } from './js/game.js';
 
+    // Preload sounds for the game
+    api.preload.sounds('snowball_load_sounds');
+
     const canvas = document.getElementById('game-canvas');
     const game = new Game(canvas, api, prepareAnimation);
 

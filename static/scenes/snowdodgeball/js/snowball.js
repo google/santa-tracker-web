@@ -35,6 +35,9 @@ export class Snowball {
       this.heldBy = null;
     }
     this.thrown = true;
+
+    // Play throw sound effect
+    window.santaApp.fire('sound-trigger', 'snowball_throw');
   }
 
   drop() {

@@ -161,6 +161,10 @@ export class Game {
     // Hide start screen
     const startScreen = document.getElementById('start-screen');
     startScreen.classList.add('hidden');
+
+    // Start background music
+    window.santaApp.fire('sound-ambient', 'music_start_ingame');
+
     this.isPlaying = true;
     this.lastTime = performance.now();
     this.initLevel();
@@ -344,6 +348,9 @@ export class Game {
 
             // Play hit animation and drop snowball
             elf.playHitAnimation();
+
+            // Play hit sound effect
+            window.santaApp.fire('sound-trigger', 'snowball_hit');
 
             snowball.markedForRemoval = true;
             break;
