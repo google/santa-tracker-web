@@ -14,6 +14,7 @@ export class Snowball {
     this.velocityY = 0;
     this.speed = SnowballConfig.SPEED;
     this.team = null; // Team that threw the snowball
+    this.wasDropped = false; // Track if this was dropped after being held
   }
 
   throw(targetX, targetY) {
@@ -42,6 +43,7 @@ export class Snowball {
       this.heldBy.heldSnowball = null;
       this.heldBy = null;
     }
+    this.wasDropped = true; // Mark as dropped for easier pickup
     // Snowball stays at current position, not thrown
   }
 
@@ -133,11 +135,18 @@ export class Snowball {
     return dist < (this.radius + elf.radius);
   }
 
-  // Check if elf can pick up this snowball (larger radius for opponents)
+  // Check if elf can pick up this snowball (larger radius for dropped balls and opponents)
   canBePickedUpBy(elf) {
     const dx = this.x - elf.x;
     const dy = this.y - elf.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
+
+    // Dropped snowballs are easier to pick up for everyone
+    if (this.wasDropped) {
+      return dist < SnowballConfig.DROPPED_PICKUP_RADIUS;
+    }
+
+    // Regular pickup radius varies by team
     const pickupRadius = elf.team === 'opponent'
       ? SnowballConfig.OPPONENT_PICKUP_RADIUS
       : SnowballConfig.PICKUP_RADIUS;
@@ -151,5 +160,6 @@ export class Snowball {
     this.velocityX = 0;
     this.velocityY = 0;
     this.team = null;
+    this.wasDropped = false; // Reset dropped flag on respawn
   }
 }

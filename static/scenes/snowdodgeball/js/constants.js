@@ -90,8 +90,9 @@ export const OpponentAIConfig = {
 export const Snowball = {
   RADIUS: 10,
   SPEED: 500,                    // pixels per second when thrown
-  PICKUP_RADIUS: 30,             // standard pickup radius
-  OPPONENT_PICKUP_RADIUS: 60,    // larger pickup radius for opponents
+  PICKUP_RADIUS: 30,             // pickup radius for spawned snowballs
+  DROPPED_PICKUP_RADIUS: 70,     // larger pickup radius for dropped snowballs
+  OPPONENT_PICKUP_RADIUS: 60,    // pickup radius for opponents
   FILL_COLOR: '#ffffff',
   STROKE_COLOR: '#cccccc',
   STROKE_WIDTH: 2
