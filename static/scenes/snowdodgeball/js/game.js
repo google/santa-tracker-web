@@ -385,7 +385,7 @@ export class Game {
       this.snowballs.forEach(snowball => {
         if (snowball.heldBy || snowball.thrown) return;
 
-        if (snowball.collidesWithElf(elf)) {
+        if (snowball.canBePickedUpBy(elf)) {
           snowball.heldBy = elf;
           elf.heldSnowball = snowball;
           elf.throwDelayTimer = OpponentAI.THROW_DELAY; // Start throw delay countdown

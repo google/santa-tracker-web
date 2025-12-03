@@ -119,9 +119,11 @@ export class Elf {
     if (arena) {
       const centerY = arena.y + arena.height / 2;
       if (this.team === Teams.OPPONENT) {
-        // Opponent stays in top half
-        this.y = Math.min(this.y, centerY);
-        this.targetY = Math.min(this.targetY, centerY);
+        // Opponent stays in top half with 20px buffer from center. 
+        // The oponent elves were getting too much of their torso across the line otherwise.
+        const maxY = centerY - 40;
+        this.y = Math.min(this.y, maxY);
+        this.targetY = Math.min(this.targetY, maxY);
       } else {
         // Player stays in bottom half
         this.y = Math.max(this.y, centerY);

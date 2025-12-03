@@ -125,12 +125,23 @@ export class Snowball {
     return (dx * dx + dy * dy) <= (this.radius * this.radius);
   }
 
-  // Check if this snowball collides with an elf
+  // Check if this snowball collides with an elf (for hits)
   collidesWithElf(elf) {
     const dx = this.x - elf.x;
     const dy = this.y - elf.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
     return dist < (this.radius + elf.radius);
+  }
+
+  // Check if elf can pick up this snowball (larger radius for opponents)
+  canBePickedUpBy(elf) {
+    const dx = this.x - elf.x;
+    const dy = this.y - elf.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    const pickupRadius = elf.team === 'opponent'
+      ? SnowballConfig.OPPONENT_PICKUP_RADIUS
+      : SnowballConfig.PICKUP_RADIUS;
+    return dist < pickupRadius;
   }
 
   respawn() {
