@@ -59,10 +59,10 @@ body {
 .start-screen__title {
   position: absolute;
   top: 80px;
-  font-family: Georgia, serif;
+  font-family: 'Lobster', sans-serif;
   font-size: 80px;
-  font-weight: bold;
-  font-style: italic;
+  font-weight: normal;
+  font-style: normal;
   color: #2d8659;
   margin: 0;
   text-align: center;
@@ -76,19 +76,21 @@ body {
 }
 
 .instructions-title {
-  font-family: Arial, sans-serif;
+  font-family: 'Google Sans', sans-serif;
   font-size: 42px;
-  font-weight: bold;
-  color: #333;
+  font-weight: normal;
+  color: #2d8659;
   margin-bottom: 30px;
 }
 
 .instruction-panels {
   display: flex;
-  gap: 30px;
+  gap: 20px;
   justify-content: center;
   align-items: flex-start;
   margin-bottom: 20px;
+  flex-wrap: wrap;
+  max-width: 95vw;
 }
 
 .instruction-panel {
@@ -96,21 +98,78 @@ body {
   flex-direction: column;
   align-items: center;
   background: white;
-  padding: 30px;
+  padding: 20px;
   border-radius: 15px;
   box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  flex: 1 1 auto;
+  min-width: 200px;
+  max-width: 380px;
+}
+
+.instruction-panel p {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  color: #333;
+  margin: 10px 0 0 0;
+  text-align: center;
 }
 
 .panel-image {
-  width: 500px;
-  height: 400px;
+  width: 100%;
+  max-width: 350px;
+  height: auto;
   border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .instruction-panel {
+    max-width: 300px;
+    padding: 15px;
+  }
+
+  .panel-image {
+    max-width: 270px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .instruction-panel {
+    max-width: 250px;
+    padding: 12px;
+  }
+
+  .panel-image {
+    max-width: 220px;
+  }
+
+  .instruction-panels {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .instruction-panels {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .instruction-panel {
+    max-width: 400px;
+    width: 90%;
+  }
+
+  .panel-image {
+    max-width: 100%;
+  }
 }
 
 .start-button {
   position: absolute;
   bottom: 100px;
   padding: 20px 60px;
+  font-family: 'Google Sans', sans-serif;
   font-size: 32px;
   font-weight: bold;
   color: white;
@@ -202,6 +261,7 @@ body {
 
 .game-button {
   padding: 20px 50px;
+  font-family: 'Google Sans', sans-serif;
   font-size: 28px;
   font-weight: bold;
   color: white;
