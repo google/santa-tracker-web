@@ -133,6 +133,97 @@ body {
   transition-duration: 0.05s;
 }
 
+/* Game Over Screen Overlay */
+#game-over-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f4d03f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#game-over-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.game-over-screen__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  transition: opacity 0.3s ease-in-out, transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#game-over-screen.hidden .game-over-screen__content {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.game-over-screen__title {
+  font-family: 'Lobster', Georgia, serif;
+  font-size: 96px;
+  font-weight: normal;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-over-screen__title.win {
+  color: #2d8659;
+}
+
+.game-over-screen__title.lose {
+  color: #e74c3c;
+}
+
+.game-over-screen__message {
+  font-family: 'Google Sans', Arial, sans-serif;
+  font-size: 28px;
+  font-weight: normal;
+  color: #2d8659;
+  margin: 0;
+  text-align: center;
+}
+
+.game-over-screen__buttons {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.game-button {
+  padding: 20px 50px;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  background: #4a9d5f;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 3px 6px 0 #2d6b3f, 8px 9px 0 rgba(0, 0, 0, 0.16);
+  transform: translate(-3px, -6px);
+  transition: box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out, background 0.2s;
+}
+
+.game-button:hover {
+  background: #5bb371;
+}
+
+.game-button:active {
+  box-shadow: 0 0 0 #2d6b3f, 0 0 2px rgba(0, 0, 0, 0.16);
+  transform: translate(0, 0);
+  transition-duration: 0.05s;
+}
+
 /* Snowfall animation */
 #module-snowdodgeball::before {
   content: '';

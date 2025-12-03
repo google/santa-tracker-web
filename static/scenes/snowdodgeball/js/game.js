@@ -23,8 +23,6 @@ export class Game {
     this.showingStartScreen = true;
     this.gameOver = false;
     this.playerWon = false;
-    this.restartButtonBounds = null;
-    this.homeButtonBounds = null;
     this.elves = [];
     this.snowballs = [];
     this.selectedElf = null;
@@ -149,6 +147,12 @@ export class Game {
 
     // Add click handler to start button
     startButton.addEventListener('click', () => this.startGame());
+
+    // Add game over screen button handlers
+    const restartButton = document.getElementById('restart-button');
+    const homeButton = document.getElementById('home-button');
+    restartButton.addEventListener('click', () => this.restartGame());
+    homeButton.addEventListener('click', () => this.goToHome());
   }
 
   startGame() {
@@ -228,71 +232,21 @@ export class Game {
     this.ctx.fillText('Press ESC to resume', this.arenaWidth / 2, this.arenaHeight / 2 + 30);
   }
 
-  renderGameOverScreen() {
-    // Dim the background
-    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-    this.ctx.fillRect(0, 0, this.arenaWidth, this.arenaHeight);
+  showGameOverScreen() {
+    const gameOverScreen = document.getElementById('game-over-screen');
+    const gameOverTitle = document.getElementById('game-over-title');
 
-    // Draw modal box
-    const modalWidth = 400;
-    const modalHeight = 280;
-    const modalX = (this.arenaWidth - modalWidth) / 2;
-    const modalY = (this.arenaHeight - modalHeight) / 2;
+    // Update text based on win/lose
+    if (this.playerWon) {
+      gameOverTitle.textContent = 'YOU WIN!';
+      gameOverTitle.className = 'game-over-screen__title win';
+    } else {
+      gameOverTitle.textContent = 'GAME OVER';
+      gameOverTitle.className = 'game-over-screen__title lose';
+    }
 
-    // Background color based on win/lose
-    this.ctx.fillStyle = this.playerWon ? UIColors.WIN_BACKGROUND : UIColors.LOSE_BACKGROUND;
-    this.ctx.fillRect(modalX, modalY, modalWidth, modalHeight);
-
-    // Draw border
-    this.ctx.strokeStyle = this.playerWon ? UIColors.WIN_BORDER : UIColors.LOSE_BORDER;
-    this.ctx.lineWidth = 4;
-    this.ctx.strokeRect(modalX, modalY, modalWidth, modalHeight);
-
-    // Draw title text
-    this.ctx.fillStyle = UIColors.BUTTON_TEXT_COLOR;
-    this.ctx.font = 'bold 42px Arial';
-    this.ctx.textAlign = 'center';
-    this.ctx.textBaseline = 'middle';
-    this.ctx.fillText(this.playerWon ? 'YOU WIN!' : 'GAME OVER', this.arenaWidth / 2, modalY + 60);
-
-    // Draw subtitle
-    this.ctx.font = '20px Arial';
-    this.ctx.fillText(
-      this.playerWon ? 'You defeated the opponents!' : 'The opponents won!',
-      this.arenaWidth / 2, modalY + 110
-    );
-
-    // Restart button
-    const btnWidth = 150;
-    const btnHeight = 45;
-    const btnSpacing = 20;
-    const restartX = this.arenaWidth / 2 - btnWidth - btnSpacing / 2;
-    const btnY = modalY + modalHeight - 90;
-
-    this.restartButtonBounds = { x: restartX, y: btnY, width: btnWidth, height: btnHeight };
-
-    this.ctx.fillStyle = UIColors.RESTART_BUTTON;
-    this.ctx.fillRect(restartX, btnY, btnWidth, btnHeight);
-    this.ctx.strokeStyle = UIColors.RESTART_BUTTON_BORDER;
-    this.ctx.lineWidth = 2;
-    this.ctx.strokeRect(restartX, btnY, btnWidth, btnHeight);
-
-    this.ctx.fillStyle = UIColors.BUTTON_TEXT_COLOR;
-    this.ctx.font = 'bold 20px Arial';
-    this.ctx.fillText('RESTART', restartX + btnWidth / 2, btnY + btnHeight / 2);
-
-    // Home button
-    const homeX = this.arenaWidth / 2 + btnSpacing / 2;
-    this.homeButtonBounds = { x: homeX, y: btnY, width: btnWidth, height: btnHeight };
-
-    this.ctx.fillStyle = UIColors.HOME_BUTTON;
-    this.ctx.fillRect(homeX, btnY, btnWidth, btnHeight);
-    this.ctx.strokeStyle = UIColors.HOME_BUTTON_BORDER;
-    this.ctx.lineWidth = 2;
-    this.ctx.strokeRect(homeX, btnY, btnWidth, btnHeight);
-
-    this.ctx.fillStyle = UIColors.BUTTON_TEXT_COLOR;
-    this.ctx.fillText('HOME', homeX + btnWidth / 2, btnY + btnHeight / 2);
+    // Show game over screen with fade-in animation
+    gameOverScreen.classList.remove('hidden');
   }
 
   resume() {
@@ -317,6 +271,10 @@ export class Game {
   }
 
   restartGame() {
+    // Hide game over screen
+    const gameOverScreen = document.getElementById('game-over-screen');
+    gameOverScreen.classList.add('hidden');
+
     this.gameOver = false;
     this.playerWon = false;
     this.playerHealth = Gameplay.STARTING_HEALTH;
@@ -452,10 +410,12 @@ export class Game {
       this.gameOver = true;
       this.playerWon = false;
       this.isPlaying = false;
+      this.showGameOverScreen();
     } else if (this.opponentHealth <= 0) {
       this.gameOver = true;
       this.playerWon = true;
       this.isPlaying = false;
+      this.showGameOverScreen();
     }
   }
 
@@ -491,11 +451,6 @@ export class Game {
     // Draw Health as Gifts
     this.renderGifts(10, 10, this.opponentHealth, 'green'); // Opponent uses green gifts
     this.renderGifts(10, this.arenaHeight - 60, this.playerHealth, 'blue'); // Player uses blue gifts
-
-    // Draw Game Over screen on top if game is over
-    if (this.gameOver) {
-      this.renderGameOverScreen();
-    }
   }
 
   renderGifts(x, y, health, color) {
@@ -520,31 +475,12 @@ export class Game {
   }
 
   onPointerDown(e) {
+    if (!this.isPlaying || this.gameOver) return;
+
     const arena = document.getElementById('arena');
     const rect = arena.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
-    // Handle game over screen buttons
-    if (this.gameOver) {
-      if (this.restartButtonBounds) {
-        const btn = this.restartButtonBounds;
-        if (x >= btn.x && x <= btn.x + btn.width && y >= btn.y && y <= btn.y + btn.height) {
-          this.restartGame();
-          return;
-        }
-      }
-      if (this.homeButtonBounds) {
-        const btn = this.homeButtonBounds;
-        if (x >= btn.x && x <= btn.x + btn.width && y >= btn.y && y <= btn.y + btn.height) {
-          this.goToHome();
-          return;
-        }
-      }
-      return;
-    }
-
-    if (!this.isPlaying) return;
 
     const arenaCenterY = this.arenaHeight / 2;
 

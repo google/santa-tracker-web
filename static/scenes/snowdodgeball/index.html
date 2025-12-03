@@ -20,6 +20,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Google+Sans:400,700" />
   <link rel="stylesheet" href="index.css" />
 </head>
 
@@ -52,6 +53,17 @@
       </div>
 
       <button id="start-button" class="start-button">START</button>
+    </div>
+
+    <!-- Game Over Screen Overlay -->
+    <div id="game-over-screen" class="hidden">
+      <div class="game-over-screen__content">
+        <h1 id="game-over-title" class="game-over-screen__title">YOU WIN!</h1>
+        <div class="game-over-screen__buttons">
+          <button id="restart-button" class="game-button">PLAY AGAIN</button>
+          <button id="home-button" class="game-button">HOME</button>
+        </div>
+      </div>
     </div>
 
     <div id="arena">
