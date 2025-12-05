@@ -73,7 +73,6 @@ app.Controls.prototype.onDeviceOrientation_ = function(e) {
   if (e.gamma == null || this.isDesktopish_) {
     return;
   }
-
   // Portrait
   var degree = e.gamma;
 
@@ -134,10 +133,11 @@ app.Controls.prototype.onKeyUp_ = function(e) {
 app.Controls.prototype.onTouchStart_ = function(e) {
   // Get the horizontal position where the touch started
   var touchX = e.touches[0].clientX;
-
   if (touchX < window.innerWidth / 2) { // Left
+    this.tilt = -15;
     this.isLeftDown = true;
   } else { // Right
+    this.tilt = 15;
     this.isRightDown = true;
   }
 
@@ -154,6 +154,7 @@ app.Controls.prototype.onTouchStart_ = function(e) {
  * @private
  */
 app.Controls.prototype.onTouchEnd_ = function(e) {
+  this.tilt = 0;
   this.isLeftDown = false;
   this.isRightDown = false;
 };
