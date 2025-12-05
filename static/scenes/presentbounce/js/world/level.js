@@ -116,7 +116,7 @@ app.world.Level = class {
    */
   onLevelCompleted() {
     if (this.attempt_ === 1) {
-      window.ga('send', 'event', 'game', 'firsttry', 'presentbounce')
+      gtag('event', 'gameAction', {game: 'presentbounce', action: 'firsttry'});
     }
 
     let score = 0;

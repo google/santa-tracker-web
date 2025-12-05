@@ -1235,7 +1235,7 @@ export function prepare() {
 
       if (typeof event === 'string') {
         console.debug('audio missing', event);
-        ga('send', 'event', 'site', 'audio-failure', event)
+        gtag('event', 'site', {action: 'audio-failure', label: event});
         return false;
       }
       console.warn('got invalid arg for kplay lookup', event);

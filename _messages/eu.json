@@ -150,7 +150,7 @@
 		"message": "Kanada"
 	},
 	"ca_tradition": {
-		"message": "Kanadako umeek Gabon elurtsuak ospatu ohi dituzte. Bufandetan eta \"toque\" izeneko artilezko txanoak janzten dituzte elurretan jolasteko, izotzean patinatzeko eta txirristan jolasteko. Gabon-gauean, esnea eta gailetak uzten dituzte tximinian Bizarzurirentzat (batzuetan azenario bat ere elur-oreinarentzat)."
+		"message": "Kanadako umeek Gabon elurtsuak ospatu ohi dituzte. Lepo-berogarriak eta \"toque\" izeneko artilezko txanoak janzten dituzte elurretan jolasteko, izotzean patinatzeko eta txirristan jolasteko. Gabon-gauean, esnea eta gailetak uzten dituzte tximinian Bizarzurirentzat (batzuetan azenario bat ere elur-oreinarentzat)."
 	},
 	"calendar": {
 		"message": "Egutegia"
@@ -561,7 +561,7 @@
 		"message": "Egun"
 	},
 	"countdown_hours": {
-		"message": "Ordu"
+		"message": "h"
 	},
 	"countdown_minutes": {
 		"message": "min"
@@ -1560,7 +1560,7 @@
 		"message": "Bizarzuriren ikasketa automatikoko robota da Tensor. Mundu osoko haurrek bidaltzen dizkioten eskutitzak kudeatzen laguntzen dio Bizarzuriri. Testua eta irudiak bizkor deszifratzeko trebatu da, eta marrazten ari zarena asmatzea gustatzen zaio. Marraztu pantailan Gabonetako hitz bakoitzaren irudi bat, eta Tensor-ek ikusten duena esango dizu."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Jokatu Tensor-ekin, irudiak ezagutzeko robotarekin"
+		"message": "Jokatu irudiak ezagutzeko Tensor robotarekin!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Zure marrazkietako {{recognized}} igarri ditu Tensor robotak."
@@ -7275,7 +7275,7 @@
 		"message": "Arakatzeko era gehiago"
 	},
 	"village_santa_a2hs": {
-		"message": "Gehitu hasierako pantailan"
+		"message": "Gehitu orri nagusian"
 	},
 	"village_santa_a2hs_chromeos": {
 		"message": "Gehitu apalean"
@@ -7299,7 +7299,7 @@
 		"message": "Instalatu"
 	},
 	"village_santa_intall_ios": {
-		"message": "Sakatu \u003cspan\u003e\u003c/span\u003e eta \"Gehitu hasierako pantailan\""
+		"message": "Sakatu \u003cspan\u003e\u003c/span\u003e eta \"Gehitu orri nagusian\""
 	},
 	"village_takesoff": {
 		"message": "Bizarzuri aireratzeko gelditzen dena:"

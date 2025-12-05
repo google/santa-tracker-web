@@ -182,7 +182,8 @@ chromeElement.addEventListener('sidebar-open', (ev) => {
 
     let playNextRoute = cards[0];
 
-    let featured = firebaseConfig.featuredRoute();
+    // The debug value on the global state takes precedence over the value from firebase.
+    let featured = global.getState().featured || firebaseConfig.featuredRoute();
     if (featured === 'takeoff' || featured === 'liftoff') {
       // FIXME: hack for HPP
       featured = 'likealight';
@@ -284,7 +285,7 @@ global.subscribe((state) => {
   // This happens first, as we modify state as a side-effect.
   if (state.status === 'restart') {
     state.status = '';  // nb. modifies state as side effect
-    ga('send', 'event', 'game', 'start', state.route);
+    gtag('event', 'gameAction', {game: state.route, action: 'start'});
     state.control.send({type: 'restart'});
   }
 
@@ -454,12 +455,14 @@ async function prepare(control, data) {
             global.unsubscribe(listener);
             return;
           }
-          const {playNextRoute, trackerOffset} = global.getState();
+          const {featured, playNextRoute, showTracker, trackerOffset} = global.getState();
           const payload = {
             android: isAndroid(),
             routes: firebaseConfig.routesSnapshot(),
-            featured: firebaseConfig.featuredRoute(),
+            // The debug value on the global state takes precedence over the value from firebase.
+            featured: featured || firebaseConfig.featuredRoute(),
             play: playNextRoute,
+            showTracker,
             trackerFlags: firebaseConfig.trackerFlags(),
             trackerOffset,
             loudCard: firebaseConfig.loudCard(),
@@ -535,14 +538,15 @@ async function runner(control, route) {
   let recentScore = null;
 
   // nb. we also call this as a result of 'restart'
-  ga('send', 'event', 'game', 'start', route);
+  gtag('event', 'gameAction', {game: route, action: 'start'});
   const analyticsLogEnd = () => {
     if (!recentScore) {
       return;
     }
-    ga('send', 'event', 'game', 'end', route);
-    recentScore.score && ga('send', 'event', 'game', 'score', route, recentScore.score);
-    recentScore.level && ga('send', 'event', 'game', 'level', route, recentScore.level);
+    // These could probably all be a single event with level+score being optional fields.
+    gtag('event', 'gameAction', {game: route, action: 'end'});
+    recentScore.score && gtag('event', 'gameAction', {game: route, action: 'score', extra: recentScore.score});
+    recentScore.level && gtag('event', 'gameAction', {game: route, action: 'level', extra: recentScore.level});
     recentScore = null;
   };
 
@@ -774,4 +778,39 @@ configureCustomKeys(loaderElement);
     global.setState({trackerOffset});
   };
 
+  // Outside of production we support several query parameters for testing the tracker.
+  if (window.location.hostname !== 'santatracker.google.com') {
+    try {
+      const params = new URLSearchParams(window.location.search);
+      // Adjusting Santa's location using the 'adjustSanta' query parameter.
+      const testLocation = Number.parseFloat(params.get('adjustSanta'));
+      if (testLocation >= 0 && testLocation <= 1) {
+        window.santaApp.adjustSanta(testLocation);
+      }
+      // Start with the tracker closed and open it in N seconds using the 'testOpenTracker' parameter.
+      const secondsToOpenTracker = Number.parseFloat(params.get('testOpenTracker'));
+      if (secondsToOpenTracker > 0) {
+        global.setState({showTracker: false});
+        setTimeout(() => {
+          global.setState({showTracker: true});
+        }, 1000 * secondsToOpenTracker);
+      }
+      // Start with the tracker open and close it in N seconds using the 'testCloseTracker' parameter.
+      const secondsToCloseTracker = Number.parseFloat(params.get('testCloseTracker'));
+      if (secondsToCloseTracker > 0) {
+        global.setState({showTracker: true});
+        setTimeout(() => {
+          global.setState({showTracker: false});
+        }, 1000 * secondsToCloseTracker);
+      }
+      // Set the featured game using the 'featuredGame' parameter.
+      const featuredGame = params.get('featuredGame');
+      if (featuredGame) {
+        global.setState({featured: featuredGame});
+        updatePlayNextCards();
+      }
+    } catch (e) {
+      // ignore
+    }
+  }
 }());

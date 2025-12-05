@@ -92,9 +92,11 @@ const fallbackFeaturedImageSrc = featuredImage.src;
 
 api.addEventListener('data', (ev) => {
   const payload = ev.detail;
-  const {trackerFlags, trackerOffset} = payload;
+  const {showTracker, trackerFlags, trackerOffset} = payload;
 
-  if (trackerFlags.showTracker) {
+  // The 'showTracker' value from the state overrides the trackerFlags and
+  // is only used for debugging outside of production.
+  if (showTracker || (showTracker !== false && trackerFlags.showTracker)) {
     if (trackerElement.parentNode !== mainElement) {
       mainElement.prepend(trackerElement);
       api.preload.wait(trackerElement.updateComplete);
@@ -296,17 +298,17 @@ const configureActionButton = (button, callback) => {
 };
 
 configureActionButton(document.getElementById('play'), () => {
-  ga('send', 'event', 'village', 'click', 'play-round');
+  gtag('event', 'village', {action: 'click', label: 'play-round'});
   api.go(playRoute);
 });
 
 configureActionButton(document.getElementById('featuredButton'), () => {
-  ga('send', 'event', 'village', 'click', 'featured');
+  gtag('event', 'village', {action: 'click', label: 'featured'});
   api.go(featuredRoute);
 });
 
 configureActionButton(document.getElementById('familyguide'), () => {
-  ga('send', 'event', 'village', 'click', 'familyguide');
+  gtag('event', 'village', {action: 'click', label: 'familyguide'});
   api.go('familyguide');
 });
 

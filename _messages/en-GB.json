@@ -1557,10 +1557,10 @@
 		"message": "Draw"
 	},
 	"quickdraw-splashview-description": {
-		"message": "Tensor is Santa's Machine Learning robot that helps Santa with the letters that he receives from children all over the world. It's been trained to quickly decipher text and images and loves to guess what someone is drawing. Draw a picture of each holiday word on the screen and it will tell you what it sees."
+		"message": "Is róbat Meaisínfhoghlaim Dhaidí na Nollag é Tensor a chuidíonn le Daidí na Nollag leis na litreacha a fhaigheann sé ó pháistí ar fud an domhain. Tá sé oilte chun téacs agus íomhánna a scaoileadh go tapa agus is breá leis tomhas cad atá duine éigin ag tarraingt. Tarraing pictiúr de gach focal Nollag ar an scáileán agus inseoidh sé duit cad a fheiceann sé."
 	},
 	"quickdraw-splashview-title": {
-		"message": "Play with Tensor, the Image Recognising Robot!"
+		"message": "Imir le Tensor, an Róbat a Aithníonn Íomhánna!"
 	},
 	"quickdraw-timesup-subline-guess": {
 		"message": "Tensor recognised {{recognized}} of your drawings."

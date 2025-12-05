@@ -132,7 +132,7 @@ app.Scene.prototype.setDefaultLanguages_ = function() {
  * @param {string} klangEvent to fire to Klang for Elvish
  */
 app.Scene.prototype.playAudio_ = function(string, lang, klangEvent) {
-  window.ga('send', 'event', 'game', 'listen', 'translations');
+  gtag('event', 'gameAction', {game: 'translations', action: 'listen'});
 
   if (this.toLang === 'elvish') {
     window.santaApp.fire('sound-trigger', klangEvent);

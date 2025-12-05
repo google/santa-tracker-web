@@ -156,7 +156,7 @@ app.Character.prototype.onFound_ = function() {
   if (this.isFound) {
     return;
   }
-  window.ga('send', 'event', 'game', 'found', 'santasearch')
+  gtag('event', 'gameAction', {game: 'santasearch', action: 'found'});
 
   window.santaApp.fire('sound-trigger', `ss_character_${this.name}`);
   let wasFocused = this.drawerItemElem.hasClass('drawer__item--focused');

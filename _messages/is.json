@@ -1,9 +1,9 @@
 {
 	"about-content-one": {
-		"message": "Á aðfangadagskvöld munum við kynna stjórnborð Sveinka með stolti, þar er öll umsjón með tækninni sem knýr sleðann hans á ferð um heiminn. Við fengum þennan forsmekk frá einum af þróunarálfum Sveinka. Þeir leggja nú hart að sér á Norðurpólnum við að undirbúa stóra daginn hjá Sveinka. Stjórnborð Sveinka hefur upp á að bjóða það nýjasta og besta í tækni og sleðatækni sem finna má i Google kortum og það gerir þér kleift að fylgjast með ferðum Sveinka um heim allan. Þú getur líka fengið smá upplýsingar um þá staði þar sem hann kemur við á ferð sinni kringum heiminn."
+		"message": "Á aðfangadagskvöld munum við kynna stjórnborð Sveinka með stolti, þar er öll umsjón með tækninni sem knýr sleðann hans á ferð um heiminn. Við fengum þennan forsmekk frá einum af þróunarálfum Sveinka. Þeir leggja nú hart að sér á Norðurpólnum við að undirbúa stóra daginn hjá Sveinka. Stjórnborð Sveinka hefur upp á að bjóða það nýjasta og besta í tækni og sleðatækni sem finna má i Google-kortum og það gerir þér kleift að fylgjast með ferðum Sveinka um heim allan. Þú getur líka fengið smá upplýsingar um þá staði þar sem hann kemur við á ferð sinni kringum heiminn."
 	},
 	"about-content-three": {
-		"message": "Hvar er jólasveinninn í Google kortum er búið til og þróað af Google, með smá hjálp frá álfunum hans Sveinka. Þarftu á aðstoð að halda eða hefurðu aðra spurningu? Skoðaðu \u003ca href=\"//support.google.com/santatracker\"\u003ehjálparmiðstöðina\u003c/a\u003e."
+		"message": "Hvar er jólasveinninn í Google-kortum er búið til og þróað af Google, með smá hjálp frá álfunum hans Sveinka. Þarftu á aðstoð að halda eða hefurðu aðra spurningu? Skoðaðu \u003ca href=\"//support.google.com/santatracker\"\u003ehjálparmiðstöðina\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Vinalegu álfarnir okkar hafa boðið þér að skoða þorpið hans Sveinka á meðan Sveinki undirbýr sig fyrir ferðalagið. Gefðu þér tíma og skoðaðu þorpið. Þú getur séð eitthvað skemmtilegt að gera og hitt áhugaverða álfa."
@@ -12,7 +12,7 @@
 		"message": "Um"
 	},
 	"about_title": {
-		"message": "Velkomin(n) í Hvar er jólaveinninn í Google kortum!"
+		"message": "Velkomin(n) í Hvar er jólaveinninn í Google-kortum!"
 	},
 	"ae_country_name": {
 		"message": "Sameinuðu arabísku furstadæmin"
@@ -723,7 +723,7 @@
 		"message": "Með leyfi foreldra geta börn undir þrettán ára aldri einnig fengið sérsniðið viðmót fyrir Google hjálparann þegar þau skrá sig inn á eigin reikning. Umsjón með reikningnum er í gegnum \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
 	},
 	"familyguide_assistant_card01_body": {
-		"message": "Google hjálparinn tengir þig við Norðurpólinn en þar er Sveinki á fullu að undirbúa tónleika. Hann kann bara eitt lag – getur þú hjálpað honum að finna út hvernig best er að spila það?"
+		"message": "Google-hjálparinn tengir þig við Norðurpólinn en þar er Sveinki á fullu að undirbúa tónleika. Hann kann bara eitt lag – getur þú hjálpað honum að finna út hvernig best er að spila það?"
 	},
 	"familyguide_assistant_card01_title": {
 		"message": "Hringdu í jólasveininn"
@@ -1137,7 +1137,7 @@
 		"message": "Miðlungs"
 	},
 	"meta_description": {
-		"message": "Notaðu Hvar er jólasveinninn til að fylgjast með Sveinka í Google kortum þegar hann ferðast með himinköstum um heim allan."
+		"message": "Notaðu Hvar er jólasveinninn til að fylgjast með Sveinka í Google-kortum þegar hann ferðast með himinköstum um heim allan."
 	},
 	"meta_title": {
 		"message": "Hvar er jólasveinninn – Google"
@@ -1431,7 +1431,7 @@
 		"message": "Um Hvar er jólasveinninn"
 	},
 	"press-about-tracker1": {
-		"message": "Þann 24. desember munum við ræsa Hvar er jólasveinninn, stjórnborð þar sem aðdáendur geta fylgst með ferðum hans þar sem hann hendist milli borga. Þú getur líka skoðað hvar hann er hverju sinni í Google kortum og spurt Google hjálparann, „Ok Google, hvar er jólasveinninn?“ en þannig geturðu fylgst með ferðum Sveinka hvar sem þú ert."
+		"message": "Þann 24. desember munum við ræsa Hvar er jólasveinninn, stjórnborð þar sem aðdáendur geta fylgst með ferðum hans þar sem hann hendist milli borga. Þú getur líka skoðað hvar hann er hverju sinni í Google-kortum og spurt Google hjálparann, „Ok Google, hvar er jólasveinninn?“ en þannig geturðu fylgst með ferðum Sveinka hvar sem þú ert."
 	},
 	"press-about-village": {
 		"message": "Um jólasveinaþorpið"
@@ -7254,13 +7254,13 @@
 		"message": "Venesúela"
 	},
 	"village_assistant-call_santa": {
-		"message": "Google hjálpari: Hringdu í jólasveininn"
+		"message": "Google-hjálpari: Hringdu í jólasveininn"
 	},
 	"village_assistant-holiday_story": {
-		"message": "Google hjálpari: Hátíðarsaga"
+		"message": "Google-hjálpari: Hátíðarsaga"
 	},
 	"village_assistant-wheres_santa": {
-		"message": "Google hjálpari: Hvar er jólasveinninn"
+		"message": "Google-hjálpari: Hvar er jólasveinninn"
 	},
 	"village_comeback": {
 		"message": "Komdu aftur þann 24. desember og hjálpaðu okkar að fylgjast með Sveinka alla nóttina!"
