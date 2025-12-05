@@ -64,13 +64,19 @@ app.Controls.prototype.isLeftDown = false;
 app.Controls.prototype.tilt = 0;
 
 /**
+ * Whether touch is currently active.
+ * @type {boolean}
+ */
+app.Controls.prototype.touchActive = false;
+
+/**
  * Handles the device orientation event.
  * @param {!Event} e The event object.
  * @private
  */
 app.Controls.prototype.onDeviceOrientation_ = function(e) {
   e = e.originalEvent;
-  if (e.gamma == null || this.isDesktopish_) {
+  if (e.gamma == null || this.isDesktopish_ || this.touchActive) {
     return;
   }
   // Portrait
@@ -133,6 +139,7 @@ app.Controls.prototype.onKeyUp_ = function(e) {
 app.Controls.prototype.onTouchStart_ = function(e) {
   // Get the horizontal position where the touch started
   var touchX = e.touches[0].clientX;
+  this.touchActive = true;
   if (touchX < window.innerWidth / 2) { // Left
     this.tilt = -15;
     this.isLeftDown = true;
@@ -155,6 +162,7 @@ app.Controls.prototype.onTouchStart_ = function(e) {
  */
 app.Controls.prototype.onTouchEnd_ = function(e) {
   this.tilt = 0;
+  this.touchActive = false;
   this.isLeftDown = false;
   this.isRightDown = false;
 };
