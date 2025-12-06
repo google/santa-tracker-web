@@ -36,7 +36,7 @@ class ModvilArrowElement extends LitElement {
   render() {
     return html`
 <div class="row">
-  <button id=${this._uniqueId} class="arrow ${this.dir}" @click=${this._onClick}></button>
+  <button aria-label="Scroll ${this.dir} to ${this.target}" id=${this._uniqueId} class="arrow ${this.dir}" @click=${this._onClick}></button>
   <label for=${this._uniqueId}><slot></slot></label>
 </div>
 `;
