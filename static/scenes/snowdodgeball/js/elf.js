@@ -133,7 +133,7 @@ export class Elf {
     }
   }
 
-  render(ctx) {
+  render() {
     // Position the DOM element
     this.elem.style.left = `${this.x}px`;
     this.elem.style.top = `${this.y}px`;

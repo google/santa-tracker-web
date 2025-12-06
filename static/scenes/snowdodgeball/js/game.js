@@ -65,24 +65,8 @@ export class Game {
     // Input handling - listen on arena instead of canvas to catch elf clicks
     const arena = document.getElementById('arena');
     arena.addEventListener('pointerdown', (e) => this.onPointerDown(e));
-    window.addEventListener('keydown', (e) => this.onKeyDown(e));
   }
 
-  onKeyDown(e) {
-    if (e.key === 'Escape') {
-      this.togglePause();
-    }
-  }
-
-  togglePause() {
-    if (this.showingStartScreen) return;
-
-    if (this.isPlaying) {
-      this.pause();
-    } else {
-      this.resume();
-    }
-  }
 
   resize() {
     // Canvas size now matches arena size
@@ -200,40 +184,8 @@ export class Game {
   }
 
   pause() {
-    if (this.showingStartScreen) return;
+    if (this.showingStartScreen || this.gameOver) return;
     this.isPlaying = false;
-    this.renderPauseScreen();
-  }
-
-  renderPauseScreen() {
-    // Dim the background
-    this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-    this.ctx.fillRect(0, 0, this.arenaWidth, this.arenaHeight);
-
-    // Draw red modal box
-    const modalWidth = 300;
-    const modalHeight = 200;
-    const modalX = (this.arenaWidth - modalWidth) / 2;
-    const modalY = (this.arenaHeight - modalHeight) / 2;
-
-    this.ctx.fillStyle = UIColors.LOSE_BACKGROUND;
-    this.ctx.fillRect(modalX, modalY, modalWidth, modalHeight);
-
-    // Draw border
-    this.ctx.strokeStyle = UIColors.LOSE_BORDER;
-    this.ctx.lineWidth = 4;
-    this.ctx.strokeRect(modalX, modalY, modalWidth, modalHeight);
-
-    // Draw "PAUSED" text
-    this.ctx.fillStyle = UIColors.BUTTON_TEXT_COLOR;
-    this.ctx.font = 'bold 36px Arial';
-    this.ctx.textAlign = 'center';
-    this.ctx.textBaseline = 'middle';
-    this.ctx.fillText('PAUSED', this.arenaWidth / 2, this.arenaHeight / 2 - 20);
-
-    // Draw instruction text
-    this.ctx.font = '18px Arial';
-    this.ctx.fillText('Press ESC to resume', this.arenaWidth / 2, this.arenaHeight / 2 + 30);
   }
 
   showGameOverScreen() {

@@ -115,6 +115,10 @@
     // Preload sounds for the game
     api.preload.sounds('snowball_load_sounds');
 
+    api.config({
+      pause: true,
+    });
+
     const canvas = document.getElementById('game-canvas');
     const game = new Game(canvas, api, prepareAnimation);
 
