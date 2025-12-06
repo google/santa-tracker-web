@@ -282,6 +282,67 @@ body {
   transition-duration: 0.05s;
 }
 
+/* Health Bar / Gifts */
+.health-bar {
+  position: absolute;
+  display: flex;
+  gap: 5px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.health-bar--opponent {
+  top: 10px;
+  left: 10px;
+}
+
+.health-bar--player {
+  bottom: 10px;
+  left: 10px;
+}
+
+.gift {
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.1s ease-out;
+}
+
+.gift--blue {
+  background-image: url('img/gift_blue_true.png');
+}
+
+.gift--blue.is-dead {
+  background-image: url('img/gift_blue_false.png');
+}
+
+.gift--green {
+  background-image: url('img/gift_green_true.png');
+}
+
+.gift--green.is-dead {
+  background-image: url('img/gift_green_false.png');
+}
+
+/* Pop animation when gift dies */
+@keyframes gift-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.gift.is-popping {
+  animation: gift-pop 0.2s ease-out;
+}
+
 /* Snowfall animation */
 #module-snowdodgeball::before {
   content: '';

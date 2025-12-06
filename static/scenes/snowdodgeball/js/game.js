@@ -47,14 +47,9 @@ export class Game {
     };
     this.animationsLoaded = false;
 
-    // Gift images for health display
-    this.giftImages = {
-      blueTrue: new Image(),
-      blueFalse: new Image(),
-      greenTrue: new Image(),
-      greenFalse: new Image()
-    };
-    this.loadGiftImages();
+    // Gift DOM elements
+    this.playerGifts = Array.from(document.querySelectorAll('.health-bar--player .gift'));
+    this.opponentGifts = Array.from(document.querySelectorAll('.health-bar--opponent .gift'));
 
     this.resize();
     window.addEventListener('resize', () => this.resize());
@@ -114,11 +109,31 @@ export class Game {
     }
   }
 
-  loadGiftImages() {
-    this.giftImages.blueTrue.src = 'img/gift_blue_true.png';
-    this.giftImages.blueFalse.src = 'img/gift_blue_false.png';
-    this.giftImages.greenTrue.src = 'img/gift_green_true.png';
-    this.giftImages.greenFalse.src = 'img/gift_green_false.png';
+  updateGifts(health, isPlayer) {
+    const maxGifts = Gameplay.STARTING_HEALTH / Gameplay.DAMAGE_PER_HIT; // 5 gifts
+    const aliveGifts = Math.ceil(health / Gameplay.DAMAGE_PER_HIT);
+    const gifts = isPlayer ? this.playerGifts : this.opponentGifts;
+
+    for (let i = 0; i < maxGifts; i++) {
+      const gift = gifts[i];
+      const shouldBeAlive = i < aliveGifts;
+      const isCurrentlyAlive = !gift.classList.contains('is-dead');
+
+      if (shouldBeAlive !== isCurrentlyAlive) {
+        if (!shouldBeAlive) {
+          // Gift just died - add pop animation
+          gift.classList.add('is-dead', 'is-popping');
+
+          // Remove popping class after animation
+          setTimeout(() => {
+            gift.classList.remove('is-popping');
+          }, 200);
+        } else {
+          // Gift revived (shouldn't happen in normal gameplay)
+          gift.classList.remove('is-dead');
+        }
+      }
+    }
   }
 
   start() {
@@ -181,6 +196,10 @@ export class Game {
       this.spawnPoints.push({ x, y, timer: 0, hasSnowball: true });
       this.snowballs.push(new Snowball(x, y));
     }
+
+    // Initialize gift displays
+    this.updateGifts(this.playerHealth, true);
+    this.updateGifts(this.opponentHealth, false);
   }
 
   pause() {
@@ -291,8 +310,10 @@ export class Game {
           if (this.friendlyFire || snowball.team !== elf.team) {
             if (elf.team === Teams.PLAYER) {
               this.playerHealth = Math.max(0, this.playerHealth - Gameplay.DAMAGE_PER_HIT);
+              this.updateGifts(this.playerHealth, true);
             } else {
               this.opponentHealth = Math.max(0, this.opponentHealth - Gameplay.DAMAGE_PER_HIT);
+              this.updateGifts(this.opponentHealth, false);
             }
 
             // Play hit animation and drop snowball
@@ -403,31 +424,6 @@ export class Game {
 
     // Update elf DOM positions and animations
     this.elves.forEach(elf => elf.render(this.ctx));
-
-    // Draw Health as Gifts
-    this.renderGifts(10, 10, this.opponentHealth, 'green'); // Opponent uses green gifts
-    this.renderGifts(10, this.arenaHeight - 60, this.playerHealth, 'blue'); // Player uses blue gifts
-  }
-
-  renderGifts(x, y, health, color) {
-    const maxGifts = Gameplay.STARTING_HEALTH / Gameplay.DAMAGE_PER_HIT; // 5 gifts
-    const aliveGifts = Math.ceil(health / Gameplay.DAMAGE_PER_HIT); // How many gifts should be "true"
-    const giftSize = 40; // Size of each gift
-    const giftSpacing = 5; // Space between gifts
-
-    // Select the appropriate gift images based on color
-    const trueImg = color === 'blue' ? this.giftImages.blueTrue : this.giftImages.greenTrue;
-    const falseImg = color === 'blue' ? this.giftImages.blueFalse : this.giftImages.greenFalse;
-
-    // Draw gifts from left to right
-    for (let i = 0; i < maxGifts; i++) {
-      const giftX = x + i * (giftSize + giftSpacing);
-      const img = i < aliveGifts ? trueImg : falseImg;
-
-      if (img.complete) {
-        this.ctx.drawImage(img, giftX, y, giftSize, giftSize);
-      }
-    }
   }
 
   onPointerDown(e) {
