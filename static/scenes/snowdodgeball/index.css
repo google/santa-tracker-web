@@ -318,12 +318,12 @@ body {
   background-image: url('img/gift_blue_false.png');
 }
 
-.gift--green {
-  background-image: url('img/gift_green_true.png');
+.gift--red {
+  background-image: url('img/gift_red_true.png');
 }
 
-.gift--green.is-dead {
-  background-image: url('img/gift_green_false.png');
+.gift--red.is-dead {
+  background-image: url('img/gift_red_false.png');
 }
 
 /* Pop animation when gift dies */
