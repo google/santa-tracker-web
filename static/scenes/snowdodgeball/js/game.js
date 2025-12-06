@@ -76,7 +76,8 @@ export class Game {
     const totalAnimations = 6; // 3 directions x 2 teams
 
     const initAnimation = (team, direction, index) => {
-      const path = `../buildandbolt/img/players/a/${direction}.json`;
+      const playerType = team === 'player' ? 'a' : 'b';
+      const path = `img/players/${playerType}/${direction}.json`;
       const container = document.querySelector(`.elf--${team}-${index} .elf__inner`);
 
       this.prepareAnimation(path, {

@@ -331,9 +331,11 @@ body {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.2);
   }
+
   100% {
     transform: scale(1);
   }
@@ -503,16 +505,6 @@ canvas {
   display: block;
 }
 
-/* Team color filters */
-.elf--player .elf__inner {
-  /* Blue team - keep original colors */
-  filter: hue-rotate(0deg);
-}
-
-.elf--opponent .elf__inner {
-  /* Red team - shift hue to make blue elements red */
-  filter: hue-rotate(240deg) saturate(1.2);
-}
 
 /* Snowball container */
 .elf__snowball {
