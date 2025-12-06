@@ -35,6 +35,8 @@ export const Elf = {
   WANDER_INTERVAL: 2,            // seconds between picking new wander target
   WANDER_MARGIN: 30,             // radius + 10, margin from arena edges
   DODGE_DISTANCE: 70,            // pixels to move when dodging
+  DODGE_COOLDOWN: 0.5,           // seconds before can dodge again
+  DODGE_LOCK_DURATION: 0.2,      // seconds to lock AI movement after dodge
 };
 
 export const ElfColors = {

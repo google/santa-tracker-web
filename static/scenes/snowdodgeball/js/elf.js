@@ -29,6 +29,7 @@ export class Elf {
     this.throwInaccuracy = OpponentAI.THROW_INACCURACY;
     this.throwDelayTimer = 0; // Time before elf can throw after picking up snowball
     this.dodgeLockTimer = 0;  // Prevents AI from overwriting movement during dodge
+    this.dodgeCooldown = 0;   // Time before can dodge again
 
     // DOM elements
     const teamClass = team === Teams.OPPONENT ? 'opponent' : 'player';
@@ -232,6 +233,9 @@ export class Elf {
    * @param {Object} arena - Arena bounds {x, y, width, height}
    */
   dodge(arena) {
+    // Check if on cooldown
+    if (this.dodgeCooldown > 0) return;
+
     const dodgeDistance = ElfConfig.DODGE_DISTANCE;
     const margin = ElfConfig.WANDER_MARGIN;
     const leftBound = arena.x + margin;
@@ -261,6 +265,18 @@ export class Elf {
 
     // Also update target to match so elf doesn't immediately walk back
     this.targetX = this.x;
+
+    // Enforce territory boundaries - prevent crossing center line
+    const centerY = arena.y + arena.height / 2;
+    if (this.team === Teams.PLAYER) {
+      // Player stays in bottom half
+      this.y = Math.max(this.y, centerY);
+      this.targetY = Math.max(this.targetY, centerY);
+    }
+
+    // Set cooldowns
+    this.dodgeCooldown = ElfConfig.DODGE_COOLDOWN;
+    this.dodgeLockTimer = ElfConfig.DODGE_LOCK_DURATION;
   }
 
   getVelocity() {
@@ -311,6 +327,7 @@ export class Elf {
     this.seekSnowballCooldown -= dt;
     this.throwDelayTimer -= dt;
     this.dodgeLockTimer -= dt;
+    this.dodgeCooldown -= dt;
 
     // Don't let AI override movement while dodging
     if (this.dodgeLockTimer > 0) return;
