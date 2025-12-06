@@ -5,27 +5,25 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background: repeating-linear-gradient(
-    45deg,
-    #165B33 0px,
-    #165B33 30px,
-    #187F42 30px,
-    #187F42 60px,
-    #E50000 60px,
-    #E50000 90px,
-    #38985e 90px,
-    #38985e 120px,
-    #F8B229 120px,
-    #F8B229 150px,
-    #5db383 150px,
-    #5db383 180px,
-    #91060D 180px,
-    #91060D 210px,
-    #187F42 210px,
-    #187F42 240px,
-    #165B33 240px,
-    #165B33 270px
-  );
+  background: repeating-linear-gradient(45deg,
+      #165B33 0px,
+      #165B33 30px,
+      #187F42 30px,
+      #187F42 60px,
+      #E50000 60px,
+      #E50000 90px,
+      #38985e 90px,
+      #38985e 120px,
+      #F8B229 120px,
+      #F8B229 150px,
+      #5db383 150px,
+      #5db383 180px,
+      #91060D 180px,
+      #91060D 210px,
+      #187F42 210px,
+      #187F42 240px,
+      #165B33 240px,
+      #165B33 270px);
 }
 
 #module-snowdodgeball {
@@ -100,7 +98,7 @@ body {
   background: white;
   padding: 20px;
   border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   flex: 1 1 auto;
   min-width: 200px;
   max-width: 380px;
@@ -319,6 +317,7 @@ body {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(200%);
   }
@@ -377,6 +376,7 @@ canvas {
   pointer-events: all;
   z-index: 10;
   transform: translate(-50%, -50%);
+  transition: left 0.15s ease-out, top 0.15s ease-out;
 }
 
 .elf__inner {
@@ -510,15 +510,20 @@ canvas {
 }
 
 @keyframes hit-flash-red {
-  0%, 100% {
+
+  0%,
+  100% {
     filter: none;
   }
+
   25% {
     filter: sepia(1) saturate(4) hue-rotate(-50deg) brightness(1.2);
   }
+
   50% {
     filter: none;
   }
+
   75% {
     filter: sepia(1) saturate(4) hue-rotate(-50deg) brightness(1.2);
   }

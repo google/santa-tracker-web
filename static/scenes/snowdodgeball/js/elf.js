@@ -17,7 +17,6 @@ export class Elf {
     this.animations = animations;
     this.radius = ElfConfig.RADIUS;
     this.color = team === Teams.OPPONENT ? ElfColors.OPPONENT : ElfColors.PLAYER;
-    this.selected = false;
     this.targetX = x;
     this.targetY = y;
     this.speed = ElfConfig.SPEED;
@@ -29,6 +28,7 @@ export class Elf {
     this.seekSnowballCooldown = 0;
     this.throwInaccuracy = OpponentAI.THROW_INACCURACY;
     this.throwDelayTimer = 0; // Time before elf can throw after picking up snowball
+    this.dodgeLockTimer = 0;  // Prevents AI from overwriting movement during dodge
 
     // DOM elements
     const teamClass = team === Teams.OPPONENT ? 'opponent' : 'player';
@@ -137,13 +137,6 @@ export class Elf {
     this.elem.style.left = `${this.x}px`;
     this.elem.style.top = `${this.y}px`;
 
-    // Update selection state
-    if (this.selected) {
-      this.elem.classList.add('is-selected');
-    } else {
-      this.elem.classList.remove('is-selected');
-    }
-
     // Update held snowball display
     this.updateHeldSnowballDisplay();
 
@@ -234,6 +227,37 @@ export class Elf {
     return (dx * dx + dy * dy) <= (this.radius * this.radius);
   }
 
+  /**
+   * Dodge left or right by DODGE_DISTANCE pixels - instant teleport
+   * @param {Object} arena - Arena bounds {x, y, width, height}
+   */
+  dodge(arena) {
+    const dodgeDistance = ElfConfig.DODGE_DISTANCE;
+    const margin = ElfConfig.WANDER_MARGIN;
+    const leftBound = arena.x + margin;
+    const rightBound = arena.x + arena.width - margin;
+
+    // Determine direction based on proximity to boundaries
+    let direction;
+    if (this.x - dodgeDistance < leftBound) {
+      // Too close to left boundary, dodge right
+      direction = 1;
+    } else if (this.x + dodgeDistance > rightBound) {
+      // Too close to right boundary, dodge left
+      direction = -1;
+    } else {
+      // Random direction
+      direction = Math.random() < 0.5 ? -1 : 1;
+    }
+
+    // Instant teleport - directly set position
+    const newX = this.x + (direction * dodgeDistance);
+    this.x = Math.max(leftBound, Math.min(rightBound, newX));
+
+    // Also update target to match so elf doesn't immediately walk back
+    this.targetX = this.x;
+  }
+
   getVelocity() {
     const dx = this.targetX - this.x;
     const dy = this.targetY - this.y;
@@ -281,6 +305,10 @@ export class Elf {
     this.wanderTimer -= dt;
     this.seekSnowballCooldown -= dt;
     this.throwDelayTimer -= dt;
+    this.dodgeLockTimer -= dt;
+
+    // Don't let AI override movement while dodging
+    if (this.dodgeLockTimer > 0) return;
 
     if (this.tryThrow(targets)) return;
     if (this.trySeek(snowballs, config)) return;

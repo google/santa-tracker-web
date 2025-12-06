@@ -25,7 +25,7 @@ export class Game {
     this.playerWon = false;
     this.elves = [];
     this.snowballs = [];
-    this.selectedElf = null;
+    // Note: selectedElf removed - all player elves now AI-controlled
     this.playerHealth = Gameplay.STARTING_HEALTH;
     this.opponentHealth = Gameplay.STARTING_HEALTH;
     this.friendlyFire = Gameplay.FRIENDLY_FIRE;
@@ -283,7 +283,6 @@ export class Game {
     this.playerWon = false;
     this.playerHealth = Gameplay.STARTING_HEALTH;
     this.opponentHealth = Gameplay.STARTING_HEALTH;
-    this.selectedElf = null;
     this.initLevel();
     this.isPlaying = true;
     this.lastTime = performance.now();
@@ -318,11 +317,9 @@ export class Game {
       height: this.arenaHeight
     };
 
-    // Player's uncontrolled elves
+    // All player elves are now AI-controlled
     playerElves.forEach(elf => {
-      if (!elf.selected) {
-        elf.updatePlayerAI(dt, arenaBounds, this.snowballs);
-      }
+      elf.updatePlayerAI(dt, arenaBounds, this.snowballs);
     });
 
     // Opponent elves
@@ -490,6 +487,7 @@ export class Game {
     const y = e.clientY - rect.top;
 
     const arenaCenterY = this.arenaHeight / 2;
+    const arenaBounds = { x: 0, y: 0, width: this.arenaWidth, height: this.arenaHeight };
 
     // Check if we clicked on an elf DOM element
     let clickedElf = null;
@@ -503,29 +501,19 @@ export class Game {
     }
 
     if (clickedElf && clickedElf.team === Teams.PLAYER) {
-      // Select the clicked elf
-      if (this.selectedElf) this.selectedElf.selected = false;
-      this.selectedElf = clickedElf;
-      clickedElf.selected = true;
-    } else if (this.selectedElf) {
-      // Handle clicks in top half (enemy territory)
-      if (y < arenaCenterY) {
-        if (this.selectedElf.heldSnowball) {
-          // Throw snowball if holding one
-          this.selectedElf.heldSnowball.throw(x, y);
-        } else {
-          // Move to center line if not holding a snowball
-          const clampedX = Math.max(0, Math.min(this.arenaWidth, x));
-          this.selectedElf.targetX = clampedX;
-          this.selectedElf.targetY = arenaCenterY; // Stop at the line
-        }
-      } else {
-        // Handle clicks in bottom half (your territory) - move normally
-        const clampedX = Math.max(0, Math.min(this.arenaWidth, x));
-        const clampedY = Math.max(arenaCenterY, Math.min(this.arenaHeight, y));
-        this.selectedElf.targetX = clampedX;
-        this.selectedElf.targetY = clampedY;
+      // Clicked on a player elf -> make it dodge
+      clickedElf.dodge(arenaBounds);
+    } else if (y < arenaCenterY) {
+      // Clicked in enemy territory -> random elf with snowball throws
+      const playerElves = this.elves.filter(e => e.team === Teams.PLAYER);
+      const elvesWithSnowballs = playerElves.filter(elf => elf.heldSnowball);
+
+      if (elvesWithSnowballs.length > 0) {
+        // Pick a random elf to throw
+        const randomElf = elvesWithSnowballs[Math.floor(Math.random() * elvesWithSnowballs.length)];
+        randomElf.heldSnowball.throw(x, y);
       }
     }
+    // Clicking in your territory (not on an elf) does nothing
   }
 }

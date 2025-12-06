@@ -34,6 +34,7 @@ export const Elf = {
   STROKE_COLOR: '#ffffff',
   WANDER_INTERVAL: 2,            // seconds between picking new wander target
   WANDER_MARGIN: 30,             // radius + 10, margin from arena edges
+  DODGE_DISTANCE: 50,            // pixels to move when dodging
 };
 
 export const ElfColors = {
