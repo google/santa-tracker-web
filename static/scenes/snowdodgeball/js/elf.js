@@ -237,16 +237,21 @@ export class Elf {
     const leftBound = arena.x + margin;
     const rightBound = arena.x + arena.width - margin;
 
-    // Determine direction based on proximity to boundaries
+    // Determine direction: continue in the direction elf is already moving
     let direction;
-    if (this.x - dodgeDistance < leftBound) {
-      // Too close to left boundary, dodge right
+    const horizontalMovement = this.targetX - this.x;
+
+    if (Math.abs(horizontalMovement) > 5) {
+      // Moving horizontally - continue in that direction
+      direction = horizontalMovement > 0 ? 1 : -1;
+    } else if (this.x - dodgeDistance < leftBound) {
+      // Not moving horizontally, but too close to left - go right
       direction = 1;
     } else if (this.x + dodgeDistance > rightBound) {
-      // Too close to right boundary, dodge left
+      // Not moving horizontally, but too close to right - go left
       direction = -1;
     } else {
-      // Random direction
+      // Not moving horizontally, pick random
       direction = Math.random() < 0.5 ? -1 : 1;
     }
 
