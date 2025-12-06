@@ -40,8 +40,8 @@ a {
     outline: none;
 
     &:focus-visible {
-    box-shadow: 0 0 12px 4px white;
-    border-radius: var(--radius, 16px);
+      box-shadow: 0 0 12px 4px white;
+      border-radius: var(--radius, 16px);
     }
 
     main {
