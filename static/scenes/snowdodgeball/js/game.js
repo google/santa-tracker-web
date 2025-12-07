@@ -25,6 +25,22 @@ export class Game {
     this.gameOver = false;
     this.playerWon = false;
     this.levelManager = new LevelManager();
+    // Initialize global Scoreboard (loaded via script tag in index.html)
+    this.scoreboard = new app.shared.Scoreboard(this, null, 3); // 3 levels
+
+    // Override announce_ to hide the timer (pass null for time)
+    this.scoreboard.announce_ = function () {
+      window.clearTimeout(this.announceTimeout_);
+      this.announceTimeout_ = window.setTimeout(() => {
+        const detail = {
+          score: this.score,
+          level: this.level + 1,
+          maxLevel: this.levels,
+          time: null // Hide timer
+        };
+        window.santaApp.fire('game-score', detail);
+      }, 1);
+    };
     this.elves = [];
     this.snowballs = [];
     // Note: selectedElf removed - all player elves now AI-controlled
@@ -177,6 +193,7 @@ export class Game {
     this.lastTime = performance.now();
     this.levelManager.reset();
     this.initLevel();
+    this.scoreboard.restart();
     this.loop();
   }
 
@@ -194,13 +211,19 @@ export class Game {
 
     this.isPlaying = true;
     this.lastTime = performance.now();
-    this.initLevel();
+    this.initLevel(); // Initialize the new level (elves, scoreboard, etc.)
+    this.scoreboard.restart();
     this.loop();
   }
+
+
 
   initLevel() {
     this.elves = [];
     this.snowballs = [];
+
+    // Update scoreboard level (0-indexed)
+    this.scoreboard.setLevel(this.levelManager.currentLevelIndex);
     const centerX = this.arenaWidth / 2;
     const centerY = this.arenaHeight / 2;
 
@@ -319,9 +342,16 @@ export class Game {
     this.lastTime = now;
 
     this.update(dt);
+
     this.render();
 
     requestAnimationFrame(() => this.loop());
+  }
+
+  // Required by Scoreboard
+  gameover() {
+    // We don't use the scoreboard timer for game over, but this method is required.
+    // If we did, we would call this.showGameOverScreen() here.
   }
 
   update(dt) {
@@ -472,12 +502,6 @@ export class Game {
 
     // Update elf DOM positions and animations
     this.elves.forEach(elf => elf.render(this.ctx));
-
-    // Draw Level Indicator
-    this.ctx.font = 'bold 24px "Google Sans", sans-serif';
-    this.ctx.fillStyle = '#333333';
-    this.ctx.textAlign = 'center';
-    this.ctx.fillText(`LEVEL ${this.levelManager.getCurrentLevelNumber()}`, this.arenaWidth / 2, 30);
   }
 
   onPointerDown(e) {

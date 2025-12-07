@@ -124,6 +124,31 @@
     </div>
   </div>
 
+  <script>
+    // Shim for Google Closure Library and Constants
+    window.goog = {
+      provide: function (namespace) {
+        console.log('goog.provide called for:', namespace);
+        const parts = namespace.split('.');
+        let current = window;
+        for (const part of parts) {
+          current[part] = current[part] || {};
+          current = current[part];
+        }
+      },
+      require: function (namespace) {
+        console.log('goog.require called for:', namespace);
+      }
+    };
+    window.Constants = {};
+    window.app = window.app || {};
+    window.app.shared = window.app.shared || {};
+    console.log('Shim initialized. window.app.shared:', window.app.shared);
+  </script>
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../_shared/js/scoreboard.js" onload="console.log('scoreboard.js loaded successfully')"
+    onerror="console.error('Failed to load scoreboard.js')"></script>
+
   <script type="module">
     import api from '../../src/scene/api.js';
     import { prepareAnimation } from '../../src/deps/lottie.js';
@@ -131,6 +156,15 @@
 
     // Preload sounds for the game
     api.preload.sounds('snowball_load_sounds');
+
+    // Monkey-patch api.fire to debug events
+    const originalFire = window.santaApp.fire;
+    window.santaApp.fire = function (eventName, ...args) {
+      console.log(`santaApp.fire called: ${eventName}`, args);
+      if (originalFire) {
+        originalFire.call(window.santaApp, eventName, ...args);
+      }
+    };
 
     api.config({
       pause: true,
