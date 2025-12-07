@@ -27,6 +27,7 @@ export class Game {
     this.levelManager = new LevelManager();
     // Initialize global Scoreboard (loaded via script tag in index.html)
     this.scoreboard = new app.shared.Scoreboard(this, null, 3); // 3 levels
+    this.gameover = new app.shared.Gameover(this);
 
     // Override announce_ to hide the timer (pass null for time)
     this.scoreboard.announce_ = function () {
@@ -44,6 +45,8 @@ export class Game {
     this.elves = [];
     this.snowballs = [];
     // Note: selectedElf removed - all player elves now AI-controlled
+    this.playerElves = [];
+    this.opponentElves = [];
     this.playerHealth = Gameplay.STARTING_HEALTH;
     this.opponentHealth = Gameplay.STARTING_HEALTH;
     this.friendlyFire = Gameplay.FRIENDLY_FIRE;
@@ -78,6 +81,8 @@ export class Game {
     // Input handling - listen on arena instead of canvas to catch elf clicks
     const arena = document.getElementById('arena');
     arena.addEventListener('pointerdown', (e) => this.onPointerDown(e));
+
+    this.initLevel();
   }
 
 
@@ -275,21 +280,25 @@ export class Game {
     const restartButton = document.getElementById('restart-button');
     const homeButton = document.getElementById('home-button');
 
-    if (this.playerWon && this.levelManager.hasNextLevel()) {
-      // Level Complete
-      gameOverTitle.textContent = 'LEVEL COMPLETE!';
-      nextLevelButton.classList.remove('hidden');
-      restartButton.classList.add('hidden');
-      homeButton.classList.add('hidden');
-    } else {
-      // Game Over or Game Complete
-      nextLevelButton.classList.add('hidden');
-      restartButton.classList.remove('hidden');
-      homeButton.classList.remove('hidden');
-    }
+    // If player won the current level
+    if (this.playerWon) {
+      if (this.levelManager.hasNextLevel()) {
+        // Level Complete - Show custom "Next Level" screen
+        gameOverTitle.textContent = 'LEVEL COMPLETE!';
+        gameOverTitle.className = 'game-over-screen__title win';
+        nextLevelButton.classList.remove('hidden');
+        restartButton.classList.add('hidden');
+        homeButton.classList.add('hidden');
 
-    // Show game over screen with fade-in animation
-    gameOverScreen.classList.remove('hidden');
+        gameOverScreen.classList.remove('hidden');
+      } else {
+        // Game Complete (Final Win) - Use API Gameover
+        this.gameover.show(this.scoreboard.score, this.levelManager.currentLevelIndex + 1);
+      }
+    } else {
+      // Game Over (Loss) - Use API Gameover
+      this.gameover.show(this.scoreboard.score, this.levelManager.currentLevelIndex + 1);
+    }
   }
 
   resume() {
