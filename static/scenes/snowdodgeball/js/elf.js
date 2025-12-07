@@ -420,8 +420,9 @@ export class Elf {
     this.updateAI(dt, arena, snowballs, PlayerAIConfig);
   }
 
-  updateOpponentAI(dt, arena, snowballs, playerElves) {
-    this.updateAI(dt, arena, snowballs, OpponentAIConfig, playerElves);
+  updateOpponentAI(dt, arena, snowballs, playerElves, configOverride = null) {
+    const config = configOverride || OpponentAIConfig;
+    this.updateAI(dt, arena, snowballs, config, playerElves);
   }
 
   // =========================================================================

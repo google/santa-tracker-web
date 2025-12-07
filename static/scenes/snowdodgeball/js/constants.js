@@ -87,6 +87,46 @@ export const OpponentAIConfig = {
 };
 
 // =============================================================================
+// LEVELS
+// =============================================================================
+
+export const Levels = [
+  {
+    // Level 1: Easy
+    opponentAI: {
+      seekChance: 0.2,
+      seekCooldownAfterSeek: 3,
+      seekCooldownRandomExtra: 1,
+      seekCooldownAfterCheck: 3,
+      throwInaccuracy: 80,
+      throwDelay: 2.5
+    }
+  },
+  {
+    // Level 2: Medium (Standard)
+    opponentAI: {
+      seekChance: 0.3,
+      seekCooldownAfterSeek: 2,
+      seekCooldownRandomExtra: 0,
+      seekCooldownAfterCheck: 2,
+      throwInaccuracy: 40,
+      throwDelay: 1.5
+    }
+  },
+  {
+    // Level 3: Hard
+    opponentAI: {
+      seekChance: 0.6,
+      seekCooldownAfterSeek: 1,
+      seekCooldownRandomExtra: 0,
+      seekCooldownAfterCheck: 1,
+      throwInaccuracy: 10,
+      throwDelay: 0.8
+    }
+  }
+];
+
+// =============================================================================
 // SNOWBALL
 // =============================================================================
 

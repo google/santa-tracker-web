@@ -9,6 +9,7 @@ import {
   HealthBar,
   OpponentAI
 } from './constants.js';
+import { LevelManager } from './level-manager.js';
 
 export class Game {
   constructor(canvas, api, prepareAnimation) {
@@ -23,6 +24,7 @@ export class Game {
     this.showingStartScreen = true;
     this.gameOver = false;
     this.playerWon = false;
+    this.levelManager = new LevelManager();
     this.elves = [];
     this.snowballs = [];
     // Note: selectedElf removed - all player elves now AI-controlled
@@ -148,6 +150,12 @@ export class Game {
     // Add click handler to start button
     startButton.addEventListener('click', () => this.startGame());
 
+    // Add next level button handler
+    const nextLevelButton = document.getElementById('next-level-button');
+    if (nextLevelButton) {
+      nextLevelButton.addEventListener('click', () => this.startNextLevel());
+    }
+
     // Add game over screen button handlers
     const restartButton = document.getElementById('restart-button');
     const homeButton = document.getElementById('home-button');
@@ -164,6 +172,25 @@ export class Game {
 
     // Start background music
     window.santaApp.fire('sound-ambient', 'music_start_ingame');
+
+    this.isPlaying = true;
+    this.lastTime = performance.now();
+    this.levelManager.reset();
+    this.initLevel();
+    this.loop();
+  }
+
+  startNextLevel() {
+    this.showingStartScreen = false;
+    const gameOverScreen = document.getElementById('game-over-screen');
+    gameOverScreen.classList.add('hidden');
+
+    this.playerHealth = Gameplay.STARTING_HEALTH;
+    this.opponentHealth = Gameplay.STARTING_HEALTH;
+    this.gameOver = false;
+    this.playerWon = false;
+
+    this.levelManager.nextLevel();
 
     this.isPlaying = true;
     this.lastTime = performance.now();
@@ -221,6 +248,23 @@ export class Game {
       gameOverTitle.className = 'game-over-screen__title lose';
     }
 
+    const nextLevelButton = document.getElementById('next-level-button');
+    const restartButton = document.getElementById('restart-button');
+    const homeButton = document.getElementById('home-button');
+
+    if (this.playerWon && this.levelManager.hasNextLevel()) {
+      // Level Complete
+      gameOverTitle.textContent = 'LEVEL COMPLETE!';
+      nextLevelButton.classList.remove('hidden');
+      restartButton.classList.add('hidden');
+      homeButton.classList.add('hidden');
+    } else {
+      // Game Over or Game Complete
+      nextLevelButton.classList.add('hidden');
+      restartButton.classList.remove('hidden');
+      homeButton.classList.remove('hidden');
+    }
+
     // Show game over screen with fade-in animation
     gameOverScreen.classList.remove('hidden');
   }
@@ -238,6 +282,7 @@ export class Game {
     if (this.showingStartScreen) return;
     this.playerHealth = Gameplay.STARTING_HEALTH;
     this.opponentHealth = Gameplay.STARTING_HEALTH;
+    this.levelManager.reset();
     this.initLevel();
     if (!this.isPlaying) {
       this.isPlaying = true;
@@ -255,6 +300,7 @@ export class Game {
     this.playerWon = false;
     this.playerHealth = Gameplay.STARTING_HEALTH;
     this.opponentHealth = Gameplay.STARTING_HEALTH;
+    this.levelManager.reset();
     this.initLevel();
     this.isPlaying = true;
     this.lastTime = performance.now();
@@ -295,8 +341,9 @@ export class Game {
     });
 
     // Opponent elves
+    const currentLevel = this.levelManager.getCurrentLevel();
     opponentElves.forEach(elf => {
-      elf.updateOpponentAI(dt, arenaBounds, this.snowballs, playerElves);
+      elf.updateOpponentAI(dt, arenaBounds, this.snowballs, playerElves, currentLevel.opponentAI);
     });
 
     this.elves.forEach(elf => elf.update(dt, arenaBounds));
@@ -425,6 +472,12 @@ export class Game {
 
     // Update elf DOM positions and animations
     this.elves.forEach(elf => elf.render(this.ctx));
+
+    // Draw Level Indicator
+    this.ctx.font = 'bold 24px "Google Sans", sans-serif';
+    this.ctx.fillStyle = '#333333';
+    this.ctx.textAlign = 'center';
+    this.ctx.fillText(`LEVEL ${this.levelManager.getCurrentLevelNumber()}`, this.arenaWidth / 2, 30);
   }
 
   onPointerDown(e) {
