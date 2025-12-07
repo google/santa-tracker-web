@@ -229,6 +229,10 @@ export class Game {
 
     // Update scoreboard level (0-indexed)
     this.scoreboard.setLevel(this.levelManager.currentLevelIndex);
+
+    // Reset game over flag
+    this.gameOver = false;
+
     const centerX = this.arenaWidth / 2;
     const centerY = this.arenaHeight / 2;
 
