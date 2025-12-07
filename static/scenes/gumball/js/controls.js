@@ -132,21 +132,29 @@ app.Controls.prototype.onKeyUp_ = function(e) {
 };
 
 /**
- * Handles the on Touch Start. Called dynamically.
- * @param {!Event} e The event object.
- * @private
+ * Sets the direction based on the touch X position provided
+ * @param {number} touchX
  */
-app.Controls.prototype.onTouchStart_ = function(e) {
-  // Get the horizontal position where the touch started
-  var touchX = e.touches[0].clientX;
-  this.touchActive = true;
-  if (touchX < window.innerWidth / 2) { // Left
-    this.tilt = -15;
+app.Controls.prototype.setDirectionFromTouch = function(touchX) {
+  this.isLeftDown = false;
+  this.isRightDown = false;
+  if (touchX < window.innerWidth / 2) {
+    this.tilt = -15; // Left
     this.isLeftDown = true;
   } else { // Right
     this.tilt = 15;
     this.isRightDown = true;
   }
+};
+
+/**
+ * Handles the on Touch Start. Called dynamically.
+ * @param {!Event} e The event object.
+ * @private
+ */
+app.Controls.prototype.onTouchStart_ = function(e) {
+  this.touchActive = true;
+  this.setDirectionFromTouch(e.touches[0].clientX);
 
   // Let tutorial know about touch so it can hide the tutorial.
   if (!this.touchStarted) {
@@ -161,8 +169,13 @@ app.Controls.prototype.onTouchStart_ = function(e) {
  * @private
  */
 app.Controls.prototype.onTouchEnd_ = function(e) {
-  this.tilt = 0;
-  this.touchActive = false;
-  this.isLeftDown = false;
-  this.isRightDown = false;
+  if (e.touches && e.touches.length > 0) {
+    this.setDirectionFromTouch(e.touches[0].clientX);
+    this.touchActive = true;
+  } else {
+    this.tilt = 0;
+    this.touchActive = false;
+    this.isLeftDown = false;
+    this.isRightDown = false;
+  }
 };
