@@ -212,6 +212,97 @@ body {
   pointer-events: none;
 }
 
+/* Level Complete Screen */
+.level-complete-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.level-complete-content.hidden {
+  display: none;
+}
+
+.level-complete__title {
+  position: absolute;
+  top: 85px;
+  font-family: 'Lobster', Georgia, serif;
+  font-size: 78px;
+  line-height: 97px;
+  color: #2d8659;
+  text-align: center;
+}
+
+.level-complete__card {
+  background-color: #BFC932;
+  border: 2px solid #8B6914;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 370px;
+  height: 690px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.level-complete__message {
+  color: white;
+  font-family: 'Lobster', Georgia, serif;
+  font-size: 96px;
+  text-align: center;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.level-complete__button {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.level-complete__button .game-button {
+  padding: 15px 40px;
+  font-size: 24px;
+}
+
+/* Game End Content */
+#game-end-content.hidden {
+  display: none;
+}
+
+/* Responsive adjustments for level complete screen */
+@media (max-width: 768px) {
+  .level-complete__title {
+    top: 60px;
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  .level-complete__card {
+    width: 280px;
+    height: 500px;
+  }
+
+  .level-complete__message {
+    font-size: 64px;
+  }
+
+  .level-complete__button {
+    bottom: 30px;
+    right: 30px;
+  }
+
+  .level-complete__button .game-button {
+    padding: 12px 30px;
+    font-size: 20px;
+  }
+}
+
 .game-over-screen__content {
   display: flex;
   flex-direction: column;

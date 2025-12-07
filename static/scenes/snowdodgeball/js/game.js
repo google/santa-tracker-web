@@ -205,7 +205,10 @@ export class Game {
   startNextLevel() {
     this.showingStartScreen = false;
     const gameOverScreen = document.getElementById('game-over-screen');
+    const levelCompleteContent = document.getElementById('level-complete-content');
+
     gameOverScreen.classList.add('hidden');
+    levelCompleteContent.classList.add('hidden');
 
     this.playerHealth = Gameplay.STARTING_HEALTH;
     this.opponentHealth = Gameplay.STARTING_HEALTH;
@@ -269,39 +272,31 @@ export class Game {
 
   showGameOverScreen() {
     const gameOverScreen = document.getElementById('game-over-screen');
+    const levelCompleteContent = document.getElementById('level-complete-content');
+    const gameEndContent = document.getElementById('game-end-content');
     const gameOverTitle = document.getElementById('game-over-title');
-
-    // Update text based on win/lose
-    if (this.playerWon) {
-      gameOverTitle.textContent = 'YOU WIN!';
-      gameOverTitle.className = 'game-over-screen__title win';
-    } else {
-      gameOverTitle.textContent = 'GAME OVER';
-      gameOverTitle.className = 'game-over-screen__title lose';
-    }
-
-    const nextLevelButton = document.getElementById('next-level-button');
-    const restartButton = document.getElementById('restart-button');
-    const homeButton = document.getElementById('home-button');
 
     // If player won the current level
     if (this.playerWon) {
       if (this.levelManager.hasNextLevel()) {
-        // Level Complete - Show custom "Next Level" screen
-        gameOverTitle.textContent = 'LEVEL COMPLETE!';
-        gameOverTitle.className = 'game-over-screen__title win';
-        nextLevelButton.classList.remove('hidden');
-        restartButton.classList.add('hidden');
-        homeButton.classList.add('hidden');
-
+        // Level Complete - Show level complete screen
+        // Show level complete content, hide game end content
+        levelCompleteContent.classList.remove('hidden');
+        gameEndContent.classList.add('hidden');
         gameOverScreen.classList.remove('hidden');
       } else {
         // Game Complete (Final Win) - Use API Gameover
         this.gameover.show(this.scoreboard.score, this.levelManager.currentLevelIndex + 1);
       }
     } else {
-      // Game Over (Loss) - Use API Gameover
-      this.gameover.show(this.scoreboard.score, this.levelManager.currentLevelIndex + 1);
+      // Game Over (Loss) - Show game end screen
+      gameOverTitle.textContent = 'GAME OVER';
+      gameOverTitle.className = 'game-over-screen__title lose';
+
+      // Show game end content, hide level complete content
+      levelCompleteContent.classList.add('hidden');
+      gameEndContent.classList.remove('hidden');
+      gameOverScreen.classList.remove('hidden');
     }
   }
 
@@ -328,9 +323,14 @@ export class Game {
   }
 
   restartGame() {
-    // Hide game over screen
+    // Hide game over screen and both content sections
     const gameOverScreen = document.getElementById('game-over-screen');
+    const levelCompleteContent = document.getElementById('level-complete-content');
+    const gameEndContent = document.getElementById('game-end-content');
+
     gameOverScreen.classList.add('hidden');
+    levelCompleteContent.classList.add('hidden');
+    gameEndContent.classList.add('hidden');
 
     this.gameOver = false;
     this.playerWon = false;

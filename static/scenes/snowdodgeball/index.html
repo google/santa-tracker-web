@@ -57,10 +57,19 @@
 
     <!-- Game Over Screen Overlay -->
     <div id="game-over-screen" class="hidden">
-      <div class="game-over-screen__content">
+      <!-- Level Complete Screen -->
+      <div id="level-complete-content" class="level-complete-content hidden">
+        <div class="level-complete__title">Score</div>
+        <div class="level-complete__message">Level Complete!</div>
+        <div class="level-complete__button">
+          <button id="next-level-button" class="game-button">NEXT</button>
+        </div>
+      </div>
+
+      <!-- Game Over/Win Screen -->
+      <div id="game-end-content" class="game-over-screen__content hidden">
         <h1 id="game-over-title" class="game-over-screen__title">YOU WIN!</h1>
         <div class="game-over-screen__buttons">
-          <button id="next-level-button" class="game-button hidden">NEXT LEVEL</button>
           <button id="restart-button" class="game-button">PLAY AGAIN</button>
           <button id="home-button" class="game-button">HOME</button>
         </div>
