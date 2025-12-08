@@ -290,7 +290,7 @@ export class Game {
         // Update stats display
         const stats = this.stats.getStats();
         document.getElementById('stat-thrown').textContent = stats.thrown;
-        document.getElementById('stat-hit').textContent = stats.hit;
+        document.getElementById('stat-damage').textContent = stats.damageTaken;
         document.getElementById('stat-accuracy').textContent = stats.accuracy + '%';
 
         // Show level complete content, hide game end content
@@ -427,6 +427,7 @@ export class Game {
 
             if (elf.team === Teams.PLAYER) {
               this.playerHealth = Math.max(0, this.playerHealth - Gameplay.DAMAGE_PER_HIT);
+              this.stats.recordDamage(1); // Track damage taken. For now, just hits and not Gameplay.DAMAGE_PER_HIT
               this.updateGifts(this.playerHealth, true);
             } else {
               this.opponentHealth = Math.max(0, this.opponentHealth - Gameplay.DAMAGE_PER_HIT);

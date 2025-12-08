@@ -7,6 +7,7 @@ export class Stats {
   reset() {
     this.ballsThrown = 0;
     this.ballsHit = 0;
+    this.damageTaken = 0;
   }
 
   recordThrow() {
@@ -15,6 +16,10 @@ export class Stats {
 
   recordHit() {
     this.ballsHit++;
+  }
+
+  recordDamage(amount) {
+    this.damageTaken += amount;
   }
 
   getAccuracy() {
@@ -26,6 +31,7 @@ export class Stats {
     return {
       thrown: this.ballsThrown,
       hit: this.ballsHit,
+      damageTaken: this.damageTaken,
       accuracy: this.getAccuracy()
     };
   }
