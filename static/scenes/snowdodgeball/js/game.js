@@ -113,6 +113,9 @@ export class Game {
           className: `animation animation--${direction}`
         }
       }).then((anim) => {
+        // Stop at frame 0 immediately to prevent ghost frame rendering
+        anim.goToAndStop(0, true);
+
         if (!this.elfAnimations[team][index]) {
           this.elfAnimations[team][index] = {};
         }

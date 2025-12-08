@@ -27,9 +27,9 @@ export class Elf {
     this.wanderInterval = ElfConfig.WANDER_INTERVAL;
     this.seekSnowballCooldown = 0;
     this.throwInaccuracy = OpponentAI.THROW_INACCURACY;
-    this.throwDelayTimer = 0; // Time before elf can throw after picking up snowball
-    this.dodgeLockTimer = 0;  // Prevents AI from overwriting movement during dodge
-    this.dodgeCooldown = 0;   // Time before can dodge again
+    this.throwDelayTimer = 0;
+    this.dodgeLockTimer = 0;
+    this.dodgeCooldown = 0;
 
     // DOM elements
     const teamClass = team === Teams.OPPONENT ? 'opponent' : 'player';
@@ -42,8 +42,15 @@ export class Elf {
     this.currentFrame = 0;
     this.lastAnimationUpdate = 0;
 
-    // Set initial direction class
+    // Set reset state to make sure wierd lottie overlay doesnt happen
+    this.innerElem.classList.remove('direction--back', 'direction--side', 'is-flipped');
     this.innerElem.classList.add('direction--front');
+
+    this.elem.style.transition = 'none';
+    this.elem.style.left = `${this.x}px`;
+    this.elem.style.top = `${this.y}px`;
+    this.elem.offsetHeight;
+    this.elem.style.transition = '';
   }
 
   updateHeldSnowballDisplay() {
