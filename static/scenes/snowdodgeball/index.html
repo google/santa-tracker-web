@@ -76,7 +76,21 @@
 
       <!-- Game Over/Win Screen -->
       <div id="game-end-content" class="game-over-screen__content hidden">
-        <h1 id="game-over-title" class="game-over-screen__title">YOU WIN!</h1>
+        <h1 id="game-over-title" class="game-over-screen__title">Match Lost</h1>
+        <div class="level-complete__stats-box">
+          <div class="stat-row">
+            <span class="stat-label">Hits Taken</span>
+            <span class="stat-value" id="end-stat-damage">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Snowballs Thrown</span>
+            <span class="stat-value" id="end-stat-thrown">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Accuracy</span>
+            <span class="stat-value" id="end-stat-accuracy">0%</span>
+          </div>
+        </div>
         <div class="game-over-screen__buttons">
           <button id="restart-button" class="game-button">PLAY AGAIN</button>
           <button id="home-button" class="game-button">HOME</button>

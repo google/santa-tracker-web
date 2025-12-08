@@ -301,8 +301,14 @@ export class Game {
       }
     } else {
       // Game Over (Loss) - Show game end screen
-      gameOverTitle.textContent = 'GAME OVER';
+      gameOverTitle.textContent = 'Match Lost';
       gameOverTitle.className = 'game-over-screen__title lose';
+
+      // Update stats display for game end
+      const stats = this.stats.getStats();
+      document.getElementById('end-stat-thrown').textContent = stats.thrown;
+      document.getElementById('end-stat-damage').textContent = stats.damageTaken;
+      document.getElementById('end-stat-accuracy').textContent = stats.accuracy + '%';
 
       // Show game end content, hide level complete content
       levelCompleteContent.classList.add('hidden');
