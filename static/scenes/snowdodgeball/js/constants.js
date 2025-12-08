@@ -103,23 +103,23 @@ export const Levels = [
   {
     // Level 2: Medium (Standard)
     opponentAI: {
-      seekChance: 0.3,
+      seekChance: 0.6,
       seekCooldownAfterSeek: 2,
       seekCooldownRandomExtra: 0,
       seekCooldownAfterCheck: 2,
-      throwInaccuracy: 40,
+      throwInaccuracy: 30,
       throwDelay: 1.5
     }
   },
   {
     // Level 3: Hard
     opponentAI: {
-      seekChance: 0.6,
+      seekChance: 0.9,
       seekCooldownAfterSeek: 1,
       seekCooldownRandomExtra: 0,
       seekCooldownAfterCheck: 1,
-      throwInaccuracy: 10,
-      throwDelay: 0.8
+      throwInaccuracy: 1,
+      throwDelay: 0.5
     }
   }
 ];
