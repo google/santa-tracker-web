@@ -332,14 +332,10 @@ body {
     margin-bottom: 20px;
   }
 
-  .level-complete__stats {
-    gap: 12px;
-    max-width: 240px;
-    padding: 0 20px;
-  }
-
-  .stat-item {
-    padding: 10px 15px;
+  .level-complete__stats-box {
+    width: 80%;
+    padding: 15px 20px;
+    gap: 10px;
   }
 
   .stat-label {

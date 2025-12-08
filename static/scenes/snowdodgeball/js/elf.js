@@ -222,11 +222,6 @@ export class Elf {
     }
   }
 
-  contains(x, y) {
-    const dx = this.x - x;
-    const dy = this.y - y;
-    return (dx * dx + dy * dy) <= (this.radius * this.radius);
-  }
 
   /**
    * Dodge left or right by DODGE_DISTANCE pixels - instant teleport

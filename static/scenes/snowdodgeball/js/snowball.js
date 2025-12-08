@@ -157,13 +157,5 @@ export class Snowball {
     return dist < pickupRadius;
   }
 
-  respawn() {
-    this.x = this.spawnX;
-    this.y = this.spawnY;
-    this.thrown = false;
-    this.velocityX = 0;
-    this.velocityY = 0;
-    this.team = null;
-    this.wasDropped = false; // Reset dropped flag on respawn
-  }
 }
+

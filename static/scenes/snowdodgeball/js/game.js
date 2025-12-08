@@ -5,8 +5,6 @@ import {
   Teams,
   Arena,
   Gameplay,
-  UIColors,
-  HealthBar,
   OpponentAI
 } from './constants.js';
 import { LevelManager } from './level-manager.js';
