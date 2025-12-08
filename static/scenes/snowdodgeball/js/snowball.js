@@ -15,6 +15,7 @@ export class Snowball {
     this.speed = SnowballConfig.SPEED;
     this.team = null; // Team that threw the snowball
     this.wasDropped = false; // Track if this was dropped after being held
+    this.throwCounted = false; // Track if this throw has been counted in stats
   }
 
   throw(targetX, targetY) {

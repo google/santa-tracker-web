@@ -10,6 +10,7 @@ import {
   OpponentAI
 } from './constants.js';
 import { LevelManager } from './level-manager.js';
+import { Stats } from './stats.js';
 
 export class Game {
   constructor(canvas, api, prepareAnimation) {
@@ -50,6 +51,9 @@ export class Game {
     this.playerHealth = Gameplay.STARTING_HEALTH;
     this.opponentHealth = Gameplay.STARTING_HEALTH;
     this.friendlyFire = Gameplay.FRIENDLY_FIRE;
+
+    // Stats tracking
+    this.stats = new Stats();
 
     // Arena dimensions (fixed size, centered on screen)
     this.arenaWidth = Arena.WIDTH;
@@ -236,6 +240,9 @@ export class Game {
     // Reset game over flag
     this.gameOver = false;
 
+    // Reset stats for new level
+    this.stats.reset();
+
     const centerX = this.arenaWidth / 2;
     const centerY = this.arenaHeight / 2;
 
@@ -280,6 +287,12 @@ export class Game {
     if (this.playerWon) {
       if (this.levelManager.hasNextLevel()) {
         // Level Complete - Show level complete screen
+        // Update stats display
+        const stats = this.stats.getStats();
+        document.getElementById('stat-thrown').textContent = stats.thrown;
+        document.getElementById('stat-hit').textContent = stats.hit;
+        document.getElementById('stat-accuracy').textContent = stats.accuracy + '%';
+
         // Show level complete content, hide game end content
         levelCompleteContent.classList.remove('hidden');
         gameEndContent.classList.add('hidden');
@@ -392,6 +405,14 @@ export class Game {
     this.elves.forEach(elf => elf.update(dt, arenaBounds));
     this.snowballs.forEach(snowball => snowball.update(dt));
 
+    // Track player team throws
+    this.snowballs.forEach(snowball => {
+      if (snowball.thrown && snowball.team === Teams.PLAYER && !snowball.throwCounted) {
+        this.stats.recordThrow();
+        snowball.throwCounted = true;
+      }
+    });
+
     // Check for snowball hits on elves
     this.snowballs.forEach(snowball => {
       if (!snowball.thrown) return;
@@ -399,6 +420,11 @@ export class Game {
       for (const elf of this.elves) {
         if (snowball.collidesWithElf(elf)) {
           if (this.friendlyFire || snowball.team !== elf.team) {
+            // Track player team hits on opponents
+            if (snowball.team === Teams.PLAYER && elf.team === Teams.OPPONENT) {
+              this.stats.recordHit();
+            }
+
             if (elf.team === Teams.PLAYER) {
               this.playerHealth = Math.max(0, this.playerHealth - Gameplay.DAMAGE_PER_HIT);
               this.updateGifts(this.playerHealth, true);
