@@ -78,7 +78,7 @@ class ModvilVillageElement extends LitElement {
       <div class="elfboard2"></div>
     </div>
     <div class="layer4">
-      <button class="retro" @click=${this._onClickRetro}></button>
+      <button aria-label="View Santa in Retro scene" class="retro" @click=${this._onClickRetro}></button>
       <div class="peekaboo" @animationiteration=${() => this._play('village_top_surprise')}>
         <div class="peekaboo-elf"></div>
         <div class="peekaboo-tree"></div>
