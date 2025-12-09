@@ -34,11 +34,15 @@ app.Controls = function(game) {
   this.onKeyDown_ = this.onKeyDown_.bind(this);
   this.onKeyUp_ = this.onKeyUp_.bind(this);
   this.onDeviceOrientation_ = this.onDeviceOrientation_.bind(this);
+  this.onTouchStart_ = this.onTouchStart_.bind(this);
+  this.onTouchEnd_ = this.onTouchEnd_.bind(this);
 
   // Events are cleared by app.Game in its dispose method.
   $(window).on('keydown.gumball', this.onKeyDown_);
   $(window).on('keyup.gumball', this.onKeyUp_);
   $(window).on('deviceorientation.gumball', this.onDeviceOrientation_);
+  $(window).on('touchstart.gumball', this.onTouchStart_);
+  $(window).on('touchend.gumball', this.onTouchEnd_);
 };
 
 /**
@@ -60,16 +64,21 @@ app.Controls.prototype.isLeftDown = false;
 app.Controls.prototype.tilt = 0;
 
 /**
+ * Whether touch is currently active.
+ * @type {boolean}
+ */
+app.Controls.prototype.touchActive = false;
+
+/**
  * Handles the device orientation event.
  * @param {!Event} e The event object.
  * @private
  */
 app.Controls.prototype.onDeviceOrientation_ = function(e) {
   e = e.originalEvent;
-  if (e.gamma == null || this.isDesktopish_) {
+  if (e.gamma == null || this.isDesktopish_ || this.touchActive) {
     return;
   }
-
   // Portrait
   var degree = e.gamma;
 
@@ -118,6 +127,55 @@ app.Controls.prototype.onKeyUp_ = function(e) {
   if (e.keyCode === 37) { // Left
     this.isLeftDown = false;
   } else if (e.keyCode === 39) { // Right
+    this.isRightDown = false;
+  }
+};
+
+/**
+ * Sets the direction based on the touch X position provided
+ * @param {number} touchX
+ */
+app.Controls.prototype.setDirectionFromTouch = function(touchX) {
+  this.isLeftDown = false;
+  this.isRightDown = false;
+  if (touchX < window.innerWidth / 2) {
+    this.tilt = -15; // Left
+    this.isLeftDown = true;
+  } else { // Right
+    this.tilt = 15;
+    this.isRightDown = true;
+  }
+};
+
+/**
+ * Handles the on Touch Start. Called dynamically.
+ * @param {!Event} e The event object.
+ * @private
+ */
+app.Controls.prototype.onTouchStart_ = function(e) {
+  this.touchActive = true;
+  this.setDirectionFromTouch(e.touches[0].clientX);
+
+  // Let tutorial know about touch so it can hide the tutorial.
+  if (!this.touchStarted) {
+    this.tutorial.off('device-tilt');
+    this.touchStarted = true;
+  }
+};
+
+/**
+ * Handles the on Touch End. Called dynamically.
+ * @param {!Event} e The event object.
+ * @private
+ */
+app.Controls.prototype.onTouchEnd_ = function(e) {
+  if (e.touches && e.touches.length > 0) {
+    this.setDirectionFromTouch(e.touches[0].clientX);
+    this.touchActive = true;
+  } else {
+    this.tilt = 0;
+    this.touchActive = false;
+    this.isLeftDown = false;
     this.isRightDown = false;
   }
 };
