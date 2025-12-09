@@ -39,6 +39,11 @@ a {
   &:focus {
     outline: none;
 
+    &:focus-visible {
+      box-shadow: 0 0 12px 4px white;
+      border-radius: var(--radius, 16px);
+    }
+
     main {
       &::before {
         opacity: 1;
