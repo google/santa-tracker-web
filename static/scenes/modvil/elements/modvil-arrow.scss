@@ -76,6 +76,15 @@ button.arrow {
   &:focus {
     outline: 0;
 
+    &:focus-visible {
+      box-shadow: inset 0 0 2px 2px #eff1f4,
+        0 0 0 12px rgba(0, 0, 0, 0.24);
+
+      &::after {
+        background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAxOSAxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIuODMwMjcgLTcuMDY4MDFlLTA3TDkuODM4NjggNi45OTAwOEwxNi44NDcxIC05LjQxMDY2ZS0wOEwxOSAyLjE1MjkyTDkuODM4NjggMTEuMzE0MkwwLjY3NzM2IDIuMTUyOTFMMi44MzAyNyAtNy4wNjgwMWUtMDdaIiBmaWxsPSIjNTBBNEZGIi8+Cjwvc3ZnPg==")
+      }
+    }
+
     &::before {
       opacity: 1;
     }
