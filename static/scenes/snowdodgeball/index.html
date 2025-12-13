@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!--
+ Copyright 2025 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster|Google+Sans:400,700" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+  <div id="module-snowdodgeball">
+    <!-- Start Screen Overlay -->
+    <div id="start-screen">
+      <h1 class="start-screen__title">Snow Dodgeball</h1>
+
+      <div class="start-screen__content">
+        <h2 class="instructions-title">Instructions</h2>
+
+        <div class="instruction-panels">
+          <div class="instruction-panel">
+            <img src="img/click-dodge-instruction.png" alt="Click to dodge" class="panel-image">
+            <p>Click an elf to dodge snowballs</p>
+          </div>
+          <div class="instruction-panel">
+            <img src="img/click-throw-instruction-large.jpg" alt="Throw snowball" class="panel-image">
+            <p>Click to throw snowballs</p>
+          </div>
+        </div>
+      </div>
+
+      <button id="start-button" class="start-button">START</button>
+    </div>
+
+    <!-- Game Over Screen Overlay -->
+    <div id="game-over-screen" class="hidden">
+      <!-- Level Complete Screen -->
+      <div id="level-complete-content" class="level-complete-content hidden">
+        <div class="level-complete__title">Score</div>
+        <div class="level-complete__message">Match Won!</div>
+        <div class="level-complete__stats-box">
+          <div class="stat-row">
+            <span class="stat-label">Hits Taken</span>
+            <span class="stat-value" id="stat-damage">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Snowballs Thrown</span>
+            <span class="stat-value" id="stat-thrown">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Accuracy</span>
+            <span class="stat-value" id="stat-accuracy">0%</span>
+          </div>
+        </div>
+        <div class="level-complete__button">
+          <button id="next-level-button" class="game-button">NEXT</button>
+        </div>
+      </div>
+
+      <!-- Game Over/Win Screen -->
+      <div id="game-end-content" class="game-over-screen__content hidden">
+        <h1 id="game-over-title" class="game-over-screen__title">Match Lost</h1>
+        <div class="level-complete__stats-box">
+          <div class="stat-row">
+            <span class="stat-label">Hits Taken</span>
+            <span class="stat-value" id="end-stat-damage">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Snowballs Thrown</span>
+            <span class="stat-value" id="end-stat-thrown">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Accuracy</span>
+            <span class="stat-value" id="end-stat-accuracy">0%</span>
+          </div>
+        </div>
+        <div class="game-over-screen__buttons">
+          <button id="restart-button" class="game-button">PLAY AGAIN</button>
+          <button id="home-button" class="game-button">HOME</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="arena">
+      <!-- Health displays -->
+      <div class="health-bar health-bar--opponent">
+        <div class="gift gift--red" data-index="0"></div>
+        <div class="gift gift--red" data-index="1"></div>
+        <div class="gift gift--red" data-index="2"></div>
+        <div class="gift gift--red" data-index="3"></div>
+        <div class="gift gift--red" data-index="4"></div>
+      </div>
+      <div class="health-bar health-bar--player">
+        <div class="gift gift--blue" data-index="0"></div>
+        <div class="gift gift--blue" data-index="1"></div>
+        <div class="gift gift--blue" data-index="2"></div>
+        <div class="gift gift--blue" data-index="3"></div>
+        <div class="gift gift--blue" data-index="4"></div>
+      </div>
+
+      <div id="elves">
+        <!-- Player team elves (bottom) -->
+        <div class="elf elf--player elf--player-0">
+          <div class="elf__inner">
+            <div class="elf__snowball"></div>
+          </div>
+        </div>
+        <div class="elf elf--player elf--player-1">
+          <div class="elf__inner">
+            <div class="elf__snowball"></div>
+          </div>
+        </div>
+        <div class="elf elf--player elf--player-2">
+          <div class="elf__inner">
+            <div class="elf__snowball"></div>
+          </div>
+        </div>
+
+        <!-- Opponent team elves (top) -->
+        <div class="elf elf--opponent elf--opponent-0">
+          <div class="elf__inner">
+            <div class="elf__snowball"></div>
+          </div>
+        </div>
+        <div class="elf elf--opponent elf--opponent-1">
+          <div class="elf__inner">
+            <div class="elf__snowball"></div>
+          </div>
+        </div>
+        <div class="elf elf--opponent elf--opponent-2">
+          <div class="elf__inner">
+            <div class="elf__snowball"></div>
+          </div>
+        </div>
+      </div>
+
+      <canvas id="game-canvas"></canvas>
+    </div>
+  </div>
+
+  <script>
+    // Shim for Google Closure Library and Constants
+    window.goog = {
+      provide: function (namespace) {
+        const parts = namespace.split('.');
+        let current = window;
+        for (const part of parts) {
+          current[part] = current[part] || {};
+          current = current[part];
+        }
+      },
+      require: function (namespace) { }
+    };
+    window.Constants = {};
+    window.app = window.app || {};
+    window.app.shared = window.app.shared || {};
+  </script>
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../_shared/js/scoreboard.js"></script>
+  <script src="../_shared/js/gameover.js"></script>
+  <script type="module">
+    import api from '../../src/scene/api.js';
+    import { prepareAnimation } from '../../src/deps/lottie.js';
+    import { Game } from './js/game.js';
+
+    // Preload sounds for the game
+    api.preload.sounds('snowball_load_sounds');
+
+    api.config({
+      pause: true,
+    });
+
+    const canvas = document.getElementById('game-canvas');
+    const game = new Game(canvas, api, prepareAnimation);
+
+    api.addEventListener('pause', () => game.pause());
+    api.addEventListener('resume', () => game.resume());
+    api.addEventListener('restart', () => game.restart());
+
+    api.ready(async () => {
+      game.start();
+    });
+  </script>
+
+</body>
+
+</html>

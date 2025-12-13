@@ -1,0 +1,729 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: repeating-linear-gradient(45deg,
+      #165B33 0px,
+      #165B33 30px,
+      #187F42 30px,
+      #187F42 60px,
+      #E50000 60px,
+      #E50000 90px,
+      #38985e 90px,
+      #38985e 120px,
+      #F8B229 120px,
+      #F8B229 150px,
+      #5db383 150px,
+      #5db383 180px,
+      #91060D 180px,
+      #91060D 210px,
+      #187F42 210px,
+      #187F42 240px,
+      #165B33 240px,
+      #165B33 270px);
+}
+
+#module-snowdodgeball {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Start Screen Overlay */
+#start-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f4d03f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+#start-screen.hidden {
+  display: none;
+}
+
+.start-screen__title {
+  position: absolute;
+  top: 80px;
+  font-family: 'Lobster', sans-serif;
+  font-size: 80px;
+  font-weight: normal;
+  font-style: normal;
+  color: #2d8659;
+  margin: 0;
+  text-align: center;
+}
+
+.start-screen__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.instructions-title {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 42px;
+  font-weight: normal;
+  color: #2d8659;
+  margin-bottom: 30px;
+}
+
+.instruction-panels {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  max-width: 95vw;
+}
+
+.instruction-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  flex: 1 1 auto;
+  min-width: 200px;
+  max-width: 380px;
+}
+
+.instruction-panel p {
+  font-family: 'Google Sans', sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  color: #333;
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+
+.panel-image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .instruction-panel {
+    max-width: 300px;
+    padding: 15px;
+  }
+
+  .panel-image {
+    max-width: 270px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .instruction-panel {
+    max-width: 250px;
+    padding: 12px;
+  }
+
+  .panel-image {
+    max-width: 220px;
+  }
+
+  .instruction-panels {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .instruction-panels {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .instruction-panel {
+    max-width: 400px;
+    width: 90%;
+  }
+
+  .panel-image {
+    max-width: 100%;
+  }
+}
+
+.start-button {
+  position: absolute;
+  bottom: 100px;
+  padding: 20px 60px;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  background: #4a9d5f;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 3px 6px 0 #2d6b3f, 8px 9px 0 rgba(0, 0, 0, 0.16);
+  transform: translate(-3px, -6px);
+  transition: box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out, background 0.2s;
+}
+
+.start-button:hover {
+  background: #5bb371;
+}
+
+.start-button:active {
+  box-shadow: 0 0 0 #2d6b3f, 0 0 2px rgba(0, 0, 0, 0.16);
+  transform: translate(0, 0);
+  transition-duration: 0.05s;
+}
+
+/* Game Over Screen Overlay */
+#game-over-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f4d03f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#game-over-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Level Complete Screen */
+.level-complete-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.level-complete-content.hidden {
+  display: none;
+}
+
+.level-complete__title {
+  position: absolute;
+  top: 85px;
+  font-family: 'Lobster', Georgia, serif;
+  font-size: 78px;
+  line-height: 97px;
+  color: #2d8659;
+  text-align: center;
+}
+
+.level-complete__card {
+  background-color: #BFC932;
+  border: 2px solid #8B6914;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 370px;
+  height: 690px;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.level-complete__message {
+  color: white;
+  font-family: 'Lobster', Georgia, serif;
+  font-size: 96px;
+  text-align: center;
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 40px;
+}
+
+.level-complete__stats-box {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  padding: 20px 30px;
+  width: 500px;
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 8px;
+}
+
+.stat-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.stat-label {
+  font-family: 'Google Sans', Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #5d4037;
+  /* Brown to match border */
+}
+
+.stat-value {
+  font-family: 'Lobster', Georgia, serif;
+  font-size: 36px;
+  color: white;
+  text-shadow: 2px 2px 0px #5d4037;
+}
+
+.level-complete__button {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+}
+
+.level-complete__button .game-button {
+  padding: 15px 40px;
+  font-size: 24px;
+}
+
+/* Game End Content */
+#game-end-content.hidden {
+  display: none;
+}
+
+/* Responsive adjustments for level complete screen */
+@media (max-width: 768px) {
+  .level-complete__title {
+    top: 60px;
+    font-size: 48px;
+    line-height: 60px;
+  }
+
+  .level-complete__card {
+    width: 280px;
+    height: 500px;
+  }
+
+  .level-complete__message {
+    font-size: 48px;
+    margin-bottom: 20px;
+  }
+
+  .level-complete__stats-box {
+    width: 80%;
+    padding: 15px 20px;
+    gap: 10px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+  }
+
+  .stat-value {
+    font-size: 24px;
+  }
+
+  .level-complete__button {
+    bottom: 30px;
+    right: 30px;
+  }
+
+  .level-complete__button .game-button {
+    padding: 12px 30px;
+    font-size: 20px;
+  }
+}
+
+.game-over-screen__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  transition: opacity 0.3s ease-in-out, transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#game-over-screen.hidden .game-over-screen__content {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.game-over-screen__title {
+  font-family: 'Lobster', Georgia, serif;
+  font-size: 96px;
+  font-weight: normal;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.game-over-screen__title.win {
+  color: #2d8659;
+}
+
+.game-over-screen__title.lose {
+  color: #e74c3c;
+}
+
+.game-over-screen__message {
+  font-family: 'Google Sans', Arial, sans-serif;
+  font-size: 28px;
+  font-weight: normal;
+  color: #2d8659;
+  margin: 0;
+  text-align: center;
+}
+
+.game-over-screen__buttons {
+  display: flex;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.game-button {
+  padding: 20px 50px;
+  font-family: 'Google Sans', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  background: #4a9d5f;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 3px 6px 0 #2d6b3f, 8px 9px 0 rgba(0, 0, 0, 0.16);
+  transform: translate(-3px, -6px);
+  transition: box-shadow 0.25s ease-in-out, transform 0.25s ease-in-out, background 0.2s;
+}
+
+.game-button:hover {
+  background: #5bb371;
+}
+
+.game-button:active {
+  box-shadow: 0 0 0 #2d6b3f, 0 0 2px rgba(0, 0, 0, 0.16);
+  transform: translate(0, 0);
+  transition-duration: 0.05s;
+}
+
+/* Health Bar / Gifts */
+.health-bar {
+  position: absolute;
+  display: flex;
+  gap: 5px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.health-bar--opponent {
+  top: 10px;
+  left: 10px;
+}
+
+.health-bar--player {
+  bottom: 10px;
+  left: 10px;
+}
+
+.gift {
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform 0.1s ease-out;
+}
+
+.gift--blue {
+  background-image: url('img/gift_blue_true.png');
+}
+
+.gift--blue.is-dead {
+  background-image: url('img/gift_blue_false.png');
+}
+
+.gift--red {
+  background-image: url('img/gift_red_true.png');
+}
+
+.gift--red.is-dead {
+  background-image: url('img/gift_red_false.png');
+}
+
+/* Pop animation when gift dies */
+@keyframes gift-pop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.gift.is-popping {
+  animation: gift-pop 0.2s ease-out;
+}
+
+/* Snowfall animation */
+#module-snowdodgeball::before {
+  content: '';
+  position: fixed;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(circle, white 1px, transparent 1px),
+    radial-gradient(circle, white 1px, transparent 1px),
+    radial-gradient(circle, white 2px, transparent 2px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.6) 1px, transparent 1px);
+  background-size:
+    200px 200px,
+    300px 300px,
+    250px 250px,
+    350px 350px,
+    400px 400px;
+  background-position:
+    10px 20px,
+    50px 80px,
+    150px 40px,
+    250px 100px,
+    350px 60px;
+  animation: snowfall 20s linear infinite;
+  pointer-events: none;
+  z-index: 100;
+}
+
+@keyframes snowfall {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+#arena {
+  position: relative;
+  width: 1200px;
+  height: 900px;
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    radial-gradient(circle at 80% 10%, rgba(230, 240, 255, 0.8) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 40% 90%, rgba(255, 255, 255, 0.7) 1px, transparent 1px),
+    radial-gradient(circle at 90% 50%, rgba(230, 240, 255, 0.6) 1.2px, transparent 1.2px),
+    radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    radial-gradient(circle at 50% 20%, rgba(230, 240, 255, 0.7) 1.3px, transparent 1.3px),
+    radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, #f0f8ff 0%, #ffffff 50%, #f0f8ff 100%);
+  background-size:
+    200px 200px,
+    250px 250px,
+    180px 180px,
+    220px 220px,
+    190px 190px,
+    210px 210px,
+    230px 230px,
+    200px 200px,
+    100% 100%;
+  background-position: 0 0, 40px 60px, 80px 20px, 120px 100px, 30px 140px, 90px 180px, 150px 50px, 60px 130px, 0 0;
+}
+
+#elves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* Elf styling */
+.elf {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  pointer-events: all;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  transition: left 0.15s ease-out, top 0.15s ease-out;
+}
+
+.elf__inner {
+  position: relative;
+  width: 200%;
+  height: 200%;
+  transform: translate(-25%, -50%);
+}
+
+.elf__inner.is-flipped {
+  transform: translate(-25%, -50%) scaleX(-1);
+}
+
+/* Throwing animation */
+@keyframes throw-forward {
+  0% {
+    transform: translate(-25%, -50%) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-25%, -45%) rotate(-15deg) scale(1.05);
+  }
+
+  100% {
+    transform: translate(-25%, -50%) rotate(0deg);
+  }
+}
+
+@keyframes throw-forward-flipped {
+  0% {
+    transform: translate(-25%, -50%) scaleX(-1) rotate(0deg);
+  }
+
+  50% {
+    transform: translate(-25%, -45%) scaleX(-1) rotate(15deg) scale(1.05);
+  }
+
+  100% {
+    transform: translate(-25%, -50%) scaleX(-1) rotate(0deg);
+  }
+}
+
+.elf__inner.is-throwing {
+  animation: throw-forward 0.3s ease-out;
+}
+
+.elf__inner.is-throwing.is-flipped {
+  animation: throw-forward-flipped 0.3s ease-out;
+}
+
+.animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.elf__inner.direction--front .animation--front,
+.elf__inner.direction--back .animation--back,
+.elf__inner.direction--side .animation--side {
+  display: block;
+}
+
+
+/* Snowball container */
+.elf__snowball {
+  position: absolute;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  display: none;
+  /* Hidden by default */
+  pointer-events: none;
+}
+
+.elf__snowball.is-visible {
+  display: block;
+}
+
+/* Position snowball based on elf direction */
+.elf__inner.direction--front .elf__snowball {
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.elf__inner.direction--back .elf__snowball {
+  top: 35%;
+  left: 50%;
+  transform: translateX(-50%) rotate(180deg);
+  z-index: 0;
+  /* Behind elf when facing back */
+}
+
+.elf__inner.direction--side .elf__snowball {
+  right: 15%;
+  top: 60%;
+  transform: translateY(-50%) rotate(-90deg);
+  /* No special case needed for flipped - parent's scaleX(-1) handles the mirroring */
+}
+
+/* Selection ring */
+.elf.is-selected::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 3px solid #f1c40f;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Hit flash - turn red twice */
+.elf.is-hit .elf__inner {
+  animation: hit-flash-red 0.4s ease-out !important;
+}
+
+@keyframes hit-flash-red {
+
+  0%,
+  100% {
+    filter: none;
+  }
+
+  25% {
+    filter: sepia(1) saturate(4) hue-rotate(-50deg) brightness(1.2);
+  }
+
+  50% {
+    filter: none;
+  }
+
+  75% {
+    filter: sepia(1) saturate(4) hue-rotate(-50deg) brightness(1.2);
+  }
+}
