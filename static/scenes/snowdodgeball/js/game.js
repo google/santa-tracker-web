@@ -58,6 +58,18 @@ export class Game {
     this.arenaHeight = Arena.HEIGHT;
     this.arenaX = 0;
     this.arenaY = 0;
+    this.ratio = Arena.WIDTH / Arena.HEIGHT; // Aspect ratio 1200/900 = 1.33
+
+    // Scaling properties
+    this.scale = 1;
+    this.paddingTop = Arena.PADDING_TOP;
+    this.paddingLeft = Arena.PADDING_LEFT_PERCENTAGE;
+    this.isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+    // Update padding for touch devices
+    if (this.isTouchDevice) {
+      this.paddingTop = Arena.PADDING_TOP_MOBILE;
+    }
 
     // Spawn point management
     this.spawnPoints = [];
@@ -74,6 +86,9 @@ export class Game {
     this.playerGifts = Array.from(document.querySelectorAll('.health-bar--player .gift'));
     this.opponentGifts = Array.from(document.querySelectorAll('.health-bar--opponent .gift'));
 
+    // Get arena DOM element for scaling
+    this.arenaElement = document.getElementById('arena');
+
     this.resize();
     window.addEventListener('resize', () => this.resize());
 
@@ -89,7 +104,38 @@ export class Game {
 
 
   resize() {
-    // Canvas size now matches arena size
+    // Calculate available space
+    const maxHeight = window.innerHeight - this.paddingTop * 2;
+    const maxWidth = window.innerWidth - window.innerWidth * this.paddingLeft / 100;
+
+    // Calculate target dimensions maintaining aspect ratio
+    const targetedHeight = Math.min(
+      this.arenaHeight * window.innerWidth / this.arenaWidth,
+      maxHeight
+    );
+    const targetedWidth = Math.min(targetedHeight * this.ratio, maxWidth);
+
+    // Calculate scale factor
+    this.scale = targetedWidth / this.arenaWidth;
+
+    // Add extra zoom for touch devices
+    if (this.isTouchDevice) {
+      this.scale += Arena.ZOOM_TOUCH_DEVICE;
+    }
+
+    // Apply CSS transform to scale the entire arena
+    this.arenaElement.style.position = 'absolute';
+    this.arenaElement.style.left = '50%';
+    this.arenaElement.style.top = '50%';
+    this.arenaElement.style.transformOrigin = '0 0';
+
+    if (!this.isTouchDevice) {
+      this.arenaElement.style.transform = `scale(${this.scale.toFixed(3)}) translate(-50%, -50%)`;
+    } else {
+      this.arenaElement.style.transform = `scale(${this.scale.toFixed(3)}) translate(-50%, -50%) translateY(${this.paddingTop}px)`;
+    }
+
+    // Canvas size remains fixed at base dimensions
     this.canvas.width = this.arenaWidth;
     this.canvas.height = this.arenaHeight;
     this.width = this.arenaWidth;

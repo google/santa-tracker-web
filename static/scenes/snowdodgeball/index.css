@@ -533,12 +533,11 @@ body {
 }
 
 #arena {
-  position: relative;
+  position: absolute;
   width: 1200px;
   height: 900px;
-  max-width: 100%;
-  max-height: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transform-origin: 0 0;
   background:
     radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
     radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
@@ -573,8 +572,8 @@ body {
 
 canvas {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 1200px;
+  height: 900px;
 }
 
 /* Elf styling */
