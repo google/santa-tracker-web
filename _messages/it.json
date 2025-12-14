@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Giochiamo con la neve"
 	},
+	"scene_snowdodgeball": {
+		"message": "Dodgeball a palle di neve"
+	},
 	"scene_snowflake": {
 		"message": "Disegna con il codice"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "In attesa di altri folletti di Babbo Natale"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Fai clic su un elfo per schivare le palle di neve"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Fai clic per lanciare palle di neve"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Partita persa"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Partita vinta!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Precisione"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Colpi ricevuti"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Palle di neve lanciate"
 	},
 	"snowflake_choose_background": {
 		"message": "Scegli uno sfondo"

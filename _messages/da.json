@@ -804,7 +804,7 @@
 		"message": "Når gløggen er drukket, og gaverne er pakket op, er der familiesjov til hele året med Google."
 	},
 	"familyguide_doublecard_card01_body": {
-		"message": "Vi vil allesammen gerne have en sund planet nu og i fremtiden. Google giver dig nogle simple tip til, hvordan vi mennesker og planeten kan leve godt sammen."
+		"message": "Vi vil allesammen gerne have en sund planet nu og i fremtiden. Google giver dig nogle simple tips til, hvordan vi mennesker og planeten kan leve godt sammen."
 	},
 	"familyguide_doublecard_card01_title": {
 		"message": "Din plan, din planet"
@@ -855,7 +855,7 @@
 		"message": "familietid"
 	},
 	"familyguide_nav_link_05": {
-		"message": "tip og tricks"
+		"message": "tips og tricks"
 	},
 	"familyguide_nav_link_06": {
 		"message": "mere"
@@ -909,7 +909,7 @@
 		"message": "Giv en gif"
 	},
 	"familyguide_tips_title": {
-		"message": "Tip og tricks"
+		"message": "Tips og tricks"
 	},
 	"familyguide_title": {
 		"message": "Julehygge for hele familien"
@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Snekasse"
 	},
+	"scene_snowdodgeball": {
+		"message": "Snedodgeball"
+	},
 	"scene_snowflake": {
 		"message": "Lav et snefnug med kode"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Venter på flere af julemandens nisser"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Klik på en alf for at undgå snebolde"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Klik for at kaste snebolde"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Du tabte kampen"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Du vandt kampen!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Nøjagtighed"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Antal gange, du blev ramt"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Snebolde kastet"
 	},
 	"snowflake_choose_background": {
 		"message": "Vælg en baggrund"

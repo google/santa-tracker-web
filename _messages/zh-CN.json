@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "雪盒"
 	},
+	"scene_snowdodgeball": {
+		"message": "躲雪球"
+	},
 	"scene_snowflake": {
 		"message": "使用编码设计雪花"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "正在等待更多圣诞老人的精灵加入"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "点击精灵即可躲避雪球"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "点击即可投掷雪球"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "比赛输了"
+	},
+	"snowdodgeball_match_won": {
+		"message": "比赛获胜！"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "准确率"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "被击中的次数"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "丢出的雪球数"
 	},
 	"snowflake_choose_background": {
 		"message": "选择背景"

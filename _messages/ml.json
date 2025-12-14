@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "സ്നോ‌ബോക്സ്"
 	},
+	"scene_snowdodgeball": {
+		"message": "സ്നോ ഡോഡ്ജ്ബോൾ"
+	},
 	"scene_snowflake": {
 		"message": "കോഡ് എ സ്നോഫ്ലെയ്ക്ക്"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "കൂടുതൽ സാന്തയുടെ കുട്ടിച്ചാത്തൻമാർക്കായി കാത്തിരിക്കുന്നു"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "സ്നോബോളുകൾ ഡോഡ്ജ് ചെയ്യാൻ എൽഫിൽ ക്ലിക്ക് ചെയ്യുക"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "സ്നോബോളുകൾ ത്രോ ചെയ്യാൻ ക്ലിക്ക് ചെയ്യുക"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "മത്സരം തോറ്റു"
+	},
+	"snowdodgeball_match_won": {
+		"message": "മത്സരം ജയിച്ചു!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "കൃത്യത"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "ലഭിച്ച ഹിറ്റുകൾ"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "ത്രോ ചെയ്ത സ്നോബോളുകൾ"
 	},
 	"snowflake_choose_background": {
 		"message": "ഒരു ബാക്ക്‌ഡ്രോപ്പ് തിരഞ്ഞെടുക്കുക"

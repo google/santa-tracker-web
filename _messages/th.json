@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "สโนว์บ็อก"
 	},
+	"scene_snowdodgeball": {
+		"message": "Snow Dodgeball"
+	},
 	"scene_snowflake": {
 		"message": "สร้างเกล็ดหิมะ"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "กำลังรอเอลฟ์ของซานต้าตนอื่น"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "คลิกที่เอลฟ์เพื่อหลบลูกบอลหิมะ"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "คลิกเพื่อปาลูกบอลหิมะ"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "แพ้การแข่งขัน"
+	},
+	"snowdodgeball_match_won": {
+		"message": "ชนะการแข่งขัน"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "ความแม่นยำ"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "ถูกปา"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "จำนวนครั้งที่ปาลูกบอลหิมะ"
 	},
 	"snowflake_choose_background": {
 		"message": "เลือกฉากหลัง"

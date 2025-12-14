@@ -867,7 +867,7 @@
 		"message": "Op 24 Desember verander Santa se dorpie in 'n spoorsny-ervaring waar jy Kersvader en sy rendiere kan volg terwyl hulle presente vir kinders regoor die wêreld aflewer."
 	},
 	"familyguide_secondary_cta_01": {
-		"message": "Volg op die Waar is Kersvader-webwerf of -Android-program"
+		"message": "Volg op die Waar is Kersvader-webwerf of -Android-app"
 	},
 	"familyguide_secondary_cta_02": {
 		"message": "Psst! Het jy geweet Kersvader se reis duur 25 uur? Hy maak sy eerste stop net ná 22:00 plaaslike tyd in verre oostelike Rusland wanneer dit 05:00 in New York en 11:00 in Parys is."
@@ -885,10 +885,10 @@
 		"message": "\"Ok Google, wat's nuus by die Noordpool?\""
 	},
 	"familyguide_tips_tip02_body": {
-		"message": "Laai die Waar is Kersvader-program vir Android by die Play Winkel af. Daar's 'n eksklusiewe dorpietoneel met speletjies wat jy net in die program sal kry."
+		"message": "Laai die Waar is Kersvader-app vir Android by die Play Winkel af. Daar's 'n eksklusiewe dorpietoneel met speletjies wat jy net in die app sal kry."
 	},
 	"familyguide_tips_tip02_title": {
-		"message": "Android-program"
+		"message": "Android-app"
 	},
 	"familyguide_tips_tip03_body": {
 		"message": "Volg Kersvader op jou pols met Android Wear-integrasie."
@@ -1107,7 +1107,7 @@
 		"message": "Skakel aan"
 	},
 	"lightdescription": {
-		"message": "Verhelder jou TV met die Waar is Kersvader-program vir Android en Chromecast."
+		"message": "Verhelder jou TV met die Waar is Kersvader-app vir Android en Chromecast."
 	},
 	"lk_country_name": {
 		"message": "Sri Lanka"
@@ -1413,7 +1413,7 @@
 		"message": "Speel weer"
 	},
 	"playdescription": {
-		"message": "Speel saam met vriende in Waar is Kersvader se Android-program."
+		"message": "Speel saam met vriende in Waar is Kersvader se Android-app."
 	},
 	"playextra": {
 		"message": "Speel ekstra vlakke"
@@ -1503,7 +1503,7 @@
 		"message": "'n Nuwe manier om Kersvader te volg:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Gaan kyk na die Gboard-feestydplakkers wat beskikbaar is op \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e en ons \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-program\u003c/a\u003e indien jy na meer feestydvreugde smag. En geniet 'n bietjie literêre pret deur vir die Google Assistent te sê \"Vertel my 'n feestydstorie\" en \"Waar's Kersvader?\""
+		"message": "Gaan kyk na die Gboard-feestydplakkers wat beskikbaar is op \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e en ons \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-app\u003c/a\u003e indien jy na meer feestydvreugde smag. En geniet 'n bietjie literêre pret deur vir die Google Assistent te sê \"Vertel my 'n feestydstorie\" en \"Waar's Kersvader?\""
 	},
 	"press-whatsnew4-title": {
 		"message": "Nog feestydpret:"
@@ -1668,7 +1668,7 @@
 		"message": "Sneeubal-hardloop"
 	},
 	"scene_app": {
-		"message": "Android-program"
+		"message": "Android-app"
 	},
 	"scene_blimp": {
 		"message": "Herlaai presente"
@@ -1807,6 +1807,9 @@
 	},
 	"scene_snowbox": {
 		"message": "Sneeuput"
+	},
+	"scene_snowdodgeball": {
+		"message": "Snow Dodgeball"
 	},
 	"scene_snowflake": {
 		"message": "Kodeer 'n sneeuvlokkie"
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Wag tans vir nog Santa se elwe"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Klik op ’n elf om sneeuballe te ontduik"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Klik om sneeuballe te gooi"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Wedstryd verloor"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Wedstryd gewen!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Akkuraatheid"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Kere getref"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Sneeuballe gegooi"
 	},
 	"snowflake_choose_background": {
 		"message": "Kies 'n agtergrond"
@@ -7269,7 +7293,7 @@
 		"message": "Verken, speel en leer die hele Desember saam met Kersvader se elwe"
 	},
 	"village_get_the_app": {
-		"message": "Kry die Santa Tracker-program vir Android"
+		"message": "Kry die Santa Tracker-app vir Android"
 	},
 	"village_more": {
 		"message": "Meer maniere om te verken"

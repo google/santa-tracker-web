@@ -819,7 +819,7 @@
 		"message": "Mai multe de la Google"
 	},
 	"familyguide_group_01_body": {
-		"message": "Elfii își îmbunătățesc constant aptitudinile de codificare. Explorați jocurile care vă vor învăța noțiunile de bază. Orice poate încerca să codeze!"
+		"message": "Elfii își îmbunătățesc constant aptitudinile de codificare. Explorează jocurile care te vor învăța noțiunile de bază. Oricine poate încerca să codeze!"
 	},
 	"familyguide_group_01_title": {
 		"message": "Învățați să codificați cu elfii lui Moș Crăciun"
@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Forme de zăpadă"
 	},
+	"scene_snowdodgeball": {
+		"message": "Snow Dodgeball"
+	},
 	"scene_snowflake": {
 		"message": "Scrie codul unui fulg de zăpadă"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Se așteaptă mai mulți elfi ai lui Moș Crăciun"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Dați clic pe un elf pentru a evita bulgării de zăpadă"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Dați clic pentru a arunca bulgări de zăpadă"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Meci pierdut"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Meci câștigat!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Acuratețe"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Lovituri încasate de echipă"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Bulgări de zăpadă aruncați"
 	},
 	"snowflake_choose_background": {
 		"message": "Alege un fundal"

@@ -1188,7 +1188,7 @@
 		"message": "Novo"
 	},
 	"next": {
-		"message": "Próxima"
+		"message": "Avançar"
 	},
 	"next_game": {
 		"message": "Próximo jogo"
@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Caixa de neve"
 	},
+	"scene_snowdodgeball": {
+		"message": "Queimada na neve"
+	},
 	"scene_snowflake": {
 		"message": "Crie um floco de neve"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Esperando mais duendes do Papai Noel"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Clique em um elfo para desviar das bolas de neve"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Clique para jogar bolas de neve"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Não foi dessa vez"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Você ganhou!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Precisão"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Boladas tomadas"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Bolas de neve lançadas"
 	},
 	"snowflake_choose_background": {
 		"message": "Escolha um cenário"

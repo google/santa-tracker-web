@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Sniegakaste"
 	},
+	"scene_snowdodgeball": {
+		"message": "Sniega piku kaujas"
+	},
 	"scene_snowflake": {
 		"message": "Sniegpārsliņas izveide ar kodu"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Notiek citu Ziemassvētku vecīša rūķīšu gaidīšana"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Noklikšķiniet uz elfa, lai izvairītos no sniega pikām."
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Noklikšķiniet, lai mestu sniega pikas."
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Spēle zaudēta"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Spēle uzvarēta!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Precizitāte"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Saņemtie trāpījumi"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Aizmestās sniega pikas"
 	},
 	"snowflake_choose_background": {
 		"message": "Izvēlieties fonu"
@@ -4068,7 +4092,7 @@
 		"message": "Atēnas"
 	},
 	"trivia_beginner_041_answer1": {
-		"message": "Kijeva"
+		"message": "Kijiva"
 	},
 	"trivia_beginner_041_answer2": {
 		"message": "Lima"
@@ -5439,7 +5463,7 @@
 		"message": "Berlīne"
 	},
 	"trivia_hard_058_answer2": {
-		"message": "Kijeva"
+		"message": "Kijiva"
 	},
 	"trivia_hard_059": {
 		"message": "Nosauciet Kostarikas lielāko pilsētu — nozīmīgu Panamerikas lielceļa pieturvietu."

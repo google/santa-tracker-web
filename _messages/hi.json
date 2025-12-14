@@ -1062,7 +1062,7 @@
 		"message": "इटली"
 	},
 	"it_language_name": {
-		"message": "इतालवी"
+		"message": "इटैलियन"
 	},
 	"ja_language_name": {
 		"message": "जापानी"
@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "स्नोबॉक्स"
 	},
+	"scene_snowdodgeball": {
+		"message": "स्नो डॉजबॉल"
+	},
 	"scene_snowflake": {
 		"message": "कोड करके अपना स्नोफ़्लेक बनाएं"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "सैंटा के और छोटे जादूगरों का इंतज़ार है"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "स्नोबॉल से बचने के लिए, एल्फ़ पर क्लिक करें"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "स्नोबॉल फेंकने के लिए क्लिक करें"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "आपकी टीम हार गई"
+	},
+	"snowdodgeball_match_won": {
+		"message": "आपकी टीम जीत गई!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "सफलता का प्रतिशत"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "आपकी टीम को लगी कुल स्नोबॉल"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "फेंके गए स्नोबॉल"
 	},
 	"snowflake_choose_background": {
 		"message": "बैकग्राउंड चुनें"
@@ -2220,7 +2244,7 @@
 		"message": "केक"
 	},
 	"speedsketch_item~calculator": {
-		"message": "कैल्क्युलेटर"
+		"message": "कैलकुलेटर"
 	},
 	"speedsketch_item~calendar": {
 		"message": "कैलेंडर"

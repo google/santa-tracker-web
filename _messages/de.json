@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Schneebox"
 	},
+	"scene_snowdodgeball": {
+		"message": "Schneeball-Spiel"
+	},
 	"scene_snowflake": {
 		"message": "Schneeflockencode"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Wir warten auf weitere Wichtel, die mitspielen"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Klicke auf einen Wichtel, um Schneebällen auszuweichen"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Klicke, um Schneebälle zu werfen"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Spiel verloren"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Spiel gewonnen!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Genauigkeit"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Eingesteckte Treffer"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Geworfene Schneebälle"
 	},
 	"snowflake_choose_background": {
 		"message": "Such einen Hintergrund aus"

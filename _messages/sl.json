@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Snegovnik"
 	},
+	"scene_snowdodgeball": {
+		"message": "Med dvema ognjema na snegu"
+	},
 	"scene_snowflake": {
 		"message": "Kodiranje snežinke"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Čakanje na več Božičkovih palčkov"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Kliknite škrata, da se izognete snežnim kepam"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Kliknite, če želite metati snežne kepe"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Poraženi ste"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Zmagali ste!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Natančnost"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Prejeti zadetki"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Vržene kepe"
 	},
 	"snowflake_choose_background": {
 		"message": "Izberite ozadje"

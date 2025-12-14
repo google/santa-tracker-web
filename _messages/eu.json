@@ -585,7 +585,7 @@
 		"message": "Kuba"
 	},
 	"cz_country_name": {
-		"message": "Txekiar Errepublika"
+		"message": "Txekiako Errepublika"
 	},
 	"da_language_name": {
 		"message": "Daniera"
@@ -885,7 +885,7 @@
 		"message": "\"Hey Google, zer berri Ipar Poloan?\""
 	},
 	"familyguide_tips_tip02_body": {
-		"message": "Deskargatu Android-erako Bizarzuriren lorratzak aplikazioa Play Store-n. Herrixkaren eszena esklusibo bat aurkituko duzu, aplikazioan bakarrik erabilgarri dauden jokoekin."
+		"message": "Deskargatu Android-erako Bizarzuriren lorratzak aplikazioa Google Play Store-n. Herrixkaren eszena esklusibo bat aurkituko duzu, aplikazioan bakarrik erabilgarri dauden jokoekin."
 	},
 	"familyguide_tips_tip02_title": {
 		"message": "Android-erako aplikazioa"
@@ -897,7 +897,7 @@
 		"message": "Android Wear"
 	},
 	"familyguide_tips_tip04_body": {
-		"message": "Bilatu Bizarzuri (\"Santa\") Google-n, Bizarzuri hiru dimentsiotan ikusteko. Errealitate areagotuan ikusi ahalko duzu iPhone gehienetan eta Android-eko gailu berrienetan, kamerari agur egiten."
+		"message": "Bilatu Bizarzuri (\"Santa\") Google-n, Bizarzuri hiru dimentsiotan ikusteko. EAn ikusi ahalko duzu iPhone gehienetan eta Android-eko gailu berrienetan, kamerari agur egiten."
 	},
 	"familyguide_tips_tip04_title": {
 		"message": "Ekarri Bizarzuri zure egongelara"
@@ -1440,7 +1440,7 @@
 		"message": "Bizarzuriren herrixkan jaietako jarduera dibertigarrien, hezitzaileen eta interaktiboen hamabosgarren urteurrena ospatzen ari dira. Bizarzuriren emazteak zuzenduta, iratxoek herria eraberritu dute eta itxura dotore eta polita eman diote, eduki berri-berri eta guzti. Gainera, txokolate beroarekin funtzionatzen duen berotze-sistema berri bati esker, aurrerantzean ez da beharrezkoa izango abendua bukatzera arte itxarotea herria urtzen ikusteko: abenduaren 4an egongo dira erabilgarri 24 jarduerak. Orain, iratxoek (eta zuk zeuk) denbora gehiago daukate Bizarzuriren herrixkan zehar ibiltzeko eta bertan jolasteko."
 	},
 	"press-about-village2": {
-		"message": "Herrixkan, oinarrizko programazio-gaitasunak praktikatu, artelanak sortu, geografian trebatu eta \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e, \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e eta antzeko karitatezko erakundeei buruzko informazio gehiago lor dezakezu. Irakasleek bideo-gidak dituzten \u003ca href=\"./educators.html\"\u003eikasgai-planak deskarga ditzakete\u003c/a\u003e ikasleei oinarrizko programazio-gaitasunak nahiz jaietako tradizioak irakasteko, ingelesez, gaztelaniaz, frantsesez, japonieraz eta koreeraz."
+		"message": "Herrixkan, oinarrizko programazio-gaitasunak praktikatu, artelanak sortu, geografian trebatu eta \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e, \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e eta antzeko karitatezko erakundeei buruzko informazio gehiago lor dezakezu. Irakasleek bideogidak dituzten \u003ca href=\"./educators.html\"\u003eikasgai-planak deskarga ditzakete\u003c/a\u003e ikasleei oinarrizko programazio-gaitasunak nahiz jaietako tradizioak irakasteko, ingelesez, gaztelaniaz, frantsesez, japonieraz eta koreeraz."
 	},
 	"press-asset-animation": {
 		"message": "Animazioa"
@@ -1461,7 +1461,7 @@
 		"message": "Heziketa-abenturak"
 	},
 	"press-edu1": {
-		"message": "\u003ca href=\"./educators.html\"\u003eHezitzaileentzako baliabide-orria\u003c/a\u003e zabaldu dugu irakasleei bideo-gidak eskaintzeko, ikasketa-planekin batera erabil ditzaten. Orain, bost hizkuntzatan daude erabilgarri. Gogoko dituzun jokoak bertan daude oraindik, eta programazioaren zein mundu osoko jaietako tradizioen oinarrizko kontzeptuak aurkezten dira. Google-ren Bizarzuriren lorratzak eginbideari esker, aurtengo jaietan gauza mordoa ikasiko dute txikitxoek. Joan \u003ca href=\"./educators.html\"\u003egure joko hezigarrietara\u003c/a\u003e informazio gehiago lortzeko."
+		"message": "\u003ca href=\"./educators.html\"\u003eHezitzaileentzako baliabide-orria\u003c/a\u003e zabaldu dugu hezitzaileei bideogidak eskaintzeko, ikasketa-planekin batera erabil ditzaten. Orain, bost hizkuntzatan daude erabilgarri. Gogoko dituzun jokoak bertan daude oraindik, eta programazioaren zein mundu osoko jaietako tradizioen oinarrizko kontzeptuak aurkezten dira. Google-ren Bizarzuriren lorratzak eginbideari esker, aurtengo jaietan gauza mordoa ikasiko dute txikitxoek. Joan \u003ca href=\"./educators.html\"\u003egure joko hezigarrietara\u003c/a\u003e informazio gehiago lortzeko."
 	},
 	"press-games-title": {
 		"message": "Dibertsio eta joko guztiak"
@@ -1794,7 +1794,7 @@
 		"message": "Non dago Bizarzuri?"
 	},
 	"scene_santaselfie": {
-		"message": "Bizarzuriren autoargazkia"
+		"message": "Bizarzuriren selfiea"
 	},
 	"scene_seasonofcaring": {
 		"message": "Laguntzeko garaia"
@@ -1807,6 +1807,9 @@
 	},
 	"scene_snowbox": {
 		"message": "Elurretako proben eremua"
+	},
+	"scene_snowdodgeball": {
+		"message": "Elurrezko zelai errea"
 	},
 	"scene_snowflake": {
 		"message": "Programatu elur-maluta bat"
@@ -1875,7 +1878,7 @@
 		"message": "Satelitea"
 	},
 	"scene_videoscene_selfies": {
-		"message": "Bizarzuriren autoargazkiak"
+		"message": "Bizarzuriren selfieak"
 	},
 	"scene_videoscene_slackingoff": {
 		"message": "Alferkerian"
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Bizarzuriren iratxo gehiagoren zain"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Egin klik iratxo batean elur-bolak saihesteko"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Egin klik elur-bolak jaurtitzeko"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Galdu duzu partida"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Irabazi duzu partida!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Zehaztasuna"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Jasotako kolpeak"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Jaurtitako elur-bolak"
 	},
 	"snowflake_choose_background": {
 		"message": "Aukeratu atzeko planoa"
@@ -4881,7 +4905,7 @@
 		"message": "Zein herrialde ez dago Balkanetako penintsulan?"
 	},
 	"trivia_hard_012_answer0": {
-		"message": "Txekiar Errepublika"
+		"message": "Txekiako Errepublika"
 	},
 	"trivia_hard_012_answer1": {
 		"message": "Bulgaria"
@@ -5079,7 +5103,7 @@
 		"message": "Israel"
 	},
 	"trivia_hard_028_answer2": {
-		"message": "Bahrein"
+		"message": "Bahrain"
 	},
 	"trivia_hard_029": {
 		"message": "Zein herrialdek hartzen du longitude-gradu kopuru handiena?"
@@ -6294,7 +6318,7 @@
 		"message": "Kinshasa"
 	},
 	"trivia_medium_025": {
-		"message": "Zein da Txekiar Errepublikako hiririk handiena, Vltava ibaian kokatutako hiriburua dena?"
+		"message": "Zein da Txekiako Errepublikako hiririk handiena, Vltava ibaian kokatutako hiriburua dena?"
 	},
 	"trivia_medium_025_answer0": {
 		"message": "Praga"
