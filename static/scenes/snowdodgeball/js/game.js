@@ -9,6 +9,7 @@ import {
 } from './constants.js';
 import { LevelManager } from './level-manager.js';
 import { Stats } from './stats.js';
+import isTouchDevice from '../../snowbox/js/utils/isTouchDevice.js';
 
 export class Game {
   constructor(canvas, api, prepareAnimation) {
@@ -64,7 +65,7 @@ export class Game {
     this.scale = 1;
     this.paddingTop = Arena.PADDING_TOP;
     this.paddingLeft = Arena.PADDING_LEFT_PERCENTAGE;
-    this.isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    this.isTouchDevice = isTouchDevice();
 
     // Update padding for touch devices
     if (this.isTouchDevice) {
