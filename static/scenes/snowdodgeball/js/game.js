@@ -603,8 +603,9 @@ export class Game {
 
     const arena = document.getElementById('arena');
     const rect = arena.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    // Adjust click coordinates for difference screen sizes.
+    const x = (e.clientX - rect.left) / this.scale;
+    const y = (e.clientY - rect.top) / this.scale;
 
     const arenaCenterY = this.arenaHeight / 2;
     const arenaBounds = { x: 0, y: 0, width: this.arenaWidth, height: this.arenaHeight };
