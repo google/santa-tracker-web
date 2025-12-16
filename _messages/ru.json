@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Строим из снега"
 	},
+	"scene_snowdodgeball": {
+		"message": "Игра в снежки"
+	},
 	"scene_snowflake": {
 		"message": "Создай снежинку из кода"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Ждем остальных эльфов Санты."
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Жмите на эльфа, чтобы уворачиваться от снежков."
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Жмите, чтобы бросать снежки."
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Поражение"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Победа!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Точность"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Попаданий по эльфу"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Снежков брошено"
 	},
 	"snowflake_choose_background": {
 		"message": "Выберите фон"

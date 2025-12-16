@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Снежно творчество"
 	},
+	"scene_snowdodgeball": {
+		"message": "Народна топка в снега"
+	},
 	"scene_snowflake": {
 		"message": "Кодиране на снежинка"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Изчакват се още джуджета"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Кликнете върху елф, за да избегнете снежните топки"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Кликнете, за да хвърлите снежни топки"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Загубена игра"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Спечелихте играта!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Точност"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Приети удари"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Хвърлени снежни топки"
 	},
 	"snowflake_choose_background": {
 		"message": "Изберете фон"

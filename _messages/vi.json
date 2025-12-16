@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Hộp tuyết"
 	},
+	"scene_snowdodgeball": {
+		"message": "Bóng né tuyết"
+	},
 	"scene_snowflake": {
 		"message": "Viết mã cho bông tuyết"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Đang chờ thêm chú lùn của ông già Noel tham gia"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Nhấp vào yêu tinh để né bóng tuyết"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Nhấp để ném bóng tuyết"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Thua trận"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Thắng trận!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Độ chính xác"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Số lần bị ném trúng"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Số bóng tuyết đã ném"
 	},
 	"snowflake_choose_background": {
 		"message": "Chọn phông nền"

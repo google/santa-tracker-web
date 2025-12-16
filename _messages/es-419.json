@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Juego libre en la nieve"
 	},
+	"scene_snowdodgeball": {
+		"message": "Dodgeball en la nieve"
+	},
 	"scene_snowflake": {
 		"message": "Codifica un copo de nieve"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Esperando a más duendes de Santa"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Haz clic en un elfo para esquivar las bolas de nieve"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Haz clic para lanzar bolas de nieve"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Perdiste la partida"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Ganaste la partida"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Precisión"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Golpes recibidos"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Bolas de nieve arrojadas"
 	},
 	"snowflake_choose_background": {
 		"message": "Elige un fondo"
@@ -6375,7 +6399,7 @@
 		"message": "Níger"
 	},
 	"trivia_medium_031_answer2": {
-		"message": "Suazilandia"
+		"message": "Esuatini"
 	},
 	"trivia_medium_032": {
 		"message": "El estrecho de Skagerrak, ¿separa a Dinamarca de qué país?"

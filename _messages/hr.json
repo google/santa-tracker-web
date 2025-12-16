@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Snježna radionica"
 	},
+	"scene_snowdodgeball": {
+		"message": "Dodgeball na snijegu"
+	},
 	"scene_snowflake": {
 		"message": "Izrada pahuljice pomoću koda"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Čekamo još Djedovih vilenjaka"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Kliknite vilenjaka da biste izbjegli grude"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Kliknite da biste bacili grude"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Izgubili ste igru"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Pobijedili ste u igri!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Točnost"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Broj primljenih gruda"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Broj bačenih gruda"
 	},
 	"snowflake_choose_background": {
 		"message": "Odaberi pozadinu"

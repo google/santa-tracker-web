@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Zona de proves nevada"
 	},
+	"scene_snowdodgeball": {
+		"message": "Guerra de boles de neu"
+	},
 	"scene_snowflake": {
 		"message": "Crea un floc de neu amb codi"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Estàs esperant que arribin més elfs del Pare Noel"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Fes clic en un follet per esquivar les boles de neu"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Fes clic per llançar boles de neu"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Partida perduda"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Has guanyat la partida!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Precisió"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Cops rebuts"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Boles de neu llançades"
 	},
 	"snowflake_choose_background": {
 		"message": "Tria un fons"
@@ -3870,7 +3894,7 @@
 		"message": "Arizona"
 	},
 	"trivia_beginner_025": {
-		"message": "Quin estat dels EUA hauríeu de visitar per travessar en cotxe el pont de la badia de Chesapeake i caminar pel passeig marítim a Ocean City?"
+		"message": "Quin estat dels EUA hauríeu de visitar per travessar amb cotxe el pont de la badia de Chesapeake i caminar pel passeig marítim a Ocean City?"
 	},
 	"trivia_beginner_025_answer0": {
 		"message": "Maryland"

@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Snežné stavenisko"
 	},
+	"scene_snowdodgeball": {
+		"message": "Snežná vybíjaná"
+	},
 	"scene_snowflake": {
 		"message": "Kódovanie snehovej vločky"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Čaká sa na ďalších Santových škriatkov"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Kliknutím na elfa sa vyhýbate snehovým guľám"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Kliknutím hádžete snehové gule"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Zápas ste prehrali"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Zápas ste vyhrali!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Presnosť"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Prijaté zásahy"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Hodené snehové gule"
 	},
 	"snowflake_choose_background": {
 		"message": "Vyberte pozadie"

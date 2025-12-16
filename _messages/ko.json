@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "스노우 블록 꾸미기"
 	},
+	"scene_snowdodgeball": {
+		"message": "눈덩이 피하기"
+	},
 	"scene_snowflake": {
 		"message": "눈송이 코드"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "산타의 엘프 친구들을 기다리는 중"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "눈덩이를 피하려면 엘프를 클릭하세요."
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "클릭하여 눈덩이를 던지세요."
+	},
+	"snowdodgeball_match_lost": {
+		"message": "경기 패배"
+	},
+	"snowdodgeball_match_won": {
+		"message": "경기 승리!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "정확성"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "받은 타격"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "던진 눈덩이 수"
 	},
 	"snowflake_choose_background": {
 		"message": "배경을 선택하세요."
@@ -3480,7 +3504,7 @@
 		"message": "터키"
 	},
 	"tr_language_name": {
-		"message": "터키어"
+		"message": "튀르키예어"
 	},
 	"tracker-game_awesome": {
 		"message": "보물의 탑 게임 시작하기"

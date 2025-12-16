@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Bac à neige"
 	},
+	"scene_snowdodgeball": {
+		"message": "Ballon-chasseur dans la neige"
+	},
 	"scene_snowflake": {
 		"message": "Coder un flocon de neige"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "En attente d'autres lutins du père Noël"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Cliquez sur un lutin pour esquiver les boules de neige"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Cliquez pour lancer des boules de neige"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Match perdu"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Match gagné!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Précision"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Boules de neige reçues"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Boules de neige lancées"
 	},
 	"snowflake_choose_background": {
 		"message": "Sélectionnez un arrière-plan"

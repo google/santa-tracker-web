@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Ліпимо зі снігу"
 	},
+	"scene_snowdodgeball": {
+		"message": "Гра в сніжки"
+	},
 	"scene_snowflake": {
 		"message": "Створи сніжинку"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Чекаємо на інших ельфів Санти"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Натискайте ельфа, щоб ухилятися від сніжок"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Натискайте, щоб кидати сніжки"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Ви програли"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Ви виграли!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Влучність"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Влучань у вас"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Кинутих сніжок"
 	},
 	"snowflake_choose_background": {
 		"message": "Виберіть фон"

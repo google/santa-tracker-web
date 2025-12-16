@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Śnieżne klocki"
 	},
+	"scene_snowdodgeball": {
+		"message": "Snow Dodgeball"
+	},
 	"scene_snowflake": {
 		"message": "Zakoduj śnieżynkę"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Czekamy na więcej elfów"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Kliknij elfa, aby zrobić unik przed śnieżkami"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Kliknij, aby rzucać śnieżkami"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Mecz przegrany"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Mecz wygrany"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Dokładność"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Trafienia"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Rzucone śnieżki"
 	},
 	"snowflake_choose_background": {
 		"message": "Wybierz tło"

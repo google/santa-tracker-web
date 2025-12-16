@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Snowbox"
 	},
+	"scene_snowdodgeball": {
+		"message": "ஸ்னோ டாட்ஜ்பால்"
+	},
 	"scene_snowflake": {
 		"message": "ஸ்னோஃப்ளேக் கோடிங்"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "சான்டாவின் பிற குட்டித் தேவதைகள் இணைவதற்காகக் காத்திருக்கின்றன"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "பனிப்பந்துகளைத் தவிர்க்க எல்ஃபைக் கிளிக் செய்யவும்"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "பனிப்பந்துகளை வீச கிளிக் செய்யவும்"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "போட்டியில் தோல்வி"
+	},
+	"snowdodgeball_match_won": {
+		"message": "போட்டியில் வெற்றி!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "துல்லியம்"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "ஹிட்களின் எண்ணிக்கை"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "வீசப்பட்ட பனிப்பந்துகள்"
 	},
 	"snowflake_choose_background": {
 		"message": "பின்னணியைத் தேர்வுசெய்யவும்"

@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Sniego dėžė"
 	},
+	"scene_snowdodgeball": {
+		"message": "Snow Dodgeball"
+	},
 	"scene_snowflake": {
 		"message": "Sugeneruokite snaigės kodą"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Laukiama daugiau Kalėdų Senelio elfų"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Spustelėkite elfą, kad išvengtumėte sniego gniūžčių"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Spustelėkite, kad mestumėte sniego gniūžtes"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Rungtynės pralaimėtos"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Rungtynės laimėtos!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Tikslumas"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Pataikymai"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Mestos sniego gniūžtės"
 	},
 	"snowflake_choose_background": {
 		"message": "Pasirinkite foną"

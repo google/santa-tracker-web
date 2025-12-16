@@ -3,7 +3,7 @@
 		"message": "En Noiteboa, teremos o honor de presentar o panel de control de Papá Noel, a tecnoloxía que impulsa a súa zorra durante a súa viaxe por todo o mundo. Recibimos esta vista previa tan especial dun dos moitos elfos programadores de Papá Noel, que traballan duro no Polo Norte para axudarlle a prepararse para o gran día. O panel de control de Papá Noel, que inclúe a tecnoloxía máis recente e innovadora de Google Maps, permitirá seguir a súa viaxe polo mundo e coñecer un pouco os sitios que visite."
 	},
 	"about-content-three": {
-		"message": "Google creou e desenvolveu Sigue a Papá Noel de Google Maps cun pouco de axuda dos elfos de Papá Noel. Necesitas axuda ou tes algunha outra pregunta? Visita o noso \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de Axuda\u003c/a\u003e."
+		"message": "Google creou e desenvolveu Sigue a Papá Noel de Google Maps cun pouco de axuda dos elfos de Papá Noel. Necesitas axuda ou tes algunha outra pregunta? Visita o noso \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de axuda\u003c/a\u003e."
 	},
 	"about-content-two": {
 		"message": "Os nosos amigos, os elfos, invitáronte a visitar a aldea de Papá Noel mentres el se prepara para a viaxe. Pasa e explora a aldea; quizais encontres actividades divertidas e coñezas elfos moi interesantes."
@@ -1344,7 +1344,7 @@
 		"message": "Nova Zelandia"
 	},
 	"nz_tradition": {
-		"message": "Como o Nadal é no verán en Nova Zelandia, os amigos e familiares reúnense arredor dunha grellada. As comidas típicas de Nadal son o cordeiro asado, ás veces cociñado nun hangi (un buraco ou forno baixo a terra). A sobremesa favorita é pavlova, un merengue cuberto de froita fresca, como amorodos ou kiwi."
+		"message": "Como o Nadal é no verán en Nova Zelandia, os amigos e familiares reúnense arredor dunha grellada. As comidas típicas de Nadal son o cordeiro asado, ás veces cociñado nun hangi (un burato ou forno baixo a terra). A sobremesa favorita é pavlova, un merengue cuberto de froita fresca, como amorodos ou kiwi."
 	},
 	"offline": {
 		"message": "Sen conexión"
@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Zona de probas nevada"
 	},
+	"scene_snowdodgeball": {
+		"message": "Brilé na neve"
+	},
 	"scene_snowflake": {
 		"message": "Codifica unha folerpa"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Agardando por máis elfos de Papá Noel"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Fai clic nun elfo para esquivar as bólas de neve"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Fai clic para lanzar bólas de neve"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Perdiches"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Gañaches!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Precisión"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Golpes recibidos"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Bólas de neve lanzadas"
 	},
 	"snowflake_choose_background": {
 		"message": "Selecciona un fondo de pantalla"
@@ -5274,7 +5298,7 @@
 		"message": "Río Indo"
 	},
 	"trivia_hard_045": {
-		"message": "Que pico está más preto do ecuador?"
+		"message": "Que pico está máis preto do ecuador?"
 	},
 	"trivia_hard_045_answer0": {
 		"message": "Kilimanjaro"

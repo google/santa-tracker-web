@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "雪箱"
 	},
+	"scene_snowdodgeball": {
+		"message": "雪球躲避球"
+	},
 	"scene_snowflake": {
 		"message": "使用程式碼設計雪花"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "等待其他聖誕精靈加入中"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "輕點小精靈來閃躲雪球"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "輕點任一處即可丟雪球"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "你輸了"
+	},
+	"snowdodgeball_match_won": {
+		"message": "你贏了！"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "準確率"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "被雪球擊中次數"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "丟出雪球數"
 	},
 	"snowflake_choose_background": {
 		"message": "選擇背景圖片"

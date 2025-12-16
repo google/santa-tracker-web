@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Snowbox"
 	},
+	"scene_snowdodgeball": {
+		"message": "Snow dodgeball"
+	},
 	"scene_snowflake": {
 		"message": "Code a Snowflake"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Waiting for more of Santa's elves"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Click on an elf to dodge snowballs"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Click to throw snowballs"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Match lost"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Match won!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Accuracy"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Hits taken"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Snowballs thrown"
 	},
 	"snowflake_choose_background": {
 		"message": "Pick a backdrop"

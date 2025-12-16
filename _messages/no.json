@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Snøkasse"
 	},
+	"scene_snowdodgeball": {
+		"message": "Snødodgeball"
+	},
 	"scene_snowflake": {
 		"message": "Koding av et snøfnugg"
 	},
@@ -1972,6 +1975,27 @@
 	},
 	"snowball_waiting": {
 		"message": "Venter på flere av julenissens alver"
+	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Klikk på en alv for å unngå snøballer"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Klikk for å kaste snøballer"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Kampen er tapt"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Kampen er vunnet!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Nøyaktighet"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Antall ganger du ble truffet"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Snøballer kastet"
 	},
 	"snowflake_choose_background": {
 		"message": "Velg en bakgrunn"

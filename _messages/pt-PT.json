@@ -1071,10 +1071,10 @@
 		"message": "Jamaica"
 	},
 	"kg_country_name": {
-		"message": "Quirguizistão"
+		"message": "Quirguistão"
 	},
 	"kg_tradition": {
-		"message": "No Quirguizistão, o Ayaz Ata (Avô Gelo) chega à meia-noite na véspera de Ano Novo e deixa presentes debaixo da árvore de Ano Novo. Quando soam as doze badaladas, as famílias acendem fogo de artifício por todo o país para celebrar este bonito evento. As cidades iluminam-se de tal forma que parece ser de dia."
+		"message": "No Quirguistão, o Ayaz Ata (Avô Gelo) chega à meia-noite na véspera de Ano Novo e deixa presentes debaixo da árvore de Ano Novo. Quando soam as doze badaladas, as famílias acendem fogo de artifício por todo o país para celebrar este bonito evento. As cidades iluminam-se de tal forma que parece ser de dia."
 	},
 	"ko_language_name": {
 		"message": "Coreano"
@@ -1808,6 +1808,9 @@
 	"scene_snowbox": {
 		"message": "Caixa de neve"
 	},
+	"scene_snowdodgeball": {
+		"message": "Jogo do mata com bolas de neve"
+	},
 	"scene_snowflake": {
 		"message": "Codifique um floco de neve"
 	},
@@ -1973,6 +1976,27 @@
 	"snowball_waiting": {
 		"message": "A aguardar mais elfos do Pai Natal"
 	},
+	"snowdodgeball_instruction_dodge": {
+		"message": "Clique num elfo para desviar-se das bolas de neve"
+	},
+	"snowdodgeball_instruction_throw": {
+		"message": "Clique para atirar bolas de neve"
+	},
+	"snowdodgeball_match_lost": {
+		"message": "Partida perdida"
+	},
+	"snowdodgeball_match_won": {
+		"message": "Partida ganha!"
+	},
+	"snowdodgeball_stats_accuracy": {
+		"message": "Precisão"
+	},
+	"snowdodgeball_stats_hits": {
+		"message": "Ataques sofridos"
+	},
+	"snowdodgeball_stats_throws": {
+		"message": "Bolas de neve lançadas"
+	},
 	"snowflake_choose_background": {
 		"message": "Escolha um fundo"
 	},
@@ -2109,7 +2133,7 @@
 		"message": "beisebol"
 	},
 	"speedsketch_item~baseball bat": {
-		"message": "taco de basebol"
+		"message": "taco de beisebol"
 	},
 	"speedsketch_item~basket": {
 		"message": "cesto"
@@ -7131,7 +7155,7 @@
 		"message": "Índia"
 	},
 	"trivia_medium_094_answer2": {
-		"message": "Quirguizistão"
+		"message": "Quirguistão"
 	},
 	"trivia_medium_095": {
 		"message": "O lago Nipigon é o maior lago de que província canadiana?"
