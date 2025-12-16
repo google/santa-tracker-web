@@ -56,9 +56,9 @@ body {
 
 .start-screen__title {
   position: absolute;
-  top: 80px;
+  top: clamp(40px, 6vh, 80px);
   font-family: 'Lobster', sans-serif;
-  font-size: 80px;
+  font-size: clamp(40px, 6vw, 80px);
   font-weight: normal;
   font-style: normal;
   color: #2d8659;
@@ -75,18 +75,18 @@ body {
 
 .instructions-title {
   font-family: 'Google Sans', sans-serif;
-  font-size: 42px;
+  font-size: clamp(28px, 3.2vw, 42px);
   font-weight: normal;
   color: #2d8659;
-  margin-bottom: 30px;
+  margin-bottom: clamp(15px, 2.2vw, 30px);
 }
 
 .instruction-panels {
   display: flex;
-  gap: 20px;
+  gap: clamp(15px, 1.5vw, 20px);
   justify-content: center;
   align-items: flex-start;
-  margin-bottom: 20px;
+  margin-bottom: clamp(15px, 1.5vw, 20px);
   flex-wrap: wrap;
   max-width: 95vw;
 }
@@ -96,17 +96,17 @@ body {
   flex-direction: column;
   align-items: center;
   background: white;
-  padding: 20px;
-  border-radius: 15px;
+  padding: clamp(12px, 1.5vw, 20px);
+  border-radius: clamp(10px, 1.2vw, 15px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   flex: 1 1 auto;
-  min-width: 200px;
-  max-width: 380px;
+  min-width: min(200px, 40vw);
+  max-width: min(380px, 28vw);
 }
 
 .instruction-panel p {
   font-family: 'Google Sans', sans-serif;
-  font-size: 18px;
+  font-size: clamp(14px, 1.3vw, 18px);
   font-weight: normal;
   color: #333;
   margin: 10px 0 0 0;
@@ -115,47 +115,21 @@ body {
 
 .panel-image {
   width: 100%;
-  max-width: 350px;
+  max-width: min(350px, 26vw);
   height: auto;
-  border-radius: 10px;
+  border-radius: clamp(8px, 0.8vw, 10px);
 }
 
 /* Responsive adjustments */
-@media (max-width: 1400px) {
-  .instruction-panel {
-    max-width: 300px;
-    padding: 15px;
-  }
-
-  .panel-image {
-    max-width: 270px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .instruction-panel {
-    max-width: 250px;
-    padding: 12px;
-  }
-
-  .panel-image {
-    max-width: 220px;
-  }
-
-  .instruction-panels {
-    gap: 15px;
-  }
-}
-
 @media (max-width: 768px) {
   .instruction-panels {
     flex-direction: column;
-    gap: 15px;
+    gap: clamp(10px, 2vw, 15px);
   }
 
   .instruction-panel {
-    max-width: 400px;
-    width: 90%;
+    max-width: 85vw;
+    width: 85vw;
   }
 
   .panel-image {
@@ -165,15 +139,15 @@ body {
 
 .start-button {
   position: absolute;
-  bottom: 100px;
-  padding: 20px 60px;
+  bottom: clamp(50px, 8vh, 100px);
+  padding: clamp(15px, 1.5vw, 20px) clamp(40px, 4.5vw, 60px);
   font-family: 'Google Sans', sans-serif;
-  font-size: 32px;
+  font-size: clamp(24px, 2.4vw, 32px);
   font-weight: bold;
   color: white;
   background: #4a9d5f;
   border: none;
-  border-radius: 8px;
+  border-radius: clamp(6px, 0.6vw, 8px);
   cursor: pointer;
   box-shadow: 3px 6px 0 #2d6b3f, 8px 9px 0 rgba(0, 0, 0, 0.16);
   transform: translate(-3px, -6px);
@@ -533,12 +507,11 @@ body {
 }
 
 #arena {
-  position: relative;
+  position: absolute;
   width: 1200px;
   height: 900px;
-  max-width: 100%;
-  max-height: 100%;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transform-origin: 0 0;
   background:
     radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
     radial-gradient(circle at 60% 70%, rgba(255, 255, 255, 0.6) 1px, transparent 1px),
@@ -573,8 +546,8 @@ body {
 
 canvas {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 1200px;
+  height: 900px;
 }
 
 /* Elf styling */

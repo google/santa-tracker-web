@@ -20,7 +20,12 @@ export const Arena = {
   BORDER_WIDTH: 3,
   CENTER_LINE_COLOR: 'rgba(0, 0, 0, 0.15)',
   CENTER_LINE_WIDTH: 2,
-  OUT_OF_BOUNDS_MARGIN: 50
+  OUT_OF_BOUNDS_MARGIN: 50,
+  // Responsive scaling
+  PADDING_TOP: 60,
+  PADDING_TOP_MOBILE: 20,
+  PADDING_LEFT_PERCENTAGE: 2,
+  ZOOM_TOUCH_DEVICE: 0.15
 };
 
 // =============================================================================
