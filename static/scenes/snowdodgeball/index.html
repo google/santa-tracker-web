@@ -29,71 +29,71 @@
   <div id="module-snowdodgeball">
     <!-- Start Screen Overlay -->
     <div id="start-screen">
-      <h1 class="start-screen__title">Snow Dodgeball</h1>
+      <h1 class="start-screen__title" msgid="scene_snowdodgeball"></h1>
 
       <div class="start-screen__content">
-        <h2 class="instructions-title">Instructions</h2>
+        <h2 class="instructions-title" msgid="buildandbolt-instructions-label"></h2>
 
         <div class="instruction-panels">
           <div class="instruction-panel">
             <img src="img/click-dodge-instruction.png" alt="Click to dodge" class="panel-image">
-            <p>Click an elf to dodge snowballs</p>
+            <p msgid="snowdodgeball_instruction_dodge"></p>
           </div>
           <div class="instruction-panel">
             <img src="img/click-throw-instruction-large.jpg" alt="Throw snowball" class="panel-image">
-            <p>Click to throw snowballs</p>
+            <p msgid="snowdodgeball_instruction_throw"></p>
           </div>
         </div>
       </div>
 
-      <button id="start-button" class="start-button">START</button>
+      <button id="start-button" class="start-button" msgid="quickdraw-newround-button"></button>
     </div>
 
     <!-- Game Over Screen Overlay -->
     <div id="game-over-screen" class="hidden">
       <!-- Level Complete Screen -->
       <div id="level-complete-content" class="level-complete-content hidden">
-        <div class="level-complete__title">Score</div>
-        <div class="level-complete__message">Match Won!</div>
+        <div class="level-complete__title" msgid="score"></div>
+        <div class="level-complete__message" msgid="snowdodgeball_match_won"></div>
         <div class="level-complete__stats-box">
           <div class="stat-row">
-            <span class="stat-label">Hits Taken</span>
+            <span class="stat-label" msgid="snowdodgeball_stats_hits"></span>
             <span class="stat-value" id="stat-damage">0</span>
           </div>
           <div class="stat-row">
-            <span class="stat-label">Snowballs Thrown</span>
+            <span class="stat-label" msgid="snowdodgeball_stats_throws"></span>
             <span class="stat-value" id="stat-thrown">0</span>
           </div>
           <div class="stat-row">
-            <span class="stat-label">Accuracy</span>
+            <span class="stat-label" msgid="snowdodgeball_stats_accuracy"></span>
             <span class="stat-value" id="stat-accuracy">0%</span>
           </div>
         </div>
         <div class="level-complete__button">
-          <button id="next-level-button" class="game-button">NEXT</button>
+          <button id="next-level-button" class="game-button" msgid="next"></button>
         </div>
       </div>
 
       <!-- Game Over/Win Screen -->
       <div id="game-end-content" class="game-over-screen__content hidden">
-        <h1 id="game-over-title" class="game-over-screen__title">Match Lost</h1>
+        <h1 id="game-over-title" class="game-over-screen__title" msgid="snowdodgeball_match_lost"></h1>
         <div class="level-complete__stats-box">
           <div class="stat-row">
-            <span class="stat-label">Hits Taken</span>
+            <span class="stat-label" msgid="snowdodgeball_stats_hits"></span>
             <span class="stat-value" id="end-stat-damage">0</span>
           </div>
           <div class="stat-row">
-            <span class="stat-label">Snowballs Thrown</span>
+            <span class="stat-label" msgid="snowdodgeball_stats_throws"></span>
             <span class="stat-value" id="end-stat-thrown">0</span>
           </div>
           <div class="stat-row">
-            <span class="stat-label">Accuracy</span>
+            <span class="stat-label" msgid="snowdodgeball_stats_accuracy"></span>
             <span class="stat-value" id="end-stat-accuracy">0%</span>
           </div>
         </div>
         <div class="game-over-screen__buttons">
-          <button id="restart-button" class="game-button">PLAY AGAIN</button>
-          <button id="home-button" class="game-button">HOME</button>
+          <button id="restart-button" class="game-button" msgid="playagain"></button>
+          <button id="home-button" class="game-button" msgid="gotovillage"></button>
         </div>
       </div>
     </div>
@@ -176,6 +176,7 @@
   <script src="../_shared/js/scoreboard.js"></script>
   <script src="../_shared/js/gameover.js"></script>
   <script type="module">
+    import '../../src/magic.js';
     import api from '../../src/scene/api.js';
     import { prepareAnimation } from '../../src/deps/lottie.js';
     import { Game } from './js/game.js';
