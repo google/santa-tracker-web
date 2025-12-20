@@ -10,6 +10,7 @@ import {
 import { LevelManager } from './level-manager.js';
 import { Stats } from './stats.js';
 import isTouchDevice from '../../snowbox/js/utils/isTouchDevice.js';
+import { _msg } from '../../../src/magic.js';
 
 export class Game {
   constructor(canvas, api, prepareAnimation) {
@@ -351,7 +352,7 @@ export class Game {
       }
     } else {
       // Game Over (Loss) - Show game end screen
-      gameOverTitle.textContent = 'Match Lost';
+      gameOverTitle.textContent = _msg('snowdodgeball_match_lost');
       gameOverTitle.className = 'game-over-screen__title lose';
 
       // Update stats display for game end
