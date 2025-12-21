@@ -25,7 +25,7 @@ export const Arena = {
   PADDING_TOP: 60,
   PADDING_TOP_MOBILE: 20,
   PADDING_LEFT_PERCENTAGE: 2,
-  ZOOM_TOUCH_DEVICE: 0.15
+  ZOOM_TOUCH_DEVICE: 0
 };
 
 // =============================================================================
