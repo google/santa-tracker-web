@@ -123,13 +123,15 @@ body {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .instruction-panels {
-    flex-direction: column;
-    gap: clamp(10px, 2vw, 15px);
+    flex-direction: row;
+    gap: clamp(5px, 1.5vw, 10px);
   }
 
   .instruction-panel {
-    max-width: 85vw;
-    width: 85vw;
+    max-width: 45vw;
+    width: 45vw;
+    min-width: 0;
+    box-sizing: border-box;
   }
 
   .panel-image {
