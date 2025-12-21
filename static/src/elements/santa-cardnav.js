@@ -86,9 +86,8 @@ export class SantaCardNavElement extends LitElement {
     const available = [];
     const videos = config.videos();
 
-    const cardHtml = this.cards.map((sceneName, i) => {
-      const locked = config.lockedTo(sceneName);
-
+    // Calculate order for all cards
+    const cardsWithOrder = this.cards.map((sceneName) => {
       const isVideo = videos.indexOf(sceneName) !== -1;
 
       let order = currentOrder;
@@ -112,6 +111,15 @@ export class SantaCardNavElement extends LitElement {
         }
       }
 
+      return {sceneName, order, isVideo};
+    });
+
+    // Sort by visual order (for tab focus order)
+    cardsWithOrder.sort((a, b) => a.order - b.order);
+
+    // Render
+    const cardHtml = cardsWithOrder.map(({sceneName, order, isVideo}) => {
+      const locked = config.lockedTo(sceneName);
       const style = `transition-delay: ${0.2 + order * 0.05}s; order: ${order}`;
       return html`<santa-card style=${style} locked=${ifDefined(locked)} scene=${sceneName} .video=${isVideo} ?wide=${isVideo}></santa-card>`;
     });
