@@ -139,6 +139,32 @@ body {
   }
 }
 
+/* Right-align start button on phones in landscape (height <= iPhone Pro Max) */
+@media (max-height: 430px) {
+  .start-button {
+    right: clamp(20px, 5vw, 40px);
+    left: auto;
+  }
+}
+
+/* Extra small screens like iPhone SE in landscape */
+@media (max-height: 375px) {
+  .instruction-panel {
+    max-width: 35vw;
+    width: 35vw;
+    padding: clamp(8px, 1vw, 12px);
+  }
+
+  .panel-image {
+    max-width: 100%;
+  }
+
+  .instruction-panel p {
+    font-size: clamp(11px, 1.5vh, 14px);
+    margin: 5px 0 0 0;
+  }
+}
+
 .start-button {
   position: absolute;
   bottom: clamp(50px, 8vh, 100px);
