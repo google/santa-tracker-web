@@ -15,6 +15,7 @@
  */
 
 import {html, LitElement} from 'lit-element';
+import {ifDefined} from 'lit-html/directives/if-defined';
 import styles from './santa-chrome.css';
 import * as prefix from '../lib/prefix.js';
 import './santa-button.js';
@@ -100,7 +101,7 @@ export class SantaChromeElement extends LitElement {
 </div>
 <div id="padder">
   <header>
-    <santa-button class="menu-button" aria-label=${labelForMenu} @click=${this._onMenuClick} path=${this.showHome ? paths.home : paths.menu}></santa-button>
+    <santa-button class="menu-button" aria-label=${labelForMenu} aria-expanded=${ifDefined(this.showHome ? undefined : this.navOpen)} @click=${this._onMenuClick} path=${this.showHome ? paths.home : paths.menu}></santa-button>
     <santa-button .hidden=${isAndroid()} aria-label=${labelForAudio} color=${this.muted ? 'purple' : ''} @click=${this._onAudioClick} path=${this.muted ? paths.unmute : paths.mute}></santa-button>
     <santa-button aria-label=${labelForAction} ?disabled=${!this.action} @click=${this._onActionClick} path=${paths[this.action || this._lastAction] || ''}></santa-button>
     <div class="grow"></div>
