@@ -277,7 +277,7 @@ class ModvilTrackerStatsElement extends LitElement {
       <h1>${d.city}</h1>
       <h2>${d.region}</h2>
     </div>
-    <button class="hint button-open" @click=${() => this.open = true}></button>
+    <button aria-label="${d.city}, ${d.region}, Local Guide images" class="hint button-open" @click=${() => this.open = true}></button>
   </div>
   <div class="view-open">
     <button class="hint button-close" @click=${() => this.open = false}></button>
