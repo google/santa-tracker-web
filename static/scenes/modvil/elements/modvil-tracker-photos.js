@@ -149,6 +149,7 @@ class ModvilTrackerStatsElement extends LitElement {
         this._photoNode.append(node);
         node.offsetLeft;  // and forcing layout, important
         node.style.transform = null;
+        node.disabled = !this.open;
       });
 
       // Extra control.
@@ -248,6 +249,7 @@ class ModvilTrackerStatsElement extends LitElement {
 
       node.toggleAttribute('large', !!this.open);
       node.setAttribute('appear', '');
+      node.disabled = !this.open;
       this._photoNode.prepend(node);
       await node.updateComplete;
       await new Promise((resolve) => {
