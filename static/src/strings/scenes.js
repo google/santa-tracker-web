@@ -74,6 +74,7 @@ export default {
   'slackingoff': _msg`scene_videoscene_slackingoff`,
   'smatch': _msg`scene_giftmatch`,
   'snowball': _msg`scene_snowball`,
+  'snowdodgeball': _msg`scene_snowdodgeball`,
   'snowbox': _msg`scene_snowbox`,
   'snowflake': _msg`scene_snowflake`,
   'speedsketch': _msg`scene_quickdraw`,

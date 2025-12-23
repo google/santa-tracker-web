@@ -49,6 +49,7 @@ export const scenesWithColor = {
   santaselfie: '#6bb4fd',
   seasonofgiving: '#32a658',
   snowball: '#93dae4',
+  snowdodgeball: '#f8c328',
   snowbox: '#1b69c1',
   snowflake: '#d92626',
   speedsketch: '#32a658',
