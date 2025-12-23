@@ -52,11 +52,12 @@ common.preload.assets(...urls.map((raw) => `${assetRoot}/${raw}`));
 
 
 class SantaSantaElement extends LitElement {
-  static get styles() { return [styles]; }
+  static get styles() {return [styles];}
 
   static get properties() {
     return {
       heading: {type: Number},
+      locationLabel: {type: String},
       stop: {type: Boolean},
     };
   }
@@ -64,9 +65,19 @@ class SantaSantaElement extends LitElement {
   render() {
     const dir = dirForHeading(this.heading);
     const mode = Math.floor(Math.abs(this.heading) % 2);  // could be decimal
+
+    let label = _msg`santasearch_character_santa`;
+    if (this.locationLabel) {
+      if (this.stop) {
+        label = label + ` is at ${this.locationLabel}`;
+      } else {
+        label = label + ` is heading to ${this.locationLabel}`;
+      }
+    }
+
     return html`
 <div id="outer">
-  <button>${_msg`santasearch_character_santa`}</button>
+  <button>${label}</button>
   <div class="presents mode${mode}" ?hidden=${!this.stop}></div>
   <div class="sleigh" data-dir=${dir} ?hidden=${this.stop}>
     <div class="back"></div>
