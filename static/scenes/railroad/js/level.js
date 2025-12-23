@@ -84,6 +84,19 @@ class Level {
   }
 
   async handleClick(clientX, clientY) {
+    const intersections = this.raycasterSystem.cast(clientX, clientY);
+    if (intersections.length == 0) {
+      return;
+    }
+
+    const firstObject = intersections[0].object;
+    // Objects that you can't throw presents at:
+    if (firstObject.name === 'Sky' ||
+        firstObject.name.startsWith('Cloud') ||
+        // Can't throw at Stars ("Star", "Star2", ...), but can throw at StartBanner.
+        (firstObject.name.startsWith('Star') && !firstObject.name.startsWith('Start'))) {
+      return;
+    }
     // register event
     if (this.currentUserEvent == UserEvents.NONE &&
         // Ignore events while Elf is throwing. We could change this if we
@@ -94,10 +107,7 @@ class Level {
       this.currentUserEvent = UserEvents.TAP;
     }
 
-    const intersections = this.raycasterSystem.cast(clientX, clientY);
-    if (intersections.length > 0) {
-      await this.throwAt(intersections[0].point, intersections[0].object);
-    }
+    await this.throwAt(intersections[0].point, firstObject);
   }
 
   async throwAt(position, targetObject) {
