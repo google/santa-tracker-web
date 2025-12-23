@@ -6,7 +6,7 @@
     "dev": "npm run start",
     "start": "./serve.js",
     "release": "./release.js",
-    "test": "mocha-headless-server src/api/test.html",
+
     "staging-check": "node .cloudbuild/staging-check.js",
     "postinstall": "ln -s ../node_modules static/node_modules || true"
   },
@@ -44,7 +44,7 @@
     "lottie-web": "^5.5.10",
     "mime-types": "^2.1.21",
     "mocha": "^10.5.2",
-    "mocha-headless-server": "^0.1.4",
+
     "parse5": "^5.1.0",
     "polka": "^0.5.2",
     "pretty-ms": "^4.0.0",
