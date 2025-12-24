@@ -68,11 +68,8 @@ class SantaSantaElement extends LitElement {
 
     let label = _msg`santasearch_character_santa`;
     if (this.locationLabel) {
-      if (this.stop) {
-        label = label + ` is at ${this.locationLabel}`;
-      } else {
-        label = label + ` is heading to ${this.locationLabel}`;
-      }
+      const msgId = this.stop ? 'tracker_santa_is_at' : 'tracker_santa_is_heading_to';
+      label = _msg(msgId).replace('{{location}}', this.locationLabel);
     }
 
     return html`
