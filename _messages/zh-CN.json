@@ -3596,6 +3596,12 @@
 	"tracker_your_location": {
 		"message": "您所在的位置"
 	},
+	"tracker_santa_is_at": {
+		"message": "圣诞老人目前在 {{location}}"
+	},
+	"tracker_santa_is_heading_to": {
+		"message": "圣诞老人正前往 {{location}}"
+	},
 	"traditions-next": {
 		"message": "下一个习俗"
 	},
