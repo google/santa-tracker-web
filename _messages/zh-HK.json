@@ -3560,6 +3560,12 @@
 	"tracker_next_stop": {
 		"message": "下一站"
 	},
+	"tracker_santa_is_at": {
+		"message": "聖誕老人目前在 {{location}}"
+	},
+	"tracker_santa_is_heading_to": {
+		"message": "聖誕老人正前往 {{location}}"
+	},
 	"tracker_santa_update": {
 		"message": "聖誕老人最新消息"
 	},
@@ -3595,12 +3601,6 @@
 	},
 	"tracker_your_location": {
 		"message": "您的地點"
-	},
-	"tracker_santa_is_at": {
-		"message": "聖誕老人目前在 {{location}}"
-	},
-	"tracker_santa_is_heading_to": {
-		"message": "聖誕老人正前往 {{location}}"
 	},
 	"traditions-next": {
 		"message": "下一個傳統"
