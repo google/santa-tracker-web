@@ -69,3 +69,12 @@ Blockly.goog.isNumber = function(val) {
 Blockly.goog.isFunction = function(val) {
   return typeof val == 'function';
 };
+
+/**
+ * Returns true if the specified value is an array.
+ * @param {?} val Variable to test.
+ * @return {boolean} Whether variable is an array.
+ */
+Blockly.goog.isArray = function(val) {
+  return Array.isArray(val);
+};
