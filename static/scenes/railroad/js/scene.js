@@ -42,6 +42,7 @@ class Scene {
 
     replaceElvesWithSprites(glb.scene);
     replaceMaterialsWithToonMaterials(glb.scene);
+    replaceSkyMaterial(glb.scene);
     loadedGlb = glb;
   }
 
@@ -174,6 +175,41 @@ function replaceMaterialsWithToonMaterials(scene) {
       toonReplacementMaterials.set(node.material.name, replacementMaterial);
     }
     node.material = toonReplacementMaterials.get(node.material.name);
+  });
+}
+
+function createGradientTexture() {
+  const canvas = document.createElement('canvas');
+  canvas.width = 512;
+  canvas.height = 1;
+
+  const context = canvas.getContext('2d');
+  const gradient = context.createLinearGradient(0, 0, canvas.width, 0);
+  gradient.addColorStop(0, '#6FAADD');
+  gradient.addColorStop(0.03, '#E6F3E0');
+  gradient.addColorStop(1, '#E6F3E0');
+
+  context.fillStyle = gradient;
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  texture.wrapS = THREE.ClampToEdgeWrapping;
+  texture.wrapT = THREE.ClampToEdgeWrapping;
+  return texture;
+}
+
+function replaceSkyMaterial(scene) {
+  const skyMaterial = new THREE.MeshStandardMaterial({
+    map: createGradientTexture(),
+    roughness: 1.0,
+    metalness: 0.0,
+  });
+
+  scene.traverse(node => {
+    if (node.material && node.material.name === 'M_Sky') {
+      node.material = skyMaterial;
+    }
   });
 }
 
