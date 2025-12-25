@@ -34,6 +34,7 @@ goog.require('goog.style');
 goog.require('goog.ui.Menu');
 goog.require('goog.ui.MenuItem');
 goog.require('goog.userAgent');
+goog.require('Blockly.goog');
 
 
 /**
@@ -231,7 +232,7 @@ Blockly.FieldDropdown.prototype.trimOptions_ = function() {
  * @private
  */
 Blockly.FieldDropdown.prototype.getOptions_ = function() {
-  if (goog.isFunction(this.menuGenerator_)) {
+  if (Blockly.goog.isFunction(this.menuGenerator_)) {
     return this.menuGenerator_.call(this);
   }
   return /** @type {!Array.<!Array.<string>>} */ (this.menuGenerator_);
