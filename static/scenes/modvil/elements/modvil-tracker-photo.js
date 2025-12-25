@@ -56,12 +56,12 @@ class ModvilTrackerPhotoElement extends LitElement {
 
   render() {
     return html`
-<div class="inner">
+<a class="inner" target="_blank" href=${ifDefined(this._href)} aria-label="${this._author}">
   <slot></slot>
   <div class="attribution ${this.brand ? 'brand' : ''}">
-    <a target="_blank" href=${ifDefined(this._href)}>${this._author}</a>
+    <span>${this._author}</span>
   </div>
-</div>
+</a>
     `;
   }
 }
