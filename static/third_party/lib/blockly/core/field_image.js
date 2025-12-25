@@ -28,6 +28,7 @@ goog.provide('Blockly.FieldImage');
 
 goog.require('Blockly.Field');
 goog.require('goog.userAgent');
+goog.require('Blockly.goog');
 
 
 /**
@@ -146,7 +147,7 @@ Blockly.FieldImage.prototype.setValue = function(src) {
   }
   this.src_ = src;
   this.imageElement_.setAttributeNS('http://www.w3.org/1999/xlink',
-      'xlink:href', goog.isString(src) ? src : '');
+      'xlink:href', Blockly.goog.isString(src) ? src : '');
 };
 
 /**

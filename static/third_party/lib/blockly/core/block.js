@@ -41,6 +41,7 @@ goog.require('goog.Timer');
 goog.require('goog.array');
 goog.require('goog.asserts');
 goog.require('goog.string');
+goog.require('Blockly.goog');
 
 
 /**
@@ -118,7 +119,7 @@ Blockly.Block.prototype.initialize = function(workspace, prototypeName) {
   workspace.addTopBlock(this);
   this.fill(workspace, prototypeName);
   // Bind an onchange function, if it exists.
-  if (goog.isFunction(this.onchange)) {
+  if (Blockly.goog.isFunction(this.onchange)) {
     Blockly.bindEvent_(workspace.getCanvas(), 'blocklyWorkspaceChange', this,
         this.onchange);
   }
@@ -165,7 +166,7 @@ Blockly.Block.prototype.fill = function(workspace, prototypeName) {
     goog.mixin(this, prototype);
   }
   // Call an initialization function, if it exists.
-  if (goog.isFunction(this.init)) {
+  if (Blockly.goog.isFunction(this.init)) {
     this.init();
   }
 };
@@ -605,7 +606,7 @@ Blockly.Block.prototype.onMouseUp_ = function(e) {
  * @private
  */
 Blockly.Block.prototype.showHelp_ = function() {
-  var url = goog.isFunction(this.helpUrl) ? this.helpUrl() : this.helpUrl;
+  var url = Blockly.goog.isFunction(this.helpUrl) ? this.helpUrl() : this.helpUrl;
   if (url) {
     window.open(url);
   }
@@ -748,7 +749,7 @@ Blockly.Block.prototype.showContextMenu_ = function(e) {
   }
 
   // Option to get help.
-  var url = goog.isFunction(this.helpUrl) ? this.helpUrl() : this.helpUrl;
+  var url = Blockly.goog.isFunction(this.helpUrl) ? this.helpUrl() : this.helpUrl;
   var helpOption = {enabled: !!url};
   helpOption.text = Blockly.Msg.HELP;
   helpOption.callback = function() {
@@ -1672,7 +1673,7 @@ Blockly.Block.prototype.interpolateMsg = function(msg, var_args) {
     if (field instanceof Blockly.Field) {
       this.appendField(field);
     } else {
-      goog.asserts.assert(goog.isArray(field));
+      goog.asserts.assert(Blockly.goog.isArray(field));
       this.appendField(field[1], field[0]);
     }
   }
@@ -1920,7 +1921,7 @@ Blockly.Block.prototype.getCommentText = function() {
  */
 Blockly.Block.prototype.setCommentText = function(text) {
   var changedState = false;
-  if (goog.isString(text)) {
+  if (Blockly.goog.isString(text)) {
     if (!this.comment) {
       this.comment = new Blockly.Comment(this);
       changedState = true;
@@ -1950,7 +1951,7 @@ Blockly.Block.prototype.setWarningText = function(text) {
     text = null;
   }
   var changedState = false;
-  if (goog.isString(text)) {
+  if (Blockly.goog.isString(text)) {
     if (!this.warning) {
       this.warning = new Blockly.Warning(this);
       changedState = true;
