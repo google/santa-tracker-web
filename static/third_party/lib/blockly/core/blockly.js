@@ -55,6 +55,7 @@ goog.require('goog.string');
 goog.require('goog.ui.ColorPicker');
 goog.require('goog.ui.tree.TreeControl');
 goog.require('goog.userAgent');
+goog.require('Blockly.goog');
 
 
 /**
@@ -716,11 +717,11 @@ Blockly.setMainWorkspaceMetrics_ = function(xyRatio) {
     throw 'Attempt to set main workspace scroll without scrollbars.';
   }
   var metrics = Blockly.getMainWorkspaceMetrics_();
-  if (goog.isNumber(xyRatio.x)) {
+  if (Blockly.goog.isNumber(xyRatio.x)) {
     Blockly.mainWorkspace.scrollX = -metrics.contentWidth * xyRatio.x -
         metrics.contentLeft;
   }
-  if (goog.isNumber(xyRatio.y)) {
+  if (Blockly.goog.isNumber(xyRatio.y)) {
     Blockly.mainWorkspace.scrollY = -metrics.contentHeight * xyRatio.y -
         metrics.contentTop;
   }
