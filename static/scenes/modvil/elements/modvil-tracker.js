@@ -48,7 +48,7 @@ const routeJitterRatio = +localStorage['routeJitter'] || 0;
 
 
 class ModvilTrackerElement extends LitElement {
-  static get styles() { return [styles]; }
+  static get styles() {return [styles];}
 
   static get properties() {
     return {
@@ -197,6 +197,7 @@ class ModvilTrackerElement extends LitElement {
     const details = this._dataManager.details;
     this._santaOverlay.position = new google.maps.LatLng(details.location.lat, details.location.lng);
     this._santaNode.heading = details.heading;
+    this._santaNode.locationLabel = `${details.raw.city}, ${details.raw.region}`;
     this._santaNode.stop = details.stop;
     this._santaNode.hidden = details.home;
     this._details = details;
