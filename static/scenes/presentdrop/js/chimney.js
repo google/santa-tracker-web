@@ -26,13 +26,19 @@ goog.require('app.shared.pools');
  */
 app.Chimney = function(game) {
   this.game = game;
-  this.elem = $('<div class="train hidden">' +
-      '<div class="flag"><div class="flag-stick"/><div class="flag-score"/></div>' +
-      '<div class="handle" />' +
-      '<div class="hand" />' +
-      '<div class="chimney" />' +
-      '<div class="wheel1" />' +
-      '<div class="wheel2" /></div>');
+  this.elem = $(`
+    <div class="train hidden">
+      <div class="flag">
+        <div class="flag-stick"></div>
+        <div class="flag-score"></div>
+      </div>
+      <div class="handle"></div>
+      <div class="hand"></div>
+      <div class="chimney"></div>
+      <div class="wheel1"></div>
+      <div class="wheel2"></div>
+    </div>
+  `);
   game.chimneysElem.append(this.elem);
 
   this.dead = false;
