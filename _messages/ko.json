@@ -3560,6 +3560,12 @@
 	"tracker_next_stop": {
 		"message": "다음 방문지"
 	},
+	"tracker_santa_is_at": {
+		"message": "산타클로스는 현재 {{location}}에 있습니다"
+	},
+	"tracker_santa_is_heading_to": {
+		"message": "산타클로스는 {{location}}(으)로 향하고 있습니다"
+	},
 	"tracker_santa_update": {
 		"message": "산타 업데이트"
 	},
