@@ -149,6 +149,7 @@ class ModvilTrackerStatsElement extends LitElement {
         this._photoNode.append(node);
         node.offsetLeft;  // and forcing layout, important
         node.style.transform = null;
+        node.disabled = !this.open;
       });
 
       // Extra control.
@@ -248,6 +249,7 @@ class ModvilTrackerStatsElement extends LitElement {
 
       node.toggleAttribute('large', !!this.open);
       node.setAttribute('appear', '');
+      node.disabled = !this.open;
       this._photoNode.prepend(node);
       await node.updateComplete;
       await new Promise((resolve) => {
@@ -277,7 +279,7 @@ class ModvilTrackerStatsElement extends LitElement {
       <h1>${d.city}</h1>
       <h2>${d.region}</h2>
     </div>
-    <button class="hint button-open" @click=${() => this.open = true}></button>
+    <button aria-label="${d.city}, ${d.region}, Local Guide images" class="hint button-open" @click=${() => this.open = true}></button>
   </div>
   <div class="view-open">
     <button class="hint button-close" @click=${() => this.open = false}></button>
