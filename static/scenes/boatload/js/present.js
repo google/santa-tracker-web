@@ -17,6 +17,7 @@
 goog.provide('Present');
 
 goog.require('Constants');
+goog.require('Random');
 goog.require('app.shared.pools');
 goog.require('app.shared.utils');
 
@@ -33,7 +34,7 @@ Present = function(game) {
               '<polygon points="13.511,15.543 20.22,15.543 20.22,13.516 13.511,13.516 13.511,7.098 11.483,7.098 11.483,13.516 5.099,13.516 5.099,15.543 11.483,15.543 11.483,22.22 13.511,22.22 "/>' +
               '</svg></div>');
 
-  var type = Math.ceil(Math.random() * 3);
+  var type = Math.ceil(Random.random() * 3);
   this.elem.addClass('present--' + type);
   this.game.presentsElem.append(this.elem);
   

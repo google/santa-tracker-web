@@ -17,6 +17,7 @@
 goog.provide('app.Platform');
 
 goog.require('Constants');
+goog.require('Random');
 goog.require('app.shared.pools');
 
 /**
@@ -52,7 +53,7 @@ app.Platform.prototype.onInit = function(startX, level, opt_woodsy) {
   var platformArray = level > 0 ? Constants.PLATFORMS_TALL :
       Constants.PLATFORMS_SHORT;
   var index = opt_woodsy ? platformArray.length - 1 :
-      Math.floor(Math.random() * (platformArray.length - 1));
+      Math.floor(Random.random() * (platformArray.length - 1));
 
   var type = platformArray[index];
   this.elem.addClass(type.css);

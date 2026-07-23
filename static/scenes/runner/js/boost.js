@@ -17,6 +17,7 @@
 goog.provide('app.Boost');
 
 goog.require('Constants');
+goog.require('Random');
 goog.require('app.shared.Coordinator');
 goog.require('app.shared.pools');
 
@@ -58,7 +59,7 @@ app.Boost.prototype.onInit = function(startX, startY) {
   this.dead = false;
   this.collected = false;
 
-  var type = Constants.BOOSTS[Math.floor(Math.random() *
+  var type = Constants.BOOSTS[Math.floor(Random.random() *
       Constants.BOOSTS.length)];
 
   this.elem.addClass(type.css);

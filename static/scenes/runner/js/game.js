@@ -17,6 +17,7 @@
 goog.provide('app.Game');
 
 goog.require('Constants');
+goog.require('Random');
 goog.require('app.Boost');
 goog.require('app.Controls');
 goog.require('app.Canvas');
@@ -68,10 +69,10 @@ app.Game = function(context) {
   this.scale = 1;
   this.watchSceneSize_();
 
+  this.manualTime = !!window.__MANUAL_TIME__;
+
   // Cache a bound onFrame since we need it each frame.
   this.onFrame = this.onFrame.bind(this);
-
-  // this.updateLevel_ = this.updateLevel_.bind(this);
 
   this.preloadPools_();
 };
@@ -104,17 +105,19 @@ app.Game.prototype.preloadPools_ = function() {
 };
 
 /**
- * Starts the game.
+ * Start the game.
  * @export
  */
 app.Game.prototype.start = function() {
-  this.tutorial.start();
   this.started = true;
   this.restart();
+
+  this.tutorial.start();
 };
 
 /**
- * Reset and restart the game.
+ * Restart the game.
+ * @export
  */
 app.Game.prototype.restart = function() {
   // Cleanup last game
@@ -208,7 +211,9 @@ app.Game.prototype.unfreezeGame = function() {
 
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
-    this.requestId = window.requestAnimationFrame(this.onFrame);
+    if (!this.manualTime) {
+      this.requestId = window.requestAnimationFrame(this.onFrame);
+    }
   }
 };
 
@@ -225,8 +230,7 @@ app.Game.prototype.gameover = function() {
     score: this.scoreboard.score,
     level: 1 /* level */,
     timePlayed: new Date - this.gameStartTime
-  })
-;
+  });
 };
 
 /**
@@ -254,17 +258,14 @@ app.Game.prototype.dispose = function() {
 };
 
 /**
- * Called each frame.
+ * Advances the game state by delta seconds.
+ * @param {number} delta Seconds since last frame.
  */
-app.Game.prototype.onFrame = function() {
+app.Game.prototype.step = function(delta) {
   if (!this.isPlaying) {
     return;
   }
 
-  // Calculate delta
-  var now = +new Date() / 1000,
-    delta = now - this.lastFrame;
-  this.lastFrame = now;
   this.timePassed += delta;
   var second = Math.floor(this.timePassed);
   if (this.level == 0 && second >= 28 && !this.updatingLevel) {
@@ -291,9 +292,6 @@ app.Game.prototype.onFrame = function() {
   this.entitiesLayerElem_
       .css('transform', 'translate3d(' + -this.distanceTraveled + 'px, 0, 0)');
 
-  var groundWidth = parseInt(this.groundElem_.css('width'));
-  var groundWidthScaled = groundWidth * this.scale;
-
   // Update entities and track which are dead.
   var deadEntities = [];
   for (var i = 0, entity; entity = this.entities[i]; i++) {
@@ -308,8 +306,39 @@ app.Game.prototype.onFrame = function() {
   for (var i = 0, deadEntity; (deadEntity = deadEntities[i]) != null; i++) {
     this.entities.splice(deadEntity - i, 1);
   }
+};
 
-  this.requestId = window.requestAnimationFrame(this.onFrame);
+/**
+ * Advances manual time by duration seconds.
+ * @param {number} duration
+ */
+app.Game.prototype.advanceTime = function(duration) {
+  var maxStepSize = 1;
+  var remaining = duration;
+  while (remaining > 0 && this.isPlaying) {
+    var dt = Math.min(maxStepSize, remaining);
+    this.step(dt);
+    remaining -= dt;
+  }
+};
+
+/**
+ * Called each frame.
+ */
+app.Game.prototype.onFrame = function() {
+  if (!this.isPlaying) {
+    return;
+  }
+
+  var now = +new Date() / 1000,
+    delta = now - this.lastFrame;
+  this.lastFrame = now;
+
+  this.step(delta);
+
+  if (!this.manualTime) {
+    this.requestId = window.requestAnimationFrame(this.onFrame);
+  }
 };
 
 /**
@@ -324,16 +353,23 @@ app.Game.prototype.updateLevel_ = function(level) {
   for (var i=0; i<6; i++) {
     game.stripesElem_.append(game.stripes_);
   }
-  this.stripeTimer = new app.Timer(function() {
-    game.gameElem_.addClass('changing-level');
-  }, 200);
-  this.levelTimer = new app.Timer(function() {
-    game.gameElem_.removeClass('changing-level');
+  if (this.manualTime) {
     game.level = level;
     game.setLevelClass(level);
     game.speed = Constants.GAME_BASE_SPEED * Constants.GAME_LEVEL_SPEED[level];
     game.updatingLevel = false;
-  }, 2000);
+  } else {
+    this.stripeTimer = new app.Timer(function() {
+      game.gameElem_.addClass('changing-level');
+    }, 200);
+    this.levelTimer = new app.Timer(function() {
+      game.gameElem_.removeClass('changing-level');
+      game.level = level;
+      game.setLevelClass(level);
+      game.speed = Constants.GAME_BASE_SPEED * Constants.GAME_LEVEL_SPEED[level];
+      game.updatingLevel = false;
+    }, 2000);
+  }
 };
 
 /**
@@ -348,7 +384,7 @@ app.Game.prototype.watchSceneSize_ = function() {
 
   var updateSize = function() {
     game.scale = 1;
-    game.visibleWidth = gameElem.width() * 1.5;
+    game.visibleWidth = (gameElem.width() || 1000) * 1.5;
   };
 
   updateSize();
@@ -363,7 +399,7 @@ app.Game.prototype.updateEntities = function() {
   var pos = this.lastEntityPos + Constants.GAME_ENTITY_SPACING;
   if (pos < this.finishLinePos - Constants.FINISH_LINE_BUFFER &&
       this.lastEntityPos < this.distanceTraveled + this.visibleWidth) {
-    var random = Math.random();
+    var random = Random.random();
     if (random < 0.2) {
       this.lastEntityPos = this.addObstacle(pos, 0);
     } else if (random < 0.5) {
@@ -372,9 +408,9 @@ app.Game.prototype.updateEntities = function() {
       this.lastEntityPos = this.addPlatforms(pos);
     } else if (random < 0.9) {
       this.lastEntityPos = this.addBoost(pos);
-    }else {
+    } else {
       // Leave some space empty sometimes.
-      this.lastEntityPos += Math.floor(Math.random() * 1000);
+      this.lastEntityPos += Math.floor(Random.random() * 1000);
     }
   }
 };
@@ -385,12 +421,12 @@ app.Game.prototype.updateEntities = function() {
  * @return {number} The position after the last added platform.
  */
 app.Game.prototype.addPlatforms = function(pos) {
-  var numShort = Math.ceil(Math.random() * 3);
-  var numTall = Math.floor(Math.random() * 3);
+  var numShort = Math.ceil(Random.random() * 3);
+  var numTall = Math.floor(Random.random() * 3);
   var woodsy = false;
   var i;
 
-  if (Math.random() < 0.25) {
+  if (Random.random() < 0.25) {
     woodsy = true;
   }
 
@@ -420,7 +456,7 @@ app.Game.prototype.addPlatform = function(pos, level, woodsy,
     var platform = app.Platform.pop(this, pos, level, woodsy);
     this.entities.push(platform);
 
-    var random = Math.random();
+    var random = Random.random();
     if (random < 0.25) {
       this.addPresents(pos, platform, (level + 1) *
           Constants.PLATFORM_HEIGHT + 75);
@@ -428,7 +464,7 @@ app.Game.prototype.addPlatform = function(pos, level, woodsy,
       this.addObstacle(pos + platform.width * .66, level + 1);
     }
 
-    if (Math.random() < 0.25 && !opt_noExtraPresents) {
+    if (Random.random() < 0.25 && !opt_noExtraPresents) {
       this.addPresents(pos, platform, 75);
     }
 
@@ -450,7 +486,7 @@ app.Game.prototype.addObstacle = function(pos, level) {
   var obstacle = app.Obstacle.pop(this, pos, level);
   this.entities.push(obstacle);
 
-  if (Math.random() < 0.5) {
+  if (Random.random() < 0.5) {
     var levelHeight = this.getPresentHeightForLevel(level + 1);
     this.addPresents(pos, obstacle, obstacle.presentsHeight || levelHeight);
   }
@@ -468,7 +504,7 @@ app.Game.prototype.addObstacle = function(pos, level) {
  * @return {number} The position after the last added present.
  */
 app.Game.prototype.addPresents = function(pos, opt_entity, opt_height) {
-  var height = opt_height || Math.floor(Math.random() * 500 + 75);
+  var height = opt_height || Math.floor(Random.random() * 500 + 75);
   
   if (opt_entity) {
     var presentSpacing = 75;
@@ -495,8 +531,8 @@ app.Game.prototype.addPresents = function(pos, opt_entity, opt_height) {
       this.entities.push(present);
     }
   } else {
-    var numPresents = Math.ceil(Math.random() * 3 + 2);
-    var numRows = Math.ceil(Math.random() * 4);
+    var numPresents = Math.ceil(Random.random() * 3 + 2);
+    var numRows = Math.ceil(Random.random() * 4);
     var presentSpacing = 150;
 
     for (var i = 0; i < numPresents; i++) {
@@ -522,7 +558,7 @@ app.Game.prototype.addBoost = function(pos) {
   if (this.lastBoostPos > pos - Constants.PX_BETWEEN_BOOSTS) {
     return this.lastEntityPos;
   }
-  var boost = app.Boost.pop(this, pos, Math.floor(Math.random() * 500 + 75));
+  var boost = app.Boost.pop(this, pos, Math.floor(Random.random() * 500 + 75));
   this.entities.push(boost);
 
   this.lastBoostPos = pos + boost.width;

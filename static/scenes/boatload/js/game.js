@@ -24,6 +24,7 @@ goog.require('Controls');
 goog.require('Iceberg');
 goog.require('Player');
 goog.require('Present');
+goog.require('Random');
 goog.require('app.shared.Coordinator');
 goog.require('app.shared.Gameover');
 goog.require('app.shared.LevelUp');
@@ -101,6 +102,7 @@ Game.prototype.preloadPools_ = function() {
  * Start the game
  */
 Game.prototype.start = function() {
+  this.started = true;
   this.tutorial.start();
   this.restart();
 };
@@ -134,6 +136,9 @@ Game.prototype.restart = function() {
   this.paused = false;
   this.player.reset();
 
+  // Initialize manual time mode if requested
+  this.manualTime = !!window.__MANUAL_TIME__;
+
   // Start game
   this.unfreezeGame();
   window.santaApp.fire('sound-trigger', 'bl_game_start');
@@ -143,17 +148,13 @@ Game.prototype.restart = function() {
 };
 
 /**
- * Called each frame while game is running. Calls onFrame on all entities.
+ * Advances the game state by delta seconds.
+ * @param {number} delta Seconds since last frame.
  */
-Game.prototype.onFrame = function() {
+Game.prototype.step = function(delta) {
   if (!this.isPlaying) {
     return;
   }
-
-  // Calculate delta
-  var now = +new Date() / 1000;
-  var delta = now - this.lastFrame;
-  this.lastFrame = now;
 
   Coordinator.onFrame(delta);
 
@@ -178,9 +179,44 @@ Game.prototype.onFrame = function() {
   for (var x = 0, deadEntity; (deadEntity = deadEntities[x]) != null; x++) {
     this.entities.splice(deadEntity - x, 1);
   }
+};
+
+/**
+ * Manually advance game time by given number of seconds.
+ * @param {number} seconds Number of seconds to advance.
+ * @param {number=} opt_fps Granularity frames per second (default: 60).
+ */
+Game.prototype.advanceTime = function(seconds, opt_fps) {
+  var fps = opt_fps || 60;
+  var stepDuration = 1 / fps;
+  var remaining = seconds;
+  while (remaining > 0 && this.isPlaying) {
+    var dt = Math.min(stepDuration, remaining);
+    this.step(dt);
+    remaining -= dt;
+  }
+};
+
+/**
+ * Called each frame while game is running. Calls onFrame on all entities.
+ */
+Game.prototype.onFrame = function() {
+  if (!this.isPlaying) {
+    return;
+  }
+
+  if (!this.manualTime) {
+    // Calculate delta from clock
+    var now = +new Date() / 1000;
+    var delta = now - this.lastFrame;
+    this.lastFrame = now;
+    this.step(delta);
+  }
 
   // Request next frame
-  this.requestId = window.requestAnimationFrame(this.onFrame);
+  if (!this.manualTime) {
+    this.requestId = window.requestAnimationFrame(this.onFrame);
+  }
 };
 
 /**
@@ -207,7 +243,7 @@ Game.prototype.updateBoats = function(delta) {
 
   if (!this.nextBoatType) {
     // Find a random type for the boat
-    var typeNumber = Math.ceil(Math.random() * Constants.BOATS.length);
+    var typeNumber = Math.ceil(Random.random() * Constants.BOATS.length);
     this.nextBoatType = Constants.BOATS[typeNumber - 1];
   }
 
@@ -232,7 +268,7 @@ Game.prototype.updateBoats = function(delta) {
   var multiply = Math.pow(Constants.BOAT_SPAWN_MULTIPLY_EACH_LEVEL, this.level);
   var interval = Constants.BOAT_SPAWN_BASE + Constants.BOAT_SPAWN_INTERVAL * multiply;
   var variance = Constants.BOAT_SPAWN_VARIANCE * multiply;
-  this.nextBoat = (interval - variance / 2) + Math.random() * variance;
+  this.nextBoat = (interval - variance / 2) + Random.random() * variance;
 
   // Make sure there is always one boat on the screen
   if (this.lastBoat) {
@@ -251,12 +287,12 @@ Game.prototype.updateIcebergs = function(delta) {
   if (this.nextIceberg > 0) return;
 
   // Get a random type for the iceberg
-  var typeNumber = Math.ceil(Math.random() * Constants.ICEBERGS.length);
+  var typeNumber = Math.ceil(Random.random() * Constants.ICEBERGS.length);
   var type = Constants.ICEBERGS[typeNumber - 1];
 
   // Find random X position
   var x = Constants.ICEBERG_X +
-      (Math.random() * Constants.ICEBERG_X_VARIANCE) -
+      (Random.random() * Constants.ICEBERG_X_VARIANCE) -
       (Constants.ICEBERG_X_VARIANCE / 2);
   var timeleft = (this.sceneSize.height - type.height) / type.speed;
 
@@ -279,7 +315,7 @@ Game.prototype.updateIcebergs = function(delta) {
   var multiply = Math.pow(Constants.ICEBERG_SPAWN_MULTIPLY_EACH_LEVEL, this.level);
   var interval = Constants.ICEBERG_SPAWN_BASE + Constants.ICEBERG_SPAWN_INTERVAL * multiply;
   var variance = Constants.ICEBERG_SPAWN_VARIANCE * multiply;
-  this.nextIceberg = (interval - variance / 2) + Math.random() * variance;
+  this.nextIceberg = (interval - variance / 2) + Random.random() * variance;
 };
 
 /**
@@ -383,7 +419,9 @@ Game.prototype.unfreezeGame = function() {
 
     this.isPlaying = true;
     this.lastFrame = +new Date() / 1000;
-    this.requestId = window.requestAnimationFrame(this.onFrame);
+    if (!this.manualTime) {
+      this.requestId = window.requestAnimationFrame(this.onFrame);
+    }
   }
 };
 

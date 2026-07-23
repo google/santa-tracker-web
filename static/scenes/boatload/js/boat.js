@@ -17,6 +17,7 @@
 goog.provide('Boat');
 
 goog.require('Constants');
+goog.require('Random');
 goog.require('app.shared.pools');
 
 /**
@@ -94,8 +95,8 @@ Boat.prototype.onFrame = function(delta) {
   // Bubbles
   this.nextBubble -= delta;
   if (this.nextBubble <= 0) {
-    Bubble.pop(this.game, Math.random() * 10 - 5, this.y + this.height - 6, this.speed);
-    this.nextBubble = this.bubbleInterval + Math.random() * this.bubbleVariance;
+    Bubble.pop(this.game, Random.random() * 10 - 5, this.y + this.height - 6, this.speed);
+    this.nextBubble = this.bubbleInterval + Random.random() * this.bubbleVariance;
   }
 };
 

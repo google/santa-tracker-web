@@ -17,6 +17,7 @@
 goog.provide('app.Present');
 
 goog.require('Constants');
+goog.require('Random');
 goog.require('app.shared.pools');
 
 /**
@@ -52,11 +53,11 @@ app.Present.prototype.onInit = function(startX, startY) {
   this.collected = false;
 
   var type;
-  if (Math.random() < .03) {
-    type = Constants.TREATS[Math.floor(Math.random() *
+  if (Random.random() < .03) {
+    type = Constants.TREATS[Math.floor(Random.random() *
         Constants.TREATS.length)];
   } else {
-    type = Constants.PRESENTS[Math.floor(Math.random() *
+    type = Constants.PRESENTS[Math.floor(Random.random() *
         Constants.PRESENTS.length)];
   }
   this.elem.addClass(type.css);
