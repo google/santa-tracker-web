@@ -1,6 +1,8 @@
 const { defineConfig, devices } = require('@playwright/test');
 
-const baseURL = process.env.BASE_URL || 'http://localhost:8000';
+const baseURL = process.env.BASE_URL || `http://localhost:${process.env.PORT || 8005}`;
+const urlObj = new URL(baseURL);
+const port = process.env.PORT || urlObj.port || 8005;
 const isLocal = baseURL.includes('localhost') || baseURL.includes('127.0.0.1');
 
 module.exports = defineConfig({
@@ -26,7 +28,7 @@ module.exports = defineConfig({
   ],
   webServer: isLocal
     ? {
-        command: `node ./serve.js --cache`,
+        command: `node ./serve.js --port ${port} --cache`,
         url: baseURL,
         reuseExistingServer: !process.env.CI,
         timeout: 120 * 1000,

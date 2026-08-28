@@ -35,7 +35,10 @@ const yargs = require('yargs')
     .option('port', {
       alias: 'p',
       type: 'number',
-      default: process.env.PORT || 8000,
+      default: Number(process.env.PORT) || 8000,
+      coerce(v) {
+        return Number(v) || 8000;
+      },
       describe: 'Static port',
     })
     .option('all', {
