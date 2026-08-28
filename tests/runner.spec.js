@@ -2,10 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { expectGameOverOverlay } = require('./helpers');
 
 function getHostUrl(baseURL) {
-  if (baseURL && !baseURL.includes('localhost') && !baseURL.includes('127.0.0.1')) {
-    return `${baseURL}/runner.html`;
-  }
-  return 'http://localhost:8000/runner.html';
+  return `${baseURL || 'http://localhost:8000'}/runner.html`;
 }
 
 async function advanceTime(page, seconds) {

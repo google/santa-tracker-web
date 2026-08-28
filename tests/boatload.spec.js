@@ -2,10 +2,7 @@ const { test, expect } = require('@playwright/test');
 const { expectGameOverOverlay } = require('./helpers');
 
 function getHostUrl(baseURL) {
-  if (baseURL && !baseURL.includes('localhost') && !baseURL.includes('127.0.0.1')) {
-    return `${baseURL}/boatload.html`;
-  }
-  return 'http://localhost:8000/boatload.html';
+  return `${baseURL || 'http://localhost:8000'}/boatload.html`;
 }
 
 async function advanceTime(page, seconds) {
