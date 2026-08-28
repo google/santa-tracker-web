@@ -26,8 +26,8 @@ module.exports = defineConfig({
   ],
   webServer: isLocal
     ? {
-        command: 'npm start',
-        url: 'http://localhost:8000',
+        command: `node ./serve.js --cache`,
+        url: baseURL,
         reuseExistingServer: !process.env.CI,
         timeout: 120 * 1000,
       }

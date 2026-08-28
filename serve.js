@@ -63,6 +63,11 @@ const yargs = require('yargs')
       default: true,
       describe: 'Compile Closure scenes',
     })
+    .option('cache', {
+      type: 'boolean',
+      default: false,
+      describe: 'Cache compiled Closure scenes in memory',
+    })
     .argv;
 
 /**
@@ -106,6 +111,7 @@ const config = {
 async function serve() {
   const vfs = santaVfs(config.staticScope, {
     compile: yargs.compile,
+    cache: yargs.cache,
     lang: yargs.lang,
     config,
   });

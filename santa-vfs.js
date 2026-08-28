@@ -130,6 +130,7 @@ module.exports = (staticScope, options) => {
   options = Object.assign({
     lang: null,
     compile: true,
+    cache: false,
     config: {},
   }, options);
 
@@ -193,7 +194,7 @@ module.exports = (staticScope, options) => {
         throw new Error(`unsupported Closure flags: ${flags}`);
       }
 
-      const {code, map} = await compileScene(sceneName, options.compile);
+      const {code, map} = await compileScene(sceneName, options.compile, options.cache);
       return {code, map};
     },
   };
