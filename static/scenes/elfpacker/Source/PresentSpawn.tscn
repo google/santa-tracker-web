@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://PresentSpawn.gd" type="Script" id=1]
+[ext_resource path="res://Present.tscn" type="PackedScene" id=2]
+
+[node name="PresentSpawn" type="Position2D"]
+script = ExtResource( 1 )
+spawnling_scene = ExtResource( 2 )
