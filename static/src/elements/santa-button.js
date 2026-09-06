@@ -15,7 +15,6 @@
  */
 
 import {html, LitElement} from 'lit-element';
-import {nothing} from 'lit-html';
 import {ifDefined} from 'lit-html/directives/if-defined';
 import * as common from '../../src/core/common.js';
 import styles from './santa-button.css';
@@ -88,8 +87,8 @@ export class SantaButtonElement extends LitElement {
       class="${this.color || ''}"
       .disabled=${this.disabled}
       @click=${this._maybePreventClick}
-      aria-expanded=${ifDefined(this.ariaExpanded || undefined)}
-      aria-label=${this.ariaLabel || nothing}>${inner}</button>`;
+      aria-expanded=${ifDefined(this.ariaExpanded)}
+      aria-label=${ifDefined(this.ariaLabel)}>${inner}</button>`;
   }
 
   focus() {
