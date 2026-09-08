@@ -3560,6 +3560,12 @@
 	"tracker_next_stop": {
 		"message": "次の目的地"
 	},
+	"tracker_santa_is_at": {
+		"message": "サンタさんは現在 {{location}} にいます"
+	},
+	"tracker_santa_is_heading_to": {
+		"message": "サンタさんは {{location}} に向かっています"
+	},
 	"tracker_santa_update": {
 		"message": "サンタさんの最新情報"
 	},

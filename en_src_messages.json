@@ -107,35 +107,35 @@
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Bhutan"
   },
-  "buildandbolt-build-car-multiple" : {
+  "buildandbolt-build-car-multiple": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> cars!"
   },
-  "buildandbolt-build-car-single" : {
+  "buildandbolt-build-car-single": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 car!"
   },
-  "buildandbolt-build-robot-multiple" : {
+  "buildandbolt-build-robot-multiple": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> robots!"
   },
-  "buildandbolt-build-robot-single" : {
+  "buildandbolt-build-robot-single": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 robot!"
   },
-  "buildandbolt-build-teddybear-multiple" : {
+  "buildandbolt-build-teddybear-multiple": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> teddy bears!"
   },
-  "buildandbolt-build-teddybear-single" : {
+  "buildandbolt-build-teddybear-single": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 teddy bear!"
   },
-  "buildandbolt-build-rocket-multiple" : {
+  "buildandbolt-build-rocket-multiple": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> rockets!"
   },
-  "buildandbolt-build-rocket-single" : {
+  "buildandbolt-build-rocket-single": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 rocket!"
   },
@@ -4709,6 +4709,14 @@
   "tracker_next_stop": {
     "description": "Heading above the next stop for Santa",
     "message": "Next stop"
+  },
+  "tracker_santa_is_at": {
+    "description": "Describes Santa's current location when he is at a stop. {{location}} is the city and region name.",
+    "message": "Santa Claus is at {{location}}"
+  },
+  "tracker_santa_is_heading_to": {
+    "description": "Describes Santa's destination when he is traveling. {{location}} is the city and region name.",
+    "message": "Santa Claus is heading to {{location}}"
   },
   "tracker_santa_update": {
     "message": "SANTA UPDATE"
