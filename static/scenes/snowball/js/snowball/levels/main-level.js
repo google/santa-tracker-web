@@ -80,6 +80,8 @@ export class MainLevel extends Level {
 
     game.shadowRoot.insertBefore(this.populationUi,
         game.shadowRoot.firstElementChild);
+    // Superseded by the "iced" counter in the host badge, which doesn't
+    // collide with the countdown widget.
     this.populationUi.hidden = true;
   }
 

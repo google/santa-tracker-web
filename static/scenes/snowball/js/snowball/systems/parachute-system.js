@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { LandingShadow } from '../entities/landing-shadow.js';
 import { Parachute } from '../entities/parachute.js';
 
 const {
@@ -33,12 +34,27 @@ export class ParachuteSystem {
     this.removedEntities = [];
 
     this.entityParachutes = new Map();
+
+    // Which entities asked for a landing shadow, and the shadow each dropping
+    // one currently owns. Kept apart from the queues above so that
+    // `removeEntity` can go on finding entities by identity.
+    this.shadowedEntities = new Set();
+    this.entityShadows = new Map();
+
     this.parachuteLayer = new Object3D();
   }
 
-  dropEntity(entity) {
+  /**
+   * @param {boolean} castShadow Whether to mark the landing tile with a shadow
+   *     while the entity descends.
+   */
+  dropEntity(entity, castShadow = false) {
     if (entity.arrival == null) {
       return;
+    }
+
+    if (castShadow) {
+      this.shadowedEntities.add(entity);
     }
 
     this.undroppedEntities.push(entity);
@@ -58,9 +74,37 @@ export class ParachuteSystem {
     this.removedEntities.push(entity);
   }
 
+  /** Detaches and forgets the landing shadow an entity owns, if any. */
+  removeShadow(entity) {
+    this.shadowedEntities.delete(entity);
+
+    const shadow = this.entityShadows.get(entity);
+
+    if (shadow !== undefined) {
+      this.entityShadows.delete(entity);
+      this.parachuteLayer.remove(shadow);
+
+      // Each shadow clones its material so it can fade independently, so each
+      // one has to give that material back.
+      shadow.dispose();
+    }
+  }
+
   teardown() {
     this.undroppedEntities.forEach((entity) => this.removeEntity(entity));
     this.droppingEntities.forEach((entity) => this.removeEntity(entity));
+
+    // `removeEntity` only queues its work for the next update, and after
+    // teardown no update follows, so the discs would stay parented to the
+    // layer. A restart discards this whole system, so nothing visible leaks
+    // today; this just keeps the system's own state honest about the fact that
+    // nothing is dropping any more.
+    this.entityShadows.forEach((shadow) => {
+      this.parachuteLayer.remove(shadow);
+      shadow.dispose();
+    });
+    this.entityShadows.clear();
+    this.shadowedEntities.clear();
   }
 
   update(game) {
@@ -68,6 +112,8 @@ export class ParachuteSystem {
     const { grid } = mapSystem;
 
     this.removedEntities.forEach((entity) => {
+      this.removeShadow(entity);
+
       const parachute = this.entityParachutes.get(entity);
       if (parachute !== undefined) {
         this.entityParachutes.delete(entity);
@@ -98,6 +144,18 @@ export class ParachuteSystem {
 
       arrival.droppedAt(tick);
 
+      if (this.shadowedEntities.has(entity)) {
+        const shadow = new LandingShadow();
+
+        // The parachute falls straight down, so the shadow can simply sit at
+        // the same spot on the surface of the tile below it.
+        shadow.position.set(
+            position.x, position.y, grid.cellSize / 4.0);
+
+        this.entityShadows.set(entity, shadow);
+        this.parachuteLayer.add(shadow);
+      }
+
       this.droppingEntities.push(entity);
     }
 
@@ -115,12 +173,23 @@ export class ParachuteSystem {
       parachute.position.z = position + floor;
       parachute.rotation.y = 0.1 * Math.sin(position / (0.35 * this.dropHeight) * Math.PI);
 
+      // Driven by the same fraction as the descent, so the shadow reaches full
+      // size exactly as the elf's feet reach the tile.
+      const shadow = this.entityShadows.get(entity);
+
+      if (shadow !== undefined) {
+        shadow.progress = time;
+      }
+
       if (frameDelta >= this.frameCount) {
         arrival.arrive();
 
         this.droppingEntities.splice(i--, 1);
         this.entityParachutes.delete(entity);
         this.parachuteLayer.remove(parachute);
+
+        // The elf is standing on the tile now, so the hint has done its job.
+        this.removeShadow(entity);
 
         lodSystem.removeEntity(parachute);
         Parachute.free(parachute);

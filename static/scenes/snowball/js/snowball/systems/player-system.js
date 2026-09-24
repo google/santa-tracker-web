@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+import { powerupType } from '../components/powerup.js';
 import { Elf } from '../entities/elf.js';
 
 const {
@@ -110,12 +111,22 @@ export class PlayerSystem {
     possibleObjects.forEach((object) => delete object[id]);
   }
 
-  assignPlayerPowerup(playerId, powerupType) {
-    console.log(`Player ${playerId} collected powerup ${powerupType}`);
+  assignPlayerPowerup(playerId, type) {
+    console.log(`Player ${playerId} collected powerup ${type}`);
     const player = this.playerMap[playerId];
     const { powerups } = player;
 
-    powerups.collect(powerupType);
+    // The shield is a timed buff, not an item. It never reaches the inventory
+    // slots, so it cannot be held back for later, swapped out, or spent by
+    // throwing — touching the gift is what uses it. Collecting a second one
+    // refreshes the full duration rather than stacking.
+    if (type === powerupType.SHIELD) {
+      player.shield.activate();
+      this.playerPowerups.push(player);
+      return;
+    }
+
+    powerups.collect(type);
     this.playerPowerups.push(player);
   }
 
@@ -174,7 +185,9 @@ export class PlayerSystem {
       player.setup(game);
 
       if (!arrival.arrived) {
-        parachuteSystem.dropEntity(player);
+        // The local player already gets a green arrival ring from ClientSystem;
+        // a shadow underneath it would just be the same hint twice.
+        parachuteSystem.dropEntity(player, player !== clientPlayer);
         this.parachutingPlayers.push(player);
       }
 
@@ -248,17 +261,24 @@ export class PlayerSystem {
 
     for (let i = 0; i < this.players.length; ++i) {
       const player = this.players[i];
-      const { presence } = player;
+      const { presence, arrival } = player;
 
       player.update(game);
 
       const tileIndex = grid.positionToIndex(player.position);
       const tileState = map.getTileState(tileIndex);
 
-      if (tileState === 4.0 && presence.present && !presence.exiting) {
+      // Only elves standing on the map can drown. While one is still under its
+      // parachute, `Parachute.carry` has zeroed its position so that it can be
+      // animated relative to the parachute, and the origin resolves to the tile
+      // at the centre of the map — never the tile it is descending towards.
+      // Once the game has eroded that far in, the check would drown every elf
+      // still in the air, the moment it spawned.
+      if (arrival.arrived && tileState === 4.0 && presence.present &&
+          !presence.exiting) {
+        // `sink` already marks the elf dead and reports the elimination.
         player.sink();
         entityRemovalSystem.freezeEntity(player);
-        player.health.alive = false;
       } else if (presence.gone) {
         this.players.splice(i--, 1);
 
@@ -269,7 +289,9 @@ export class PlayerSystem {
         }
         window.santaApp.fire('sound-trigger', 'snowball_frozen');
 
-        stateSystem.recordPlayerKnockedOut();
+        // The elimination was counted when the elf died. This branch only fires
+        // once the body has finished leaving the map, which is seconds later
+        // for a teleport and around a minute later for an iceberg.
       }
     }
   }

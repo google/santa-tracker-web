@@ -18,7 +18,11 @@ import { Component } from './component.js';
 
 export const powerupType = {
   NOTHING: 0,
-  BIG_SNOWBALL: 1
+  BIG_SNOWBALL: 1,
+  // Unlike BIG_SNOWBALL this never enters the inventory below. It is a timed
+  // buff applied the moment the gift is touched, so there is nothing to hold,
+  // swap or spend. See `Shield` and `PlayerSystem.assignPlayerPowerup`.
+  SHIELD: 2
 };
 
 export class Powerups extends Component {
