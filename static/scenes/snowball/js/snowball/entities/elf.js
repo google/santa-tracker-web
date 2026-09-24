@@ -23,9 +23,11 @@ import {Health} from '../components/health.js';
 import {Path} from '../components/path.js';
 import {Powerups} from '../components/powerup.js';
 import {Presence} from '../components/presence.js';
+import {Shield} from '../components/shield.js';
 import {Speed} from '../components/speed.js';
 import {Visibility} from '../components/visibility.js';
 import {createElf} from '../models.js';
+import {ShieldBubble} from './shield-bubble.js';
 import {lod} from '../systems/lod-system.js';
 
 import {PlayerMarker} from './player-marker.js';
@@ -114,7 +116,11 @@ const generateElfTexture = (() => {
   };
 })();
 
-const clientPlayerMarker = new PlayerMarker();
+// Chevron on. This marker is parented to the dolly below, so it inherits
+// `face()` and the arrow ends up pointing wherever the elf is walking — which
+// is also where a keyboard throw goes, and on a hex grid that is not something
+// the player can work out from the arrow key they pressed.
+const clientPlayerMarker = new PlayerMarker(15.0, 4.0, 0xea4335, true);
 
 /**
  * @constructor
@@ -186,6 +192,21 @@ export class Elf extends AllocatableEntityObject3D {
 
     this.add(dolly);
     this.dolly = dolly;
+
+    // Parented to the dolly, which is already positioned at the elf's body and
+    // oriented so that +Y is the direction the elf stands in. A sprite ignores
+    // its parent's rotation, so neither the dolly's tilt nor `face()` spinning
+    // it around can disturb the bubble. Built once and reused, since elves are
+    // pooled.
+    const shieldBubble = new ShieldBubble();
+
+    // Roughly half the elf's height, to centre the bubble on its body rather
+    // than its feet. Eyeball-tuned; raise it if the elf's head pokes out.
+    shieldBubble.position.y = 20.0;
+
+    dolly.add(shieldBubble);
+    this.shieldBubble = shieldBubble;
+
     this.path = null;
     this.lod = lod.LOW;
 
@@ -213,9 +234,14 @@ export class Elf extends AllocatableEntityObject3D {
     this.arrival = new Arrival(startingTileIndex);
     this.presence = new Presence();
     this.powerups = new Powerups();
+    this.shield = new Shield();
     this.visibility = new Visibility();
     this.speed = new Speed();
     this.sank = false;
+
+    // Elves are pooled, so this one may have been wearing a shield when it was
+    // last freed.
+    this.shieldBubble.visible = false;
 
     if (this.elf) {
       // This opacity may have changed depending on how the character departed
@@ -225,8 +251,12 @@ export class Elf extends AllocatableEntityObject3D {
   }
 
   setup(game) {
-    const {lodSystem, clientSystem, collisionSystem} = game;
+    const {lodSystem, clientSystem, collisionSystem, stateSystem} = game;
     const {player: clientPlayer} = clientSystem;
+
+    // Held so that `die` can report the elimination itself. Re-read on every
+    // allocation, so a pooled elf never reports into a finished game.
+    this.stateSystem = stateSystem;
 
     lodSystem.addEntity(this);
     collisionSystem.addCollidable(this);
@@ -255,8 +285,19 @@ export class Elf extends AllocatableEntityObject3D {
     const {clientSystem, mapSystem, inputSystem, collisionSystem, entityRemovalSystem} = game;
     const {player: clientPlayer} = clientSystem;
     const {grid} = mapSystem;
-    const {arrival, path, health} = this;
+    const {arrival, path, health, shield, shieldBubble} = this;
     const isClientPlayer = this === clientPlayer;
+
+    // Derived from the clock every frame rather than toggled on pickup, so the
+    // bubble cannot be left behind if an elf dies or is recycled mid-shield.
+    const shielded = shield.active;
+
+    if (shielded) {
+      shieldBubble.visible = true;
+      shieldBubble.progress = shield.progress;
+    } else if (shieldBubble.visible) {
+      shieldBubble.visible = false;
+    }
 
     if (isClientPlayer) {
       if (!arrival.arrived && clientPlayerMarker.visible) {
@@ -280,6 +321,15 @@ export class Elf extends AllocatableEntityObject3D {
           const {direction} = other.trajectory;
 
           this.face(Math.atan2(direction.y, direction.x) - PI_OVER_TWO);
+
+          // A shielded elf still flinches towards the throw, but survives it.
+          // The snowball disappears either way: its own collision handler hides
+          // it on contact with anything, so the hit reads as being absorbed
+          // rather than passing through.
+          if (this.shield.active) {
+            return;
+          }
+
           // TODO(cdata): This probably should be handled in the player
           // based on some state that says "this deadly thing collided
           // with me."
@@ -433,8 +483,28 @@ export class Elf extends AllocatableEntityObject3D {
     this.die();
   }
 
+  /**
+   * Both ways an elf can be eliminated — a snowball to the face, and drowning
+   * via `sink` — come through here, so this is where the elimination is
+   * counted. Counting at the moment of death rather than when the body has
+   * finished animating away matters: a snowballed elf takes a couple of
+   * seconds to teleport out, and a drowned one rides an iceberg off the edge
+   * of the screen for upwards of a minute.
+   */
   die() {
+    // Several snowballs can land on the same elf within a single frame, and
+    // the collider is not withdrawn until the next update. Without this the
+    // elf would be counted once per snowball, and its fall animation would
+    // restart each time.
+    if (this.health.dead) {
+      return;
+    }
+
     this.health.alive = false;
     this.fallDown();
+
+    if (this.stateSystem != null) {
+      this.stateSystem.recordPlayerKnockedOut();
+    }
   }
 };

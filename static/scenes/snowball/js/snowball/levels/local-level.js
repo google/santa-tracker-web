@@ -15,6 +15,7 @@
  */
 
 import { MainLevel } from './main-level.js';
+import { sceneString } from '../utils/scene-strings.js';
 
 export class LocalLevel extends MainLevel {
   setup(game) {
@@ -33,6 +34,9 @@ export class LocalLevel extends MainLevel {
     this.lastBotTick = 0;
     this.startTime = +new Date;
 
+    // Reset per round, so that a restart can announce a win of its own.
+    this.announcedWin = false;
+
     const seed = (Math.random() * 0x100000000) & 0xffffffff;  // 32bit int
     mapSystem.rebuildMap(game, seed);
 
@@ -40,8 +44,20 @@ export class LocalLevel extends MainLevel {
     const player = playerSystem.addPlayer(id, -1);
     clientSystem.assignPlayer(player);
 
-    for (let i = 0; i < Math.floor(game.maximumPlayers / 4); ++i) {
+    // Drops stay proportional to the map, but the starting elf count is a
+    // per-mode choice: Quick front-loads most of its population so the action
+    // starts at once. Falls back to the original fraction if a game object
+    // doesn't define one.
+    const initialDrops = Math.floor(game.maximumPlayers / 4);
+    const initialBots = game.initialPlayers != null
+        ? game.initialPlayers
+        : initialDrops;
+
+    for (let i = 0; i < initialDrops; ++i) {
       dropSystem.addDrop();
+    }
+
+    for (let i = 0; i < initialBots; ++i) {
       botSystem.addBot();
     }
   }
@@ -54,6 +70,7 @@ export class LocalLevel extends MainLevel {
       dropSystem,
       botSystem,
       stateSystem,
+      clientSystem,
       tick
     } = game;
 
@@ -78,12 +95,36 @@ export class LocalLevel extends MainLevel {
       }
     }
 
-    if (population.knockedOut >= (population.maximum - 1)) {
-      // TODO(cdata): Is there a special victory screen?
+    // Guarded two ways.
+    //
+    // `announcedWin` is because the population condition stays true for every
+    // frame after the last rival falls, and without it the scene would announce
+    // the win, and log the analytics event, sixty times a second.
+    //
+    // The liveness check is because `knockedOut` counts every elf that has
+    // died, the player included — `Elf.die` records them all. In the closing
+    // one-on-one the player's own death is the knockout that brings the count
+    // up to `maximum - 1`, so on corpses alone this reads as a win at the exact
+    // moment the player loses. The surviving elf has to actually be the player.
+    const clientPlayer = clientSystem.player;
+    const playerSurvives = clientPlayer != null && !clientPlayer.health.dead;
+
+    if (!this.announcedWin && playerSurvives &&
+        population.knockedOut >= (population.maximum - 1)) {
+      this.announcedWin = true;
+
       window.santaApp.fire('game-stop', {
-        score: population.knockedOut,
+        level: population.knockedOut,
+        maxLevel: population.maximum - 1,
+        levelLabel: 'iced',
+        gameoverMessage: sceneString('snowball_gameover_win'),
       });
       gtag('event', 'gameAction', {game: 'snowball', action: 'win'});
+
+      // Freeze the world behind the overlay. The map is still eroding, so a
+      // winner left standing on it would eventually drown and trigger the
+      // client's lose screen on top of this one.
+      game.finish();
     }
   }
 }

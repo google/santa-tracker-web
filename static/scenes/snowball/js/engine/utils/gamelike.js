@@ -43,6 +43,7 @@ export const Gamelike = (SuperClass = DefaultBaseClass) => class extends SuperCl
 
     this.currentLevel = null;
     this.ready = false;
+    this.finished = false;
 
     this.clockSystem.startClock('gameloop', time => {
       this.preciseTick = time * 60 / 1000;
@@ -53,12 +54,32 @@ export const Gamelike = (SuperClass = DefaultBaseClass) => class extends SuperCl
         this.ready = true;
       }
 
-      if (this.currentLevel == null) {
+      if (this.currentLevel == null || this.finished) {
         return;
       }
 
       this.update();
     });
+  }
+
+  /**
+   * Ends the match for good. The world freezes on its last frame, which is
+   * what the game over overlay is drawn on top of.
+   *
+   * This is deliberately one-way. A finished match that keeps simulating does
+   * not just waste a frame callback: the population keeps changing underneath
+   * the overlay, so whichever end-of-game condition is checked next will fire
+   * a second time and overwrite the result the player is looking at.
+   *
+   * Restarting builds a whole new game element, so nothing here needs undoing.
+   */
+  finish() {
+    if (this.finished) {
+      return;
+    }
+
+    this.finished = true;
+    this.clockSystem.stop();
   }
 
   setup() {}

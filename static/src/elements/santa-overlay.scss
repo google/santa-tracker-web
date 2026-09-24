@@ -164,6 +164,23 @@ nav {
     background-image: _rel("../../img/overlay/pause.svg");
   }
 
+  // Opt-in artwork for scenes that can actually be lost. The default above is
+  // a celebrating elf holding a trophy, which is right for the many scenes
+  // where "game over" just means the clock ran out, but wrong for an
+  // elimination game. Only applied alongside .gameover, never to pause/share.
+  &.gameover-lose {
+    background-image: _rel("../../img/overlay/gameover-lose.svg");
+
+    // The default `contain` assumes artwork with empty space along its top
+    // edge, which is what lets the headline sit over it. This one is portrait
+    // and cropped tight to the snow pile, so `contain` would scale it to the
+    // full height of the hero and run it straight under the text. Size it by
+    // height instead, holding back the h1's 42px line plus a little air; it is
+    // anchored `bottom center` by the shorthand above, so the artwork drops
+    // clear of the heading at any hero height.
+    background-size: auto calc(100% - 52px);
+  }
+
   h1 {
     text-align: center;
     color: white;

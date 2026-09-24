@@ -19,6 +19,7 @@ import { HexMap } from '../entities/hex-map.js';
 import { Obstacles } from '../entities/obstacles.js';
 import { GameMap } from '../components/game-map.js';
 import { Tree } from '../entities/static/tree.js';
+import { RaisedTile } from '../entities/static/raised-tile.js';
 import { DestinationMarker } from '../entities/destination-marker.js';
 
 const { Object3D } = self.THREE;
@@ -50,6 +51,24 @@ export class MapSystem {
     this.mapLayer.add(gimbal);
 
     this.pickHandlers = [];
+    this.didSetup = false;
+  }
+
+  /**
+   * Swaps in a differently-sized grid. This must happen before `setup()`:
+   * the grid's pixel dimensions get baked into the hex map's shader uniform,
+   * the obstacle layer and the `PlaneBufferGeometry` used for mouse picking,
+   * none of which are rebuilt afterwards.
+   */
+  resize(unitWidth, unitHeight, tileScale) {
+    if (this.didSetup) {
+      console.warn(
+          'MapSystem.resize called after setup; the map geometry is already ' +
+          'built at the old size and will not match the new grid.');
+      return;
+    }
+
+    this.grid = new MagicHexGrid(unitWidth, unitHeight, tileScale);
   }
 
   teardown(game) {
@@ -77,6 +96,8 @@ export class MapSystem {
   }
 
   setup(game) {
+    this.didSetup = true;
+
     this.obstacles.setup(game);
     this.destinationMarker.setup(game);
     this.hexMap.setup(game);
@@ -90,19 +111,26 @@ export class MapSystem {
 
     this.obstacles.update(game);
     this.hexMap.update(game);
+    this.removeErodedObstacleCollidables(game);
 
     if (!clientPlayer) {
       return;
     }
     const destinationReached = clientPlayer.path.destinationReached;
 
-    if (destinationReached && this.destinationMarker.visible) {
-      this.destinationMarker.visible = false;
-    } else if (!destinationReached) {
+    // The cross earns its place only on a click, where it answers "how far will
+    // I travel" — something the heading chevron on the player marker cannot say.
+    // A keyboard walk is always the same short look-ahead, so there the cross is
+    // just a jittering mark two tiles in front of the elf.
+    const showMarker = !destinationReached && clientSystem.destinationFromPointer;
+
+    if (this.destinationMarker.visible !== showMarker) {
+      this.destinationMarker.visible = showMarker;
+    }
+
+    if (showMarker) {
       this.destinationMarker.position.x = clientPlayer.path.destination.x;
       this.destinationMarker.position.y = clientPlayer.path.destination.y - 20.0;
-
-      this.destinationMarker.visible = true;
     }
   }
 
@@ -111,7 +139,11 @@ export class MapSystem {
       game.collisionSystem.removeCollidable(tree);
     });
 
-    this.map = new GameMap(this.grid, seed);
+    const treeDensity = game.gameMode != null
+        ? game.gameMode.treeDensity
+        : undefined;
+
+    this.map = new GameMap(this.grid, seed, treeDensity);
     this.hexMap.map = this.map;
     this.obstacles.map = this.map;
 
@@ -132,5 +164,49 @@ export class MapSystem {
           game.collisionSystem.addCollidable(tree);
           this.obstacleCollidables.add(tree);
         });
+
+    // Raised tiles are walls for elves, so they should stop snowballs too.
+    // Half the cell height is the hexagon's inradius, so the circles of two
+    // neighbouring tiles meet exactly on their shared edge.
+    const raisedTileRadius = this.grid.cellHeight / 2.0;
+
+    for (let index = 0; index < this.map.tileCount; ++index) {
+      if (this.map.getTileState(index) !== 5.0) {
+        continue;
+      }
+
+      const raisedTile = new RaisedTile(
+          index, this.grid.indexToPosition(index), raisedTileRadius);
+
+      raisedTile.setup(game);
+
+      game.collisionSystem.addCollidable(raisedTile);
+      this.obstacleCollidables.add(raisedTile);
+    }
+  }
+
+  /**
+   * Obstacle colliders outlive the tile they sit on, which would leave an
+   * invisible wall hanging over the water once that tile erodes away.
+   */
+  removeErodedObstacleCollidables(game) {
+    if (this.map == null) {
+      return;
+    }
+
+    this.obstacleCollidables.forEach((obstacle) => {
+      const tileState = this.map.getTileState(obstacle.tileIndex);
+
+      // Tile states are an enum, not a scale: 1 (visible), 2 (highlighted) and
+      // 5 (raised) are all still solid ground. Only 0 (hidden), 3 (shaking)
+      // and 4 (sinking) mean the tile is on its way into the water.
+      if (tileState === 1.0 || tileState === 2.0 || tileState === 5.0) {
+        return;
+      }
+
+      game.collisionSystem.removeCollidable(obstacle);
+      this.obstacleCollidables.delete(obstacle);
+      obstacle.teardown(game);
+    });
   }
 };

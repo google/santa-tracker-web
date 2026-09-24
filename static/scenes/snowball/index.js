@@ -17,7 +17,7 @@
 
 import api from '../../src/scene/api.js';
 import '../../src/elements/santa-weather.js';
-import './js/snowball-game.js';
+import {GameMode} from './js/snowball-game.js';
 
 api.preload.sounds('snowball_load_sounds');
 api.preload.images(
@@ -46,20 +46,31 @@ const awaitAnimation = (element) => new Promise((resolve) => {
   element.addEventListener('animationend', cleanup);
 });
 
-const jumpBtn = document.getElementById('jumpBtn');
+const modeChoice = document.getElementById('modeChoice');
+const quickBtn = document.getElementById('quickBtn');
+const arenaBtn = document.getElementById('arenaBtn');
 const splash = document.getElementById('splash');
 let game = null;
 
+// Remembered so that a restart replays the mode the player picked, rather
+// than dropping them back into the default.
+let selectedMode = GameMode.ARENA;
+
 api.ready(async () => {
-  jumpBtn.addEventListener('click', (ev) => {
-    jumpBtn.hidden = true;
+  const chooseMode = (mode) => (ev) => {
+    selectedMode = mode;
+
+    modeChoice.hidden = true;
     document.body.classList.add('intro');
     api.play('generic_button_click');
 
     // this.$.tutorial.show = false;  // only show before game starts
 
     awaitAnimation(dropCloud).then(() => startGame());
-  });
+  };
+
+  quickBtn.addEventListener('click', chooseMode(GameMode.QUICK));
+  arenaBtn.addEventListener('click', chooseMode(GameMode.ARENA));
 });
 
 api.addEventListener('restart', (ev) => {
@@ -77,6 +88,12 @@ function startGame() {
 
   document.body.classList.remove('intro');
   game = document.createElement('snowball-game');
+
+  // Must be set before the game's first animation frame: `Gamelike` calls
+  // `setup()` on the next frame, and that bakes the grid dimensions into the
+  // shader uniforms and the mouse-picking plane. Assigning synchronously here
+  // is what guarantees we win that race.
+  game.gameMode = selectedMode;
 
   document.body.insertBefore(game, document.body.firstElementChild);
 
