@@ -2255,6 +2255,270 @@
     "description": "Title of a scene/game. Help a penguin navigate icebergs to pick up presents.",
     "message": "Penguin Dash"
   },
+  "scene_elfexpress": {
+    "description": "Title of a scene/game. Catch falling presents off a conveyor belt and sort them into matching sleigh chutes. [CHAR_LIMIT=24]",
+    "message": "Elf Express"
+  },
+  "elfexpress_pick_elf": {
+    "description": "Subtitle on the Elf Express start screen prompting the player to select an elf character. [CHAR_LIMIT=35]",
+    "message": "Pick your elf"
+  },
+  "elfexpress_start": {
+    "description": "Primary button label on the Elf Express start screen to begin gameplay. [CHAR_LIMIT=24]",
+    "message": "Start the shift"
+  },
+  "elfexpress_how_to_play": {
+    "description": "Secondary button label on the Elf Express start screen to start the interactive tutorial. [CHAR_LIMIT=24]",
+    "message": "How to play"
+  },
+  "elfexpress_skip_tut": {
+    "description": "Button label in the bottom-left corner during the Elf Express tutorial to skip directly to gameplay. [CHAR_LIMIT=22]",
+    "message": "Skip tutorial"
+  },
+  "elfexpress_elf_orange": {
+    "description": "Screen-reader label for the first selectable elf character wearing an orange outfit on the start screen. [CHAR_LIMIT=40]",
+    "message": "Elf in orange"
+  },
+  "elfexpress_elf_purple": {
+    "description": "Screen-reader label for the second selectable elf character wearing a purple outfit on the start screen. [CHAR_LIMIT=40]",
+    "message": "Elf in purple"
+  },
+  "elfexpress_elf_red": {
+    "description": "Screen-reader label for the third selectable elf character wearing a red outfit on the start screen. [CHAR_LIMIT=40]",
+    "message": "Elf in red"
+  },
+  "elfexpress_elf_green": {
+    "description": "Screen-reader label for the fourth selectable elf character wearing a green outfit on the start screen. [CHAR_LIMIT=40]",
+    "message": "Elf in green"
+  },
+  "elfexpress_elf_blue": {
+    "description": "Screen-reader label for the fifth selectable elf character wearing a blue outfit on the start screen. [CHAR_LIMIT=40]",
+    "message": "Elf in blue"
+  },
+  "elfexpress_elf_yellow": {
+    "description": "Screen-reader label for the sixth selectable elf character wearing a yellow outfit on the start screen. [CHAR_LIMIT=40]",
+    "message": "Elf in yellow"
+  },
+  "elfexpress_cat_sports": {
+    "description": "Chute category label for sports gifts (basketball, soccer ball) on Floor 0 of Elf Express. [CHAR_LIMIT=12]",
+    "message": "Sports"
+  },
+  "elfexpress_cat_vehicles": {
+    "description": "Chute category label for vehicle gifts (toy car, train) on Floor 1 of Elf Express. [CHAR_LIMIT=12]",
+    "message": "Vehicles"
+  },
+  "elfexpress_cat_treats": {
+    "description": "Chute category label for sweet treat gifts (candy cane, cupcake) on Floor 2 of Elf Express. [CHAR_LIMIT=12]",
+    "message": "Treats"
+  },
+  "elfexpress_cat_books": {
+    "description": "Chute category label for book gifts (open book, closed book) on Floor 3 of Elf Express. [CHAR_LIMIT=12]",
+    "message": "Books"
+  },
+  "elfexpress_cat_plush": {
+    "description": "Chute category label for plush toy gifts (teddy bear, bunny) on Floor 4 of Elf Express. [CHAR_LIMIT=12]",
+    "message": "Plush"
+  },
+  "elfexpress_opens_at_sleigh": {
+    "description": "Label on a locked workshop chute indicating which sleigh number unlocks that floor. {sleigh} is the sleigh number (e.g. 2, 3, or 5). [CHAR_LIMIT=24]",
+    "message": "OPENS AT SLEIGH {sleigh}"
+  },
+  "elfexpress_new_gifts_banner": {
+    "description": "In-game banner and screen-reader announcement shown at the start of Sleigh 5 when each chute unlocks its second gift icon. [CHAR_LIMIT=65]",
+    "message": "New gifts! Each chute now takes two kinds."
+  },
+  "elfexpress_hint_catch": {
+    "description": "In-game hint displayed at the bottom of the workshop when the player is idle and not carrying a gift. [CHAR_LIMIT=80]",
+    "message": "Then tap on the chute to match the gift to its category."
+  },
+  "elfexpress_hint_chute": {
+    "description": "In-game hint displayed at the bottom of the workshop when the player is carrying a gift. [CHAR_LIMIT=120]",
+    "message": "Don't forget to collect the gifts and deliver them, even if they are on the same floor!"
+  },
+  "elfexpress_win_big": {
+    "description": "Large celebratory headline displayed in the sky during the win takeoff animation in Elf Express. [CHAR_LIMIT=28]",
+    "message": "HAPPY HOLIDAYS"
+  },
+  "elfexpress_win_small": {
+    "description": "Subtitle displayed below the headline during the win takeoff animation in Elf Express. [CHAR_LIMIT=50]",
+    "message": "All the gifts are ready to go!"
+  },
+  "elfexpress_sr_sleigh_away": {
+    "description": "Screen-reader announcement read when a sleigh is filled. {done} is completed sleighs (e.g. 1) and {total} is total sleighs (e.g. 9). [CHAR_LIMIT=40]",
+    "message": "Sleigh away. {done} of {total}."
+  },
+  "elfexpress_sr_last_sleigh": {
+    "description": "Screen-reader announcement read when the player reaches the 9th and final sleigh. [CHAR_LIMIT=60]",
+    "message": "Last sleigh. It is snowing hard out there."
+  },
+  "elfexpress_sr_all_sleighs": {
+    "description": "Screen-reader announcement read when all 9 sleighs have been filled. [CHAR_LIMIT=50]",
+    "message": "You have filled all the sleighs!"
+  },
+  "elfexpress_sr_gust": {
+    "description": "Screen-reader announcement read when a wind gust blows through the workshop. [CHAR_LIMIT=50]",
+    "message": "Wow, what a storm out there!"
+  },
+  "elfexpress_sr_win": {
+    "description": "Screen-reader announcement read when Santa takes off at the end of a winning run. [CHAR_LIMIT=70]",
+    "message": "Congratulations! You've helped wrap all the gifts!"
+  },
+  "elfexpress_tut_footer_tap": {
+    "description": "Footer prompt on tutorial cards where tapping anywhere advances to the next step. [CHAR_LIMIT=40]",
+    "message": "TAP ANYWHERE TO CONTINUE"
+  },
+  "elfexpress_tut_footer_belt": {
+    "description": "Footer prompt on tutorial cards where the player taps the highlighted conveyor belt to catch a gift. [CHAR_LIMIT=40]",
+    "message": "Tap to collect the gift"
+  },
+  "elfexpress_tut_footer_chute": {
+    "description": "Footer prompt on tutorial cards where the player taps a highlighted chute to sort a gift. [CHAR_LIMIT=40]",
+    "message": "Tap the chute"
+  },
+  "elfexpress_tut_1_t": {
+    "description": "Tutorial card 1 title. [CHAR_LIMIT=45]",
+    "message": "Welcome to Elf Express!"
+  },
+  "elfexpress_tut_1_b1": {
+    "description": "Tutorial card 1 body line 1. [CHAR_LIMIT=65]",
+    "message": "Thanks for coming to help Santa organize"
+  },
+  "elfexpress_tut_1_b2": {
+    "description": "Tutorial card 1 body line 2. [CHAR_LIMIT=50]",
+    "message": "the gifts! We need your help!"
+  },
+  "elfexpress_tut_2_t": {
+    "description": "Tutorial card 2 title. [CHAR_LIMIT=50]",
+    "message": "Catch the gifts as they come out."
+  },
+  "elfexpress_tut_2_b1": {
+    "description": "Tutorial card 2 body line 1. [CHAR_LIMIT=60]",
+    "message": "Gifts roll out on the conveyor belts."
+  },
+  "elfexpress_tut_2_b2": {
+    "description": "Tutorial card 2 body line 2. [CHAR_LIMIT=65]",
+    "message": "Tap here to send your elf to catch the gift."
+  },
+  "elfexpress_tut_3_t": {
+    "description": "Tutorial card 3 title. [CHAR_LIMIT=70]",
+    "message": "Place the gift in the correct category for wrapping!"
+  },
+  "elfexpress_tut_3_b1": {
+    "description": "Tutorial card 3 body line 1. [CHAR_LIMIT=85]",
+    "message": "You can identify the correct chute by matching the gift icons."
+  },
+  "elfexpress_tut_3_b2": {
+    "description": "Tutorial card 3 body line 2. [CHAR_LIMIT=45]",
+    "message": "Try this one, VEHICLES!"
+  },
+  "elfexpress_tut_4_t": {
+    "description": "Tutorial card 4 title. [CHAR_LIMIT=35]",
+    "message": "Nice sorting!"
+  },
+  "elfexpress_tut_4_b1": {
+    "description": "Tutorial card 4 body line 1. [CHAR_LIMIT=90]",
+    "message": "Placing the gift in the correct chute sends the gift to be wrapped"
+  },
+  "elfexpress_tut_4_b2": {
+    "description": "Tutorial card 4 body line 2. [CHAR_LIMIT=60]",
+    "message": "and loaded onto Santa's sleigh. Watch!"
+  },
+  "elfexpress_tut_5_t": {
+    "description": "Tutorial card 5 title. [CHAR_LIMIT=40]",
+    "message": "Here comes another!"
+  },
+  "elfexpress_tut_5_b1": {
+    "description": "Tutorial card 5 body line 1. [CHAR_LIMIT=55]",
+    "message": "Grab this one too. We're going to"
+  },
+  "elfexpress_tut_5_b2": {
+    "description": "Tutorial card 5 body line 2. [CHAR_LIMIT=50]",
+    "message": "try something silly with it."
+  },
+  "elfexpress_tut_6_t": {
+    "description": "Tutorial card 6 title. [CHAR_LIMIT=55]",
+    "message": "What if it's the wrong category?"
+  },
+  "elfexpress_tut_6_b1": {
+    "description": "Tutorial card 6 body line 1. [CHAR_LIMIT=60]",
+    "message": "Let's take this SPORTS ball and drop it in"
+  },
+  "elfexpress_tut_6_b2": {
+    "description": "Tutorial card 6 body line 2. [CHAR_LIMIT=50]",
+    "message": "VEHICLES. Let's see what happens!"
+  },
+  "elfexpress_tut_7_t": {
+    "description": "Tutorial card 7 title. [CHAR_LIMIT=40]",
+    "message": "Uh-oh, wrong chute!"
+  },
+  "elfexpress_tut_7_b1": {
+    "description": "Tutorial card 7 body line 1. [CHAR_LIMIT=55]",
+    "message": "Gifts in the wrong chute get sent"
+  },
+  "elfexpress_tut_7_b2": {
+    "description": "Tutorial card 7 body line 2. [CHAR_LIMIT=35]",
+    "message": "to the recycler."
+  },
+  "elfexpress_tut_8_b1": {
+    "description": "Tutorial card 8 body line. [CHAR_LIMIT=65]",
+    "message": "If the recycler fills up, the shift is over!"
+  },
+  "elfexpress_tut_9_t": {
+    "description": "Tutorial card 9 title. [CHAR_LIMIT=55]",
+    "message": "The goal is to fill up Santa's sleigh."
+  },
+  "elfexpress_tut_9_b1": {
+    "description": "Tutorial card 9 body line. [CHAR_LIMIT=45]",
+    "message": "Let's grab this SPORTS gift."
+  },
+  "elfexpress_tut_10_b1": {
+    "description": "Tutorial card 10 body line. [CHAR_LIMIT=50]",
+    "message": "Tap the Sports chute to wrap it."
+  },
+  "elfexpress_tut_11_t": {
+    "description": "Tutorial card 11 title. [CHAR_LIMIT=40]",
+    "message": "Now the sleigh is full!"
+  },
+  "elfexpress_tut_12_t": {
+    "description": "Tutorial card 12 title. [CHAR_LIMIT=40]",
+    "message": "Time to get a new one!"
+  },
+  "elfexpress_tut_12_b1": {
+    "description": "Tutorial card 12 body line 1. [CHAR_LIMIT=55]",
+    "message": "Rudolph will also show up to help."
+  },
+  "elfexpress_tut_12_b2": {
+    "description": "Tutorial card 12 body line 2. [CHAR_LIMIT=45]",
+    "message": "As you fill up the sleighs,"
+  },
+  "elfexpress_tut_13_t": {
+    "description": "Tutorial card 13 title. [CHAR_LIMIT=45]",
+    "message": "Rudolph earns fun accessories!"
+  },
+  "elfexpress_tut_13_b1": {
+    "description": "Tutorial card 13 body line. [CHAR_LIMIT=55]",
+    "message": "See if you can achieve his full look!"
+  },
+  "elfexpress_tut_14_t": {
+    "description": "Tutorial card 14 title. [CHAR_LIMIT=60]",
+    "message": "Don't forget, toys come in different shapes!"
+  },
+  "elfexpress_tut_14_b1": {
+    "description": "Tutorial card 14 body text explaining that a cupcake is also a Treat. [CHAR_LIMIT=140]",
+    "message": "This cupcake is also a TREAT! Make sure to keep an eye out and match the icons with their correct chute."
+  },
+  "elfexpress_tut_15_t": {
+    "description": "Tutorial card 15 title. [CHAR_LIMIT=25]",
+    "message": "Whoosh!"
+  },
+  "elfexpress_tut_15_b1": {
+    "description": "Tutorial card 15 body line 1. [CHAR_LIMIT=85]",
+    "message": "Watch out for snowstorms and gusts of that wind push the gifts"
+  },
+  "elfexpress_tut_15_b2": {
+    "description": "Tutorial card 15 body line 2. [CHAR_LIMIT=40]",
+    "message": "along faster. Stay quick!"
+  },
   "scene_elfmaker": {
     "description": "Title of a scene/game. Create an Elf that looks just like you.",
     "message": "Elf Maker"

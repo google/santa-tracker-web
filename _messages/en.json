@@ -1706,6 +1706,204 @@
 	"scene_dash": {
 		"message": "Penguin Dash"
 	},
+	"scene_elfexpress": {
+		"message": "Elf Express"
+	},
+	"elfexpress_pick_elf": {
+		"message": "Pick your elf"
+	},
+	"elfexpress_start": {
+		"message": "Start the shift"
+	},
+	"elfexpress_how_to_play": {
+		"message": "How to play"
+	},
+	"elfexpress_skip_tut": {
+		"message": "Skip tutorial"
+	},
+	"elfexpress_elf_orange": {
+		"message": "Elf in orange"
+	},
+	"elfexpress_elf_purple": {
+		"message": "Elf in purple"
+	},
+	"elfexpress_elf_red": {
+		"message": "Elf in red"
+	},
+	"elfexpress_elf_green": {
+		"message": "Elf in green"
+	},
+	"elfexpress_elf_blue": {
+		"message": "Elf in blue"
+	},
+	"elfexpress_elf_yellow": {
+		"message": "Elf in yellow"
+	},
+	"elfexpress_cat_sports": {
+		"message": "Sports"
+	},
+	"elfexpress_cat_vehicles": {
+		"message": "Vehicles"
+	},
+	"elfexpress_cat_treats": {
+		"message": "Treats"
+	},
+	"elfexpress_cat_books": {
+		"message": "Books"
+	},
+	"elfexpress_cat_plush": {
+		"message": "Plush"
+	},
+	"elfexpress_opens_at_sleigh": {
+		"message": "OPENS AT SLEIGH {sleigh}"
+	},
+	"elfexpress_new_gifts_banner": {
+		"message": "New gifts! Each chute now takes two kinds."
+	},
+	"elfexpress_hint_catch": {
+		"message": "Then tap on the chute to match the gift to its category."
+	},
+	"elfexpress_hint_chute": {
+		"message": "Don't forget to collect the gifts and deliver them, even if they are on the same floor!"
+	},
+	"elfexpress_win_big": {
+		"message": "HAPPY HOLIDAYS"
+	},
+	"elfexpress_win_small": {
+		"message": "All the gifts are ready to go!"
+	},
+	"elfexpress_sr_sleigh_away": {
+		"message": "Sleigh away. {done} of {total}."
+	},
+	"elfexpress_sr_last_sleigh": {
+		"message": "Last sleigh. It is snowing hard out there."
+	},
+	"elfexpress_sr_all_sleighs": {
+		"message": "You have filled all the sleighs!"
+	},
+	"elfexpress_sr_gust": {
+		"message": "Wow, what a storm out there!"
+	},
+	"elfexpress_sr_win": {
+		"message": "Congratulations! You've helped wrap all the gifts!"
+	},
+	"elfexpress_tut_footer_tap": {
+		"message": "TAP ANYWHERE TO CONTINUE"
+	},
+	"elfexpress_tut_footer_belt": {
+		"message": "Tap to collect the gift"
+	},
+	"elfexpress_tut_footer_chute": {
+		"message": "Tap the chute"
+	},
+	"elfexpress_tut_1_t": {
+		"message": "Welcome to Elf Express!"
+	},
+	"elfexpress_tut_1_b1": {
+		"message": "Thanks for coming to help Santa organize"
+	},
+	"elfexpress_tut_1_b2": {
+		"message": "the gifts! We need your help!"
+	},
+	"elfexpress_tut_2_t": {
+		"message": "Catch the gifts as they come out."
+	},
+	"elfexpress_tut_2_b1": {
+		"message": "Gifts roll out on the conveyor belts."
+	},
+	"elfexpress_tut_2_b2": {
+		"message": "Tap here to send your elf to catch the gift."
+	},
+	"elfexpress_tut_3_t": {
+		"message": "Place the gift in the correct category for wrapping!"
+	},
+	"elfexpress_tut_3_b1": {
+		"message": "You can identify the correct chute by matching the gift icons."
+	},
+	"elfexpress_tut_3_b2": {
+		"message": "Try this one, VEHICLES!"
+	},
+	"elfexpress_tut_4_t": {
+		"message": "Nice sorting!"
+	},
+	"elfexpress_tut_4_b1": {
+		"message": "Placing the gift in the correct chute sends the gift to be wrapped"
+	},
+	"elfexpress_tut_4_b2": {
+		"message": "and loaded onto Santa's sleigh. Watch!"
+	},
+	"elfexpress_tut_5_t": {
+		"message": "Here comes another!"
+	},
+	"elfexpress_tut_5_b1": {
+		"message": "Grab this one too. We're going to"
+	},
+	"elfexpress_tut_5_b2": {
+		"message": "try something silly with it."
+	},
+	"elfexpress_tut_6_t": {
+		"message": "What if it's the wrong category?"
+	},
+	"elfexpress_tut_6_b1": {
+		"message": "Let's take this SPORTS ball and drop it in"
+	},
+	"elfexpress_tut_6_b2": {
+		"message": "VEHICLES. Let's see what happens!"
+	},
+	"elfexpress_tut_7_t": {
+		"message": "Uh-oh, wrong chute!"
+	},
+	"elfexpress_tut_7_b1": {
+		"message": "Gifts in the wrong chute get sent"
+	},
+	"elfexpress_tut_7_b2": {
+		"message": "to the recycler."
+	},
+	"elfexpress_tut_8_b1": {
+		"message": "If the recycler fills up, the shift is over!"
+	},
+	"elfexpress_tut_9_t": {
+		"message": "The goal is to fill up Santa's sleigh."
+	},
+	"elfexpress_tut_9_b1": {
+		"message": "Let's grab this SPORTS gift."
+	},
+	"elfexpress_tut_10_b1": {
+		"message": "Tap the Sports chute to wrap it."
+	},
+	"elfexpress_tut_11_t": {
+		"message": "Now the sleigh is full!"
+	},
+	"elfexpress_tut_12_t": {
+		"message": "Time to get a new one!"
+	},
+	"elfexpress_tut_12_b1": {
+		"message": "Rudolph will also show up to help."
+	},
+	"elfexpress_tut_12_b2": {
+		"message": "As you fill up the sleighs,"
+	},
+	"elfexpress_tut_13_t": {
+		"message": "Rudolph earns fun accessories!"
+	},
+	"elfexpress_tut_13_b1": {
+		"message": "See if you can achieve his full look!"
+	},
+	"elfexpress_tut_14_t": {
+		"message": "Don't forget, toys come in different shapes!"
+	},
+	"elfexpress_tut_14_b1": {
+		"message": "This cupcake is also a TREAT! Make sure to keep an eye out and match the icons with their correct chute."
+	},
+	"elfexpress_tut_15_t": {
+		"message": "Whoosh!"
+	},
+	"elfexpress_tut_15_b1": {
+		"message": "Watch out for snowstorms and gusts of that wind push the gifts"
+	},
+	"elfexpress_tut_15_b2": {
+		"message": "along faster. Stay quick!"
+	},
 	"scene_elfmaker": {
 		"message": "Elf Maker"
 	},
