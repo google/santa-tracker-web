@@ -37,6 +37,7 @@ export const ENDING = {
   small: _msg`elfexpress_win_small`,
 };
 
+// Core player movement, teeter window, fail threshold, and scoring constants.
 export const TUNE = {
   runSpeed: 1200,
   climbSpeed: 700,
@@ -51,20 +52,26 @@ export const TUNE = {
   starOk: 9,
 };
 
+// Gifts needed to fill and launch each of the 9 sleighs (sleighsDone 0..8).
 export const SLEIGHS = [4, 5, 6, 7, 8, 9, 10, 11, 12];
 
+// Snowfall intensity by sleighsDone (0..8): stays calm across Sleighs 1-3 (0.10-0.26),
+// jumps noticeably at Sleigh 4 (at: 3 -> 0.90) when the 5th floor opens, then climbs to 2.40.
 export const SNOW = [
+  { at: 0, fall: 0.10 },
   { at: 1, fall: 0.18 },
-  { at: 2, fall: 0.32 },
-  { at: 3, fall: 0.48 },
-  { at: 4, fall: 0.68 },
-  { at: 5, fall: 0.90 },
-  { at: 6, fall: 1.3 },
-  { at: 7, fall: 1.8 },
-  { at: 8, fall: 2.4 },
+  { at: 2, fall: 0.26 },
+  { at: 3, fall: 0.90 },
+  { at: 4, fall: 1.15 },
+  { at: 5, fall: 1.45 },
+  { at: 6, fall: 1.75 },
+  { at: 7, fall: 2.10 },
+  { at: 8, fall: 2.40 },
 ];
 export const SNOW_PILE = 0.048;
 
+// Wind gusts begin at Sleigh 6 (sleighsDone 5), one sleigh after the Sleigh 5 second-icon reveal,
+// and grow more frequent toward Sleigh 9.
 export const GUST = {
   fromSleigh: 5,
   gapEarly: [5.5, 9.0],
@@ -75,16 +82,19 @@ export const GUST = {
   teeterBonus: 0.80,
 };
 
+// Per-sleigh wave tuning (sleighsDone 0..8): opens one new floor/category per sleigh on Sleighs 2-4
+// (reaching all 5 floors on Sleigh 4), while spawn intervals tighten ~6.5% per step through Sleigh 7
+// and ease slightly on Sleighs 8-9 to land at 1.44s without a cliff.
 export const WAVES = [
-  { interval: 2.60, floors: 2, weights: [50, 50, 0, 0, 0] },
-  { interval: 2.40, floors: 3, weights: [36, 34, 30, 0, 0] },
-  { interval: 2.20, floors: 4, weights: [26, 26, 25, 23, 0] },
-  { interval: 2.05, floors: 4, weights: [25, 25, 25, 25, 0] },
+  { interval: 2.40, floors: 2, weights: [50, 50, 0, 0, 0] },
+  { interval: 2.24, floors: 3, weights: [36, 34, 30, 0, 0] },
+  { interval: 2.09, floors: 4, weights: [26, 26, 25, 23, 0] },
   { interval: 1.95, floors: 5, weights: [20, 20, 20, 20, 20] },
-  { interval: 1.90, floors: 5, weights: [19, 20, 20, 20, 21] },
-  { interval: 1.85, floors: 5, weights: [17, 19, 20, 22, 22] },
-  { interval: 1.80, floors: 5, weights: [15, 18, 20, 23, 24] },
-  { interval: 1.55, floors: 5, weights: [14, 17, 20, 23, 26] },
+  { interval: 1.82, floors: 5, weights: [20, 20, 20, 20, 20] },
+  { interval: 1.70, floors: 5, weights: [19, 20, 20, 20, 21] },
+  { interval: 1.59, floors: 5, weights: [17, 19, 20, 22, 22] },
+  { interval: 1.52, floors: 5, weights: [15, 18, 20, 23, 24] },
+  { interval: 1.44, floors: 5, weights: [14, 17, 20, 23, 26] },
 ];
 
 export const SKIN_TONES = ['#FADCBC', '#E0BB95', '#BF8F68', '#9B643D', '#584539'];
