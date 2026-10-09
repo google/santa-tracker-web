@@ -1,0 +1,229 @@
+/**
+ * Copyright 2020 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+:root {
+  --bg: #2B7FD9;
+  --panel: #FFFFFF;
+  --edge: #C1E8ED;
+  --ink: #1D1D1D;
+  --muted: #74797E;
+  --blue: #3399FF;
+  --amber: #E7AD03;
+  --rose: #FF3333;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  overflow: hidden;
+  font-family: "Google Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+#stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  outline: none;
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+  display: none;
+  place-items: center;
+  background: rgba(31, 78, 156, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 52px 16px 12px;
+  text-align: center;
+  z-index: 10;
+  transition: opacity 0.3s ease;
+}
+
+.screen.on {
+  display: grid;
+}
+
+.panel {
+  background: var(--panel);
+  border: 2px solid var(--edge);
+  border-radius: 20px;
+  box-shadow: 0 20px 44px rgba(11, 40, 80, 0.38);
+  padding: 18px 24px;
+  max-width: 480px;
+  width: 100%;
+  max-height: min(calc(100vh - 64px), 680px);
+  overflow-y: auto;
+  position: relative;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #FF3333, #FFE14D, #32A658, #3399FF);
+}
+
+h1 {
+  margin: 0 0 4px;
+  font-family: "Lobster", cursive;
+  font-size: 38px;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: #FF3333;
+  line-height: 1.1;
+}
+
+.sub {
+  margin: 0 0 12px;
+  color: #1B69C1;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+button {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: #FFF;
+  background: #FF3333;
+  border: 1px solid #D92626;
+  border-radius: 10px;
+  padding: 12px 28px;
+  cursor: pointer;
+  margin: 6px 4px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(181, 20, 26, 0.32);
+}
+
+button:hover {
+  transform: translateY(-1px);
+  background: #D92626;
+}
+
+button:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+button.ghost {
+  background: #FFFFFF;
+  border: 1.5px solid #D8DDE2;
+  color: #41474C;
+  box-shadow: none;
+}
+
+.tut-skip-btn {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  z-index: 8;
+  display: none;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #3399FF;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1D1D1D;
+  background: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(11, 40, 80, 0.28);
+  margin: 0;
+}
+
+.tut-skip-btn.on {
+  display: inline-flex;
+}
+
+.vis-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+  button:hover {
+    transform: none;
+  }
+}
+
+.elf-picker {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 300px;
+  margin: 0 auto 14px;
+}
+
+.elf-card {
+  padding: 8px;
+  margin: 0;
+  width: 88px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  background: rgba(30, 41, 59, 0.7);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  box-shadow: none;
+  border-radius: 12px;
+}
+
+.elf-card img {
+  width: auto;
+  display: block;
+  margin: auto auto 0;
+}
+
+.elf-card:hover {
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.elf-card[aria-checked="true"] {
+  border-color: #38BDF8;
+  background: rgba(56, 189, 248, 0.18);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
+}

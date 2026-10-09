@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="700" viewBox="0 0 900 700">
+<g id="03-Workshop-Wall">
+<rect x="44" y="60" width="580" height="560" rx="10" fill="#EFF1F3"/>
+<rect x="400" y="60" width="224" height="560" rx="10" fill="#D8DDE2"/>
+</g>
+<g id="04-Roof-And-Frame" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+<polygon points="22,60 334,12 646,60"/>
+<line x1="44" y1="60" x2="44" y2="622"/>
+<line x1="624" y1="60" x2="624" y2="622"/>
+</g>
+<g id="05-Floor-Slabs">
+<rect x="44" y="620" width="580" height="10" rx="4" fill="#7C5539"/>
+<rect x="44" y="627" width="580" height="3" fill="#584539" opacity="0.85"/>
+<rect x="44" y="508" width="580" height="10" rx="4" fill="#7C5539"/>
+<rect x="44" y="515" width="580" height="3" fill="#584539" opacity="0.85"/>
+<rect x="44" y="396" width="580" height="10" rx="4" fill="#7C5539"/>
+<rect x="44" y="403" width="580" height="3" fill="#584539" opacity="0.85"/>
+<rect x="44" y="284" width="580" height="10" rx="4" fill="#7C5539"/>
+<rect x="44" y="291" width="580" height="3" fill="#584539" opacity="0.85"/>
+<rect x="44" y="172" width="580" height="10" rx="4" fill="#7C5539"/>
+<rect x="44" y="179" width="580" height="3" fill="#584539" opacity="0.85"/>
+</g>
+<g id="06-Conveyors">
+<rect x="18" y="532" width="188" height="20" rx="6" fill="#74797E"/>
+<rect x="18" y="547" width="188" height="5" rx="2" fill="#41474C"/>
+<rect x="18" y="420" width="188" height="20" rx="6" fill="#74797E"/>
+<rect x="18" y="435" width="188" height="5" rx="2" fill="#41474C"/>
+<rect x="18" y="308" width="188" height="20" rx="6" fill="#74797E"/>
+<rect x="18" y="323" width="188" height="5" rx="2" fill="#41474C"/>
+<rect x="18" y="196" width="188" height="20" rx="6" fill="#74797E"/>
+<rect x="18" y="211" width="188" height="5" rx="2" fill="#41474C"/>
+<rect x="18" y="84" width="188" height="20" rx="6" fill="#74797E"/>
+<rect x="18" y="99" width="188" height="5" rx="2" fill="#41474C"/>
+</g>
+<g id="07-Ladder">
+<line x1="348" y1="64" x2="348" y2="618" stroke="#7C5539" stroke-width="7" stroke-linecap="round"/>
+<line x1="396" y1="64" x2="396" y2="618" stroke="#7C5539" stroke-width="7" stroke-linecap="round"/>
+<line x1="348" y1="604" x2="396" y2="604" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="578" x2="396" y2="578" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="552" x2="396" y2="552" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="526" x2="396" y2="526" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="500" x2="396" y2="500" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="474" x2="396" y2="474" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="448" x2="396" y2="448" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="422" x2="396" y2="422" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="396" x2="396" y2="396" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="370" x2="396" y2="370" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="344" x2="396" y2="344" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="318" x2="396" y2="318" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="292" x2="396" y2="292" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="266" x2="396" y2="266" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="240" x2="396" y2="240" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="214" x2="396" y2="214" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="188" x2="396" y2="188" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="162" x2="396" y2="162" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="136" x2="396" y2="136" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="110" x2="396" y2="110" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+<line x1="348" y1="84" x2="396" y2="84" stroke="#D74D19" stroke-width="4.5" stroke-linecap="round"/>
+</g>
+<g id="08-Chute-Panels">
+<rect x="410" y="561" width="204" height="58" rx="13" fill="#03B4C9"/>
+<rect x="410" y="611" width="204" height="8" rx="4" fill="#000000" opacity="0.14"/>
+<rect x="606" y="581" width="22" height="18" rx="4" fill="#74797E"/>
+<rect x="410" y="449" width="204" height="58" rx="13" fill="#FFE14D"/>
+<rect x="410" y="499" width="204" height="8" rx="4" fill="#000000" opacity="0.14"/>
+<rect x="606" y="469" width="22" height="18" rx="4" fill="#74797E"/>
+<rect x="410" y="337" width="204" height="58" rx="13" fill="#FF3333"/>
+<rect x="410" y="387" width="204" height="8" rx="4" fill="#000000" opacity="0.14"/>
+<rect x="606" y="357" width="22" height="18" rx="4" fill="#74797E"/>
+<rect x="410" y="225" width="204" height="58" rx="13" fill="#6F00FF"/>
+<rect x="410" y="275" width="204" height="8" rx="4" fill="#000000" opacity="0.14"/>
+<rect x="606" y="245" width="22" height="18" rx="4" fill="#74797E"/>
+<rect x="410" y="113" width="204" height="58" rx="13" fill="#32A658"/>
+<rect x="410" y="163" width="204" height="8" rx="4" fill="#000000" opacity="0.14"/>
+<rect x="606" y="133" width="22" height="18" rx="4" fill="#74797E"/>
+</g>
+<g id="09-Wrap-Machines">
+<rect x="618" y="580" width="18" height="20" rx="5" fill="#74797E"/>
+<rect x="692" y="580" width="46" height="20" rx="5" fill="#74797E"/>
+<rect x="632" y="570" width="64" height="40" rx="9" fill="#6F00FF"/>
+<rect x="632" y="601" width="64" height="9" rx="4" fill="#000000" opacity="0.16"/>
+<rect x="618" y="468" width="18" height="20" rx="5" fill="#74797E"/>
+<rect x="692" y="468" width="46" height="20" rx="5" fill="#74797E"/>
+<rect x="632" y="458" width="64" height="40" rx="9" fill="#6F00FF"/>
+<rect x="632" y="489" width="64" height="9" rx="4" fill="#000000" opacity="0.16"/>
+<rect x="618" y="356" width="18" height="20" rx="5" fill="#74797E"/>
+<rect x="692" y="356" width="46" height="20" rx="5" fill="#74797E"/>
+<rect x="632" y="346" width="64" height="40" rx="9" fill="#6F00FF"/>
+<rect x="632" y="377" width="64" height="9" rx="4" fill="#000000" opacity="0.16"/>
+<rect x="618" y="244" width="18" height="20" rx="5" fill="#74797E"/>
+<rect x="692" y="244" width="46" height="20" rx="5" fill="#74797E"/>
+<rect x="632" y="234" width="64" height="40" rx="9" fill="#6F00FF"/>
+<rect x="632" y="265" width="64" height="9" rx="4" fill="#000000" opacity="0.16"/>
+<rect x="618" y="132" width="18" height="20" rx="5" fill="#74797E"/>
+<rect x="692" y="132" width="46" height="20" rx="5" fill="#74797E"/>
+<rect x="632" y="122" width="64" height="40" rx="9" fill="#6F00FF"/>
+<rect x="632" y="153" width="64" height="9" rx="4" fill="#000000" opacity="0.16"/>
+</g>
+<g id="10-Delivery-Pipes">
+<rect x="650" y="142" width="28" height="496" rx="6" fill="#41474C"/>
+<rect x="655" y="148" width="18" height="484" rx="4" fill="#FF3333" opacity="0.45"/>
+<path d="M716 142 L744 142 L744 548 L736 600 L710 592 L716 546 Z" fill="#41474C"/>
+<path d="M721 148 L739 148 L739 546 L732 592 L716 587 L721 544 Z" fill="#3399FF" opacity="0.45"/>
+</g>
+<g id="11-Recycler-Bin">
+<rect x="622" y="642" width="84" height="50" rx="10" fill="#32A658"/>
+<rect x="622" y="642" width="84" height="9" rx="4" fill="#FFFFFF" opacity="0.28"/>
+</g>
+<g id="12-Sleigh">
+<rect x="724" y="580" width="72" height="42" rx="9" fill="#FF3333"/>
+<rect x="724" y="610" width="72" height="12" rx="6" fill="#D92626"/>
+<path d="M796 616 Q816 618 814 600 Q812 590 802 594" fill="none" stroke="#FFE14D" stroke-width="6" stroke-linecap="round"/>
+<path d="M717 628 L800 628 Q812 628 811 618" fill="none" stroke="#FFE14D" stroke-width="5" stroke-linecap="round"/>
+</g>
+<g id="13-Rivets">
+<circle cx="334" cy="12" r="9" fill="#32A658"/>
+<circle cx="22" cy="60" r="8" fill="#FF3333"/>
+<circle cx="646" cy="60" r="8" fill="#03B4C9"/>
+<circle cx="44" cy="625" r="6" fill="#F8C328" stroke="#7C5539" stroke-width="1.5"/>
+<circle cx="624" cy="625" r="6" fill="#F8C328" stroke="#7C5539" stroke-width="1.5"/>
+<circle cx="44" cy="513" r="6" fill="#F8C328" stroke="#7C5539" stroke-width="1.5"/>
+<circle cx="624" cy="513" r="6" fill="#F8C328" stroke="#7C5539" stroke-width="1.5"/>
+<circle cx="44" cy="401" r="6" fill="#F8C328" stroke="#7C5539" stroke-width="1.5"/>
+<circle cx="624" cy="401" r="6" fill="#F8C328" stroke="#7C5539" stroke-width="1.5"/>
+<circle cx="44" cy="289" r="6" fill="#F8C328" stroke="#7C5539" stroke-width="1.5"/>
+<circle cx="624" cy="289" r="6" fill="#F8C328" stroke="#7C5539" stroke-width="1.5"/>
+<circle cx="44" cy="177" r="6" fill="#F8C328" stroke="#7C5539" stroke-width="1.5"/>
+<circle cx="624" cy="177" r="6" fill="#F8C328" stroke="#7C5539" stroke-width="1.5"/>
+</g>
+</svg>
