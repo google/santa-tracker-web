@@ -675,6 +675,8 @@ function drawWorkshop(g2, S, floors) {
     }
 
     const sel = S.cmd && S.cmd.type === 'chute' && S.cmd.floor === f;
+    const match = S.revealed && carrying && S.elf.carrying.cat === f;
+    const hi = sel || match;
     const q = S.queue && S.queue.type === 'chute' && S.queue.floor === f;
     const cyy = chuteY(f), by2 = cyy - CHUTE_BH / 2;
     const cat = CATS[f], pulse = S.floorPulse[f];
@@ -683,18 +685,18 @@ function drawWorkshop(g2, S, floors) {
     const popElapsed = Math.max(0, popDur - popT);
     const blink = !reduceMotion && popT > 0 && Math.sin(popElapsed * Math.PI * 3.5) > 0;
 
-    if (!carrying && !sel && pulse <= 0 && popT <= 0) {
+    if ((!carrying || (S.revealed && !match)) && !hi && pulse <= 0 && popT <= 0) {
       g2.fillStyle = 'rgba(255,255,255,.18)';
       g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.fill();
     }
-    if (sel || pulse > 0 || popT > 0) {
+    if (hi || pulse > 0 || popT > 0) {
       g2.fillStyle = popT > 0 ? (reduceMotion ? 'rgba(255,255,255,.45)' : (blink ? 'rgba(255,225,77,.45)' : 'rgba(255,255,255,.55)'))
-        : (sel ? 'rgba(255,255,255,.28)' : 'rgba(255,255,255,.45)');
+        : (hi ? 'rgba(255,255,255,.28)' : 'rgba(255,255,255,.45)');
       g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.fill();
     }
     g2.strokeStyle = popT > 0 ? ((reduceMotion || blink) ? '#FFE14D' : '#FFFFFF')
-      : ((sel || pulse > 0) ? '#FFFFFF' : 'rgba(29,29,29,.24)');
-    g2.lineWidth = (sel || popT > 0) ? 3.5 : 2;
+      : ((hi || pulse > 0) ? '#FFFFFF' : 'rgba(29,29,29,.24)');
+    g2.lineWidth = (hi || popT > 0) ? 3.5 : 2;
     g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.stroke();
 
     if (q) {
@@ -702,7 +704,7 @@ function drawWorkshop(g2, S, floors) {
       g2.beginPath(); g2.roundRect(CHUTE_BX - 3, by2 - 3, CHUTE_BW + 6, CHUTE_BH + 6, 15);
       g2.stroke(); g2.setLineDash([]);
     }
-    if (carrying && !S.cmd) {
+    if (match || (!S.revealed && carrying && !S.cmd)) {
       g2.strokeStyle = 'rgba(255,255,255,' + (reduceMotion ? 0.75 : (0.4 + 0.5 * Math.abs(Math.sin(S.t * 3.5)))) + ')';
       g2.lineWidth = 3;
       g2.beginPath(); g2.roundRect(CHUTE_BX - 3, by2 - 3, CHUTE_BW + 6, CHUTE_BH + 6, 15); g2.stroke();
@@ -1150,29 +1152,6 @@ export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
       cx.fillText(hLines[i], 300, ly);
     }
     cx.textAlign = 'left'; cx.globalAlpha = 1;
-  }
-
-  if (S.revealT > 0) {
-    const elapsed = 2.6 - S.revealT;
-    const pop = (!reduceMotion && elapsed < 0.18) ? (0.85 + 0.15 * (elapsed / 0.18)) : 1;
-    const blink = !reduceMotion && Math.sin(elapsed * Math.PI * 3.5) > 0;
-    cx.save();
-    cx.translate(W / 2, 72);
-    cx.scale(pop, pop);
-    cx.font = "bold 21px 'Google Sans',sans-serif";
-    const rLines = wrapText(cx, REVEAL_BANNER, 470);
-    const rbh = Math.max(56, 26 + rLines.length * 26);
-    cx.fillStyle = 'rgba(15,23,42,.96)';
-    cx.strokeStyle = (reduceMotion || blink) ? '#FDE047' : '#38BDF8';
-    cx.lineWidth = 3;
-    cx.beginPath(); cx.roundRect(-255, -rbh / 2, 510, rbh, 16); cx.fill(); cx.stroke();
-    cx.textAlign = 'center';
-    cx.fillStyle = '#FDE047';
-    const rStartY = -(rLines.length - 1) * 13 + 7;
-    for (let i = 0; i < rLines.length; i++) {
-      cx.fillText(rLines[i], 0, rStartY + i * 26);
-    }
-    cx.restore();
   }
 
   drawTutorial(cx, S);

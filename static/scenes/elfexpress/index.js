@@ -415,15 +415,7 @@ function landInSleigh() {
   say(msgSleighAway(S.sleighsDone, SLEIGHS.length));
   if (S.sleighsDone === 4 && !S.revealed && !S.tut) {
     S.revealed = true;
-    S.revealT = 2.6;
-    S.actionHeld = false; S.actionEdge = false; S.actionBuf = 0;
-    say(REVEAL_BANNER);
-    for (let i = 0; i < 5; i++) {
-      S.catDual[i] = true;
-      S.catPop[i] = 2.6;
-      S.floorPulse[i] = 2.6;
-      puff(CHUTE_BX + 56, chuteY(i), CATS[i].color, 14);
-    }
+    for (let i = 0; i < 5; i++) S.catDual[i] = true;
   }
   if (S.sleighsDone >= SLEIGHS.length) {
     api.play('game_hurry_up_end');
