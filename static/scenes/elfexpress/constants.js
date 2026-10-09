@@ -83,18 +83,18 @@ export const GUST = {
 };
 
 // Per-sleigh wave tuning (sleighsDone 0..8): opens one new floor/category per sleigh on Sleighs 2-4
-// (reaching all 5 floors on Sleigh 4), while spawn intervals tighten ~6.5% per step through Sleigh 7
-// and ease slightly on Sleighs 8-9 to land at 1.44s without a cliff.
+// (reaching all 5 floors on Sleigh 4), while spawn intervals step down ~5.3% per sleigh from 2.40s
+// on Sleigh 1 to 1.55s on Sleigh 9 (above the ~1.475s expected 5-floor round trip).
 export const WAVES = [
   { interval: 2.40, floors: 2, weights: [50, 50, 0, 0, 0] },
-  { interval: 2.24, floors: 3, weights: [36, 34, 30, 0, 0] },
-  { interval: 2.09, floors: 4, weights: [26, 26, 25, 23, 0] },
-  { interval: 1.95, floors: 5, weights: [20, 20, 20, 20, 20] },
-  { interval: 1.82, floors: 5, weights: [20, 20, 20, 20, 20] },
-  { interval: 1.70, floors: 5, weights: [19, 20, 20, 20, 21] },
-  { interval: 1.59, floors: 5, weights: [17, 19, 20, 22, 22] },
-  { interval: 1.52, floors: 5, weights: [15, 18, 20, 23, 24] },
-  { interval: 1.44, floors: 5, weights: [14, 17, 20, 23, 26] },
+  { interval: 2.27, floors: 3, weights: [36, 34, 30, 0, 0] },
+  { interval: 2.15, floors: 4, weights: [26, 26, 25, 23, 0] },
+  { interval: 2.04, floors: 5, weights: [20, 20, 20, 20, 20] },
+  { interval: 1.93, floors: 5, weights: [20, 20, 20, 20, 20] },
+  { interval: 1.83, floors: 5, weights: [19, 20, 20, 20, 21] },
+  { interval: 1.73, floors: 5, weights: [17, 19, 20, 22, 22] },
+  { interval: 1.64, floors: 5, weights: [15, 18, 20, 23, 24] },
+  { interval: 1.55, floors: 5, weights: [14, 17, 20, 23, 26] },
 ];
 
 export const SKIN_TONES = ['#FADCBC', '#E0BB95', '#BF8F68', '#9B643D', '#584539'];
