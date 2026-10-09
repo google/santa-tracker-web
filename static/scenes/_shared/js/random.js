@@ -41,9 +41,20 @@ Random.setSeed = function(seed) {
   Random.generator_ = Random.mulberry32(numericSeed);
 };
 
+/**
+ * Returns a pseudo-random number in [0, 1).
+ *
+ * If no seed has been set yet, seeds from `window.__RANDOM_SEED__` when
+ * defined (tests set this from an init script so that randomness consumed
+ * while a scene is being constructed is deterministic), otherwise from
+ * Math.random().
+ * @return {number}
+ */
 Random.random = function() {
   if (!Random.generator_) {
-    Random.setSeed(Math.floor(Math.random() * 1000000));
+    var initialSeed = window['__RANDOM_SEED__'];
+    Random.setSeed(initialSeed !== undefined ? initialSeed :
+        Math.floor(Math.random() * 1000000));
   }
   return Random.generator_();
 };
