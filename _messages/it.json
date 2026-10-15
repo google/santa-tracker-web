@@ -3530,23 +3530,38 @@
 	"tracker_preflight_status": {
 		"message": "Stato Pre-Volo"
 	},
-	"tracker_preflight_badge": {
-		"message": "PRE-VOLO"
+	"tracker_preflight_1": {
+		"message": "Manutenzione della slitta e preparativi nel laboratorio"
 	},
-	"tracker_preflight_activity_1": {
-		"message": "Controllo pista e meteo finale"
+	"tracker_preflight_2": {
+		"message": "Smistamento delle liste e dei regali per tutto il mondo"
 	},
-	"tracker_preflight_activity_2": {
-		"message": "Controllo delle renne e del naso di Rudolph"
+	"tracker_preflight_3": {
+		"message": "Caricamento del sacco magico dei giocattoli sulla slitta"
 	},
-	"tracker_preflight_activity_3": {
-		"message": "Caricamento regali con Elf Express"
+	"tracker_preflight_4": {
+		"message": "Nutrizione delle renne con biscotti e carote speciali"
 	},
-	"tracker_preflight_activity_4": {
-		"message": "Revisione della rotta mondiale dei regali"
+	"tracker_preflight_5": {
+		"message": "Controllo dei venti polari e revisione della rotta mondiale"
 	},
-	"tracker_preflight_activity_5": {
-		"message": "Collaudo della slitta e ispezione laboratorio elfi"
+	"tracker_preflight_6": {
+		"message": "Cura delle renne e lucidatura del naso rosso di Rudolph"
+	},
+	"tracker_preflight_7": {
+		"message": "Babbo Natale indossa il vestito di velluto rosso e gli stivali"
+	},
+	"tracker_preflight_8": {
+		"message": "Salita a bordo della slitta e checklist pre-volo"
+	},
+	"tracker_preflight_9": {
+		"message": "Ispezione della pista e autorizzazione dalla torre del Polo Nord"
+	},
+	"tracker_preflight_10": {
+		"message": "I campanellini risuonano e le renne si allineano in pista"
+	},
+	"tracker_preflight_11": {
+		"message": "Conto alla rovescia finale per il decollo! Tenetevi forte!"
 	},
 	"tracker_distance_away_km": {
 		"message": "Babbo Natale è a {{distance_away}} km di distanza"

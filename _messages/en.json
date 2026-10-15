@@ -3728,23 +3728,38 @@
 	"tracker_preflight_status": {
 		"message": "Pre-Flight Status"
 	},
-	"tracker_preflight_badge": {
-		"message": "PRE-FLIGHT"
+	"tracker_preflight_1": {
+		"message": "Sleigh maintenance and workshop preparations"
 	},
-	"tracker_preflight_activity_1": {
-		"message": "Runway clearance & final weather check"
+	"tracker_preflight_2": {
+		"message": "Sorting worldwide delivery lists and presents"
 	},
-	"tracker_preflight_activity_2": {
-		"message": "Checking the reindeer & Rudolph's bright nose"
+	"tracker_preflight_3": {
+		"message": "Loading the magical toy sack onto the sleigh"
 	},
-	"tracker_preflight_activity_3": {
-		"message": "Loading wrapped gifts with Elf Express"
+	"tracker_preflight_4": {
+		"message": "Feeding the reindeer with holiday treats"
 	},
-	"tracker_preflight_activity_4": {
-		"message": "Reviewing the worldwide delivery route"
+	"tracker_preflight_5": {
+		"message": "Reviewing polar wind forecasts and flight route"
 	},
-	"tracker_preflight_activity_5": {
-		"message": "Sleigh tune-up and elf workshop inspection"
+	"tracker_preflight_6": {
+		"message": "Grooming the reindeer and shining Rudolph's nose"
+	},
+	"tracker_preflight_7": {
+		"message": "Santa putting on the red velvet suit and boots"
+	},
+	"tracker_preflight_8": {
+		"message": "Boarding the sleigh and final checklist"
+	},
+	"tracker_preflight_9": {
+		"message": "Runway inspection and North Pole tower clearance"
+	},
+	"tracker_preflight_10": {
+		"message": "Reindeer revving up and bells jingling on runway"
+	},
+	"tracker_preflight_11": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	},
 	"tracker_distance_away_km": {
 		"message": "Santa is {{distance_away}}km away"

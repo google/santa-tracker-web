@@ -24,7 +24,7 @@
 
 var defaults = {
   featured: {},
-  nav: ['tracker','@cityquiz','@rocketsleigh','@dasherdancer','@snowballrun','@presenttoss','@penguinswim','santaselfie','codeboogie','jetpack','jamband','snowball','elfmaker','codelab','wrapbattle','penguindash','build','matching','museum','boatload','takeoff','gumball','presentbounce','glider','speedsketch','santascanvas','seasonofgiving','penguinproof','traditions','wheressanta','santasearch','translations','runner','snowbox','mercator','windtunnel'],
+  nav: ['@cityquiz','@rocketsleigh','@dasherdancer','@snowballrun','@presenttoss','@penguinswim','santaselfie','codeboogie','jetpack','jamband','snowball','elfmaker','codelab','wrapbattle','penguindash','build','matching','museum','boatload','takeoff','gumball','presentbounce','glider','speedsketch','santascanvas','seasonofgiving','penguinproof','traditions','wheressanta','santasearch','translations','runner','snowbox','mercator','windtunnel'],
   fallbackIndexScene: 'retro',
   indexScene: 'modvil',
   switchOff: false,

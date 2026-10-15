@@ -85,12 +85,18 @@ function formatNumber(v, suffix='') {
 
 
 function getPreflightActivity(timeUntilTakeoffMs) {
-  const hours = timeUntilTakeoffMs / (3600 * 1000);
-  if (hours <= 1) return _msg`tracker_preflight_activity_1`;
-  if (hours <= 6) return _msg`tracker_preflight_activity_2`;
-  if (hours <= 12) return _msg`tracker_preflight_activity_3`;
-  if (hours <= 24) return _msg`tracker_preflight_activity_4`;
-  return _msg`tracker_preflight_activity_5`;
+  const mins = timeUntilTakeoffMs / (60 * 1000);
+  if (mins <= 1) return _msg`tracker_preflight_11`;
+  if (mins <= 5) return _msg`tracker_preflight_10`;
+  if (mins <= 15) return _msg`tracker_preflight_9`;
+  if (mins <= 30) return _msg`tracker_preflight_8`;
+  if (mins <= 60) return _msg`tracker_preflight_7`;
+  if (mins <= 120) return _msg`tracker_preflight_6`;
+  if (mins <= 240) return _msg`tracker_preflight_5`;
+  if (mins <= 360) return _msg`tracker_preflight_4`;
+  if (mins <= 720) return _msg`tracker_preflight_3`;
+  if (mins <= 1440) return _msg`tracker_preflight_2`;
+  return _msg`tracker_preflight_1`;
 }
 
 
@@ -124,15 +130,10 @@ class ModvilTrackerStatsElement extends LitElement {
 </svg>
         `;
 
-    const statusTitle = html`
-      ${_msg`tracker_preflight_status`}
-      <span class="preflight-badge">${_msg`tracker_preflight_badge`}</span>
-    `;
-
     return html`
 <div class="outer">
   <div class="grow">
-    <h1>${isPreflight ? statusTitle : (showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`)}</h1>
+    <h1>${isPreflight ? _msg`tracker_preflight_status` : (showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`)}</h1>
     <h2 class=${isPreflight ? 'preflight-activity' : ''}>${isPreflight ? getPreflightActivity(d.next) : (showArrivalHours ? formatArrivalTime(arrivalTime) : formatNumber(Math.round(d.distance / 1000), 'km'))}</h2>
     <h1>${_msg`tracker_gifts_delivered`}</h1>
     <h2>${formatNumber(d.presents)}</h2>

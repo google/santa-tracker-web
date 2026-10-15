@@ -4922,29 +4922,49 @@
     "description": "Heading for Santa's current preparation activity at the North Pole",
     "message": "Pre-Flight Status"
   },
-  "tracker_preflight_badge": {
-    "description": "Badge indicator showing that pre-flight staging is active",
-    "message": "PRE-FLIGHT"
-  },
-  "tracker_preflight_activity_1": {
-    "description": "Activity status within the final hour before takeoff",
-    "message": "Runway clearance & final weather check"
-  },
-  "tracker_preflight_activity_2": {
-    "description": "Activity status 1 to 6 hours before takeoff",
-    "message": "Checking the reindeer & Rudolph's bright nose"
-  },
-  "tracker_preflight_activity_3": {
-    "description": "Activity status 6 to 12 hours before takeoff",
-    "message": "Loading wrapped gifts with Elf Express"
-  },
-  "tracker_preflight_activity_4": {
-    "description": "Activity status 12 to 24 hours before takeoff",
-    "message": "Reviewing the worldwide delivery route"
-  },
-  "tracker_preflight_activity_5": {
+  "tracker_preflight_1": {
     "description": "Activity status more than 24 hours before takeoff",
-    "message": "Sleigh tune-up and elf workshop inspection"
+    "message": "Sleigh maintenance and workshop preparations"
+  },
+  "tracker_preflight_2": {
+    "description": "Activity status 12 to 24 hours before takeoff",
+    "message": "Sorting worldwide delivery lists and presents"
+  },
+  "tracker_preflight_3": {
+    "description": "Activity status 6 to 12 hours before takeoff",
+    "message": "Loading the magical toy sack onto the sleigh"
+  },
+  "tracker_preflight_4": {
+    "description": "Activity status 4 to 6 hours before takeoff",
+    "message": "Feeding the reindeer with holiday treats"
+  },
+  "tracker_preflight_5": {
+    "description": "Activity status 2 to 4 hours before takeoff",
+    "message": "Reviewing polar wind forecasts and flight route"
+  },
+  "tracker_preflight_6": {
+    "description": "Activity status 1 to 2 hours before takeoff",
+    "message": "Grooming the reindeer and shining Rudolph's nose"
+  },
+  "tracker_preflight_7": {
+    "description": "Activity status 30 to 60 minutes before takeoff",
+    "message": "Santa putting on the red velvet suit and boots"
+  },
+  "tracker_preflight_8": {
+    "description": "Activity status 15 to 30 minutes before takeoff",
+    "message": "Boarding the sleigh and final checklist"
+  },
+  "tracker_preflight_9": {
+    "description": "Activity status 5 to 15 minutes before takeoff",
+    "message": "Runway inspection and North Pole tower clearance"
+  },
+  "tracker_preflight_10": {
+    "description": "Activity status 1 to 5 minutes before takeoff",
+    "message": "Reindeer revving up and bells jingling on runway"
+  },
+  "tracker_preflight_11": {
+    "description": "Activity status in the final minute before takeoff",
+    "message": "Final countdown to liftoff! Hold on tight!"
   },
   "tracker_distance_away_km": {
     "description": "Tells the user how far Santa is away from them (in distance)",

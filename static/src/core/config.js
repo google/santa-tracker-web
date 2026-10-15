@@ -316,11 +316,7 @@ export function videos() {
  * @return {!Array<string>} nav bar scene contents
  */
 export function nav() {
-  const n = memoized.nav.slice();
-  if (n.length && !n.includes('tracker')) {
-    n.unshift('tracker');
-  }
-  return n;
+  return memoized.nav;
 }
 
 
