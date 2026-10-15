@@ -89,18 +89,21 @@ const PREFLIGHT_WINDOW_MS = 2 * 60 * 60 * 1000;  // 2 hours
 
 function getPreflightActivity(timeUntilTakeoffMs) {
   if (timeUntilTakeoffMs > PREFLIGHT_WINDOW_MS) {
-    return _msg`offline`;
+    return _msg`tracker_offline` || 'Offline';
   }
   const mins = timeUntilTakeoffMs / (60 * 1000);
   if (mins <= 1) return _msg`tracker_preflight_11`;
   if (mins <= 5) return _msg`tracker_preflight_10`;
-  if (mins <= 15) return _msg`tracker_preflight_9`;
-  if (mins <= 30) return _msg`tracker_preflight_8`;
-  if (mins <= 45) return _msg`tracker_preflight_7`;
-  if (mins <= 60) return _msg`tracker_preflight_6`;
-  if (mins <= 90) return _msg`tracker_preflight_5`;
-  if (mins <= 120) return _msg`tracker_preflight_4`;
-  return _msg`offline`;
+  if (mins <= 10) return _msg`tracker_preflight_9`;
+  if (mins <= 20) return _msg`tracker_preflight_8`;
+  if (mins <= 30) return _msg`tracker_preflight_7`;
+  if (mins <= 45) return _msg`tracker_preflight_6`;
+  if (mins <= 60) return _msg`tracker_preflight_5`;
+  if (mins <= 75) return _msg`tracker_preflight_4`;
+  if (mins <= 90) return _msg`tracker_preflight_3`;
+  if (mins <= 105) return _msg`tracker_preflight_2`;
+  if (mins <= 120) return _msg`tracker_preflight_1`;
+  return _msg`tracker_offline` || 'Offline';
 }
 
 
@@ -115,7 +118,14 @@ class ModvilTrackerStatsElement extends LitElement {
   }
 
   render() {
-    const d = this.details || {raw: {}};
+    const d = this.details || {
+      raw: {city: "Santa's Village", region: 'North Pole'},
+      home: true,
+      stop: true,
+      presents: 0,
+      distance: 0,
+      next: Math.max(0, +Date.UTC(new Date().getFullYear(), 11, 24, 10, 0, 0) - (+new Date())),
+    };
     const arrivalTime = this.arrivalTime || 0;
     const showArrivalHours = (arrivalTime > 10 * 60 * 1000);  // don't show in last 10 minutes
     const isPreflight = Boolean(d.home && (!d.presents || d.presents === 0));
@@ -135,11 +145,14 @@ class ModvilTrackerStatsElement extends LitElement {
 </svg>
         `;
 
+    const statusLabel = isOffline ? (_msg`tracker_status` || 'Stato') : (_msg`tracker_preflight_status` || 'Stato Pre-Volo');
+    const activityValue = isOffline ? (_msg`tracker_offline` || 'Offline') : getPreflightActivity(d.next);
+
     return html`
 <div class="outer">
   <div class="grow">
-    <h1>${isPreflight ? (isOffline ? _msg`tracker_status` : _msg`tracker_preflight_status`) : (showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`)}</h1>
-    <h2 class=${isPreflight ? 'preflight-activity' : ''}>${isPreflight ? getPreflightActivity(d.next) : (showArrivalHours ? formatArrivalTime(arrivalTime) : formatNumber(Math.round(d.distance / 1000), 'km'))}</h2>
+    <h1>${isPreflight ? statusLabel : (showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`)}</h1>
+    <h2 class=${isPreflight ? 'preflight-activity' : ''}>${isPreflight ? activityValue : (showArrivalHours ? formatArrivalTime(arrivalTime) : formatNumber(Math.round(d.distance / 1000), 'km'))}</h2>
     <h1>${_msg`tracker_gifts_delivered`}</h1>
     <h2>${formatNumber(d.presents)}</h2>
   </div>
@@ -149,7 +162,7 @@ class ModvilTrackerStatsElement extends LitElement {
       <h1>${d.stop ? _msg`tracker_current_stop` : _msg`tracker_next_stop`}</h1>
       <div class="icon">
         ${stopIcon}
-        <h2>${d.raw.city}, ${d.raw.region}</h2>
+        <h2>${(d.raw && d.raw.city) || "Santa's Village"}, ${(d.raw && d.raw.region) || "North Pole"}</h2>
       </div>
     </div>
     <div>

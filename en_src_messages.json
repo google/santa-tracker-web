@@ -4922,6 +4922,10 @@
     "description": "Tracker status label",
     "message": "Status"
   },
+  "tracker_offline": {
+    "description": "Status text displayed when Santa is offline",
+    "message": "Offline"
+  },
   "tracker_preflight_status": {
     "description": "Heading for Santa's current preparation activity at the North Pole",
     "message": "Pre-Flight Status"

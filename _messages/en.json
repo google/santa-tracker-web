@@ -3728,6 +3728,9 @@
 	"tracker_status": {
 		"message": "Status"
 	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
 	"tracker_preflight_status": {
 		"message": "Pre-Flight Status"
 	},

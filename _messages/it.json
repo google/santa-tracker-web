@@ -3530,6 +3530,9 @@
 	"tracker_status": {
 		"message": "Stato"
 	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
 	"tracker_preflight_status": {
 		"message": "Stato Pre-Volo"
 	},

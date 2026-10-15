@@ -71,9 +71,9 @@ class ModvilTrackerElement extends LitElement {
     this.routeJitter = 0;  // in seconds
 
     this._map = null;
-    this._dataManager = null;
+    this._dataManager = new DataManager(this.destinations || []);
     this._stopManager = null;
-    this._details = null;
+    this._details = this._dataManager.details;
     this._closestArrival = 0;
 
     this._focusOnSanta = true;
@@ -106,12 +106,36 @@ class ModvilTrackerElement extends LitElement {
     });
     common.preload.wait(this._preparePromise);
 
+    const searchParams = (typeof window !== 'undefined' && window.location) ? new URLSearchParams(window.location.search) : null;
+    const preflightParam = searchParams ? searchParams.get('preflight') : null;
+    const demoMode = searchParams ? (searchParams.get('demo') === '1' || preflightParam === 'demo') : false;
+
+    let demoStep = 0;
+    const demoMins = [115, 100, 85, 70, 55, 40, 25, 15, 8, 3, 0.5];
+
     const updateNow = () => {
-      const jitter = routeJitterRatio * this.routeJitter * 1000;  // adjust to ms
-      this.now = +new Date() + this.trackerOffset + jitter;
+      if (demoMode) {
+        const mins = demoMins[demoStep % demoMins.length];
+        const year = new Date().getFullYear();
+        const takeoff = +Date.UTC(year, 11, 24, 10, 0, 0);
+        this.now = takeoff - (mins * 60 * 1000);
+      } else if (preflightParam && !isNaN(Number(preflightParam))) {
+        const mins = Number(preflightParam);
+        const year = new Date().getFullYear();
+        const takeoff = +Date.UTC(year, 11, 24, 10, 0, 0);
+        this.now = takeoff - (mins * 60 * 1000);
+      } else {
+        const jitter = routeJitterRatio * this.routeJitter * 1000;  // adjust to ms
+        this.now = +new Date() + this.trackerOffset + jitter;
+      }
     };
     updateNow();
-    window.setInterval(updateNow, 1000);
+    window.setInterval(() => {
+      if (demoMode) {
+        demoStep++;
+      }
+      updateNow();
+    }, demoMode ? 3000 : 1000);
 
     this._onWindowResize = this._onWindowResize.bind(this);
   }
