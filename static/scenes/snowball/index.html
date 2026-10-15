@@ -44,7 +44,36 @@
     <div id="parachutingElf"></div>
   </div>
   <santa-weather cloud-frac="1.0" clouds="20" directional-strength="-1.0"></santa-weather>
-  <button id="jumpBtn" alt="Start"></button>
+  <!--
+    The inline text is a fallback for the dev server, which does not perform
+    [msgid] substitution; the release build overwrites it with the translated
+    string. Keep the elf counts here in sync with GameMode in snowball-game.js.
+  -->
+  <div id="modeChoice">
+    <div class="modeOption">
+      <button id="quickBtn" class="modeBtn" aria-labelledby="quickLabel quickDesc">
+        <span class="modeName" id="quickLabel" msgid="snowball_mode_quick">Quick Mode</span>
+      </button>
+      <p class="modeDesc" id="quickDesc" msgid="snowball_mode_quick_description">25 elves battle in a small arena</p>
+    </div>
+    <div class="modeOption">
+      <button id="arenaBtn" class="modeBtn" aria-labelledby="arenaLabel arenaDesc">
+        <span class="modeName" id="arenaLabel" msgid="snowball_mode_arena">Arena Mode</span>
+      </button>
+      <p class="modeDesc" id="arenaDesc" msgid="snowball_mode_arena_description">100 elves battle in a large arena</p>
+    </div>
+  </div>
+</div>
+
+<!--
+  Strings the game needs from JavaScript rather than from markup, read by
+  utils/scene-strings.js. Hidden, but present in the document so that the
+  release build's [msgid] substitution reaches them just like any visible
+  label, and so that the inline English works during development.
+-->
+<div id="strings" hidden>
+  <span msgid="snowball_gameover_win">Winner winner, merry winter!</span>
+  <span msgid="snowball_gameover_lose">Snow hard feelings!</span>
 </div>
 
 <script src="index.js" type="module"></script>

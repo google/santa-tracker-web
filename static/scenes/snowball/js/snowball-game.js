@@ -38,13 +38,79 @@ const GameType = {
   MULTIPLAYER: 'multiplayer'
 };
 
+/**
+ * Quick is a quarter of Arena's field with a quarter of the players, so the
+ * steady-state density (~41 tiles per elf) matches. It differs in how quickly
+ * it gets there: `initialPlayers` puts about half the field's elves down at
+ * the drop rather than trickling them all in, so the fighting starts early
+ * without the opening feeling packed.
+ *
+ * The tile scale is the same in both modes, so the hexes are the same physical
+ * size on screen; there are simply fewer of them.
+ */
+export const GameMode = {
+  QUICK: {
+    name: 'quick',
+    maximumPlayers: 25,
+    initialPlayers: 12,
+    // Thinner cover than Arena: on a quarter-sized field the same proportion
+    // of trees leaves noticeably less room to manoeuvre.
+    treeDensity: 0.10,
+    unitWidth: 32,
+    unitHeight: 32,
+    // Quick deliberately keeps the original behaviour: every gift is a big
+    // snowball. A short match has little room for defensive play.
+    shieldChance: 0
+  },
+  ARENA: {
+    name: 'arena',
+    maximumPlayers: 100,
+    initialPlayers: 25,
+    treeDensity: 0.15,
+    unitWidth: 64,
+    unitHeight: 64,
+    // One drop in three is a shield — a first aid kit — instead of a big
+    // snowball.
+    shieldChance: 1 / 3
+  }
+};
+
+const TILE_SCALE = 64.0;
+
 export class SnowballGame extends Game {
   static get is() { return 'snowball-game'; }
 
-  get maximumPlayers() { return 100; };
+  get maximumPlayers() { return this._gameMode.maximumPlayers; };
+
+  /** How many elves are on the field at the drop; the rest trickle in. */
+  get initialPlayers() { return this._gameMode.initialPlayers; };
+
+  get gameMode() { return this._gameMode; }
+
+  /**
+   * Selects a game mode, either by mode object or by name. The grid dimensions
+   * get baked into shader uniforms and the mouse-picking plane the first time
+   * the map is set up, so this must be assigned before the game's first frame.
+   */
+  set gameMode(mode) {
+    const nextMode = typeof mode === 'string'
+        ? Object.keys(GameMode).map(key => GameMode[key])
+            .find(candidate => candidate.name === mode)
+        : mode;
+
+    if (nextMode == null) {
+      console.warn(`Unknown snowball game mode: ${mode}`);
+      return;
+    }
+
+    this._gameMode = nextMode;
+    this.mapSystem.resize(nextMode.unitWidth, nextMode.unitHeight, TILE_SCALE);
+  }
 
   constructor() {
     super();
+
+    this._gameMode = GameMode.ARENA;
 
     this.assetBaseUrl = '';
     this.collisionSystem = new Collision2DSystem(object => object.collider || object);
@@ -54,7 +120,8 @@ export class SnowballGame extends Game {
     this.parachuteSystem = new ParachuteSystem();
     this.entityRemovalSystem = new EntityRemovalSystem();
     this.dropSystem = new DropSystem();
-    this.mapSystem = new MapSystem(64.0, 64.0, 64.0);
+    this.mapSystem = new MapSystem(
+        GameMode.ARENA.unitWidth, GameMode.ARENA.unitHeight, TILE_SCALE);
     this.botSystem = new BotSystem();
     this.clientSystem = new ClientSystem();
     this.networkSystem = new NetworkSystem();

@@ -32,7 +32,11 @@ const {BufferAttribute, InstancedBufferAttribute} = self.THREE;
  */
 
 export class GameMap {
-  constructor(grid, seed) {
+  /**
+   * @param treeDensity Fraction of tiles that carry a tree. Defaults to the
+   *     value this map generator used before it was configurable.
+   */
+  constructor(grid, seed, treeDensity = 0.15) {
     const seedRandom = this.seedRandom = new SeedRandom(seed);
     this.erodeSeedRandom = seedRandom.clone();
     this.erodeStep = 0;
@@ -72,8 +76,12 @@ export class GameMap {
         const erosionChance = 0.5 + magDelta / erosionMag;
         const state = mag > erosionMag ? seedRandom.random() < erosionChance ? 0.0 : 1.0 : 1.0;
 
-        // 15% chance to be a random tree for now:
-        const obstacle = seedRandom.random() > 0.85 ? seedRandom.randRange(treeTypes) : -1.0;
+        // Chance for this tile to carry a tree. Expressed as `> 1 - density`
+        // rather than `< density` so that an unchanged density draws exactly
+        // the same trees from a given seed as it did before.
+        const obstacle = seedRandom.random() > (1.0 - treeDensity)
+            ? seedRandom.randRange(treeTypes)
+            : -1.0;
 
         if (state > 0.0) {
           // Build up an array of map "rings" for eroding tiles later:
@@ -95,6 +103,9 @@ export class GameMap {
     }
 
     this.passableTileCount = passableTileCount;
+    // `erode` decrements the count above in place, so the starting figure is
+    // kept separately: it is the only way to ask how far the island has shrunk.
+    this.initialPassableTileCount = passableTileCount;
     this.tileCount = tileCount;
     this.tileRings = tileRings;
 
@@ -104,6 +115,10 @@ export class GameMap {
     this.grid = grid;
 
     this._generateRaisedTiles(seedRandom);
+
+    // Tiles that can't be reached from the rest of the island would strand
+    // anything that spawns on them, so they're identified once, up front.
+    this.mainIsland = this._computeMainIsland();
   }
 
   _generateRaisedTiles(seedRandom) {
@@ -208,6 +223,75 @@ export class GameMap {
     return index;
   }
 
+  /**
+   * A tile can be walked on (and therefore pathed through) if it is visible,
+   * not raised and not blocked by an obstacle. This mirrors the
+   * `tileIsPassable` test used for pathfinding in MagicHexGrid.
+   */
+  isTraversable(index) {
+    if (index < 0 || index >= this.tileCount) {
+      return false;
+    }
+
+    return this.getTileState(index) === 1.0 &&
+        this.getTileObstacle(index) === -1.0;
+  }
+
+  /**
+   * Flood fills outwards from the center of the map once, at creation time.
+   * Any walkable tile that isn't visited is part of a fragment cut off from
+   * the mainland (usually along the eroded outer edge), and spawning there
+   * would leave an entity permanently stranded.
+   */
+  _computeMainIsland() {
+    const grid = this.grid;
+    const center = new HexCoord(
+        Math.floor(grid.width / 2), Math.floor(grid.height / 2), 0);
+
+    let startIndex = grid.oddqToIndex(center);
+
+    // The exact center may be hidden, raised or covered by a tree, so spiral
+    // outwards until a walkable tile is found to start from.
+    for (let radius = 1; !this.isTraversable(startIndex) &&
+        radius < Math.max(grid.width, grid.height); ++radius) {
+      const ring = grid.cubeToRingIndices(
+          grid.oddqToCube(center, new HexCoord()), radius);
+
+      for (let i = 0; i < ring.length; ++i) {
+        if (this.isTraversable(ring[i])) {
+          startIndex = ring[i];
+          break;
+        }
+      }
+    }
+
+    const mainIsland = new Set();
+
+    if (!this.isTraversable(startIndex)) {
+      return mainIsland;
+    }
+
+    const frontier = [startIndex];
+    mainIsland.add(startIndex);
+
+    while (frontier.length) {
+      const neighborIndices = grid.indexToNeighborIndices(frontier.pop());
+
+      for (let i = 0; i < neighborIndices.length; ++i) {
+        const neighborIndex = neighborIndices[i];
+
+        if (mainIsland.has(neighborIndex) || !this.isTraversable(neighborIndex)) {
+          continue;
+        }
+
+        mainIsland.add(neighborIndex);
+        frontier.push(neighborIndex);
+      }
+    }
+
+    return mainIsland;
+  }
+
   getRandomHabitableTileIndex(random = this.seedRandom) {
     for (let i = 0; i < this.tileCount; ++i) {
       if (this.tileRings.length === 0) {
@@ -219,10 +303,17 @@ export class GameMap {
       const ringIndex = random.randRange(minRingIndex, maxRingIndex);
 
       const ring = this.tileRings[ringIndex];
+
+      // Rings are sparse: some indices are never populated, and eroded rings
+      // are emptied before being popped off the end of the list.
+      if (ring == null || ring.length === 0) {
+        continue;
+      }
+
       const tileIndex = random.randRange(ring.length);
       const index = ring[tileIndex];
 
-      if (this.getTileState(index) === 1.0 && this.getTileObstacle(index) === -1.0) {
+      if (this.isTraversable(index) && this.mainIsland.has(index)) {
         return index;
       }
     }

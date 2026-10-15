@@ -22,7 +22,19 @@ export class ClockSystem {
     this.timeSyncDelta = 0;
   }
 
+  /**
+   * Halts the animation frame chain. Any clock that is started afterwards
+   * restarts it, so this suspends rather than destroys.
+   */
+  stop() {
+    this.active = false;
+  }
+
   teardown(game) {
+    // Clearing the handlers alone used to leave `tick` rescheduling itself
+    // forever against an empty map, so every abandoned game kept a frame
+    // callback alive for the life of the page.
+    this.stop();
     this.clocks.clear();
   }
 

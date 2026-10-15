@@ -49,7 +49,12 @@ export class RenderSystem extends BasicElement {
     super();
 
     this.stampTemplate();
-    this.renderer = new WebGLRenderer();
+    // Antialiasing is off by default, and without it every polygon silhouette
+    // stair-steps. It goes unnoticed on the elves and trees, whose edges are
+    // busy and low contrast, but a straight edge against the snow shows it
+    // immediately. The scene is cheap to draw -- unlit basic materials, no
+    // shadows -- so the multisample cost is worth paying.
+    this.renderer = new WebGLRenderer({antialias: true});
     this.renderer.autoClear = true;
     this.shadowRoot.appendChild(this.renderer.domElement);
   }
