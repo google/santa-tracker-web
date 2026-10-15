@@ -4914,6 +4914,38 @@
     "description": "Heading that displays how long till Santa departs",
     "message": "Departing in"
   },
+  "tracker_preflight_title": {
+    "description": "Title displayed on the map header during pre-flight tracking",
+    "message": "Santa's Pre-Flight Tracker"
+  },
+  "tracker_preflight_status": {
+    "description": "Heading for Santa's current preparation activity at the North Pole",
+    "message": "Pre-Flight Status"
+  },
+  "tracker_preflight_badge": {
+    "description": "Badge indicator showing that pre-flight staging is active",
+    "message": "PRE-FLIGHT"
+  },
+  "tracker_preflight_activity_1": {
+    "description": "Activity status within the final hour before takeoff",
+    "message": "Runway clearance & final weather check"
+  },
+  "tracker_preflight_activity_2": {
+    "description": "Activity status 1 to 6 hours before takeoff",
+    "message": "Checking the reindeer & Rudolph's bright nose"
+  },
+  "tracker_preflight_activity_3": {
+    "description": "Activity status 6 to 12 hours before takeoff",
+    "message": "Loading wrapped gifts with Elf Express"
+  },
+  "tracker_preflight_activity_4": {
+    "description": "Activity status 12 to 24 hours before takeoff",
+    "message": "Reviewing the worldwide delivery route"
+  },
+  "tracker_preflight_activity_5": {
+    "description": "Activity status more than 24 hours before takeoff",
+    "message": "Sleigh tune-up and elf workshop inspection"
+  },
   "tracker_distance_away_km": {
     "description": "Tells the user how far Santa is away from them (in distance)",
     "raw": "Santa is <ph name=\"DISTANCE_AWAY\"><ex>1,400</ex>{{distance_away}}</ph>km away"

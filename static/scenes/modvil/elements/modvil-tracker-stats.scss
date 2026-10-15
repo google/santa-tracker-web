@@ -92,3 +92,24 @@ hr {
     text-align: left;
   }
 }
+
+.preflight-badge {
+  display: inline-block;
+  background: #d92626;
+  color: white;
+  font-size: 8px;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 4px;
+  margin-left: 4px;
+  letter-spacing: 0.5px;
+  vertical-align: middle;
+}
+
+.preflight-activity {
+  font-size: 11px;
+  line-height: 13px;
+  color: #fff9c4;
+  white-space: normal;
+  max-width: 170px;
+}

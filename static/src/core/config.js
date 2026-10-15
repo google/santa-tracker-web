@@ -249,6 +249,7 @@ export function trackerFlags() {
   return {
     routeUrl: remoteConfig.getString('routeUrl'),
     showTracker: remoteConfig.getBoolean('showTracker'),
+    preTracker: remoteConfig.getBoolean('preTracker'),
     useGeoIP: remoteConfig.getBoolean('useGeoIP'),
     routeJitter: remoteConfig.getNumber('routeJitter'),
   };
@@ -315,7 +316,11 @@ export function videos() {
  * @return {!Array<string>} nav bar scene contents
  */
 export function nav() {
-  return memoized.nav;
+  const n = memoized.nav.slice();
+  if (n.length && !n.includes('tracker')) {
+    n.unshift('tracker');
+  }
+  return n;
 }
 
 

@@ -45,6 +45,7 @@ export function buildLoader(loadMethod, fallback=false) {
   let activeSceneName = undefined;
 
   const load = (route, data, hash) => {
+    const rawRoute = route;
     // Optionally redirect; used to hide press/educators page
     const redirectRoute = config.redirectRoute(route);
     if (redirectRoute !== undefined) {
@@ -77,8 +78,8 @@ export function buildLoader(loadMethod, fallback=false) {
     });
 
     const locked = (activeSceneName === null);
-    loadMethod(url, {route, data, locked}).then((success) => {
-      document.title = scenes[route] || _msg`santatracker`;
+    loadMethod(url, {route, rawRoute, data, locked}).then((success) => {
+      document.title = scenes[rawRoute] || scenes[route] || _msg`santatracker`;
     });
 
     return redirectRoute;

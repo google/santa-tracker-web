@@ -84,6 +84,16 @@ function formatNumber(v, suffix='') {
 }
 
 
+function getPreflightActivity(timeUntilTakeoffMs) {
+  const hours = timeUntilTakeoffMs / (3600 * 1000);
+  if (hours <= 1) return _msg`tracker_preflight_activity_1`;
+  if (hours <= 6) return _msg`tracker_preflight_activity_2`;
+  if (hours <= 12) return _msg`tracker_preflight_activity_3`;
+  if (hours <= 24) return _msg`tracker_preflight_activity_4`;
+  return _msg`tracker_preflight_activity_5`;
+}
+
+
 class ModvilTrackerStatsElement extends LitElement {
   static get styles() { return [styles]; }
 
@@ -98,6 +108,7 @@ class ModvilTrackerStatsElement extends LitElement {
     const d = this.details || {raw: {}};
     const arrivalTime = this.arrivalTime || 0;
     const showArrivalHours = (arrivalTime > 10 * 60 * 1000);  // don't show in last 10 minutes
+    const isPreflight = Boolean(d.home && (!d.presents || d.presents === 0));
 
     // Choose a SVG icon for stop or "in transit".
     const stopIcon = d.stop ?
@@ -113,11 +124,16 @@ class ModvilTrackerStatsElement extends LitElement {
 </svg>
         `;
 
+    const statusTitle = html`
+      ${_msg`tracker_preflight_status`}
+      <span class="preflight-badge">${_msg`tracker_preflight_badge`}</span>
+    `;
+
     return html`
 <div class="outer">
   <div class="grow">
-    <h1>${showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`}</h1>
-    <h2>${showArrivalHours ? formatArrivalTime(arrivalTime) : formatNumber(Math.round(d.distance / 1000), 'km')}</h2>
+    <h1>${isPreflight ? statusTitle : (showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`)}</h1>
+    <h2 class=${isPreflight ? 'preflight-activity' : ''}>${isPreflight ? getPreflightActivity(d.next) : (showArrivalHours ? formatArrivalTime(arrivalTime) : formatNumber(Math.round(d.distance / 1000), 'km'))}</h2>
     <h1>${_msg`tracker_gifts_delivered`}</h1>
     <h2>${formatNumber(d.presents)}</h2>
   </div>

@@ -3722,6 +3722,30 @@
 	"tracker_departing_in": {
 		"message": "Departing in"
 	},
+	"tracker_preflight_title": {
+		"message": "Santa's Pre-Flight Tracker"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_badge": {
+		"message": "PRE-FLIGHT"
+	},
+	"tracker_preflight_activity_1": {
+		"message": "Runway clearance & final weather check"
+	},
+	"tracker_preflight_activity_2": {
+		"message": "Checking the reindeer & Rudolph's bright nose"
+	},
+	"tracker_preflight_activity_3": {
+		"message": "Loading wrapped gifts with Elf Express"
+	},
+	"tracker_preflight_activity_4": {
+		"message": "Reviewing the worldwide delivery route"
+	},
+	"tracker_preflight_activity_5": {
+		"message": "Sleigh tune-up and elf workshop inspection"
+	},
 	"tracker_distance_away_km": {
 		"message": "Santa is {{distance_away}}km away"
 	},

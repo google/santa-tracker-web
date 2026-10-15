@@ -3524,6 +3524,30 @@
 	"tracker_departing_in": {
 		"message": "Partenza tra"
 	},
+	"tracker_preflight_title": {
+		"message": "Monitoraggio Pre-Volo di Babbo Natale"
+	},
+	"tracker_preflight_status": {
+		"message": "Stato Pre-Volo"
+	},
+	"tracker_preflight_badge": {
+		"message": "PRE-VOLO"
+	},
+	"tracker_preflight_activity_1": {
+		"message": "Controllo pista e meteo finale"
+	},
+	"tracker_preflight_activity_2": {
+		"message": "Controllo delle renne e del naso di Rudolph"
+	},
+	"tracker_preflight_activity_3": {
+		"message": "Caricamento regali con Elf Express"
+	},
+	"tracker_preflight_activity_4": {
+		"message": "Revisione della rotta mondiale dei regali"
+	},
+	"tracker_preflight_activity_5": {
+		"message": "Collaudo della slitta e ispezione laboratorio elfi"
+	},
 	"tracker_distance_away_km": {
 		"message": "Babbo Natale è a {{distance_away}} km di distanza"
 	},
