@@ -4918,6 +4918,10 @@
     "description": "Title displayed on the map header during pre-flight tracking",
     "message": "Santa's Pre-Flight Tracker"
   },
+  "tracker_status": {
+    "description": "Tracker status label",
+    "message": "Status"
+  },
   "tracker_preflight_status": {
     "description": "Heading for Santa's current preparation activity at the North Pole",
     "message": "Pre-Flight Status"

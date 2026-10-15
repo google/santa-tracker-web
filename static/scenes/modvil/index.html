@@ -94,8 +94,14 @@ api.addEventListener('data', (ev) => {
   const payload = ev.detail;
   const {showTracker, trackerFlags, trackerOffset, requestedRoute} = payload;
 
+  const now = Date.now() + (trackerOffset || 0);
+  const year = new Date(now).getFullYear();
+  const takeoffTime = +Date.UTC(year, 11, 24, 10, 0, 0);
+  const timeUntilTakeoff = takeoffTime - now;
+  const withinPreflightWindow = (timeUntilTakeoff <= 2 * 60 * 60 * 1000 && timeUntilTakeoff > 0);
+
   const isPreTracking = Boolean(
-    (trackerFlags && trackerFlags.preTracker) ||
+    (trackerFlags && trackerFlags.preTracker && withinPreflightWindow) ||
     requestedRoute === 'tracker' ||
     window.location.pathname.includes('tracker') ||
     (window.location.search || '').includes('pretracker=1')

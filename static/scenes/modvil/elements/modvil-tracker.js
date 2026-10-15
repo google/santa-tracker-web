@@ -351,11 +351,10 @@ class ModvilTrackerElement extends LitElement {
 
   render() {
     const destination = this._temporaryDestination || this._details && this._details.raw || null;
-    const isPreflight = Boolean(this._details && this._details.home && (!this._details.presents || this._details.presents === 0));
     return html`
 <div class="outer">
   <div class="top">
-    <h1>${isPreflight ? _msg`tracker_preflight_title` : _msg`santatracker`}</h1>
+    <h1>${_msg`santatracker`}</h1>
   </div>
   ${this._mapNode}
   <div class="overflow">
