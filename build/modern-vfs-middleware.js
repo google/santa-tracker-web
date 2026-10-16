@@ -62,7 +62,7 @@ module.exports = (vfsLoad, prefix=null) => {
     if (stat === null) {
       try {
         debug && console.warn('loading vfs', id);
-        content = await vfsLoad(id);
+        content = await vfsLoad(id, req);
       } catch (e) {
         // TODO: pass to caller, internal error in VFS
         console.warn('vfs', e);

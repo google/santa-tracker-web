@@ -134,18 +134,25 @@ async function serve() {
 
   const prodHtmlMiddleware = async (req, res, next) => {
     // Match Google's serving infrastructure, and serve valid files under /intl/XX/.
-    const languageMatch = /^\/intl\/([-_\w]+)(\/|$)/.exec(req.path);
+    let currentLang = yargs.lang || 'en';
+    const parsedUrl = new URL(req.url, 'http://localhost');
+    let pathname = req.path || parsedUrl.pathname;
+
+    const languageMatch = /^\/intl\/([-_\w]+)(\/|$)/.exec(pathname);
     if (languageMatch) {
       if (!languageMatch[2]) {
         // fix "/intl/xx" => "/intl/xx/"
-        res.writeHead(301, {'Location': req.path + '/'});
+        res.writeHead(301, {'Location': pathname + '/' + (parsedUrl.search || '')});
         return res.end();
       }
-      req.path = '/' + req.path.substr(languageMatch[0].length);
+      currentLang = languageMatch[1];
+      pathname = '/' + pathname.substr(languageMatch[0].length);
+      req.url = pathname + (parsedUrl.search || '');
+      req.path = pathname;
     }
 
     let servePath = 'index.html';
-    const simplePathMatch = /^\/(\w+)\.html$/.exec(req.path);
+    const simplePathMatch = /^\/(\w+)\.html$/.exec(pathname);
     if (simplePathMatch) {
       const cand = `${simplePathMatch[1]}.html`;
       try {
@@ -154,15 +161,21 @@ async function serve() {
       } catch (e) {
         // ignore, not a real file
       }
-    } else if (req.path !== '/') {
+    } else if (pathname !== '/') {
       return next();
     }
 
     // Serve the raw HTML.
     const filename = path.join('prod', servePath);
-    const content = await fs.readFile(filename, 'utf-8');
+    let content = await fs.readFile(filename, 'utf-8');
 
-    res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+    // Inject documentElement.lang and cookie for language switching
+    content = content.replace(/<html(?:\s+lang="[^"]*")?>/i, `<html lang="${currentLang}">`);
+
+    res.writeHead(200, {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Set-Cookie': `santa-lang=${currentLang}; Path=/`,
+    });
     res.end(content);
   };
 

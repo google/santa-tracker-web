@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+const fs = require('fs');
 const fsp = require('./build/fsp.js');
 const path = require('path');
 const compileStyles = require('./build/compile-santa-sass.js');
@@ -62,14 +63,14 @@ function vfsLoader(plugins) {
     return null;
   };
 
-  return async (id) => {
+  return async (id, req) => {
     const result = await findSource(id);
     if (!result) {
       return null;
     }
 
     const {plugin, resolved} = result;
-    const out = await plugin.load(resolved);
+    const out = await plugin.load(resolved, req);
 
     if (out && out.map && this.addWatchFile) {
       const sources = out.map.sources || [];
@@ -84,27 +85,69 @@ function vfsLoader(plugins) {
 }
 
 
-function buildLangPlugin(id, lang) {
-  if (lang === null) {
-    return null;
-  }
+function buildLangPlugin(id, defaultLang) {
+  const langCache = new Map();
 
-  const messages = require(`./_messages/${lang}.json`);
-  const fallback = require('./en_src_messages.json');
-
-  // Include untranslated strings from the English source.
-  for (const key in fallback) {
-    if (messages[key]) {
-      continue;
+  function extractLang(req) {
+    if (!req) return defaultLang || 'en';
+    const referer = req.headers && req.headers['referer'];
+    if (referer) {
+      const match = /\/intl\/([-_\w]+)/.exec(referer);
+      if (match) return match[1];
     }
-    const untranslated = fallback[key];
-    messages[key] = {
-      message: untranslated['message'] || untranslated['raw'],
-      missing: true,
-    };
+    const cookie = req.headers && req.headers['cookie'];
+    if (cookie) {
+      const match = /santa-lang=([-_\w]+)/.exec(cookie);
+      if (match) return match[1];
+    }
+    if (req.url) {
+      const match = /[?&](?:hl|lang)=([-_\w]+)/.exec(req.url);
+      if (match) return match[1];
+    }
+    return defaultLang || 'en';
   }
 
-  const raw = JSON.stringify(messages);
+  function getMessagesForLang(lang) {
+    if (!lang) lang = 'en';
+    const langFile = path.join(__dirname, `_messages/${lang}.json`);
+    let fileToLoad = langFile;
+    if (!fs.existsSync(langFile)) {
+      const short = lang.split('-')[0];
+      const shortFile = path.join(__dirname, `_messages/${short}.json`);
+      if (fs.existsSync(shortFile)) {
+        fileToLoad = shortFile;
+      } else {
+        fileToLoad = path.join(__dirname, `_messages/en.json`);
+      }
+    }
+
+    if (langCache.has(fileToLoad)) {
+      return langCache.get(fileToLoad);
+    }
+
+    let messages = {};
+    try {
+      messages = JSON.parse(fs.readFileSync(fileToLoad, 'utf-8'));
+    } catch (e) {
+      messages = {};
+    }
+    const fallback = JSON.parse(fs.readFileSync(path.join(__dirname, 'en_src_messages.json'), 'utf-8'));
+
+    for (const key in fallback) {
+      if (messages[key]) {
+        continue;
+      }
+      const untranslated = fallback[key];
+      messages[key] = {
+        message: untranslated['message'] || untranslated['raw'],
+        missing: true,
+      };
+    }
+
+    const raw = JSON.stringify(messages);
+    langCache.set(fileToLoad, raw);
+    return raw;
+  }
 
   return {
     match(idToMatch) {
@@ -112,8 +155,9 @@ function buildLangPlugin(id, lang) {
         return id;
       }
     },
-    load() {
-      return raw;
+    load(resolved, req) {
+      const targetLang = extractLang(req);
+      return getMessagesForLang(targetLang);
     },
   };
 }
