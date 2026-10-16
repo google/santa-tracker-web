@@ -92,11 +92,19 @@ const fallbackFeaturedImageSrc = featuredImage.src;
 
 api.addEventListener('data', (ev) => {
   const payload = ev.detail;
-  const {showTracker, trackerFlags, trackerOffset} = payload;
+  const {showTracker, trackerFlags, trackerOffset, requestedRoute} = payload;
 
-  // The 'showTracker' value from the state overrides the trackerFlags and
-  // is only used for debugging outside of production.
-  if (showTracker || (showTracker !== false && trackerFlags.showTracker)) {
+  const now = Date.now() + (trackerOffset || 0);
+  const date = new Date(now);
+  let year = date.getUTCFullYear();
+  if (date.getUTCMonth() < 9) {
+    year--;
+  }
+  const takeoffTime = Date.UTC(year, 11, 24, 10, 0, 0);
+  const isBeforeTakeoff = (now < takeoffTime);
+
+  // Show tracker before takeoff for pre-flight status (offline when >2h, 20 stages when <=2h)
+  if (showTracker || (showTracker !== false && trackerFlags && trackerFlags.showTracker) || isBeforeTakeoff) {
     if (trackerElement.parentNode !== mainElement) {
       mainElement.prepend(trackerElement);
       api.preload.wait(trackerElement.updateComplete);
