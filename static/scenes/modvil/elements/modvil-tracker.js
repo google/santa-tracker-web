@@ -69,6 +69,7 @@ class ModvilTrackerElement extends LitElement {
 
     this.trackerOffset = 0;
     this.routeJitter = 0;  // in seconds
+    this._intervalId = 0;
 
     this._map = null;
     this._dataManager = null;
@@ -106,12 +107,35 @@ class ModvilTrackerElement extends LitElement {
     });
     common.preload.wait(this._preparePromise);
 
+    const searchParams = (typeof window !== 'undefined' && window.location) ? new URLSearchParams(window.location.search) : null;
+    const preflightParam = searchParams ? searchParams.get('preflight') : null;
+    const demoMode = searchParams ? (searchParams.get('demo') === '1' || preflightParam === 'demo') : false;
+
+    let demoStep = 0;
+    const demoMins = [115, 105, 95, 85, 76, 68, 60, 52, 44, 36, 29, 23, 17, 12, 8, 5, 3, 1.5, 0.75, 0.25];
+
     const updateNow = () => {
-      const jitter = routeJitterRatio * this.routeJitter * 1000;  // adjust to ms
-      this.now = +new Date() + this.trackerOffset + jitter;
+      if (demoMode || (preflightParam && !isNaN(Number(preflightParam)))) {
+        const mins = demoMode ? demoMins[demoStep % demoMins.length] : Number(preflightParam);
+        const date = new Date();
+        let year = date.getUTCFullYear();
+        if (date.getUTCMonth() < 9) {
+          year--;
+        }
+        const takeoff = Date.UTC(year, 11, 24, 10, 0, 0);
+        this.now = takeoff - (mins * 60 * 1000);
+      } else {
+        const jitter = routeJitterRatio * this.routeJitter * 1000;  // adjust to ms
+        this.now = Date.now() + this.trackerOffset + jitter;
+      }
     };
     updateNow();
-    window.setInterval(updateNow, 1000);
+    this._intervalId = window.setInterval(() => {
+      if (demoMode) {
+        demoStep++;
+      }
+      updateNow();
+    }, demoMode ? 3000 : 1000);
 
     this._onWindowResize = this._onWindowResize.bind(this);
   }
@@ -133,6 +157,10 @@ class ModvilTrackerElement extends LitElement {
   disconnectedCallback() {
     super.disconnectedCallback();
     window.removeEventListener('resize', this._onWindowResize);
+    if (this._intervalId) {
+      window.clearInterval(this._intervalId);
+      this._intervalId = 0;
+    }
   }
 
   focusOnSanta() {
@@ -209,7 +237,7 @@ class ModvilTrackerElement extends LitElement {
     if (this._focusOnSanta) {
       let offset = details.stop ? 1 : 0;
       if (details.home) {
-        offset = -10;  // zoom as far out as possible here
+        offset = -1;  // nicely frame North Pole
       }
       this._setLocation(this._santaOverlay.position, offset);
     }
@@ -365,7 +393,7 @@ class ModvilTrackerElement extends LitElement {
         </div>
       </div>
       <modvil-tracker-feed .stops=${this._stops}></modvil-tracker-feed>
-      <modvil-tracker-stats .details=${this._details} .arrivalTime=${this._closestArrival - this.now}></modvil-tracker-stats>
+      <modvil-tracker-stats .details=${this._details} .now=${this.now} .arrivalTime=${this._closestArrival - this.now}></modvil-tracker-stats>
       <modvil-tracker-photos .destination=${destination}></modvil-tracker-photos>
     </div>
   </div>

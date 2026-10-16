@@ -51,6 +51,11 @@ h2 {
   margin: 0;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
+
+  &.preflight-activity {
+    font-size: 11px;
+    line-height: 13px;
+  }
 }
 
 .icon {
