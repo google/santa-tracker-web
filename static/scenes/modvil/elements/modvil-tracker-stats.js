@@ -127,17 +127,21 @@ class ModvilTrackerStatsElement extends LitElement {
   }
 
   render() {
+    const now = Date.now();
+    const year = new Date(now).getUTCFullYear();
+    const takeoffTime = Date.UTC(year, 11, 24, 10, 0, 0);
+    const isBeforeTakeoff = now < takeoffTime;
     const d = this.details || {
       raw: {city: "Santa's Village", region: 'North Pole'},
-      home: true,
+      home: isBeforeTakeoff,
       stop: true,
       presents: 0,
       distance: 0,
-      next: Math.max(0, +Date.UTC(new Date().getFullYear(), 11, 24, 10, 0, 0) - (+new Date())),
+      next: Math.max(0, takeoffTime - now),
     };
     const arrivalTime = this.arrivalTime || 0;
     const showArrivalHours = (arrivalTime > 10 * 60 * 1000);  // don't show in last 10 minutes
-    const isPreflight = Boolean(d.home && (!d.presents || d.presents === 0));
+    const isPreflight = isBeforeTakeoff && Boolean(d.home && (!d.presents || d.presents === 0));
     const isOffline = isPreflight && (d.next > PREFLIGHT_WINDOW_MS);
 
     // Choose a SVG icon for stop or "in transit".
@@ -154,7 +158,7 @@ class ModvilTrackerStatsElement extends LitElement {
 </svg>
         `;
 
-    const statusLabel = isPreflight ? (_msg`tracker_preflight_status` || 'Stato Pre-Volo') : (showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`);
+    const statusLabel = isPreflight ? (_msg`tracker_preflight_status` || 'Pre-Flight Status') : (showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`);
     const activityValue = isOffline ? (_msg`tracker_offline` || 'Offline') : getPreflightActivity(d.next);
 
     return html`

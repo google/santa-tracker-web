@@ -95,8 +95,8 @@ api.addEventListener('data', (ev) => {
   const {showTracker, trackerFlags, trackerOffset, requestedRoute} = payload;
 
   const now = Date.now() + (trackerOffset || 0);
-  const year = new Date(now).getFullYear();
-  const takeoffTime = +Date.UTC(year, 11, 24, 10, 0, 0);
+  const year = new Date(now).getUTCFullYear();
+  const takeoffTime = Date.UTC(year, 11, 24, 10, 0, 0);
   const isBeforeTakeoff = (now < takeoffTime);
 
   // Show tracker before takeoff for pre-flight status (offline when >2h, 20 stages when <=2h)

@@ -116,17 +116,17 @@ class ModvilTrackerElement extends LitElement {
     const updateNow = () => {
       if (demoMode) {
         const mins = demoMins[demoStep % demoMins.length];
-        const year = new Date().getFullYear();
-        const takeoff = +Date.UTC(year, 11, 24, 10, 0, 0);
+        const year = new Date().getUTCFullYear();
+        const takeoff = Date.UTC(year, 11, 24, 10, 0, 0);
         this.now = takeoff - (mins * 60 * 1000);
       } else if (preflightParam && !isNaN(Number(preflightParam))) {
         const mins = Number(preflightParam);
-        const year = new Date().getFullYear();
-        const takeoff = +Date.UTC(year, 11, 24, 10, 0, 0);
+        const year = new Date().getUTCFullYear();
+        const takeoff = Date.UTC(year, 11, 24, 10, 0, 0);
         this.now = takeoff - (mins * 60 * 1000);
       } else {
         const jitter = routeJitterRatio * this.routeJitter * 1000;  // adjust to ms
-        this.now = +new Date() + this.trackerOffset + jitter;
+        this.now = Date.now() + this.trackerOffset + jitter;
       }
     };
     updateNow();
