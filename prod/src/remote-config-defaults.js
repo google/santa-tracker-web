@@ -36,7 +36,6 @@ var defaults = {
   refreshEvery: 60,  // this is low, _because_ we're offline
   useGeoIP: true,
   showTracker: false,
-  preTracker: true,
   routeJitter: 10,
 };
 

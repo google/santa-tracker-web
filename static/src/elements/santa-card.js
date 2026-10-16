@@ -57,8 +57,6 @@ export const scenesWithColor = {
   translations: '#32a658',
   windtunnel: '#7f54fa',
   wrapbattle: '#2a57ad',
-  tracker: '#2c84db',
-  '@tracker': '#2c84db',
   '@penguinswim': '#079aad',
   '@rocketsleigh': '#9d87f5',
   '@dasherdancer': '#6bb4fd',

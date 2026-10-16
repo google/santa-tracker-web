@@ -403,7 +403,7 @@ chromeElement.addEventListener('action', (ev) => {
  * @param {!Object<string, *>} data
  * @return {!Promise<Object<string, *>>}
  */
-async function prepare(control, data, context = {}) {
+async function prepare(control, data) {
   const timeoutSymbol = Symbol('timeout');
   const timeoutPromise = promises.timeout(10 * 1000).then(() => timeoutSymbol);
 
@@ -466,7 +466,6 @@ async function prepare(control, data, context = {}) {
             trackerFlags: firebaseConfig.trackerFlags(),
             trackerOffset,
             loudCard: firebaseConfig.loudCard(),
-            requestedRoute: (context && (context.rawRoute || context.route)) || '',
             data,
           };
           control.send({type: 'data', payload});
@@ -650,7 +649,7 @@ loaderElement.addEventListener(gameloader.events.prepare, (ev) => {
     const {data, route, error, locked} = context;
 
     // Kick off the preload for this scene and wait for the interlude to appear.
-    const configPromise = prepare(control, data, context);
+    const configPromise = prepare(control, data);
     document.body.classList.add('loading');  // show dots after a time
     await interludeElement.show();
 

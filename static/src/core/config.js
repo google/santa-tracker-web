@@ -249,7 +249,6 @@ export function trackerFlags() {
   return {
     routeUrl: remoteConfig.getString('routeUrl'),
     showTracker: remoteConfig.getBoolean('showTracker'),
-    preTracker: remoteConfig.getBoolean('preTracker'),
     useGeoIP: remoteConfig.getBoolean('useGeoIP'),
     routeJitter: remoteConfig.getNumber('routeJitter'),
   };
