@@ -3,7 +3,7 @@
 		"message": "Na Badnjak ćemo s ponosom predstaviti Djedovu nadzornu ploču, tehnologiju koja pokreće njegove saonice tijekom njegova putovanja oko svijeta. Ovaj posebni pregled omogućio nam je jedan od brojnih vilenjaka Djeda Božićnjaka koji marljivo rade na Sjevernom polu i pomažu Djedu Božićnjaku da se pripremi za svoj veliki dan. Djedova nadzorna ploča (sadrži najnovije i najbolje od tehnologije Google karata i inženjeringa za saonice) omogućit će ti da pratiš njegov napredak na putu oko svijeta, a usto ćeš naučiti i ponešto o mjestima na kojima se zaustavi."
 	},
 	"about-content-three": {
-		"message": "Aplikaciju Slijedi Djeda Božićnjaka u Google kartama izradio je i razvio Google uz pomoć vilenjaka Djeda Božićnjaka. Trebaš pomoć ili imaš dodatnih pitanja? Posjeti naš \u003ca href=\"//support.google.com/santatracker\"\u003ecentar za pomoć\u003c/a\u003e."
+		"message": "Aplikaciju Slijedi Djeda Božićnjaka u Google kartama izradio je i razvio Google uz pomoć vilenjaka Djeda Božićnjaka. Trebaš pomoć ili imaš dodatnih pitanja? Posjeti naš <a href=\"//support.google.com/santatracker\">centar za pomoć</a>."
 	},
 	"about-content-two": {
 		"message": "Naši ljubazni vilenjaci pozvali su te da istražiš selo Djeda Božićnjaka dok se on priprema za putovanje. Stoga istraži njegovo selo, možda pronađeš neke zabavne aktivnosti i upoznaš neke zanimljive vilenjake."
@@ -501,7 +501,7 @@
 		"message": "Odlično"
 	},
 	"codelab-mwc-promo": {
-		"message": "Istraži više Googleovih projekata pisanja koda na adresi \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Istraži više Googleovih projekata pisanja koda na adresi <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Sljedeći izazov"
@@ -684,13 +684,13 @@
 		"message": "Pojavio se problem, no Djedovi vilenjaci rade na njegovu rješavanju."
 	},
 	"error-internal": {
-		"message": "O, ne! Pojavio se problem. Obavijestili smo Djedove vilenjake, no pokušaj se vratiti u \u003ca href=\"./\"\u003eDjedovo selo\u003c/a\u003e."
+		"message": "O, ne! Pojavio se problem. Obavijestili smo Djedove vilenjake, no pokušaj se vratiti u <a href=\"./\">Djedovo selo</a>."
 	},
 	"error-lost-connection": {
 		"message": "Čini se da smo izgubili vezu sa Sjevernim polom. Vilenjaci Djeda Božićnjaka marljivo rade na rješavanju problema – nastavi nas pratiti!"
 	},
 	"error-not-found": {
-		"message": "O, ne! Djedovi vilenjaci ne mogu pronaći tu stranicu. Možda je uspiješ pronaći ako se vratiš u \u003ca href=\"./\"\u003eDjedovo selo\u003c/a\u003e."
+		"message": "O, ne! Djedovi vilenjaci ne mogu pronaći tu stranicu. Možda je uspiješ pronaći ako se vratiš u <a href=\"./\">Djedovo selo</a>."
 	},
 	"error-out-of-date": {
 		"message": "To je zastarjela verzija Sela Djeda Božićnjaka! Pokušaj ponovo otvoriti igru Slijedi Djeda Božićnjaka da bi se prikazala najnovija verzija."
@@ -720,7 +720,7 @@
 		"message": "Pomoću Google asistenta možeš saznati više o Djedu Božićnjaku tijekom prosinca! Ta je integracija dostupna na odabranim jezicima."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Ako imaju dopuštenje roditelja, djeca mlađa od 13 godina mogu pristupati vlastitom prilagođenom doživljaju Google asistenta kad se prijave na svoj račun kojim se upravlja putem \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Linka\u003c/a\u003e."
+		"message": "Ako imaju dopuštenje roditelja, djeca mlađa od 13 godina mogu pristupati vlastitom prilagođenom doživljaju Google asistenta kad se prijave na svoj račun kojim se upravlja putem <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Linka</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google asistent povezuje te sa Sjevernim polom, gdje Djed vježba za nastup na koncertu. Zna samo jednu pjesmu – možeš li mu pomoći da shvati kako je najbolje odsvirati?"
@@ -1215,7 +1215,7 @@
 		"message": "norveški"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya djeci u ruralnim dijelovima Indije donosi praktičnu nastavu iz prirodnih znanosti. Njihovi znanstveni centri i mobilni znanstveni kamioneti obuhvaćaju sve, od Sunčeva sustava do načina na koji funkcionira mozak. Doprli su do više od 5 milijuna djece i 200.000 učitelja u 14 indijskih država; radi se o jednom od najvećih programa obrazovanja iz prirodnih znanosti u svijetu! Google org. s ponosom \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003epodupire\u003c/a\u003e organizaciju Agastya."
+		"message": "Agastya djeci u ruralnim dijelovima Indije donosi praktičnu nastavu iz prirodnih znanosti. Njihovi znanstveni centri i mobilni znanstveni kamioneti obuhvaćaju sve, od Sunčeva sustava do načina na koji funkcionira mozak. Doprli su do više od 5 milijuna djece i 200.000 učitelja u 14 indijskih država; radi se o jednom od najvećih programa obrazovanja iz prirodnih znanosti u svijetu! Google org. s ponosom <a href=\"https://www.google.org/impact-challenge/agastya/\">podupire</a> organizaciju Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Učitelji i učenici"
@@ -1248,7 +1248,7 @@
 		"message": "U partnerstvu s organizacijom Google.org predstavljamo pet neprofitnih obrazovnih inicijativa koje ne prestaju s darivanjem tijekom čitave godine. U nastavku možete saznati što svaka od tih inicijativa čini za svoje korisnike. Pokažite svoju podršku tako što ćete obojiti ukrase u ovoj zbirci i objesiti ih na svoje drvce ili pokloniti dragim ljudima."
 	},
 	"nonprofit-jane-description": {
-		"message": "Čimpanze su najbliži živući srodnici ljudske vrste u životinjskom carstvu! Danas na svijetu živi manje od 300.000 čimpanzi zbog gubitka staništa i ilegalne trgovine. Institut Jane Goodall (JGI) čimpanze štiti promatranjem i analiziranjem njihova ponašanja i staništa u kojima žive. JGI također nastoji izgraditi zajednicu ljudi koji rade na zaštiti i očuvanju divljih životinja i okoliša koji dijelimo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eIstražite staništa čimpanzi\u003c/a\u003e u Gombeu, u Tanzaniji."
+		"message": "Čimpanze su najbliži živući srodnici ljudske vrste u životinjskom carstvu! Danas na svijetu živi manje od 300.000 čimpanzi zbog gubitka staništa i ilegalne trgovine. Institut Jane Goodall (JGI) čimpanze štiti promatranjem i analiziranjem njihova ponašanja i staništa u kojima žive. JGI također nastoji izgraditi zajednicu ljudi koji rade na zaštiti i očuvanju divljih životinja i okoliša koji dijelimo. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Istražite staništa čimpanzi</a> u Gombeu, u Tanzaniji."
 	},
 	"nonprofit-jane-type": {
 		"message": "Čimpanza"
@@ -1287,13 +1287,13 @@
 		"message": "Pametne naočale"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 milijarde ljudi nema pristup električnoj energiji, a mnogi moraju koristiti kerozinske svjetiljke koje troše gorivo i zagađuju domove. S druge strane, solarne svjetiljke upijaju energiju sunca tijekom dana da bi tijekom večeri davale višesatnu svjetlost bez sagorijevanja goriva ili zagađivanja. Pružaju pomoć u čitanju, igri i sigurnom povratku kući tijekom noći. SolarAid omogućuje pristup solarnim svjetiljkama mnogima kojima su one potrebne. Google.org s ponosom \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003epodupire\u003c/a\u003e SolarAid."
+		"message": "1,3 milijarde ljudi nema pristup električnoj energiji, a mnogi moraju koristiti kerozinske svjetiljke koje troše gorivo i zagađuju domove. S druge strane, solarne svjetiljke upijaju energiju sunca tijekom dana da bi tijekom večeri davale višesatnu svjetlost bez sagorijevanja goriva ili zagađivanja. Pružaju pomoć u čitanju, igri i sigurnom povratku kući tijekom noći. SolarAid omogućuje pristup solarnim svjetiljkama mnogima kojima su one potrebne. Google.org s ponosom <a href=\"https://www.google.org/impact-challenge/solaraid/\">podupire</a> SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Sunčeva svjetlost"
 	},
 	"nonprofit-water-description": {
-		"message": "Vodu koristimo za tuširanje i kupanje, za kuhanje i, naravno, za piće. Čista je voda dragocjen resurs, a mnogi se ljudi moraju oslanjati na ručno iskopane zdence za pristup vodonosnicima u kojima se nalazi čista voda, duboko u tlu između slojeva stijena i zemlje. Organizacija charity: water u suradnji s lokalnim partnerima gradi zdence i drugu vodoopskrbnu infrastrukturu tamo gdje su oni najviše potrebni. Google.org s ponosom \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003epodupire\u003c/a\u003e charity: water."
+		"message": "Vodu koristimo za tuširanje i kupanje, za kuhanje i, naravno, za piće. Čista je voda dragocjen resurs, a mnogi se ljudi moraju oslanjati na ručno iskopane zdence za pristup vodonosnicima u kojima se nalazi čista voda, duboko u tlu između slojeva stijena i zemlje. Organizacija charity: water u suradnji s lokalnim partnerima gradi zdence i drugu vodoopskrbnu infrastrukturu tamo gdje su oni najviše potrebni. Google.org s ponosom <a href=\"https://www.google.org/global-impact-awards/charity-water/\">podupire</a> charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Zdenac"
@@ -1305,7 +1305,7 @@
 		"message": "Mobilnost"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Klimatske promjene nastavljaju ometati ravnotežu mnogih svjetskih ekosustava, kako u toplim krajevima tako i u hladnima. Polarni medvjedi na Arktiku gube svoje ledeno stanište na vodi zbog povećanih temperatura i suočavaju se s dodatnim prijetnjama koje proizlaze iz ljudskih aktivnosti, kao što su iskorištavanje nalazišta nafte i plina te njihov prijevoz. World Wildlife Fund (Svjetski fond za zaštitu divljih životinja) nastoji osigurati opstanak vrsta znanstvenim istraživanjima i suradnjom s autohtonim zajednicama Arktika. Google.org ponosno \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e podržava\u003c/a\u003e te aktivnosti zajedno s World Wildlife Fundom."
+		"message": "Klimatske promjene nastavljaju ometati ravnotežu mnogih svjetskih ekosustava, kako u toplim krajevima tako i u hladnima. Polarni medvjedi na Arktiku gube svoje ledeno stanište na vodi zbog povećanih temperatura i suočavaju se s dodatnim prijetnjama koje proizlaze iz ljudskih aktivnosti, kao što su iskorištavanje nalazišta nafte i plina te njihov prijevoz. World Wildlife Fund (Svjetski fond za zaštitu divljih životinja) nastoji osigurati opstanak vrsta znanstvenim istraživanjima i suradnjom s autohtonim zajednicama Arktika. Google.org ponosno <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"> podržava</a> te aktivnosti zajedno s World Wildlife Fundom."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polarni medvjed"
@@ -1440,7 +1440,7 @@
 		"message": "U Djedovu selu slavi se petnaest godina održavanja zabavnih, poučnih i interaktivnih blagdanskih aktivnosti. Pod stručnim vodstvom Bake Božićnjak vilenjaci su ažurirali selo, podarili mu privlačan izgled i dodali neke potpuno nove sadržaje. A zahvaljujući novom sustavu grijanja na vrući kakao, više ne trebamo čekati cijeli prosinac da se selo otopi – sve 24 aktivnosti bit će dostupne već od 4. prosinca. Sada vilenjaci (a i ti s njima) imaju više vremena za igru i istraživanje u Djedovu selu."
 	},
 	"press-about-village2": {
-		"message": "U selu možeš vježbati osnove pisanja koda, izrađivati originalne rukotvorine, razvijati geografske vještine i saznati više o dobrotvornim organizacijama kao što su \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e i \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Učitelji mogu čak i \u003ca href=\"./educators.html\"\u003epreuzimati nastavne planove\u003c/a\u003e s videovodičima koji im na engleskom, španjolskom, francuskom, japanskom i korejskom pomažu da učenicima prenesu znanja o osnovnim vještinama pisanja koda i blagdanskim tradicijama."
+		"message": "U selu možeš vježbati osnove pisanja koda, izrađivati originalne rukotvorine, razvijati geografske vještine i saznati više o dobrotvornim organizacijama kao što su <a href=\"https://www.khanacademy.org/\">Khan Academy</a> i <a href=\"https://code.org/\">Code.org</a>. Učitelji mogu čak i <a href=\"./educators.html\">preuzimati nastavne planove</a> s videovodičima koji im na engleskom, španjolskom, francuskom, japanskom i korejskom pomažu da učenicima prenesu znanja o osnovnim vještinama pisanja koda i blagdanskim tradicijama."
 	},
 	"press-asset-animation": {
 		"message": "Animacija"
@@ -1461,7 +1461,7 @@
 		"message": "Poučne avanture"
 	},
 	"press-edu1": {
-		"message": "Proširili smo \u003ca href=\"./educators.html\"\u003estranicu resursa za edukatore\u003c/a\u003e i dodali joj videovodiče koji su sada dostupni na pet jezika i služe učiteljima kao nadopuna nastavnim planovima. Zadržali smo sve omiljene igre koje u blagdanske tradicije iz svih dijelova svijeta uvode osnovna načela pisanja koda. Googleova igra Slijedi Djeda Božićnjaka potiče na učenje kroz blagdansku zabavu; više možeš saznati u \u003ca href=\"./educators.html\"\u003enašim poučnim igrama\u003c/a\u003e."
+		"message": "Proširili smo <a href=\"./educators.html\">stranicu resursa za edukatore</a> i dodali joj videovodiče koji su sada dostupni na pet jezika i služe učiteljima kao nadopuna nastavnim planovima. Zadržali smo sve omiljene igre koje u blagdanske tradicije iz svih dijelova svijeta uvode osnovna načela pisanja koda. Googleova igra Slijedi Djeda Božićnjaka potiče na učenje kroz blagdansku zabavu; više možeš saznati u <a href=\"./educators.html\">našim poučnim igrama</a>."
 	},
 	"press-games-title": {
 		"message": "Sva zabava i igre"
@@ -1491,19 +1491,19 @@
 		"message": "Izrada vilenjaka:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Ako je tvoj životni san osnivanje plesne skupine talentiranih rasplesanih vilenjaka, sada je njegovo ostvarivanje nadohvat ruke. Pomoću modela strojnog učenja pod nazivom \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e možeš vilenjaku pokazati plesne pokrete i pripremiti ga za nastup na plesnom podiju."
+		"message": "Ako je tvoj životni san osnivanje plesne skupine talentiranih rasplesanih vilenjaka, sada je njegovo ostvarivanje nadohvat ruke. Pomoću modela strojnog učenja pod nazivom <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a> možeš vilenjaku pokazati plesne pokrete i pripremiti ga za nastup na plesnom podiju."
 	},
 	"press-whatsnew2-title": {
 		"message": "Ples s vilenjacima:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Djedovu lokaciju možeš provjeriti i uživo na Google kartama: jednostavno dodirni gumb izbornika, a zatim \"Dijeljenje lokacije\" te pogledaj gdje se točno Djedica trenutačno nalazi na svojem putovanju. A možeš otvoriti i brzi prečac na adresi \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+		"message": "Djedovu lokaciju možeš provjeriti i uživo na Google kartama: jednostavno dodirni gumb izbornika, a zatim \"Dijeljenje lokacije\" te pogledaj gdje se točno Djedica trenutačno nalazi na svojem putovanju. A možeš otvoriti i brzi prečac na adresi <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>!"
 	},
 	"press-whatsnew3-title": {
 		"message": "Novi način praćenja Djeda Božićnjaka:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Ako želiš još više blagdanskog veselja, pogledaj blagdanske naljepnice za Gboard dostupne na \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroidu\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS-u\u003c/a\u003e i u našoj \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplikaciji za Android\u003c/a\u003e. A ako želiš uživati u zabavnim pričama, kaži Google asistentu \"Tell me a holiday story\" i \"Where's Santa?\""
+		"message": "Ako želiš još više blagdanskog veselja, pogledaj blagdanske naljepnice za Gboard dostupne na <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Androidu</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS-u</a> i u našoj <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">aplikaciji za Android</a>. A ako želiš uživati u zabavnim pričama, kaži Google asistentu \"Tell me a holiday story\" i \"Where's Santa?\""
 	},
 	"press-whatsnew4-title": {
 		"message": "Više blagdanske zabave:"
@@ -7323,7 +7323,7 @@
 		"message": "Instaliraj"
 	},
 	"village_santa_intall_ios": {
-		"message": "Jednostavno dodirni \u003cspan\u003e\u003c/span\u003e, a zatim \"Dodaj na početni zaslon\""
+		"message": "Jednostavno dodirni <span></span>, a zatim \"Dodaj na početni zaslon\""
 	},
 	"village_takesoff": {
 		"message": "Djed Božićnjak kreće za"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabve"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

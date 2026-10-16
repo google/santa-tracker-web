@@ -3,7 +3,7 @@
 		"message": "On Christmas Eve we’ll be proudly showcasing a Santa’s dashboard, the technology that powers his sleigh during his around-the-world journey. We’ve received this special preview from one of Santa’s many developer elves, who are hard at work in the North Pole helping Santa prepare for his big day. Santa’s dashboard - featuring the latest and greatest in Google Maps technology and sleigh engineering - will allow you to follow his progress around the world, and also learn a little about some of his stops along the way."
 	},
 	"about-content-three": {
-		"message": "The Google Maps Santa Tracker is created and developed by Google, with a little help from Santa’s elves. Need help or have another question? Visit our \u003ca href=\"//support.google.com/santatracker\"\u003eHelp Center\u003c/a\u003e."
+		"message": "The Google Maps Santa Tracker is created and developed by Google, with a little help from Santa’s elves. Need help or have another question? Visit our <a href=\"//support.google.com/santatracker\">Help Center</a>."
 	},
 	"about-content-two": {
 		"message": "Our friendly elves have also invited you to explore Santa’s village while Santa gets ready for his journey. So go ahead and explore his village, you might just find some fun activities and meet some interesting elves."
@@ -105,7 +105,7 @@
 		"message": "Build 1 teddy bear!"
 	},
 	"buildandbolt-instructions-action-key": {
-		"message": "Pick up \u0026 drop toys"
+		"message": "Pick up & drop toys"
 	},
 	"buildandbolt-instructions-label": {
 		"message": "Instructions"
@@ -501,7 +501,7 @@
 		"message": "Great"
 	},
 	"codelab-mwc-promo": {
-		"message": "Explore more Google coding projects at \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Explore more Google coding projects at <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Next Challenge"
@@ -684,13 +684,13 @@
 		"message": "There was a problem, but Santa's Elves are looking into it."
 	},
 	"error-internal": {
-		"message": "Oh no, there was a problem! We've informed Santa's Elves, but try heading back to \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
+		"message": "Oh no, there was a problem! We've informed Santa's Elves, but try heading back to <a href=\"./\">Santa's Village</a>."
 	},
 	"error-lost-connection": {
 		"message": "Looks like we just lost our connection with the North Pole. Santa's elves are working hard to fix it - stay tuned!"
 	},
 	"error-not-found": {
-		"message": "Oh no, Santa's Elves can't find this page! You might have better luck if you head back to \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
+		"message": "Oh no, Santa's Elves can't find this page! You might have better luck if you head back to <a href=\"./\">Santa's Village</a>."
 	},
 	"error-out-of-date": {
 		"message": "This is an outdated version of Santa's Village! Try opening Santa Tracker again to see the latest version."
@@ -720,7 +720,7 @@
 		"message": "Use the Google Assistant to find out more about Santa Claus during December! This integration is available in select languages."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "With their parent's permission, children under 13 can also have their own personalized Google Assistant experience when they log in with their own account, managed with \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "With their parent's permission, children under 13 can also have their own personalized Google Assistant experience when they log in with their own account, managed with <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google Assistant connects you with the North Pole, where Santa is busy rehearsing for a musical concert. He only knows one song—can you help him figure out the best way to play it?"
@@ -855,7 +855,7 @@
 		"message": "family time"
 	},
 	"familyguide_nav_link_05": {
-		"message": "tips \u0026 tricks"
+		"message": "tips & tricks"
 	},
 	"familyguide_nav_link_06": {
 		"message": "more"
@@ -1215,10 +1215,10 @@
 		"message": "Norwegian"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya brings hands-on science education to children all over rural India. In both their science centers and mobile science vans, they cover everything from the solar system to how the brain works. They have reached over 5 million children and 200,000 teachers across 14 states in India; it’s one of the largest science education programs in the world! Google.org is proud to be a \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esupporter\u003c/a\u003e of Agastya."
+		"message": "Agastya brings hands-on science education to children all over rural India. In both their science centers and mobile science vans, they cover everything from the solar system to how the brain works. They have reached over 5 million children and 200,000 teachers across 14 states in India; it’s one of the largest science education programs in the world! Google.org is proud to be a <a href=\"https://www.google.org/impact-challenge/agastya/\">supporter</a> of Agastya."
 	},
 	"nonprofit-agastya-type": {
-		"message": "Teachers \u0026amp; Students"
+		"message": "Teachers &amp; Students"
 	},
 	"nonprofit-code-description": {
 		"message": "Code.org® is a non-profit dedicated to expanding access to computer science, and increasing participation by women and underrepresented students of color. Code.org®'s vision is that every student in every school should have the opportunity to learn computer science."
@@ -1248,7 +1248,7 @@
 		"message": "We've partnered with Google.org to showcase five education non-profits that celebrate the season of giving all year long. Scroll down and learn more about how each organization gives back. Show your support by coloring this collection of ornaments and then hanging them on your tree or gifting them to your loved ones."
 	},
 	"nonprofit-jane-description": {
-		"message": "Chimpanzees are human being's closest living relatives in the animal kingdom! Today, there are fewer than 300,000 chimpanzees remaining due to habitat loss, disease and illegal trade. The Jane Goodall Institute (JGI) protects chimpanzees by observing and understanding their behaviors as well as the habitats in which they live. JGI also works to build a community of people who are protecting and conserving wildlife and the environment we share. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore the Chimpanzee habitats\u003c/a\u003e in Gombe, Tanzania."
+		"message": "Chimpanzees are human being's closest living relatives in the animal kingdom! Today, there are fewer than 300,000 chimpanzees remaining due to habitat loss, disease and illegal trade. The Jane Goodall Institute (JGI) protects chimpanzees by observing and understanding their behaviors as well as the habitats in which they live. JGI also works to build a community of people who are protecting and conserving wildlife and the environment we share. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explore the Chimpanzee habitats</a> in Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzee"
@@ -1287,13 +1287,13 @@
 		"message": "Smart Glasses"
 	},
 	"nonprofit-solar-description": {
-		"message": "1.3 billion people have no access to electricity, and many have to use kerosene lamps that burn fuel and pollute homes. Solar lights, however, absorb power from the sun during the day and provide hours of light in the evening without burning or polluting. They help you read, play, and get home safely at night. SolarAid provides access to solar lights to many who need them. Google.org is proud to be a \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esupporter\u003c/a\u003e of SolarAid."
+		"message": "1.3 billion people have no access to electricity, and many have to use kerosene lamps that burn fuel and pollute homes. Solar lights, however, absorb power from the sun during the day and provide hours of light in the evening without burning or polluting. They help you read, play, and get home safely at night. SolarAid provides access to solar lights to many who need them. Google.org is proud to be a <a href=\"https://www.google.org/impact-challenge/solaraid/\">supporter</a> of SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Sunlight"
 	},
 	"nonprofit-water-description": {
-		"message": "We use water for showers and baths, for cooking, and of course, for drinking. Clean water is a precious resource, and many people rely on hand-dug wells to access aquifers, which hold clean water deep in the ground between layers of rock and soil. charity: water works with local partners to build wells and other water projects where they are greatly needed. Google.org is proud to be a \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esupporter\u003c/a\u003e of charity: water."
+		"message": "We use water for showers and baths, for cooking, and of course, for drinking. Clean water is a precious resource, and many people rely on hand-dug wells to access aquifers, which hold clean water deep in the ground between layers of rock and soil. charity: water works with local partners to build wells and other water projects where they are greatly needed. Google.org is proud to be a <a href=\"https://www.google.org/global-impact-awards/charity-water/\">supporter</a> of charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Well"
@@ -1305,7 +1305,7 @@
 		"message": "Mobility"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Climate change continues to disrupt the balance of many of the world’s ecosystems, both warm and cold places. In the Arctic, polar bears are losing their sea ice habitat with rising temperatures, and face added threats from human activities, such as oil and gas development and shipping. World Wildlife Fund works to ensure the survival of the species through scientific research and working in partnership with Arctic native communities. Google.org is proud to be a \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e supporter\u003c/a\u003e with World Wildlife Fund."
+		"message": "Climate change continues to disrupt the balance of many of the world’s ecosystems, both warm and cold places. In the Arctic, polar bears are losing their sea ice habitat with rising temperatures, and face added threats from human activities, such as oil and gas development and shipping. World Wildlife Fund works to ensure the survival of the species through scientific research and working in partnership with Arctic native communities. Google.org is proud to be a <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"> supporter</a> with World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polar Bear"
@@ -1440,7 +1440,7 @@
 		"message": "Santa's Village is celebrating its fifteenth year of fun, educational, and interactive holiday activities. Under Mrs. Claus’s expert guidance, the elves have updated the village with a snazzy look and feel along with some brand new content. And, thanks to a new, hot-cocoa powered heating system, the village will no longer take all of December to thaw—all two dozen activities will be available starting on December 4. Now the elves (and you!) have more time to play and explore in Santa's Village."
 	},
 	"press-about-village2": {
-		"message": "In the village, you can practice basic coding skills, create original artwork, exercise your geographic chops, and learn more about charitable organizations like \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e and \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Teachers can even \u003ca href=\"./educators.html\"\u003edownload lesson plans\u003c/a\u003e with video guides to help teach their students fundamental coding skills and holiday traditions in English, Spanish, French, Japanese and Korean."
+		"message": "In the village, you can practice basic coding skills, create original artwork, exercise your geographic chops, and learn more about charitable organizations like <a href=\"https://www.khanacademy.org/\">Khan Academy</a> and <a href=\"https://code.org/\">Code.org</a>. Teachers can even <a href=\"./educators.html\">download lesson plans</a> with video guides to help teach their students fundamental coding skills and holiday traditions in English, Spanish, French, Japanese and Korean."
 	},
 	"press-asset-animation": {
 		"message": "Animation"
@@ -1461,7 +1461,7 @@
 		"message": "Educational adventures"
 	},
 	"press-edu1": {
-		"message": "We've expanded our \u003ca href=\"./educators.html\"\u003eeducator resource page\u003c/a\u003e to provide teachers with video guides to accompany lesson plans now available in five languages. All of your favorite games remain, introducing basic concepts of coding to global holiday traditions. Google's Santa Tracker encourages holiday learning experiences in a fun way—see \u003ca href=\"./educators.html\"\u003eour educational games\u003c/a\u003e to learn more."
+		"message": "We've expanded our <a href=\"./educators.html\">educator resource page</a> to provide teachers with video guides to accompany lesson plans now available in five languages. All of your favorite games remain, introducing basic concepts of coding to global holiday traditions. Google's Santa Tracker encourages holiday learning experiences in a fun way—see <a href=\"./educators.html\">our educational games</a> to learn more."
 	},
 	"press-games-title": {
 		"message": "All the fun and games"
@@ -1491,19 +1491,19 @@
 		"message": "Build an elf:"
 	},
 	"press-whatsnew2-text": {
-		"message": "If your lifelong dream has been to start a dance troupe with a group of highly talented dancing elves, now’s your chance. Almost. Using a machine learning model called \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, you can train an elf to learn your moves so can get your elf on the dance floor."
+		"message": "If your lifelong dream has been to start a dance troupe with a group of highly talented dancing elves, now’s your chance. Almost. Using a machine learning model called <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, you can train an elf to learn your moves so can get your elf on the dance floor."
 	},
 	"press-whatsnew2-title": {
 		"message": "Dance(s) with elves:"
 	},
 	"press-whatsnew3-text": {
-		"message": "You'll also be able to see Santa's real time location on Google Maps—just tap on the hamburger button and then on \"Location Sharing\" to see exactly where Santa is throughout his journey. You can also go to \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e for an easy shortcut!"
+		"message": "You'll also be able to see Santa's real time location on Google Maps—just tap on the hamburger button and then on \"Location Sharing\" to see exactly where Santa is throughout his journey. You can also go to <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a> for an easy shortcut!"
 	},
 	"press-whatsnew3-title": {
 		"message": "A new way to track Santa:"
 	},
 	"press-whatsnew4-text": {
-		"message": "If you're craving more holiday cheer, check out the Gboard holiday stickers available on \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e, and our \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid app\u003c/a\u003e. And, enjoy some literary fun by asking the Google Assistant to \"Tell me a holiday story\" and \"Where's Santa?\""
+		"message": "If you're craving more holiday cheer, check out the Gboard holiday stickers available on <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a>, and our <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android app</a>. And, enjoy some literary fun by asking the Google Assistant to \"Tell me a holiday story\" and \"Where's Santa?\""
 	},
 	"press-whatsnew4-title": {
 		"message": "More holiday fun:"
@@ -1680,7 +1680,7 @@
 		"message": "Mrs. Claus' Briefing"
 	},
 	"scene_build": {
-		"message": "Build \u0026 Bolt"
+		"message": "Build & Bolt"
 	},
 	"scene_callfromsanta": {
 		"message": "Call from Santa"
@@ -3672,7 +3672,7 @@
 		"message": "Chad"
 	},
 	"terms-and-privacy": {
-		"message": "Terms \u0026amp; Privacy"
+		"message": "Terms &amp; Privacy"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -3735,37 +3735,37 @@
 		"message": "Pre-Flight Status"
 	},
 	"tracker_preflight_1": {
-		"message": "Sleigh maintenance and workshop preparations"
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
 	},
 	"tracker_preflight_2": {
-		"message": "Sorting worldwide delivery lists and presents"
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
 	},
 	"tracker_preflight_3": {
-		"message": "Loading the magical toy sack onto the sleigh"
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
 	},
 	"tracker_preflight_4": {
-		"message": "Feeding the reindeer with holiday treats"
+		"message": "Reviewing the nice & naughty lists at the polar post office"
 	},
 	"tracker_preflight_5": {
-		"message": "Reviewing polar wind forecasts and flight route"
+		"message": "High-altitude wind analysis & northern lights radar scan"
 	},
 	"tracker_preflight_6": {
-		"message": "Grooming the reindeer and shining Rudolph's nose"
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
 	},
 	"tracker_preflight_7": {
-		"message": "Santa putting on the red velvet suit and boots"
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
 	},
 	"tracker_preflight_8": {
-		"message": "Boarding the sleigh and final checklist"
+		"message": "Calibrating the worldwide route on Google Maps GPS"
 	},
 	"tracker_preflight_9": {
-		"message": "Runway inspection and North Pole tower clearance"
+		"message": "Santa suiting up in the thermal red suit & flight boots"
 	},
 	"tracker_preflight_10": {
-		"message": "Reindeer revving up and bells jingling on runway"
+		"message": "Harnessing the reindeer with leather gear & silver bells"
 	},
 	"tracker_preflight_11": {
-		"message": "Final countdown to liftoff! Hold on tight!"
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
 	},
 	"tracker_distance_away_km": {
 		"message": "Santa is {{distance_away}}km away"
@@ -7566,7 +7566,7 @@
 		"message": "Install"
 	},
 	"village_santa_intall_ios": {
-		"message": "Just tap \u003cspan\u003e\u003c/span\u003e then 'Add to Home Screen'"
+		"message": "Just tap <span></span> then 'Add to Home Screen'"
 	},
 	"village_takesoff": {
 		"message": "Santa takes off in"
@@ -7612,5 +7612,32 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

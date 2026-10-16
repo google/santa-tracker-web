@@ -3,7 +3,7 @@
 		"message": "Эльфы уже вовсю готовятся к праздникам. Сегодня эти забавные и трудолюбивые помощники Санта-Клауса познакомили нас с предварительной версией Журнала поездок Санты – инструмента, с помощью которого вы сможете следить за его путешествиями на Google Картах. Окончательная версия журнала станет доступна в канун Рождества."
 	},
 	"about-content-three": {
-		"message": "Сайт \"Радар Санта-Клауса\" разработан компанией Google при участии эльфов. Если у вас есть вопросы, посетите наш \u003ca href=\"//support.google.com/santatracker\"\u003eСправочный центр\u003c/a\u003e."
+		"message": "Сайт \"Радар Санта-Клауса\" разработан компанией Google при участии эльфов. Если у вас есть вопросы, посетите наш <a href=\"//support.google.com/santatracker\">Справочный центр</a>."
 	},
 	"about-content-two": {
 		"message": "Пока Санта собирается в дорогу, осмотрите его деревню. Здесь можно встретить веселых эльфов, поиграть в разные игры и узнать много интересного."
@@ -501,7 +501,7 @@
 		"message": "Отлично!"
 	},
 	"codelab-mwc-promo": {
-		"message": "Проект Made with Code: \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Проект Made with Code: <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Следующий уровень"
@@ -684,13 +684,13 @@
 		"message": "Произошла ошибка. Эльфы Санты уже ищут решение."
 	},
 	"error-internal": {
-		"message": "Произошла ошибка. \u003ca href=\"./\"\u003eВернуться в деревню Санты\u003c/a\u003e"
+		"message": "Произошла ошибка. <a href=\"./\">Вернуться в деревню Санты</a>"
 	},
 	"error-lost-connection": {
 		"message": "Похоже, связь с Северным полюсом прервалась. Подождите немного, эльфы Санты уже пытаются решить проблему."
 	},
 	"error-not-found": {
-		"message": "Страница не найдена. \u003ca href=\"./\"\u003eВернуться в деревню Санты\u003c/a\u003e"
+		"message": "Страница не найдена. <a href=\"./\">Вернуться в деревню Санты</a>"
 	},
 	"error-out-of-date": {
 		"message": "Санта-Клаус и его помощники переехали в новую деревню. Чтобы попасть в нее, обновите страницу."
@@ -720,7 +720,7 @@
 		"message": "Обращайтесь к Google Ассистенту весь декабрь, чтобы узнавать последние новости о том, чем занимается Санта Клаус. Возможность доступна не на всех языках."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "При работе с Google Ассистентом доступны персональные результаты. Если вам меньше 13 лет и вы хотите видеть такие результаты, то вам нужно получить разрешение родителей и войти в свой аккаунт под управлением \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "При работе с Google Ассистентом доступны персональные результаты. Если вам меньше 13 лет и вы хотите видеть такие результаты, то вам нужно получить разрешение родителей и войти в свой аккаунт под управлением <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Санте нужна помощь: он готовится к праздничному концерту. Дело в том, что он знает всего одну песню и хочет исполнить ее как можно лучше. Хотите помочь Санте подготовиться? Позвоните ему на Северный полюс через Google Ассистента и поделитесь своими идеями!"
@@ -1215,7 +1215,7 @@
 		"message": "Норвежский"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya – одна из крупнейших научно-просветительских организаций в мире. Ее представители пробуждают в индийских детях, живущих в сельской местности, интерес к естественным наукам. В своих стационарных и передвижных учебных центрах специалисты Agastya рассказывают обо всем важном и интересном – от устройства Солнечной системы до строения головного мозга. Организация работает в 14 штатах Индии. С ней сотрудничают более 200 тысяч учителей, а ее деятельность уже затронула свыше 5 миллионов детей. Компания Google с радостью \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eподдерживает\u003c/a\u003e Agastya."
+		"message": "Agastya – одна из крупнейших научно-просветительских организаций в мире. Ее представители пробуждают в индийских детях, живущих в сельской местности, интерес к естественным наукам. В своих стационарных и передвижных учебных центрах специалисты Agastya рассказывают обо всем важном и интересном – от устройства Солнечной системы до строения головного мозга. Организация работает в 14 штатах Индии. С ней сотрудничают более 200 тысяч учителей, а ее деятельность уже затронула свыше 5 миллионов детей. Компания Google с радостью <a href=\"https://www.google.org/impact-challenge/agastya/\">поддерживает</a> Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Образование"
@@ -1248,7 +1248,7 @@
 		"message": "Вместе с фондом Google.org мы отобрали пять благотворительных организаций в сфере образования, которые, на наш взгляд, заслуживают вашего внимания. О том, чем они занимаются, можно узнать ниже. Для каждой организации мы придумали елочную игрушку. Раскрасьте те, которые вам нравятся, а затем повесьте их на елку или подарите близким."
 	},
 	"nonprofit-jane-description": {
-		"message": "Шимпанзе считаются самыми близкими родственниками человека. Из-за потери среды обитания, в результате браконьерства и эпидемий их осталось уже меньше 300 000. Защитой шимпанзе и мест их обитания, а также другими проблемами дикой природы и окружающей среды занимается организация The Jane Goodall Institute (JGI). Посмотрите, как заботятся о шимпанзе \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eв заповеднике Гомбе\u003c/a\u003e в Танзании."
+		"message": "Шимпанзе считаются самыми близкими родственниками человека. Из-за потери среды обитания, в результате браконьерства и эпидемий их осталось уже меньше 300 000. Защитой шимпанзе и мест их обитания, а также другими проблемами дикой природы и окружающей среды занимается организация The Jane Goodall Institute (JGI). Посмотрите, как заботятся о шимпанзе <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">в заповеднике Гомбе</a> в Танзании."
 	},
 	"nonprofit-jane-type": {
 		"message": "Шимпанзе"
@@ -1287,13 +1287,13 @@
 		"message": "Умные очки"
 	},
 	"nonprofit-solar-description": {
-		"message": "В районах без электричества живут более миллиарда жителей планеты. Многие из них вынуждены освещать свои дома керосиновыми лампами, которые загрязняют воздух и наносят вред здоровью людей. Существует экологичная альтернатива такому источнику света: лампы, работающие от солнечных батарей. В течение дня батареи накапливают солнечную энергию, а в темное время суток питают ей лампы. Распространением ламп на солнечных батареях занимается благотворительная организация SolarAid. Компания Google \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eподдерживает\u003c/a\u003e ее деятельность."
+		"message": "В районах без электричества живут более миллиарда жителей планеты. Многие из них вынуждены освещать свои дома керосиновыми лампами, которые загрязняют воздух и наносят вред здоровью людей. Существует экологичная альтернатива такому источнику света: лампы, работающие от солнечных батарей. В течение дня батареи накапливают солнечную энергию, а в темное время суток питают ей лампы. Распространением ламп на солнечных батареях занимается благотворительная организация SolarAid. Компания Google <a href=\"https://www.google.org/impact-challenge/solaraid/\">поддерживает</a> ее деятельность."
 	},
 	"nonprofit-solar-type": {
 		"message": "Солнечный свет"
 	},
 	"nonprofit-water-description": {
-		"message": "Значение чистой пресной воды в жизни человека трудно переоценить. Она нужна нам, чтобы умываться, утолять жажду и готовить пищу. Водоносные пласты, несущие чистую воду, находятся глубоко под землей, и не у всех есть возможность до них добраться. Благотворительная организация Charity: Water занимается бурением скважин и созданием систем водоснабжения в регионах, где у людей нет доступа к чистой пресной воде. В этом ей \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eпомогают\u003c/a\u003e местные партнеры и компания Google."
+		"message": "Значение чистой пресной воды в жизни человека трудно переоценить. Она нужна нам, чтобы умываться, утолять жажду и готовить пищу. Водоносные пласты, несущие чистую воду, находятся глубоко под землей, и не у всех есть возможность до них добраться. Благотворительная организация Charity: Water занимается бурением скважин и созданием систем водоснабжения в регионах, где у людей нет доступа к чистой пресной воде. В этом ей <a href=\"https://www.google.org/global-impact-awards/charity-water/\">помогают</a> местные партнеры и компания Google."
 	},
 	"nonprofit-water-type": {
 		"message": "Доступность пресной воды"
@@ -1305,7 +1305,7 @@
 		"message": "Безбарьерная среда"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Из-за глобального потепления и деятельности человека естественные природные условия нашей планеты меняются не в лучшую сторону. В Арктике тают ледники, а на шельфе всё активнее ведется добыча нефти. Это наносит серьезный ущерб представителям животного мира. Природоохранная организация World Wildlife Fund совместно с сообществами народов Арктики разрабатывает программы по поддержке видов, которым угрожает опасность. Если вы хотите перевести средства в пользу фонда, перейдите по \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eэтой ссылке\u003c/a\u003e."
+		"message": "Из-за глобального потепления и деятельности человека естественные природные условия нашей планеты меняются не в лучшую сторону. В Арктике тают ледники, а на шельфе всё активнее ведется добыча нефти. Это наносит серьезный ущерб представителям животного мира. Природоохранная организация World Wildlife Fund совместно с сообществами народов Арктики разрабатывает программы по поддержке видов, которым угрожает опасность. Если вы хотите перевести средства в пользу фонда, перейдите по <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">этой ссылке</a>."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Белые медведи"
@@ -1440,7 +1440,7 @@
 		"message": "Вот уже 15 лет в деревне Санта-Клауса можно найти разнообразные игры, а также многому научиться. Под руководством миссис Клаус эльфы обновили дизайн деревни и подготовили интересные занятия. А благодаря новой системе отопления на горячем какао вам не придется ждать весь месяц, пока деревня \"разморозится\" – более 20 видов развлечений станут доступны уже 4 декабря. Так вы успеете поучаствовать во всех наших забавах."
 	},
 	"press-about-village2": {
-		"message": "В нашей деревне можно изучить основы программирования, попробовать себя в роли художника, попрактиковаться в ориентировании на местности, а также узнать больше о таких некоммерческих образовательных организациях, как \u003ca href=\"https://www.khanacademy.org/\"\u003eАкадемия Хана\u003c/a\u003e и \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Для учителей мы добавили \u003ca href=\"./educators.html\"\u003eпланы занятий\u003c/a\u003e, к которым прилагаются видео с советами о том, как познакомить детей с информатикой и праздничными традициями. Пособия доступны на английском, испанском, корейском, французском и японском языках."
+		"message": "В нашей деревне можно изучить основы программирования, попробовать себя в роли художника, попрактиковаться в ориентировании на местности, а также узнать больше о таких некоммерческих образовательных организациях, как <a href=\"https://www.khanacademy.org/\">Академия Хана</a> и <a href=\"https://code.org/\">Code.org</a>. Для учителей мы добавили <a href=\"./educators.html\">планы занятий</a>, к которым прилагаются видео с советами о том, как познакомить детей с информатикой и праздничными традициями. Пособия доступны на английском, испанском, корейском, французском и японском языках."
 	},
 	"press-asset-animation": {
 		"message": "Анимация"
@@ -1461,7 +1461,7 @@
 		"message": "Увлекательное обучение"
 	},
 	"press-edu1": {
-		"message": "Мы добавили новые \u003ca href=\"./educators.html\"\u003eобразовательные ресурсы\u003c/a\u003e. Чтобы помочь учителям сделать уроки веселее и интереснее, мы подготовили занятия на различные темы: от основ программирования до праздничных традиций. Материалы доступны на пяти языках. Посмотреть наши познавательные игры можно \u003ca href=\"./educators.html\"\u003eздесь\u003c/a\u003e."
+		"message": "Мы добавили новые <a href=\"./educators.html\">образовательные ресурсы</a>. Чтобы помочь учителям сделать уроки веселее и интереснее, мы подготовили занятия на различные темы: от основ программирования до праздничных традиций. Материалы доступны на пяти языках. Посмотреть наши познавательные игры можно <a href=\"./educators.html\">здесь</a>."
 	},
 	"press-games-title": {
 		"message": "Игры и развлечения"
@@ -1491,19 +1491,19 @@
 		"message": "Возможность создать эльфа."
 	},
 	"press-whatsnew2-text": {
-		"message": "Давно мечтаете устроить танцевальное представление с участием эльфов? Теперь у вас есть такая возможность! Научить их танцевать поможет модель машинного обучения \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e."
+		"message": "Давно мечтаете устроить танцевальное представление с участием эльфов? Теперь у вас есть такая возможность! Научить их танцевать поможет модель машинного обучения <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>."
 	},
 	"press-whatsnew2-title": {
 		"message": "Танцы с эльфами."
 	},
 	"press-whatsnew3-text": {
-		"message": "Благодаря Google Картам вы будете точно знать, где сейчас находится Санта. Нужно только нажать на значок меню и выбрать \"Передача геоданных\". Есть и более быстрый способ – перейти по ссылке \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e"
+		"message": "Благодаря Google Картам вы будете точно знать, где сейчас находится Санта. Нужно только нажать на значок меню и выбрать \"Передача геоданных\". Есть и более быстрый способ – перейти по ссылке <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>"
 	},
 	"press-whatsnew3-title": {
 		"message": "Новый способ следить за путешествием Санты."
 	},
 	"press-whatsnew4-text": {
-		"message": "Праздничные стикеры для Gboard. Они уже доступны на устройствах \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e и \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e, а также в нашем \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eприложении для Android\u003c/a\u003e. Вы также можете попросить Google Ассистента рассказать рождественскую историю или показать, где находится Санта."
+		"message": "Праздничные стикеры для Gboard. Они уже доступны на устройствах <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a> и <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a>, а также в нашем <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">приложении для Android</a>. Вы также можете попросить Google Ассистента рассказать рождественскую историю или показать, где находится Санта."
 	},
 	"press-whatsnew4-title": {
 		"message": "Ещё больше праздничных развлечений."
@@ -1932,16 +1932,16 @@
 		"message": "Поделиться"
 	},
 	"sidebar_code_emoji": {
-		"message": "Made with Code \u003e Праздничные эмодзи"
+		"message": "Made with Code > Праздничные эмодзи"
 	},
 	"sidebar_earth_quiz": {
-		"message": "Google Планета Земля \u003e Викторина о праздничных традициях"
+		"message": "Google Планета Земля > Викторина о праздничных традициях"
 	},
 	"sidebar_santas_location": {
-		"message": "Google Карты \u003e Местоположение Санта-Клауса"
+		"message": "Google Карты > Местоположение Санта-Клауса"
 	},
 	"sidebar_trends": {
-		"message": "Google Trends \u003e Поисковые запросы, связанные с Новым годом"
+		"message": "Google Trends > Поисковые запросы, связанные с Новым годом"
 	},
 	"sk_country_name": {
 		"message": "Словакия"
@@ -7278,13 +7278,13 @@
 		"message": "Венесуэла"
 	},
 	"village_assistant-call_santa": {
-		"message": "Google Ассистент \u003e Позвонить Санте"
+		"message": "Google Ассистент > Позвонить Санте"
 	},
 	"village_assistant-holiday_story": {
-		"message": "Google Ассистент \u003e Рождественская история"
+		"message": "Google Ассистент > Рождественская история"
 	},
 	"village_assistant-wheres_santa": {
-		"message": "Google Ассистент \u003e Где Санта?"
+		"message": "Google Ассистент > Где Санта?"
 	},
 	"village_comeback": {
 		"message": "Загляните сюда 24 декабря и следите за путешествиями Санты всю ночь."
@@ -7323,7 +7323,7 @@
 		"message": "Установить"
 	},
 	"village_santa_intall_ios": {
-		"message": "Нажмите \u003cspan\u003e\u003c/span\u003e, затем – \"Добавить на главный экран\"."
+		"message": "Нажмите <span></span>, затем – \"Добавить на главный экран\"."
 	},
 	"village_takesoff": {
 		"message": "Санта отправится в путь через"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Зимбабве"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

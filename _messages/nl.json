@@ -3,7 +3,7 @@
 		"message": "Op kerstavond tonen we jullie vol trots het speciale dashboard van de Kerstman, mogelijk gemaakt door dezelfde technologie die hij op zijn wereldreis gebruikt voor zijn vliegende slee. Dit speciale voorproefje hebben we ontvangen van een van de vele ontwikkelingselfen van de Kerstman, die samen met hem op de Noordpool hard werken aan alle voorbereidingen voor de grote dag. Het dashboard van de Kerstman bevat de nieuwste en beste technologieën van Google Maps en uit de wereld van de sleetechniek. Zo kun jij de Kerstman volgen op zijn reis rond de wereld en tegelijk wat meer leren over enkele van zijn tussenstops."
 	},
 	"about-content-three": {
-		"message": "De functie 'Kerstman vinden' in Google Maps is ontwikkeld door Google, met een beetje hulp van de elfen van de Kerstman. Heb je hulp nodig of wil je iets vragen? Bezoek dan ons \u003ca href=\"//support.google.com/santatracker\"\u003eHelpcentrum\u003c/a\u003e."
+		"message": "De functie 'Kerstman vinden' in Google Maps is ontwikkeld door Google, met een beetje hulp van de elfen van de Kerstman. Heb je hulp nodig of wil je iets vragen? Bezoek dan ons <a href=\"//support.google.com/santatracker\">Helpcentrum</a>."
 	},
 	"about-content-two": {
 		"message": "Terwijl de Kerstman zich voorbereidt op zijn reis, hebben de vriendelijke elfen je uitgenodigd om zijn dorp te ontdekken. Kijk dus vooral eens rond, wie weet ontdek je leuke activiteiten en maak je kennis met een paar interessante elfen."
@@ -501,7 +501,7 @@
 		"message": "Prima"
 	},
 	"codelab-mwc-promo": {
-		"message": "Ontdek meer programmeerprojecten van Google op \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Ontdek meer programmeerprojecten van Google op <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Volgende uitdaging"
@@ -684,13 +684,13 @@
 		"message": "Er is een probleem opgetreden, maar de Kerstman en zijn elfen werken hard aan een oplossing."
 	},
 	"error-internal": {
-		"message": "Oeps, er is een probleem opgetreden! We hebben de elfen op de hoogte gebracht, maar je kunt beter proberen om terug te gaan naar het \u003ca href=\"./\"\u003edorp van de Kerstman\u003c/a\u003e."
+		"message": "Oeps, er is een probleem opgetreden! We hebben de elfen op de hoogte gebracht, maar je kunt beter proberen om terug te gaan naar het <a href=\"./\">dorp van de Kerstman</a>."
 	},
 	"error-lost-connection": {
 		"message": "Het lijkt erop dat we geen verbinding meer hebben met de Noordpool. De elfen zijn hard aan het werk om dit op te lossen - even geduld!"
 	},
 	"error-not-found": {
-		"message": "Oeps, de elfen kunnen deze pagina niet vinden. Ga terug naar het \u003ca href=\"./\"\u003edorp van de Kerstman\u003c/a\u003e en probeer het opnieuw."
+		"message": "Oeps, de elfen kunnen deze pagina niet vinden. Ga terug naar het <a href=\"./\">dorp van de Kerstman</a> en probeer het opnieuw."
 	},
 	"error-out-of-date": {
 		"message": "Dit is een verouderde versie van het kerstdorp. Open 'Kerstman vinden' opnieuw voor de nieuwste versie."
@@ -720,7 +720,7 @@
 		"message": "Gebruik de Google Assistent voor meer informatie over de Kerstman in december. Deze integratie is beschikbaar in bepaalde talen."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Als ze toestemming van hun ouders hebben, mogen kinderen onder de dertien jaar ook hun eigen gepersonaliseerde Google Assistent gebruiken. Ze loggen dan in met hun eigen account dat wordt beheerd met \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Als ze toestemming van hun ouders hebben, mogen kinderen onder de dertien jaar ook hun eigen gepersonaliseerde Google Assistent gebruiken. Ze loggen dan in met hun eigen account dat wordt beheerd met <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google Assistent verbindt je met de Noordpool, waar de Kerstman aan het oefenen is voor een concert. Hij kent maar één liedje. Help jij hem te leren hoe hij dat het beste kan spelen?"
@@ -1215,7 +1215,7 @@
 		"message": "Noors"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya verzorgt wetenschappelijk praktijkonderwijs voor kinderen op het platteland van India. In de speciale centra en mobiele scheikundebusjes van de organisatie wordt van alles uitgelegd - van het zonnestelsel tot de werking van het brein. Het wetenschappelijke onderwijsprogramma heeft inmiddels al meer dan 5 miljoen kinderen en 200.000 leraren in 14 Indiase staten bereikt. Je kunt dus wel zeggen dat dit een van de grootste programma's ter wereld is! Google.org is een trotse \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esponsor\u003c/a\u003e van Agastya."
+		"message": "Agastya verzorgt wetenschappelijk praktijkonderwijs voor kinderen op het platteland van India. In de speciale centra en mobiele scheikundebusjes van de organisatie wordt van alles uitgelegd - van het zonnestelsel tot de werking van het brein. Het wetenschappelijke onderwijsprogramma heeft inmiddels al meer dan 5 miljoen kinderen en 200.000 leraren in 14 Indiase staten bereikt. Je kunt dus wel zeggen dat dit een van de grootste programma's ter wereld is! Google.org is een trotse <a href=\"https://www.google.org/impact-challenge/agastya/\">sponsor</a> van Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Leraren en leerlingen"
@@ -1248,7 +1248,7 @@
 		"message": "In samenwerking met Google.org willen we vijf non-profitorganisaties op het gebied van onderwijs extra aandacht geven. Deze organisaties geven niet alleen met de feestdagen, maar het hele jaar door. Scroll omlaag voor meer informatie over elke organisatie. Laat ook jouw steun blijken door deze versieringen in te kleuren en ze in je boom te hangen of cadeau te doen aan dierbaren."
 	},
 	"nonprofit-jane-description": {
-		"message": "Van alle dieren in het dierenrijk zijn de chimpansees het meest verwant aan de mens. Wegens het verlies van hun leefgebied, ziektes en illegale handel zijn er tegenwoordig nog maar minder dan 300.000 chimpansees. Het Jane Goodall Institute (JGI) beschermt chimpansees door hun gedrag en leefgebied te observeren en analyseren. Verder streeft het JGI naar een samenleving die zich inzet om wilde dieren en de omgeving die wij met hen delen, te beschermen en behouden. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eOntdek het leefgebied van de chimpansees\u003c/a\u003e in Gombe, Tanzania."
+		"message": "Van alle dieren in het dierenrijk zijn de chimpansees het meest verwant aan de mens. Wegens het verlies van hun leefgebied, ziektes en illegale handel zijn er tegenwoordig nog maar minder dan 300.000 chimpansees. Het Jane Goodall Institute (JGI) beschermt chimpansees door hun gedrag en leefgebied te observeren en analyseren. Verder streeft het JGI naar een samenleving die zich inzet om wilde dieren en de omgeving die wij met hen delen, te beschermen en behouden. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Ontdek het leefgebied van de chimpansees</a> in Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpansee"
@@ -1287,13 +1287,13 @@
 		"message": "Slimme bril"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 miljard mensen hebben geen toegang tot elektriciteit en zijn aangewezen op kerosinelampen die brandstof verbruiken en hun huizen vervuilen. Zonne-verlichting absorbeert overdag energie van de zon en geeft 's avonds urenlang licht zonder brandstofverbruik of vervuiling. Hiermee kan iedereen 's avonds lezen, spelen en veilig thuiskomen. SolarAid geeft mensen die het hard nodig hebben, toegang tot zonne-verlichting. Google.org is een trotse \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esponsor\u003c/a\u003e van SolarAid."
+		"message": "1,3 miljard mensen hebben geen toegang tot elektriciteit en zijn aangewezen op kerosinelampen die brandstof verbruiken en hun huizen vervuilen. Zonne-verlichting absorbeert overdag energie van de zon en geeft 's avonds urenlang licht zonder brandstofverbruik of vervuiling. Hiermee kan iedereen 's avonds lezen, spelen en veilig thuiskomen. SolarAid geeft mensen die het hard nodig hebben, toegang tot zonne-verlichting. Google.org is een trotse <a href=\"https://www.google.org/impact-challenge/solaraid/\">sponsor</a> van SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Zonlicht"
 	},
 	"nonprofit-water-description": {
-		"message": "We gebruiken water onder de douche en in bad, tijdens het koken en natuurlijk om te drinken. Schoon water is kostbaar. Veel mensen zijn ervoor afhankelijk van handmatig gegraven putten die hen toegang geven tot aquifers: schoon water diep onder de grond, ingesloten tussen lagen rots en zand. charity: water werkt samen met lokale partners aan meer putten en andere waterprojecten op plaatsen waar deze hard nodig zijn. Google.org is een trotse \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esponsor\u003c/a\u003e van  charity: water."
+		"message": "We gebruiken water onder de douche en in bad, tijdens het koken en natuurlijk om te drinken. Schoon water is kostbaar. Veel mensen zijn ervoor afhankelijk van handmatig gegraven putten die hen toegang geven tot aquifers: schoon water diep onder de grond, ingesloten tussen lagen rots en zand. charity: water werkt samen met lokale partners aan meer putten en andere waterprojecten op plaatsen waar deze hard nodig zijn. Google.org is een trotse <a href=\"https://www.google.org/global-impact-awards/charity-water/\">sponsor</a> van  charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Bron"
@@ -1305,7 +1305,7 @@
 		"message": "Mobiliteit"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Klimaatverandering blijft overal ter wereld de balans van ecosystemen verstoren, zowel op warme als koude plaatsen. In het Noordpoolgebied verdwijnt de habitat van de ijsbeer in snel tempo door de stijgende temperaturen. Daarnaast worden deze dieren ook nog eens bedreigd door menselijke activiteiten, zoals olie- en gaswinning en -transport. Door wetenschappelijk onderzoek en samenwerking met lokale gemeenschappen wil het Wereld Natuur Fonds werken aan het behoud van deze diersoort. Google.org is een trotse \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003esponsor\u003c/a\u003e van het Wereld Natuur Fonds."
+		"message": "Klimaatverandering blijft overal ter wereld de balans van ecosystemen verstoren, zowel op warme als koude plaatsen. In het Noordpoolgebied verdwijnt de habitat van de ijsbeer in snel tempo door de stijgende temperaturen. Daarnaast worden deze dieren ook nog eens bedreigd door menselijke activiteiten, zoals olie- en gaswinning en -transport. Door wetenschappelijk onderzoek en samenwerking met lokale gemeenschappen wil het Wereld Natuur Fonds werken aan het behoud van deze diersoort. Google.org is een trotse <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">sponsor</a> van het Wereld Natuur Fonds."
 	},
 	"nonprofit-wwf-type": {
 		"message": "IJsbeer"
@@ -1440,7 +1440,7 @@
 		"message": "Het dorp van de Kerstman staat voor het vijftiende jaar op rij in het teken van leuke, educatieve en interactieve kerstactiviteiten. Onder het wakende oog van de vrouw van de Kerstman hebben de elfen het dorp een flitsende make-over gegeven. Verder hebben ze allerlei spiksplinternieuwe content toegevoegd. Dankzij een nieuw verwarmingssysteem dat draait op warme chocolademelk duurt het bovendien niet meer een hele maand voordat het dorp is ontdooid: alle 24 activiteiten zijn vanaf 4 december beschikbaar. De elfen (en jijzelf!) hebben nu dus nog meer tijd om het dorp van de Kerstman te verkennen en op te gaan in alle spelpret."
 	},
 	"press-about-village2": {
-		"message": "In het dorp kun je eenvoudige programmeervaardigheden oefenen, je eigen kunstwerken maken, je geografische kennis testen en meer te weten komen over goede doelen zoals \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e en \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Docenten kunnen zelfs een \u003ca href=\"./educators.html\"\u003elesplan\u003c/a\u003e met instructievideo's downloaden, zodat zij hun leerlingen kunnen helpen bij het aanleren van fundamentele programmeervaardigheden en het aanscherpen van hun kennis over kersttradities. De lesplannen zijn beschikbaar in het Engels, Spaans, Frans, Japans en Koreaans."
+		"message": "In het dorp kun je eenvoudige programmeervaardigheden oefenen, je eigen kunstwerken maken, je geografische kennis testen en meer te weten komen over goede doelen zoals <a href=\"https://www.khanacademy.org/\">Khan Academy</a> en <a href=\"https://code.org/\">Code.org</a>. Docenten kunnen zelfs een <a href=\"./educators.html\">lesplan</a> met instructievideo's downloaden, zodat zij hun leerlingen kunnen helpen bij het aanleren van fundamentele programmeervaardigheden en het aanscherpen van hun kennis over kersttradities. De lesplannen zijn beschikbaar in het Engels, Spaans, Frans, Japans en Koreaans."
 	},
 	"press-asset-animation": {
 		"message": "Animatie"
@@ -1461,7 +1461,7 @@
 		"message": "Educatieve avonturen"
 	},
 	"press-edu1": {
-		"message": "We hebben onze \u003ca href=\"./educators.html\"\u003epagina met bronnen voor docenten\u003c/a\u003e uitgebreid. Je vindt hier nu hulpvideo's ter begeleiding van lesplannen in maar liefst vijf talen. Natuurlijk vind je er ook nog al je favoriete games, waarin de basisprincipes van programmeren worden uitgelegd aan de hand van wereldwijde kersttradities. 'Kerstman vinden' van Google stimuleert kinderen om op een leuke manier allerlei leerervaringen aan te gaan — zie \u003ca href=\"./educators.html\"\u003eonze educatieve games\u003c/a\u003e voor meer informatie."
+		"message": "We hebben onze <a href=\"./educators.html\">pagina met bronnen voor docenten</a> uitgebreid. Je vindt hier nu hulpvideo's ter begeleiding van lesplannen in maar liefst vijf talen. Natuurlijk vind je er ook nog al je favoriete games, waarin de basisprincipes van programmeren worden uitgelegd aan de hand van wereldwijde kersttradities. 'Kerstman vinden' van Google stimuleert kinderen om op een leuke manier allerlei leerervaringen aan te gaan — zie <a href=\"./educators.html\">onze educatieve games</a> voor meer informatie."
 	},
 	"press-games-title": {
 		"message": "De allerleukste games"
@@ -1491,19 +1491,19 @@
 		"message": "Maak je eigen elf:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Is het altijd al je droom geweest om samen met een groep zeer getalenteerde dansende elfen een dansgezelschap op te richten? Dan is dit je kans. Bijna. Met het machine learning-model \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e kun je een elf jouw bewegingen aanleren en de digitale dansvloer onveilig maken."
+		"message": "Is het altijd al je droom geweest om samen met een groep zeer getalenteerde dansende elfen een dansgezelschap op te richten? Dan is dit je kans. Bijna. Met het machine learning-model <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a> kun je een elf jouw bewegingen aanleren en de digitale dansvloer onveilig maken."
 	},
 	"press-whatsnew2-title": {
 		"message": "Dansen met de elfen:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Je kunt ook de realtime locatie van de kerstman volgen op Google Maps. Tik op de knop met drie horizontale strepen en daarna op 'Locatie delen' om precies te zien waar de kerstman zich bevindt op zijn reis. Je kunt ook de handige snelkoppeling \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e gebruiken."
+		"message": "Je kunt ook de realtime locatie van de kerstman volgen op Google Maps. Tik op de knop met drie horizontale strepen en daarna op 'Locatie delen' om precies te zien waar de kerstman zich bevindt op zijn reis. Je kunt ook de handige snelkoppeling <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a> gebruiken."
 	},
 	"press-whatsnew3-title": {
 		"message": "Een nieuwe manier om de Kerstman te volgen:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Kun je geen genoeg krijgen van de feestdagen? Bekijk de Gboard-feestdagenstickers voor \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e en \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e en gebruik onze \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-app\u003c/a\u003e. Voor een beetje literair plezier vraag je de Google Assistent \"Vertel me een verhaal over de feestdagen\" of \"Waar is de kerstman\"."
+		"message": "Kun je geen genoeg krijgen van de feestdagen? Bekijk de Gboard-feestdagenstickers voor <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a> en <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> en gebruik onze <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android-app</a>. Voor een beetje literair plezier vraag je de Google Assistent \"Vertel me een verhaal over de feestdagen\" of \"Waar is de kerstman\"."
 	},
 	"press-whatsnew4-title": {
 		"message": "Meer kerstpret:"
@@ -7323,7 +7323,7 @@
 		"message": "Installeren"
 	},
 	"village_santa_intall_ios": {
-		"message": "Tik gewoon op \u003cspan\u003e\u003c/span\u003e en dan op 'Toevoegen aan startscherm'"
+		"message": "Tik gewoon op <span></span> en dan op 'Toevoegen aan startscherm'"
 	},
 	"village_takesoff": {
 		"message": "De Kerstman vertrekt over"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

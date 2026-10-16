@@ -3,7 +3,7 @@
 		"message": "我们将于平安夜隆重推出圣诞老人行踪面板，也就是圣诞老人环游世界时为他的雪橇提供动力的高科技产品。圣诞老人有许多负责开发工作的小精灵正在北极辛勤工作，帮他为圣诞节做准备。其中一位热情的圣诞精灵还特别邀请我们抢先看看圣诞老人行踪面板，它拥有最新最棒的 Google 地图技术和雪橇工程科技。在圣诞老人行踪面板中，您能够追踪圣诞老人在全世界的足迹，还能对他到访的一些地方有所了解。"
 	},
 	"about-content-three": {
-		"message": "Google 地图“追踪圣诞老人”由 Google 创作开发，在此过程中得到了圣诞精灵的一些帮助。需要帮助或是有其他问题？请访问我们的\u003ca href=\"//support.google.com/santatracker\"\u003e帮助中心\u003c/a\u003e。"
+		"message": "Google 地图“追踪圣诞老人”由 Google 创作开发，在此过程中得到了圣诞精灵的一些帮助。需要帮助或是有其他问题？请访问我们的<a href=\"//support.google.com/santatracker\">帮助中心</a>。"
 	},
 	"about-content-two": {
 		"message": "圣诞老人正在为旅程做准备，与此同时，热情友好的圣诞精灵邀请您前来探索圣诞老人的小镇。快来探索圣诞老人小镇吧，说不定还能参加一些好玩儿的活动，认识几位有趣的圣诞精灵呢。"
@@ -501,7 +501,7 @@
 		"message": "非常好"
 	},
 	"codelab-mwc-promo": {
-		"message": "访问 \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e，了解更多 Google 编码项目。"
+		"message": "访问 <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>，了解更多 Google 编码项目。"
 	},
 	"codelab-next-challenge": {
 		"message": "下一关"
@@ -684,13 +684,13 @@
 		"message": "出了点问题，但圣诞老人的小精灵们正在处理。"
 	},
 	"error-internal": {
-		"message": "糟糕，出了点问题！我们已通知圣诞老人的小精灵们，不妨先回\u003ca href=\"./\"\u003e圣诞老人小镇\u003c/a\u003e看看。"
+		"message": "糟糕，出了点问题！我们已通知圣诞老人的小精灵们，不妨先回<a href=\"./\">圣诞老人小镇</a>看看。"
 	},
 	"error-lost-connection": {
 		"message": "我们好像刚刚失去与北极的联系。圣诞精灵们正在努力修复，请耐心等待！"
 	},
 	"error-not-found": {
-		"message": "糟糕，圣诞老人的小精灵们找不到这个页面！不妨返回\u003ca href=\"./\"\u003e圣诞老人小镇\u003c/a\u003e，也许运气会变好哦。"
+		"message": "糟糕，圣诞老人的小精灵们找不到这个页面！不妨返回<a href=\"./\">圣诞老人小镇</a>，也许运气会变好哦。"
 	},
 	"error-out-of-date": {
 		"message": "此版本的“圣诞老人小镇”已过时！请尝试再次打开“追踪圣诞老人”，查看最新版本。"
@@ -720,7 +720,7 @@
 		"message": "在 12 月，您可以通过 Google 助理了解有关圣诞老人的更多动态！此集成功能仅适用于部分语言。"
 	},
 	"familyguide_assistant_body_02": {
-		"message": "在经过家长许可的情况下，不满 13 周岁的孩子也可以登录其通过 \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e 进行管理的账号，获得个性化的 Google 助理体验。"
+		"message": "在经过家长许可的情况下，不满 13 周岁的孩子也可以登录其通过 <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a> 进行管理的账号，获得个性化的 Google 助理体验。"
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google 助理将为您连线北极，圣诞老人正在那里忙着排练音乐会。他只会一首歌曲，您能帮助他找到演奏这首歌曲的最佳方式吗？"
@@ -1215,7 +1215,7 @@
 		"message": "挪威语"
 	},
 	"nonprofit-agastya-description": {
-		"message": "印度非营利组织 Agastya 向印度各地农村的儿童提供实践科学课程。从太阳系知识到人脑工作原理，Agastya 在科学教育中心和科学教育流动车中提供的课程均有涉猎。印度已有 14 个邦的超过 500 万儿童和 20 万教师从中受惠；这已成为全球最大的科学教育项目之一！Google.org 很荣幸能够为 Agastya \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003e贡献一己之力\u003c/a\u003e。"
+		"message": "印度非营利组织 Agastya 向印度各地农村的儿童提供实践科学课程。从太阳系知识到人脑工作原理，Agastya 在科学教育中心和科学教育流动车中提供的课程均有涉猎。印度已有 14 个邦的超过 500 万儿童和 20 万教师从中受惠；这已成为全球最大的科学教育项目之一！Google.org 很荣幸能够为 Agastya <a href=\"https://www.google.org/impact-challenge/agastya/\">贡献一己之力</a>。"
 	},
 	"nonprofit-agastya-type": {
 		"message": "教师和学生"
@@ -1248,7 +1248,7 @@
 		"message": "我们与 Google.org 携手，向您介绍五家全年无私奉献的非盈利教育组织。向下滚动可详细了解每家组织如何回馈社会。您可以为这一系列的装饰品涂色，将涂好的装饰品挂在圣诞树上或赠送给亲朋好友，以此表达自己对这些组织的支持。"
 	},
 	"nonprofit-jane-description": {
-		"message": "黑猩猩是动物王国中与人类基因最为接近的物种！由于栖息地不断减少，加上受到疾病和非法交易的危害，如今全世界只有不到 300,000 只黑猩猩。Jane Goodall Institute (JGI) 通过观察和了解黑猩猩行为及其栖息地来对它们加以保护。JGI 还致力于号召更多人来保护野生动物以及我们共同拥有的环境。\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003e立即探索坦桑尼亚贡贝的黑猩猩栖息地\u003c/a\u003e。"
+		"message": "黑猩猩是动物王国中与人类基因最为接近的物种！由于栖息地不断减少，加上受到疾病和非法交易的危害，如今全世界只有不到 300,000 只黑猩猩。Jane Goodall Institute (JGI) 通过观察和了解黑猩猩行为及其栖息地来对它们加以保护。JGI 还致力于号召更多人来保护野生动物以及我们共同拥有的环境。<a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">立即探索坦桑尼亚贡贝的黑猩猩栖息地</a>。"
 	},
 	"nonprofit-jane-type": {
 		"message": "黑猩猩"
@@ -1287,13 +1287,13 @@
 		"message": "智能眼镜"
 	},
 	"nonprofit-solar-description": {
-		"message": "全球仍有 13 亿人没有用上电，仍有很多人还在使用煤油灯照明，但是煤油灯要燃烧燃料、而且还会污染环境。太阳能灯可以在日间蓄能，夜间提供数小时的照明，而且既不耗费燃料，也不会造成任何污染。人们可以在太阳能灯下读书、玩耍，夜归者也可以在充足的光源下安全回家。SolarAid 为众多有需要的人士提供太阳能灯。Google.org 很荣幸能够为 SolarAid \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003e贡献一己之力\u003c/a\u003e。"
+		"message": "全球仍有 13 亿人没有用上电，仍有很多人还在使用煤油灯照明，但是煤油灯要燃烧燃料、而且还会污染环境。太阳能灯可以在日间蓄能，夜间提供数小时的照明，而且既不耗费燃料，也不会造成任何污染。人们可以在太阳能灯下读书、玩耍，夜归者也可以在充足的光源下安全回家。SolarAid 为众多有需要的人士提供太阳能灯。Google.org 很荣幸能够为 SolarAid <a href=\"https://www.google.org/impact-challenge/solaraid/\">贡献一己之力</a>。"
 	},
 	"nonprofit-solar-type": {
 		"message": "日光"
 	},
 	"nonprofit-water-description": {
-		"message": "我们的生活离不开水。除了基本的日常饮用，洗澡做饭也都需要用到水。清洁的水是宝贵资源，这种资源深深蕴含在地下岩石层和土壤层之间的含水层中，现在还有很多人依靠人工开挖的水井来满足用水需求。Charity: water 在急需用水的地区与当地合作伙伴合作，开挖水井以及开展其他水利项目。Google.org 很荣幸能够为 charity: water \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003e贡献一己之力\u003c/a\u003e。"
+		"message": "我们的生活离不开水。除了基本的日常饮用，洗澡做饭也都需要用到水。清洁的水是宝贵资源，这种资源深深蕴含在地下岩石层和土壤层之间的含水层中，现在还有很多人依靠人工开挖的水井来满足用水需求。Charity: water 在急需用水的地区与当地合作伙伴合作，开挖水井以及开展其他水利项目。Google.org 很荣幸能够为 charity: water <a href=\"https://www.google.org/global-impact-awards/charity-water/\">贡献一己之力</a>。"
 	},
 	"nonprofit-water-type": {
 		"message": "井"
@@ -1305,7 +1305,7 @@
 		"message": "行动能力"
 	},
 	"nonprofit-wwf-description": {
-		"message": "气候变化不断破坏着全球许多地区的生态平衡，无论是温暖的地区还是寒冷的地区都受到了影响。在北极，随着气温不断上升，北极熊正在逐渐失去赖以生存的海冰栖息地，而石油和天然气的开采和运输等人类活动更是威胁着北极熊的生存。World Wildlife Fund 大力开展科学研究，并与北极当地社区携手合作，致力于确保物种的生息繁衍。Google.org 是 World Wildlife Fund 的\u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e支持者\u003c/a\u003e，为此我们感到无比骄傲。"
+		"message": "气候变化不断破坏着全球许多地区的生态平衡，无论是温暖的地区还是寒冷的地区都受到了影响。在北极，随着气温不断上升，北极熊正在逐渐失去赖以生存的海冰栖息地，而石油和天然气的开采和运输等人类活动更是威胁着北极熊的生存。World Wildlife Fund 大力开展科学研究，并与北极当地社区携手合作，致力于确保物种的生息繁衍。Google.org 是 World Wildlife Fund 的<a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">支持者</a>，为此我们感到无比骄傲。"
 	},
 	"nonprofit-wwf-type": {
 		"message": "北极熊"
@@ -1440,7 +1440,7 @@
 		"message": "圣诞老人小镇正在举行玩教一体的节日互动活动来庆祝上线十五周年。在圣诞老奶奶专业的指导下，精灵们将小镇装扮一新，还提供了一些全新的内容。另外，多亏了一个由热巧克力提供动力的全新供暖系统，小镇再也不用感受天寒地冻的 12 月了。从 12 月 4 日起，将有二十四个活动陆续推出。现在，精灵们（当然还有您！）可以有更多的时间在圣诞老人小镇中尽情玩耍、探索。"
 	},
 	"press-about-village2": {
-		"message": "在圣诞老人小镇里，您可以练习基本的编程技能、制作原创艺术品、实际运用您的地理知识，并深入了解 \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e 和 \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e 等慈善组织。教师们甚至可以\u003ca href=\"./educators.html\"\u003e下载教案\u003c/a\u003e以及指导视频，教学生一些基础编程技能和节日传统；目前支持英语、西班牙语、法语、日语和韩语。"
+		"message": "在圣诞老人小镇里，您可以练习基本的编程技能、制作原创艺术品、实际运用您的地理知识，并深入了解 <a href=\"https://www.khanacademy.org/\">Khan Academy</a> 和 <a href=\"https://code.org/\">Code.org</a> 等慈善组织。教师们甚至可以<a href=\"./educators.html\">下载教案</a>以及指导视频，教学生一些基础编程技能和节日传统；目前支持英语、西班牙语、法语、日语和韩语。"
 	},
 	"press-asset-animation": {
 		"message": "动画"
@@ -1461,7 +1461,7 @@
 		"message": "精彩的教育之旅"
 	},
 	"press-edu1": {
-		"message": "我们在\u003ca href=\"./educators.html\"\u003e教育资源页面\u003c/a\u003e上增加了更多资源，以为教师提供与教案配套的指导视频；目前支持 5 种语言。所有您喜爱的游戏现在仍然涵盖从编程基础概念到全球节日传统介绍的各种内容。Google 的“追踪圣诞老人”鼓励在玩乐中学习有关节日的知识 - 请查看\u003ca href=\"./educators.html\"\u003e我们的教育游戏\u003c/a\u003e了解详情。"
+		"message": "我们在<a href=\"./educators.html\">教育资源页面</a>上增加了更多资源，以为教师提供与教案配套的指导视频；目前支持 5 种语言。所有您喜爱的游戏现在仍然涵盖从编程基础概念到全球节日传统介绍的各种内容。Google 的“追踪圣诞老人”鼓励在玩乐中学习有关节日的知识 - 请查看<a href=\"./educators.html\">我们的教育游戏</a>了解详情。"
 	},
 	"press-games-title": {
 		"message": "游戏王国，快乐天堂"
@@ -1491,19 +1491,19 @@
 		"message": "制作一个精灵："
 	},
 	"press-whatsnew2-text": {
-		"message": "如果您的毕生梦想是与一群天才舞蹈精灵们成立一个舞蹈团，那么现在您很快就要梦想成真了。借助一个叫做 \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e 的机器学习模型，您可以训练一个精灵学习您的舞步，最后让它步入舞池翩翩起舞。"
+		"message": "如果您的毕生梦想是与一群天才舞蹈精灵们成立一个舞蹈团，那么现在您很快就要梦想成真了。借助一个叫做 <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a> 的机器学习模型，您可以训练一个精灵学习您的舞步，最后让它步入舞池翩翩起舞。"
 	},
 	"press-whatsnew2-title": {
 		"message": "与精灵共舞："
 	},
 	"press-whatsnew3-text": {
-		"message": "您还可以在 Google 地图上查看圣诞老人的实时位置。只需依次点按菜单按钮、“位置信息分享”，即可查看圣诞老人在旅途中的确切位置。您也可以访问 \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e，快捷查看！"
+		"message": "您还可以在 Google 地图上查看圣诞老人的实时位置。只需依次点按菜单按钮、“位置信息分享”，即可查看圣诞老人在旅途中的确切位置。您也可以访问 <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>，快捷查看！"
 	},
 	"press-whatsnew3-title": {
 		"message": "追踪圣诞老人的全新方式："
 	},
 	"press-whatsnew4-text": {
-		"message": "如果您希望节日气氛更浓厚一些，请访问 \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e 版和 \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e 版 Gboard，或我们的 \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid 应用\u003c/a\u003e，使用 Gboard 节日贴纸。 您可以对 Google 助理说“给我讲个节日相关的故事吧”或“圣诞老人在哪里？”，享受一下文学的乐趣。"
+		"message": "如果您希望节日气氛更浓厚一些，请访问 <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a> 版和 <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> 版 Gboard，或我们的 <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android 应用</a>，使用 Gboard 节日贴纸。 您可以对 Google 助理说“给我讲个节日相关的故事吧”或“圣诞老人在哪里？”，享受一下文学的乐趣。"
 	},
 	"press-whatsnew4-title": {
 		"message": "更多节日乐趣："
@@ -7323,7 +7323,7 @@
 		"message": "安装"
 	},
 	"village_santa_intall_ios": {
-		"message": "只需依次轻点 \u003cspan\u003e\u003c/span\u003e 和“添加到主屏幕”"
+		"message": "只需依次轻点 <span></span> 和“添加到主屏幕”"
 	},
 	"village_takesoff": {
 		"message": "圣诞老人出发倒计时"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "津巴布韦"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

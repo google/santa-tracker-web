@@ -3,7 +3,7 @@
 		"message": "Jouluaattona esittelemme sinulle Joulupukin hallintapaneelin, tekniikan ihmeen, joka ohjaa Pukin rekeä maailman ympäri. Yksi Joulupukin matkaa ahkerasti valmistelevista Korvatunturin kehittäjätontuista päästää meidät tutustumaan tähän mahtavaan vekottimeen. Joulupukin hallintapaneelissa on hyödynnetty Google Mapsin ja rekisuunnittelun uusimpia tekniikoita. Seuraa sen avulla Joulupukin matkaa maailman ympäri!"
 	},
 	"about-content-three": {
-		"message": "Google on luonut ja kehittänyt Google Mapsin Joulupukin jäljittimen joulupukin tonttujen avustamana. Tarvitsetko apua tai onko sinulla muuta kysyttävää? Käy \u003ca href=\"//support.google.com/santatracker\"\u003eohjekeskuksessamme\u003c/a\u003e."
+		"message": "Google on luonut ja kehittänyt Google Mapsin Joulupukin jäljittimen joulupukin tonttujen avustamana. Tarvitsetko apua tai onko sinulla muuta kysyttävää? Käy <a href=\"//support.google.com/santatracker\">ohjekeskuksessamme</a>."
 	},
 	"about-content-two": {
 		"message": "Ystävälliset tontut ovat kutsuneet sinut tutustumaan joulupukin kylään, kun pukki valmistautuu matkaan. Tule mukaan ja tutustu kylään, löydät paljon hauskaa tekemistä ja pääset tapaamaan monia mainioita tonttuja."
@@ -501,7 +501,7 @@
 		"message": "Loistavaa"
 	},
 	"codelab-mwc-promo": {
-		"message": "Tutustu muihin Googlen koodausprojekteihin osoitteessa \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Tutustu muihin Googlen koodausprojekteihin osoitteessa <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Seuraava haaste"
@@ -684,13 +684,13 @@
 		"message": "Ilmeni ongelma, mutta tontut selvittävät asiaa."
 	},
 	"error-internal": {
-		"message": "Voi voi, jotain meni vikaan! Olemme kertoneet ongelmasta tontuille. Yritä sillä välin palata \u003ca href=\"./\"\u003ePukin kylään\u003c/a\u003e."
+		"message": "Voi voi, jotain meni vikaan! Olemme kertoneet ongelmasta tontuille. Yritä sillä välin palata <a href=\"./\">Pukin kylään</a>."
 	},
 	"error-lost-connection": {
 		"message": "Menetimme juuri yhteyden Korvatunturille. Joulupukin tontut yrittävät kovasti korjata yhteyttä – pysy linjoilla!"
 	},
 	"error-not-found": {
-		"message": "Voi ei, tontut eivät löytäneet sivua! Palaa \u003ca href=\"./\"\u003eKorvatunturille\u003c/a\u003e ja yritä uudelleen."
+		"message": "Voi ei, tontut eivät löytäneet sivua! Palaa <a href=\"./\">Korvatunturille</a> ja yritä uudelleen."
 	},
 	"error-out-of-date": {
 		"message": "Tämä on vanha versio Pukin kylästä! Avaa Joulupukin jäljitin uudelleen, niin näet uusimman version."
@@ -720,7 +720,7 @@
 		"message": "Google Assistant auttaa tutustumaan Pukkiin paremmin koko joulukuun! Saatavilla tietyillä kielillä."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Myös alle 13-vuotiaat voivat vanhempien luvalla käyttää personoitua Google Assistantia kirjautumalla sisään omalla \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Linkin\u003c/a\u003e kautta hoidetulla tilillään."
+		"message": "Myös alle 13-vuotiaat voivat vanhempien luvalla käyttää personoitua Google Assistantia kirjautumalla sisään omalla <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Linkin</a> kautta hoidetulla tilillään."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google Assistantilla saat yhteyden Korvatunturille, jossa Pukki harjoittelee kuumeisesti konserttia varten. Hän tosin osaa vain yhden kappaleen – auta häntä keksimään, mikä on paras tapa soittaa se."
@@ -1215,7 +1215,7 @@
 		"message": "norja"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya tarjoaa käytännönläheistä tiedeopetusta Intian maaseudun lapsille. Järjestön tiedekeskuksissa ja pakettiautoissa järjestettävät kurssit kattavat kaiken aurinkokunnasta aivojen toimintaan. Agastyan toiminta on saavuttanut yli 5 miljoonaa lasta ja 200 000 opettajaa 14 Intian osavaltiossa. Se onkin yksi maailman suurimmista tiedekolutusohjelmista! Google.org \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003etukee\u003c/a\u003e ylpeänä Agastyan tärkeää työtä."
+		"message": "Agastya tarjoaa käytännönläheistä tiedeopetusta Intian maaseudun lapsille. Järjestön tiedekeskuksissa ja pakettiautoissa järjestettävät kurssit kattavat kaiken aurinkokunnasta aivojen toimintaan. Agastyan toiminta on saavuttanut yli 5 miljoonaa lasta ja 200 000 opettajaa 14 Intian osavaltiossa. Se onkin yksi maailman suurimmista tiedekolutusohjelmista! Google.org <a href=\"https://www.google.org/impact-challenge/agastya/\">tukee</a> ylpeänä Agastyan tärkeää työtä."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Opettajat ja oppilaat"
@@ -1248,7 +1248,7 @@
 		"message": "Esittelemme yhdessä Google.org-sivuston kanssa viisi koulutusta edistävää hyväntekeväisyysjärjestöä, jotka jakavat iloa muille ympäri vuoden. Selaa alaspäin ja katso, miten kukin organisaatio tukee vähäosaisia. Osoita tukesi järjestöille värittämällä näitä koristeita ja ripusta niitä kuuseen tai anna lahjaksi läheisillesi."
 	},
 	"nonprofit-jane-description": {
-		"message": "Simpanssit ovat ihmisen lähimpiä eläviä sukulaisia eläinmaailmassa! Elinympäristön pienenemisen, sairauksien ja laittoman kaupan seurauksena simpansseja on nykyisin alle 300 000. Jane Goodall -instituutti suojelee simpansseja tarkkailemalla ja ymmärtämällä niiden käyttäytymistä sekä elinympäristöjä. Instituutti toimii myös sellaisten ihmisten yhteisön luomiseksi, jotka suojelevat ja säilyttävät yhteistä luontoamme ja ympäristöämme. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutustu simpanssien elinympäristöihin\u003c/a\u003e Tansanian Gombessa."
+		"message": "Simpanssit ovat ihmisen lähimpiä eläviä sukulaisia eläinmaailmassa! Elinympäristön pienenemisen, sairauksien ja laittoman kaupan seurauksena simpansseja on nykyisin alle 300 000. Jane Goodall -instituutti suojelee simpansseja tarkkailemalla ja ymmärtämällä niiden käyttäytymistä sekä elinympäristöjä. Instituutti toimii myös sellaisten ihmisten yhteisön luomiseksi, jotka suojelevat ja säilyttävät yhteistä luontoamme ja ympäristöämme. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Tutustu simpanssien elinympäristöihin</a> Tansanian Gombessa."
 	},
 	"nonprofit-jane-type": {
 		"message": "Simpanssi"
@@ -1287,13 +1287,13 @@
 		"message": "Älylasit"
 	},
 	"nonprofit-solar-description": {
-		"message": "Maailmassa on 1,3 miljardia ihmistä, jotka ovat sähköverkon ulottumattomissa. Monet heistä käyttävät kerosiinilamppuja, jotka polttavat paloöljyä ja aiheuttavat hiukkaspäästöjä. Aurinkokennovalaisimet sen sijaan keräävät päivällä energiaa auringosta ja tuottavat illalla tuntien ajan puhdasta valoa ilman polttoaineita tai päästöjä. Aurinkokennovalaisimien valossa voi lukea ja leikkiä, ja ne tekevät pimeällä kulkemisesta turvallisempaa. SolarAid tarjoaa aurinkokennovalaisimia niitä tarvitseville. Google.org \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003etukee\u003c/a\u003e ylpeänä SolarAidin tärkeää työtä."
+		"message": "Maailmassa on 1,3 miljardia ihmistä, jotka ovat sähköverkon ulottumattomissa. Monet heistä käyttävät kerosiinilamppuja, jotka polttavat paloöljyä ja aiheuttavat hiukkaspäästöjä. Aurinkokennovalaisimet sen sijaan keräävät päivällä energiaa auringosta ja tuottavat illalla tuntien ajan puhdasta valoa ilman polttoaineita tai päästöjä. Aurinkokennovalaisimien valossa voi lukea ja leikkiä, ja ne tekevät pimeällä kulkemisesta turvallisempaa. SolarAid tarjoaa aurinkokennovalaisimia niitä tarvitseville. Google.org <a href=\"https://www.google.org/impact-challenge/solaraid/\">tukee</a> ylpeänä SolarAidin tärkeää työtä."
 	},
 	"nonprofit-solar-type": {
 		"message": "Aurinko"
 	},
 	"nonprofit-water-description": {
-		"message": "Kaikki ihmiset tarvitsevat vettä peseytymiseen, ruoanlaittoon ja tietysti juomavedeksi. Puhdas vesi on arvokas resurssi, ja monissa paikoissa sitä saadaan vain kaivoista. Charity: water toteuttaa paikallisten yhteistyökumppaniensa tuella erilaisia vesihankkeita ja rakentaa kaivoja alueille, joilla niistä on pulaa. Google.org \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003etukee\u003c/a\u003e ylpeänä charity: waterin tärkeää työtä."
+		"message": "Kaikki ihmiset tarvitsevat vettä peseytymiseen, ruoanlaittoon ja tietysti juomavedeksi. Puhdas vesi on arvokas resurssi, ja monissa paikoissa sitä saadaan vain kaivoista. Charity: water toteuttaa paikallisten yhteistyökumppaniensa tuella erilaisia vesihankkeita ja rakentaa kaivoja alueille, joilla niistä on pulaa. Google.org <a href=\"https://www.google.org/global-impact-awards/charity-water/\">tukee</a> ylpeänä charity: waterin tärkeää työtä."
 	},
 	"nonprofit-water-type": {
 		"message": "Kaivo"
@@ -1305,7 +1305,7 @@
 		"message": "Liikkuminen"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Ilmastonmuutos vaikuttaa edelleen monien sekä lämpimien että kylmien paikkojen ekojärjestelmien tasapainoon. Ilmaston lämpeneminen pienentää jääkarhujen elinympäristöä arktisella merijäällä, ja ihmisten toiminta, kuten öljy- ja kaasuvarojen hyväksikäyttö sekä merenkulku, aiheuttaa niille lisää uhkia. WWF (World Wildlife Fund) toimii lajien eloonjäämisen varmistamiseksi tekemällä tieteellistä tutkimusta ja yhteistyötä arktisen alueen alkuperäisyhteisöjen kanssa. Google.org on ylpeä \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003etuestaan\u003c/a\u003e WWF:lle."
+		"message": "Ilmastonmuutos vaikuttaa edelleen monien sekä lämpimien että kylmien paikkojen ekojärjestelmien tasapainoon. Ilmaston lämpeneminen pienentää jääkarhujen elinympäristöä arktisella merijäällä, ja ihmisten toiminta, kuten öljy- ja kaasuvarojen hyväksikäyttö sekä merenkulku, aiheuttaa niille lisää uhkia. WWF (World Wildlife Fund) toimii lajien eloonjäämisen varmistamiseksi tekemällä tieteellistä tutkimusta ja yhteistyötä arktisen alueen alkuperäisyhteisöjen kanssa. Google.org on ylpeä <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">tuestaan</a> WWF:lle."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Jääkarhu"
@@ -1440,7 +1440,7 @@
 		"message": "Joulupukin kylä ja sen hauskat, opettavaiset ja interaktiiviset joulupuuhat täyttävät tänä vuonna 15 vuotta. Joulumuorin osaavalla opastuksella tontut ovat uudistaneet kylän tyylikkäästi ja lisänneet myös aivan uutta sisältöä. Uusi kaakaolla toimiva lämmitysjärjestelmä pitää huolen, ettei kylän sulaminen kestä koko joulukuuta, vaan kaikkien parinkymmenen puuhan pariin pääsee jo 4. joulukuuta. Nyt tontuilla (ja sinulla!) on enemmän aikaa pelaamiseen ja tutkimiseen Joulupukin kylässä."
 	},
 	"press-about-village2": {
-		"message": "Kylässä voit harjoitella koodauksen perustaitoja, tehdä omaa taidetta, opetella maantietoa ja tutustua tarkemmin hyväntekeväisyysjärjestöihin, kuten \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e ja \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Opettajat voivat myös \u003ca href=\"./educators.html\"\u003eladata tuntisuunnitelmia\u003c/a\u003e ja niiden tueksi video-ohjeita, joiden avulla he voivat opettaa koodauksen perusasioita ja kertoa joulunajan perinteistä englanniksi, espanjaksi, ranskaksi, japaniksi ja koreaksi."
+		"message": "Kylässä voit harjoitella koodauksen perustaitoja, tehdä omaa taidetta, opetella maantietoa ja tutustua tarkemmin hyväntekeväisyysjärjestöihin, kuten <a href=\"https://www.khanacademy.org/\">Khan Academy</a> ja <a href=\"https://code.org/\">Code.org</a>. Opettajat voivat myös <a href=\"./educators.html\">ladata tuntisuunnitelmia</a> ja niiden tueksi video-ohjeita, joiden avulla he voivat opettaa koodauksen perusasioita ja kertoa joulunajan perinteistä englanniksi, espanjaksi, ranskaksi, japaniksi ja koreaksi."
 	},
 	"press-asset-animation": {
 		"message": "Animaatio"
@@ -1461,7 +1461,7 @@
 		"message": "Oppimisseikkailuja"
 	},
 	"press-edu1": {
-		"message": "Olemme laajentaneet \u003ca href=\"./educators.html\"\u003eopetusresurssisivuamme\u003c/a\u003e, ja saatavilla on nyt tuntisuunnitelmien tueksi video-ohjeita viidellä kielellä. Sivulta löytyvät edelleen kaikki suosikkipelisi, jotka yhdistävät koodauksen peruskäsitteet maailmalla tunnettuihin joulunajan perinteisiin. Googlen Joulupukin jäljitin kannustaa hauskaan oppimiseen joulun aikaan. Tutustu \u003ca href=\"./educators.html\"\u003eopetuspeleihin\u003c/a\u003e tarkemmin."
+		"message": "Olemme laajentaneet <a href=\"./educators.html\">opetusresurssisivuamme</a>, ja saatavilla on nyt tuntisuunnitelmien tueksi video-ohjeita viidellä kielellä. Sivulta löytyvät edelleen kaikki suosikkipelisi, jotka yhdistävät koodauksen peruskäsitteet maailmalla tunnettuihin joulunajan perinteisiin. Googlen Joulupukin jäljitin kannustaa hauskaan oppimiseen joulun aikaan. Tutustu <a href=\"./educators.html\">opetuspeleihin</a> tarkemmin."
 	},
 	"press-games-title": {
 		"message": "Iloa ja pelejä"
@@ -1491,19 +1491,19 @@
 		"message": "Tee tonttu:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Jos olet aina halunnut perustaa tanssiryhmän huippulahjakkaiden tonttujen kanssa, tässä on tilaisuutesi. No ainakin melkein. \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e-koneoppimismallin avulla voit opettaa tonttua ottamaan tanssilattian haltuun omilla liikkeilläsi."
+		"message": "Jos olet aina halunnut perustaa tanssiryhmän huippulahjakkaiden tonttujen kanssa, tässä on tilaisuutesi. No ainakin melkein. <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>-koneoppimismallin avulla voit opettaa tonttua ottamaan tanssilattian haltuun omilla liikkeilläsi."
 	},
 	"press-whatsnew2-title": {
 		"message": "Tanssi(i) tonttujen kanssa:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Näet myös Joulupukin sijainnin reaaliajassa Google Mapsissa – napauta vain valikkopainiketta ja valitse sitten Sijainnin jakaminen, niin näet, missä Pukki on menossa. Voit myös mennä oikotietä osoitteeseen \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+		"message": "Näet myös Joulupukin sijainnin reaaliajassa Google Mapsissa – napauta vain valikkopainiketta ja valitse sitten Sijainnin jakaminen, niin näet, missä Pukki on menossa. Voit myös mennä oikotietä osoitteeseen <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>!"
 	},
 	"press-whatsnew3-title": {
 		"message": "Uusi tapa seurata Pukin matkaa:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Luo lisää joulumieltä \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroidille\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e:lle ja \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-sovellukselle\u003c/a\u003e saatavilla Gboard-joulutarroilla. Sano Google Assistantille \"Where's Santa?\" (\"Missä Pukki luuraa?\") ja \"Tell me a holiday story\" (\"Kerro minulle joulutarina\") ja vietä hauskoja kuunteluhetkiä."
+		"message": "Luo lisää joulumieltä <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Androidille</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a>:lle ja <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android-sovellukselle</a> saatavilla Gboard-joulutarroilla. Sano Google Assistantille \"Where's Santa?\" (\"Missä Pukki luuraa?\") ja \"Tell me a holiday story\" (\"Kerro minulle joulutarina\") ja vietä hauskoja kuunteluhetkiä."
 	},
 	"press-whatsnew4-title": {
 		"message": "Lisää iloa joulunaikaan:"
@@ -7323,7 +7323,7 @@
 		"message": "Asenna"
 	},
 	"village_santa_intall_ios": {
-		"message": "Napauta \u003cspan\u003e\u003c/span\u003e ja Lisää aloitusnäytölle"
+		"message": "Napauta <span></span> ja Lisää aloitusnäytölle"
 	},
 	"village_takesoff": {
 		"message": "Aikaa joulupukin lähtöön:"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

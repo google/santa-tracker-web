@@ -3,7 +3,7 @@
 		"message": "Durant la Nit de Nadal tindrem l'orgull de presentar el tauler de control del Pare Noel, la tecnologia que propulsa el seu trineu durant el seu viatge per tot el món. Hem rebut aquest avançament especial d'un dels seus elfs desenvolupadors, que estan treballant de valent al pol Nord per ajudar-lo a preparar el gran dia. El tauler de control del Pare Noel, que inclou la tecnologia més puntera i innovadora de Google Maps i en enginyeria de trineus, us permetrà seguir el seu trajecte per tot el món i conèixer una mica les parades que farà pel camí."
 	},
 	"about-content-three": {
-		"message": "Google ha creat i desenvolupat Segueix el Pare Noel de Google Maps amb una mica d'ajuda dels elfs del Pare Noel. Necessiteu ajuda o teniu cap altra pregunta? Visiteu el nostre \u003ca href=\"//support.google.com/santatracker\"\u003eCentre d'ajuda\u003c/a\u003e."
+		"message": "Google ha creat i desenvolupat Segueix el Pare Noel de Google Maps amb una mica d'ajuda dels elfs del Pare Noel. Necessiteu ajuda o teniu cap altra pregunta? Visiteu el nostre <a href=\"//support.google.com/santatracker\">Centre d'ajuda</a>."
 	},
 	"about-content-two": {
 		"message": "A més, els nostres amics elfs us han convidat a descobrir el llogaret del Pare Noel mentre ell es prepara per al seu viatge. Visiteu i exploreu el llogaret; segur que trobeu activitats divertides i coneixeu elfs interessants."
@@ -501,7 +501,7 @@
 		"message": "Fantàstic!"
 	},
 	"codelab-mwc-promo": {
-		"message": "Exploreu més productes de codificació de Google a \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Exploreu més productes de codificació de Google a <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Desafiament següent"
@@ -684,13 +684,13 @@
 		"message": "Hi ha hagut un problema, però els elfs del Pare Noel ja l'estan intentant solucionar."
 	},
 	"error-internal": {
-		"message": "Hi ha hagut un problema. Ja n'hem informat els elfs, però prova de tornar a l'\u003ca href=\"./\"\u003ealdea del Pare Noel\u003c/a\u003e."
+		"message": "Hi ha hagut un problema. Ja n'hem informat els elfs, però prova de tornar a l'<a href=\"./\">aldea del Pare Noel</a>."
 	},
 	"error-lost-connection": {
 		"message": "Sembla que acabem de perdre la connexió amb el pol Nord. Els elfs del Pare Noel estan treballant de valent per solucionar el problema. Estigueu-ne al cas!"
 	},
 	"error-not-found": {
-		"message": "Els elfs del Pare Noel no troben la pàgina. Et recomanem que tornis a l'\u003ca href=\"./\"\u003ealdea del Pare Noel\u003c/a\u003e."
+		"message": "Els elfs del Pare Noel no troben la pàgina. Et recomanem que tornis a l'<a href=\"./\">aldea del Pare Noel</a>."
 	},
 	"error-out-of-date": {
 		"message": "Aquesta versió de l'aldea del Pare Noel no està actualitzada. Torna a obrir Segueix el Pare Noel per veure la versió més recent."
@@ -720,7 +720,7 @@
 		"message": "Utilitza l'Assistent de Google per descobrir més sobre el Pare Noel al desembre. Aquesta integració només està disponible en determinats idiomes."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Amb el permís dels pares, els menors de 13 anys també poden gaudir d'una experiència de l'Assistent de Google personalitzada iniciant la sessió amb el seu compte, gestionat amb \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Amb el permís dels pares, els menors de 13 anys també poden gaudir d'una experiència de l'Assistent de Google personalitzada iniciant la sessió amb el seu compte, gestionat amb <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "L'Assistent de Google et connecta amb el pol nord, on es troba el Pare Noel assajant per a un concert. Només coneix una cançó, pots ajudar-lo a trobar la millor manera de tocar-la?"
@@ -1215,7 +1215,7 @@
 		"message": "Noruec"
 	},
 	"nonprofit-agastya-description": {
-		"message": "La fundació Agastya ensenya coneixements pràctics de ciència als nens de totes les zones rurals de l'Índia. Tant als seus dos centres de ciències com a les furgonetes de ciència mòbils, tracten tot tipus de temes, des del sistema solar fins al funcionament del cervell. Han arribat a més de 5 milions de nens i 200.000 professors dels 14 estats de l'Índia. Es tracta d'un dels programes d'educació més grans de tot el món. A Google.org estem orgullosos de col·laborar amb \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eAgastya\u003c/a\u003e."
+		"message": "La fundació Agastya ensenya coneixements pràctics de ciència als nens de totes les zones rurals de l'Índia. Tant als seus dos centres de ciències com a les furgonetes de ciència mòbils, tracten tot tipus de temes, des del sistema solar fins al funcionament del cervell. Han arribat a més de 5 milions de nens i 200.000 professors dels 14 estats de l'Índia. Es tracta d'un dels programes d'educació més grans de tot el món. A Google.org estem orgullosos de col·laborar amb <a href=\"https://www.google.org/impact-challenge/agastya/\">Agastya</a>."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Professors i estudiants"
@@ -1248,7 +1248,7 @@
 		"message": "Ens hem associat amb Google.org per presentar cinc organitzacions educatives sense ànim de lucre que sempre estan disposades a ajudar els altres. Desplaça't cap avall per obtenir més informació sobre què fa cada organització. Per mostrar el teu suport, pinta aquesta col·lecció de guarniments i penja'ls a l'arbre o regala'ls a les persones que més estimes."
 	},
 	"nonprofit-jane-description": {
-		"message": "Els ximpanzés són la família d'animals més propera a l'ésser humà. Avui dia queden menys de 300.000 ximpanzés a causa de la pèrdua d'hàbitats, de malalties i del comerç il·legal. El Jane Goodall Institute (JGI) protegeix els ximpanzés observant i provant d'entendre el seu comportament i els seus hàbitats. El JGI també treballa per crear una comunitat de persones que protegeixin i conservin la fauna i el medi que compartim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExploreu els hàbitats dels ximpanzés\u003c/a\u003e de Gombe, a Tanzània."
+		"message": "Els ximpanzés són la família d'animals més propera a l'ésser humà. Avui dia queden menys de 300.000 ximpanzés a causa de la pèrdua d'hàbitats, de malalties i del comerç il·legal. El Jane Goodall Institute (JGI) protegeix els ximpanzés observant i provant d'entendre el seu comportament i els seus hàbitats. El JGI també treballa per crear una comunitat de persones que protegeixin i conservin la fauna i el medi que compartim. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Exploreu els hàbitats dels ximpanzés</a> de Gombe, a Tanzània."
 	},
 	"nonprofit-jane-type": {
 		"message": "Ximpanzé"
@@ -1287,13 +1287,13 @@
 		"message": "Ulleres intel·ligents"
 	},
 	"nonprofit-solar-description": {
-		"message": "Al món, hi ha 1.300 milions de persones que no tenen accés a l'electricitat, i moltes han de fer servir làmpades de querosè, un combustible que contamina les seves llars. Les làmpades solars, en canvi, absorbeixen l'energia del sol durant el dia i proporcionen hores de llum a la nit sense cremar ni contaminar. Permeten llegir, jugar i arribar a casa de manera segura quan és fosc. SolarAid proporciona làmpades solars a moltes de les persones que les necessiten. A Google.org estem orgullosos de col·laborar amb \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eSolarAid\u003c/a\u003e."
+		"message": "Al món, hi ha 1.300 milions de persones que no tenen accés a l'electricitat, i moltes han de fer servir làmpades de querosè, un combustible que contamina les seves llars. Les làmpades solars, en canvi, absorbeixen l'energia del sol durant el dia i proporcionen hores de llum a la nit sense cremar ni contaminar. Permeten llegir, jugar i arribar a casa de manera segura quan és fosc. SolarAid proporciona làmpades solars a moltes de les persones que les necessiten. A Google.org estem orgullosos de col·laborar amb <a href=\"https://www.google.org/impact-challenge/solaraid/\">SolarAid</a>."
 	},
 	"nonprofit-solar-type": {
 		"message": "Llum solar"
 	},
 	"nonprofit-water-description": {
-		"message": "Utilitzem l'aigua per dutxar-nos, per cuinar, i evidentment, per beure. L'aigua neta és un recurs molt valuós, i moltes persones depenen de pous excavats manualment per accedir als aqüífers, que contenen aigua neta al fons entre capes de pedra i terra. L'organització charity: water treballa amb institucions locals per construir pous i altres projectes relacionats amb l'aigua allà on realment són necessaris. A Google.org estem orgullosos de col·laborar amb \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003echarity: water\u003c/a\u003e."
+		"message": "Utilitzem l'aigua per dutxar-nos, per cuinar, i evidentment, per beure. L'aigua neta és un recurs molt valuós, i moltes persones depenen de pous excavats manualment per accedir als aqüífers, que contenen aigua neta al fons entre capes de pedra i terra. L'organització charity: water treballa amb institucions locals per construir pous i altres projectes relacionats amb l'aigua allà on realment són necessaris. A Google.org estem orgullosos de col·laborar amb <a href=\"https://www.google.org/global-impact-awards/charity-water/\">charity: water</a>."
 	},
 	"nonprofit-water-type": {
 		"message": "Pous"
@@ -1305,7 +1305,7 @@
 		"message": "Mobilitat"
 	},
 	"nonprofit-wwf-description": {
-		"message": "El canvi climàtic continua alterant l'equilibri de molts ecosistemes del món, tant a les zones càlides com a les fredes. A l'Àrtic, els óssos polars estan perdent el seu hàbitat de la banquisa a causa de l'augment de les temperatures, i s'enfronten a més amenaces procedents de les activitats humanes, com ara les explotacions i el transport de petroli i de gas. World Wildlife Fund treballa per garantir la supervivència de les espècies mitjançant la recerca científica i treballa en cooperació amb comunitats natives de l'Àrtic. A Google.org estem orgullosos de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ecol·laborar\u003c/a\u003e amb World Wildlife Fund."
+		"message": "El canvi climàtic continua alterant l'equilibri de molts ecosistemes del món, tant a les zones càlides com a les fredes. A l'Àrtic, els óssos polars estan perdent el seu hàbitat de la banquisa a causa de l'augment de les temperatures, i s'enfronten a més amenaces procedents de les activitats humanes, com ara les explotacions i el transport de petroli i de gas. World Wildlife Fund treballa per garantir la supervivència de les espècies mitjançant la recerca científica i treballa en cooperació amb comunitats natives de l'Àrtic. A Google.org estem orgullosos de <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">col·laborar</a> amb World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ós polar"
@@ -1440,7 +1440,7 @@
 		"message": "El llogaret del Pare Noel celebra el quinzè any d'activitats nadalenques divertides, educatives i interactives. Sota l'atenta supervisió de la Mare Noel, els elfs han redissenyat l'aldea amb un estil elegant i contingut nou. A més, gràcies a un nou sistema de calefacció que funciona amb xocolata calenta, no caldrà esperar tot el mes de desembre per poder gaudir de les més de 20 activitats: estaran disponibles a partir del dia 4. D'aquesta manera, tindràs més temps per jugar i explorar el llogaret del Pare Noel amb els elfs."
 	},
 	"press-about-village2": {
-		"message": "Al llogaret, pots fer activitats bàsiques de programació, crear il·lustracions originals, posar a prova els teus coneixements de geografia i obtenir més informació sobre organitzacions benèfiques, com ara \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e i \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Els professors fins i tot poden \u003ca href=\"./educators.html\"\u003ebaixar unitats didàctiques\u003c/a\u003e amb videoguies que permetran als estudiants aprendre conceptes bàsics de programació i tradicions nadalenques en anglès, espanyol, francès, japonès i coreà."
+		"message": "Al llogaret, pots fer activitats bàsiques de programació, crear il·lustracions originals, posar a prova els teus coneixements de geografia i obtenir més informació sobre organitzacions benèfiques, com ara <a href=\"https://www.khanacademy.org/\">Khan Academy</a> i <a href=\"https://code.org/\">Code.org</a>. Els professors fins i tot poden <a href=\"./educators.html\">baixar unitats didàctiques</a> amb videoguies que permetran als estudiants aprendre conceptes bàsics de programació i tradicions nadalenques en anglès, espanyol, francès, japonès i coreà."
 	},
 	"press-asset-animation": {
 		"message": "Animació"
@@ -1461,7 +1461,7 @@
 		"message": "Aventures educatives"
 	},
 	"press-edu1": {
-		"message": "Hem ampliat la nostra \u003ca href=\"./educators.html\"\u003epàgina de recursos per a educadors\u003c/a\u003e amb videoguies que poden ajudar els professors a reforçar les seves classes, ara disponibles en cinc idiomes. Continuaràs trobant-hi els teus jocs preferits, que combinen conceptes bàsics sobre programació i tradicions nadalenques. Segueix el Pare Noel de Google fomenta l'aprenentatge de manera divertida durant les festes. Consulta els nostres \u003ca href=\"./educators.html\"\u003ejocs educatius\u003c/a\u003e per obtenir més informació."
+		"message": "Hem ampliat la nostra <a href=\"./educators.html\">pàgina de recursos per a educadors</a> amb videoguies que poden ajudar els professors a reforçar les seves classes, ara disponibles en cinc idiomes. Continuaràs trobant-hi els teus jocs preferits, que combinen conceptes bàsics sobre programació i tradicions nadalenques. Segueix el Pare Noel de Google fomenta l'aprenentatge de manera divertida durant les festes. Consulta els nostres <a href=\"./educators.html\">jocs educatius</a> per obtenir més informació."
 	},
 	"press-games-title": {
 		"message": "Tots els jocs i tota la diversió"
@@ -1491,19 +1491,19 @@
 		"message": "Crea un elf:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Si sempre has somiat crear una companyia de dansa amb un grup d'elfs ballarins de gran talent, ara tens l'oportunitat de fer-ho. Més o menys. Amb un model d'aprenentatge automàtic anomenat \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, pots entrenar un elf perquè aprengui els teus moviments i fer-lo sortir a ballar."
+		"message": "Si sempre has somiat crear una companyia de dansa amb un grup d'elfs ballarins de gran talent, ara tens l'oportunitat de fer-ho. Més o menys. Amb un model d'aprenentatge automàtic anomenat <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, pots entrenar un elf perquè aprengui els teus moviments i fer-lo sortir a ballar."
 	},
 	"press-whatsnew2-title": {
 		"message": "Balla amb els elfs:"
 	},
 	"press-whatsnew3-text": {
-		"message": "També podràs consultar la ubicació del Pare Noel en temps real a Google Maps. Només has de tocar el botó de tres punts i, a continuació, a Compartició d'ubicació per mirar on és exactament el Pare Noel durant el seu recorregut. També pots anar a \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e per accedir-hi més ràpidament."
+		"message": "També podràs consultar la ubicació del Pare Noel en temps real a Google Maps. Només has de tocar el botó de tres punts i, a continuació, a Compartició d'ubicació per mirar on és exactament el Pare Noel durant el seu recorregut. També pots anar a <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a> per accedir-hi més ràpidament."
 	},
 	"press-whatsnew3-title": {
 		"message": "Una nova manera de seguir el Pare Noel:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Vols viure encara més l'esperit nadalenc? Dona una ullada als adhesius nadalencs de Gboard, disponibles per a \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e i la nostra \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplicació d'Android\u003c/a\u003e. També pots demanar-li a l'Assistent de Google \"On és el Pare Noel?\" i \"Llegeix-me un conte de Nadal\" per gaudir d'una experiència literària."
+		"message": "Vols viure encara més l'esperit nadalenc? Dona una ullada als adhesius nadalencs de Gboard, disponibles per a <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> i la nostra <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">aplicació d'Android</a>. També pots demanar-li a l'Assistent de Google \"On és el Pare Noel?\" i \"Llegeix-me un conte de Nadal\" per gaudir d'una experiència literària."
 	},
 	"press-whatsnew4-title": {
 		"message": "Més diversió nadalenca:"
@@ -7323,7 +7323,7 @@
 		"message": "Instal·la"
 	},
 	"village_santa_intall_ios": {
-		"message": "Toca \u003cspan\u003e\u003c/span\u003e i, a continuació, Afegeix a la pantalla d'inici"
+		"message": "Toca <span></span> i, a continuació, Afegeix a la pantalla d'inici"
 	},
 	"village_takesoff": {
 		"message": "El Pare Noel surt d'aquí a"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbàbue"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

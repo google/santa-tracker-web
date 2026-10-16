@@ -3,7 +3,7 @@
 		"message": "På julaften viser vi frem nissens kontrollpanel, teknologien som driver sleden hans på reisen verden rundt. Vi har fått denne spesialversjonen fra en av nissens mange utvikler-alver på Nordpolen, der de hjelper nissen med forberedelsene til den store dagen. I nissens kontrollpanel – som inneholder det nyeste og beste innen Google Maps-teknologi og sledeutstyr – kan du følge med på reisen hans gjennom hele verden, og du kan også lære litt om noen av stoppestedene langs ruten."
 	},
 	"about-content-three": {
-		"message": "«Følg julenissen» fra Google Maps er skapt og utviklet av Google med litt hjelp fra julenissens alver. Trenger du hjelp, eller har du flere spørsmål? Gå til \u003ca href=\"//support.google.com/santatracker\"\u003ebrukerstøtten\u003c/a\u003e vår."
+		"message": "«Følg julenissen» fra Google Maps er skapt og utviklet av Google med litt hjelp fra julenissens alver. Trenger du hjelp, eller har du flere spørsmål? Gå til <a href=\"//support.google.com/santatracker\">brukerstøtten</a> vår."
 	},
 	"about-content-two": {
 		"message": "De vennlige alvene har også invitert deg til å utforske nissens landsby mens nissen gjør seg klar for reisen sin. Du er velkommen til å se nærmere på landsbyen hans. Kanskje du finner noen morsomme aktiviteter og møter noen interessante alver?"
@@ -501,7 +501,7 @@
 		"message": "Bra"
 	},
 	"codelab-mwc-promo": {
-		"message": "Utforsk flere Google-kodeprosjekter på \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Utforsk flere Google-kodeprosjekter på <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Neste utfordring"
@@ -684,13 +684,13 @@
 		"message": "Det har oppstått et problem, men Julenissens hjelpere er på saken."
 	},
 	"error-internal": {
-		"message": "Beklager, det oppsto et problem. Vi har informert alvene, men du kan prøve å dra tilbake til \u003ca href=\"./\"\u003eJulenissens landsby\u003c/a\u003e."
+		"message": "Beklager, det oppsto et problem. Vi har informert alvene, men du kan prøve å dra tilbake til <a href=\"./\">Julenissens landsby</a>."
 	},
 	"error-lost-connection": {
 		"message": "Vi har nettopp mistet forbindelsen med Nordpolen. Nissens alver jobber hardt for å løse problemet. Følg med!"
 	},
 	"error-not-found": {
-		"message": "Å nei! Julenissens hjelpere finner ikke denne siden. Kanskje hellet snur hvis du går tilbake til \u003ca href=\"./\"\u003eJulenissens landsby\u003c/a\u003e."
+		"message": "Å nei! Julenissens hjelpere finner ikke denne siden. Kanskje hellet snur hvis du går tilbake til <a href=\"./\">Julenissens landsby</a>."
 	},
 	"error-out-of-date": {
 		"message": "Dette er en utdatert versjon av Julenissens landsby! Prøv å åpne Følg julenissen på nytt for å se den nyeste versjonen."
@@ -720,7 +720,7 @@
 		"message": "Bruk Google-assistenten til å finne ut mer om julenissen i desember. Denne integreringen er tilgjengelig på utvalgte språk."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Med tillatelse fra en forelder kan barn under 13 år også få en personlig tilpasset Google Assistent-opplevelse når de logger på sin egen konto – administrert via \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Med tillatelse fra en forelder kan barn under 13 år også få en personlig tilpasset Google Assistent-opplevelse når de logger på sin egen konto – administrert via <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google-assistenten gir deg direkte forbindelse med Nordpolen, der julenissen er travelt opptatt med å øve til konsert. Han kan bare én sang. Kan du hjelpe ham med å finne ut hvordan han bør spille den?"
@@ -1215,7 +1215,7 @@
 		"message": "Norsk"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya gir barn i hele distrikts-India grundig opplæring innen ulike vitenskaper, enten på utdanningssentrene eller ved å ta med vitenskapen på veien. Organisasjonen gir opplæring innen alt fra solsystemet til menneskehjernen, og de 200 000 lærerne har hjulpet over 5 millioner barn i 14 stater i India. Dette er et av de største vitenskapelige utdanningsprogrammene i verden, og Google.org er stolt av å \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003estøtte\u003c/a\u003e Agastya!"
+		"message": "Agastya gir barn i hele distrikts-India grundig opplæring innen ulike vitenskaper, enten på utdanningssentrene eller ved å ta med vitenskapen på veien. Organisasjonen gir opplæring innen alt fra solsystemet til menneskehjernen, og de 200 000 lærerne har hjulpet over 5 millioner barn i 14 stater i India. Dette er et av de største vitenskapelige utdanningsprogrammene i verden, og Google.org er stolt av å <a href=\"https://www.google.org/impact-challenge/agastya/\">støtte</a> Agastya!"
 	},
 	"nonprofit-agastya-type": {
 		"message": "Lærere og studenter"
@@ -1248,7 +1248,7 @@
 		"message": "Vi samarbeider med Google.org for å promotere fem veldedige utdanningsorganisasjoner som sprer giverglede året rundt. Bla nedover for å finne ut mer om hvordan hver av disse organisasjonene gjør nettopp dette. Vis din støtte din ved å fargelegge disse julekulene og henge dem på treet ditt eller gi dem bort til kjente og kjære."
 	},
 	"nonprofit-jane-description": {
-		"message": "Sjimpansene er menneskets nærmeste levende slektninger i dyreriket. I dag finnes det færre enn 300 000 sjimpanser. Dette skyldes tap av leveområde, sykdom og ulovlig handel. Jane Goodall Institute (JGI) beskytter sjimpansene ved å observere og forstå atferden deres så vel som områdene der de bor. JGI jobber også for å bygge opp et felleskap av folk som beskytter og bevarer dyrelivet og miljøet vi alle deler. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eUtforsk sjimpansenes leveområder\u003c/a\u003e i Gombe, Tanzania."
+		"message": "Sjimpansene er menneskets nærmeste levende slektninger i dyreriket. I dag finnes det færre enn 300 000 sjimpanser. Dette skyldes tap av leveområde, sykdom og ulovlig handel. Jane Goodall Institute (JGI) beskytter sjimpansene ved å observere og forstå atferden deres så vel som områdene der de bor. JGI jobber også for å bygge opp et felleskap av folk som beskytter og bevarer dyrelivet og miljøet vi alle deler. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Utforsk sjimpansenes leveområder</a> i Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Sjimpanse"
@@ -1287,13 +1287,13 @@
 		"message": "Smartbriller"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 milliarder mennesker har ikke tilgang til elektrisitet, og mange må bruke parafinlamper med brennstoff som forurenser hjemmet. Solcellebaserte lamper lades opp med sollys om dagen og lyser i flere timer om kvelden uten å bruke brennstoff eller forurense. Dermed er det bare å lese i vei, leke og gå trygt hjem når det er mørkt. SolarAid gir mange som trenger det, tilgang til solcellebaserte lamper, og Google.org er stolt over å \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003estøtte\u003c/a\u003e SolarAid."
+		"message": "1,3 milliarder mennesker har ikke tilgang til elektrisitet, og mange må bruke parafinlamper med brennstoff som forurenser hjemmet. Solcellebaserte lamper lades opp med sollys om dagen og lyser i flere timer om kvelden uten å bruke brennstoff eller forurense. Dermed er det bare å lese i vei, leke og gå trygt hjem når det er mørkt. SolarAid gir mange som trenger det, tilgang til solcellebaserte lamper, og Google.org er stolt over å <a href=\"https://www.google.org/impact-challenge/solaraid/\">støtte</a> SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Sollys"
 	},
 	"nonprofit-water-description": {
-		"message": "Vi bruker vann til å dusje, bade, lage mat og selvfølgelig slukke tørsten. Rent vann er en dyrebar ressurs, og mange er avhengige av håndgravde brønner for å få tilgang til vannførende bergarter. Disse gir tilgang til rent vann langt nedi bakken mellom lag av stein og jord. Organisasjonen charity: water samarbeider med lokale partnere for å bygge brønner og sette i gang andre vannprosjekter der det trengs. Google.org er stolt over å \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003estøtte\u003c/a\u003e charity: water."
+		"message": "Vi bruker vann til å dusje, bade, lage mat og selvfølgelig slukke tørsten. Rent vann er en dyrebar ressurs, og mange er avhengige av håndgravde brønner for å få tilgang til vannførende bergarter. Disse gir tilgang til rent vann langt nedi bakken mellom lag av stein og jord. Organisasjonen charity: water samarbeider med lokale partnere for å bygge brønner og sette i gang andre vannprosjekter der det trengs. Google.org er stolt over å <a href=\"https://www.google.org/global-impact-awards/charity-water/\">støtte</a> charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Brønn"
@@ -1305,7 +1305,7 @@
 		"message": "Mobilitet"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Klimaendringene truer balansen i mange av verdens økosystemer, både i varme og kalde strøk. I Arktis fører den stigende temperaturen til at isbjørnene mister leveområdet sitt på sjøisen, og de trues også av menneskelig aktivitet, for eksempel olje- og gassutvikling og skipsfart. World Wildlife Fund jobber for å sikre at arten overlever gjennom vitenskapelig forskning og samarbeid med arktiske lokalsamfunn. Google.org \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003estøtter\u003c/a\u003e World Wildlife Fund."
+		"message": "Klimaendringene truer balansen i mange av verdens økosystemer, både i varme og kalde strøk. I Arktis fører den stigende temperaturen til at isbjørnene mister leveområdet sitt på sjøisen, og de trues også av menneskelig aktivitet, for eksempel olje- og gassutvikling og skipsfart. World Wildlife Fund jobber for å sikre at arten overlever gjennom vitenskapelig forskning og samarbeid med arktiske lokalsamfunn. Google.org <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">støtter</a> World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Isbjørn"
@@ -1440,7 +1440,7 @@
 		"message": "Julenissens landsby feirer 15 år med morsomme, pedagogiske og interaktive juleaktiviteter. Under kyndig oppsyn av nissemor har alvene gitt landsbyen et nytt og snertent utseende og lagt til splitter nytt innhold. Og takket være et nytt kakaovarmeanlegg tiner ikke landsbyen først opp i slutten av desember – nå sparkes to dusin med aktiviteter i gang allerede 4. desember. Nå har alvene (og ikke minst du) enda mer tid til å leke i og utforske julenissens landsby."
 	},
 	"press-about-village2": {
-		"message": "I landsbyen kan du øve deg på grunnleggende koding, lage originale kunstverk, teste geografikunnskapene dine og finne ut mer om veldedige organisasjoner som \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e og \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Lærere kan også \u003ca href=\"./educators.html\"\u003elaste ned undervisningsplaner\u003c/a\u003e med videoveiledninger for å lære elevene sine om grunnleggende koding og juletradisjoner på engelsk, spansk, fransk, japansk og koreansk."
+		"message": "I landsbyen kan du øve deg på grunnleggende koding, lage originale kunstverk, teste geografikunnskapene dine og finne ut mer om veldedige organisasjoner som <a href=\"https://www.khanacademy.org/\">Khan Academy</a> og <a href=\"https://code.org/\">Code.org</a>. Lærere kan også <a href=\"./educators.html\">laste ned undervisningsplaner</a> med videoveiledninger for å lære elevene sine om grunnleggende koding og juletradisjoner på engelsk, spansk, fransk, japansk og koreansk."
 	},
 	"press-asset-animation": {
 		"message": "Animasjon"
@@ -1461,7 +1461,7 @@
 		"message": "Pedagogiske eventyr"
 	},
 	"press-edu1": {
-		"message": "Vi har utvidet \u003ca href=\"./educators.html\"\u003esiden med lærerressurser\u003c/a\u003e med videoveiledninger i tillegg til undervisningsplaner – nå tilgjengelig på fem språk. Favorittspillene dine er her fortsatt, og gjennom dem presenterer vi grunnleggende konsepter innen koding i julete omgivelser. I Google Følg julenissen legger vi til rette for morsomme læringsopplevelser – ta en titt på de \u003ca href=\"./educators.html\"\u003epedagogiske spillene våre\u003c/a\u003e for å finne ut mer."
+		"message": "Vi har utvidet <a href=\"./educators.html\">siden med lærerressurser</a> med videoveiledninger i tillegg til undervisningsplaner – nå tilgjengelig på fem språk. Favorittspillene dine er her fortsatt, og gjennom dem presenterer vi grunnleggende konsepter innen koding i julete omgivelser. I Google Følg julenissen legger vi til rette for morsomme læringsopplevelser – ta en titt på de <a href=\"./educators.html\">pedagogiske spillene våre</a> for å finne ut mer."
 	},
 	"press-games-title": {
 		"message": "Alt av spill og moro"
@@ -1491,19 +1491,19 @@
 		"message": "Bygg en alv:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Hvis barndomsdrømmen din er å starte en dansetrupp med en gjeng talentfulle alver, har du muligheten nå! Nesten, i hvert fall. Med maskinlæringsmodellen \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e kan en alv lære seg trinnene dine og fremføre dem på dansegulvet."
+		"message": "Hvis barndomsdrømmen din er å starte en dansetrupp med en gjeng talentfulle alver, har du muligheten nå! Nesten, i hvert fall. Med maskinlæringsmodellen <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a> kan en alv lære seg trinnene dine og fremføre dem på dansegulvet."
 	},
 	"press-whatsnew2-title": {
 		"message": "Danser med alver:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Du kan dessuten se julenissens sanntidsposisjon på Google Maps: Det er bare å trykke på hamburgerknappen og deretter på «Posisjonsdeling», så får du se akkurat hvor i verden julenissen befinner seg. Du kan også bruke den hendige snarveien \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+		"message": "Du kan dessuten se julenissens sanntidsposisjon på Google Maps: Det er bare å trykke på hamburgerknappen og deretter på «Posisjonsdeling», så får du se akkurat hvor i verden julenissen befinner seg. Du kan også bruke den hendige snarveien <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>!"
 	},
 	"press-whatsnew3-title": {
 		"message": "En ny måte å følge julenissen på:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Hvis du vil ha mer juleglede, kan du ta en titt på Gboard-juleklistremerkene som er tilgjengelige på \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, på \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e og i \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-appen\u003c/a\u003e vår. Du kan også kose deg med noen fortellinger ved å si følgende til Google-assistenten: «Fortell meg et juleeventyr» og «Hvor er julenissen?»"
+		"message": "Hvis du vil ha mer juleglede, kan du ta en titt på Gboard-juleklistremerkene som er tilgjengelige på <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, på <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> og i <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android-appen</a> vår. Du kan også kose deg med noen fortellinger ved å si følgende til Google-assistenten: «Fortell meg et juleeventyr» og «Hvor er julenissen?»"
 	},
 	"press-whatsnew4-title": {
 		"message": "Enda mer julemoro:"
@@ -7323,7 +7323,7 @@
 		"message": "Installer"
 	},
 	"village_santa_intall_ios": {
-		"message": "Bare trykk på \u003cspan\u003e\u003c/span\u003e og deretter på «Legg til på startsiden»"
+		"message": "Bare trykk på <span></span> og deretter på «Legg til på startsiden»"
 	},
 	"village_takesoff": {
 		"message": "Julenissen tar av om"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

@@ -3,7 +3,7 @@
 		"message": "На Бадње вече представљамо Деда Мразову команду таблу, технологију коју користи за погоњење санки на путу око света. Један од бројних вредних вилењака са Северног пола који програмирају код Деда Мраза нам је послао ову посебну верзију ради прегледа. Деда Мразова командна табла користи најновије и најбоље Google Maps технологије и конструкцијска решења за санке и омогућава да пратиш како Деда Мраз напредује на путу око света, као и да научиш понешто о местима на која свраћа."
 	},
 	"about-content-three": {
-		"message": "Локатор Деда Мраза Google мапа је направио Google уз мало помоћи Деда Мразових вилењака. Треба вам помоћ или имате још питања? Посетите \u003ca href=\"//support.google.com/santatracker\"\u003eцентар за помоћ\u003c/a\u003e."
+		"message": "Локатор Деда Мраза Google мапа је направио Google уз мало помоћи Деда Мразових вилењака. Треба вам помоћ или имате још питања? Посетите <a href=\"//support.google.com/santatracker\">центар за помоћ</a>."
 	},
 	"about-content-two": {
 		"message": "Пријатељски расположени Вилењаци су те позвали да истражиш Деда Мразово село док се он спрема за путовање. Дакле, напред у истраживање – можда нађеш забавне активности и сретнеш занимљиве вилењаке."
@@ -501,7 +501,7 @@
 		"message": "Одлично"
 	},
 	"codelab-mwc-promo": {
-		"message": "Истражите још Google пројеката за програмирање на \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Истражите још Google пројеката за програмирање на <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Следећи изазов"
@@ -684,13 +684,13 @@
 		"message": "Појавио се проблем, Деда Мразови вилењаци га решавају."
 	},
 	"error-internal": {
-		"message": "Јаооо, проблем! Јавили смо то Деда Мразовим вилењацима, али пробај да се вратиш у \u003ca href=\"./\"\u003eДеда Мразово село\u003c/a\u003e."
+		"message": "Јаооо, проблем! Јавили смо то Деда Мразовим вилењацима, али пробај да се вратиш у <a href=\"./\">Деда Мразово село</a>."
 	},
 	"error-lost-connection": {
 		"message": "Изгледа да смо изгубили везу са Северним полом. Деада Мразови вилењаци решавају проблем, сачекај!"
 	},
 	"error-not-found": {
-		"message": "Имамо проблем – Деда Мразови вилењаци не могу да нађу ову страницу. Боље се врати у \u003ca href=\"./\"\u003eДеда Мразово село\u003c/a\u003e."
+		"message": "Имамо проблем – Деда Мразови вилењаци не могу да нађу ову страницу. Боље се врати у <a href=\"./\">Деда Мразово село</a>."
 	},
 	"error-out-of-date": {
 		"message": "Ово је застарела верзија Деда Мразовог села! Поново отвори Локатор Деда Мраза да би видео најновију верзију."
@@ -720,7 +720,7 @@
 		"message": "Користите Google помоћник да бисте сазнали више о Деда Мразу у децембру! Ова интеграција је доступна на изабраним језицима."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Уз дозволу родитеља, деца млађа од 13 година такође могу да имају персонализован доживљај Google помоћника када се пријаве са својим налогом, којим се управља помоћу \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link-а\u003c/a\u003e."
+		"message": "Уз дозволу родитеља, деца млађа од 13 година такође могу да имају персонализован доживљај Google помоћника када се пријаве са својим налогом, којим се управља помоћу <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link-а</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google помоћник вас повезује са Северним полом, где Деда Мраз проводи време вежбајући за музички концерт. Он зна само једну песму – можете ли му помоћи да открије најбољи начин да је изведе?"
@@ -1215,7 +1215,7 @@
 		"message": "норвешки"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya доноси практично образовање деци у целој руралној Индији. У својим научним центрима и научним комбијима обрађују све теме од Сунчевог система до начина функционисања људског мозга. Ово је један од највећих научно-образовних програма у свету: досеже до 5 милиона деце и 200.000 наставника у 14 држава у Индији. Google.org поносно \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eподржава\u003c/a\u003e организацију Agastya."
+		"message": "Agastya доноси практично образовање деци у целој руралној Индији. У својим научним центрима и научним комбијима обрађују све теме од Сунчевог система до начина функционисања људског мозга. Ово је један од највећих научно-образовних програма у свету: досеже до 5 милиона деце и 200.000 наставника у 14 држава у Индији. Google.org поносно <a href=\"https://www.google.org/impact-challenge/agastya/\">подржава</a> организацију Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Наставно особље и ученици"
@@ -1248,7 +1248,7 @@
 		"message": "Склопили смо партнерство са Google.org ради представљања пет непрофитних организација које су посвећене образовању и којима сезона даривања траје целе године. Померите страницу надоле и сазнајте више о томе како свака од ових организација помаже. Покажите подршку: Обојите ову колекцију украса и окачите их на јелку или их поклоните особама до којих вам је стало."
 	},
 	"nonprofit-jane-description": {
-		"message": "Шимпанзе су најближи сродници људи у царству животиња. Данас има мање од 300.000, због губитка станишта, болести и незаконите трговине. Jane Goodall Institute (JGI) је организација која штити шимпанзе посматрањем и проучавањем и њиховог понашања и станишта у којима живе. JGI ради и на стварању заједнице људи који штите дивље животиње и природну средину коју делимо са њима. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eИстражите станишта шимпанзи\u003c/a\u003e у Гомбеу, Танзанија."
+		"message": "Шимпанзе су најближи сродници људи у царству животиња. Данас има мање од 300.000, због губитка станишта, болести и незаконите трговине. Jane Goodall Institute (JGI) је организација која штити шимпанзе посматрањем и проучавањем и њиховог понашања и станишта у којима живе. JGI ради и на стварању заједнице људи који штите дивље животиње и природну средину коју делимо са њима. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Истражите станишта шимпанзи</a> у Гомбеу, Танзанија."
 	},
 	"nonprofit-jane-type": {
 		"message": "Шимпанза"
@@ -1287,13 +1287,13 @@
 		"message": "Паметне наочаре"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 милијарде људи нема струју, а многи од њих користе фењере, који раде на гориво и загађују домове и околину. Соларна светла преко дана упијају сунчеву енергију, а ноћу сијају сатима, не трошећи додатну енергију и не загађујући. Оне помажу да читаш, играш се и увече безбедно дођеш кући. SolarAid обезбеђује соларна светла многима којима су потребна. Google.org поносно \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eподржава\u003c/a\u003e SolarAid."
+		"message": "1,3 милијарде људи нема струју, а многи од њих користе фењере, који раде на гориво и загађују домове и околину. Соларна светла преко дана упијају сунчеву енергију, а ноћу сијају сатима, не трошећи додатну енергију и не загађујући. Оне помажу да читаш, играш се и увече безбедно дођеш кући. SolarAid обезбеђује соларна светла многима којима су потребна. Google.org поносно <a href=\"https://www.google.org/impact-challenge/solaraid/\">подржава</a> SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Сунчева светлост"
 	},
 	"nonprofit-water-description": {
-		"message": "Воду користимо за купање, кување, па чак и за пијење. Чиста вода је драгоцен ресурс и многи људи користе ручно копане бунаре за приступ водоносном слоју тла, који држи чисту воду дубоко у земљи, између слојева стена и земљишта. Добротворна организација charity: water сарађује са локалним партнерима да би градила бунаре и друге пројекте у вези са водом тамо где су најпотребнији. Google.org поносно \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eподржава\u003c/a\u003e charity: water."
+		"message": "Воду користимо за купање, кување, па чак и за пијење. Чиста вода је драгоцен ресурс и многи људи користе ручно копане бунаре за приступ водоносном слоју тла, који држи чисту воду дубоко у земљи, између слојева стена и земљишта. Добротворна организација charity: water сарађује са локалним партнерима да би градила бунаре и друге пројекте у вези са водом тамо где су најпотребнији. Google.org поносно <a href=\"https://www.google.org/global-impact-awards/charity-water/\">подржава</a> charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Бунар"
@@ -1305,7 +1305,7 @@
 		"message": "Мобилност"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Климантске промене нарушавају равнотежу многих екосистема, било да је реч о хладним или топлим пределима. Поларни медведи на Арктику губе своје станиште, морски лед, због виших температура, и суочавају се са додатним опасностима због људских активности, као што су истраживање и транспорт нафте и гаса. World Wildlife Fund ради на омогућавању опстанка врсте научним истраживањем и партнерством са заједницама урођеника са Арктика. Google.org поносно \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eподржава\u003c/a\u003e World Wildlife Fund."
+		"message": "Климантске промене нарушавају равнотежу многих екосистема, било да је реч о хладним или топлим пределима. Поларни медведи на Арктику губе своје станиште, морски лед, због виших температура, и суочавају се са додатним опасностима због људских активности, као што су истраживање и транспорт нафте и гаса. World Wildlife Fund ради на омогућавању опстанка врсте научним истраживањем и партнерством са заједницама урођеника са Арктика. Google.org поносно <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">подржава</a> World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Бели медвед"
@@ -1440,7 +1440,7 @@
 		"message": "Деда Мразово село слави петнаесту годишњицу забавних, образовних и интерактивних празничних активности. Вилењаци су под стручним вођством Баба Мразице налицкали село и додали му још новог, занимљивог садржаја. Захваљујући новом централном грејању на врели какао, село више не чека цео децембар да лед попусти: два туцета активности вас чека још од 4. децембра. И вилењаци и ви имате више времена за игру и истраживање у Деда Мразовом селу."
 	},
 	"press-about-village2": {
-		"message": "У селу можете да увежбавате основне вештине програмирања, правите оригиналне илустрације, користите своје познавање географије и сазнате више о добротворним организацијама као што су \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e и \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Наставници могу и да \u003ca href=\"./educators.html\"\u003eпреузму наставни план\u003c/a\u003e са видео водичима за учење основних вештина програмирања и празничних обичаја, и то на енглеском, јапанском, корејском, француском и шпанском."
+		"message": "У селу можете да увежбавате основне вештине програмирања, правите оригиналне илустрације, користите своје познавање географије и сазнате више о добротворним организацијама као што су <a href=\"https://www.khanacademy.org/\">Khan Academy</a> и <a href=\"https://code.org/\">Code.org</a>. Наставници могу и да <a href=\"./educators.html\">преузму наставни план</a> са видео водичима за учење основних вештина програмирања и празничних обичаја, и то на енглеском, јапанском, корејском, француском и шпанском."
 	},
 	"press-asset-animation": {
 		"message": "Анимација"
@@ -1461,7 +1461,7 @@
 		"message": "Образовне авантуре"
 	},
 	"press-edu1": {
-		"message": "Проширили смо \u003ca href=\"./educators.html\"\u003eстраницу са ресурсима за просветне раднике\u003c/a\u003e да бисмо наставницима обезбедили пратеће видео водиче за наставни план, на пет језика. Задржане су све ваше омиљене игре које приказују основне концепте програмирања уз празничне обичаје. Google локатор Деда Мраза подстиче учење током празника на забаван начин – погледајте \u003ca href=\"./educators.html\"\u003eнаше образовне игре\u003c/a\u003e да бисте сазнали више."
+		"message": "Проширили смо <a href=\"./educators.html\">страницу са ресурсима за просветне раднике</a> да бисмо наставницима обезбедили пратеће видео водиче за наставни план, на пет језика. Задржане су све ваше омиљене игре које приказују основне концепте програмирања уз празничне обичаје. Google локатор Деда Мраза подстиче учење током празника на забаван начин – погледајте <a href=\"./educators.html\">наше образовне игре</a> да бисте сазнали више."
 	},
 	"press-games-title": {
 		"message": "Само игре и забава"
@@ -1491,19 +1491,19 @@
 		"message": "Направите вилењака:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Ако сте целог живота желели да оснујете плесну трупу са талентованим вилењацима, сад имате прилику. Па, скоро. Уз модел машинског учења зван \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e можете да научите вилењака својим покретима и тако га припремите за подијум."
+		"message": "Ако сте целог живота желели да оснујете плесну трупу са талентованим вилењацима, сад имате прилику. Па, скоро. Уз модел машинског учења зван <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a> можете да научите вилењака својим покретима и тако га припремите за подијум."
 	},
 	"press-whatsnew2-title": {
 		"message": "Плес са вилењацима:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Можете и да видите локацију Деда Мраза у реалном времену на Google мапама – само додирните дугме са хамбургером, па „Дељење локације“ да бисте видели докле је Деда Мраз стигао на путовању. Можете и да одете на брзу пречицу: \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+		"message": "Можете и да видите локацију Деда Мраза у реалном времену на Google мапама – само додирните дугме са хамбургером, па „Дељење локације“ да бисте видели докле је Деда Мраз стигао на путовању. Можете и да одете на брзу пречицу: <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>!"
 	},
 	"press-whatsnew3-title": {
 		"message": "Нови начин да пратите Деда Мраза:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Ако желите празничнију атмосферу, погледајте Gboard празничне налепнице доступне за \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e и \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003eи за \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eапликацију за Android\u003c/a\u003e. Уживајте и у књижевним делима, реците Google асистенту „Испричај ми празничну причу“ или „Где је Деда Мраз?“"
+		"message": "Ако желите празничнију атмосферу, погледајте Gboard празничне налепнице доступне за <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a> и <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a>и за <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">апликацију за Android</a>. Уживајте и у књижевним делима, реците Google асистенту „Испричај ми празничну причу“ или „Где је Деда Мраз?“"
 	},
 	"press-whatsnew4-title": {
 		"message": "Више празничне забаве:"
@@ -1680,7 +1680,7 @@
 		"message": "Састанак код Бабе Мраз"
 	},
 	"scene_build": {
-		"message": "Build \u0026 Bolt"
+		"message": "Build & Bolt"
 	},
 	"scene_callfromsanta": {
 		"message": "Позив од Деда Мраза"
@@ -7323,7 +7323,7 @@
 		"message": "Инсталирај"
 	},
 	"village_santa_intall_ios": {
-		"message": "Само додирни \u003cspan\u003e\u003c/span\u003e, па „Додај на почетни екран“"
+		"message": "Само додирни <span></span>, па „Додај на почетни екран“"
 	},
 	"village_takesoff": {
 		"message": "Деда Мраз полеће за"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Зимбабве"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

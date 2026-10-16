@@ -3,7 +3,7 @@
 		"message": "Na Štedrý večer s hrdosťou predstavíme Santov hlavný panel, technológiu, ktorá poháňa jeho sane počas cesty okolo sveta. Túto špeciálnu ukážku sme dostali od jedného z mnohých Santových škriatkov vývojárov, ktorí na severnom póle ťažko pracujú, aby Santovi pomohli pripraviť sa na jeho veľký deň. Santov hlavný panel, ktorý zahŕňa najnovšiu a najlepšiu konštrukciu saní a technológiu v rámci Máp Google, vám umožní sledovať, ako vo svojej ceste okolo sveta postupuje, a môžete tiež získať nejaké informácie o miestach, kde sa po ceste zastavuje."
 	},
 	"about-content-three": {
-		"message": "Aplikáciu Kde je Santa v Mapách Google vytvorila a vyvinula spoločnosť Google s pomocou Santových škriatkov. Potrebujete pomoc alebo máte nejaké otázky? Navštívte naše \u003ca href=\"//support.google.com/santatracker\"\u003ecentrum pomoci\u003c/a\u003e."
+		"message": "Aplikáciu Kde je Santa v Mapách Google vytvorila a vyvinula spoločnosť Google s pomocou Santových škriatkov. Potrebujete pomoc alebo máte nejaké otázky? Navštívte naše <a href=\"//support.google.com/santatracker\">centrum pomoci</a>."
 	},
 	"about-content-two": {
 		"message": "Naši priateľskí škriatkovia vás tiež pozývajú preskúmať Santovu dedinu, kým sa Santa pripraví na cestu. Tak do toho, pri skúmaní dediny možno objavíte nejaké zábavné aktivity a stretnete zaujímavých škriatkov."
@@ -501,7 +501,7 @@
 		"message": "Vynikajúce"
 	},
 	"codelab-mwc-promo": {
-		"message": "Preskúmajte ďalšie kódovacie projekty Googlu na stránke \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Preskúmajte ďalšie kódovacie projekty Googlu na stránke <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Ďalšia výzva"
@@ -684,13 +684,13 @@
 		"message": "Vyskytol sa problém, no Santovi škriatkovia ho už riešia."
 	},
 	"error-internal": {
-		"message": "Ó nie, vyskytol sa problém! Informovali sme Santových škriatkov, no skúste sa vrátiť spať do \u003ca href=\"./\"\u003eSantovej dediny\u003c/a\u003e."
+		"message": "Ó nie, vyskytol sa problém! Informovali sme Santových škriatkov, no skúste sa vrátiť spať do <a href=\"./\">Santovej dediny</a>."
 	},
 	"error-lost-connection": {
 		"message": "Zdá sa, že sme práve stratili spojenie so severným pólom. Santovi škriatkovia sa to usilovne snažia opraviť. Zostaňte na príjme!"
 	},
 	"error-not-found": {
-		"message": "Ale nie! Santovým škriatkom sa nepodarilo nájsť túto stránku. Možno budete mať viac šťastia, ak sa vrátite späť do \u003ca href=\"./\"\u003eSantovej dediny\u003c/a\u003e."
+		"message": "Ale nie! Santovým škriatkom sa nepodarilo nájsť túto stránku. Možno budete mať viac šťastia, ak sa vrátite späť do <a href=\"./\">Santovej dediny</a>."
 	},
 	"error-out-of-date": {
 		"message": "Toto je zastaraná verzia Santovej dediny. Skúste znova otvoriť aplikáciu „Kde je Santa“, aby ste našli najnovšiu verziu."
@@ -720,7 +720,7 @@
 		"message": "Zistite počas decembra vďaka Asistentovi Google viac o Santa Clausovi! Táto integrácia je k dispozícii vo vybraných jazykoch."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Po prihlásení do svojho účtu spravovaného pomocou aplikácie \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e si deti do 13 rokov môžu s povolením rodiča prispôsobiť Asistenta Google."
+		"message": "Po prihlásení do svojho účtu spravovaného pomocou aplikácie <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a> si deti do 13 rokov môžu s povolením rodiča prispôsobiť Asistenta Google."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Asistent Google vás spojí so severným pólom, kde má Santa plné ruky práce s nacvičovaním na hudobný koncert. Pozná len jednu skladbu. Pomôžete mu objaviť najlepší spôsob, ako ju zahrať?"
@@ -1215,7 +1215,7 @@
 		"message": "Nórčina"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya prináša praktické vzdelávanie v oblasti vedy deťom vo vidieckych častiach Indie. V oboch vedeckých centrách a mobilných vedeckých dodávkach sa venujú všetkému od solárnych systémov až po to, ako funguje mozog. Organizácia pracovala už s viac než piatimi miliónmi detí a 200 000 učiteľmi naprieč 14 štátmi v Indii. Ide o jeden z najväčších vedeckých vzdelávacích programov v oblasti vedy na svete. Google.org s hrdosťou \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003epodporuje\u003c/a\u003e organizáciu Agastya."
+		"message": "Agastya prináša praktické vzdelávanie v oblasti vedy deťom vo vidieckych častiach Indie. V oboch vedeckých centrách a mobilných vedeckých dodávkach sa venujú všetkému od solárnych systémov až po to, ako funguje mozog. Organizácia pracovala už s viac než piatimi miliónmi detí a 200 000 učiteľmi naprieč 14 štátmi v Indii. Ide o jeden z najväčších vedeckých vzdelávacích programov v oblasti vedy na svete. Google.org s hrdosťou <a href=\"https://www.google.org/impact-challenge/agastya/\">podporuje</a> organizáciu Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Učitelia a študenti"
@@ -1248,7 +1248,7 @@
 		"message": "Spojili sme sily s organizáciou Google.org, aby sme odprezentovali päť vzdelávacích neziskových organizácií, ktoré obdobie obdarovávania oslavujú celý rok. Posuňte sa nižšie a získajte ďalšie informácie o tom, čo robia jednotlivé organizácie s príspevkami. Ak chcete vyjadriť svoju podporu, stačí vyfarbiť kolekciu ozdôb a zavesiť si ich na stromček alebo ich darovať svojim najbližším."
 	},
 	"nonprofit-jane-description": {
-		"message": "Šimpanzy sú najbližšími príbuznými ľudí z ríše zvierat. Kvôli strate biotopu, chorobám a ilegálnemu obchodu na svete zostalo už len necelých 300 000 šimpanzov. Inštitút Jane Goodallovej (JGI) chráni šimpanzy tým, že pozoruje a snaží sa pochopiť ich správanie a tiež ich prirodzené prostredie. JGI tiež pracuje na vybudovaní komunity ľudí, ktorí chránia a starajú sa o divokú zver a životné prostredie, ktoré zdieľame. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eŽivotné prostredie šimpanzov môžete skúmať\u003c/a\u003e v národnom parku Gombe v Tanzánii."
+		"message": "Šimpanzy sú najbližšími príbuznými ľudí z ríše zvierat. Kvôli strate biotopu, chorobám a ilegálnemu obchodu na svete zostalo už len necelých 300 000 šimpanzov. Inštitút Jane Goodallovej (JGI) chráni šimpanzy tým, že pozoruje a snaží sa pochopiť ich správanie a tiež ich prirodzené prostredie. JGI tiež pracuje na vybudovaní komunity ľudí, ktorí chránia a starajú sa o divokú zver a životné prostredie, ktoré zdieľame. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Životné prostredie šimpanzov môžete skúmať</a> v národnom parku Gombe v Tanzánii."
 	},
 	"nonprofit-jane-type": {
 		"message": "Šimpanz"
@@ -1287,13 +1287,13 @@
 		"message": "Inteligentné okuliare"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 miliardy ľudí nemá prístup k elektrine a mnohí musia používať petrolejové lampy, ktoré spaľujú palivo a znečisťujú im domov. Solárne svetlá však počas dňa zachytávajú slnečnú energiu a večer poskytujú osvetlenie na celé hodiny bez spaľovania alebo znečisťovania. Môžete vďaka nim čítať, hrať sa a dostať sa v noci bezpečne domov. Spoločnosť SolarAid umožňuje prístup k solárnym svetlám mnohým ľuďom, ktorí to potrebujú. Google.org je hrdým \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003epodporovateľom\u003c/a\u003e spoločnosti SolarAid."
+		"message": "1,3 miliardy ľudí nemá prístup k elektrine a mnohí musia používať petrolejové lampy, ktoré spaľujú palivo a znečisťujú im domov. Solárne svetlá však počas dňa zachytávajú slnečnú energiu a večer poskytujú osvetlenie na celé hodiny bez spaľovania alebo znečisťovania. Môžete vďaka nim čítať, hrať sa a dostať sa v noci bezpečne domov. Spoločnosť SolarAid umožňuje prístup k solárnym svetlám mnohým ľuďom, ktorí to potrebujú. Google.org je hrdým <a href=\"https://www.google.org/impact-challenge/solaraid/\">podporovateľom</a> spoločnosti SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Slnečný svit"
 	},
 	"nonprofit-water-description": {
-		"message": "Vodu používame na sprchovanie, kúpanie, varenie a samozrejme ju aj pijeme. Čistá voda je vzácny zdroj a mnohí ľudia sa spoliehajú na ručne vykopané studne, aby sa dostali k čistej vode, ktorá sa nachádza hlboko v zemi medzi vrstvami skál a pôdy. Organizácia charity: water spolupracuje s miestnymi partnermi na stavbe studní a iných vodných projektoch tam, kde ich ľudia veľmi potrebujú. Google.org je hrdým \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003epodporovateľom\u003c/a\u003e organizácie charity: water."
+		"message": "Vodu používame na sprchovanie, kúpanie, varenie a samozrejme ju aj pijeme. Čistá voda je vzácny zdroj a mnohí ľudia sa spoliehajú na ručne vykopané studne, aby sa dostali k čistej vode, ktorá sa nachádza hlboko v zemi medzi vrstvami skál a pôdy. Organizácia charity: water spolupracuje s miestnymi partnermi na stavbe studní a iných vodných projektoch tam, kde ich ľudia veľmi potrebujú. Google.org je hrdým <a href=\"https://www.google.org/global-impact-awards/charity-water/\">podporovateľom</a> organizácie charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Studňa"
@@ -1305,7 +1305,7 @@
 		"message": "Mobilita"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Klimatické zmeny naďalej narúšajú rovnováhu mnohých ekosystémov v teplých aj chladných oblastiach na Zemi. V Arktíde strácajú medvede biele kvôli zvyšujúcim sa teplotám svoje prirodzené prostredie v podobe morského ľadu a ohrozujú ich aj ďalšie ľudské činnosti, ako napr. spracovávanie a preprava ropy a plynu. Svetový fond na ochranu prírody sa snaží zabezpečovať prežitie druhov vďaka vedeckým výskumom a spolupráci s pôvodnými spoločenstvami v Arktíde. Google.org s hrdosťou \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e podporuje\u003c/a\u003e Svetový fond na ochranu prírody."
+		"message": "Klimatické zmeny naďalej narúšajú rovnováhu mnohých ekosystémov v teplých aj chladných oblastiach na Zemi. V Arktíde strácajú medvede biele kvôli zvyšujúcim sa teplotám svoje prirodzené prostredie v podobe morského ľadu a ohrozujú ich aj ďalšie ľudské činnosti, ako napr. spracovávanie a preprava ropy a plynu. Svetový fond na ochranu prírody sa snaží zabezpečovať prežitie druhov vďaka vedeckým výskumom a spolupráci s pôvodnými spoločenstvami v Arktíde. Google.org s hrdosťou <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"> podporuje</a> Svetový fond na ochranu prírody."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Medveď biely"
@@ -1440,7 +1440,7 @@
 		"message": "Santova dedina oslavuje pätnásty rok zábavných, vzdelávacích a interaktívnych sviatočných aktivít. Pod odborným vedením pani Clausovej škriatkovia dedinu aktualizovali, aby jej vzhľad pôsobil prudko elegantne, a pribudol aj úplne nový obsah. A vďaka novému vykurovaciemu systému na báze horúcej čokolády už nebude trvať celý december, kým sa dedina roztopí, takže všetkých 24 aktivít bude k dispozícii už od 4. decembra. Teraz budú mať škriatkovia (aj vy) viac času na hranie a skúmanie Santovej dediny."
 	},
 	"press-about-village2": {
-		"message": "V dedine môžete trénovať základné kódovacie zručnosti, vytvárať originálne umelecké diela, uplatňovať zemepisné vedomosti a získať ďalšie informácie o dobročinných organizáciách, ako napr. \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e a \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Učitelia si dokonca môžu \u003ca href=\"./educators.html\"\u003estiahnuť plány hodín\u003c/a\u003e s videosprievodcami, a pomôcť tak študentom získať základné kódovacie zručnosti a vedomosti o sviatočných tradíciách v Anglicku, Španielsku, Francúzsku, Japonsku a Kórei."
+		"message": "V dedine môžete trénovať základné kódovacie zručnosti, vytvárať originálne umelecké diela, uplatňovať zemepisné vedomosti a získať ďalšie informácie o dobročinných organizáciách, ako napr. <a href=\"https://www.khanacademy.org/\">Khan Academy</a> a <a href=\"https://code.org/\">Code.org</a>. Učitelia si dokonca môžu <a href=\"./educators.html\">stiahnuť plány hodín</a> s videosprievodcami, a pomôcť tak študentom získať základné kódovacie zručnosti a vedomosti o sviatočných tradíciách v Anglicku, Španielsku, Francúzsku, Japonsku a Kórei."
 	},
 	"press-asset-animation": {
 		"message": "Animácia"
@@ -1461,7 +1461,7 @@
 		"message": "Vzdelávacie dobrodružstvá"
 	},
 	"press-edu1": {
-		"message": "Rozšírili sme \u003ca href=\"./educators.html\"\u003estránku zdrojov pre pedagógov\u003c/a\u003e, aby sme učiteľom poskytli videosprievodcov dostupných v piatich jazykoch, ktorých môžu zakomponovať do učebných plánov. Zostávajú všetky vaše obľúbené hry, v ktorých predstavíme základné koncepty kódovania na \nsvetových sviatočných tradíciách. Aplikácia Kde je Santa od Googlu podporuje učenie sa o sviatkoch zábavným spôsobom. Ak chcete získať ďalšie informácie, pozrite si \u003ca href=\"./educators.html\"\u003enaše vzdelávacie hry\u003c/a\u003e."
+		"message": "Rozšírili sme <a href=\"./educators.html\">stránku zdrojov pre pedagógov</a>, aby sme učiteľom poskytli videosprievodcov dostupných v piatich jazykoch, ktorých môžu zakomponovať do učebných plánov. Zostávajú všetky vaše obľúbené hry, v ktorých predstavíme základné koncepty kódovania na \nsvetových sviatočných tradíciách. Aplikácia Kde je Santa od Googlu podporuje učenie sa o sviatkoch zábavným spôsobom. Ak chcete získať ďalšie informácie, pozrite si <a href=\"./educators.html\">naše vzdelávacie hry</a>."
 	},
 	"press-games-title": {
 		"message": "Zábava a hry"
@@ -1491,19 +1491,19 @@
 		"message": "Vytvorenie škriatka:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Ak je vaším celoživotným snom založiť si tanečný súbor so skupinou veľmi talentovaných tancujúcich škriatkov, teraz máte šancu. Takmer. Pomocou modelu strojového učenia nazvaného \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e môžete škriatka naučiť pohyby a vytiahnuť ho na tanečný parket."
+		"message": "Ak je vaším celoživotným snom založiť si tanečný súbor so skupinou veľmi talentovaných tancujúcich škriatkov, teraz máte šancu. Takmer. Pomocou modelu strojového učenia nazvaného <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a> môžete škriatka naučiť pohyby a vytiahnuť ho na tanečný parket."
 	},
 	"press-whatsnew2-title": {
 		"message": "Tancovanie so škriatkami:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Budete si tiež môcť pozrieť Santovu aktuálnu polohu v Mapách Google – stačí klepnúť na tlačidlo ponuky ďalších možností a potom na položku Zdieľanie polohy a uvidíte, kde presne na svojej ceste sa Santa nachádza. Prípadne použite skratku – prejdite rovno na \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+		"message": "Budete si tiež môcť pozrieť Santovu aktuálnu polohu v Mapách Google – stačí klepnúť na tlačidlo ponuky ďalších možností a potom na položku Zdieľanie polohy a uvidíte, kde presne na svojej ceste sa Santa nachádza. Prípadne použite skratku – prejdite rovno na <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>."
 	},
 	"press-whatsnew3-title": {
 		"message": "Nový spôsob sledovania Santu:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Ak túžite zažiť ešte veselšiu sviatočnú atmosféru, pozrite si nálepky na klávesnici Gboard, ktoré sú k dispozícii v \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroide\u003c/a\u003e a \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003esystéme iOS\u003c/a\u003e a tiež v našej aplikácii pre \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid\u003c/a\u003e. Potešte sa aj veselou odpoveďou Asistenta Google. Môžete ho poprosiť o sviatočný príbeh alebo sa ho spýtať, kde je Santa."
+		"message": "Ak túžite zažiť ešte veselšiu sviatočnú atmosféru, pozrite si nálepky na klávesnici Gboard, ktoré sú k dispozícii v <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Androide</a> a <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">systéme iOS</a> a tiež v našej aplikácii pre <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android</a>. Potešte sa aj veselou odpoveďou Asistenta Google. Môžete ho poprosiť o sviatočný príbeh alebo sa ho spýtať, kde je Santa."
 	},
 	"press-whatsnew4-title": {
 		"message": "Viac sviatočnej zábavy:"
@@ -7323,7 +7323,7 @@
 		"message": "Inštalovať"
 	},
 	"village_santa_intall_ios": {
-		"message": "Klepnite na \u003cspan\u003e\u003c/span\u003e a potom vyberte Pridať na plochu"
+		"message": "Klepnite na <span></span> a potom vyberte Pridať na plochu"
 	},
 	"village_takesoff": {
 		"message": "Santa štartuje o"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

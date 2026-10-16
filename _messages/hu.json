@@ -3,7 +3,7 @@
 		"message": "Karácsony estéjén büszkén mutatjuk be a Mikulás irányítópultját, azaz a Mikulás szánját a világ körüli út során irányító technológiát. Ez a különleges előnézetet a Mikulás számos fejlesztőmanójának egyikétől kaptuk. A manók keményen dolgoznak az Északi-sarkon, hogy a Mikulás megfelelően felkészülhessen a nagy napra. A Mikulás irányítópultja a Google Térkép legújabb és legjobb funkcióit alkalmazza, valamint élvonalbeli szántervezési technológiát használ. Mindez lehetővé teszi számodra, hogy kövesd a Mikulás világ körüli útját, miközben az utazás néhány állomásáról is megtudhatsz egyet s mást."
 	},
 	"about-content-three": {
-		"message": "A Google Térkép Mikuláskövetőjét a Google hozta létre és fejleszti, de azért a Mikulás manói is segítettek egy kicsit. Segítségre van szükséged, vagy más kérdésed lenne? Itt találod a \u003ca href=\"//support.google.com/santatracker\"\u003eSúgónkat\u003c/a\u003e."
+		"message": "A Google Térkép Mikuláskövetőjét a Google hozta létre és fejleszti, de azért a Mikulás manói is segítettek egy kicsit. Segítségre van szükséged, vagy más kérdésed lenne? Itt találod a <a href=\"//support.google.com/santatracker\">Súgónkat</a>."
 	},
 	"about-content-two": {
 		"message": "A barátságos manók is meghívtak Mikulásfalva felfedezésére, ahol a Mikulás készülődik a világ körüli útra. Rajta, fedezd fel a falut, ahol szórakoztató dolgok várnak rád, sőt érdekes manókkal is találkozhatsz!"
@@ -501,7 +501,7 @@
 		"message": "Kiváló"
 	},
 	"codelab-mwc-promo": {
-		"message": "A \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e linkre kattintva további Google kódolási projekteket fedezhetsz fel."
+		"message": "A <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a> linkre kattintva további Google kódolási projekteket fedezhetsz fel."
 	},
 	"codelab-next-challenge": {
 		"message": "Következő"
@@ -684,13 +684,13 @@
 		"message": "Probléma merült fel, de a Mikulás manói már dolgoznak a megoldáson."
 	},
 	"error-internal": {
-		"message": "Sajnos ez nem sikerült! Tájékoztattuk a Mikulás manóit. A legjobb, ha visszamész \u003ca href=\"./\"\u003eMikulásfalvába\u003c/a\u003e."
+		"message": "Sajnos ez nem sikerült! Tájékoztattuk a Mikulás manóit. A legjobb, ha visszamész <a href=\"./\">Mikulásfalvába</a>."
 	},
 	"error-lost-connection": {
 		"message": "Úgy tűnik, elveszítettük a kapcsolatot az Északi-sarkkal. A Mikulás manói nagyon igyekeznek helyreállítani a kapcsolatot, ezért érdemes hamarosan visszanézned."
 	},
 	"error-not-found": {
-		"message": "Sajnos a Mikulás manói nem találják ezt az oldalt! Talán nagyobb szerencsével jársz, ha visszamész \u003ca href=\"./\"\u003eMikulásfalvába\u003c/a\u003e."
+		"message": "Sajnos a Mikulás manói nem találják ezt az oldalt! Talán nagyobb szerencsével jársz, ha visszamész <a href=\"./\">Mikulásfalvába</a>."
 	},
 	"error-out-of-date": {
 		"message": "Ez Mikulásfalva elavult verziója. A legújabb verzióhoz nyisd meg újra a Mikuláskövetőt."
@@ -720,7 +720,7 @@
 		"message": "A Google Segéd használatával december folyamán többet is megtudhatsz a Mikulásról. Az integrált szolgáltatás nem minden nyelven áll rendelkezésre."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "A \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e szolgáltatás révén szülői engedéllyel a 13 éven aluliaknak is lehet saját, személyre szabott Google Segédjük, amikor bejelentkeznek a fiókjukba."
+		"message": "A <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a> szolgáltatás révén szülői engedéllyel a 13 éven aluliaknak is lehet saját, személyre szabott Google Segédjük, amikor bejelentkeznek a fiókjukba."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "A Google Segéd összeköt az Északi-sarkkal, ahol a Mikulás buzgón próbál egy koncertre. Sajnos csak egy dalt tud – segítenél neki kitalálni, hogyan tudná a legjobban előadni?"
@@ -1215,7 +1215,7 @@
 		"message": "Norvég"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Az Agastya szervezet gyakorlati tudományos képzést tesz lehetővé az India vidéki területein élő gyermekek számára. Tudományos központjaikban és oktatási kisbuszaikban mindenről szó esik, a Naprendszertől egészen az agy működéséig. A világ egyik legnagyobb tudományos oktatási programjaként eddig több mint 5 millió gyermekhez és 200 000 tanárhoz jutottak el India 14 államában. A Google.org büszke arra, hogy \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003etámogatja\u003c/a\u003e az Agastya szervezetet."
+		"message": "Az Agastya szervezet gyakorlati tudományos képzést tesz lehetővé az India vidéki területein élő gyermekek számára. Tudományos központjaikban és oktatási kisbuszaikban mindenről szó esik, a Naprendszertől egészen az agy működéséig. A világ egyik legnagyobb tudományos oktatási programjaként eddig több mint 5 millió gyermekhez és 200 000 tanárhoz jutottak el India 14 államában. A Google.org büszke arra, hogy <a href=\"https://www.google.org/impact-challenge/agastya/\">támogatja</a> az Agastya szervezetet."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Oktatók és tanulók"
@@ -1248,7 +1248,7 @@
 		"message": "A Google.org programmal együttműködésben bemutatunk öt oktatási nonprofit szervezetet, amelyeknél az egész évben adományozási időszak van. Lefelé görgetve további információt találsz az egyes szervezetek munkájáról. Támogatásodat a díszek kiszínezésével és a karácsonyfádra akasztásával vagy a szeretteidnek ajándékozásával fejezheted ki."
 	},
 	"nonprofit-jane-description": {
-		"message": "A csimpánzok az ember legközelebbi élő rokonai az állatvilágban. Az élőhelyvesztés, a betegségek és az illegális kereskedelem következtében azonban napjainkra kevesebb mint 300 000 csimpánz maradt. A Jane Goodall Intézet (JGI) célja a csimpánzok védelme a viselkedésük és az élőhelyeik megfigyelése révén. A JGI a vadvilág védelmével és megőrzésével, illetve környezetvédelemmel foglalkozó közösség létrehozásán is dolgozik. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eFedezd fel a csimpánzok élőhelyeit\u003c/a\u003e a tanzániai Gombe Nemzeti Parkban."
+		"message": "A csimpánzok az ember legközelebbi élő rokonai az állatvilágban. Az élőhelyvesztés, a betegségek és az illegális kereskedelem következtében azonban napjainkra kevesebb mint 300 000 csimpánz maradt. A Jane Goodall Intézet (JGI) célja a csimpánzok védelme a viselkedésük és az élőhelyeik megfigyelése révén. A JGI a vadvilág védelmével és megőrzésével, illetve környezetvédelemmel foglalkozó közösség létrehozásán is dolgozik. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Fedezd fel a csimpánzok élőhelyeit</a> a tanzániai Gombe Nemzeti Parkban."
 	},
 	"nonprofit-jane-type": {
 		"message": "Csimpánzok"
@@ -1287,13 +1287,13 @@
 		"message": "Okosszemüveg"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 milliárd ember számára nem áll rendelkezésre elektromos áram. Közülük sokan petróleumlámpa használatára kényszerülnek, amely a petróleum elégetésének következtében szennyezi az otthonok levegőjét. A napenergiával működő fényforrások azonban több órányi világosságot tudnak biztosítani a napközben összegyűjtött napenergiával anélkül, hogy égésterméket termelnének vagy szennyeznék a környezetet. A segítségükkel lehetségessé válik az olvasás, a játék és a biztonságos hazajutás napnyugta után. A SolarAid szervezet számos rászoruló számára biztosít napenergiával működő fényforrásokat. A Google.org büszke arra, hogy \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003etámogatja\u003c/a\u003e a SolarAid szervezetet."
+		"message": "1,3 milliárd ember számára nem áll rendelkezésre elektromos áram. Közülük sokan petróleumlámpa használatára kényszerülnek, amely a petróleum elégetésének következtében szennyezi az otthonok levegőjét. A napenergiával működő fényforrások azonban több órányi világosságot tudnak biztosítani a napközben összegyűjtött napenergiával anélkül, hogy égésterméket termelnének vagy szennyeznék a környezetet. A segítségükkel lehetségessé válik az olvasás, a játék és a biztonságos hazajutás napnyugta után. A SolarAid szervezet számos rászoruló számára biztosít napenergiával működő fényforrásokat. A Google.org büszke arra, hogy <a href=\"https://www.google.org/impact-challenge/solaraid/\">támogatja</a> a SolarAid szervezetet."
 	},
 	"nonprofit-solar-type": {
 		"message": "Napfény"
 	},
 	"nonprofit-water-description": {
-		"message": "Vizet használunk a zuhanyozáshoz és a fürdéshez, illetve a főzéshez, és természetesen vizet is iszunk. A tiszta víz értékes erőforrás. Sokak vízellátását kézzel ásott kutak biztosítják. A tiszta víz mélyen, a kőzetréteg és a talaj alatti részen található. A charity: water nonprofit szervezet a helyi partnerekkel együttműködésben épít kutakat és egyéb vízellátási lehetőségeket a rendkívül rosszul ellátott térségekben. A Google.org büszkén \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003etámogatja\u003c/a\u003e a charity: water szervezetet."
+		"message": "Vizet használunk a zuhanyozáshoz és a fürdéshez, illetve a főzéshez, és természetesen vizet is iszunk. A tiszta víz értékes erőforrás. Sokak vízellátását kézzel ásott kutak biztosítják. A tiszta víz mélyen, a kőzetréteg és a talaj alatti részen található. A charity: water nonprofit szervezet a helyi partnerekkel együttműködésben épít kutakat és egyéb vízellátási lehetőségeket a rendkívül rosszul ellátott térségekben. A Google.org büszkén <a href=\"https://www.google.org/global-impact-awards/charity-water/\">támogatja</a> a charity: water szervezetet."
 	},
 	"nonprofit-water-type": {
 		"message": "Kút"
@@ -1305,7 +1305,7 @@
 		"message": "Mobilitás"
 	},
 	"nonprofit-wwf-description": {
-		"message": "A klímaváltozás folyamatosan rombolja a világ számos ökoszisztémájának egyensúlyát, mind a melegebb, mind a hidegebb térségekben. A sarkvidéken az emelkedő hőmérséklet miatt a jegesmedvék fokozatosan elveszítik a jégtakarón lévő élőhelyeiket, ráadásul olyan emberi tevékenységek is fenyegetik őket, mint a kőolaj- és földgáz-kitermelés, valamint a hajózás. A Természetvédelmi Világalap (WWF) tudományos kutatás és az Antarktiszon élő népekkel való együttműködés révén igyekszik biztosítani az állatfaj túlélését. A Google.org büszke arra, hogy \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003etámogatja\u003c/a\u003e a Természetvédelmi Világalapot."
+		"message": "A klímaváltozás folyamatosan rombolja a világ számos ökoszisztémájának egyensúlyát, mind a melegebb, mind a hidegebb térségekben. A sarkvidéken az emelkedő hőmérséklet miatt a jegesmedvék fokozatosan elveszítik a jégtakarón lévő élőhelyeiket, ráadásul olyan emberi tevékenységek is fenyegetik őket, mint a kőolaj- és földgáz-kitermelés, valamint a hajózás. A Természetvédelmi Világalap (WWF) tudományos kutatás és az Antarktiszon élő népekkel való együttműködés révén igyekszik biztosítani az állatfaj túlélését. A Google.org büszke arra, hogy <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">támogatja</a> a Természetvédelmi Világalapot."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Jegesmedve"
@@ -1440,7 +1440,7 @@
 		"message": "Mikulásfalva a szórakoztató, oktató jellegű és interaktív ünnepi tevékenységek tizenötödik születésnapját ünnepli. Mikulásné szakértői irányítása alatt a manók megújították a falu arculatát, amely így elegánssá vált, és vadonatúj tartalmak is bekerültek. Ezenkívül egy új, forró kakaóval működő fűtési rendszernek köszönhetően a falunak többé már nem kell egész december a kiolvadáshoz – mind a két tucat tevékenység december 4-től rendelkezésre áll. Így a manóknak (és neked!) több idő jut a játékra és a felfedezésre Mikulásfalván."
 	},
 	"press-about-village2": {
-		"message": "A faluban gyakorolhatod az alapvető kódolási ismereteket, eredeti műalkotásokat készíthetsz, próbára teheted földrajzi tudásodat, és további információhoz juthatsz olyan jótékonysági szervezetekről, mint a \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e és a \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. A tanárok pedig olyan, videoútmutatókkal ellátott \u003ca href=\"./educators.html\"\u003eóraterveket is letölthetnek\u003c/a\u003e, amelyek elősegítik az alapvető kódolási ismeretek és az ünnepi hagyományok oktatását a diákok számára angolul, franciául, japánul, koreaiul és spanyolul."
+		"message": "A faluban gyakorolhatod az alapvető kódolási ismereteket, eredeti műalkotásokat készíthetsz, próbára teheted földrajzi tudásodat, és további információhoz juthatsz olyan jótékonysági szervezetekről, mint a <a href=\"https://www.khanacademy.org/\">Khan Academy</a> és a <a href=\"https://code.org/\">Code.org</a>. A tanárok pedig olyan, videoútmutatókkal ellátott <a href=\"./educators.html\">óraterveket is letölthetnek</a>, amelyek elősegítik az alapvető kódolási ismeretek és az ünnepi hagyományok oktatását a diákok számára angolul, franciául, japánul, koreaiul és spanyolul."
 	},
 	"press-asset-animation": {
 		"message": "Animáció"
@@ -1461,7 +1461,7 @@
 		"message": "Oktatási kalandok"
 	},
 	"press-edu1": {
-		"message": "Kibővítettük az \u003ca href=\"./educators.html\"\u003eoktatóknak szóló segédanyagokat tartalmazó oldalunkat\u003c/a\u003e, hogy az immár öt nyelven rendelkezésre álló tantervekhez videoútmutatókat is biztosítsunk a tanároknak. Természetesen az összes kedvenc játékod továbbra is rendelkezésre áll, sőt a világ ünnepi hagyományaihoz kapcsolódó alapvető kódolási fogalmakat is bevezettünk. A Google Mikuláskövetője szórakoztató módon ösztönöz a tanulásra az ünnepi időszak alatt – további információért lásd \u003ca href=\"./educators.html\"\u003eoktatójátékainkat\u003c/a\u003e."
+		"message": "Kibővítettük az <a href=\"./educators.html\">oktatóknak szóló segédanyagokat tartalmazó oldalunkat</a>, hogy az immár öt nyelven rendelkezésre álló tantervekhez videoútmutatókat is biztosítsunk a tanároknak. Természetesen az összes kedvenc játékod továbbra is rendelkezésre áll, sőt a világ ünnepi hagyományaihoz kapcsolódó alapvető kódolási fogalmakat is bevezettünk. A Google Mikuláskövetője szórakoztató módon ösztönöz a tanulásra az ünnepi időszak alatt – további információért lásd <a href=\"./educators.html\">oktatójátékainkat</a>."
 	},
 	"press-games-title": {
 		"message": "Csupa szórakozás és játék"
@@ -1491,19 +1491,19 @@
 		"message": "Készíts manót:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Ha egész életedben arról álmodtál, hogy tánccsoportot alakíts egy csapat rendkívül tehetséges táncoló manóval, akkor most szerencséd van. Vagyis majdnem. A \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e nevű, gépi tanuláson alapuló modell segítségével megtaníthatsz egy manót a mozdulataidra, és így együtt rophatod vele a táncparketten."
+		"message": "Ha egész életedben arról álmodtál, hogy tánccsoportot alakíts egy csapat rendkívül tehetséges táncoló manóval, akkor most szerencséd van. Vagyis majdnem. A <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a> nevű, gépi tanuláson alapuló modell segítségével megtaníthatsz egy manót a mozdulataidra, és így együtt rophatod vele a táncparketten."
 	},
 	"press-whatsnew2-title": {
 		"message": "Tánc(ok) a manókkal:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Ezenkívül valós időben láthatod a Mikulás helyzetét a Google Térképen – mindössze koppints a hamburgergombra, majd a „Helymegosztás” elemre, hogy láthasd, pontosan hol tart a Mikulás az útja során. Még egyszerűbb, ha ellátogatsz a \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e oldalra!"
+		"message": "Ezenkívül valós időben láthatod a Mikulás helyzetét a Google Térképen – mindössze koppints a hamburgergombra, majd a „Helymegosztás” elemre, hogy láthasd, pontosan hol tart a Mikulás az útja során. Még egyszerűbb, ha ellátogatsz a <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a> oldalra!"
 	},
 	"press-whatsnew3-title": {
 		"message": "A Mikulás követésének új módja:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Ha még több ünnepi vidámságra vágysz, nézd meg a Gboard ünnepi matricáit, amelyek \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e és \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e rendszerű készülékeken, továbbá \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-alkalmazásunkban\u003c/a\u003e is rendelkezésre állnak. Ha pedig irodalmi örömökre vágysz, mondd a következőt a Google Segédnek: „Mesélj el egy ünnepi történetet!”, vagy kérdezd meg tőle: „Hol van a Mikulás?”"
+		"message": "Ha még több ünnepi vidámságra vágysz, nézd meg a Gboard ünnepi matricáit, amelyek <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a> és <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> rendszerű készülékeken, továbbá <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android-alkalmazásunkban</a> is rendelkezésre állnak. Ha pedig irodalmi örömökre vágysz, mondd a következőt a Google Segédnek: „Mesélj el egy ünnepi történetet!”, vagy kérdezd meg tőle: „Hol van a Mikulás?”"
 	},
 	"press-whatsnew4-title": {
 		"message": "Még több vidámság az ünnepi időszakban:"
@@ -7323,7 +7323,7 @@
 		"message": "Telepítés"
 	},
 	"village_santa_intall_ios": {
-		"message": "Koppints a \u003cspan\u003e\u003c/span\u003e ikonra, majd az „Elhelyezés a kezdőképernyőn” lehetőségre"
+		"message": "Koppints a <span></span> ikonra, majd az „Elhelyezés a kezdőképernyőn” lehetőségre"
 	},
 	"village_takesoff": {
 		"message": "A Mikulás indulásáig hátralévő idő:"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

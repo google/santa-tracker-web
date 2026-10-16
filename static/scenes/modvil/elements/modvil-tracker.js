@@ -111,7 +111,7 @@ class ModvilTrackerElement extends LitElement {
     const demoMode = searchParams ? (searchParams.get('demo') === '1' || preflightParam === 'demo') : false;
 
     let demoStep = 0;
-    const demoMins = [115, 100, 85, 70, 55, 40, 25, 15, 8, 3, 0.5];
+    const demoMins = [115, 105, 95, 85, 76, 68, 60, 52, 44, 36, 29, 23, 17, 12, 8, 5, 3, 1.5, 0.75, 0.25];
 
     const updateNow = () => {
       if (demoMode) {

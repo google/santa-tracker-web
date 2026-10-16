@@ -3,7 +3,7 @@
 		"message": "Jõuluõhtul tutvustame teile jõuluvana juhtpaneeli – tehnoloogiat, mis annab tema saanile energia reisiks ümber maailma. Saime selle spetsiaalse eelvaate jõuluvana ühe arenduspäkapiku käest, kes on põhjapoolusel jõuluvana tähtsa päeva ettevalmistamise nimel kõvasti vaeva näinud. Jõuluvana juhtpaneel, mis sisaldab Google Mapsi ning saaniehituse uusimaid ja suurepärasemaid tehnoloogiaid, võimaldab teil jälgida jõuluvana teekonda ümber maailma ning saada veidi teadmisi tema teekonna mõne peatuspaiga kohta."
 	},
 	"about-content-three": {
-		"message": "Google Mapsi jõuluvana teekonna jälgimise on päkapikkude abiga välja töötanud Google. Kas vajate abi või on teil veel mõni küsimus? Külastage meie \u003ca href=\"//support.google.com/santatracker\"\u003eabikeskust\u003c/a\u003e."
+		"message": "Google Mapsi jõuluvana teekonna jälgimise on päkapikkude abiga välja töötanud Google. Kas vajate abi või on teil veel mõni küsimus? Külastage meie <a href=\"//support.google.com/santatracker\">abikeskust</a>."
 	},
 	"about-content-two": {
 		"message": "Meie sõbralikud päkapikud kutsuvad teid jõuluvana küla avastama, samal ajal kui jõuluvana valmistub oma teekonnaks. Tutvuge külaga, kust võite leida vahvat tegevust ja kohtuda huvitavate päkapikkudega."
@@ -501,7 +501,7 @@
 		"message": "Suurepärane"
 	},
 	"codelab-mwc-promo": {
-		"message": "Tutvuge Google’i kodeerimisprojektidega aadressil \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Tutvuge Google’i kodeerimisprojektidega aadressil <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Järgmine väljakutse"
@@ -684,13 +684,13 @@
 		"message": "Tekkis probleem – päkapikud uurivad asja."
 	},
 	"error-internal": {
-		"message": "Oih, ilmnes probleem! Teavitasime päkapikke sellest, kuid proovige \u003ca href=\"./\"\u003ejõulukülla\u003c/a\u003e tagasi minna."
+		"message": "Oih, ilmnes probleem! Teavitasime päkapikke sellest, kuid proovige <a href=\"./\">jõulukülla</a> tagasi minna."
 	},
 	"error-lost-connection": {
 		"message": "Paistab, et ühendus põhjapoolusega on katkenud. Jõuluvana päkapikud teevad kõvasti tööd, et ühendus taastada – jääge meiega!"
 	},
 	"error-not-found": {
-		"message": "Oih, päkapikud ei leia seda lehte! Proovige \u003ca href=\"./\"\u003ejõulukülla\u003c/a\u003e tagasi minna."
+		"message": "Oih, päkapikud ei leia seda lehte! Proovige <a href=\"./\">jõulukülla</a> tagasi minna."
 	},
 	"error-out-of-date": {
 		"message": "See on Jõuluküla aegunud versioon. Uusima versiooni nägemiseks avage jõuluvana jälgimise rakendus uuesti."
@@ -720,7 +720,7 @@
 		"message": "Õppige detsembrikuus Google'i assistendilt jõuluvana kohta uut ja huvitavat! See integratsioon on saadaval valitud keeltes."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Lapsevanema loaga võivad ka alla 13-aastased lapsed logida Google'i assistendis isikupärastatud kasutuskogemuse saamiseks sisse omaenda kontoga, mida hallatakse \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Linkis\u003c/a\u003e."
+		"message": "Lapsevanema loaga võivad ka alla 13-aastased lapsed logida Google'i assistendis isikupärastatud kasutuskogemuse saamiseks sisse omaenda kontoga, mida hallatakse <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Linkis</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google'i assistent viib teid jõulukülla, kus jõuluvana harjutab kontserdiks. Ta oskab ainult ühte lugu – aidake tal harjutada!"
@@ -1215,7 +1215,7 @@
 		"message": "norra keel"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya viib praktilise loodusteaduse lasteni kõikjal India maapiirkondades. Oma teaduskeskustes ja teadusbussides käsitlevad nad paljusid eri teemasid alates päikesesüsteemist ja lõpetades aju tööpõhimõtetega. Nad on jõudnud rohkem kui viie miljoni lapse ja 200 000 õpetajani India 14 osariigis – tegu on ühe suurima kooliteadusprogrammiga maailmas! Google.org on Agastya uhke \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003etoetaja\u003c/a\u003e."
+		"message": "Agastya viib praktilise loodusteaduse lasteni kõikjal India maapiirkondades. Oma teaduskeskustes ja teadusbussides käsitlevad nad paljusid eri teemasid alates päikesesüsteemist ja lõpetades aju tööpõhimõtetega. Nad on jõudnud rohkem kui viie miljoni lapse ja 200 000 õpetajani India 14 osariigis – tegu on ühe suurima kooliteadusprogrammiga maailmas! Google.org on Agastya uhke <a href=\"https://www.google.org/impact-challenge/agastya/\">toetaja</a>."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Õpetajad ja õpilased"
@@ -1248,7 +1248,7 @@
 		"message": "Tõstame koos Google.org'iga esile viit haridusalast mittetulundusorganisatsiooni, kelle jaoks on aasta läbi andmise aeg. Kerige alla, et lugeda lisaks nende organisatsioonide tegevuse kohta. Poolehoiu ülesnäitamiseks värvige see kaunistuste kogumik ning riputage need oma jõulupuule või kinkige lähedastele."
 	},
 	"nonprofit-jane-description": {
-		"message": "Šimpansid on inimese lähimad elusolevad sugulased loomariigis. Tänasel päeval on elupaikade hävimise, haiguste ja ebaseadusliku kaubitsemise tõttu maailmas alles alla 300 000 šimpansi. Organisatsioon Jane Goodall Institute (JGI) tegeleb šimpansite kaitsmisega. Selleks jälgitakse ja üritatakse mõista nende käitumist ning elupaiku. Samuti on JGI eesmärgiks luua kogukond, kes tegeleb loomariigi ja meie ühise keskkonna kaitsmise ning säilitamisega. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eTutvuge šimpansite elupaikadega\u003c/a\u003e Gombes, Tansaanias."
+		"message": "Šimpansid on inimese lähimad elusolevad sugulased loomariigis. Tänasel päeval on elupaikade hävimise, haiguste ja ebaseadusliku kaubitsemise tõttu maailmas alles alla 300 000 šimpansi. Organisatsioon Jane Goodall Institute (JGI) tegeleb šimpansite kaitsmisega. Selleks jälgitakse ja üritatakse mõista nende käitumist ning elupaiku. Samuti on JGI eesmärgiks luua kogukond, kes tegeleb loomariigi ja meie ühise keskkonna kaitsmise ning säilitamisega. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Tutvuge šimpansite elupaikadega</a> Gombes, Tansaanias."
 	},
 	"nonprofit-jane-type": {
 		"message": "Šimpansid"
@@ -1287,13 +1287,13 @@
 		"message": "Nutiprillid"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 miljardil inimesel ei ole juurdepääsu elektrienergiale ning nad peavad kasutama petrooleumilampe, mis on tuleohtlikud ja saastavad kodusid. Päikeselambid seevastu salvestavad päeval päikeseenergiat ning valgustavad pikki õhtutunde ilma tuleohu ja saasteta. Need aitavad inimestel lugeda, mängida ja õhtul ohutult koju jõuda. Google.org on programmi SolarAid uhke \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003etoetaja\u003c/a\u003e."
+		"message": "1,3 miljardil inimesel ei ole juurdepääsu elektrienergiale ning nad peavad kasutama petrooleumilampe, mis on tuleohtlikud ja saastavad kodusid. Päikeselambid seevastu salvestavad päeval päikeseenergiat ning valgustavad pikki õhtutunde ilma tuleohu ja saasteta. Need aitavad inimestel lugeda, mängida ja õhtul ohutult koju jõuda. Google.org on programmi SolarAid uhke <a href=\"https://www.google.org/impact-challenge/solaraid/\">toetaja</a>."
 	},
 	"nonprofit-solar-type": {
 		"message": "Päikesevalgus"
 	},
 	"nonprofit-water-description": {
-		"message": "Kasutame vett duši all ja vannis käimiseks, toidu valmistamiseks ja muidugi janu kustutamiseks. Puhas vesi on hinnaline loodusvara, aga paljud peavad seda ammutama käsitsi kaevatud kaevudest, millesse koguneb sügaval maapinnas asuv põhjavesi. Programm charity: water teeb kohalike partneritega koostööd kaevude rajamiseks ja muude veevarustusprojektide elluviimiseks seal, kus neid vajatakse. Google.org on programmi charity: water uhke \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003etoetaja\u003c/a\u003e."
+		"message": "Kasutame vett duši all ja vannis käimiseks, toidu valmistamiseks ja muidugi janu kustutamiseks. Puhas vesi on hinnaline loodusvara, aga paljud peavad seda ammutama käsitsi kaevatud kaevudest, millesse koguneb sügaval maapinnas asuv põhjavesi. Programm charity: water teeb kohalike partneritega koostööd kaevude rajamiseks ja muude veevarustusprojektide elluviimiseks seal, kus neid vajatakse. Google.org on programmi charity: water uhke <a href=\"https://www.google.org/global-impact-awards/charity-water/\">toetaja</a>."
 	},
 	"nonprofit-water-type": {
 		"message": "Kaev"
@@ -1305,7 +1305,7 @@
 		"message": "Liikumisabivahendid"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Kliimamuutused häirivad jätkuvalt paljude maailma ökosüsteemide tasakaalu (nii soojades kui ka külmades piirkondades). Temperatuuritõusu tõttu on Arktikas hävimas jääkarude merejääl asuvad elupaigad. Lisaks ohustab jääkarusid ka inimtegevus, nt nafta ja gaasi puurimine ning tarnimine. Organisatsiooni World Wildlife Fund eesmärgiks on tagada liikide ellujäämine ning selleks viiakse läbi teadusuuringuid ja tehakse koostööd Arktika kohalike kogukondadega. Organisatsioonil Google.org on au olla organisatsiooni World Wildlife Fund \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003etoetaja\u003c/a\u003e."
+		"message": "Kliimamuutused häirivad jätkuvalt paljude maailma ökosüsteemide tasakaalu (nii soojades kui ka külmades piirkondades). Temperatuuritõusu tõttu on Arktikas hävimas jääkarude merejääl asuvad elupaigad. Lisaks ohustab jääkarusid ka inimtegevus, nt nafta ja gaasi puurimine ning tarnimine. Organisatsiooni World Wildlife Fund eesmärgiks on tagada liikide ellujäämine ning selleks viiakse läbi teadusuuringuid ja tehakse koostööd Arktika kohalike kogukondadega. Organisatsioonil Google.org on au olla organisatsiooni World Wildlife Fund <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">toetaja</a>."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Jääkaru"
@@ -1440,7 +1440,7 @@
 		"message": "Jõuluküla tähistab viieteistkümnendat hooaega täis lõbusaid ja harivaid interaktiivseid pühadetegevusi. Jõulumemme juhendamisel vuntsisid päkapikud küla üles ja lisasid hulga uut sisu. Kakaotoitel keskküttesüsteemiga ei kulu jõuluküla kütmiseks enam kogu detsembrit – kõik kaks tosinat tegevust on saadaval juba 4. detsembril. Nii on päkapikkudel (ja teil) mängimiseks ja jõuluküla avastamiseks rohkem aega."
 	},
 	"press-about-village2": {
-		"message": "Jõulukülas saate harjutada programmeerimist, tegeleda kunstiga, panna proovile oma geograafiateadmised ning tutvuda heategevuslike organisatsioonidega, näiteks \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e ja \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Õpetajatele on allalaadimiseks saadaval isegi videojuhenditega \u003ca href=\"./educators.html\"\u003eainekavad\u003c/a\u003e õpilastele programmeerimise põhialuste ja pühadetraditsioonide õpetamiseks inglise, hispaania, prantsuse, jaapani ja korea keeles."
+		"message": "Jõulukülas saate harjutada programmeerimist, tegeleda kunstiga, panna proovile oma geograafiateadmised ning tutvuda heategevuslike organisatsioonidega, näiteks <a href=\"https://www.khanacademy.org/\">Khan Academy</a> ja <a href=\"https://code.org/\">Code.org</a>. Õpetajatele on allalaadimiseks saadaval isegi videojuhenditega <a href=\"./educators.html\">ainekavad</a> õpilastele programmeerimise põhialuste ja pühadetraditsioonide õpetamiseks inglise, hispaania, prantsuse, jaapani ja korea keeles."
 	},
 	"press-asset-animation": {
 		"message": "Animatsioon"
@@ -1461,7 +1461,7 @@
 		"message": "Harivad seiklused"
 	},
 	"press-edu1": {
-		"message": "Lisasime \u003ca href=\"./educators.html\"\u003eõpetajatele mõeldud materjalide lehele\u003c/a\u003e viies keeles ainekavade videojuhendid. Olemas on kõik teie lemmikmängud, mis õpetavad programmeerimise põhitõdesid ja eri rahvaste pühadetraditsioone. Google'i jõuluvana jälgimise rakendus innustab lapsi pühade ajal lõbusalt õppima – tutvuge \u003ca href=\"./educators.html\"\u003emeie harivate mängudega\u003c/a\u003e."
+		"message": "Lisasime <a href=\"./educators.html\">õpetajatele mõeldud materjalide lehele</a> viies keeles ainekavade videojuhendid. Olemas on kõik teie lemmikmängud, mis õpetavad programmeerimise põhitõdesid ja eri rahvaste pühadetraditsioone. Google'i jõuluvana jälgimise rakendus innustab lapsi pühade ajal lõbusalt õppima – tutvuge <a href=\"./educators.html\">meie harivate mängudega</a>."
 	},
 	"press-games-title": {
 		"message": "Tali ja mängud"
@@ -1491,19 +1491,19 @@
 		"message": "Disainige päkapikk:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Kui olete alati unistanud andekate päkapikkude tantsutrupi kokkupanemisest, siis nüüd on hea võimalus. Peaaegu. Masinõppemudel nimega \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e aitab teil päkapikule enda lemmikliigutusi õpetada."
+		"message": "Kui olete alati unistanud andekate päkapikkude tantsutrupi kokkupanemisest, siis nüüd on hea võimalus. Peaaegu. Masinõppemudel nimega <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a> aitab teil päkapikule enda lemmikliigutusi õpetada."
 	},
 	"press-whatsnew2-title": {
 		"message": "Tantsud päkapikkudega:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Saate jõuluvana asukohta vaadata ka Google Mapsis – lihtsalt puudutage kolmetäpinuppu ja seejärel valikut „Asukoha jagamine”, et näha, kus täpselt jõuluvana parajasti viibib. See link viib kiiresti sinna: \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+		"message": "Saate jõuluvana asukohta vaadata ka Google Mapsis – lihtsalt puudutage kolmetäpinuppu ja seejärel valikut „Asukoha jagamine”, et näha, kus täpselt jõuluvana parajasti viibib. See link viib kiiresti sinna: <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>!"
 	},
 	"press-whatsnew3-title": {
 		"message": "Uus viis jõuluvana teekonna jälgimiseks:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Kui armastate pühadekaunistusi, vaadake \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroidis\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS-is\u003c/a\u003e ja meie \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroidi rakenduses\u003c/a\u003e saadaval olevaid Gboardi pühadekleebiseid. Kui tahate midagi huvitavat kuulata, öelge Google'i assistendile „Tell me a holiday story” (Räägi mulle pühadelugu) või „Where's Santa” (Kus jõuluvana on?)."
+		"message": "Kui armastate pühadekaunistusi, vaadake <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Androidis</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS-is</a> ja meie <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Androidi rakenduses</a> saadaval olevaid Gboardi pühadekleebiseid. Kui tahate midagi huvitavat kuulata, öelge Google'i assistendile „Tell me a holiday story” (Räägi mulle pühadelugu) või „Where's Santa” (Kus jõuluvana on?)."
 	},
 	"press-whatsnew4-title": {
 		"message": "Veel pühaderõõmu:"
@@ -7323,7 +7323,7 @@
 		"message": "Installi"
 	},
 	"village_santa_intall_ios": {
-		"message": "Lihtsalt puudutage nuppu \u003cspan\u003e\u003c/span\u003e ja seejärel valikut „Lisa avakuvale”"
+		"message": "Lihtsalt puudutage nuppu <span></span> ja seejärel valikut „Lisa avakuvale”"
 	},
 	"village_takesoff": {
 		"message": "Jõuluvana asub teele"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

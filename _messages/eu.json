@@ -3,7 +3,7 @@
 		"message": "Gabon-gauean jarriko dugu ikusgai Bizarzuriren panela; hain zuzen ere, Bizarzurik mundua zeharkatzen duen bitartean haren lera bultzatzen duen teknologia da panel hori. Bizarzurik iratxo garatzaile ugari ditu Ipar poloan, eta buru-belarri ari dira lanean Gabonetako egun handia prestatzeko. Iratxo horietako batek aurrebista berezi hau bidali digu. Google Maps-en teknologia eta lera-ingeniaritza berri eta hoberenaz egina dago Bizarzuriren panela, eta, haren bitartez, jarraipena egin diezaiokezu Bizarzurik munduan zehar egiten duen bideari. Geldialdiak non egiten dituen ikusi ahalko duzu, eta apur bat ikasi ahalko duzu leku horiei buruz."
 	},
 	"about-content-three": {
-		"message": "Google-k sortu eta garatu du Google Maps-eko Bizarzuriren lorratzak aplikazioa, Bizarzuriren iratxoen laguntza apur bati esker. Laguntza behar duzu edo beste galderarik duzu? Joan \u003ca href=\"//support.google.com/santatracker\"\u003elaguntza-zentrora\u003c/a\u003e."
+		"message": "Google-k sortu eta garatu du Google Maps-eko Bizarzuriren lorratzak aplikazioa, Bizarzuriren iratxoen laguntza apur bati esker. Laguntza behar duzu edo beste galderarik duzu? Joan <a href=\"//support.google.com/santatracker\">laguntza-zentrora</a>."
 	},
 	"about-content-two": {
 		"message": "Gainera, iratxo atseginek Bizarzuriren herrixka ezagutzera gonbidatu zaituzte, Bizarzuri bidaiari ekiteko prestatzen den bitartean. Beraz, sartu lasai eta ibili hara-hona kaleetatik. Ziurrenik jarduera dibertigarriak aurkitu eta iratxo interesgarriak ezagutuko dituzulako bertan."
@@ -501,7 +501,7 @@
 		"message": "Primeran"
 	},
 	"codelab-mwc-promo": {
-		"message": "Arakatu Google-ren programazio-proiektu gehiago hemen: \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Arakatu Google-ren programazio-proiektu gehiago hemen: <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Hurrengo erronka"
@@ -684,13 +684,13 @@
 		"message": "Arazo bat izan da, baina Bizarzuriren iratxoak gogor ari dira lanean hura konpontzeko."
 	},
 	"error-internal": {
-		"message": "Hara! Arazo bat izan da! Jakinarazi diegu Bizarzuriren iratxoei, baina, badaezpada ere, itzuli \u003ca href=\"./\"\u003eBizarzuriren herrixkara\u003c/a\u003e."
+		"message": "Hara! Arazo bat izan da! Jakinarazi diegu Bizarzuriren iratxoei, baina, badaezpada ere, itzuli <a href=\"./\">Bizarzuriren herrixkara</a>."
 	},
 	"error-lost-connection": {
 		"message": "Badirudi Ipar Poloarekin konexioa galdu dugula. Bizarzuriren iratxoak arazoa konpontzen ari dira. Egon adi!"
 	},
 	"error-not-found": {
-		"message": "Ene, Bizarzuriren iratxoek ezin dute orrialde hau aurkitu. \u003ca href=\"./\"\u003eBizarzuriren herrixkara\u003c/a\u003e bazoaz, hurrengoan hobeto atera daiteke."
+		"message": "Ene, Bizarzuriren iratxoek ezin dute orrialde hau aurkitu. <a href=\"./\">Bizarzuriren herrixkara</a> bazoaz, hurrengoan hobeto atera daiteke."
 	},
 	"error-out-of-date": {
 		"message": "Bizarzuriren herrixkaren bertsio zaharkitua da hau. Saiatu berriro Bizarzuriren lorratzak aplikazioa irekitzen, azken bertsioa ikusteko."
@@ -720,7 +720,7 @@
 		"message": "Erabili Google-ren Laguntzailea abenduan Bizarzuriri buruzko informazio gehiago lortzeko. Integrazio hori hizkuntza batzuetan bakarrik dago erabilgarri."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Gurasoen baimenarekin, 13 urtetik beherako haurrek esperientzia pertsonalizatua izango dute Google-ren Laguntzailea zerbitzuan, kontuan saioa hasten dutenean, kontua \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e bidez kudeatuta egonez gero."
+		"message": "Gurasoen baimenarekin, 13 urtetik beherako haurrek esperientzia pertsonalizatua izango dute Google-ren Laguntzailea zerbitzuan, kontuan saioa hasten dutenean, kontua <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a> bidez kudeatuta egonez gero."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google-ren Laguntzailea zerbitzuak Ipar Poloarekin konektatuko zaitu; bertan, Bizarzuri kontzertu bat emateko entseatzen ari da. Abesti bat baino ez daki; lagunduko diozu hura jotzeko modurik onena zein den aurkitzen?"
@@ -1215,7 +1215,7 @@
 		"message": "Norvegiera"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya erakundeak zientziaren arloko hezkuntza praktikoa ematen die Indiako landa-eremuetako haur askori. Denetarik irakasten du bere zientzia-zentroetan nahiz zientzia-furgoneta mugikorretan, eguzki-sistematik burmuinaren funtzionamenduraino. Indiako 14 estatutan bost milioi haurrengana eta 200.000 irakaslerengana baino gehiagorengana iritsi da; izan ere, munduko zientzia-arloko hezkuntza-programa handienetariko bat da! Google.org harro dago Agastya \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esustatzeaz\u003c/a\u003e."
+		"message": "Agastya erakundeak zientziaren arloko hezkuntza praktikoa ematen die Indiako landa-eremuetako haur askori. Denetarik irakasten du bere zientzia-zentroetan nahiz zientzia-furgoneta mugikorretan, eguzki-sistematik burmuinaren funtzionamenduraino. Indiako 14 estatutan bost milioi haurrengana eta 200.000 irakaslerengana baino gehiagorengana iritsi da; izan ere, munduko zientzia-arloko hezkuntza-programa handienetariko bat da! Google.org harro dago Agastya <a href=\"https://www.google.org/impact-challenge/agastya/\">sustatzeaz</a>."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Irakasleak eta ikasleak"
@@ -1248,7 +1248,7 @@
 		"message": "Google.org webgunearekin bat egin dugu hezkuntzaren alorreko irabazi-asmorik gabeko bost erakunde nabarmentzeko. Izan ere, erakunde horiek, Gabonetan ez ezik, urte osoan dira eskuzabal. Egin behera erakunde bakoitzaren jardun-eremua ikusteko. Adierazi elkartasuna apaingarri sorta hau koloreztatu eta zuhaitzean ipiniz edo maite duzun jendeari oparituz."
 	},
 	"nonprofit-jane-description": {
-		"message": "Txinpantzeak dira egungo animalien artean gizakiaren seniderik hurbilenak. Gaur egun, 300.000 txinpantze baino gutxiago geratzen dira, habitataren galera, gaixotasunak eta legez kanpoko merkataritza direla eta. Jane Goodall Institute (JGI) institutuak babestu egiten ditu txinpantzeak, haien portaera eta habitatak behatuz eta ulertuz. Gainera, animalia basatiak eta denok partekatzen dugun ingurunea babesten eta kontserbatzen dituen jendea biltzen duen komunitate bat eratzen ari da JGI erakundea. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eArakatu txinpantzeen habitatak\u003c/a\u003e Gomben, Tanzanian."
+		"message": "Txinpantzeak dira egungo animalien artean gizakiaren seniderik hurbilenak. Gaur egun, 300.000 txinpantze baino gutxiago geratzen dira, habitataren galera, gaixotasunak eta legez kanpoko merkataritza direla eta. Jane Goodall Institute (JGI) institutuak babestu egiten ditu txinpantzeak, haien portaera eta habitatak behatuz eta ulertuz. Gainera, animalia basatiak eta denok partekatzen dugun ingurunea babesten eta kontserbatzen dituen jendea biltzen duen komunitate bat eratzen ari da JGI erakundea. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Arakatu txinpantzeen habitatak</a> Gomben, Tanzanian."
 	},
 	"nonprofit-jane-type": {
 		"message": "Txinpantzeak"
@@ -1287,13 +1287,13 @@
 		"message": "Betaurreko adimendunak"
 	},
 	"nonprofit-solar-description": {
-		"message": "1.300 milioi pertsonak ez dute elektrizitatea erabiltzeko aukerarik, eta haietako askok etxeak kutsatzen dituzten eta erregaiak darabiltzaten kerosenozko lanparak erabili behar dituzte. Eguzki-argiek, ordea, egunean zehar eguzkiaren energia xurgatzen dute eta gauez argi-ordu batzuk ematen dituzte ezer erre edo kutsatu gabe. Gauean irakurtzeko, jolasteko eta etxera seguru iristeko aukera ematen dizute. SolarAid enpresak eguzki-argiak erabiltzeko aukera ematen die haien beharra duten pertsona askori. Google.org harro dago SolarAid \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esustatzeaz\u003c/a\u003e."
+		"message": "1.300 milioi pertsonak ez dute elektrizitatea erabiltzeko aukerarik, eta haietako askok etxeak kutsatzen dituzten eta erregaiak darabiltzaten kerosenozko lanparak erabili behar dituzte. Eguzki-argiek, ordea, egunean zehar eguzkiaren energia xurgatzen dute eta gauez argi-ordu batzuk ematen dituzte ezer erre edo kutsatu gabe. Gauean irakurtzeko, jolasteko eta etxera seguru iristeko aukera ematen dizute. SolarAid enpresak eguzki-argiak erabiltzeko aukera ematen die haien beharra duten pertsona askori. Google.org harro dago SolarAid <a href=\"https://www.google.org/impact-challenge/solaraid/\">sustatzeaz</a>."
 	},
 	"nonprofit-solar-type": {
 		"message": "Eguzkiaren argia"
 	},
 	"nonprofit-water-description": {
-		"message": "Ura dutxatzeko, bainatzeko, janaria presatzeko eta, noski, edateko erabiltzen dugu. Ur garbia errekurtso preziatu bat da eta jende askok eskuz egindako putzuak erabiltzen ditu akuiferoetara heltzeko. Akuiferoek ur garbia lurraren barrenean mantentzen dute, arroka- eta lur-geruzen artean. Ongintza: tokiko bazkideekin batera ura lortzeko lanak egitea eta urarekin erlazionatutako beste proiektu batzuk gauzatzea, haien behar handia duten tokietan. Google.org harro dago ongintza \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esustatzeaz\u003c/a\u003e: ura."
+		"message": "Ura dutxatzeko, bainatzeko, janaria presatzeko eta, noski, edateko erabiltzen dugu. Ur garbia errekurtso preziatu bat da eta jende askok eskuz egindako putzuak erabiltzen ditu akuiferoetara heltzeko. Akuiferoek ur garbia lurraren barrenean mantentzen dute, arroka- eta lur-geruzen artean. Ongintza: tokiko bazkideekin batera ura lortzeko lanak egitea eta urarekin erlazionatutako beste proiektu batzuk gauzatzea, haien behar handia duten tokietan. Google.org harro dago ongintza <a href=\"https://www.google.org/global-impact-awards/charity-water/\">sustatzeaz</a>: ura."
 	},
 	"nonprofit-water-type": {
 		"message": "Putzuak"
@@ -1305,7 +1305,7 @@
 		"message": "Mugikortasuna"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Klima-aldaketak munduko hainbat ekosistemaren oreka hondatzen jarraitzen du, hala leku epeletan nola hotzetan. Artikoan, hartz zuriak itsaso izoztuko habitata galtzen ari dira tenperaturak igotzen ari direlako, eta giza jardueren ondoriozko mehatxuei ere egin behar diete aurre: adibidez, petrolio- eta gas-erauzketen ugaritzea eta itsasontziak. World Wildlife Fund erakundea espeziaren biziraupena ziurtatzeko lanean ari da ikerketa zientifikoak eginez eta Artikoko komunitateekin lankidetzan arituz. Google.org harro dago World Wildlife Fund \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003elaguntzeaz\u003c/a\u003e."
+		"message": "Klima-aldaketak munduko hainbat ekosistemaren oreka hondatzen jarraitzen du, hala leku epeletan nola hotzetan. Artikoan, hartz zuriak itsaso izoztuko habitata galtzen ari dira tenperaturak igotzen ari direlako, eta giza jardueren ondoriozko mehatxuei ere egin behar diete aurre: adibidez, petrolio- eta gas-erauzketen ugaritzea eta itsasontziak. World Wildlife Fund erakundea espeziaren biziraupena ziurtatzeko lanean ari da ikerketa zientifikoak eginez eta Artikoko komunitateekin lankidetzan arituz. Google.org harro dago World Wildlife Fund <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">laguntzeaz</a>."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Hartz zuria"
@@ -1440,7 +1440,7 @@
 		"message": "Bizarzuriren herrixkan jaietako jarduera dibertigarrien, hezitzaileen eta interaktiboen hamabosgarren urteurrena ospatzen ari dira. Bizarzuriren emazteak zuzenduta, iratxoek herria eraberritu dute eta itxura dotore eta polita eman diote, eduki berri-berri eta guzti. Gainera, txokolate beroarekin funtzionatzen duen berotze-sistema berri bati esker, aurrerantzean ez da beharrezkoa izango abendua bukatzera arte itxarotea herria urtzen ikusteko: abenduaren 4an egongo dira erabilgarri 24 jarduerak. Orain, iratxoek (eta zuk zeuk) denbora gehiago daukate Bizarzuriren herrixkan zehar ibiltzeko eta bertan jolasteko."
 	},
 	"press-about-village2": {
-		"message": "Herrixkan, oinarrizko programazio-gaitasunak praktikatu, artelanak sortu, geografian trebatu eta \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e, \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e eta antzeko karitatezko erakundeei buruzko informazio gehiago lor dezakezu. Irakasleek bideogidak dituzten \u003ca href=\"./educators.html\"\u003eikasgai-planak deskarga ditzakete\u003c/a\u003e ikasleei oinarrizko programazio-gaitasunak nahiz jaietako tradizioak irakasteko, ingelesez, gaztelaniaz, frantsesez, japonieraz eta koreeraz."
+		"message": "Herrixkan, oinarrizko programazio-gaitasunak praktikatu, artelanak sortu, geografian trebatu eta <a href=\"https://www.khanacademy.org/\">Khan Academy</a>, <a href=\"https://code.org/\">Code.org</a> eta antzeko karitatezko erakundeei buruzko informazio gehiago lor dezakezu. Irakasleek bideogidak dituzten <a href=\"./educators.html\">ikasgai-planak deskarga ditzakete</a> ikasleei oinarrizko programazio-gaitasunak nahiz jaietako tradizioak irakasteko, ingelesez, gaztelaniaz, frantsesez, japonieraz eta koreeraz."
 	},
 	"press-asset-animation": {
 		"message": "Animazioa"
@@ -1461,7 +1461,7 @@
 		"message": "Heziketa-abenturak"
 	},
 	"press-edu1": {
-		"message": "\u003ca href=\"./educators.html\"\u003eHezitzaileentzako baliabide-orria\u003c/a\u003e zabaldu dugu hezitzaileei bideogidak eskaintzeko, ikasketa-planekin batera erabil ditzaten. Orain, bost hizkuntzatan daude erabilgarri. Gogoko dituzun jokoak bertan daude oraindik, eta programazioaren zein mundu osoko jaietako tradizioen oinarrizko kontzeptuak aurkezten dira. Google-ren Bizarzuriren lorratzak eginbideari esker, aurtengo jaietan gauza mordoa ikasiko dute txikitxoek. Joan \u003ca href=\"./educators.html\"\u003egure joko hezigarrietara\u003c/a\u003e informazio gehiago lortzeko."
+		"message": "<a href=\"./educators.html\">Hezitzaileentzako baliabide-orria</a> zabaldu dugu hezitzaileei bideogidak eskaintzeko, ikasketa-planekin batera erabil ditzaten. Orain, bost hizkuntzatan daude erabilgarri. Gogoko dituzun jokoak bertan daude oraindik, eta programazioaren zein mundu osoko jaietako tradizioen oinarrizko kontzeptuak aurkezten dira. Google-ren Bizarzuriren lorratzak eginbideari esker, aurtengo jaietan gauza mordoa ikasiko dute txikitxoek. Joan <a href=\"./educators.html\">gure joko hezigarrietara</a> informazio gehiago lortzeko."
 	},
 	"press-games-title": {
 		"message": "Dibertsio eta joko guztiak"
@@ -1491,19 +1491,19 @@
 		"message": "Sortu iratxo bat:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Bizarzuriren iratxoez osatutako dantza-talde bat sortu nahi izan baduzu betidanik, orain da zure aukera. Ia. \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e deritzon ikasketa automatikoko modeloa erabilita, iratxo bat treba dezakezu zure mugimenduak ikas ditzan eta dantzan has dadin."
+		"message": "Bizarzuriren iratxoez osatutako dantza-talde bat sortu nahi izan baduzu betidanik, orain da zure aukera. Ia. <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a> deritzon ikasketa automatikoko modeloa erabilita, iratxo bat treba dezakezu zure mugimenduak ikas ditzan eta dantzan has dadin."
 	},
 	"press-whatsnew2-title": {
 		"message": "Iratxoekin dantzan:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Bizarzuriren oraingo kokapena ikusi ahal izango duzu Google Maps-en. Horretarako, sakatu menuaren botoia, eta, gero, \"Kokapena partekatzea\", Bizarzuri non dagoen ikusteko bere bidaia osoan zehar. Bestela, \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e helbidera joan zaitezke lasterbide erraz bat ikusteko!"
+		"message": "Bizarzuriren oraingo kokapena ikusi ahal izango duzu Google Maps-en. Horretarako, sakatu menuaren botoia, eta, gero, \"Kokapena partekatzea\", Bizarzuri non dagoen ikusteko bere bidaia osoan zehar. Bestela, <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a> helbidera joan zaitezke lasterbide erraz bat ikusteko!"
 	},
 	"press-whatsnew3-title": {
 		"message": "Bizarzuriri jarraitzeko beste era bat:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Jaietako espiritu handiagoa nahi baduzu, eman begirada bat \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e eta \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e gailuetan eta gure \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid-erako aplikazioan\u003c/a\u003e erabilgarri dauden jaietako eranskailuei. Horrez gain, kontu dibertigarria batzuk ikas ditzakezu Google-ren Laguntzailea zerbitzuari \"Kontatu jaietako istorio bat\" eta \"Non da Bizarzuri?\" esanda."
+		"message": "Jaietako espiritu handiagoa nahi baduzu, eman begirada bat <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a> eta <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> gailuetan eta gure <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android-erako aplikazioan</a> erabilgarri dauden jaietako eranskailuei. Horrez gain, kontu dibertigarria batzuk ikas ditzakezu Google-ren Laguntzailea zerbitzuari \"Kontatu jaietako istorio bat\" eta \"Non da Bizarzuri?\" esanda."
 	},
 	"press-whatsnew4-title": {
 		"message": "Oporretarako dibertsio gehiago:"
@@ -7323,7 +7323,7 @@
 		"message": "Instalatu"
 	},
 	"village_santa_intall_ios": {
-		"message": "Sakatu \u003cspan\u003e\u003c/span\u003e eta \"Gehitu orri nagusian\""
+		"message": "Sakatu <span></span> eta \"Gehitu orri nagusian\""
 	},
 	"village_takesoff": {
 		"message": "Bizarzuri aireratzeko gelditzen dena:"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

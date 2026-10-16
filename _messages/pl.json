@@ -3,7 +3,7 @@
 		"message": "W Wigilię pokażemy specjalny grafik Świętego Mikołaja i powiemy więcej o technologii, której używa do podróżowania po świecie. Materiały do tej szczególnej prezentacji otrzymaliśmy od jednego z wielu elfów, które na biegunie północnym pracowicie pomagają Świętemu Mikołajowi przygotować się do tego ważnego dnia. Grafik Świętego Mikołaja wykorzystuje najnowsze i najlepsze funkcje Map Google oraz inne technologie używane w saniach. Dzięki niemu możesz śledzić trasę podróży Świętego Mikołaja po całym świecie i dowiedzieć się czegoś o miejscach, w których się zatrzymuje."
 	},
 	"about-content-three": {
-		"message": "Trasa Świętego Mikołaja w Mapach Google została utworzona i jest rozwijana przez Google (przy niewielkim wsparciu elfów). Jeśli potrzebujesz pomocy lub chcesz zadać pytanie, odwiedź nasze \u003ca href=\"//support.google.com/santatracker\"\u003eCentrum pomocy\u003c/a\u003e."
+		"message": "Trasa Świętego Mikołaja w Mapach Google została utworzona i jest rozwijana przez Google (przy niewielkim wsparciu elfów). Jeśli potrzebujesz pomocy lub chcesz zadać pytanie, odwiedź nasze <a href=\"//support.google.com/santatracker\">Centrum pomocy</a>."
 	},
 	"about-content-two": {
 		"message": "Nasze znajome elfy zapraszają Cię też do odwiedzenia wioski Świętego Mikołaja podczas jego przygotowań do podróży. Zobacz, jak wygląda miejsce, gdzie mieszka Mikołaj. Możesz też zagrać w ciekawe gry i poznać sympatyczne elfy."
@@ -501,7 +501,7 @@
 		"message": "Doskonale"
 	},
 	"codelab-mwc-promo": {
-		"message": "Zobacz więcej projektów kodowania Google na \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Zobacz więcej projektów kodowania Google na <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Następny poziom"
@@ -684,13 +684,13 @@
 		"message": "Wystąpił problem, ale elfy już się tym zajmują."
 	},
 	"error-internal": {
-		"message": "Wystąpił problem. Poinformowaliśmy już elfy, ale lepiej spróbuj wrócić do \u003ca href=\"./\"\u003eWioski Świętego Mikołaja\u003c/a\u003e."
+		"message": "Wystąpił problem. Poinformowaliśmy już elfy, ale lepiej spróbuj wrócić do <a href=\"./\">Wioski Świętego Mikołaja</a>."
 	},
 	"error-lost-connection": {
 		"message": "Wygląda na to, że właśnie straciliśmy połączenie z biegunem północnym. Elfy Świętego Mikołaja dwoją się i troją nad rozwiązaniem problemu – cierpliwości!"
 	},
 	"error-not-found": {
-		"message": "Elfy nie mogą znaleźć tej strony. Może będziesz mieć więcej szczęścia, gdy wrócisz do \u003ca href=\"./\"\u003ewioski Mikołaja\u003c/a\u003e."
+		"message": "Elfy nie mogą znaleźć tej strony. Może będziesz mieć więcej szczęścia, gdy wrócisz do <a href=\"./\">wioski Mikołaja</a>."
 	},
 	"error-out-of-date": {
 		"message": "To nieaktualna wersja Wioski Świętego Mikołaja. Otwórz Trasę Świętego Mikołaja jeszcze raz, aby zobaczyć najnowszą wersję."
@@ -720,7 +720,7 @@
 		"message": "Skorzystaj z pomocy Asystenta Google, by w grudniu dowiedzieć się jak najwięcej o Świętym Mikołaju! Ta integracja jest dostępna w wybranych językach."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Za zgodą rodzica dzieci poniżej 13 roku życia mogą korzystać ze spersonalizowanej wersji Asystenta Google po zalogowaniu się na własne konto, którym rodzice zarządzają w aplikacji \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Za zgodą rodzica dzieci poniżej 13 roku życia mogą korzystać ze spersonalizowanej wersji Asystenta Google po zalogowaniu się na własne konto, którym rodzice zarządzają w aplikacji <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Asystent Google połączy Cię z biegunem północnym, gdzie Święty Mikołaj odbywa próbę przed koncertem. Mikołaj zna tylko jedną piosenkę – pomożesz mu znaleźć najlepszy sposób, żeby ją zagrać?"
@@ -1215,7 +1215,7 @@
 		"message": "norweski"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya zapewnia praktyczną edukację matematyczno-przyrodniczą dzieciom mieszkającym na terenach wiejskich w całych Indiach. Lekcje, prowadzone zarówno w odpowiednich ośrodkach, jak i specjalnie przygotowanych samochodach, poruszają wiele zagadnień – od układu słonecznego po pracę mózgu. Do tej pory organizacji Agastya udało się dotrzeć do ponad 5 milionów dzieci i 200 000 nauczycieli w 14 stanach. To jeden z największych programów edukacji matematyczno-przyrodniczej na świecie. Google.org z dumą \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003ewspiera\u003c/a\u003e działalność tej organizacji."
+		"message": "Agastya zapewnia praktyczną edukację matematyczno-przyrodniczą dzieciom mieszkającym na terenach wiejskich w całych Indiach. Lekcje, prowadzone zarówno w odpowiednich ośrodkach, jak i specjalnie przygotowanych samochodach, poruszają wiele zagadnień – od układu słonecznego po pracę mózgu. Do tej pory organizacji Agastya udało się dotrzeć do ponad 5 milionów dzieci i 200 000 nauczycieli w 14 stanach. To jeden z największych programów edukacji matematyczno-przyrodniczej na świecie. Google.org z dumą <a href=\"https://www.google.org/impact-challenge/agastya/\">wspiera</a> działalność tej organizacji."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Nauczyciele i uczniowie"
@@ -1248,7 +1248,7 @@
 		"message": "Rozpoczęliśmy współpracę z Google.org, aby zaprezentować pięć organizacji non-profit zajmujących się edukacją. Dla nich sezon obdarowywania innych trwa cały rok. Przewiń ekran w dół, aby dowiedzieć się więcej o każdej z tych organizacji. Wyraź poparcie dla ich misji, wieszając ozdoby na choince lub dając je w prezencie bliskim osobom."
 	},
 	"nonprofit-jane-description": {
-		"message": "Szympansy są najbliższymi żyjącymi krewnymi człowieka w świecie zwierząt. Obecnie pozostało ich mniej niż 300 tysięcy. Przyczyną tego stanu rzeczy są choroby, utrata siedlisk i nielegalny handel. Organizacja Jane Goodall Institute chroni szympansy, obserwując i poznając ich zachowania oraz dbając o środowisko, w którym żyją. Tworzy również społeczność osób, które zajmują się ochroną i pielęgnacją dzikiej przyrody oraz naszego wspólnego środowiska. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003ePoznaj siedliska szympansów\u003c/a\u003e w Gombe w Tanzanii."
+		"message": "Szympansy są najbliższymi żyjącymi krewnymi człowieka w świecie zwierząt. Obecnie pozostało ich mniej niż 300 tysięcy. Przyczyną tego stanu rzeczy są choroby, utrata siedlisk i nielegalny handel. Organizacja Jane Goodall Institute chroni szympansy, obserwując i poznając ich zachowania oraz dbając o środowisko, w którym żyją. Tworzy również społeczność osób, które zajmują się ochroną i pielęgnacją dzikiej przyrody oraz naszego wspólnego środowiska. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Poznaj siedliska szympansów</a> w Gombe w Tanzanii."
 	},
 	"nonprofit-jane-type": {
 		"message": "Szympans zwyczajny"
@@ -1287,13 +1287,13 @@
 		"message": "Inteligentne okulary"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 miliarda ludzi na świecie nie ma dostępu do elektryczności i musi korzystać z lamp naftowych, które spalają paliwo i zanieczyszczają powietrze w domach. Rozwiązaniem są lampy słoneczne, które w ciągu dnia czerpią energię ze słońca, a wieczorem świecą przez długie godziny, bez dymu i zanieczyszczeń. Pomagają w nauce, zabawie i bezpiecznym dotarciu nocą do domu. Organizacja SolarAid zapewnia dostęp do lamp solarnych tym, którzy ich potrzebują. Google.org z dumą \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003ewspiera\u003c/a\u003e jej działalność."
+		"message": "1,3 miliarda ludzi na świecie nie ma dostępu do elektryczności i musi korzystać z lamp naftowych, które spalają paliwo i zanieczyszczają powietrze w domach. Rozwiązaniem są lampy słoneczne, które w ciągu dnia czerpią energię ze słońca, a wieczorem świecą przez długie godziny, bez dymu i zanieczyszczeń. Pomagają w nauce, zabawie i bezpiecznym dotarciu nocą do domu. Organizacja SolarAid zapewnia dostęp do lamp solarnych tym, którzy ich potrzebują. Google.org z dumą <a href=\"https://www.google.org/impact-challenge/solaraid/\">wspiera</a> jej działalność."
 	},
 	"nonprofit-solar-type": {
 		"message": "Światło słoneczne"
 	},
 	"nonprofit-water-description": {
-		"message": "Woda służy nam do kąpieli, gotowania i oczywiście do picia. Czysta woda to cenny zasób, a wiele osób musi polegać na ręcznie wykopanych studniach, aby mieć dostęp do warstwy wodonośnej głęboko po ziemią, gdzie czystą wodę można znaleźć między warstwami skał i gleby. Organizacja charity: water współpracuje z lokalnymi partnerami przy budowie studni oraz innych projektach związanych z wodą tam, gdzie są najbardziej potrzebne. Google.org z dumą \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003ewspiera\u003c/a\u003e jej działalność."
+		"message": "Woda służy nam do kąpieli, gotowania i oczywiście do picia. Czysta woda to cenny zasób, a wiele osób musi polegać na ręcznie wykopanych studniach, aby mieć dostęp do warstwy wodonośnej głęboko po ziemią, gdzie czystą wodę można znaleźć między warstwami skał i gleby. Organizacja charity: water współpracuje z lokalnymi partnerami przy budowie studni oraz innych projektach związanych z wodą tam, gdzie są najbardziej potrzebne. Google.org z dumą <a href=\"https://www.google.org/global-impact-awards/charity-water/\">wspiera</a> jej działalność."
 	},
 	"nonprofit-water-type": {
 		"message": "Studnia"
@@ -1305,7 +1305,7 @@
 		"message": "Sprawność"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Postępujące zmiany klimatyczne zaburzają równowagę wielu ekosystemów, zarówno w ciepłych, jak i zimnych obszarach naszego globu. W Arktyce, ze względu na rosnące temperatury, niedźwiedzie polarne tracą swoje naturalne środowisko życia. Zagraża im także działalność człowieka, na przykład wydobywanie oraz przesyłanie ropy i gazu. Organizacja World Wildlife Fund pomaga przetrwać niedźwiedziom polarnym, prowadząc badania naukowe i współpracując z rdzennymi mieszkańcami Arktyki. Google.org z dumą \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ewspiera\u003c/a\u003e jej działalność."
+		"message": "Postępujące zmiany klimatyczne zaburzają równowagę wielu ekosystemów, zarówno w ciepłych, jak i zimnych obszarach naszego globu. W Arktyce, ze względu na rosnące temperatury, niedźwiedzie polarne tracą swoje naturalne środowisko życia. Zagraża im także działalność człowieka, na przykład wydobywanie oraz przesyłanie ropy i gazu. Organizacja World Wildlife Fund pomaga przetrwać niedźwiedziom polarnym, prowadząc badania naukowe i współpracując z rdzennymi mieszkańcami Arktyki. Google.org z dumą <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">wspiera</a> jej działalność."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Niedźwiedź polarny"
@@ -1440,7 +1440,7 @@
 		"message": "w Wiosce Świętego Mikołaja już od piętnastu lat z okazji Świąt dzieje się wiele wesołych, interaktywnych i poszerzających wiedzę rzeczy. Pod czujnym okiem Pani Mikołajowej elfy nadały wiosce odświeżony, stylowy wygląd i dołożyły zupełnie nowe treści. A dzięki nowemu systemowi ogrzewania wykorzystującemu gorące kakao, wioska nie musi już rozmrażać się przez cały grudzień – wszystkie 24 ćwiczenia będą dostępne od 4 grudnia. Teraz elfy mają więcej czasu na zabawę w Wiosce i odkrywanie jej – a Ty razem z nimi!"
 	},
 	"press-about-village2": {
-		"message": "W wiosce możesz ćwiczyć podstawowe umiejętności związane z kodowaniem, tworzyć oryginalne dzieła sztuki, poszerzać wiedzę z zakresu geografii, a także dowiedzieć się więcej o organizacjach charytatywnych takich jak \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e i \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Nauczyciele mogą \u003ca href=\"./educators.html\"\u003epobrać plany lekcji\u003c/a\u003e, do których dołączono przewodniki wideo. Ułatwią one przekazanie uczniom podstawowych umiejętności z zakresu kodowania, połączonych z wiedzą o świątecznych tradycjach. Dostępne języki: angielski, hiszpański, francuski, japoński i koreański."
+		"message": "W wiosce możesz ćwiczyć podstawowe umiejętności związane z kodowaniem, tworzyć oryginalne dzieła sztuki, poszerzać wiedzę z zakresu geografii, a także dowiedzieć się więcej o organizacjach charytatywnych takich jak <a href=\"https://www.khanacademy.org/\">Khan Academy</a> i <a href=\"https://code.org/\">Code.org</a>. Nauczyciele mogą <a href=\"./educators.html\">pobrać plany lekcji</a>, do których dołączono przewodniki wideo. Ułatwią one przekazanie uczniom podstawowych umiejętności z zakresu kodowania, połączonych z wiedzą o świątecznych tradycjach. Dostępne języki: angielski, hiszpański, francuski, japoński i koreański."
 	},
 	"press-asset-animation": {
 		"message": "Animacja"
@@ -1461,7 +1461,7 @@
 		"message": "Przygody z edukacją"
 	},
 	"press-edu1": {
-		"message": "Poszerzyliśmy zawartość naszej \u003ca href=\"./educators.html\"\u003estrony z materiałami edukacyjnymi\u003c/a\u003e o przewodniki wideo dla nauczycieli. Są one uzupełnieniem planów lekcji dostępnych w pięciu językach. Wszystkie Twoje ulubione gry są na miejscu i nadal wprowadzają podstawowe założenia kodowania do globalnych tradycji związanych ze Świętami. Trasa Świętego Mikołaja w Google zachęca do nauki połączonej z zabawą podczas Świąt. Aby dowiedzieć się więcej, przejrzyj \u003ca href=\"./educators.html\"\u003enasze gry edukacyjne\u003c/a\u003e."
+		"message": "Poszerzyliśmy zawartość naszej <a href=\"./educators.html\">strony z materiałami edukacyjnymi</a> o przewodniki wideo dla nauczycieli. Są one uzupełnieniem planów lekcji dostępnych w pięciu językach. Wszystkie Twoje ulubione gry są na miejscu i nadal wprowadzają podstawowe założenia kodowania do globalnych tradycji związanych ze Świętami. Trasa Świętego Mikołaja w Google zachęca do nauki połączonej z zabawą podczas Świąt. Aby dowiedzieć się więcej, przejrzyj <a href=\"./educators.html\">nasze gry edukacyjne</a>."
 	},
 	"press-games-title": {
 		"message": "Gry i zabawy"
@@ -1491,19 +1491,19 @@
 		"message": "Stwórz elfa:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Jeśli od zawsze marzysz o założeniu zespołu tanecznego z grupą utalentowanych, roztańczonych elfów, to teraz masz okazję to zrobić. Dzięki modelowi systemów uczących się \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e możesz nauczyć elfa własnych ruchów, by pląsać z nim na parkiecie."
+		"message": "Jeśli od zawsze marzysz o założeniu zespołu tanecznego z grupą utalentowanych, roztańczonych elfów, to teraz masz okazję to zrobić. Dzięki modelowi systemów uczących się <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a> możesz nauczyć elfa własnych ruchów, by pląsać z nim na parkiecie."
 	},
 	"press-whatsnew2-title": {
 		"message": "Tańczący z elfami:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Będziesz mieć też możliwość obserwowania położenia Świętego Mikołaja na żywo w Mapach Google. Wystarczy, że klikniesz na menu z trzema kreskami i wybierzesz „Udostępnianie lokalizacji”, a dowiesz się, jak Mikołajowi idzie w danej chwili podróż. Jeśli chcesz dowiedzieć się tego szybciej, wejdź na stronę \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+		"message": "Będziesz mieć też możliwość obserwowania położenia Świętego Mikołaja na żywo w Mapach Google. Wystarczy, że klikniesz na menu z trzema kreskami i wybierzesz „Udostępnianie lokalizacji”, a dowiesz się, jak Mikołajowi idzie w danej chwili podróż. Jeśli chcesz dowiedzieć się tego szybciej, wejdź na stronę <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>."
 	},
 	"press-whatsnew3-title": {
 		"message": "Nowy sposób śledzenia Świętego Mikołaja:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Jeżeli potrzebujesz więcej świątecznych akcentów, użyj specjalnych naklejek Gboard, dostępnych na \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroida\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e i w naszej \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplikacji na Androida\u003c/a\u003e. Zrelaksuj się też przy literaturze, wydając Asystentowi Google polecenie „Tell me a holiday story”, i dowiedz się, gdzie jest Mikołaj, zadając pytanie „Where's Santa?”."
+		"message": "Jeżeli potrzebujesz więcej świątecznych akcentów, użyj specjalnych naklejek Gboard, dostępnych na <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Androida</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> i w naszej <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">aplikacji na Androida</a>. Zrelaksuj się też przy literaturze, wydając Asystentowi Google polecenie „Tell me a holiday story”, i dowiedz się, gdzie jest Mikołaj, zadając pytanie „Where's Santa?”."
 	},
 	"press-whatsnew4-title": {
 		"message": "Więcej radości na Święta:"
@@ -7323,7 +7323,7 @@
 		"message": "Zainstaluj"
 	},
 	"village_santa_intall_ios": {
-		"message": "Dotknij \u003cspan\u003e\u003c/span\u003e, a potem dotknij „Dodaj do ekranu głównego”"
+		"message": "Dotknij <span></span>, a potem dotknij „Dodaj do ekranu głównego”"
 	},
 	"village_takesoff": {
 		"message": "Święty Mikołaj wyrusza za"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

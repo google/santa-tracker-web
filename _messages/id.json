@@ -3,7 +3,7 @@
 		"message": "Pada Malam Natal nanti, kita akan memamerkan dasbor Sinterklas. Itu adalah teknologi ajaib yang menggerakkan kereta salju Sinterklas untuk berkeliling dunia. Kami mendengar kabar tentang dasbor ini dari salah satu kurcaci Sinterklas yang hobinya main komputer. Sekarang mereka sedang sibuk di Kutub Utara, membantu Sinterklas mempersiapkan hari terpentingnya. Dasbor Sinterklas dibuat dengan teknologi canggih dari Google Maps, agar cocok dengan kereta saljunya. Dengan alat ini, kita dapat mengikuti perjalanan Sinterklas mengelilingi dunia, sambil mempelajari hal-hal menarik tentang tempat yang ia singgahi sepanjang perjalanan."
 	},
 	"about-content-three": {
-		"message": "Pelacak Sinterklas Google Maps dibuat dan dikembangkan oleh Google, dengan sedikit bantuan dari para kurcaci Sinterklas. Butuh bantuan atau ada pertanyaan lain? Kunjungi \u003ca href=\"//support.google.com/santatracker\"\u003ePusat Bantuan\u003c/a\u003e kami."
+		"message": "Pelacak Sinterklas Google Maps dibuat dan dikembangkan oleh Google, dengan sedikit bantuan dari para kurcaci Sinterklas. Butuh bantuan atau ada pertanyaan lain? Kunjungi <a href=\"//support.google.com/santatracker\">Pusat Bantuan</a> kami."
 	},
 	"about-content-two": {
 		"message": "Kamu telah diundang oleh para kurcaci untuk menjelajahi desa Sinterklas, sementara Sinterklas menyiapkan perjalanannya. Berkunjunglah ke sana dan jelajahi desanya. Mungkin di sana kamu bisa bermain dan bertemu dengan para kurcaci lucu."
@@ -105,7 +105,7 @@
 		"message": "Buat 1 beruang teddy!"
 	},
 	"buildandbolt-instructions-action-key": {
-		"message": "Ambil \u0026 jatuhkan mainan"
+		"message": "Ambil & jatuhkan mainan"
 	},
 	"buildandbolt-instructions-label": {
 		"message": "Petunjuk"
@@ -501,7 +501,7 @@
 		"message": "Hebat"
 	},
 	"codelab-mwc-promo": {
-		"message": "Jelajahi proyek pengkodean Google lainnya di \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Jelajahi proyek pengkodean Google lainnya di <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Tantangan Berikutnya"
@@ -684,13 +684,13 @@
 		"message": "Ada masalah, tetapi Kurcaci Sinterklas sedang memeriksanya."
 	},
 	"error-internal": {
-		"message": "Oh tidak, ada masalah! Kami sudah memberi tahu Kurcaci Sinterklas. Cobalah kembali ke \u003ca href=\"./\"\u003eDesa Sinterklas\u003c/a\u003e."
+		"message": "Oh tidak, ada masalah! Kami sudah memberi tahu Kurcaci Sinterklas. Cobalah kembali ke <a href=\"./\">Desa Sinterklas</a>."
 	},
 	"error-lost-connection": {
 		"message": "Sepertinya sambungan kami dengan Kutub Utara terputus. Para kurcaci Sinterklas sedang bekerja keras untuk memperbaikinya - jangan ke mana-mana!"
 	},
 	"error-not-found": {
-		"message": "Oh tidak, Kurcaci Sinterklas tidak dapat menemukan halaman ini! Cobalah kembali ke \u003ca href=\"./\"\u003eDesa Sinterklas\u003c/a\u003e."
+		"message": "Oh tidak, Kurcaci Sinterklas tidak dapat menemukan halaman ini! Cobalah kembali ke <a href=\"./\">Desa Sinterklas</a>."
 	},
 	"error-out-of-date": {
 		"message": "Ini adalah versi Desa Sinterklas yang sudah usang. Coba buka lagi Pelacak Sinterklas untuk melihat versi terbaru."
@@ -720,7 +720,7 @@
 		"message": "Gunakan Asisten Google untuk mencari tahu lebih banyak tentang Sinterklas selama bulan Desember. Integrasi ini tersedia dalam bahasa tertentu."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Atas izin orang tua, anak-anak yang berusia kurang dari 13 tahun juga dapat memiliki pengalaman Asisten Google yang dipersonalisasi saat mereka login dengan akunnya sendiri, yang dikelola dengan \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Atas izin orang tua, anak-anak yang berusia kurang dari 13 tahun juga dapat memiliki pengalaman Asisten Google yang dipersonalisasi saat mereka login dengan akunnya sendiri, yang dikelola dengan <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Asisten Google menghubungkan Anda dengan Kutub Utara, tempat Sinterklas sibuk berlatih untuk konser musik. Dia hanya tahu satu lagu. Dapatkah Anda membantunya menemukan cara terbaik untuk memainkan lagu tersebut?"
@@ -855,7 +855,7 @@
 		"message": "waktu keluarga"
 	},
 	"familyguide_nav_link_05": {
-		"message": "tips \u0026 trik"
+		"message": "tips & trik"
 	},
 	"familyguide_nav_link_06": {
 		"message": "lainnya"
@@ -1215,10 +1215,10 @@
 		"message": "Norsk"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya menawarkan pendidikan sains praktis bagi anak-anak di seluruh pedesaan di India. Mereka mengajarkan semuanya, baik di pusat sains dan van sains bergerak, mulai dari sistem tata surya hingga bagaimana otak bekerja. Program ini telah menjangkau lebih dari 5 juta anak-anak dan 200.000 guru di 14 negara bagian di India, dan merupakan salah satu program pendidikan sains terbesar di dunia! Google.org dengan bangga menjadi \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003ependukung\u003c/a\u003e Agastya."
+		"message": "Agastya menawarkan pendidikan sains praktis bagi anak-anak di seluruh pedesaan di India. Mereka mengajarkan semuanya, baik di pusat sains dan van sains bergerak, mulai dari sistem tata surya hingga bagaimana otak bekerja. Program ini telah menjangkau lebih dari 5 juta anak-anak dan 200.000 guru di 14 negara bagian di India, dan merupakan salah satu program pendidikan sains terbesar di dunia! Google.org dengan bangga menjadi <a href=\"https://www.google.org/impact-challenge/agastya/\">pendukung</a> Agastya."
 	},
 	"nonprofit-agastya-type": {
-		"message": "Guru \u0026amp; Pelajar"
+		"message": "Guru &amp; Pelajar"
 	},
 	"nonprofit-code-description": {
 		"message": "Code.org® adalah lembaga nonprofit yang berdedikasi untuk mengembangkan akses ke ilmu komputer, serta meningkatkan peran serta wanita dan pelajar dari ras minoritas. Code.org® memiliki visi yaitu semua pelajar di setiap sekolah harus memiliki kesempatan untuk mempelajari ilmu komputer."
@@ -1248,7 +1248,7 @@
 		"message": "Kami telah berpartner dengan Google.org untuk menampilkan lima lembaga pendidikan nonprofit yang merayakan musim berbagi sepanjang tahun. Scroll ke bawah dan pelajari lebih lanjut cara setiap organisasi menunjukkan apresiasi mereka. Tunjukkan dukungan Anda dengan mewarnai koleksi hiasan ini, lalu menggantungnya di pohon atau memberikannya kepada orang terkasih."
 	},
 	"nonprofit-jane-description": {
-		"message": "Simpanse adalah kerabat terdekat manusia di kerajaan hewan! Saat ini, ada kurang dari 300.000 simpanse yang tersisa akibat hilangnya habitat, penyakit, dan perdagangan gelap. Jane Goodall Institute (JGI) melindungi simpanse dengan mengamati dan memahami perilaku mereka serta habitat tempat tinggal mereka. JGI juga bekerja untuk membentuk masyarakat yang melindungi dan melestarikan satwa liar dan lingkungan yang kita huni bersama. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eJelajahi habitat Simpanse\u003c/a\u003e di Gombe, Tanzania."
+		"message": "Simpanse adalah kerabat terdekat manusia di kerajaan hewan! Saat ini, ada kurang dari 300.000 simpanse yang tersisa akibat hilangnya habitat, penyakit, dan perdagangan gelap. Jane Goodall Institute (JGI) melindungi simpanse dengan mengamati dan memahami perilaku mereka serta habitat tempat tinggal mereka. JGI juga bekerja untuk membentuk masyarakat yang melindungi dan melestarikan satwa liar dan lingkungan yang kita huni bersama. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Jelajahi habitat Simpanse</a> di Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Simpanse"
@@ -1287,13 +1287,13 @@
 		"message": "Kacamata Pintar"
 	},
 	"nonprofit-solar-description": {
-		"message": "Sebanyak 1,3 miliar orang tidak memiliki akses listrik, dan kebanyakan harus menggunakan lampu minyak tanah yang dapat menimbulkan kebakaran dan mencemari rumah. Namun, kini ada lampu surya yang menyerap energi dari matahari di siang hari dan memberikan penerangan selama beberapa jam di malam hari tanpa menimbulkan kebakaran atau polusi. Lampu surya dapat membantu membaca, bermain, dan pulang dengan selamat di malam hari. SolarAid menyediakan akses lampu surya bagi banyak orang yang membutuhkannya. Google.org dengan bangga menjadi \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003ependukung\u003c/a\u003e dari SolarAid."
+		"message": "Sebanyak 1,3 miliar orang tidak memiliki akses listrik, dan kebanyakan harus menggunakan lampu minyak tanah yang dapat menimbulkan kebakaran dan mencemari rumah. Namun, kini ada lampu surya yang menyerap energi dari matahari di siang hari dan memberikan penerangan selama beberapa jam di malam hari tanpa menimbulkan kebakaran atau polusi. Lampu surya dapat membantu membaca, bermain, dan pulang dengan selamat di malam hari. SolarAid menyediakan akses lampu surya bagi banyak orang yang membutuhkannya. Google.org dengan bangga menjadi <a href=\"https://www.google.org/impact-challenge/solaraid/\">pendukung</a> dari SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Cahaya matahari"
 	},
 	"nonprofit-water-description": {
-		"message": "Kita menggunakan air untuk mandi dan mencuci, untuk memasak, dan tentu saja untuk diminum. Air bersih merupakan sumber daya yang sangat penting, dan banyak orang mengandalkan sumur yang digali untuk mendapatkan sumber mata air yang menyimpan air bersih dalam tanah di antara lapisan batuan dan tanah. charity: water bekerja sama dengan mitra lokal untuk membangun sumur dan proyek air lainnya yang sangat dibutuhkan oleh mereka. Google.org dengan bangga menjadi \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003ependukung\u003c/a\u003e charity: water."
+		"message": "Kita menggunakan air untuk mandi dan mencuci, untuk memasak, dan tentu saja untuk diminum. Air bersih merupakan sumber daya yang sangat penting, dan banyak orang mengandalkan sumur yang digali untuk mendapatkan sumber mata air yang menyimpan air bersih dalam tanah di antara lapisan batuan dan tanah. charity: water bekerja sama dengan mitra lokal untuk membangun sumur dan proyek air lainnya yang sangat dibutuhkan oleh mereka. Google.org dengan bangga menjadi <a href=\"https://www.google.org/global-impact-awards/charity-water/\">pendukung</a> charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Bagus"
@@ -1305,7 +1305,7 @@
 		"message": "Mobilitas"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Perubahan iklim terus mengganggu keseimbangan banyak ekosistem di dunia, baik di tempat yang hangat maupun dingin. Di Kutub Utara, beruang kutub kehilangan habitat es di laut mereka dengan meningkatnya suhu, serta menghadapi ancaman lain dari aktivitas manusia, seperti pengembangan dan pengiriman minyak bumi dan gas. World Wildlife Fund bekerja untuk memastikan kelangsungan hidup spesies tersebut melalui penelitian ilmiah dan bermitra dengan masyarakat asli Kutub Utara. Google.org bangga menjadi \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ependukung\u003c/a\u003e bersama World Wildlife Fund."
+		"message": "Perubahan iklim terus mengganggu keseimbangan banyak ekosistem di dunia, baik di tempat yang hangat maupun dingin. Di Kutub Utara, beruang kutub kehilangan habitat es di laut mereka dengan meningkatnya suhu, serta menghadapi ancaman lain dari aktivitas manusia, seperti pengembangan dan pengiriman minyak bumi dan gas. World Wildlife Fund bekerja untuk memastikan kelangsungan hidup spesies tersebut melalui penelitian ilmiah dan bermitra dengan masyarakat asli Kutub Utara. Google.org bangga menjadi <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">pendukung</a> bersama World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Beruang Kutub"
@@ -1440,7 +1440,7 @@
 		"message": "Desa Sinterklas merayakan lima belas tahun aktivitas liburan seru yang mendidik dan interaktif. Di bawah bimbingan sang ahli, Ny. Claus, pada kurcaci telah merenovasi desa dengan tampilan dan nuansa menarik, lengkap dengan berbagai konten baru. Dan berkat sistem pemanas bertenaga coklat panas, tidak perlu waktu lama lagi untuk mencairkan desa ini di bulan Desember—semua aktivitas ini akan tersedia mulai tanggal 4 Desember. Sekarang, para kurcaci (dan Anda!) memiliki lebih banyak waktu untuk bermain dan menjelajahi Desa Sinterklas."
 	},
 	"press-about-village2": {
-		"message": "Di desa, Anda dapat mempraktikkan keahlian pengkodean dasar Anda, membuat karya seni orisinal, berlatih tentang geografi, dan mempelajari lebih lanjut tentang organisasi amal, seperti \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e dan \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Para guru bahkan dapat \u003ca href=\"./educators.html\"\u003emendownload paket pelajaran\u003c/a\u003e dengan panduan video untuk membantu mengajarkan keterampilan pengkodean dasar dan tradisi liburan dalam bahasa Inggris, Spanyol, Prancis, Jepang, dan Korea kepada murid mereka."
+		"message": "Di desa, Anda dapat mempraktikkan keahlian pengkodean dasar Anda, membuat karya seni orisinal, berlatih tentang geografi, dan mempelajari lebih lanjut tentang organisasi amal, seperti <a href=\"https://www.khanacademy.org/\">Khan Academy</a> dan <a href=\"https://code.org/\">Code.org</a>. Para guru bahkan dapat <a href=\"./educators.html\">mendownload paket pelajaran</a> dengan panduan video untuk membantu mengajarkan keterampilan pengkodean dasar dan tradisi liburan dalam bahasa Inggris, Spanyol, Prancis, Jepang, dan Korea kepada murid mereka."
 	},
 	"press-asset-animation": {
 		"message": "Animasi"
@@ -1461,7 +1461,7 @@
 		"message": "Petualangan pendidikan"
 	},
 	"press-edu1": {
-		"message": "Kami telah memperluas \u003ca href=\"./educators.html\"\u003ehalaman resource pendidik\u003c/a\u003e kami untuk menyediakan panduan video kepada para guru untuk mendampingi paket pelajaran yang sekarang tersedia dalam lima bahasa. Semua game favorit Anda masih tetap sama, mengajarkan konsep dasar coding melalui tradisi liburan global. Pelacak Sinterklas Google akan menunjang pengalaman belajar selama musim liburan dengan cara seru—lihat \u003ca href=\"./educators.html\"\u003egame pendidikan kami\u003c/a\u003euntuk mempelajari lebih lanjut."
+		"message": "Kami telah memperluas <a href=\"./educators.html\">halaman resource pendidik</a> kami untuk menyediakan panduan video kepada para guru untuk mendampingi paket pelajaran yang sekarang tersedia dalam lima bahasa. Semua game favorit Anda masih tetap sama, mengajarkan konsep dasar coding melalui tradisi liburan global. Pelacak Sinterklas Google akan menunjang pengalaman belajar selama musim liburan dengan cara seru—lihat <a href=\"./educators.html\">game pendidikan kami</a>untuk mempelajari lebih lanjut."
 	},
 	"press-games-title": {
 		"message": "Semua keseruan dan game"
@@ -1491,19 +1491,19 @@
 		"message": "Membuat kurcaci:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Jika Anda bercita-cita untuk membentuk grup tari bersama sekelompok kurcaci penari berbakat, inilah saatnya. Hampir. Melalui model machine learning yang bernama \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, Anda dapat melatih kurcaci untuk mempelajari gerakan Anda supaya mereka bisa Anda kirim ke lantai dansa."
+		"message": "Jika Anda bercita-cita untuk membentuk grup tari bersama sekelompok kurcaci penari berbakat, inilah saatnya. Hampir. Melalui model machine learning yang bernama <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, Anda dapat melatih kurcaci untuk mempelajari gerakan Anda supaya mereka bisa Anda kirim ke lantai dansa."
 	},
 	"press-whatsnew2-title": {
 		"message": "Menari dengan para kurcaci:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Anda juga dapat melihat lokasi Sinterklas secara real-time di Google Maps. Cukup ketuk hamburger, lalu \"Berbagi Lokasi\" untuk memantau posisi Sinterklas di sepanjang perjalanannya. Anda juga dapat membuka \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e untuk menemukan pintasan mudah."
+		"message": "Anda juga dapat melihat lokasi Sinterklas secara real-time di Google Maps. Cukup ketuk hamburger, lalu \"Berbagi Lokasi\" untuk memantau posisi Sinterklas di sepanjang perjalanannya. Anda juga dapat membuka <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a> untuk menemukan pintasan mudah."
 	},
 	"press-whatsnew3-title": {
 		"message": "Cara baru untuk melacak Sinterklas:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Jika Anda menginginkan lebih banyak keceriaan di hari libur, lihat stiker liburan Gboard yang tersedia di \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e, dan \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplikasi Android\u003c/a\u003e kami. Selain itu, nikmati keseruan literatur dengan meminta Asisten Google untuk \"Bercerita tentang kisah liburan\" dan menjawab pertanyaan \"Di mana Sinterklas?\""
+		"message": "Jika Anda menginginkan lebih banyak keceriaan di hari libur, lihat stiker liburan Gboard yang tersedia di <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a>, dan <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">aplikasi Android</a> kami. Selain itu, nikmati keseruan literatur dengan meminta Asisten Google untuk \"Bercerita tentang kisah liburan\" dan menjawab pertanyaan \"Di mana Sinterklas?\""
 	},
 	"press-whatsnew4-title": {
 		"message": "Keseruan liburan lainnya:"
@@ -1680,7 +1680,7 @@
 		"message": "Arahan Singkat dari Bu Sinterklas"
 	},
 	"scene_build": {
-		"message": "Build \u0026 Bolt"
+		"message": "Build & Bolt"
 	},
 	"scene_callfromsanta": {
 		"message": "Telepon dari Sinterklas"
@@ -3474,7 +3474,7 @@
 		"message": "Cad"
 	},
 	"terms-and-privacy": {
-		"message": "Persyaratan \u0026amp; Privasi"
+		"message": "Persyaratan &amp; Privasi"
 	},
 	"tg_country_name": {
 		"message": "Togo"
@@ -7323,7 +7323,7 @@
 		"message": "Instal"
 	},
 	"village_santa_intall_ios": {
-		"message": "Cukup ketuk \u003cspan\u003e\u003c/span\u003e lalu 'Tambahkan ke Layar Utama'"
+		"message": "Cukup ketuk <span></span> lalu 'Tambahkan ke Layar Utama'"
 	},
 	"village_takesoff": {
 		"message": "Sinterklas berangkat dalam"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

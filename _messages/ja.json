@@ -3,7 +3,7 @@
 		"message": "クリスマスイブには、サンタさんがソリに乗って世界中を飛び回る様子を伝えるダッシュボードを公開します。大切な日に向けて北極でせっせとサンタさんのお手伝いをする働き者の妖精たちから、その様子を伝える画像が送られてきています。サンタさんのダッシュボードでは、Googleマップの最新技術やソリの特殊テクノロジーにより、サンタさんが世界中にプレゼントを届ける様子や立ち寄る場所についてのちょっとした情報をご紹介します。"
 	},
 	"about-content-three": {
-		"message": "Google マップの「サンタを追いかけよう」は Google がサンタさんの妖精たちの助けを借りて制作・開発したものです。サポートが必要な場合やその他の疑問点については\u003ca href=\"//support.google.com/santatracker\"\u003eヘルプセンター\u003c/a\u003eをご覧ください。"
+		"message": "Google マップの「サンタを追いかけよう」は Google がサンタさんの妖精たちの助けを借りて制作・開発したものです。サポートが必要な場合やその他の疑問点については<a href=\"//support.google.com/santatracker\">ヘルプセンター</a>をご覧ください。"
 	},
 	"about-content-two": {
 		"message": "また、親切な妖精たちが、旅に向けて準備をしているサンタさんの村にあなたを招待していますので、ぜひ訪ねてみてください。楽しいゲームや愉快な妖精たちが皆さんがやってくるのを待っています。"
@@ -501,7 +501,7 @@
 		"message": "クリア！"
 	},
 	"codelab-mwc-promo": {
-		"message": "Google コーディング プロジェクトの詳細は \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e をご覧ください。"
+		"message": "Google コーディング プロジェクトの詳細は <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a> をご覧ください。"
 	},
 	"codelab-next-challenge": {
 		"message": "次のレベル"
@@ -684,13 +684,13 @@
 		"message": "問題が発生しました。"
 	},
 	"error-internal": {
-		"message": "問題が発生しました。\u003ca href=\"./\"\u003eサンタさんの村\u003c/a\u003eに戻ってもう一度お試しください。"
+		"message": "問題が発生しました。<a href=\"./\">サンタさんの村</a>に戻ってもう一度お試しください。"
 	},
 	"error-lost-connection": {
 		"message": "北極との通信が途切れてしまったようです。サンタさんの妖精たちが修復に取り掛かっています。しばらくお待ちください。"
 	},
 	"error-not-found": {
-		"message": "ページが見つかりません。\u003ca href=\"./\"\u003eサンタさんの村\u003c/a\u003eに戻ってもう一度お試しください。"
+		"message": "ページが見つかりません。<a href=\"./\">サンタさんの村</a>に戻ってもう一度お試しください。"
 	},
 	"error-out-of-date": {
 		"message": "これは古いバージョンのサンタ村です。最新バージョンを表示するには、「サンタを追いかけよう」をもう一度開いてみてください。"
@@ -720,7 +720,7 @@
 		"message": "Google アシスタントを使って、12 月のサンタクロースの様子を覗いてみましょう。この統合機能は一部の言語でのみご利用いただけます。"
 	},
 	"familyguide_assistant_body_02": {
-		"message": "保護者の許可があれば、13 歳未満のお子様も自身のアカウントでログインして、自分用にカスタマイズされた Google アシスタントをご利用いただけます。アカウントの管理は\u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eファミリー リンク\u003c/a\u003eで行えます。"
+		"message": "保護者の許可があれば、13 歳未満のお子様も自身のアカウントでログインして、自分用にカスタマイズされた Google アシスタントをご利用いただけます。アカウントの管理は<a href=\"https://families.google.com/familylink/\" target=\"_blank\">ファミリー リンク</a>で行えます。"
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google アシスタントがあなたを北極につなげてくれます。そこでは、音楽コンサートのリハーサルでサンタさんが大忙し。知っている曲が 1 つしかないサンタさんを手伝って、最高の演奏方法を見つけてあげましょう。"
@@ -1215,7 +1215,7 @@
 		"message": "ノルウェー語"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya は、インドのすべての農村部の子ども達に向けて、実際的な科学教育を提供しています。Agastya の科学センターと移動科学教育車で、太陽系のことから脳のしくみまで、さまざまなことを教えています。これまでインドの 14 の州で、500 万人を超える子ども達と 20 万人を超える教師が彼らの提供する教育を受けており、世界最大規模の科学教育プログラムのひとつといえます。Google.org は Agastya を\u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003e支援\u003c/a\u003eしています。"
+		"message": "Agastya は、インドのすべての農村部の子ども達に向けて、実際的な科学教育を提供しています。Agastya の科学センターと移動科学教育車で、太陽系のことから脳のしくみまで、さまざまなことを教えています。これまでインドの 14 の州で、500 万人を超える子ども達と 20 万人を超える教師が彼らの提供する教育を受けており、世界最大規模の科学教育プログラムのひとつといえます。Google.org は Agastya を<a href=\"https://www.google.org/impact-challenge/agastya/\">支援</a>しています。"
 	},
 	"nonprofit-agastya-type": {
 		"message": "教師と生徒たち"
@@ -1248,7 +1248,7 @@
 		"message": "「プレゼントの季節」ゲームでは、Google.org と連携し、1 年を通じて思いやりの心を大切にする 5 つの教育関係非営利団体を紹介しています。下にスクロールすると、それぞれの非営利団体の活動についてご覧いただけます。オーナメントに色をつけたら、クリスマス ツリーに飾ったり、親しい人に贈ったりして、これらの非営利団体の活動を応援する気持ちを表しましょう。"
 	},
 	"nonprofit-jane-description": {
-		"message": "チンパンジーは、現存する生物種の中で人間の最も近い親戚と言える動物です。チンパンジーの生息数は棲息地の減少、病気、違法売買によって減少しており、現在では 300,000 頭にも満たない数となっています。The Jane Goodall Institute（JGI）では、チンパンジーを観察し、行動や生活圏を理解することで同種の保護に努めています。また、野生生物、そして人類が共有する環境の保護に取り組む人々のためのコミュニティ作りも行っています。タンザニアのゴンベにある\u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eチンパンジー生息域の様子\u003c/a\u003eをご覧ください。"
+		"message": "チンパンジーは、現存する生物種の中で人間の最も近い親戚と言える動物です。チンパンジーの生息数は棲息地の減少、病気、違法売買によって減少しており、現在では 300,000 頭にも満たない数となっています。The Jane Goodall Institute（JGI）では、チンパンジーを観察し、行動や生活圏を理解することで同種の保護に努めています。また、野生生物、そして人類が共有する環境の保護に取り組む人々のためのコミュニティ作りも行っています。タンザニアのゴンベにある<a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">チンパンジー生息域の様子</a>をご覧ください。"
 	},
 	"nonprofit-jane-type": {
 		"message": "チンパンジー"
@@ -1287,13 +1287,13 @@
 		"message": "特殊な眼鏡"
 	},
 	"nonprofit-solar-description": {
-		"message": "電気を利用できない人は 13 億人にも上り、多くは室内の空気を汚す灯油ランプを使わざるを得ない状況です。一方、太陽光を利用すれば、日中に太陽エネルギーを蓄積し、夜に何時間も電灯を利用できます。灯油を燃やして、室内の空気を汚すこともありません。夜に読書をしたり遊んだりできるうえ、夜道の帰宅も安全になります。SolarAid では多くの人が太陽光を利用できるように活動しています。Google.org は SolarAid を\u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003e支援\u003c/a\u003eしています。"
+		"message": "電気を利用できない人は 13 億人にも上り、多くは室内の空気を汚す灯油ランプを使わざるを得ない状況です。一方、太陽光を利用すれば、日中に太陽エネルギーを蓄積し、夜に何時間も電灯を利用できます。灯油を燃やして、室内の空気を汚すこともありません。夜に読書をしたり遊んだりできるうえ、夜道の帰宅も安全になります。SolarAid では多くの人が太陽光を利用できるように活動しています。Google.org は SolarAid を<a href=\"https://www.google.org/impact-challenge/solaraid/\">支援</a>しています。"
 	},
 	"nonprofit-solar-type": {
 		"message": "太陽光"
 	},
 	"nonprofit-water-description": {
-		"message": "私たちは水を飲み、シャワーやお風呂、調理に水を使っています。きれいな水は貴重な資源です。多くの人々が水を手に入れるために、地中深く岩と土の層の間に蓄えられた水に達するまで手掘りで井戸を作って利用しています。charity: water は現地の協力者とともに、水が絶対に必要なところに井戸を掘るなど、水にかかわるさまざまな活動を行っています。Google.org は charity: water を\u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003e支援\u003c/a\u003eしています。"
+		"message": "私たちは水を飲み、シャワーやお風呂、調理に水を使っています。きれいな水は貴重な資源です。多くの人々が水を手に入れるために、地中深く岩と土の層の間に蓄えられた水に達するまで手掘りで井戸を作って利用しています。charity: water は現地の協力者とともに、水が絶対に必要なところに井戸を掘るなど、水にかかわるさまざまな活動を行っています。Google.org は charity: water を<a href=\"https://www.google.org/global-impact-awards/charity-water/\">支援</a>しています。"
 	},
 	"nonprofit-water-type": {
 		"message": "井戸"
@@ -1305,7 +1305,7 @@
 		"message": "外出しやすさ"
 	},
 	"nonprofit-wwf-description": {
-		"message": "気候変動により、世界各地で生態系のバランスが崩れ、温暖な地域でも寒冷地でも影響が表れています。ホッキョクグマは気温上昇により海氷の上の住処を失い、石油や天然ガスの開発・輸送をはじめとする人間の活動による脅威も増しています。WWF（世界自然保護基金）は、北極圏のネイティブ コミュニティーと協力しながら科学的調査によって種の保護を進めています。Google.org は WWF の\u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e支持団体\u003c/a\u003eのひとつです。"
+		"message": "気候変動により、世界各地で生態系のバランスが崩れ、温暖な地域でも寒冷地でも影響が表れています。ホッキョクグマは気温上昇により海氷の上の住処を失い、石油や天然ガスの開発・輸送をはじめとする人間の活動による脅威も増しています。WWF（世界自然保護基金）は、北極圏のネイティブ コミュニティーと協力しながら科学的調査によって種の保護を進めています。Google.org は WWF の<a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">支持団体</a>のひとつです。"
 	},
 	"nonprofit-wwf-type": {
 		"message": "ホッキョクグマ"
@@ -1440,7 +1440,7 @@
 		"message": "サンタ村の、楽しくてためになるインタラクティブなクリスマス アクティビティも今年で 15 年目。サンタ夫人による熟練の指導のもとで妖精たちが村をリフレッシュしたので、村はスタイリッシュなデザインと新しいコンテンツで生まれ変わりました。しかも、ホットココアの熱を利用する暖房装置を新しく導入したおかげで、12 月いっぱいかけなくても村の雪をとかせるようになりました。ですから、12 月 4 日から 24 個すべてのアクティビティで遊べます。妖精たちと一緒にサンタ村をじっくり探索して楽しみましょう。"
 	},
 	"press-about-village2": {
-		"message": "サンタ村では、基本的なコーディング スキルの練習やオリジナル アートワークの作成だけでなく、地理の知識を深めたり、\u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e や \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e といった公益財団について学習したりできます。教師の方々は、生徒に基礎的なコーディング スキルやクリスマスの伝統を教えるのに役立つ、英語、スペイン語、フランス語、日本語、韓国語の\u003ca href=\"./educators.html\"\u003e学習プラン（ガイド動画付き）をダウンロード\u003c/a\u003eできます。"
+		"message": "サンタ村では、基本的なコーディング スキルの練習やオリジナル アートワークの作成だけでなく、地理の知識を深めたり、<a href=\"https://www.khanacademy.org/\">Khan Academy</a> や <a href=\"https://code.org/\">Code.org</a> といった公益財団について学習したりできます。教師の方々は、生徒に基礎的なコーディング スキルやクリスマスの伝統を教えるのに役立つ、英語、スペイン語、フランス語、日本語、韓国語の<a href=\"./educators.html\">学習プラン（ガイド動画付き）をダウンロード</a>できます。"
 	},
 	"press-asset-animation": {
 		"message": "アニメーション"
@@ -1461,7 +1461,7 @@
 		"message": "楽しい教材"
 	},
 	"press-edu1": {
-		"message": "今年は\u003ca href=\"./educators.html\"\u003e教育者向けのリソースページ\u003c/a\u003eがさらに充実しました。このページでは、クラスで利用できる学習プランと、そのガイド動画を提供しています（5 か国語に対応）。好評だったゲームはすべて今年も公開され、楽しみながらコーディングの基礎や世界のクリスマスの過ごし方を学べます。Google の「サンタを追いかけよう」で、冬休みの学習体験をもっと楽しいものにしましょう。詳しくは\u003ca href=\"./educators.html\"\u003e学習ゲーム\u003c/a\u003eをご覧ください。"
+		"message": "今年は<a href=\"./educators.html\">教育者向けのリソースページ</a>がさらに充実しました。このページでは、クラスで利用できる学習プランと、そのガイド動画を提供しています（5 か国語に対応）。好評だったゲームはすべて今年も公開され、楽しみながらコーディングの基礎や世界のクリスマスの過ごし方を学べます。Google の「サンタを追いかけよう」で、冬休みの学習体験をもっと楽しいものにしましょう。詳しくは<a href=\"./educators.html\">学習ゲーム</a>をご覧ください。"
 	},
 	"press-games-title": {
 		"message": "お楽しみやゲームが盛りだくさん"
@@ -1491,19 +1491,19 @@
 		"message": "妖精を作ってみよう:"
 	},
 	"press-whatsnew2-text": {
-		"message": "ダンスの上手な妖精とダンスグループを組んでみたいと思ったことはありませんか？あるなら今がチャンスです。機械学習モデルの「\u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e」を使って妖精に動きを教えて、ダンスフロアに送り出しましょう。"
+		"message": "ダンスの上手な妖精とダンスグループを組んでみたいと思ったことはありませんか？あるなら今がチャンスです。機械学習モデルの「<a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>」を使って妖精に動きを教えて、ダンスフロアに送り出しましょう。"
 	},
 	"press-whatsnew2-title": {
 		"message": "妖精たちとダンス:"
 	},
 	"press-whatsnew3-text": {
-		"message": "サンタの現在地は Google マップでも見ることができます。[メニュー] ボタンをタップしてから [現在地の共有] をタップすれば、サンタがどこにいるのかを正確に確認できます。手早く見つけたい場合は \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e にアクセスしてみましょう。"
+		"message": "サンタの現在地は Google マップでも見ることができます。[メニュー] ボタンをタップしてから [現在地の共有] をタップすれば、サンタがどこにいるのかを正確に確認できます。手早く見つけたい場合は <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a> にアクセスしてみましょう。"
 	},
 	"press-whatsnew3-title": {
 		"message": "サンタを追いかける新しい方法:"
 	},
 	"press-whatsnew4-text": {
-		"message": "\u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e、\u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e、\u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid アプリ\u003c/a\u003eで利用できる Gboard のクリスマス ステッカーをチェックすれば、クリスマス気分が盛り上がります。また、Google アシスタントに「クリスマスの話を聞かせて」、「サンタさんは今どこ？」と話しかけて楽しい物語を聞くこともできます。"
+		"message": "<a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>、<a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a>、<a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android アプリ</a>で利用できる Gboard のクリスマス ステッカーをチェックすれば、クリスマス気分が盛り上がります。また、Google アシスタントに「クリスマスの話を聞かせて」、「サンタさんは今どこ？」と話しかけて楽しい物語を聞くこともできます。"
 	},
 	"press-whatsnew4-title": {
 		"message": "クリスマスをもっと楽しみましょう:"
@@ -7323,7 +7323,7 @@
 		"message": "インストール"
 	},
 	"village_santa_intall_ios": {
-		"message": "\u003cspan\u003e\u003c/span\u003e、[ホーム画面に追加] の順にタップします。"
+		"message": "<span></span>、[ホーム画面に追加] の順にタップします。"
 	},
 	"village_takesoff": {
 		"message": "サンタさんの出発まであと"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "ジンバブエ"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

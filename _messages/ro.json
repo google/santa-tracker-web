@@ -3,7 +3,7 @@
 		"message": "În Ajunul Crăciunului, vom prezenta cu mândrie tabloul de bord al Moșului, tehnologia care pune în mișcare sania cu care călătorește în jurul lumii. Am primit această imagine specială de la unul din numeroșii elfi dezvoltatori ai Moșului, care lucrează din greu la Polul Nord pentru a-l ajuta pe Moș în pregătirile pentru ziua cea mare. Tabloul de bord al Moșului, care dispune de cea mai recentă și extraordinară tehnologie Google Maps și de sisteme de ultimă generație pentru sanie, ne va ajuta să-i urmărim traseul din jurul lumii și să aflăm mai multe despre câteva dintre locurile vizitate pe drum."
 	},
 	"about-content-three": {
-		"message": "Aplicația Google Maps de urmărire a Moșului este creată și dezvoltată de Google, cu puțin ajutor din partea elfilor Moșului. Ai nevoie de ajutor sau mai ai întrebări? Accesează \u003ca href=\"//support.google.com/santatracker\"\u003eCentrul de ajutor\u003c/a\u003e."
+		"message": "Aplicația Google Maps de urmărire a Moșului este creată și dezvoltată de Google, cu puțin ajutor din partea elfilor Moșului. Ai nevoie de ajutor sau mai ai întrebări? Accesează <a href=\"//support.google.com/santatracker\">Centrul de ajutor</a>."
 	},
 	"about-content-two": {
 		"message": "Elfii noștri prietenoși te-au invitat să explorezi și satul Moșului în timp ce el se pregătește de călătorie. Așadar pornește în explorarea satului. S-ar putea să descoperi câteva activități distractive și să întâlnești niște elfi deosebiți."
@@ -501,7 +501,7 @@
 		"message": "Excelent"
 	},
 	"codelab-mwc-promo": {
-		"message": "Descoperă mai multe proiecte de codificare Google la \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Descoperă mai multe proiecte de codificare Google la <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Următoarea provocare"
@@ -684,13 +684,13 @@
 		"message": "A apărut o problemă, dar elfii lui Moș Crăciun vor afla mai multe."
 	},
 	"error-internal": {
-		"message": "A apărut o problemă! I-am anunțat pe elfii lui Moș Crăciun, dar încearcă să revii la \u003ca href=\"./\"\u003esatul Moșului\u003c/a\u003e."
+		"message": "A apărut o problemă! I-am anunțat pe elfii lui Moș Crăciun, dar încearcă să revii la <a href=\"./\">satul Moșului</a>."
 	},
 	"error-lost-connection": {
 		"message": "Se pare că tocmai s-a întrerupt conexiunea cu Polul Nord. Elfii Moșului lucrează din greu să o restabilească. Rămâi pe fir!"
 	},
 	"error-not-found": {
-		"message": "Elfii lui Moș Crăciun nu pot găsi pagina! S-ar putea să ai mai mult noroc dacă te întorci la \u003ca href=\"./\"\u003esatul Moșului\u003c/a\u003e."
+		"message": "Elfii lui Moș Crăciun nu pot găsi pagina! S-ar putea să ai mai mult noroc dacă te întorci la <a href=\"./\">satul Moșului</a>."
 	},
 	"error-out-of-date": {
 		"message": "Aceasta este o versiune învechită a Satului lui Moș Crăciun! Deschideți Pe urmele lui Moș Crăciun din nou pentru a beneficia de ultima versiune."
@@ -720,7 +720,7 @@
 		"message": "Folosiți Asistentul Google pentru a afla mai multe despre Moș Crăciun în luna decembrie! Această integrare este disponibilă în anumite limbi."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Folosind \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e, copiii sub 13 ani pot beneficia de propria experiență cu Asistentul Google când se conectează la cont, cu permisiunea părinților."
+		"message": "Folosind <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>, copiii sub 13 ani pot beneficia de propria experiență cu Asistentul Google când se conectează la cont, cu permisiunea părinților."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google Assistant vă trimite la Polul Nord, unde Moș Crăciun repetă pentru un concert. Știe o singură melodie – îl puteți ajuta să o cânte cum trebuie?"
@@ -1215,7 +1215,7 @@
 		"message": "Norvegiană"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya oferă copiilor educație științifică practică în zonele rurale ale Indiei. Atât în centrele științifice, cât și în furgonetele științifice, prezintă totul: de la sistemul solar până la felul în care funcționează creierul. Au ajuns la peste 5 milioane de copii și 200.000 de profesori din 14 state ale Indiei. Este printre cele mai mari programe de educație științifică din lume. Google.org \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esprijină\u003c/a\u003e cu mândrie Agastya."
+		"message": "Agastya oferă copiilor educație științifică practică în zonele rurale ale Indiei. Atât în centrele științifice, cât și în furgonetele științifice, prezintă totul: de la sistemul solar până la felul în care funcționează creierul. Au ajuns la peste 5 milioane de copii și 200.000 de profesori din 14 state ale Indiei. Este printre cele mai mari programe de educație științifică din lume. Google.org <a href=\"https://www.google.org/impact-challenge/agastya/\">sprijină</a> cu mândrie Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Profesori și elevi"
@@ -1248,7 +1248,7 @@
 		"message": "Colaborăm cu Google.org pentru a scoate în evidență cinci organizații nonprofit educaționale, care sărbătoresc anotimpul cadourilor de-a lungul anului. Derulează în jos și află mai multe despre modul în care fiecare organizație dăruiește. Arată-ți aprecierea colorând această colecție de ornamente, iar apoi atârnându-le în brad sau dăruindu-le celor dragi."
 	},
 	"nonprofit-jane-description": {
-		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplorați habitatele cimpanzeilor\u003c/a\u003e din Gombe, Tanzania."
+		"message": "Cimpanzeii sunt cele mai apropiate rude în viață ale oamenilor din regatul animalelor! În prezent, trăiesc mai puțin de 300.000 de cimpanzei din cauza distrugerii habitatului lor, a bolilor și a comerțului ilegal. Institutul Jane Goodall (JGI) protejează cimpanzeii prin observarea și înțelegerea comportamentelor lor, precum și a habitatelor în care trăiesc. De asemenea, JGI se ocupă și de crearea unei comunități de persoane care protejează și conservă fauna și mediul în care trăim. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explorați habitatele cimpanzeilor</a> din Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Cimpanzei"
@@ -1287,13 +1287,13 @@
 		"message": "Ochelari inteligenți"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 miliarde de oameni nu au acces la electricitate. Mulți dintre ei folosesc lămpi cu gaz, care ard combustibil și poluează casele. În schimb, luminile solare absorb energia solară în timpul zilei și oferă ore întregi de lumină seara, fără ardere sau poluare. Vă ajută să citiți, să vă jucați și să ajungeți acasă în siguranță noaptea. SolarAid oferă acces la lumini solare multora dintre cei care au nevoie. Google.org \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esprijină\u003c/a\u003e cu mândrie SolarAid."
+		"message": "1,3 miliarde de oameni nu au acces la electricitate. Mulți dintre ei folosesc lămpi cu gaz, care ard combustibil și poluează casele. În schimb, luminile solare absorb energia solară în timpul zilei și oferă ore întregi de lumină seara, fără ardere sau poluare. Vă ajută să citiți, să vă jucați și să ajungeți acasă în siguranță noaptea. SolarAid oferă acces la lumini solare multora dintre cei care au nevoie. Google.org <a href=\"https://www.google.org/impact-challenge/solaraid/\">sprijină</a> cu mândrie SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Lumină solară"
 	},
 	"nonprofit-water-description": {
-		"message": "Folosim apa pentru dușuri și băi, pentru gătit și, desigur, pentru băut. Apa curată este o resursă valoroasă. Numeroși oameni se bazează pe fântâni săpate cu mâinile, pentru a avea acces la stratul acvifer, care menține apă curată sub pământ, între straturi de pietre și sol. charity: water lucrează cu parteneri locali, pentru a construi fântâni și alte proiecte similare acolo unde sunt necesare. Google.org \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esprijină\u003c/a\u003e cu mândrie charity: water."
+		"message": "Folosim apa pentru dușuri și băi, pentru gătit și, desigur, pentru băut. Apa curată este o resursă valoroasă. Numeroși oameni se bazează pe fântâni săpate cu mâinile, pentru a avea acces la stratul acvifer, care menține apă curată sub pământ, între straturi de pietre și sol. charity: water lucrează cu parteneri locali, pentru a construi fântâni și alte proiecte similare acolo unde sunt necesare. Google.org <a href=\"https://www.google.org/global-impact-awards/charity-water/\">sprijină</a> cu mândrie charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Fântână"
@@ -1305,7 +1305,7 @@
 		"message": "Mobilitate"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Schimbările climatice continuă să afecteze echilibrul a numeroase ecosisteme din lume, atât în zonele calde, cât și în regiunile reci. În zona arctică, datorită creșterii temperaturii, urșii polari rămân fără habitatul lor de gheață. În plus, se confruntă cu amenințările reprezentate de activitățile umane, cum ar fi extracția și transportul țițeiului și gazului. World Wildlife Fund depune eforturi pentru a asigura supraviețuirea speciei prin cercetări științifice și parteneriate cu comunitățile arctice indigene. Google.org se mândrește cu faptul că este \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003epartener\u003c/a\u003e al World Wildlife Fund."
+		"message": "Schimbările climatice continuă să afecteze echilibrul a numeroase ecosisteme din lume, atât în zonele calde, cât și în regiunile reci. În zona arctică, datorită creșterii temperaturii, urșii polari rămân fără habitatul lor de gheață. În plus, se confruntă cu amenințările reprezentate de activitățile umane, cum ar fi extracția și transportul țițeiului și gazului. World Wildlife Fund depune eforturi pentru a asigura supraviețuirea speciei prin cercetări științifice și parteneriate cu comunitățile arctice indigene. Google.org se mândrește cu faptul că este <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">partener</a> al World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urși polari"
@@ -1440,7 +1440,7 @@
 		"message": "Satul Moșului sărbătorește al cincisprezecelea an de activități festive distractive, educative și interactive. Sub conducerea atentă a dnei Crăciun, elfii au actualizat satul, dându-i un aspect atractiv și adăugând conținut nou-nouț. Mulțumită noului sistem de încălzire cu ciocolată caldă, satul nu mai are nevoie de întreaga lună decembrie pentru a se dezgheța: toate cele 24 de activități vor fi disponibile începând din 4 decembrie. Acum tu și elfii aveți mai mult timp să vă jucați și să explorați satul Moșului."
 	},
 	"press-about-village2": {
-		"message": "În sat, poți să-ți exersezi aptitudinile de codificare, să creezi imagini originale, să-ți testezi cunoștințele despre geografie și să afli mai multe despre organizații caritabile precum \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e și \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Cadrele didactice pot \u003ca href=\"./educators.html\"\u003esă descarce planuri de lecție\u003c/a\u003e cu ghiduri video, pentru a le preda elevilor noțiuni de bază despre codificare și tradiții de sărbători, în engleză, spaniolă, franceză, japoneză și coreeană."
+		"message": "În sat, poți să-ți exersezi aptitudinile de codificare, să creezi imagini originale, să-ți testezi cunoștințele despre geografie și să afli mai multe despre organizații caritabile precum <a href=\"https://www.khanacademy.org/\">Khan Academy</a> și <a href=\"https://code.org/\">Code.org</a>. Cadrele didactice pot <a href=\"./educators.html\">să descarce planuri de lecție</a> cu ghiduri video, pentru a le preda elevilor noțiuni de bază despre codificare și tradiții de sărbători, în engleză, spaniolă, franceză, japoneză și coreeană."
 	},
 	"press-asset-animation": {
 		"message": "Animație"
@@ -1461,7 +1461,7 @@
 		"message": "Aventuri educative"
 	},
 	"press-edu1": {
-		"message": "Am extins \u003ca href=\"./educators.html\"\u003epagina de resurse pentru cadre didactice\u003c/a\u003e pentru a oferi ghiduri video alături de planurile de lecție, disponibile acum în cinci limbi. Toate jocurile tale preferate continuă să fie disponibile, prezentând de la concepte de bază despre programare, la tradiții de sărbători din întreaga lume. Pe urmele lui Moș Crăciun cu Google încurajează experiențele de învățare în timpul sărbătorilor într-un mod distractiv. Pentru a afla mai multe, accesează \u003ca href=\"./educators.html\"\u003ejocurile noastre educative\u003c/a\u003e."
+		"message": "Am extins <a href=\"./educators.html\">pagina de resurse pentru cadre didactice</a> pentru a oferi ghiduri video alături de planurile de lecție, disponibile acum în cinci limbi. Toate jocurile tale preferate continuă să fie disponibile, prezentând de la concepte de bază despre programare, la tradiții de sărbători din întreaga lume. Pe urmele lui Moș Crăciun cu Google încurajează experiențele de învățare în timpul sărbătorilor într-un mod distractiv. Pentru a afla mai multe, accesează <a href=\"./educators.html\">jocurile noastre educative</a>."
 	},
 	"press-games-title": {
 		"message": "Distracție și jocuri"
@@ -1491,19 +1491,19 @@
 		"message": "Creează un elf:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Dacă visul tău dintotdeauna a fost să începi o trupă de dans cu un grup de elfi dansatori foarte talentați, acum a sosit momentul. Aproape. Folosind modelul de învățare automată numit \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, poți să antrenezi un elf să-ți învețe mișcările, astfel încât să arate ce poate pe ringul de dans."
+		"message": "Dacă visul tău dintotdeauna a fost să începi o trupă de dans cu un grup de elfi dansatori foarte talentați, acum a sosit momentul. Aproape. Folosind modelul de învățare automată numit <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, poți să antrenezi un elf să-ți învețe mișcările, astfel încât să arate ce poate pe ringul de dans."
 	},
 	"press-whatsnew2-title": {
 		"message": "Dansează cu elfii:"
 	},
 	"press-whatsnew3-text": {
-		"message": "În plus, vei putea să vezi locația în timp real a Moșului în Google Maps. Pur și simplu, atinge butonul hamburger, iar apoi „Afișarea locației”, pentru a vedea exact unde se află Moșul de-a lungul călătoriei sale. Sau accesează \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+		"message": "În plus, vei putea să vezi locația în timp real a Moșului în Google Maps. Pur și simplu, atinge butonul hamburger, iar apoi „Afișarea locației”, pentru a vedea exact unde se află Moșul de-a lungul călătoriei sale. Sau accesează <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>!"
 	},
 	"press-whatsnew3-title": {
 		"message": "Un nou mod în care să-l urmărești pe Moș Crăciun:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Dacă vrei să simți spiritul sărbătorilor, încearcă stickerele de sărbători de la Gboard, disponibile pe \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, pe \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e și în \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplicația pentru Android\u003c/a\u003e. Și bucură-te de distracție literară, zicându-i Asistentului Google „Tell me a holiday story” (Spune-mi o poveste de sărbători) sau întrebându-l „Where's Santa?” (Unde e Moșul?)."
+		"message": "Dacă vrei să simți spiritul sărbătorilor, încearcă stickerele de sărbători de la Gboard, disponibile pe <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, pe <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> și în <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">aplicația pentru Android</a>. Și bucură-te de distracție literară, zicându-i Asistentului Google „Tell me a holiday story” (Spune-mi o poveste de sărbători) sau întrebându-l „Where's Santa?” (Unde e Moșul?)."
 	},
 	"press-whatsnew4-title": {
 		"message": "Mai multă distracție de sărbători:"
@@ -7323,7 +7323,7 @@
 		"message": "Instalează"
 	},
 	"village_santa_intall_ios": {
-		"message": "Atingeți \u003cspan\u003e\u003c/span\u003e, apoi „Adăugați pe Ecranul de pornire”"
+		"message": "Atingeți <span></span>, apoi „Adăugați pe Ecranul de pornire”"
 	},
 	"village_takesoff": {
 		"message": "Moș Crăciun pornește în"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

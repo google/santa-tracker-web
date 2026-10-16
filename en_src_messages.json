@@ -1,15 +1,15 @@
 {
   "about-content-one": {
     "description": "One of three paragraphs describing the Santa Tracker website. Tone should be whimsical. The Dashboard will be a google map with information displayed on top, like the name of the city he's in, the number of presents delivered, the current temperature, etc.",
-    "message": "On Christmas Eve we\u2019ll be proudly showcasing a Santa\u2019s dashboard, the technology that powers his sleigh during his around-the-world journey. We\u2019ve received this special preview from one of Santa\u2019s many developer elves, who are hard at work in the North Pole helping Santa prepare for his big day. Santa\u2019s dashboard - featuring the latest and greatest in Google Maps technology and sleigh engineering - will allow you to follow his progress around the world, and also learn a little about some of his stops along the way."
+    "message": "On Christmas Eve we’ll be proudly showcasing a Santa’s dashboard, the technology that powers his sleigh during his around-the-world journey. We’ve received this special preview from one of Santa’s many developer elves, who are hard at work in the North Pole helping Santa prepare for his big day. Santa’s dashboard - featuring the latest and greatest in Google Maps technology and sleigh engineering - will allow you to follow his progress around the world, and also learn a little about some of his stops along the way."
   },
   "about-content-three": {
     "description": "One of three paragraphs describing the Santa Tracker website. Tone should be light, but direct, as it links people to more help.",
-    "raw": "The Google Maps Santa Tracker is created and developed by Google, with a little help from Santa\u2019s elves. Need help or have another question? Visit our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"//support.google.com/santatracker\"&gt;</ph>Help Center<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
+    "raw": "The Google Maps Santa Tracker is created and developed by Google, with a little help from Santa’s elves. Need help or have another question? Visit our <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"//support.google.com/santatracker\"&gt;</ph>Help Center<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph>."
   },
   "about-content-two": {
     "description": "One of three paragraphs describing the Santa Tracker website. Tone should be whimsical. The Village is the main navigation for Santa Tracker.",
-    "message": "Our friendly elves have also invited you to explore Santa\u2019s village while Santa gets ready for his journey. So go ahead and explore his village, you might just find some fun activities and meet some interesting elves."
+    "message": "Our friendly elves have also invited you to explore Santa’s village while Santa gets ready for his journey. So go ahead and explore his village, you might just find some fun activities and meet some interesting elves."
   },
   "about-santa": {
     "description": "Link text. Please keep this short. Links to the Santa Tracker About page. Page supplies more info about the project.",
@@ -107,35 +107,35 @@
     "description": "Name of a country. This appears as a label in a geography game.",
     "message": "Bhutan"
   },
-  "buildandbolt-build-car-multiple" : {
+  "buildandbolt-build-car-multiple": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> cars!"
   },
-  "buildandbolt-build-car-single" : {
+  "buildandbolt-build-car-single": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 car!"
   },
-  "buildandbolt-build-robot-multiple" : {
+  "buildandbolt-build-robot-multiple": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> robots!"
   },
-  "buildandbolt-build-robot-single" : {
+  "buildandbolt-build-robot-single": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 robot!"
   },
-  "buildandbolt-build-teddybear-multiple" : {
+  "buildandbolt-build-teddybear-multiple": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> teddy bears!"
   },
-  "buildandbolt-build-teddybear-single" : {
+  "buildandbolt-build-teddybear-single": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 teddy bear!"
   },
-  "buildandbolt-build-rocket-multiple" : {
+  "buildandbolt-build-rocket-multiple": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build <ph name=\"COUNT\"><ex>3</ex>{{count}}</ph> rockets!"
   },
-  "buildandbolt-build-rocket-single" : {
+  "buildandbolt-build-rocket-single": {
     "description": "Message telling the player the quantity and type of toy they need to make.",
     "raw": "Build 1 rocket!"
   },
@@ -273,7 +273,7 @@
   },
   "ci_country_name": {
     "description": "Name of a country. This appears as a label in a geography game.",
-    "message": "C\u00f4te d'Ivoire"
+    "message": "Côte d'Ivoire"
   },
   "citylights-contribute": {
     "description": "CTA link to a community where people can upload panoramas of their own. Includes a placeholder with current localised city/country name.",
@@ -801,7 +801,7 @@
   },
   "de_tradition": {
     "description": "Describes a local holiday tradition. Restrict to 300 characters.",
-    "message": "In nearly Every German town Christmas markets open in town squares. Townspeople gather to hear brass bands, and enjoy traditional fare of the region. They eat gingerbread hearts, sugar-roasted almonds, sweets of all kinds, and drink mulled wine (Gl\u00fchwein) or apple cider."
+    "message": "In nearly Every German town Christmas markets open in town squares. Townspeople gather to hear brass bands, and enjoy traditional fare of the region. They eat gingerbread hearts, sugar-roasted almonds, sweets of all kinds, and drink mulled wine (Glühwein) or apple cider."
   },
   "deck": {
     "description": "Link text. Deck out implies decorating.",
@@ -1233,7 +1233,7 @@
   },
   "fr_tradition": {
     "description": "Describes a local holiday tradition. Restrict to 300 characters.",
-    "message": "In France, children traditionally put their shoes out next to the fireplace in anticipation of P\u00e8re No\u00ebl's arrival. If children have been good throughout the year, P\u00e8re No\u00ebl will fill the shoes with gifts."
+    "message": "In France, children traditionally put their shoes out next to the fireplace in anticipation of Père Noël's arrival. If children have been good throughout the year, Père Noël will fill the shoes with gifts."
   },
   "fullscreen": {
     "description": "Label for a button which makes the site fullscreen. Short, but no limit.",
@@ -1293,7 +1293,7 @@
   },
   "gr_tradition": {
     "description": "Describes a local holiday tradition. Restrict to 300 characters.",
-    "message": "In Greece, friendly but troublesome creatures called 'kallik\u00e1ntzari' live most of the year in the center of the earth. But at Christmas, they love to hide in people's houses, frightening people, playing tricks, or devouring Christmas foods. Greeks perform rituals to keep these hobgoblins away."
+    "message": "In Greece, friendly but troublesome creatures called 'kallikántzari' live most of the year in the center of the earth. But at Christmas, they love to hide in people's houses, frightening people, playing tricks, or devouring Christmas foods. Greeks perform rituals to keep these hobgoblins away."
   },
   "gt_country_name": {
     "description": "Name of a country. This appears as a label in a game that teaches children about holiday traditions from around the world.",
@@ -1669,7 +1669,7 @@
   },
   "nonprofit-nature-description": {
     "description": "The description of a non-profit organization. Descriptions are supplied by the non-profit organization. Please do not translate the name of the non-profit.",
-    "message": "The Nature Conservancy works to protect and restore forests in the United States and around the world. These iconic forests sustain life around the planet. They filter water, clean our air, support communities of people and provide habitat for important plant and animal species. At the current rate of deforestation, our forests will be wiped out within 100 years. The Nature Conservancy\u2019s Plant a Billion Trees program is working to plant one billion trees by 2025 and restore the world\u2019s most critical forests."
+    "message": "The Nature Conservancy works to protect and restore forests in the United States and around the world. These iconic forests sustain life around the planet. They filter water, clean our air, support communities of people and provide habitat for important plant and animal species. At the current rate of deforestation, our forests will be wiped out within 100 years. The Nature Conservancy’s Plant a Billion Trees program is working to plant one billion trees by 2025 and restore the world’s most critical forests."
   },
   "nonprofit-nature-type": {
     "description": "The type of work that the non-profit supports. Work is defined very broadly. eg. a type of animal, water, sun, etc.",
@@ -1725,7 +1725,7 @@
   },
   "nonprofit-wwf-description": {
     "description": "The description of a non-profit organization. Descriptions are supplied by the non-profit organization. Please do not translate the name of the non-profit.",
-    "raw": "Climate change continues to disrupt the balance of many of the world\u2019s ecosystems, both warm and cold places. In the Arctic, polar bears are losing their sea ice habitat with rising temperatures, and face added threats from human activities, such as oil and gas development and shipping. World Wildlife Fund works to ensure the survival of the species through scientific research and working in partnership with Arctic native communities. Google.org is proud to be a <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"&gt;</ph> supporter<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> with World Wildlife Fund."
+    "raw": "Climate change continues to disrupt the balance of many of the world’s ecosystems, both warm and cold places. In the Arctic, polar bears are losing their sea ice habitat with rising temperatures, and face added threats from human activities, such as oil and gas development and shipping. World Wildlife Fund works to ensure the survival of the species through scientific research and working in partnership with Arctic native communities. Google.org is proud to be a <ph name=\"BEGIN_LINK\"><ex>&lt;a href=\"link\"&gt;</ex>&lt;a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"&gt;</ph> supporter<ph name=\"END_LINK\"><ex>&lt;/a&gt;</ex>&lt;/a&gt;</ph> with World Wildlife Fund."
   },
   "nonprofit-wwf-type": {
     "description": "The type of work that the non-profit supports. Work is defined very broadly. eg. a type of animal, water, sun, etc.",
@@ -4923,56 +4923,56 @@
     "message": "Status"
   },
   "tracker_offline": {
-    "description": "Status text displayed when Santa is offline",
-    "message": "Offline"
+    "message": "Offline",
+    "description": "Pre-flight stage string for tracker_offline"
   },
   "tracker_preflight_status": {
-    "description": "Heading for Santa's current preparation activity at the North Pole",
-    "message": "Pre-Flight Status"
+    "message": "Pre-Flight Status",
+    "description": "Pre-flight stage string for tracker_preflight_status"
   },
   "tracker_preflight_1": {
-    "description": "Activity status more than 24 hours before takeoff",
-    "message": "Sleigh maintenance and workshop preparations"
+    "message": "Santa wakes up, sips hot cocoa, and checks the polar clock",
+    "description": "Pre-flight stage string for tracker_preflight_1"
   },
   "tracker_preflight_2": {
-    "description": "Activity status 12 to 24 hours before takeoff",
-    "message": "Sorting worldwide delivery lists and presents"
+    "message": "Final inspection of special gifts & express wrapping in the workshop",
+    "description": "Pre-flight stage string for tracker_preflight_2"
   },
   "tracker_preflight_3": {
-    "description": "Activity status 6 to 12 hours before takeoff",
-    "message": "Loading the magical toy sack onto the sleigh"
+    "message": "Silver runner maintenance & aerodynamic sleigh polishing",
+    "description": "Pre-flight stage string for tracker_preflight_3"
   },
   "tracker_preflight_4": {
-    "description": "Activity status 4 to 6 hours before takeoff",
-    "message": "Feeding the reindeer with holiday treats"
+    "message": "Reviewing the nice & naughty lists at the polar post office",
+    "description": "Pre-flight stage string for tracker_preflight_4"
   },
   "tracker_preflight_5": {
-    "description": "Activity status 2 to 4 hours before takeoff",
-    "message": "Reviewing polar wind forecasts and flight route"
+    "message": "High-altitude wind analysis & northern lights radar scan",
+    "description": "Pre-flight stage string for tracker_preflight_5"
   },
   "tracker_preflight_6": {
-    "description": "Activity status 1 to 2 hours before takeoff",
-    "message": "Grooming the reindeer and shining Rudolph's nose"
+    "message": "Energy snack for the reindeer with special carrots & sugar cubes",
+    "description": "Pre-flight stage string for tracker_preflight_6"
   },
   "tracker_preflight_7": {
-    "description": "Activity status 30 to 60 minutes before takeoff",
-    "message": "Santa putting on the red velvet suit and boots"
+    "message": "Elves loading the bottomless toy sack onto the sleigh",
+    "description": "Pre-flight stage string for tracker_preflight_7"
   },
   "tracker_preflight_8": {
-    "description": "Activity status 15 to 30 minutes before takeoff",
-    "message": "Boarding the sleigh and final checklist"
+    "message": "Calibrating the worldwide route on Google Maps GPS",
+    "description": "Pre-flight stage string for tracker_preflight_8"
   },
   "tracker_preflight_9": {
-    "description": "Activity status 5 to 15 minutes before takeoff",
-    "message": "Runway inspection and North Pole tower clearance"
+    "message": "Santa suiting up in the thermal red suit & flight boots",
+    "description": "Pre-flight stage string for tracker_preflight_9"
   },
   "tracker_preflight_10": {
-    "description": "Activity status 1 to 5 minutes before takeoff",
-    "message": "Reindeer revving up and bells jingling on runway"
+    "message": "Harnessing the reindeer with leather gear & silver bells",
+    "description": "Pre-flight stage string for tracker_preflight_10"
   },
   "tracker_preflight_11": {
-    "description": "Activity status in the final minute before takeoff",
-    "message": "Final countdown to liftoff! Hold on tight!"
+    "message": "Reindeer grooming & test illumination of Rudolph's red nose",
+    "description": "Pre-flight stage string for tracker_preflight_11"
   },
   "tracker_distance_away_km": {
     "description": "Tells the user how far Santa is away from them (in distance)",
@@ -5271,7 +5271,7 @@
   },
   "trivia_beginner_013": {
     "description": "A trivia question.",
-    "message": "Niger, a country with one of the world\u2019s fastest growing populations, is located in the northwestern part of which continent?"
+    "message": "Niger, a country with one of the world’s fastest growing populations, is located in the northwestern part of which continent?"
   },
   "trivia_beginner_013_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -5383,7 +5383,7 @@
   },
   "trivia_beginner_020": {
     "description": "A trivia question.",
-    "message": "Home to 30 percent of the world\u2019s pandas, the Sichuan Giant Panda Sanctuaries are located in which country?"
+    "message": "Home to 30 percent of the world’s pandas, the Sichuan Giant Panda Sanctuaries are located in which country?"
   },
   "trivia_beginner_020_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -5399,7 +5399,7 @@
   },
   "trivia_beginner_021": {
     "description": "A trivia question.",
-    "message": "About 90 percent of the world\u2019s ice can be found on which continent?"
+    "message": "About 90 percent of the world’s ice can be found on which continent?"
   },
   "trivia_beginner_021_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -5415,7 +5415,7 @@
   },
   "trivia_beginner_022": {
     "description": "A trivia question.",
-    "message": "Angel Falls, the world\u2019s highest waterfall, is located on which continent?"
+    "message": "Angel Falls, the world’s highest waterfall, is located on which continent?"
   },
   "trivia_beginner_022_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -5655,7 +5655,7 @@
   },
   "trivia_beginner_037": {
     "description": "A trivia question.",
-    "message": "Saint Basil\u2019s Cathedral stands on Red Square next to the Kremlin in which Russian city?"
+    "message": "Saint Basil’s Cathedral stands on Red Square next to the Kremlin in which Russian city?"
   },
   "trivia_beginner_037_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -5863,7 +5863,7 @@
   },
   "trivia_beginner_050": {
     "description": "A trivia question.",
-    "message": "The Gateway Arch, symbolizing America\u2019s westward expansion in the 1800s, is located along the Mississippi River in which U.S. city?"
+    "message": "The Gateway Arch, symbolizing America’s westward expansion in the 1800s, is located along the Mississippi River in which U.S. city?"
   },
   "trivia_beginner_050_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -6135,7 +6135,7 @@
   },
   "trivia_beginner_067": {
     "description": "A trivia question.",
-    "message": "Giant tortoises live on the Gal\u00e1pagos Islands, located west of South America in which ocean?"
+    "message": "Giant tortoises live on the Galápagos Islands, located west of South America in which ocean?"
   },
   "trivia_beginner_067_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -6295,7 +6295,7 @@
   },
   "trivia_beginner_077": {
     "description": "A trivia question.",
-    "message": "To navigate the Suez Canal and to visit Cairo\u2019s City of the Dead, you would travel to which country?"
+    "message": "To navigate the Suez Canal and to visit Cairo’s City of the Dead, you would travel to which country?"
   },
   "trivia_beginner_077_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -6343,7 +6343,7 @@
   },
   "trivia_beginner_080": {
     "description": "A trivia question.",
-    "message": "To visit ancient Maya ruins and to swim at the beaches of Canc\u00fan, you would travel to\nwhich country?"
+    "message": "To visit ancient Maya ruins and to swim at the beaches of Cancún, you would travel to\nwhich country?"
   },
   "trivia_beginner_080_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -6359,7 +6359,7 @@
   },
   "trivia_beginner_081": {
     "description": "A trivia question.",
-    "message": "To visit St. Patrick\u2019s Cathedral in Dublin and enjoy the Arts Festival in Kilkenny, you\nwould travel to which country?"
+    "message": "To visit St. Patrick’s Cathedral in Dublin and enjoy the Arts Festival in Kilkenny, you\nwould travel to which country?"
   },
   "trivia_beginner_081_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -6375,7 +6375,7 @@
   },
   "trivia_beginner_082": {
     "description": "A trivia question.",
-    "message": "To take a rain forest tour and to dance at Rio de Janeiro\u2019s Carnival celebration, you\nwould travel to which country?"
+    "message": "To take a rain forest tour and to dance at Rio de Janeiro’s Carnival celebration, you\nwould travel to which country?"
   },
   "trivia_beginner_082_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -6967,7 +6967,7 @@
   },
   "trivia_hard_022": {
     "description": "A trivia question.",
-    "message": "The Yucat\u00e1n Channel separates Mexico and which island?"
+    "message": "The Yucatán Channel separates Mexico and which island?"
   },
   "trivia_hard_022_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -7479,7 +7479,7 @@
   },
   "trivia_hard_054": {
     "description": "A trivia question.",
-    "message": "Which city, located on the R\u00edo de la Plata estuary, is the largest city in Uruguay?"
+    "message": "Which city, located on the Río de la Plata estuary, is the largest city in Uruguay?"
   },
   "trivia_hard_054_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -7563,7 +7563,7 @@
   },
   "trivia_hard_059_answer0": {
     "description": "A potential answer for the trivia question.",
-    "message": "San Jos\u00e9"
+    "message": "San José"
   },
   "trivia_hard_059_answer1": {
     "description": "A potential answer for the trivia question.",
@@ -7627,7 +7627,7 @@
   },
   "trivia_hard_063_answer0": {
     "description": "A potential answer for the trivia question.",
-    "message": "Bogot\u00e1"
+    "message": "Bogotá"
   },
   "trivia_hard_063_answer1": {
     "description": "A potential answer for the trivia question.",
@@ -7767,7 +7767,7 @@
   },
   "trivia_hard_072": {
     "description": "A trivia question.",
-    "message": "Painters such as C\u00e9zanne were inspired by the landscape of Provence, a region in which country?"
+    "message": "Painters such as Cézanne were inspired by the landscape of Provence, a region in which country?"
   },
   "trivia_hard_072_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -7783,7 +7783,7 @@
   },
   "trivia_hard_073": {
     "description": "A trivia question.",
-    "message": "Bah\u00eda Blanca is a major shipping point for the Pampas region in which country?"
+    "message": "Bahía Blanca is a major shipping point for the Pampas region in which country?"
   },
   "trivia_hard_073_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -7943,7 +7943,7 @@
   },
   "trivia_hard_083": {
     "description": "A trivia question.",
-    "message": "Located near the mouth of the Vistula River, Gda\u0144sk is a major port in which European country?"
+    "message": "Located near the mouth of the Vistula River, Gdańsk is a major port in which European country?"
   },
   "trivia_hard_083_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -7971,7 +7971,7 @@
   },
   "trivia_hard_084_answer2": {
     "description": "A potential answer for the trivia question.",
-    "message": "Paran\u00e1 River"
+    "message": "Paraná River"
   },
   "trivia_hard_085": {
     "description": "A trivia question.",
@@ -8023,7 +8023,7 @@
   },
   "trivia_hard_088": {
     "description": "A trivia question.",
-    "message": "Guaran\u00ed is the name of one of the official languages and also the currency of which South American country?"
+    "message": "Guaraní is the name of one of the official languages and also the currency of which South American country?"
   },
   "trivia_hard_088_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -8359,7 +8359,7 @@
   },
   "trivia_medium_004": {
     "description": "A trivia question.",
-    "message": "Teotihuac\u00e1n was the great center of an early civilization on which continent?"
+    "message": "Teotihuacán was the great center of an early civilization on which continent?"
   },
   "trivia_medium_004_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -8491,7 +8491,7 @@
   },
   "trivia_medium_012_answer0": {
     "description": "A potential answer for the trivia question.",
-    "message": "S\u00e3o Paulo, Brazil"
+    "message": "São Paulo, Brazil"
   },
   "trivia_medium_012_answer1": {
     "description": "A potential answer for the trivia question.",
@@ -8679,7 +8679,7 @@
   },
   "trivia_medium_024": {
     "description": "A trivia question.",
-    "message": "Which capital city, located on Table Bay, is the seat of South Africa\u2019s national parliament?"
+    "message": "Which capital city, located on Table Bay, is the seat of South Africa’s national parliament?"
   },
   "trivia_medium_024_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -8775,7 +8775,7 @@
   },
   "trivia_medium_030": {
     "description": "A trivia question.",
-    "message": "Located south of the Black Sea, which capital city is the center of Turkey\u2019s transportation system?"
+    "message": "Located south of the Black Sea, which capital city is the center of Turkey’s transportation system?"
   },
   "trivia_medium_030_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -9719,7 +9719,7 @@
   },
   "trivia_medium_089": {
     "description": "A trivia question.",
-    "message": "The Maya city of Cop\u00e1n is a popular tourist attraction in which country that borders El Salvador and Nicaragua?"
+    "message": "The Maya city of Copán is a popular tourist attraction in which country that borders El Salvador and Nicaragua?"
   },
   "trivia_medium_089_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -9767,7 +9767,7 @@
   },
   "trivia_medium_092": {
     "description": "A trivia question.",
-    "message": "The city of Bel\u00e9m is located at the southern mouth of the Amazon River in which country?"
+    "message": "The city of Belém is located at the southern mouth of the Amazon River in which country?"
   },
   "trivia_medium_092_answer0": {
     "description": "A potential answer for the trivia question.",
@@ -10112,5 +10112,41 @@
   "decmonth_long": {
     "description": "'December', the month. Any length is fine. Placed before a number indicating the date within December something opens.",
     "message": "December"
+  },
+  "tracker_preflight_12": {
+    "message": "Reindeer taxiing out of the stables to the taxiway",
+    "description": "Pre-flight stage string for tracker_preflight_12"
+  },
+  "tracker_preflight_13": {
+    "message": "Hitching all eight reindeer and Rudolph to Santa's sleigh",
+    "description": "Pre-flight stage string for tracker_preflight_13"
+  },
+  "tracker_preflight_14": {
+    "message": "Santa boards the sleigh and completes the pre-flight checklist",
+    "description": "Pre-flight stage string for tracker_preflight_14"
+  },
+  "tracker_preflight_15": {
+    "message": "Elves clearing runway snow & inspecting runway approach lights",
+    "description": "Pre-flight stage string for tracker_preflight_15"
+  },
+  "tracker_preflight_16": {
+    "message": "Takeoff clearance received from North Pole Tower",
+    "description": "Pre-flight stage string for tracker_preflight_16"
+  },
+  "tracker_preflight_17": {
+    "message": "Sleigh lining up on the runway, bells jingling at full volume",
+    "description": "Pre-flight stage string for tracker_preflight_17"
+  },
+  "tracker_preflight_18": {
+    "message": "Spreading magic dust over the reindeer primed for takeoff",
+    "description": "Pre-flight stage string for tracker_preflight_18"
+  },
+  "tracker_preflight_19": {
+    "message": "Magic engines at max power, Santa grips the reins!",
+    "description": "Pre-flight stage string for tracker_preflight_19"
+  },
+  "tracker_preflight_20": {
+    "message": "Final countdown to liftoff! Hold on tight!",
+    "description": "Pre-flight stage string for tracker_preflight_20"
   }
 }

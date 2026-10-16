@@ -3,7 +3,7 @@
 		"message": "Á aðfangadagskvöld munum við kynna stjórnborð Sveinka með stolti, þar er öll umsjón með tækninni sem knýr sleðann hans á ferð um heiminn. Við fengum þennan forsmekk frá einum af þróunarálfum Sveinka. Þeir leggja nú hart að sér á Norðurpólnum við að undirbúa stóra daginn hjá Sveinka. Stjórnborð Sveinka hefur upp á að bjóða það nýjasta og besta í tækni og sleðatækni sem finna má i Google-kortum og það gerir þér kleift að fylgjast með ferðum Sveinka um heim allan. Þú getur líka fengið smá upplýsingar um þá staði þar sem hann kemur við á ferð sinni kringum heiminn."
 	},
 	"about-content-three": {
-		"message": "Hvar er jólasveinninn í Google-kortum er búið til og þróað af Google, með smá hjálp frá álfunum hans Sveinka. Þarftu á aðstoð að halda eða hefurðu aðra spurningu? Skoðaðu \u003ca href=\"//support.google.com/santatracker\"\u003ehjálparmiðstöðina\u003c/a\u003e."
+		"message": "Hvar er jólasveinninn í Google-kortum er búið til og þróað af Google, með smá hjálp frá álfunum hans Sveinka. Þarftu á aðstoð að halda eða hefurðu aðra spurningu? Skoðaðu <a href=\"//support.google.com/santatracker\">hjálparmiðstöðina</a>."
 	},
 	"about-content-two": {
 		"message": "Vinalegu álfarnir okkar hafa boðið þér að skoða þorpið hans Sveinka á meðan Sveinki undirbýr sig fyrir ferðalagið. Gefðu þér tíma og skoðaðu þorpið. Þú getur séð eitthvað skemmtilegt að gera og hitt áhugaverða álfa."
@@ -501,7 +501,7 @@
 		"message": "Frábært"
 	},
 	"codelab-mwc-promo": {
-		"message": "Skoðaðu fleiri kóðunarverkefni hjá Google hér: \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Skoðaðu fleiri kóðunarverkefni hjá Google hér: <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Næsta áskorun"
@@ -684,13 +684,13 @@
 		"message": "Vandamál kom upp en álfarnir hans Sveinka eru að skoða málið."
 	},
 	"error-internal": {
-		"message": "Æ nei, skrambans vandræði! Við létum álfana hans Sveinka vita en við erum á leiðinni aftur í \u003ca href=\"./\"\u003ejólasveinaþorpið\u003c/a\u003e."
+		"message": "Æ nei, skrambans vandræði! Við létum álfana hans Sveinka vita en við erum á leiðinni aftur í <a href=\"./\">jólasveinaþorpið</a>."
 	},
 	"error-lost-connection": {
 		"message": "Við virðumst hafa misst tenginguna við Norðurpólinn. Álfarnir hans Sveinka er í óða önn að laga þetta – fylgstu með!"
 	},
 	"error-not-found": {
-		"message": "Æ nei, álfarnir hans Sveinka finna ekki síðuna! Þér gæti verið betur ágengt ef þú ferð aftur í \u003ca href=\"./\"\u003ejólasveinaþorpið\u003c/a\u003e."
+		"message": "Æ nei, álfarnir hans Sveinka finna ekki síðuna! Þér gæti verið betur ágengt ef þú ferð aftur í <a href=\"./\">jólasveinaþorpið</a>."
 	},
 	"error-out-of-date": {
 		"message": "Þetta er úrelt útgáfa af þorpi jólasveinsins! Prófaðu að opna Hvar er jólasveinninn aftur til að skoða nýjustu útgáfuna."
@@ -720,7 +720,7 @@
 		"message": "Notaðu Google-hjálparann til að fá frekari upplýsingar um jólasveininn í desember! Þessi samþætting er í boði á völdum tungumálum."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Með leyfi foreldra geta börn undir þrettán ára aldri einnig fengið sérsniðið viðmót fyrir Google-hjálparann þegar þau skrá sig inn á eigin reikning. Umsjón með reikningnum er í gegnum \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Með leyfi foreldra geta börn undir þrettán ára aldri einnig fengið sérsniðið viðmót fyrir Google-hjálparann þegar þau skrá sig inn á eigin reikning. Umsjón með reikningnum er í gegnum <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google-hjálparinn tengir þig við Norðurpólinn en þar er Sveinki á fullu að undirbúa tónleika. Hann kann bara eitt lag – getur þú hjálpað honum að finna út hvernig best er að spila það?"
@@ -1215,7 +1215,7 @@
 		"message": "norska"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya færir verklega vísindamenntun til barna um allt dreifbýli á Indlandi. Það er fjallað um allt frá sólkerfinu til þess hvernig heilinn virkar í vísindamiðstöðvum þeirra og vísindabílum þeirra sem ferðast um og fræða börn. Samtökin hafa náð til yfir 5 milljón barna og 200.000 kennara í 14 ríkjum á Indlandi. Þetta er eitt stærsta menntaverkefni í heiminum! Google.org er stolt af því að \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003estyðja við\u003c/a\u003e Agastya."
+		"message": "Agastya færir verklega vísindamenntun til barna um allt dreifbýli á Indlandi. Það er fjallað um allt frá sólkerfinu til þess hvernig heilinn virkar í vísindamiðstöðvum þeirra og vísindabílum þeirra sem ferðast um og fræða börn. Samtökin hafa náð til yfir 5 milljón barna og 200.000 kennara í 14 ríkjum á Indlandi. Þetta er eitt stærsta menntaverkefni í heiminum! Google.org er stolt af því að <a href=\"https://www.google.org/impact-challenge/agastya/\">styðja við</a> Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Kennarar og nemendur"
@@ -1248,7 +1248,7 @@
 		"message": "Við höfum hafið samstarf við Google.org og kynnum fimm góðgerðasamtök á sviði menntamála sem eru í gjafahug allt árið um kring. Skrunaðu niður og fáðu frekari upplýsingar um hvernig hver samtök fyrir sig vinnur í þágu samfélagsins. Sýndu stuðning þinn með því að lita þetta samsafn af skrauti og hengja það síðan á tréð hjá þér eða gefa til þeirra sem þér þykir vænt um."
 	},
 	"nonprofit-jane-description": {
-		"message": "Simpansar eru það dýr í dýraríkinu sem skyldast er okkur! Nú eru færri en 300.000 simpansar eftir í heiminum vegna sjúkdóma, ólöglegrar verslunar með dýrin og ágangs manna gegn kjörlendi dýranna. The Jane Goodall Institute (JGI) verndar simpansa með því að rannsaka og leitast við að skilja atferli dýranna og kjörlendi þeirra. JGI reynir einnig að efla samfélag fólks sem leitast við að vernda dýralíf og umhverfið sem við deilum saman. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eSkoðaðu búsvæði simpansa\u003c/a\u003e í Gombe í Tansaníu."
+		"message": "Simpansar eru það dýr í dýraríkinu sem skyldast er okkur! Nú eru færri en 300.000 simpansar eftir í heiminum vegna sjúkdóma, ólöglegrar verslunar með dýrin og ágangs manna gegn kjörlendi dýranna. The Jane Goodall Institute (JGI) verndar simpansa með því að rannsaka og leitast við að skilja atferli dýranna og kjörlendi þeirra. JGI reynir einnig að efla samfélag fólks sem leitast við að vernda dýralíf og umhverfið sem við deilum saman. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Skoðaðu búsvæði simpansa</a> í Gombe í Tansaníu."
 	},
 	"nonprofit-jane-type": {
 		"message": "Simpansi"
@@ -1287,13 +1287,13 @@
 		"message": "Snjallgleraugu"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 milljarður hefur ekki aðgang að rafmagni og margir þurfa að nota kerósenlamapa sem brenna eldsneyti og menga heimili. Ljós knúin sólarorku sækja hins vegar orku sína til sólarinnar á daginn og veita ljós á kvöldin án þess að brenna eldsneyti eða menga umhverfið. Slíkt hjálpar fólki að lesa, spila og komast heim örugglega á kvöldin. SolarAid veitir þeim aðgang að sólarorku sem þurfa á henni að halda. Google.org er stolt af því að \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003estyðja við \u003c/a\u003e SolarAid."
+		"message": "1,3 milljarður hefur ekki aðgang að rafmagni og margir þurfa að nota kerósenlamapa sem brenna eldsneyti og menga heimili. Ljós knúin sólarorku sækja hins vegar orku sína til sólarinnar á daginn og veita ljós á kvöldin án þess að brenna eldsneyti eða menga umhverfið. Slíkt hjálpar fólki að lesa, spila og komast heim örugglega á kvöldin. SolarAid veitir þeim aðgang að sólarorku sem þurfa á henni að halda. Google.org er stolt af því að <a href=\"https://www.google.org/impact-challenge/solaraid/\">styðja við </a> SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Sólskin"
 	},
 	"nonprofit-water-description": {
-		"message": "Við notum vatn til að fara í sturtu og bað, til að elda og auðvitað til að drekka. Hreint vatn er mikilvæg auðlind og margt fólk reiðir sig á brunna sem fólk grefur til að ná í veitur þar sem er hreint vatn djúpt í jörðu milli jarðlaga. Góðgerðasamtökin charity: water starfa með landssamtökum við að grafa brunna og við önnur vatnstengd verkefni þar sem mikil þörf er á. Google.org er stolt af því að \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003estyðja við\u003c/a\u003e charity: water."
+		"message": "Við notum vatn til að fara í sturtu og bað, til að elda og auðvitað til að drekka. Hreint vatn er mikilvæg auðlind og margt fólk reiðir sig á brunna sem fólk grefur til að ná í veitur þar sem er hreint vatn djúpt í jörðu milli jarðlaga. Góðgerðasamtökin charity: water starfa með landssamtökum við að grafa brunna og við önnur vatnstengd verkefni þar sem mikil þörf er á. Google.org er stolt af því að <a href=\"https://www.google.org/global-impact-awards/charity-water/\">styðja við</a> charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Jæja"
@@ -1305,7 +1305,7 @@
 		"message": "Hreyfanleiki"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Loftslagsbreytingar halda áfram að raska náttúrulegu jafnvægi margra vistkerfa í heiminum, bæði í hlýrri og kaldari heimshlutum. Á norðurhluta jarðarinnar hopar ísbreiðan sem ísbirnir reiða sig á eftir því sem hitastig jarðar eykst. Birnirnir eru líka í hættu vegna framkvæmda, til dæmis olíu- og gasvinnslu, sem og vegna skipaumferðar. World Wildlife Fund vinnur að því að tryggja tilveru tegundarinnar með vísindarannsóknum og samstarfi við samfélög fólks á norðurslóðum. Google.org er stolt að \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e styðja við\u003c/a\u003e World Wildlife Fund."
+		"message": "Loftslagsbreytingar halda áfram að raska náttúrulegu jafnvægi margra vistkerfa í heiminum, bæði í hlýrri og kaldari heimshlutum. Á norðurhluta jarðarinnar hopar ísbreiðan sem ísbirnir reiða sig á eftir því sem hitastig jarðar eykst. Birnirnir eru líka í hættu vegna framkvæmda, til dæmis olíu- og gasvinnslu, sem og vegna skipaumferðar. World Wildlife Fund vinnur að því að tryggja tilveru tegundarinnar með vísindarannsóknum og samstarfi við samfélög fólks á norðurslóðum. Google.org er stolt að <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"> styðja við</a> World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ísbjörn"
@@ -1440,7 +1440,7 @@
 		"message": "Jólasveinaþorpið er nú á fimmtánda ári. Þar finnurðu skemmti- og fræðsluefni og gagnvirkt hátíðaefni. Sveinkafrú hefur allt á hreinu og undir hennar stjórn hafa álfarnir betrumbætt þorpið með glænýju efni og gert það enn skemmtilegra. Og þökk sé nýja hitunarkerfinu sem knúið er af heitu kakói mun það ekki lengur taka allan desember fyrir þorpið að þiðna. Allur sá fjöldi efnis sem í boði er verður aðgengilegur þann 4. desember. Nú hafa álfarnir (og þú!) meiri tíma til að leika sér og skoða sig um í jólasveinaþorpinu."
 	},
 	"press-about-village2": {
-		"message": "Í þorpinu geturðu æft undirstöðuatriðin í kóðun, búið til teikningar, þjálfað landafræðiþekkinguna og fengið frekari upplýsingar um góðgerðasamtök eins og \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e og \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Kennarar geta meira að segja \u003ca href=\"./educators.html\"\u003esótt kennsluskrár\u003c/a\u003e með vídeóleiðbeiningum þar sem nemendur geta lært undirstöðuatriðin í kóðun og fengið að vita um jólahald á ensku, spænsku, frönsku, japönsku og kóresku."
+		"message": "Í þorpinu geturðu æft undirstöðuatriðin í kóðun, búið til teikningar, þjálfað landafræðiþekkinguna og fengið frekari upplýsingar um góðgerðasamtök eins og <a href=\"https://www.khanacademy.org/\">Khan Academy</a> og <a href=\"https://code.org/\">Code.org</a>. Kennarar geta meira að segja <a href=\"./educators.html\">sótt kennsluskrár</a> með vídeóleiðbeiningum þar sem nemendur geta lært undirstöðuatriðin í kóðun og fengið að vita um jólahald á ensku, spænsku, frönsku, japönsku og kóresku."
 	},
 	"press-asset-animation": {
 		"message": "Teiknimyndir"
@@ -1461,7 +1461,7 @@
 		"message": "Menntaskemmtun"
 	},
 	"press-edu1": {
-		"message": "Við höfum stækkað \u003ca href=\"./educators.html\"\u003esíðu með aðföng fyrir kennara\u003c/a\u003e til að kennarar geti notað vídeóleiðbeiningar með kennsluskrám sem eru nú tiltækar á fimm tungumálum Allir uppáhalds leikirnir eru enn til staðar, þar sem grunnatriði kóðunar eru tengd við hátíðahöld um heim allan. Hvar er jólasveinninn frá Google hvetur fólk til að læra um hátíðahöld á skemmtielgan hátt – skoðaðu \u003ca href=\"./educators.html\"\u003efræðsluleiki\u003c/a\u003e okkar til að fá frekari upplýsingar."
+		"message": "Við höfum stækkað <a href=\"./educators.html\">síðu með aðföng fyrir kennara</a> til að kennarar geti notað vídeóleiðbeiningar með kennsluskrám sem eru nú tiltækar á fimm tungumálum Allir uppáhalds leikirnir eru enn til staðar, þar sem grunnatriði kóðunar eru tengd við hátíðahöld um heim allan. Hvar er jólasveinninn frá Google hvetur fólk til að læra um hátíðahöld á skemmtielgan hátt – skoðaðu <a href=\"./educators.html\">fræðsluleiki</a> okkar til að fá frekari upplýsingar."
 	},
 	"press-games-title": {
 		"message": "Allt það skemmtilega"
@@ -1491,19 +1491,19 @@
 		"message": "Smíða álf:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Ef þig hefur alltaf dreymt um að stofna dansflokk þar sem álfasnillingar dansa er þetta tækifærið. Næstum því. Með því að nota módel sem lærir vélrænt og kallast \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e geturðu þjálfað álf í að læra danshreyfingar þínar og fengið þinn innri álf út á dansgólfið."
+		"message": "Ef þig hefur alltaf dreymt um að stofna dansflokk þar sem álfasnillingar dansa er þetta tækifærið. Næstum því. Með því að nota módel sem lærir vélrænt og kallast <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a> geturðu þjálfað álf í að læra danshreyfingar þínar og fengið þinn innri álf út á dansgólfið."
 	},
 	"press-whatsnew2-title": {
 		"message": "Dans með álfum:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Þú munt líka geta séð staðsetningu jólasveinsins í rauntíma í Google-kort. Þú þarft bara að ýta á hamborgaratáknið og síðan á „Staðsetningardeiling“ til að sjá nákvæmlega hvar jólasveinninn er staddur á ferðalagi sínu Þú getur líka nýtt þér flýtileið og farið á \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+		"message": "Þú munt líka geta séð staðsetningu jólasveinsins í rauntíma í Google-kort. Þú þarft bara að ýta á hamborgaratáknið og síðan á „Staðsetningardeiling“ til að sjá nákvæmlega hvar jólasveinninn er staddur á ferðalagi sínu Þú getur líka nýtt þér flýtileið og farið á <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>!"
 	},
 	"press-whatsnew3-title": {
 		"message": "Ný leið til að fylgjast með Sveinka:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Ef þú ert í stuði fyrir meira hátíðargaman skaltu skoða hátíðarlímmiða á Gboard sem fást fyrir \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e og \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid forritið okkar\u003c/a\u003e. Og njóttu þess líka að hlusta á sögu með því að spyrja Google-hjálparann: „Segðu mér hátíðarsögu“ og „Hvar er jólasveinninn?“"
+		"message": "Ef þú ert í stuði fyrir meira hátíðargaman skaltu skoða hátíðarlímmiða á Gboard sem fást fyrir <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> og <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android forritið okkar</a>. Og njóttu þess líka að hlusta á sögu með því að spyrja Google-hjálparann: „Segðu mér hátíðarsögu“ og „Hvar er jólasveinninn?“"
 	},
 	"press-whatsnew4-title": {
 		"message": "Meira hátíðafjör:"
@@ -7323,7 +7323,7 @@
 		"message": "Setja upp"
 	},
 	"village_santa_intall_ios": {
-		"message": "Ýttu bara á \u003cspan\u003e\u003c/span\u003e og síðan á „Bæta við heimaskjá“"
+		"message": "Ýttu bara á <span></span> og síðan á „Bæta við heimaskjá“"
 	},
 	"village_takesoff": {
 		"message": "Sveinki hefur för sína eftir"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Simbabve"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

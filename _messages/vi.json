@@ -3,7 +3,7 @@
 		"message": "Vào đêm Giáng sinh, chúng tôi sẽ tự hào hiển thị trang tổng quan của ông già Noel, công nghệ hỗ trợ xe trượt tuyết trong cuộc hành trình vòng quanh thế giới của ông. Chúng tôi đã nhận được bản xem trước đặc biệt này từ một trong nhiều chú lùn nhà phát triển của ông già Noel, những người làm việc chăm chỉ ở Bắc cực để giúp ông già Noel chuẩn bị cho ngày trọng đại của ông. Trang tổng quan của ông già Noel - mô tả điều mới nhất và hay nhất về công nghệ Google Maps và cấu tạo xe trượt tuyết - sẽ cho phép bạn theo dõi tiến trình của ông già Noel trên thế giới và cũng tìm hiểu một chút về một số điểm dừng của ông trong suốt cuộc hành trình."
 	},
 	"about-content-three": {
-		"message": "Theo chân ông già Noel trên Google Maps được tạo và phát triển bởi Google, cùng với một chút trợ giúp từ các chú lùn của ông già Noel. Cần trợ giúp hoặc có thêm câu hỏi? Hãy truy cập vào \u003ca href=\"//support.google.com/santatracker\"\u003eTrung tâm trợ giúp\u003c/a\u003e của chúng tôi."
+		"message": "Theo chân ông già Noel trên Google Maps được tạo và phát triển bởi Google, cùng với một chút trợ giúp từ các chú lùn của ông già Noel. Cần trợ giúp hoặc có thêm câu hỏi? Hãy truy cập vào <a href=\"//support.google.com/santatracker\">Trung tâm trợ giúp</a> của chúng tôi."
 	},
 	"about-content-two": {
 		"message": "Các chú lùn thân thiện của chúng tôi cũng đã mời bạn khám phá ngôi làng của ông già Noel trong khi ông già Noel sẵn sàng cho cuộc hành trình của mình. Vì vậy, hãy tiếp tục và khám phá ngôi làng của ông, bạn có thể tìm thấy một số hoạt động vui nhộn và gặp gỡ một số chú lùn thú vị."
@@ -501,7 +501,7 @@
 		"message": "Tuyệt vời"
 	},
 	"codelab-mwc-promo": {
-		"message": "Khám phá thêm các dự án viết mã của Google tại \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Khám phá thêm các dự án viết mã của Google tại <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Thách thức mới"
@@ -684,13 +684,13 @@
 		"message": "Đã xảy ra sự cố nhưng phụ tá của ông già Noel đang kiểm tra."
 	},
 	"error-internal": {
-		"message": "Rất tiếc, đã có vấn đề xảy ra! Chúng tôi đã thông báo cho các chú lùn của ông già Noel. Bạn hãy thử quay lại \u003ca href=\"./\"\u003eNgôi làng của ông già noel\u003c/a\u003e xem."
+		"message": "Rất tiếc, đã có vấn đề xảy ra! Chúng tôi đã thông báo cho các chú lùn của ông già Noel. Bạn hãy thử quay lại <a href=\"./\">Ngôi làng của ông già noel</a> xem."
 	},
 	"error-lost-connection": {
 		"message": "Có vẻ như chúng tôi chỉ mất kết nối với Bắc cực. Các chú lùn của ông già Noel đang làm việc chăm chỉ để khắc phục vấn đề - hãy luôn cập nhật!"
 	},
 	"error-not-found": {
-		"message": "Rất tiếc, các chú lùn của ông già Noel không thể tìm thấy trang này! Hãy quay lại \u003ca href=\"./\"\u003eLàng của ông già Noel\u003c/a\u003e vì biết đâu bạn sẽ gặp may."
+		"message": "Rất tiếc, các chú lùn của ông già Noel không thể tìm thấy trang này! Hãy quay lại <a href=\"./\">Làng của ông già Noel</a> vì biết đâu bạn sẽ gặp may."
 	},
 	"error-out-of-date": {
 		"message": "Phiên bản Ngôi làng của Ông già Noel này đã lỗi thời! Hãy thử mở lại trang Theo chân ông già Noel để xem phiên bản mới nhất."
@@ -720,7 +720,7 @@
 		"message": "Tháng 12 này, hãy cùng Trợ lý Google tìm hiểu thêm về ông già Noel! Tính năng tích hợp này hiện đã hỗ trợ một số ngôn ngữ."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Nếu cha mẹ cho phép, các bạn nhỏ dưới 13 tuổi có thể có Trợ lý Google riêng khi đăng nhập bằng tài khoản của chính mình, do cha mẹ quản lý qua \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Nếu cha mẹ cho phép, các bạn nhỏ dưới 13 tuổi có thể có Trợ lý Google riêng khi đăng nhập bằng tài khoản của chính mình, do cha mẹ quản lý qua <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Trợ lý Google kết nối bạn tới Bắc Cực, nơi ông già Noel đang tất bật tập dượt cho một buổi hòa nhạc. Ông chỉ biết mỗi một bản nhạc — bạn có thể giúp ông tìm ra cách trình diễn bản nhạc ấy sao cho hay nhất không?"
@@ -1215,7 +1215,7 @@
 		"message": "Tiếng Na Uy"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya mang nền giáo dục khoa học thực tế đến với trẻ em trên khắp các vùng nông thôn ở Ấn Độ. Trong cả trung tâm khoa học và xe tải khoa học di động, họ cung cấp mọi thứ, từ kiến thức về hệ mặt trời cho đến cách hoạt động của não bộ. Họ đã tiếp cận hơn 5 triệu trẻ em và 200.000 giáo viên trong 14 tiểu bang ở Ấn Độ; đó là một trong các chương trình giáo dục khoa học lớn nhất trên thế giới! Google.org tự hào là \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003enhà tài trợ\u003c/a\u003e của Agastya."
+		"message": "Agastya mang nền giáo dục khoa học thực tế đến với trẻ em trên khắp các vùng nông thôn ở Ấn Độ. Trong cả trung tâm khoa học và xe tải khoa học di động, họ cung cấp mọi thứ, từ kiến thức về hệ mặt trời cho đến cách hoạt động của não bộ. Họ đã tiếp cận hơn 5 triệu trẻ em và 200.000 giáo viên trong 14 tiểu bang ở Ấn Độ; đó là một trong các chương trình giáo dục khoa học lớn nhất trên thế giới! Google.org tự hào là <a href=\"https://www.google.org/impact-challenge/agastya/\">nhà tài trợ</a> của Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Giáo viên và học sinh"
@@ -1248,7 +1248,7 @@
 		"message": "Chúng tôi đã hợp tác với Google.org để giới thiệu năm tổ chức phi lợi nhuận về giáo dục sẽ mừng mùa lễ trao yêu thương trong suốt cả năm. Cuộn xuống và tìm hiểu thêm xem mỗi tổ chức đền đáp ra sao. Thể hiện sự hỗ trợ của bạn bằng cách tô màu cho bộ sưu tập các vật trang trí này và sau đó treo chúng lên cây hoặc tặng cho những người thân yêu của bạn."
 	},
 	"nonprofit-jane-description": {
-		"message": "Tinh tinh là họ hàng gần nhất với con người trong thế giới động vật! Ngày nay còn lại không quá 300.000 tinh tinh do môi trường sống bị mất, bệnh tật và buôn bán bất hợp pháp. Jane Goodall Institute (JGI) bảo vệ tinh tinh bằng cách quan sát và hiểu hành vi cũng như môi trường sống của chúng. JGI cũng làm việc để xây dựng một cộng đồng những người đang bảo vệ và bảo tồn động vật hoang dã cũng như môi trường chúng ta đang sống. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eKhám phá môi trường sống của Tinh tinh\u003c/a\u003e ở Gombe thuộc Tanzania."
+		"message": "Tinh tinh là họ hàng gần nhất với con người trong thế giới động vật! Ngày nay còn lại không quá 300.000 tinh tinh do môi trường sống bị mất, bệnh tật và buôn bán bất hợp pháp. Jane Goodall Institute (JGI) bảo vệ tinh tinh bằng cách quan sát và hiểu hành vi cũng như môi trường sống của chúng. JGI cũng làm việc để xây dựng một cộng đồng những người đang bảo vệ và bảo tồn động vật hoang dã cũng như môi trường chúng ta đang sống. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Khám phá môi trường sống của Tinh tinh</a> ở Gombe thuộc Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Tinh tinh"
@@ -1287,13 +1287,13 @@
 		"message": "Mắt kính thông minh"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 tỷ người không được tiếp cận điện và nhiều người phải sử dụng đèn dầu đốt cháy nhiên liệu để thắp sáng khiến ô nhiễm nhà cửa. Tuy nhiên, đèn năng lượng mặt trời hấp thụ năng lượng từ mặt trời và cung cấp ánh sáng trong nhiều giờ vào buổi tối. Chúng giúp bạn đọc sách, vui chơi và về nhà an toàn vào buổi đêm. SolarAid cung cấp đèn năng lượng mặt trời cho nhiều người cần chúng. Google.org tự hào là \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003enhà tài trợ\u003c/a\u003e của SolarAid."
+		"message": "1,3 tỷ người không được tiếp cận điện và nhiều người phải sử dụng đèn dầu đốt cháy nhiên liệu để thắp sáng khiến ô nhiễm nhà cửa. Tuy nhiên, đèn năng lượng mặt trời hấp thụ năng lượng từ mặt trời và cung cấp ánh sáng trong nhiều giờ vào buổi tối. Chúng giúp bạn đọc sách, vui chơi và về nhà an toàn vào buổi đêm. SolarAid cung cấp đèn năng lượng mặt trời cho nhiều người cần chúng. Google.org tự hào là <a href=\"https://www.google.org/impact-challenge/solaraid/\">nhà tài trợ</a> của SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Ánh dương"
 	},
 	"nonprofit-water-description": {
-		"message": "Chúng ta sử dụng nước để tắm giặt, nấu nướng và tất nhiên là để uống nữa. Nước sạch là một tài nguyên quý giá và nhiều người dựa vào các giếng đào để lấy nước sạch ở tầng nước ngầm nằm sâu trong lòng đất giữa các tầng đá sỏi. charity: water làm việc với các đối tác tại địa phương để xây dựng giếng nước và các dự án nước sạch khác cho những vùng đang rất cần. Google.org tự hào là \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003enhà tài trợ\u003c/a\u003e của charity: water."
+		"message": "Chúng ta sử dụng nước để tắm giặt, nấu nướng và tất nhiên là để uống nữa. Nước sạch là một tài nguyên quý giá và nhiều người dựa vào các giếng đào để lấy nước sạch ở tầng nước ngầm nằm sâu trong lòng đất giữa các tầng đá sỏi. charity: water làm việc với các đối tác tại địa phương để xây dựng giếng nước và các dự án nước sạch khác cho những vùng đang rất cần. Google.org tự hào là <a href=\"https://www.google.org/global-impact-awards/charity-water/\">nhà tài trợ</a> của charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Giếng"
@@ -1305,7 +1305,7 @@
 		"message": "Khả năng di động"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Biến đổi khí hậu tiếp tục phá vỡ sự cân bằng của nhiều hệ sinh thái trên thế giới, cả những nơi ấm và lạnh. Ở Bắc cực, gấu bắc cực đang mất đi môi trường sống băng biển của chúng bởi nhiệt độ tăng và phải đối mặt với các mối đe dọa gia tăng từ các hoạt động của con người, chẳng hạn như sự phát triển và vận chuyển dầu và khí đốt. World Wildlife Fund làm việc để đảm bảo sự sống còn của các loài thông qua nghiên cứu khoa học và hợp tác với các cộng đồng bản địa ở Bắc cực. Google.org tự hào là \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003engười hỗ trợ\u003c/a\u003e với World Wildlife Fund."
+		"message": "Biến đổi khí hậu tiếp tục phá vỡ sự cân bằng của nhiều hệ sinh thái trên thế giới, cả những nơi ấm và lạnh. Ở Bắc cực, gấu bắc cực đang mất đi môi trường sống băng biển của chúng bởi nhiệt độ tăng và phải đối mặt với các mối đe dọa gia tăng từ các hoạt động của con người, chẳng hạn như sự phát triển và vận chuyển dầu và khí đốt. World Wildlife Fund làm việc để đảm bảo sự sống còn của các loài thông qua nghiên cứu khoa học và hợp tác với các cộng đồng bản địa ở Bắc cực. Google.org tự hào là <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">người hỗ trợ</a> với World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Gấu bắc cực"
@@ -1440,7 +1440,7 @@
 		"message": "Ngôi làng của ông già Noel đang kỷ niệm 15 năm tổ chức các hoạt động vui chơi, giáo dục và tương tác trong mùa lễ hội. Dưới sự hướng dẫn chuyên môn của bà già Noel, các chú yêu tinh đã trang trí ngôi làng với vẻ ngoài hợp mốt cùng với một số nội dung hoàn toàn mới. Và nhờ vào hệ thống sưởi ấm mới chạy bằng cacao, ngôi làng sẽ không còn đóng cứng trông suốt tháng 12 nữa—cả hai tá hoạt động sẽ bắt đầu vào ngày 4 tháng 12. Giờ đây, các chú yêu tinh (và cả bạn!) sẽ có nhiều thời gian hơn để vui chơi và khám phá ở Ngôi làng của ông già Noel."
 	},
 	"press-about-village2": {
-		"message": "Trong làng, bạn có thể thực hành các kỹ năng lập trình cơ bản, tạo ra các tác phẩm nghệ thuật nguyên gốc, trổ tài hiểu biết địa lý và tìm hiểu thêm về các tổ chức từ thiện như \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e và \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Các giáo viên thậm chí có thể \u003ca href=\"./educators.html\"\u003etải giáo án xuống\u003c/a\u003e với video hướng dẫn để giúp dạy cho học viên kỹ năng lập trình cơ bản và truyền thống giáng sinh bằng tiếng Anh, tiếng Tây Ban Nha, tiếng Pháp, tiếng Nhật Bản và tiếng Hàn Quốc."
+		"message": "Trong làng, bạn có thể thực hành các kỹ năng lập trình cơ bản, tạo ra các tác phẩm nghệ thuật nguyên gốc, trổ tài hiểu biết địa lý và tìm hiểu thêm về các tổ chức từ thiện như <a href=\"https://www.khanacademy.org/\">Khan Academy</a> và <a href=\"https://code.org/\">Code.org</a>. Các giáo viên thậm chí có thể <a href=\"./educators.html\">tải giáo án xuống</a> với video hướng dẫn để giúp dạy cho học viên kỹ năng lập trình cơ bản và truyền thống giáng sinh bằng tiếng Anh, tiếng Tây Ban Nha, tiếng Pháp, tiếng Nhật Bản và tiếng Hàn Quốc."
 	},
 	"press-asset-animation": {
 		"message": "Hoạt ảnh"
@@ -1461,7 +1461,7 @@
 		"message": "Cuộc phiêu lưu giáo dục"
 	},
 	"press-edu1": {
-		"message": "Chúng tôi đã mở rộng \u003ca href=\"./educators.html\"\u003etrang tài nguyên dành cho nhà giáo\u003c/a\u003e để cung cấp các video hướng dẫn hỗ trợ làm giáo án, hiện viết bằng 5 ngôn ngữ. Tất cả các trò chơi bạn yêu thích vẫn còn và sẽ giới thiệu các khái niệm cơ bản về lập trình trong không khí lễ hỗi truyền thống toàn cầu. Trang Theo chân ông già Noel của Google khuyến khích học tập trong kỳ nghỉ theo cách đầy thú vị—hãy xem \u003ca href=\"./educators.html\"\u003ecác trò chơi giáo dục của chúng tôi\u003c/a\u003e để tìm hiểu thêm."
+		"message": "Chúng tôi đã mở rộng <a href=\"./educators.html\">trang tài nguyên dành cho nhà giáo</a> để cung cấp các video hướng dẫn hỗ trợ làm giáo án, hiện viết bằng 5 ngôn ngữ. Tất cả các trò chơi bạn yêu thích vẫn còn và sẽ giới thiệu các khái niệm cơ bản về lập trình trong không khí lễ hỗi truyền thống toàn cầu. Trang Theo chân ông già Noel của Google khuyến khích học tập trong kỳ nghỉ theo cách đầy thú vị—hãy xem <a href=\"./educators.html\">các trò chơi giáo dục của chúng tôi</a> để tìm hiểu thêm."
 	},
 	"press-games-title": {
 		"message": "Tất cả những trò chơi thú vị"
@@ -1491,19 +1491,19 @@
 		"message": "Sáng tạo yêu tinh:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Nếu ước mơ cả đời của bạn là lập một vũ đoàn với một nhóm yêu tinh nhảy múa tài năng, thì giờ là cơ hội của bạn. Sắp rồi! Bằng cách sử dụng mô hình máy học có tên là \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, bạn có thể huấn luyện một chú yêu tinh học theo bước nhảy của mình để đưa chú ta hiên ngang lên sàn nhảy."
+		"message": "Nếu ước mơ cả đời của bạn là lập một vũ đoàn với một nhóm yêu tinh nhảy múa tài năng, thì giờ là cơ hội của bạn. Sắp rồi! Bằng cách sử dụng mô hình máy học có tên là <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, bạn có thể huấn luyện một chú yêu tinh học theo bước nhảy của mình để đưa chú ta hiên ngang lên sàn nhảy."
 	},
 	"press-whatsnew2-title": {
 		"message": "Khiêu vũ với các chú yêu tinh:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Bạn cũng sẽ có thể xem vị trí theo thời gian thực của ông già Noel trên Google Maps—chỉ cần nhấn vào biểu tượng menu, sau đó nhấn vào \"Chia sẻ vị trí\" để xem chính xác vị trí của ông già Noel trong suốt hành trình của mình. Nếu muốn nhanh và thuận tiện, bạn cũng có thể truy cập vào \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e!"
+		"message": "Bạn cũng sẽ có thể xem vị trí theo thời gian thực của ông già Noel trên Google Maps—chỉ cần nhấn vào biểu tượng menu, sau đó nhấn vào \"Chia sẻ vị trí\" để xem chính xác vị trí của ông già Noel trong suốt hành trình của mình. Nếu muốn nhanh và thuận tiện, bạn cũng có thể truy cập vào <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>!"
 	},
 	"press-whatsnew3-title": {
 		"message": "Một cách mới để theo chân ông già Noel:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Nếu nóng lòng muốn có thêm những lời chúc rực rỡ cho mùa lễ hội, hãy dùng bộ hình dán Gboard dành cho giáng sinh, hiện có trên \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e, và \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eứng dụng Android\u003c/a\u003e của chúng tôi. Ngoài ra, bạn còn có thể giải trí bằng cách yêu cầu Trợ lý Google \"Kể cho tôi một câu chuyện về giáng sinh\" và đặt câu hỏi \"Ông già Noel ở đâu?\""
+		"message": "Nếu nóng lòng muốn có thêm những lời chúc rực rỡ cho mùa lễ hội, hãy dùng bộ hình dán Gboard dành cho giáng sinh, hiện có trên <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a>, và <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">ứng dụng Android</a> của chúng tôi. Ngoài ra, bạn còn có thể giải trí bằng cách yêu cầu Trợ lý Google \"Kể cho tôi một câu chuyện về giáng sinh\" và đặt câu hỏi \"Ông già Noel ở đâu?\""
 	},
 	"press-whatsnew4-title": {
 		"message": "Thêm niềm vui trong kỳ nghỉ:"
@@ -7323,7 +7323,7 @@
 		"message": "Cài đặt"
 	},
 	"village_santa_intall_ios": {
-		"message": "Bạn chỉ cần nhấn vào \u003cspan\u003e\u003c/span\u003e, sau đó nhấn vào 'Thêm vào Màn hình chính'"
+		"message": "Bạn chỉ cần nhấn vào <span></span>, sau đó nhấn vào 'Thêm vào Màn hình chính'"
 	},
 	"village_takesoff": {
 		"message": "Ông già Noel sẽ khởi hành sau"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

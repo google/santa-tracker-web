@@ -92,16 +92,25 @@ function getPreflightActivity(timeUntilTakeoffMs) {
     return _msg`tracker_offline` || 'Offline';
   }
   const mins = timeUntilTakeoffMs / (60 * 1000);
-  if (mins <= 1) return _msg`tracker_preflight_11`;
-  if (mins <= 5) return _msg`tracker_preflight_10`;
-  if (mins <= 10) return _msg`tracker_preflight_9`;
-  if (mins <= 20) return _msg`tracker_preflight_8`;
-  if (mins <= 30) return _msg`tracker_preflight_7`;
-  if (mins <= 45) return _msg`tracker_preflight_6`;
-  if (mins <= 60) return _msg`tracker_preflight_5`;
-  if (mins <= 75) return _msg`tracker_preflight_4`;
-  if (mins <= 90) return _msg`tracker_preflight_3`;
-  if (mins <= 105) return _msg`tracker_preflight_2`;
+  if (mins <= 0.5) return _msg`tracker_preflight_20`;
+  if (mins <= 1) return _msg`tracker_preflight_19`;
+  if (mins <= 2) return _msg`tracker_preflight_18`;
+  if (mins <= 4) return _msg`tracker_preflight_17`;
+  if (mins <= 7) return _msg`tracker_preflight_16`;
+  if (mins <= 10) return _msg`tracker_preflight_15`;
+  if (mins <= 15) return _msg`tracker_preflight_14`;
+  if (mins <= 20) return _msg`tracker_preflight_13`;
+  if (mins <= 26) return _msg`tracker_preflight_12`;
+  if (mins <= 33) return _msg`tracker_preflight_11`;
+  if (mins <= 40) return _msg`tracker_preflight_10`;
+  if (mins <= 48) return _msg`tracker_preflight_9`;
+  if (mins <= 56) return _msg`tracker_preflight_8`;
+  if (mins <= 64) return _msg`tracker_preflight_7`;
+  if (mins <= 72) return _msg`tracker_preflight_6`;
+  if (mins <= 80) return _msg`tracker_preflight_5`;
+  if (mins <= 90) return _msg`tracker_preflight_4`;
+  if (mins <= 100) return _msg`tracker_preflight_3`;
+  if (mins <= 110) return _msg`tracker_preflight_2`;
   if (mins <= 120) return _msg`tracker_preflight_1`;
   return _msg`tracker_offline` || 'Offline';
 }
@@ -145,13 +154,13 @@ class ModvilTrackerStatsElement extends LitElement {
 </svg>
         `;
 
-    const statusLabel = isOffline ? (_msg`tracker_status` || 'Stato') : (_msg`tracker_preflight_status` || 'Stato Pre-Volo');
+    const statusLabel = isPreflight ? (_msg`tracker_preflight_status` || 'Stato Pre-Volo') : (showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`);
     const activityValue = isOffline ? (_msg`tracker_offline` || 'Offline') : getPreflightActivity(d.next);
 
     return html`
 <div class="outer">
   <div class="grow">
-    <h1>${isPreflight ? statusLabel : (showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`)}</h1>
+    <h1>${statusLabel}</h1>
     <h2 class=${isPreflight ? 'preflight-activity' : ''}>${isPreflight ? activityValue : (showArrivalHours ? formatArrivalTime(arrivalTime) : formatNumber(Math.round(d.distance / 1000), 'km'))}</h2>
     <h1>${_msg`tracker_gifts_delivered`}</h1>
     <h2>${formatNumber(d.presents)}</h2>

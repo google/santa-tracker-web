@@ -3,7 +3,7 @@
 		"message": "Sa Bisperas ng Pasko, ikinararangal naming itampok ang dashboard ni Santa, ang teknolohiyang ginagamit sa kanyang sleigh kapag naglalakbay siya sa buong mundo. Natanggap namin ang espesyal na preview na ito mula sa isa sa maraming developer na elf ni Santa, na nagpapakapagod sa North Pole upang matulungan si Santa na maghanda para sa napakahalagang araw niya. Magagamit mo ang dashboard ni Santa - na ginamitan ng pinakabago at pinakamahusay na teknolohiya ng Google Maps at sleigh engineering - upang sundan ang kanyang paglalakbay sa buong mundo, at magkaroon din ng kaunting kaalaman tungkol sa mga pinupuntahan niya."
 	},
 	"about-content-three": {
-		"message": "Ginawa at binuo ng Google ang Google Maps Santa Tracker, sa tulong ng mga elf ni Santa. Kailangan mo ba ng tulong o mayroong ka pa bang tanong? Bisitahin ang aming \u003ca href=\"//support.google.com/santatracker\"\u003eHelp Center\u003c/a\u003e."
+		"message": "Ginawa at binuo ng Google ang Google Maps Santa Tracker, sa tulong ng mga elf ni Santa. Kailangan mo ba ng tulong o mayroong ka pa bang tanong? Bisitahin ang aming <a href=\"//support.google.com/santatracker\">Help Center</a>."
 	},
 	"about-content-two": {
 		"message": "Inanyayahan ka rin ng aming magigiliw na elf na mamasyal sa village ni Santa habang naghahanda si Santa para sa kanyang paglalakbay. Kaya huwag mahiya at mamasyal sa kanyang village, at baka makakita ka ng ilang aktibidad na nakakatuwang gawin at makakilala ng ilang interesanteng elf."
@@ -501,7 +501,7 @@
 		"message": "Mahusay"
 	},
 	"codelab-mwc-promo": {
-		"message": "Mag-explore ng higit pang mga proyekto sa pagko-code ng Google sa \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Mag-explore ng higit pang mga proyekto sa pagko-code ng Google sa <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Sunod na Hamon"
@@ -684,13 +684,13 @@
 		"message": "Nagkaproblema, pero sinusuri ito ng mga Elf ni Santa."
 	},
 	"error-internal": {
-		"message": "Naku, nagkaproblema! Sinabihan na namin ang mga Elf ni Santa, pero subukang bumalik sa \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
+		"message": "Naku, nagkaproblema! Sinabihan na namin ang mga Elf ni Santa, pero subukang bumalik sa <a href=\"./\">Santa's Village</a>."
 	},
 	"error-lost-connection": {
 		"message": "Mukhang nawala ang ating koneksyon sa North Pole. Nagsisikap ang mga elf ni Santa na ayusin ito - manatiling nakaantabay!"
 	},
 	"error-not-found": {
-		"message": "Naku, hindi mahanap ng mga Elf ni Santa ang page na ito! Baka mas maswerte ka kung babalik ka sa \u003ca href=\"./\"\u003eSanta's Village\u003c/a\u003e."
+		"message": "Naku, hindi mahanap ng mga Elf ni Santa ang page na ito! Baka mas maswerte ka kung babalik ka sa <a href=\"./\">Santa's Village</a>."
 	},
 	"error-out-of-date": {
 		"message": "Lumang bersyon na ito ng Santa's Village! Subukang buksan ulit ang Santa Tracker para makita ang pinakabagong bersyon."
@@ -720,7 +720,7 @@
 		"message": "Gamitin ang Google Assistant para malaman ang iba pa tungkol kay Santa Claus kapag Disyembre! Available ang pagsasama na ito sa mga piling wika."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Sa pahintulot ng kanilang magulang, puwede ring magkaroon ng sarili nilang personalized na karanasan sa Google Assistant ang mga batang wala pang 13 taon kapag nag-log in sila sa sarili nilang account, na pinamamahalaan ng \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Sa pahintulot ng kanilang magulang, puwede ring magkaroon ng sarili nilang personalized na karanasan sa Google Assistant ang mga batang wala pang 13 taon kapag nag-log in sila sa sarili nilang account, na pinamamahalaan ng <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Ikinokonekta ka ng Google Assistant sa North Pole, kung saan abala si Santa sa pag-eensayo para sa isang musical concert. Isang kanta lang ang alam niya—matutulungan mo ba siyang alamin ang pinakamainam na paraan para ma-play iyon?"
@@ -1215,7 +1215,7 @@
 		"message": "Norwegian"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Naghahatid ng hands-on na edukasyong pang-agham ang Agastya sa mga bata sa buong rural na India. Kapwa sa kanilang mga science center at mobile science van, tinatalakay nila ang lahat mula sa solar system hanggang sa kung paano gumagana ang utak. Naabot na nila ang higit sa 5 milyong bata at 200,000 guro sa buong 14 na estado sa India; ito ang isa sa mga pinakamalalaking programa sa edukasyong pang-agham sa mundo! Ipinagmamalaki ng Google.org na maging \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003etagasuporta\u003c/a\u003e ng Agastya."
+		"message": "Naghahatid ng hands-on na edukasyong pang-agham ang Agastya sa mga bata sa buong rural na India. Kapwa sa kanilang mga science center at mobile science van, tinatalakay nila ang lahat mula sa solar system hanggang sa kung paano gumagana ang utak. Naabot na nila ang higit sa 5 milyong bata at 200,000 guro sa buong 14 na estado sa India; ito ang isa sa mga pinakamalalaking programa sa edukasyong pang-agham sa mundo! Ipinagmamalaki ng Google.org na maging <a href=\"https://www.google.org/impact-challenge/agastya/\">tagasuporta</a> ng Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Mga Guro at Mag-aaral"
@@ -1248,7 +1248,7 @@
 		"message": "Nakipagsosyo kami sa Google.org upang maipakita ang limang pang-edukasyong non-profit na buong taong ipinagdiriwang ang panahon ng pagbibigay. Mag-scroll pababa at alamin pa ang tungkol sa kung paano nagbibigay ang bawat organisasyon. Ipakita ang iyong suporta sa pamamagitan ng pagkulay nitong koleksyon ng mga ornament at pagkatapos ay pagsasabit ng mga ito sa iyong puno o pagreregalo ng mga ito sa iyong mga mahal sa buhay."
 	},
 	"nonprofit-jane-description": {
-		"message": "Ang Mga Chimpanzee ay ang pinakamalalapit na nabubuhay na kapamilya ng mga tao sa animal kingdom! Sa ngayon, mas kaunti sa 300,000 Chimpanzee na lang ang natitira dahil sa pagkawala ng tirahan, sakit at ilegal na kalakalan. Pinoprotektahan ng Jane Goodall Institute (JGI) ang mga chimpanzee sa pamamagitan ng pagbabantay at pag-unawa sa kanilang mga gawi pati na rin ang mga tirahan kung saan nabubuhay ang mga ito. Kumikilos din ang JGI upang makabuo ng komunidad ng mga tao na magpoprotekta at mangangalaga sa wildlife at sa iisang kapaligiran na ating pinapakinabangan. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eI-explore ang mga tirahan ng Chimpanzee\u003c/a\u003e sa Gombe, Tanzania."
+		"message": "Ang Mga Chimpanzee ay ang pinakamalalapit na nabubuhay na kapamilya ng mga tao sa animal kingdom! Sa ngayon, mas kaunti sa 300,000 Chimpanzee na lang ang natitira dahil sa pagkawala ng tirahan, sakit at ilegal na kalakalan. Pinoprotektahan ng Jane Goodall Institute (JGI) ang mga chimpanzee sa pamamagitan ng pagbabantay at pag-unawa sa kanilang mga gawi pati na rin ang mga tirahan kung saan nabubuhay ang mga ito. Kumikilos din ang JGI upang makabuo ng komunidad ng mga tao na magpoprotekta at mangangalaga sa wildlife at sa iisang kapaligiran na ating pinapakinabangan. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">I-explore ang mga tirahan ng Chimpanzee</a> sa Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzee"
@@ -1287,13 +1287,13 @@
 		"message": "Smart Glasses"
 	},
 	"nonprofit-solar-description": {
-		"message": "1.3 bilyong tao ang walang access sa kuryente, at marami ang kailangang gumamit ng mga lamparang de-gaas na sumusunog ng fuel at nagpapadumi ng mga tahanan. Gayunman, kumukuha ng enerhiya mula sa araw ang mga solar light habang may-araw at nakapagbibigay ng maraming oras ng liwanag sa gabi nang hindi sumusunog o nagpaparumi. Nakatutulong ang mga ito sa iyo na makabasa, makapaglaro, at ligtas na makauwi sa gabi. Nakapagbibigay ng access sa mga solar light ang SolarAid sa maraming mga nangangailangan ng mga ito. Ipinagmamalaki ng Google.org na maging \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003etagasuporta\u003c/a\u003e ng SolarAid."
+		"message": "1.3 bilyong tao ang walang access sa kuryente, at marami ang kailangang gumamit ng mga lamparang de-gaas na sumusunog ng fuel at nagpapadumi ng mga tahanan. Gayunman, kumukuha ng enerhiya mula sa araw ang mga solar light habang may-araw at nakapagbibigay ng maraming oras ng liwanag sa gabi nang hindi sumusunog o nagpaparumi. Nakatutulong ang mga ito sa iyo na makabasa, makapaglaro, at ligtas na makauwi sa gabi. Nakapagbibigay ng access sa mga solar light ang SolarAid sa maraming mga nangangailangan ng mga ito. Ipinagmamalaki ng Google.org na maging <a href=\"https://www.google.org/impact-challenge/solaraid/\">tagasuporta</a> ng SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Sunlight"
 	},
 	"nonprofit-water-description": {
-		"message": "Gumagamit tayo ng tubig para sa mga shower at paliguan, para sa pagluluto, at siyempre, para sa pag-inom. Mahalagang resource ang malinis na tubig, at maraming tao ang umaasa sa mga balon na hinukay sa pamamagitan ng mga kamay upang ma-access ang mga aquifer, na kinalalagyan ng malinis na tubig sa ilalim ng lupa sa pagitan ng mga suson (layer) ng bato at lupa. nakikipagtulungan ang charity: water sa mga lokal na partner upang makagawa ng mga balon at iba pang proyektong pantubig kung saan talagang kailangan ang mga ito. Ipinagmamalaki ng Google.org na maging \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003etagasuporta\u003c/a\u003e ng charity: water."
+		"message": "Gumagamit tayo ng tubig para sa mga shower at paliguan, para sa pagluluto, at siyempre, para sa pag-inom. Mahalagang resource ang malinis na tubig, at maraming tao ang umaasa sa mga balon na hinukay sa pamamagitan ng mga kamay upang ma-access ang mga aquifer, na kinalalagyan ng malinis na tubig sa ilalim ng lupa sa pagitan ng mga suson (layer) ng bato at lupa. nakikipagtulungan ang charity: water sa mga lokal na partner upang makagawa ng mga balon at iba pang proyektong pantubig kung saan talagang kailangan ang mga ito. Ipinagmamalaki ng Google.org na maging <a href=\"https://www.google.org/global-impact-awards/charity-water/\">tagasuporta</a> ng charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Balon"
@@ -1305,7 +1305,7 @@
 		"message": "Mobility"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Patuloy na sinisira ng pagbabago sa klima ang balanse ng marami sa mga ecosystem sa mundo, sa parehong maiinit at malalamig na lugar. Sa Arctic, nawawalan na ang mga polar bear ng mga nagyeyelong dagat na tirahan dahil sa pagtaas ng temperatura, at nahaharap sa mga karagdagang banta mula sa mga aktibidad ng tao, gaya ng development ng langis at gasolina at shipping. Kumikilos ang World Wildlife Fund upang matiyak ang kaligtasan ng species sa pamamagitan ng siyentipikong pananaliksik at pakikipagtulungan sa mga katutubong komunidad sa Arctic. Ipinagmamalaki ng Google.org na maging isang \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003e tagasuporta\u003c/a\u003e sa World Wildlife Fund."
+		"message": "Patuloy na sinisira ng pagbabago sa klima ang balanse ng marami sa mga ecosystem sa mundo, sa parehong maiinit at malalamig na lugar. Sa Arctic, nawawalan na ang mga polar bear ng mga nagyeyelong dagat na tirahan dahil sa pagtaas ng temperatura, at nahaharap sa mga karagdagang banta mula sa mga aktibidad ng tao, gaya ng development ng langis at gasolina at shipping. Kumikilos ang World Wildlife Fund upang matiyak ang kaligtasan ng species sa pamamagitan ng siyentipikong pananaliksik at pakikipagtulungan sa mga katutubong komunidad sa Arctic. Ipinagmamalaki ng Google.org na maging isang <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"> tagasuporta</a> sa World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polar Bear"
@@ -1440,7 +1440,7 @@
 		"message": "Ipinagdiriwang ng Santa's Village ang ika-labinlimang taon nito ng kasiyahan, pang-edukasyon, at interactive na aktibidad sa kapaskuhan. Sa ilalim ng ekspertong gabay ni Mrs. Claus, na-update ng mga elf ang village sa isang mapormang hitsura at dating kasama ang ilang bagumbagong content. At, salamat sa isang bagong, heating system na pinagagana ng mainit na tsokolate, hindi na tatagal ng buong Disyembre para malusaw ang village—magiging available ang lahat ng dalawang dosenang aktibidad simula Disyembre 4. Ngayon ay mas marami nang oras para maglaro at mag-explore ang mga elf (pati ikaw!) sa Santa's Village."
 	},
 	"press-about-village2": {
-		"message": "Sa village, masasanay mo ang mga basic na kasanayan sa coding, makakagawa ng orihinal na artwork, masasanay ang kaalaman mo sa heograpiya, at malalaman ang iba pa tungkol sa mga organisasyong pangkawanggawa tulad ng \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e at \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Maaari ring \u003ca href=\"./educators.html\"\u003emag-download ng mga lesson plan\u003c/a\u003e ang mga guro na may mga gabay na video para makatulong sa pagtuturo sa kanilang mga mag-aaral ng mga pangunahing kasanayan sa coding at mga tradisyon sa kapaskuhan sa English, Spanish, French, Japanese, at Korean."
+		"message": "Sa village, masasanay mo ang mga basic na kasanayan sa coding, makakagawa ng orihinal na artwork, masasanay ang kaalaman mo sa heograpiya, at malalaman ang iba pa tungkol sa mga organisasyong pangkawanggawa tulad ng <a href=\"https://www.khanacademy.org/\">Khan Academy</a> at <a href=\"https://code.org/\">Code.org</a>. Maaari ring <a href=\"./educators.html\">mag-download ng mga lesson plan</a> ang mga guro na may mga gabay na video para makatulong sa pagtuturo sa kanilang mga mag-aaral ng mga pangunahing kasanayan sa coding at mga tradisyon sa kapaskuhan sa English, Spanish, French, Japanese, at Korean."
 	},
 	"press-asset-animation": {
 		"message": "Animation"
@@ -1461,7 +1461,7 @@
 		"message": "Mga adventure na pang-edukasyon"
 	},
 	"press-edu1": {
-		"message": "Pinalawak namin ang aming \u003ca href=\"./educators.html\"\u003eresource page para sa tagapagturo\u003c/a\u003e para mabigyan ang mga guro ng mga gabay na video na maisasama sa mga lesson plan na available na ngayon sa limang wika. Lahat ng paborito mong laro ay nananatiling nagpapakilala ng mga basic na konsepto ng coding sa mga pandaigdigang tradisyon ng kapaskuhan. Isinusulong ng Santa Tracker ng Google ang mga karanasang matuto sa kapaskuhan sa masayang paraan—tingnan ang \u003ca href=\"./educators.html\"\u003eaming mga larong pang-edukasyon\u003c/a\u003e para malaman ang iba pa."
+		"message": "Pinalawak namin ang aming <a href=\"./educators.html\">resource page para sa tagapagturo</a> para mabigyan ang mga guro ng mga gabay na video na maisasama sa mga lesson plan na available na ngayon sa limang wika. Lahat ng paborito mong laro ay nananatiling nagpapakilala ng mga basic na konsepto ng coding sa mga pandaigdigang tradisyon ng kapaskuhan. Isinusulong ng Santa Tracker ng Google ang mga karanasang matuto sa kapaskuhan sa masayang paraan—tingnan ang <a href=\"./educators.html\">aming mga larong pang-edukasyon</a> para malaman ang iba pa."
 	},
 	"press-games-title": {
 		"message": "Lahat ng kasiyahan at laro"
@@ -1491,19 +1491,19 @@
 		"message": "Bumuo ng elf:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Kung ang pangarap mo sa buhay ay makapagsimula ng dance troupe ng isang grupo ng mahuhusay na talentadong nagsasayaw na elf, pagkakataon mo na ngayon. Halos. Gamit ang isang machine learning na modelo na tinatawag na \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, maaari mong sanayin ang isang elf na matutunan ang mga kilos mo para mapasayaw ang iyong elf sa dance floor."
+		"message": "Kung ang pangarap mo sa buhay ay makapagsimula ng dance troupe ng isang grupo ng mahuhusay na talentadong nagsasayaw na elf, pagkakataon mo na ngayon. Halos. Gamit ang isang machine learning na modelo na tinatawag na <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, maaari mong sanayin ang isang elf na matutunan ang mga kilos mo para mapasayaw ang iyong elf sa dance floor."
 	},
 	"press-whatsnew2-title": {
 		"message": "Pagsasayaw kasama ang mga elf:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Makikita mo ang lokasyon ni Santa sa aktuwal na oras sa Google Maps—i-tap lang ang hamburger button at pagkatapos ay ang \"Pagbabahagi ng Lokasyon\" para makita kung nasaan mismo si Santa sa kanyang paglalakbay. Maaari ka ring pumunta sa \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e para sa madaling shortcut!"
+		"message": "Makikita mo ang lokasyon ni Santa sa aktuwal na oras sa Google Maps—i-tap lang ang hamburger button at pagkatapos ay ang \"Pagbabahagi ng Lokasyon\" para makita kung nasaan mismo si Santa sa kanyang paglalakbay. Maaari ka ring pumunta sa <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a> para sa madaling shortcut!"
 	},
 	"press-whatsnew3-title": {
 		"message": "Bagong paraan para masubaybayan si Santa:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Kung naghahanap ka pa ng kasiyahan sa kapaskuhan, tingnan ang mga Gboard holiday sticker na available sa \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e, at sa aming \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid app\u003c/a\u003e. At, mag-enjoy ng kaunting kasiyahang pampanitikan sa paghiling sa Google Assistant na \"Tell me a holiday story\" at \"Where's Santa?\""
+		"message": "Kung naghahanap ka pa ng kasiyahan sa kapaskuhan, tingnan ang mga Gboard holiday sticker na available sa <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a>, at sa aming <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android app</a>. At, mag-enjoy ng kaunting kasiyahang pampanitikan sa paghiling sa Google Assistant na \"Tell me a holiday story\" at \"Where's Santa?\""
 	},
 	"press-whatsnew4-title": {
 		"message": "Higit pang kasiyahan sa kapaskuhan:"
@@ -1680,7 +1680,7 @@
 		"message": "Mrs. Claus' Briefing"
 	},
 	"scene_build": {
-		"message": "Build \u0026 Bolt"
+		"message": "Build & Bolt"
 	},
 	"scene_callfromsanta": {
 		"message": "Tawag mula kay Santa"
@@ -7323,7 +7323,7 @@
 		"message": "I-install"
 	},
 	"village_santa_intall_ios": {
-		"message": "I-tap lang ang \u003cspan\u003e\u003c/span\u003e pagkatapos ay 'Idagdag sa Home Screen'"
+		"message": "I-tap lang ang <span></span> pagkatapos ay 'Idagdag sa Home Screen'"
 	},
 	"village_takesoff": {
 		"message": "Lilipad na si Santa sa loob ng"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }

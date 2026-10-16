@@ -3,7 +3,7 @@
 		"message": "Ziemassvētku vakarā ar lepnumu tiks atklāts Ziemassvētku vecīša informācijas panelis — tehnoloģija, kas darbinās ragavas viņa ceļojumā apkārt pasaulei. Šo īpašo priekšskatījuma iespēju mums dāvāja viens no Ziemassvētku vecīša rūķīšiem, kas kopā ar citiem rūķīšiem Ziemeļpolā cītīgi strādā, lai palīdzētu Ziemassvētku vecītim sagatavoties lielajiem svētkiem. Ziemassvētku vecīša informācijas panelī būs pieejama jaunākā un lieliskākā pakalpojuma Google Maps tehnoloģija, kā arī ragavu tehnoloģija, ar ko varēs sekot līdzi Ziemassvētku vecīša ceļojumam apkārt pasaulei un uzzināt par pieturvietām tajā."
 	},
 	"about-content-three": {
-		"message": "Google Maps Ziemassvētku vecīša ceļojumu izstrādāja un ieviesa uzņēmums Google. Tomēr nelielu palīdzību sniedza arī Ziemassvētku vecīša rūķīši. Vai ir nepieciešama palīdzība vai radās jautājums? Apmeklējiet mūsu \u003ca href=\"//support.google.com/santatracker\"\u003epalīdzības centru\u003c/a\u003e."
+		"message": "Google Maps Ziemassvētku vecīša ceļojumu izstrādāja un ieviesa uzņēmums Google. Tomēr nelielu palīdzību sniedza arī Ziemassvētku vecīša rūķīši. Vai ir nepieciešama palīdzība vai radās jautājums? Apmeklējiet mūsu <a href=\"//support.google.com/santatracker\">palīdzības centru</a>."
 	},
 	"about-content-two": {
 		"message": "Kamēr Ziemassvētku vecītis gatavojas savam ceļojumam, viesmīlīgie rūķīši tevi aicina aplūkot Ziemassvētku vecīša mājvietu. Dodies ciemos un izpēti viņa ciematu! Pa ceļam atradīsi interesantus uzdevumus un satiksi jaukos rūķīšus."
@@ -501,7 +501,7 @@
 		"message": "Lieliski!"
 	},
 	"codelab-mwc-promo": {
-		"message": "Citus Google kodēšanas projektus skatiet šeit: \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Citus Google kodēšanas projektus skatiet šeit: <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Nākamais izaicinājums"
@@ -684,13 +684,13 @@
 		"message": "Radās problēma, bet Ziemassvētku vecīša rūķīši to mēģina risināt."
 	},
 	"error-internal": {
-		"message": "Radās problēma. Mēs informējām Ziemassvētku vecīša rūķīšus, tomēr iesakām atgriezties \u003ca href=\"./\"\u003eZiemassvētku vecīša ciematā\u003c/a\u003e."
+		"message": "Radās problēma. Mēs informējām Ziemassvētku vecīša rūķīšus, tomēr iesakām atgriezties <a href=\"./\">Ziemassvētku vecīša ciematā</a>."
 	},
 	"error-lost-connection": {
 		"message": "Tā... nupat pazuda savienojums ar Ziemeļpolu. Ziemassvētku vecīša rūķīši dara visu iespējamo, lai to atjaunotu. Paliec tepat!"
 	},
 	"error-not-found": {
-		"message": "Ziemassvētku vecīša rūķīši nevar atrast šo lapu. Iespējams, jums veiksies labāk, ja atgriezīsities \u003ca href=\"./\"\u003eZiemassvētku vecīša ciematā\u003c/a\u003e."
+		"message": "Ziemassvētku vecīša rūķīši nevar atrast šo lapu. Iespējams, jums veiksies labāk, ja atgriezīsities <a href=\"./\">Ziemassvētku vecīša ciematā</a>."
 	},
 	"error-out-of-date": {
 		"message": "Šī ir novecojusi Ziemassvētku vecīša ciemata versija. Mēģiniet vēlreiz atvērt Ziemassvētku vecīša ceļojumu, lai skatītu jaunāko versiju."
@@ -720,7 +720,7 @@
 		"message": "Izmantojiet Google asistentu, lai decembrī uzzinātu vairāk par Ziemassvētku vecīti. Šāda integrēšana ir pieejama atsevišķām valodām."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Bērni, kas vēl nav sasnieguši 13 gadu vecumu, ar vecāku atļauju var izveidot savu personalizēto Google asistenta saskarni, piesakoties ar savu kontu, kas tiek pārvaldīts ar \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Bērni, kas vēl nav sasnieguši 13 gadu vecumu, ar vecāku atļauju var izveidot savu personalizēto Google asistenta saskarni, piesakoties ar savu kontu, kas tiek pārvaldīts ar <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Google asistents izveido savienojumu ar Ziemeļpolu, kur Ziemassvētku vecītis ir aizņemts ar koncerta mēģinājumiem. Viņš zina tikai vienu dziesmu — vai varat viņam palīdzēt noskaidrot, kā to vislabāk nospēlēt?"
@@ -1215,7 +1215,7 @@
 		"message": "Norvēģu"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Organizācija Agastya piedāvā praktisku izglītību dabaszinātnēs bērniem lauku apvidos visā Indijā. Organizācija gan dabaszinātņu centros, gan arī pārvietojamos dabaszinātņu furgonos sniedz zināšanas par daudzām tēmām, sākot no Saules sistēmas līdz smadzeņu darbībai. Šajā programmā ir piedalījušies vairāk nekā 5 miljoni bērnu un 200 000 skolotāju 14 Indijas štatos. Tā ir viena no lielākajām dabaszinātņu izglītības programmām pasaulē! Google.org lepojas ar savu ciešo \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esadarbību\u003c/a\u003e ar organizāciju Agastya."
+		"message": "Organizācija Agastya piedāvā praktisku izglītību dabaszinātnēs bērniem lauku apvidos visā Indijā. Organizācija gan dabaszinātņu centros, gan arī pārvietojamos dabaszinātņu furgonos sniedz zināšanas par daudzām tēmām, sākot no Saules sistēmas līdz smadzeņu darbībai. Šajā programmā ir piedalījušies vairāk nekā 5 miljoni bērnu un 200 000 skolotāju 14 Indijas štatos. Tā ir viena no lielākajām dabaszinātņu izglītības programmām pasaulē! Google.org lepojas ar savu ciešo <a href=\"https://www.google.org/impact-challenge/agastya/\">sadarbību</a> ar organizāciju Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Skolotāji un skolēni"
@@ -1248,7 +1248,7 @@
 		"message": "Mēs sadarbojamies ar Google.org, lai popularizētu piecas izglītības bezpeļņas organizācijas, kas īsteno dāvināšanas prieku visu gadu. Ritiniet lejup un uzziniet vairāk par katras organizācijas labdarības aktivitātēm. Izrādiet savu atbalstu, izkrāsojot šo rotājumu kolekciju un iekarinot rotājumus savā Ziemassvētku eglītē vai dāvinot tos sev mīļiem cilvēkiem."
 	},
 	"nonprofit-jane-description": {
-		"message": "Šimpanzes ir cilvēkiem vistuvāk radniecīgie dzīvnieki! Džeinas Gudolas institūts (Jane Goodall Institute — JGI) aizsargā tādas šimpanzes, novērojot viņas, lai izprastu to uzvedību un dzīves vidi. JGI arī veido kopienu, kurā iesaistās cilvēki, kas aizsargā un saglabā savvaļas dzīvniekus un mūsu apkārtējo vidi. Uzziniet vairāk par Tanzānijas pilsētā Gombē \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003emītošajām šimpanzēm\u003c/a\u003e."
+		"message": "Šimpanzes ir cilvēkiem vistuvāk radniecīgie dzīvnieki! Džeinas Gudolas institūts (Jane Goodall Institute — JGI) aizsargā tādas šimpanzes, novērojot viņas, lai izprastu to uzvedību un dzīves vidi. JGI arī veido kopienu, kurā iesaistās cilvēki, kas aizsargā un saglabā savvaļas dzīvniekus un mūsu apkārtējo vidi. Uzziniet vairāk par Tanzānijas pilsētā Gombē <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">mītošajām šimpanzēm</a>."
 	},
 	"nonprofit-jane-type": {
 		"message": "Šimpanze"
@@ -1287,13 +1287,13 @@
 		"message": "Viedās brilles"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 miljardiem cilvēku nav piekļuves elektrībai, un daudziem ir jāizmanto petrolejas lampas, kuras patērē degvielu un piesārņo mājas. Apgaismojuma avoti, kas darbojas ar saules enerģiju, dienas laikā absorbē saules enerģiju un vakaros stundām ilgi nodrošina apgaismojumu, nededzinot degvielu un nepiesārņojot apkārtni. Šis apgaismojums sniedz iespēju lasīt, spēlēties un naktīs droši nokļūt mājās. Organizācija SolarAid nodrošina piekļuvi apgaismojumam, kas darbojas ar saules enerģiju, daudziem, kuriem tā nepieciešama. Google.org lepojas ar savu ciešo \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esadarbību\u003c/a\u003e ar organizāciju SolarAid."
+		"message": "1,3 miljardiem cilvēku nav piekļuves elektrībai, un daudziem ir jāizmanto petrolejas lampas, kuras patērē degvielu un piesārņo mājas. Apgaismojuma avoti, kas darbojas ar saules enerģiju, dienas laikā absorbē saules enerģiju un vakaros stundām ilgi nodrošina apgaismojumu, nededzinot degvielu un nepiesārņojot apkārtni. Šis apgaismojums sniedz iespēju lasīt, spēlēties un naktīs droši nokļūt mājās. Organizācija SolarAid nodrošina piekļuvi apgaismojumam, kas darbojas ar saules enerģiju, daudziem, kuriem tā nepieciešama. Google.org lepojas ar savu ciešo <a href=\"https://www.google.org/impact-challenge/solaraid/\">sadarbību</a> ar organizāciju SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Saules gaisma"
 	},
 	"nonprofit-water-description": {
-		"message": "Mēs izmantojam ūdeni, ejot dušās, vannās, gatavojot ēdienu un, protams, dzeršanai. Tīrs ūdens ir vērtīgs resurss, un daudzi cilvēki izmanto ar rokām izraktas akas, lai piekļūtu tīra ūdens nesējslāņiem, kuri atrodas dziļi zemē starp akmeņu un augsnes slāņiem. Organizācija charity: water sadarbojas ar vietējiem partneriem, veidojot akas un citus ar ūdeni saistītus projektus vietās, kur tie ir ļoti nepieciešami. Google.org lepojas ar savu ciešo \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esadarbību\u003c/a\u003e ar organizāciju charity: water."
+		"message": "Mēs izmantojam ūdeni, ejot dušās, vannās, gatavojot ēdienu un, protams, dzeršanai. Tīrs ūdens ir vērtīgs resurss, un daudzi cilvēki izmanto ar rokām izraktas akas, lai piekļūtu tīra ūdens nesējslāņiem, kuri atrodas dziļi zemē starp akmeņu un augsnes slāņiem. Organizācija charity: water sadarbojas ar vietējiem partneriem, veidojot akas un citus ar ūdeni saistītus projektus vietās, kur tie ir ļoti nepieciešami. Google.org lepojas ar savu ciešo <a href=\"https://www.google.org/global-impact-awards/charity-water/\">sadarbību</a> ar organizāciju charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Akas"
@@ -1305,7 +1305,7 @@
 		"message": "Mobilitāte"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Klimata pārmaiņas turpina negatīvi ietekmēt daudzu pasaules ekosistēmu līdzsvaru gan siltajās, gan aukstajās zemēs. Paaugstinoties gaisa temperatūrai, Arktikā polārie lāči zaudē ledu, kas ir lielu daļu viņu dzīves telpas. Tāpēc viņus ievērojami vairāk apdraud cilvēku darbības, piemēram, naftas un gāzes ieguves un transportēšanas nozares attīstība. Pasaules Dabas Fonds dara visu iespējamo, lai palīdzētu izdzīvot apdraudētajām sugām, veicot zinātnisko izpēti un sadarbojoties ar Arktikas kopienu iedzīvotājiem. Google.org lepojas ar savu ciešo sadarbību ar \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ePasaules Dabas Fondu\u003c/a\u003e."
+		"message": "Klimata pārmaiņas turpina negatīvi ietekmēt daudzu pasaules ekosistēmu līdzsvaru gan siltajās, gan aukstajās zemēs. Paaugstinoties gaisa temperatūrai, Arktikā polārie lāči zaudē ledu, kas ir lielu daļu viņu dzīves telpas. Tāpēc viņus ievērojami vairāk apdraud cilvēku darbības, piemēram, naftas un gāzes ieguves un transportēšanas nozares attīstība. Pasaules Dabas Fonds dara visu iespējamo, lai palīdzētu izdzīvot apdraudētajām sugām, veicot zinātnisko izpēti un sadarbojoties ar Arktikas kopienu iedzīvotājiem. Google.org lepojas ar savu ciešo sadarbību ar <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">Pasaules Dabas Fondu</a>."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Polārlācis"
@@ -1440,7 +1440,7 @@
 		"message": "Ziemassvētku vecīša ciemats svin 15. jubileju — jautras, izglītojošas un interaktīvas svētku aktivitātes. Ziemassvētku vecīša kundzes vadībā rūķīši ir atjauninājuši ciematu, piešķirot tam stilīgu izskatu un noskaņu, kā arī pievienojot jaunu saturu. Pateicoties jaunai apsildes sistēmai, kura darbojas ar karstu kakao, ciematā vairs nebūs jāpavada viss decembris, lai pamazām atkausētu visu saturu, jo visas 24 aktivitātes būs pieejamas jau no 4. decembra. Tagad rūķīšiem (un jums) būs vairāk laika, lai spēlētu un izpētītu Ziemassvētku vecīša ciematu."
 	},
 	"press-about-village2": {
-		"message": "Ciematā varat izmēģināt savas kodēšanas prasmes, radīt oriģinālus mākslas darbus, likt lietā zināšanas par ģeogrāfiju un uzzināt vairāk par labdarības organizācijām, piemēram, \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e un \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Skolotāji var arī \u003ca href=\"./educators.html\"\u003elejupielādēt nodarbību plānus\u003c/a\u003e ar video ceļvežiem, kas skolēniem palīdzēs iegūt pamatzināšanas par kodēšanu, kā arī svētku tradīcijām angļu, spāņu, franču, japāņu un korejiešu valodā."
+		"message": "Ciematā varat izmēģināt savas kodēšanas prasmes, radīt oriģinālus mākslas darbus, likt lietā zināšanas par ģeogrāfiju un uzzināt vairāk par labdarības organizācijām, piemēram, <a href=\"https://www.khanacademy.org/\">Khan Academy</a> un <a href=\"https://code.org/\">Code.org</a>. Skolotāji var arī <a href=\"./educators.html\">lejupielādēt nodarbību plānus</a> ar video ceļvežiem, kas skolēniem palīdzēs iegūt pamatzināšanas par kodēšanu, kā arī svētku tradīcijām angļu, spāņu, franču, japāņu un korejiešu valodā."
 	},
 	"press-asset-animation": {
 		"message": "Animācija"
@@ -1461,7 +1461,7 @@
 		"message": "Izglītojoši piedzīvojumi"
 	},
 	"press-edu1": {
-		"message": "Esam paplašinājuši \u003ca href=\"./educators.html\"\u003epedagogu resursu lapu\u003c/a\u003e, lai nodrošinātu skolotājiem video ceļvežus, kas varētu papildināt nodarbību plānus (tagad pieejami piecās valodās). Visas jūsu iecienītās spēles ir pieejamas, un tajās ir iekļauti kodēšanas pamatprincipi, izmantojot starptautiskas svētku tradīcijas. Google Ziemassvētku vecīša ceļojums rosina apgūt svētku pieredzi jautrā veidā. Lai uzzinātu vairāk, apskatiet \u003ca href=\"./educators.html\"\u003emūsu izglītojošās spēles\u003c/a\u003e."
+		"message": "Esam paplašinājuši <a href=\"./educators.html\">pedagogu resursu lapu</a>, lai nodrošinātu skolotājiem video ceļvežus, kas varētu papildināt nodarbību plānus (tagad pieejami piecās valodās). Visas jūsu iecienītās spēles ir pieejamas, un tajās ir iekļauti kodēšanas pamatprincipi, izmantojot starptautiskas svētku tradīcijas. Google Ziemassvētku vecīša ceļojums rosina apgūt svētku pieredzi jautrā veidā. Lai uzzinātu vairāk, apskatiet <a href=\"./educators.html\">mūsu izglītojošās spēles</a>."
 	},
 	"press-games-title": {
 		"message": "Liela jautrība un spēles"
@@ -1491,19 +1491,19 @@
 		"message": "Izveidojiet rūķīti"
 	},
 	"press-whatsnew2-text": {
-		"message": "Ja jums vienmēr ir bijis sapnis izveidot deju trupu ar ļoti talantīgiem dejojošiem rūķīšiem, tagad jums ir iespēja to izdarīt. Jūsu sapnis ir gandrīz piepildījies. Izmantojot mašīnmācīšanās modeli \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, varat apmācīt rūķīti, lai viņš apgūst jūsu deju soļus un var tos atkārtot uz deju grīdas."
+		"message": "Ja jums vienmēr ir bijis sapnis izveidot deju trupu ar ļoti talantīgiem dejojošiem rūķīšiem, tagad jums ir iespēja to izdarīt. Jūsu sapnis ir gandrīz piepildījies. Izmantojot mašīnmācīšanās modeli <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, varat apmācīt rūķīti, lai viņš apgūst jūsu deju soļus un var tos atkārtot uz deju grīdas."
 	},
 	"press-whatsnew2-title": {
 		"message": "Dejas ar rūķīšiem"
 	},
 	"press-whatsnew3-text": {
-		"message": "Varēsit arī redzēt Ziemassvētku vecīša reāllaika atrašanās vietu pakalpojumā Google Maps — vienkārši pieskarieties hamburgera pogai, pēc tam pieskarieties vienumam Atrašanās vietas kopīgošana, lai redzētu precīzu Ziemassvētku vecīša atrašanās vietu ceļojuma laikā. Lai ērtāk piekļūtu informācijai, varat arī apmeklēt vietni \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+		"message": "Varēsit arī redzēt Ziemassvētku vecīša reāllaika atrašanās vietu pakalpojumā Google Maps — vienkārši pieskarieties hamburgera pogai, pēc tam pieskarieties vienumam Atrašanās vietas kopīgošana, lai redzētu precīzu Ziemassvētku vecīša atrašanās vietu ceļojuma laikā. Lai ērtāk piekļūtu informācijai, varat arī apmeklēt vietni <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>."
 	},
 	"press-whatsnew3-title": {
 		"message": "Jauns veids, kā sekot Ziemassvētku vecītim."
 	},
 	"press-whatsnew4-text": {
-		"message": "Ja vēlaties vairāk svētku jautrības, apskatiet Gboard svētku uzlīmes, kuras pieejamas \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e un \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e ierīcēs, kā arī mūsu \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eAndroid lietotnē\u003c/a\u003e. Noklausieties svētku stāstu, sakot Google asistentam šādas frāzes: “Tell me a holiday story” (Pastāstiet man svētku stāstu) un “Where's Santa?” (Kur ir Ziemassvētku vecītis?)."
+		"message": "Ja vēlaties vairāk svētku jautrības, apskatiet Gboard svētku uzlīmes, kuras pieejamas <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a> un <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> ierīcēs, kā arī mūsu <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">Android lietotnē</a>. Noklausieties svētku stāstu, sakot Google asistentam šādas frāzes: “Tell me a holiday story” (Pastāstiet man svētku stāstu) un “Where's Santa?” (Kur ir Ziemassvētku vecītis?)."
 	},
 	"press-whatsnew4-title": {
 		"message": "Vairāk jautrības brīvdienām"
@@ -7323,7 +7323,7 @@
 		"message": "Instalēt"
 	},
 	"village_santa_intall_ios": {
-		"message": "Vienkārši pieskarieties vienumam \u003cspan\u003e\u003c/span\u003e, pēc tam pieskarieties vienumam “Pievienot sākuma ekrānam”"
+		"message": "Vienkārši pieskarieties vienumam <span></span>, pēc tam pieskarieties vienumam “Pievienot sākuma ekrānam”"
 	},
 	"village_takesoff": {
 		"message": "Ziemassvētku vecītis dosies ceļā pēc"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabve"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
+	"tracker_preflight_1": {
+		"message": "Santa wakes up, sips hot cocoa, and checks the polar clock"
+	},
+	"tracker_preflight_2": {
+		"message": "Final inspection of special gifts & express wrapping in the workshop"
+	},
+	"tracker_preflight_3": {
+		"message": "Silver runner maintenance & aerodynamic sleigh polishing"
+	},
+	"tracker_preflight_4": {
+		"message": "Reviewing the nice & naughty lists at the polar post office"
+	},
+	"tracker_preflight_5": {
+		"message": "High-altitude wind analysis & northern lights radar scan"
+	},
+	"tracker_preflight_6": {
+		"message": "Energy snack for the reindeer with special carrots & sugar cubes"
+	},
+	"tracker_preflight_7": {
+		"message": "Elves loading the bottomless toy sack onto the sleigh"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrating the worldwide route on Google Maps GPS"
+	},
+	"tracker_preflight_9": {
+		"message": "Santa suiting up in the thermal red suit & flight boots"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnessing the reindeer with leather gear & silver bells"
+	},
+	"tracker_preflight_11": {
+		"message": "Reindeer grooming & test illumination of Rudolph's red nose"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
 	}
 }
