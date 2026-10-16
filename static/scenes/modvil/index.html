@@ -94,9 +94,19 @@ api.addEventListener('data', (ev) => {
   const payload = ev.detail;
   const {showTracker, trackerFlags, trackerOffset} = payload;
 
-  // The 'showTracker' value from the state overrides the trackerFlags and
-  // is only used for debugging outside of production.
-  if (showTracker || (showTracker !== false && trackerFlags.showTracker)) {
+  const now = Date.now() + (trackerOffset || 0);
+  const date = new Date(now);
+  let year = date.getUTCFullYear();
+  if (date.getUTCMonth() < 9) {
+    year--;
+  }
+  const takeoffTime = Date.UTC(year, 11, 24, 10, 0, 0);
+  const isBeforeTakeoff = (now < takeoffTime);
+  const PREFLIGHT_WINDOW_MS = 2 * 60 * 60 * 1000; // 2 hours
+  const isPreflightWindow = isBeforeTakeoff && (takeoffTime - now <= PREFLIGHT_WINDOW_MS);
+
+  // Show tracker before takeoff for pre-flight status (offline when >2h, 20 stages when <=2h)
+  if (showTracker || (showTracker !== false && trackerFlags && trackerFlags.showTracker) || isPreflightWindow) {
     if (trackerElement.parentNode !== mainElement) {
       mainElement.prepend(trackerElement);
       api.preload.wait(trackerElement.updateComplete);
@@ -104,13 +114,13 @@ api.addEventListener('data', (ev) => {
   } else {
     trackerElement.remove();
   }
-  trackerElement.routeJitter = trackerFlags.routeJitter;
+  trackerElement.routeJitter = (trackerFlags && trackerFlags.routeJitter) || 0;
   trackerElement.trackerOffset = trackerOffset || 0;
 
   loudCardElement.hidden = !payload.loudCard;
   loudCardElement.scene = payload.loudCard || null;
 
-  destinationsCache.routeUrl = trackerFlags.routeUrl;
+  destinationsCache.routeUrl = (trackerFlags && trackerFlags.routeUrl) || null;
 
   if (payload.android) {
     insertAndroidCards();

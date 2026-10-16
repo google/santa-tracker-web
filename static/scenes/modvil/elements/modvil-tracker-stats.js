@@ -84,6 +84,38 @@ function formatNumber(v, suffix='') {
 }
 
 
+const PREFLIGHT_WINDOW_MS = 2 * 60 * 60 * 1000;  // 2 hours
+
+
+function getPreflightActivity(timeUntilTakeoffMs) {
+  if (timeUntilTakeoffMs > PREFLIGHT_WINDOW_MS) {
+    return _msg`tracker_offline` || 'Offline';
+  }
+  const mins = timeUntilTakeoffMs / (60 * 1000);
+  if (mins <= 0.5) return _msg`tracker_preflight_20` || 'Final countdown to liftoff! Hold on tight!';
+  if (mins <= 1) return _msg`tracker_preflight_19` || 'Magic engines at max power, Santa grips the reins!';
+  if (mins <= 2) return _msg`tracker_preflight_18` || 'Spreading magic dust over the reindeer primed for takeoff';
+  if (mins <= 4) return _msg`tracker_preflight_17` || 'Sleigh lining up on the runway, bells jingling at full volume';
+  if (mins <= 7) return _msg`tracker_preflight_16` || 'Takeoff clearance received from North Pole Tower';
+  if (mins <= 10) return _msg`tracker_preflight_15` || 'Elves clearing runway snow & inspecting runway approach lights';
+  if (mins <= 15) return _msg`tracker_preflight_14` || 'Santa boards the sleigh and completes the pre-flight checklist';
+  if (mins <= 20) return _msg`tracker_preflight_13` || "Hitching all eight reindeer and Rudolph to Santa's sleigh";
+  if (mins <= 26) return _msg`tracker_preflight_12` || 'Reindeer taxiing out of the stables to the taxiway';
+  if (mins <= 33) return _msg`tracker_preflight_11` || 'Syncing world clocks to Greenwich Mean Time';
+  if (mins <= 40) return _msg`tracker_preflight_10` || 'Calibrating the GPS (Global Present System) and star charts';
+  if (mins <= 48) return _msg`tracker_preflight_9` || "Installing Rudolph's red nose guidance bulb and testing beacon";
+  if (mins <= 56) return _msg`tracker_preflight_8` || 'Testing harness bells and audio communication system';
+  if (mins <= 64) return _msg`tracker_preflight_7` || 'Feeding reindeer high-energy magic carrots and moss';
+  if (mins <= 72) return _msg`tracker_preflight_6` || 'Grooming and brushing all nine reindeer';
+  if (mins <= 80) return _msg`tracker_preflight_5` || 'Polishing sleigh runners and inspecting harness fittings';
+  if (mins <= 90) return _msg`tracker_preflight_4` || 'Loading sleigh compartments: Europe, Americas, Asia, Africa & Oceania';
+  if (mins <= 100) return _msg`tracker_preflight_3` || 'Wrapping final oversized and fragile presents';
+  if (mins <= 110) return _msg`tracker_preflight_2` || 'Checking toy inventory against the Nice List';
+  if (mins <= 120) return _msg`tracker_preflight_1` || "Loading Santa's sleigh with gifts from the main workshop";
+  return _msg`tracker_offline` || 'Offline';
+}
+
+
 class ModvilTrackerStatsElement extends LitElement {
   static get styles() { return [styles]; }
 
@@ -91,13 +123,34 @@ class ModvilTrackerStatsElement extends LitElement {
     return {
       details: {type: Object},
       arrivalTime: {type: Number},
+      now: {type: Number},
     };
   }
 
   render() {
-    const d = this.details || {raw: {}};
+    const now = this.now || Date.now();
+    const date = new Date(now);
+    let year = date.getUTCFullYear();
+    if (date.getUTCMonth() < 9) {
+      year--;
+    }
+    const takeoffTime = Date.UTC(year, 11, 24, 10, 0, 0);
+    const isBeforeTakeoff = now < takeoffTime;
+    const d = {
+      raw: {city: _msg`santasvillage` || "Santa's Village", region: 'North Pole'},
+      home: isBeforeTakeoff,
+      stop: true,
+      presents: 0,
+      distance: 0,
+      ...this.details,
+    };
+    if (d.next == null) {
+      d.next = Math.max(0, takeoffTime - now);
+    }
     const arrivalTime = this.arrivalTime || 0;
     const showArrivalHours = (arrivalTime > 10 * 60 * 1000);  // don't show in last 10 minutes
+    const isPreflight = isBeforeTakeoff && Boolean(d.home && (!d.presents || d.presents === 0));
+    const isOffline = isPreflight && (d.next > PREFLIGHT_WINDOW_MS);
 
     // Choose a SVG icon for stop or "in transit".
     const stopIcon = d.stop ?
@@ -113,11 +166,14 @@ class ModvilTrackerStatsElement extends LitElement {
 </svg>
         `;
 
+    const statusLabel = isPreflight ? (_msg`tracker_preflight_status` || 'Pre-Flight Status') : (showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`);
+    const activityValue = isPreflight ? (isOffline ? (_msg`tracker_offline` || 'Offline') : getPreflightActivity(d.next)) : '';
+
     return html`
 <div class="outer">
   <div class="grow">
-    <h1>${showArrivalHours ? _msg`tracker_arrival` : _msg`tracker_distance_travelled`}</h1>
-    <h2>${showArrivalHours ? formatArrivalTime(arrivalTime) : formatNumber(Math.round(d.distance / 1000), 'km')}</h2>
+    <h1>${statusLabel}</h1>
+    <h2 class=${isPreflight ? 'preflight-activity' : ''}>${isPreflight ? activityValue : (showArrivalHours ? formatArrivalTime(arrivalTime) : formatNumber(Math.round(d.distance / 1000), 'km'))}</h2>
     <h1>${_msg`tracker_gifts_delivered`}</h1>
     <h2>${formatNumber(d.presents)}</h2>
   </div>
@@ -127,7 +183,7 @@ class ModvilTrackerStatsElement extends LitElement {
       <h1>${d.stop ? _msg`tracker_current_stop` : _msg`tracker_next_stop`}</h1>
       <div class="icon">
         ${stopIcon}
-        <h2>${d.raw.city}, ${d.raw.region}</h2>
+        <h2>${(d.raw && d.raw.city) || _msg`santasvillage` || "Santa's Village"}, ${(d.raw && d.raw.region) || "North Pole"}</h2>
       </div>
     </div>
     <div>
