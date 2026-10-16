@@ -3758,6 +3758,72 @@
 	"tracker_next_stop": {
 		"message": "Next stop"
 	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_1": {
+		"message": "Loading Santa's sleigh with gifts from the main workshop"
+	},
+	"tracker_preflight_2": {
+		"message": "Checking toy inventory against the Nice List"
+	},
+	"tracker_preflight_3": {
+		"message": "Wrapping final oversized and fragile presents"
+	},
+	"tracker_preflight_4": {
+		"message": "Loading sleigh compartments: Europe, Americas, Asia, Africa & Oceania"
+	},
+	"tracker_preflight_5": {
+		"message": "Polishing sleigh runners and inspecting harness fittings"
+	},
+	"tracker_preflight_6": {
+		"message": "Grooming and brushing all nine reindeer"
+	},
+	"tracker_preflight_7": {
+		"message": "Feeding reindeer high-energy magic carrots and moss"
+	},
+	"tracker_preflight_8": {
+		"message": "Testing harness bells and audio communication system"
+	},
+	"tracker_preflight_9": {
+		"message": "Installing Rudolph's red nose guidance bulb and testing beacon"
+	},
+	"tracker_preflight_10": {
+		"message": "Calibrating the GPS (Global Present System) and star charts"
+	},
+	"tracker_preflight_11": {
+		"message": "Syncing world clocks to Greenwich Mean Time"
+	},
+	"tracker_preflight_12": {
+		"message": "Reindeer taxiing out of the stables to the taxiway"
+	},
+	"tracker_preflight_13": {
+		"message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+	},
+	"tracker_preflight_14": {
+		"message": "Santa boards the sleigh and completes the pre-flight checklist"
+	},
+	"tracker_preflight_15": {
+		"message": "Elves clearing runway snow & inspecting runway approach lights"
+	},
+	"tracker_preflight_16": {
+		"message": "Takeoff clearance received from North Pole Tower"
+	},
+	"tracker_preflight_17": {
+		"message": "Sleigh lining up on the runway, bells jingling at full volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Spreading magic dust over the reindeer primed for takeoff"
+	},
+	"tracker_preflight_19": {
+		"message": "Magic engines at max power, Santa grips the reins!"
+	},
+	"tracker_preflight_20": {
+		"message": "Final countdown to liftoff! Hold on tight!"
+	},
+	"tracker_preflight_status": {
+		"message": "Pre-Flight Status"
+	},
 	"tracker_santa_update": {
 		"message": "SANTA UPDATE"
 	},
