@@ -3,7 +3,7 @@
 		"message": "La veille de Noël, vous pourrez découvrir le tableau de bord du père Noël. Mais dès aujourd'hui, l'un des nombreux lutins qui, au pôle Nord, sont déjà très occupés à préparer la distribution des cadeaux, nous offre ici un aperçu de cette merveille de technologie. Grâce à Google Maps et ce qui se fait de mieux en matière de traîneaux, vous pourrez suivre le père Noël dans sa tournée mondiale tout en découvrant des informations intéressantes sur certaines étapes de son périple."
 	},
 	"about-content-three": {
-		"message": "Sur la piste du père Noël avec Google Maps est un site créé et développé par Google, avec l'aide des lutins du père Noël. Vous avez besoin d'aide ou vous avez des questions ? N'hésitez pas à consulter notre \u003ca href=\"//support.google.com/santatracker\"\u003eCentre d'aide\u003c/a\u003e."
+		"message": "Sur la piste du père Noël avec Google Maps est un site créé et développé par Google, avec l'aide des lutins du père Noël. Vous avez besoin d'aide ou vous avez des questions ? N'hésitez pas à consulter notre <a href=\"//support.google.com/santatracker\">Centre d'aide</a>."
 	},
 	"about-content-two": {
 		"message": "Pendant que le père Noël se prépare pour sa tournée, nos joyeux lutins vous invitent à découvrir son village. Promenez-vous et amusez-vous !"
@@ -501,7 +501,7 @@
 		"message": "Super !"
 	},
 	"codelab-mwc-promo": {
-		"message": "Découvrez d'autres projets d'encodage de Google ici : \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Découvrez d'autres projets d'encodage de Google ici : <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Défi suivant"
@@ -684,13 +684,13 @@
 		"message": "Un problème est survenu, mais les lutins du père Noël s'en occupent."
 	},
 	"error-internal": {
-		"message": "Un problème est survenu. Nous en avons informé les lutins du père Noël. En attendant, retournez au \u003ca href=\"./\"\u003evillage du père Noël\u003c/a\u003e."
+		"message": "Un problème est survenu. Nous en avons informé les lutins du père Noël. En attendant, retournez au <a href=\"./\">village du père Noël</a>."
 	},
 	"error-lost-connection": {
 		"message": "Nous avons perdu le contact avec le pôle Nord. Mais pas de panique : les lutins du père Noël sont déjà à pied d'œuvre pour rétablir la connexion. N'hésitez pas à revenir régulièrement."
 	},
 	"error-not-found": {
-		"message": "Les lutins du père Noël ne trouvent pas cette page ! Essayez de retourner au \u003ca href=\"./\"\u003evillage du père Noël\u003c/a\u003e."
+		"message": "Les lutins du père Noël ne trouvent pas cette page ! Essayez de retourner au <a href=\"./\">village du père Noël</a>."
 	},
 	"error-out-of-date": {
 		"message": "Cette version du village du père Noël est obsolète. Veuillez rouvrir Sur la piste du Père Noël pour accéder à la version la plus récente."
@@ -720,7 +720,7 @@
 		"message": "Utilisez l'Assistant Google pour suivre l'actualité du père Noël pendant tout le mois de décembre ! Cette intégration n'est disponible que pour certaines langues."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Avec l'autorisation de leurs parents, les enfants de moins de 13 ans peuvent également utiliser l'Assistant Google dans une version personnalisée en se connectant à leur propre compte, géré avec \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Avec l'autorisation de leurs parents, les enfants de moins de 13 ans peuvent également utiliser l'Assistant Google dans une version personnalisée en se connectant à leur propre compte, géré avec <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Avec l'Assistant Google, passez un coup de fil au père Noël, en pleine répétition avant son concert au Pôle Nord. Il ne connaît qu'une seule chanson… Aidez-le à la chanter le mieux possible !"
@@ -1215,7 +1215,7 @@
 		"message": "Norvégien"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya offre un enseignement scientifique concret aux enfants vivant dans la campagne indienne. La fondation offre des cours dans ses centres scientifiques et dans des camionnettes qui circulent à travers le pays. De nombreux thèmes sont abordés, allant du système solaire au fonctionnement du cerveau. Plus de 5 millions d'enfants et 200 000 enseignants issus de 14 États indiens ont participé à ce programme d'éducation scientifique. C'est l'un des plus importants programmes de ce type au monde ! À travers notre site Google.org, nous sommes fiers de \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esoutenir\u003c/a\u003e Agastya."
+		"message": "Agastya offre un enseignement scientifique concret aux enfants vivant dans la campagne indienne. La fondation offre des cours dans ses centres scientifiques et dans des camionnettes qui circulent à travers le pays. De nombreux thèmes sont abordés, allant du système solaire au fonctionnement du cerveau. Plus de 5 millions d'enfants et 200 000 enseignants issus de 14 États indiens ont participé à ce programme d'éducation scientifique. C'est l'un des plus importants programmes de ce type au monde ! À travers notre site Google.org, nous sommes fiers de <a href=\"https://www.google.org/impact-challenge/agastya/\">soutenir</a> Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Enseignants et étudiants"
@@ -1248,7 +1248,7 @@
 		"message": "Nous nous sommes associés à Google.org pour mettre en avant cinq organisations à but non lucratif du secteur éducatif, pour lesquelles la générosité continue même après les fêtes. Faites défiler la page vers le bas pour découvrir leurs actions. Montrez votre soutien en coloriant ces décorations, puis en les accrochant à votre sapin, ou en les offrant à vos proches."
 	},
 	"nonprofit-jane-description": {
-		"message": "Les chimpanzés sont l'espèce vivante la plus proche de l'être humain dans le monde animal. Aujourd'hui, il en reste moins de 300 000 en raison de la perte de leur habitat, des maladies et du commerce illégal. Les membres du Jane Goodall Institute (JGI) protègent des chimpanzés tels que Glitter et Gossamer en observant et en analysant leur comportement, mais également leur habitat naturel. Ils s'efforcent également de former des communautés de personnes chargées de protéger et de préserver la vie sauvage, ainsi que l'environnement que nous partageons. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eDécouvrez l'habitat des chimpanzés\u003c/a\u003e à Gombe, en Tanzanie."
+		"message": "Les chimpanzés sont l'espèce vivante la plus proche de l'être humain dans le monde animal. Aujourd'hui, il en reste moins de 300 000 en raison de la perte de leur habitat, des maladies et du commerce illégal. Les membres du Jane Goodall Institute (JGI) protègent des chimpanzés tels que Glitter et Gossamer en observant et en analysant leur comportement, mais également leur habitat naturel. Ils s'efforcent également de former des communautés de personnes chargées de protéger et de préserver la vie sauvage, ainsi que l'environnement que nous partageons. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Découvrez l'habitat des chimpanzés</a> à Gombe, en Tanzanie."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzé"
@@ -1287,13 +1287,13 @@
 		"message": "Lunettes intelligentes"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 milliard de personnes dans le monde n'ont pas accès à l’électricité, et beaucoup d'entre elles doivent utiliser des lampes à pétrole, qui brûlent du combustible et polluent les foyers. Les lampes solaires, quant à elles, absorbent l'énergie du soleil pendant la journée et offrent des heures de lumière sans avoir à brûler de combustible ni polluer. Grâce à ces lampes, vous pouvez lire, jouer et rentrer chez vous la nuit en toute sécurité. SolarAid fournit l'accès aux lampes solaires aux nombreuses personnes en ayant besoin. À travers notre site Google.org, nous sommes fiers de \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esoutenir\u003c/a\u003e SolarAid."
+		"message": "1,3 milliard de personnes dans le monde n'ont pas accès à l’électricité, et beaucoup d'entre elles doivent utiliser des lampes à pétrole, qui brûlent du combustible et polluent les foyers. Les lampes solaires, quant à elles, absorbent l'énergie du soleil pendant la journée et offrent des heures de lumière sans avoir à brûler de combustible ni polluer. Grâce à ces lampes, vous pouvez lire, jouer et rentrer chez vous la nuit en toute sécurité. SolarAid fournit l'accès aux lampes solaires aux nombreuses personnes en ayant besoin. À travers notre site Google.org, nous sommes fiers de <a href=\"https://www.google.org/impact-challenge/solaraid/\">soutenir</a> SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Lumière du soleil"
 	},
 	"nonprofit-water-description": {
-		"message": "Nous utilisons de l'eau pour nous doucher, prendre des bains, cuisiner, et bien sûr, pour nous hydrater. L'eau potable est une ressource précieuse, et de nombreuses personnes s'en procurent dans des puits creusés à la main, qui permettent d'accéder à l'eau située dans des aquifères, entre des couches de roches et de terre. charity: water collabore avec des partenaires locaux pour construire des puits et participer à d'autres projets hydrauliques dans les zones en ayant le plus besoin. À travers notre site Google.org, nous sommes fiers de \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esoutenir\u003c/a\u003e charity: water."
+		"message": "Nous utilisons de l'eau pour nous doucher, prendre des bains, cuisiner, et bien sûr, pour nous hydrater. L'eau potable est une ressource précieuse, et de nombreuses personnes s'en procurent dans des puits creusés à la main, qui permettent d'accéder à l'eau située dans des aquifères, entre des couches de roches et de terre. charity: water collabore avec des partenaires locaux pour construire des puits et participer à d'autres projets hydrauliques dans les zones en ayant le plus besoin. À travers notre site Google.org, nous sommes fiers de <a href=\"https://www.google.org/global-impact-awards/charity-water/\">soutenir</a> charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Puits"
@@ -1305,7 +1305,7 @@
 		"message": "Mobilité"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Le changement climatique continue de perturber l'équilibre de nombreux écosystèmes dans le monde (aussi bien dans les milieux chauds que froids). En Arctique, les ours polaires sont confrontés à la perte de leur habitat en raison de la hausse des températures, responsable de la fonte de la banquise. Ils sont également menacés par les activités humaines, telles que l'exploitation du pétrole et du gaz, ainsi que la navigation maritime. La mission de World Wildlife Fund (WWF) est d'assurer la survie des espèces grâce à des recherches scientifiques et à un travail en collaboration avec les communautés autochtones d'Arctique. À travers Google.org, nous sommes fiers de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003esoutenir\u003c/a\u003e le World Wildlife Fund."
+		"message": "Le changement climatique continue de perturber l'équilibre de nombreux écosystèmes dans le monde (aussi bien dans les milieux chauds que froids). En Arctique, les ours polaires sont confrontés à la perte de leur habitat en raison de la hausse des températures, responsable de la fonte de la banquise. Ils sont également menacés par les activités humaines, telles que l'exploitation du pétrole et du gaz, ainsi que la navigation maritime. La mission de World Wildlife Fund (WWF) est d'assurer la survie des espèces grâce à des recherches scientifiques et à un travail en collaboration avec les communautés autochtones d'Arctique. À travers Google.org, nous sommes fiers de <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">soutenir</a> le World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Ours polaire"
@@ -1440,7 +1440,7 @@
 		"message": "Pour la quinzième année consécutive, le village du père Noël propose des activités ludiques, éducatives et interactives pour les fêtes. Sous l'œil avisé de la mère Noël, les lutins ont amélioré le village et y ont ajouté des contenus. Grâce à son nouveau chauffage au chocolat chaud, le village se dégèle en un rien de temps. Plus besoin d'attendre tout le mois de décembre : vous pourrez accéder à la vingtaine d'activités proposées dès le 4 décembre. Cela vous laisse plus de temps pour jouer avec les lutins et découvrir le village du père Noël."
 	},
 	"press-about-village2": {
-		"message": "Dans le village, vous pouvez apprendre les principes de base du codage, créer des illustrations originales, approfondir vos connaissances en géographie et découvrir des organisations caritatives, telles que \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e et \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Les enseignants peuvent même \u003ca href=\"./educators.html\"\u003etélécharger des plans de cours\u003c/a\u003e associés à des vidéos d'instructions disponibles en anglais, coréen, espagnol, français et japonais pour expliquer à leurs élèves les principes clés du codage, ainsi que les traditions de Noël."
+		"message": "Dans le village, vous pouvez apprendre les principes de base du codage, créer des illustrations originales, approfondir vos connaissances en géographie et découvrir des organisations caritatives, telles que <a href=\"https://www.khanacademy.org/\">Khan Academy</a> et <a href=\"https://code.org/\">Code.org</a>. Les enseignants peuvent même <a href=\"./educators.html\">télécharger des plans de cours</a> associés à des vidéos d'instructions disponibles en anglais, coréen, espagnol, français et japonais pour expliquer à leurs élèves les principes clés du codage, ainsi que les traditions de Noël."
 	},
 	"press-asset-animation": {
 		"message": "Animation"
@@ -1461,7 +1461,7 @@
 		"message": "Aventures éducatives"
 	},
 	"press-edu1": {
-		"message": "Nous avons ajouté à notre \u003ca href=\"./educators.html\"\u003epage de ressources destinées aux enseignants\u003c/a\u003e des vidéos d'instructions pour compléter les programmes des cours désormais disponibles en cinq langues. Nous avons conservé les jeux les plus populaires présentant les principes de base du codage ou les différentes traditions de fin d'année dans le monde. Sur la piste du père Noël de Google est un moyen ludique d'apprendre pendant les fêtes. Pour en savoir plus, consultez nos \u003ca href=\"./educators.html\"\u003ejeux éducatifs\u003c/a\u003e."
+		"message": "Nous avons ajouté à notre <a href=\"./educators.html\">page de ressources destinées aux enseignants</a> des vidéos d'instructions pour compléter les programmes des cours désormais disponibles en cinq langues. Nous avons conservé les jeux les plus populaires présentant les principes de base du codage ou les différentes traditions de fin d'année dans le monde. Sur la piste du père Noël de Google est un moyen ludique d'apprendre pendant les fêtes. Pour en savoir plus, consultez nos <a href=\"./educators.html\">jeux éducatifs</a>."
 	},
 	"press-games-title": {
 		"message": "Tous les jeux et activités"
@@ -1491,19 +1491,19 @@
 		"message": "Créer un lutin :"
 	},
 	"press-whatsnew2-text": {
-		"message": "Vous avez toujours rêvé de créer une troupe de danse composée de lutins talentueux ? Le moment est venu. À l'aide d'un modèle de machine learning intitulé \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, vous pouvez apprendre à un lutin vos pas de danse et l'entraîner sur la piste."
+		"message": "Vous avez toujours rêvé de créer une troupe de danse composée de lutins talentueux ? Le moment est venu. À l'aide d'un modèle de machine learning intitulé <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, vous pouvez apprendre à un lutin vos pas de danse et l'entraîner sur la piste."
 	},
 	"press-whatsnew2-title": {
 		"message": "Danser avec les lutins :"
 	},
 	"press-whatsnew3-text": {
-		"message": "Vous pourrez aussi suivre en temps réel la position du Père Noël et savoir exactement où il se trouve tout au long de sa tournée en appuyant sur le bouton du menu à trois barres, puis sur \"Partage de position\" dans Google Maps. Si vous souhaitez localiser le Père Noël plus rapidement, vous pouvez également vous rendre à l'adresse \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+		"message": "Vous pourrez aussi suivre en temps réel la position du Père Noël et savoir exactement où il se trouve tout au long de sa tournée en appuyant sur le bouton du menu à trois barres, puis sur \"Partage de position\" dans Google Maps. Si vous souhaitez localiser le Père Noël plus rapidement, vous pouvez également vous rendre à l'adresse <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>."
 	},
 	"press-whatsnew3-title": {
 		"message": "Une nouvelle manière de suivre le père Noël :"
 	},
 	"press-whatsnew4-text": {
-		"message": "Pour vous mettre encore plus dans l'ambiance des fêtes de fin d'année, découvrez notre \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eapplication Android\u003c/a\u003e ainsi que les autocollants Gboard de Noël disponibles sur les appareils \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e et \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e. Et pourquoi ne pas profiter de l'occasion pour vous amuser avec l'Assistant Google ? Dites-lui \"Raconte-moi une histoire de Noël\" ou \"Où est le Père Noël ?\" et découvrez ce qu'il vous répond !"
+		"message": "Pour vous mettre encore plus dans l'ambiance des fêtes de fin d'année, découvrez notre <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">application Android</a> ainsi que les autocollants Gboard de Noël disponibles sur les appareils <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a> et <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a>. Et pourquoi ne pas profiter de l'occasion pour vous amuser avec l'Assistant Google ? Dites-lui \"Raconte-moi une histoire de Noël\" ou \"Où est le Père Noël ?\" et découvrez ce qu'il vous répond !"
 	},
 	"press-whatsnew4-title": {
 		"message": "Nouvelle activité de Noël :"
@@ -7323,7 +7323,7 @@
 		"message": "Installer"
 	},
 	"village_santa_intall_ios": {
-		"message": "Il vous suffit d'appuyer sur \u003cspan\u003e\u003c/span\u003e, puis sur \"Sur l'écran d'accueil\"."
+		"message": "Il vous suffit d'appuyer sur <span></span>, puis sur \"Sur l'écran d'accueil\"."
 	},
 	"village_takesoff": {
 		"message": "Le père Noël s'envolera dans"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_offline": {
+		"message": "Hors ligne"
+	},
+	"tracker_preflight_status": {
+		"message": "Statut avant-vol"
+	},
+	"tracker_preflight_1": {
+		"message": "Le Père Noël se réveille, boit un chocolat chaud et vérifie l'horloge polaire"
+	},
+	"tracker_preflight_2": {
+		"message": "Dernière inspection des cadeaux et emballage express dans l'atelier"
+	},
+	"tracker_preflight_3": {
+		"message": "Entretien des patins d'argent et polissage aérodynamique du traîneau"
+	},
+	"tracker_preflight_4": {
+		"message": "Revue des listes des enfants sages au bureau de poste polaire"
+	},
+	"tracker_preflight_5": {
+		"message": "Analyse des vents d'altitude et radar des aurores boréales"
+	},
+	"tracker_preflight_6": {
+		"message": "Collation pour les rennes avec carottes spéciales et morceaux de sucre"
+	},
+	"tracker_preflight_7": {
+		"message": "Les lutins chargent la hotte sans fond à bord du traîneau"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrage de l'itinéraire mondial sur le GPS Google Maps"
+	},
+	"tracker_preflight_9": {
+		"message": "Le Père Noël enfile son costume thermique rouge et ses bottes de vol"
+	},
+	"tracker_preflight_10": {
+		"message": "Harnachement des rennes avec cuirs d'apparat et clochettes d'argent"
+	},
+	"tracker_preflight_11": {
+		"message": "Toilettage des rennes et test d'éclairage du nez rouge de Rudolph"
+	},
+	"tracker_preflight_12": {
+		"message": "Sortie des rennes des étables vers la piste de roulage"
+	},
+	"tracker_preflight_13": {
+		"message": "Attelage des huit rennes et de Rudolph au traîneau du Père Noël"
+	},
+	"tracker_preflight_14": {
+		"message": "Le Père Noël monte à bord et vérifie la liste de contrôle avant-vol"
+	},
+	"tracker_preflight_15": {
+		"message": "Les lutins déneigent la piste et inspectent le balisage lumineux"
+	},
+	"tracker_preflight_16": {
+		"message": "Autorisation de décollage accordée par la Tour du Pôle Nord"
+	},
+	"tracker_preflight_17": {
+		"message": "Alignement sur la piste de décollage et clochettes à plein volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Distribution de poussière magique sur les rennes prêts à bondir"
+	},
+	"tracker_preflight_19": {
+		"message": "Moteurs magiques à pleine puissance, le Père Noël saisit les rênes !"
+	},
+	"tracker_preflight_20": {
+		"message": "Compte à rebours final pour le décollage ! Accrochez-vous !"
 	}
 }

@@ -3,7 +3,7 @@
 		"message": "En Nochebuena, tendremos el honor de presentar el panel de control de Papá Noel, la tecnología que impulsa su trineo durante su viaje por todo el mundo. Hemos recibido esta vista previa tan especial de uno de tantos elfos desarrolladores de Papá Noel, que trabajan duro en el Polo Norte para ayudarle a prepararse para el gran día. El panel de control de Papá Noel, que incluye la tecnología más puntera e innovadora de Google Maps, permitirá seguir su viaje por el mundo y conocer un poco los sitios que visite."
 	},
 	"about-content-three": {
-		"message": "Google ha creado y desarrollado Sigue a Papá Noel de Google Maps con un poco de ayuda de los elfos de Papá Noel. ¿Necesitas ayuda o tienes alguna otra pregunta? Visita el \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de Ayuda\u003c/a\u003e."
+		"message": "Google ha creado y desarrollado Sigue a Papá Noel de Google Maps con un poco de ayuda de los elfos de Papá Noel. ¿Necesitas ayuda o tienes alguna otra pregunta? Visita el <a href=\"//support.google.com/santatracker\">Centro de Ayuda</a>."
 	},
 	"about-content-two": {
 		"message": "Nuestros amigos, los elfos, te han invitado a visitar la aldea de Papá Noel mientras él se prepara para el viaje. Pasa y explora el pueblo; puede que encuentres actividades divertidas y conozcas a elfos muy interesantes."
@@ -501,7 +501,7 @@
 		"message": "Genial"
 	},
 	"codelab-mwc-promo": {
-		"message": "Explora más proyectos de codificación de Google en \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Explora más proyectos de codificación de Google en <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Desafío siguiente"
@@ -684,13 +684,13 @@
 		"message": "Ha habido un problema, pero los elfos de Papá Noel están investigándolo."
 	},
 	"error-internal": {
-		"message": "¡Vaya! Parece que ha habido un problema, pero los elfos de Papá Noel ya están al tanto. Prueba a volver a su \u003ca href=\"./\"\u003ealdea\u003c/a\u003e."
+		"message": "¡Vaya! Parece que ha habido un problema, pero los elfos de Papá Noel ya están al tanto. Prueba a volver a su <a href=\"./\">aldea</a>."
 	},
 	"error-lost-connection": {
 		"message": "Parece que acabamos de perder la conexión con el Polo Norte. Los elfos de Papá Noel están trabajando duro para arreglar el problema. No te vayas muy lejos."
 	},
 	"error-not-found": {
-		"message": "¡Vaya, los elfos de Papá Noel no han encontrado la página! Puede que tengas más suerte si vuelves a su \u003ca href=\"./\"\u003ealdea\u003c/a\u003e."
+		"message": "¡Vaya, los elfos de Papá Noel no han encontrado la página! Puede que tengas más suerte si vuelves a su <a href=\"./\">aldea</a>."
 	},
 	"error-out-of-date": {
 		"message": "Esta es una versión obsoleta de la aldea de Papá Noel. Prueba a volver a abrir Sigue a Papá Noel para ver la versión más actualizada."
@@ -720,7 +720,7 @@
 		"message": "Usa el Asistente de Google para saber qué más cosas se trae Papá Noel entre manos este diciembre. Esta integración está disponible en varios idiomas."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Con el permiso de sus padres, los niños menores de 14 años también pueden disfrutar de su propia experiencia personalizada con el Asistente de Google. Para ello, solo tienen que iniciar sesión en su cuenta, gestionada con \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Con el permiso de sus padres, los niños menores de 14 años también pueden disfrutar de su propia experiencia personalizada con el Asistente de Google. Para ello, solo tienen que iniciar sesión en su cuenta, gestionada con <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "Viaja con el Asistente de Google al Polo Norte, donde Papá Noel está ensayando para dar un concierto. Solo se sabe una canción. ¿Puedes ayudarle a encontrar la mejor forma de tocarla?"
@@ -1215,7 +1215,7 @@
 		"message": "Noruego"
 	},
 	"nonprofit-agastya-description": {
-		"message": "El objetivo de Agastya es acercar la educación científica práctica a los niños de entornos rurales de toda la India. Ya sea de forma estática (en centros de ciencias) o de forma móvil (en furgonetas de ciencias), explican temas que van desde la estructura del sistema solar hasta el funcionamiento del cerebro. Así, han llegado ya a más de 5 millones de niños y 200.000 profesores de 14 estados de la India. De hecho, es uno de los mayores programas educativos en materia científica de todo el mundo. Por eso, Google.org \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eapoya\u003c/a\u003e con gran orgullo la causa de Agastya."
+		"message": "El objetivo de Agastya es acercar la educación científica práctica a los niños de entornos rurales de toda la India. Ya sea de forma estática (en centros de ciencias) o de forma móvil (en furgonetas de ciencias), explican temas que van desde la estructura del sistema solar hasta el funcionamiento del cerebro. Así, han llegado ya a más de 5 millones de niños y 200.000 profesores de 14 estados de la India. De hecho, es uno de los mayores programas educativos en materia científica de todo el mundo. Por eso, Google.org <a href=\"https://www.google.org/impact-challenge/agastya/\">apoya</a> con gran orgullo la causa de Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Docencia y alumnado"
@@ -1248,7 +1248,7 @@
 		"message": "Nos hemos asociado con Google.org para patrocinar a cinco organizaciones educativas sin ánimo de lucro para las que la Navidad dura todo el año. Desplázate hacia abajo y descubre qué aporta cada una de las organizaciones. Para demostrar tu apoyo, colorea esta colección de adornos y cuélgalos en el árbol de Navidad o regálaselos a tus seres queridos."
 	},
 	"nonprofit-jane-description": {
-		"message": "Los chimpancés son la familia de animales más próxima al ser humano. Actualmente, quedan menos de 300.000 chimpancés debido a la pérdida del hábitat, las enfermedades y el comercio ilegal. El Jane Goodall Institute (JGI) protege a los chimpancés observando e intentando entender su comportamiento y el hábitat en el que viven. El JGI también trabaja para crear una comunidad de personas que protejan y conserven la fauna y el medio que compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eObserva el hábitat de los chimpancés\u003c/a\u003e de Gombe, Tanzania."
+		"message": "Los chimpancés son la familia de animales más próxima al ser humano. Actualmente, quedan menos de 300.000 chimpancés debido a la pérdida del hábitat, las enfermedades y el comercio ilegal. El Jane Goodall Institute (JGI) protege a los chimpancés observando e intentando entender su comportamiento y el hábitat en el que viven. El JGI también trabaja para crear una comunidad de personas que protejan y conserven la fauna y el medio que compartimos. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Observa el hábitat de los chimpancés</a> de Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpancé"
@@ -1287,13 +1287,13 @@
 		"message": "Gafas inteligentes"
 	},
 	"nonprofit-solar-description": {
-		"message": "En el mundo, 1.300 millones de personas no tienen acceso a una red eléctrica y recurren a lámparas de queroseno, un combustible que contamina sus hogares. Sin embargo, los dispositivos de iluminación solares absorben la energía del sol durante el día y proporcionan horas de luz al llegar la noche sin combustión ni contaminación alguna. Así, permiten leer, jugar y llegar a casa sano y salvo por la noche. SolarAid proporciona acceso a la iluminación solar a muchas personas que la necesitan. Por eso, Google.org \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eapoya\u003c/a\u003e con gran orgullo la causa de SolarAid."
+		"message": "En el mundo, 1.300 millones de personas no tienen acceso a una red eléctrica y recurren a lámparas de queroseno, un combustible que contamina sus hogares. Sin embargo, los dispositivos de iluminación solares absorben la energía del sol durante el día y proporcionan horas de luz al llegar la noche sin combustión ni contaminación alguna. Así, permiten leer, jugar y llegar a casa sano y salvo por la noche. SolarAid proporciona acceso a la iluminación solar a muchas personas que la necesitan. Por eso, Google.org <a href=\"https://www.google.org/impact-challenge/solaraid/\">apoya</a> con gran orgullo la causa de SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Luz del sol"
 	},
 	"nonprofit-water-description": {
-		"message": "El agua potable es un valioso recurso necesario para la ducha o el baño y para cocinar o beber. Se almacena en acuíferos subterráneos a gran profundidad (entre capas de suelo y roca) a los que muchas personas tienen que acceder mediante pozos excavados a mano. charity: water colabora con partners locales para construir pozos y realizar otros proyectos relacionados con el acceso al agua para los que más lo necesitan. Por ello, Google.org \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eapoya\u003c/a\u003e con gran orgullo la causa de charity: water."
+		"message": "El agua potable es un valioso recurso necesario para la ducha o el baño y para cocinar o beber. Se almacena en acuíferos subterráneos a gran profundidad (entre capas de suelo y roca) a los que muchas personas tienen que acceder mediante pozos excavados a mano. charity: water colabora con partners locales para construir pozos y realizar otros proyectos relacionados con el acceso al agua para los que más lo necesitan. Por ello, Google.org <a href=\"https://www.google.org/global-impact-awards/charity-water/\">apoya</a> con gran orgullo la causa de charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Pozo"
@@ -1305,7 +1305,7 @@
 		"message": "Movilidad"
 	},
 	"nonprofit-wwf-description": {
-		"message": "El cambio climático sigue alterando el equilibrio de muchos ecosistemas del mundo, tanto en las zonas cálidas como en las frías. En el Ártico, los osos polares están perdiendo su hábitat de la banquisa debido al aumento de la temperatura, y se enfrentan a otras amenazas originadas por las actividades humanas, como las explotaciones y el transporte de petróleo y de gas. World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica en cooperación con comunidades nativas del Ártico. En Google.org estamos orgullosos de \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003ecooperar\u003c/a\u003e con World Wildlife Fund."
+		"message": "El cambio climático sigue alterando el equilibrio de muchos ecosistemas del mundo, tanto en las zonas cálidas como en las frías. En el Ártico, los osos polares están perdiendo su hábitat de la banquisa debido al aumento de la temperatura, y se enfrentan a otras amenazas originadas por las actividades humanas, como las explotaciones y el transporte de petróleo y de gas. World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica en cooperación con comunidades nativas del Ártico. En Google.org estamos orgullosos de <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">cooperar</a> con World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
@@ -1440,7 +1440,7 @@
 		"message": "En la aldea de Papá Noel están de aniversario: concretamente, se celebran quince años de actividades navideñas interactivas que combinan diversión y aprendizaje. Bajo la experta mirada de Mamá Noel, los elfos han dotado a la aldea de un diseño vistoso y un contenido totalmente nuevo. Además, gracias a su nuevo sistema térmico basado en la tecnología del chocolate caliente, la aldea ya no tardará todo el mes de diciembre en descongelarse: todas las actividades estarán disponibles a partir del día 4. Ahora, tanto los elfos como tú podréis pasar mucho más tiempo jugando y explorando la aldea de Papá Noel."
 	},
 	"press-about-village2": {
-		"message": "En la aldea, puedes practicar actividades básicas de programación, crear ilustraciones originales, poner en práctica tus conocimientos de geografía y obtener más información sobre organizaciones benéficas como \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e y \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Por su parte, los profesores pueden \u003ca href=\"./educators.html\"\u003edescargar unidades didácticas\u003c/a\u003e con guías de vídeo que les ayudarán a enseñar a sus estudiantes conceptos básicos sobre programación y tradiciones festivas en coreano, español, francés, inglés y japonés."
+		"message": "En la aldea, puedes practicar actividades básicas de programación, crear ilustraciones originales, poner en práctica tus conocimientos de geografía y obtener más información sobre organizaciones benéficas como <a href=\"https://www.khanacademy.org/\">Khan Academy</a> y <a href=\"https://code.org/\">Code.org</a>. Por su parte, los profesores pueden <a href=\"./educators.html\">descargar unidades didácticas</a> con guías de vídeo que les ayudarán a enseñar a sus estudiantes conceptos básicos sobre programación y tradiciones festivas en coreano, español, francés, inglés y japonés."
 	},
 	"press-asset-animation": {
 		"message": "Animación"
@@ -1461,7 +1461,7 @@
 		"message": "Aventuras educativas"
 	},
 	"press-edu1": {
-		"message": "Hemos ampliado nuestra \u003ca href=\"./educators.html\"\u003epágina de recursos para educadores\u003c/a\u003e. Ahora, los docentes disponen de una serie de guías en formato de vídeo (disponibles en cinco idiomas) que pueden compaginar con sus unidades didácticas. Podrás seguir disfrutando de todos tus juegos favoritos, en los que no solo se abordan conceptos básicos de programación, sino que también sirven para familiarizarse con las tradiciones festivas de todo el mundo. Con Sigue a Papá Noel, queremos que la experiencia de aprendizaje sea mucho más divertida, gracias a su toque festivo. Para obtener más información, echa un vistazo a \u003ca href=\"./educators.html\"\u003enuestros juegos educativos\u003c/a\u003e."
+		"message": "Hemos ampliado nuestra <a href=\"./educators.html\">página de recursos para educadores</a>. Ahora, los docentes disponen de una serie de guías en formato de vídeo (disponibles en cinco idiomas) que pueden compaginar con sus unidades didácticas. Podrás seguir disfrutando de todos tus juegos favoritos, en los que no solo se abordan conceptos básicos de programación, sino que también sirven para familiarizarse con las tradiciones festivas de todo el mundo. Con Sigue a Papá Noel, queremos que la experiencia de aprendizaje sea mucho más divertida, gracias a su toque festivo. Para obtener más información, echa un vistazo a <a href=\"./educators.html\">nuestros juegos educativos</a>."
 	},
 	"press-games-title": {
 		"message": "Todos los juegos y actividades divertidas"
@@ -1491,19 +1491,19 @@
 		"message": "Crea un elfo:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Ha llegado la hora de cumplir uno de tus mayores sueños (y si no lo era, seguro que a partir de ahora lo es): ¡crear un grupo de baile formado por elfos rebosantes de talento! Para ello, hemos creado un modelo de aprendizaje automático, llamado \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, con el que puedes enseñar a los elfos los pasos de baile necesarios para darlo todo en la pista."
+		"message": "Ha llegado la hora de cumplir uno de tus mayores sueños (y si no lo era, seguro que a partir de ahora lo es): ¡crear un grupo de baile formado por elfos rebosantes de talento! Para ello, hemos creado un modelo de aprendizaje automático, llamado <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, con el que puedes enseñar a los elfos los pasos de baile necesarios para darlo todo en la pista."
 	},
 	"press-whatsnew2-title": {
 		"message": "A bailar con los elfos:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Si quieres, puedes utilizar Google Maps para ver la ubicación de Papá Noel en tiempo real; basta con que toques el botón de tres puntos y, luego, la opción Compartir ubicación para ver en qué punto exacto del recorrido se encuentra. También puedes acceder directamente mediante el enlace \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+		"message": "Si quieres, puedes utilizar Google Maps para ver la ubicación de Papá Noel en tiempo real; basta con que toques el botón de tres puntos y, luego, la opción Compartir ubicación para ver en qué punto exacto del recorrido se encuentra. También puedes acceder directamente mediante el enlace <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>."
 	},
 	"press-whatsnew3-title": {
 		"message": "Una nueva forma de seguir a Papá Noel:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Si tienes más ganas de zambullirte en el espíritu de las fiestas, echa un vistazo a las pegatinas navideñas de Gboard que están disponibles para \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e y \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, además de en nuestra \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eaplicación para Android\u003c/a\u003e. También puedes pedirle al Asistente de Google que te cuente una historia navideña o que te muestre dónde se encuentra Papá Noel."
+		"message": "Si tienes más ganas de zambullirte en el espíritu de las fiestas, echa un vistazo a las pegatinas navideñas de Gboard que están disponibles para <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> y <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, además de en nuestra <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">aplicación para Android</a>. También puedes pedirle al Asistente de Google que te cuente una historia navideña o que te muestre dónde se encuentra Papá Noel."
 	},
 	"press-whatsnew4-title": {
 		"message": "Más diversión navideña:"
@@ -7323,7 +7323,7 @@
 		"message": "Instalar"
 	},
 	"village_santa_intall_ios": {
-		"message": "Solo tienes que tocar \u003cspan\u003e\u003c/span\u003e y, a continuación, \"Añadir a pantalla de inicio\""
+		"message": "Solo tienes que tocar <span></span> y, a continuación, \"Añadir a pantalla de inicio\""
 	},
 	"village_takesoff": {
 		"message": "Papá Noel despegará en"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabue"
+	},
+	"tracker_offline": {
+		"message": "Desconectado"
+	},
+	"tracker_preflight_status": {
+		"message": "Estado previo al vuelo"
+	},
+	"tracker_preflight_1": {
+		"message": "Papá Noel se despierta, toma chocolate caliente y revisa el reloj polar"
+	},
+	"tracker_preflight_2": {
+		"message": "Inspección final de regalos especiales y envoltorio exprés en el taller"
+	},
+	"tracker_preflight_3": {
+		"message": "Mantenimiento de patines de plata y pulido aerodinámico del trineo"
+	},
+	"tracker_preflight_4": {
+		"message": "Revisión de las listas de niños buenos en la oficina de correos polar"
+	},
+	"tracker_preflight_5": {
+		"message": "Análisis de vientos en altura y escaneo radar de la aurora boreal"
+	},
+	"tracker_preflight_6": {
+		"message": "Tentempié energético para los renos con zanahorias especiales y azúcar"
+	},
+	"tracker_preflight_7": {
+		"message": "Los elfos cargan el saco de juguetes sin fondo en el trineo"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibración de la ruta mundial en el GPS de Google Maps"
+	},
+	"tracker_preflight_9": {
+		"message": "Papá Noel se pone el traje térmico rojo y las botas de vuelo"
+	},
+	"tracker_preflight_10": {
+		"message": "Aparejo de los renos con arneses de cuero y cascabeles de plata"
+	},
+	"tracker_preflight_11": {
+		"message": "Cepillado de los renos y prueba de iluminación de la nariz de Rudolph"
+	},
+	"tracker_preflight_12": {
+		"message": "Los renos salen de los establos hacia la pista de carreteo"
+	},
+	"tracker_preflight_13": {
+		"message": "Enganche de los ocho renos y de Rudolph al trineo de Papá Noel"
+	},
+	"tracker_preflight_14": {
+		"message": "Papá Noel sube a bordo y completa la lista de verificación previa al vuelo"
+	},
+	"tracker_preflight_15": {
+		"message": "Los elfos retiran la nieve de la pista e inspeccionan las luces de aproximación"
+	},
+	"tracker_preflight_16": {
+		"message": "Autorización de despegue concedida por la Torre del Polo Norte"
+	},
+	"tracker_preflight_17": {
+		"message": "Alineación en la pista de despegue y cascabeles a todo volumen"
+	},
+	"tracker_preflight_18": {
+		"message": "Distribución de polvo mágico sobre los renos listos para el despegue"
+	},
+	"tracker_preflight_19": {
+		"message": "¡Motores mágicos a máxima potencia, Papá Noel sujeta las riendas!"
+	},
+	"tracker_preflight_20": {
+		"message": "¡Cuenta regresiva final para el despegue! ¡Agárrense fuerte!"
 	}
 }

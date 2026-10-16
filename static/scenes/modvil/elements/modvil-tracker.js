@@ -106,12 +106,36 @@ class ModvilTrackerElement extends LitElement {
     });
     common.preload.wait(this._preparePromise);
 
+    const searchParams = (typeof window !== 'undefined' && window.location) ? new URLSearchParams(window.location.search) : null;
+    const preflightParam = searchParams ? searchParams.get('preflight') : null;
+    const demoMode = searchParams ? (searchParams.get('demo') === '1' || preflightParam === 'demo') : false;
+
+    let demoStep = 0;
+    const demoMins = [115, 105, 95, 85, 76, 68, 60, 52, 44, 36, 29, 23, 17, 12, 8, 5, 3, 1.5, 0.75, 0.25];
+
     const updateNow = () => {
-      const jitter = routeJitterRatio * this.routeJitter * 1000;  // adjust to ms
-      this.now = +new Date() + this.trackerOffset + jitter;
+      if (demoMode) {
+        const mins = demoMins[demoStep % demoMins.length];
+        const year = new Date().getUTCFullYear();
+        const takeoff = Date.UTC(year, 11, 24, 10, 0, 0);
+        this.now = takeoff - (mins * 60 * 1000);
+      } else if (preflightParam && !isNaN(Number(preflightParam))) {
+        const mins = Number(preflightParam);
+        const year = new Date().getUTCFullYear();
+        const takeoff = Date.UTC(year, 11, 24, 10, 0, 0);
+        this.now = takeoff - (mins * 60 * 1000);
+      } else {
+        const jitter = routeJitterRatio * this.routeJitter * 1000;  // adjust to ms
+        this.now = Date.now() + this.trackerOffset + jitter;
+      }
     };
     updateNow();
-    window.setInterval(updateNow, 1000);
+    window.setInterval(() => {
+      if (demoMode) {
+        demoStep++;
+      }
+      updateNow();
+    }, demoMode ? 3000 : 1000);
 
     this._onWindowResize = this._onWindowResize.bind(this);
   }
@@ -209,7 +233,7 @@ class ModvilTrackerElement extends LitElement {
     if (this._focusOnSanta) {
       let offset = details.stop ? 1 : 0;
       if (details.home) {
-        offset = -10;  // zoom as far out as possible here
+        offset = -1;  // nicely frame North Pole
       }
       this._setLocation(this._santaOverlay.position, offset);
     }

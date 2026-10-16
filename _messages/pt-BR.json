@@ -3,7 +3,7 @@
 		"message": "Na véspera de Natal, exibiremos orgulhosamente o Painel do Papai Noel, a tecnologia que alimenta seu trenó durante sua viagem ao redor do mundo. Recebemos esta prévia especial de um dos duendes desenvolvedores do Papai Noel, que estão trabalhando duro no Polo Norte para ajudar o bom velhinho a se preparar para seu grande dia. Com o Painel do Papai Noel (que conta com o que há de melhor e mais recente em tecnologia do Google Maps e engenharia de trenós), você pode acompanhar o progresso do bom velhinho por todo o mundo e aprender um pouco sobre algumas das suas paradas ao longo do caminho."
 	},
 	"about-content-three": {
-		"message": "O Siga o Papai Noel do Google Maps foi criado e desenvolvido pelo Google, com uma ajudinha dos duendes do Papai Noel. Precisa de ajuda ou tem uma pergunta? Acesse nossa \u003ca href=\"//support.google.com/santatracker\"\u003eCentral de Ajuda\u003c/a\u003e."
+		"message": "O Siga o Papai Noel do Google Maps foi criado e desenvolvido pelo Google, com uma ajudinha dos duendes do Papai Noel. Precisa de ajuda ou tem uma pergunta? Acesse nossa <a href=\"//support.google.com/santatracker\">Central de Ajuda</a>."
 	},
 	"about-content-two": {
 		"message": "Os simpáticos duendes também convidaram você para explorar a vila do Papai Noel enquanto ele se prepara para sua viagem. Então, vá em frente e explore a vila. Você pode encontrar algumas atividades divertidas e conhecer duendes interessantes."
@@ -501,7 +501,7 @@
 		"message": "Ótimo"
 	},
 	"codelab-mwc-promo": {
-		"message": "Explore mais projetos de programação do Google em \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Explore mais projetos de programação do Google em <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Próximo desafio"
@@ -684,13 +684,13 @@
 		"message": "Houve um problema, mas fique tranquilo. Os duendes do Papai Noel estão investigando."
 	},
 	"error-internal": {
-		"message": "Ah não, temos um problema! Já avisamos os duendes, mas tente voltar para a \u003ca href=\"./\"\u003eVila do Papai Noel\u003c/a\u003e."
+		"message": "Ah não, temos um problema! Já avisamos os duendes, mas tente voltar para a <a href=\"./\">Vila do Papai Noel</a>."
 	},
 	"error-lost-connection": {
 		"message": "Perdemos nossa conexão com o Polo Norte. Os duendes do Papai Noel estão trabalhando duro para corrigir o problema. Fique ligado!"
 	},
 	"error-not-found": {
-		"message": "Ah não, os duendes não encontraram esta página! Tente voltar para a \u003ca href=\"./\"\u003eVila do Papai Noel\u003c/a\u003e."
+		"message": "Ah não, os duendes não encontraram esta página! Tente voltar para a <a href=\"./\">Vila do Papai Noel</a>."
 	},
 	"error-out-of-date": {
 		"message": "Esta é uma versão desatualizada da Vila do Papai Noel. Abra o Siga o Papai Noel novamente para visualizar a versão mais recente."
@@ -720,7 +720,7 @@
 		"message": "Saiba mais sobre o Papai Noel em dezembro com o Google Assistente. Esta integração está disponível apenas em alguns idiomas."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Com a permissão dos pais ou responsáveis, as crianças menores de 13 anos que fizerem login em uma conta gerenciada com o \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e também poderão ter uma experiência personalizada com o Google Assistente."
+		"message": "Com a permissão dos pais ou responsáveis, as crianças menores de 13 anos que fizerem login em uma conta gerenciada com o <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a> também poderão ter uma experiência personalizada com o Google Assistente."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "O Google Assistente conecta você ao Polo Norte, onde o Papai Noel está ocupado ensaiando para um musical. Ele quer saber a melhor maneira de tocar a única música que conhece. Você pode ajudar o bom velhinho?"
@@ -1215,7 +1215,7 @@
 		"message": "Norueguês"
 	},
 	"nonprofit-agastya-description": {
-		"message": "A Agastya oferece ensino prático de ciências para crianças da área rural da Índia. Tanto nos centros científicos quanto nas vans móveis de ciência, eles falam de tudo: desde o sistema solar até como o cérebro funciona. Eles já chegaram a mais de cinco milhões de crianças e 200 mil professores em 14 estados da Índia. É um dos maiores programas de educação científica no mundo! A Google.org tem orgulho de ser \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003eparceira\u003c/a\u003e da Agastya."
+		"message": "A Agastya oferece ensino prático de ciências para crianças da área rural da Índia. Tanto nos centros científicos quanto nas vans móveis de ciência, eles falam de tudo: desde o sistema solar até como o cérebro funciona. Eles já chegaram a mais de cinco milhões de crianças e 200 mil professores em 14 estados da Índia. É um dos maiores programas de educação científica no mundo! A Google.org tem orgulho de ser <a href=\"https://www.google.org/impact-challenge/agastya/\">parceira</a> da Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Professores e estudantes"
@@ -1248,7 +1248,7 @@
 		"message": "Em parceria com o Google.org, apresentamos cinco organizações educacionais sem fins lucrativos, que celebram a alegria de presentear o ano todo. Role para baixo e saiba mais sobre o trabalho de cada uma delas. Você também pode apoiá-las: basta colorir esta coleção de enfeites para pendurar na árvore ou dar de presente."
 	},
 	"nonprofit-jane-description": {
-		"message": "Os chimpanzés são os seres vivos mais parecidos com o ser humano no reino animal. Atualmente, restam menos de 300.000 chimpanzés devido à perda do habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés observando e entendendo seu comportamento, bem como os habitats em que vivem. O JGI também trabalha para construir uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que compartilhamos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplore o habitat dos chimpanzés\u003c/a\u003e em Gombe, Tanzânia."
+		"message": "Os chimpanzés são os seres vivos mais parecidos com o ser humano no reino animal. Atualmente, restam menos de 300.000 chimpanzés devido à perda do habitat, a doenças e ao comércio ilegal. O Jane Goodall Institute (JGI) protege os chimpanzés observando e entendendo seu comportamento, bem como os habitats em que vivem. O JGI também trabalha para construir uma comunidade de pessoas que protegem e conservam a vida selvagem e o ambiente que compartilhamos. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explore o habitat dos chimpanzés</a> em Gombe, Tanzânia."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpanzé"
@@ -1287,13 +1287,13 @@
 		"message": "Óculos inteligentes"
 	},
 	"nonprofit-solar-description": {
-		"message": "Mais de 1,3 bilhão de pessoas não têm acesso a eletricidade, e muitas precisam usar lâmpadas de querosene que queimam combustível e poluem as casas. As lâmpadas solares, no entanto, absorvem energia do sol durante o dia e fornecem horas de luz à noite sem queima ou poluição. Com essas lâmpadas, as pessoas podem ler, brincar e chegar em casa com segurança à noite. A SolarAid oferece acesso às lâmpadas solares a muitos que precisam delas. A Google.org tem orgulho de ser \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003eparceira\u003c/a\u003e da SolarAid."
+		"message": "Mais de 1,3 bilhão de pessoas não têm acesso a eletricidade, e muitas precisam usar lâmpadas de querosene que queimam combustível e poluem as casas. As lâmpadas solares, no entanto, absorvem energia do sol durante o dia e fornecem horas de luz à noite sem queima ou poluição. Com essas lâmpadas, as pessoas podem ler, brincar e chegar em casa com segurança à noite. A SolarAid oferece acesso às lâmpadas solares a muitos que precisam delas. A Google.org tem orgulho de ser <a href=\"https://www.google.org/impact-challenge/solaraid/\">parceira</a> da SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Luz do sol"
 	},
 	"nonprofit-water-description": {
-		"message": "A água é usada para tomar banho, cozinhar e, claro, beber. Água limpa é um recurso precioso, e muitas pessoas contam com poços escavados manualmente para acessar aquíferos, que contêm água limpa entre camadas de pedra e solo. A charity: water trabalha com parceiros locais para construir poços e outros projetos em locais onde a água é um item de extrema necessidade. A Google.org tem orgulho de ser \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003eparceira\u003c/a\u003e da charity: water."
+		"message": "A água é usada para tomar banho, cozinhar e, claro, beber. Água limpa é um recurso precioso, e muitas pessoas contam com poços escavados manualmente para acessar aquíferos, que contêm água limpa entre camadas de pedra e solo. A charity: water trabalha com parceiros locais para construir poços e outros projetos em locais onde a água é um item de extrema necessidade. A Google.org tem orgulho de ser <a href=\"https://www.google.org/global-impact-awards/charity-water/\">parceira</a> da charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Poços"
@@ -1305,7 +1305,7 @@
 		"message": "Mobilidade"
 	},
 	"nonprofit-wwf-description": {
-		"message": "As mudanças climáticas continuam a prejudicar o equilíbrio de muitos ecossistemas do mundo, em lugares quentes e frios. No Ártico, os ursos polares estão perdendo seu habitat no mar congelado com o aumento das temperaturas e enfrentam mais ameaças de atividades humanas, como a extração e o transporte de petróleo e gás. O World Wildlife Fund trabalha para garantir a sobrevivência da espécie por meio de pesquisas científicas e com o trabalho em parceria com comunidades nativas do Ártico. O Google.org se orgulha de ser \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003eparceiro\u003c/a\u003e do World Wildlife Fund."
+		"message": "As mudanças climáticas continuam a prejudicar o equilíbrio de muitos ecossistemas do mundo, em lugares quentes e frios. No Ártico, os ursos polares estão perdendo seu habitat no mar congelado com o aumento das temperaturas e enfrentam mais ameaças de atividades humanas, como a extração e o transporte de petróleo e gás. O World Wildlife Fund trabalha para garantir a sobrevivência da espécie por meio de pesquisas científicas e com o trabalho em parceria com comunidades nativas do Ártico. O Google.org se orgulha de ser <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">parceiro</a> do World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Urso polar"
@@ -1440,7 +1440,7 @@
 		"message": "A Vila do Papai Noel está comemorando 15 anos de atividades natalinas divertidas, educativas e interativas. Supervisionados pela Mamãe Noel, os duendes atualizaram a vila com uma aparência incrível e adicionaram conteúdo novinho em folha. Além disso, devido a um novo sistema de aquecimento movido a chocolate quente, a vila não vai demorar quase todo o mês de dezembro para descongelar. Todas as atividades estarão disponíveis no dia 4 de dezembro. Agora, os duendes (e você) terão mais tempo para brincar e conhecer a Vila do Papai Noel."
 	},
 	"press-about-village2": {
-		"message": "Na vila, você pode praticar suas habilidades básicas de programação, criar obras de arte originais, testar seu conhecimento geográfico e conhecer organizações de caridade, como a \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e e a \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Os professores podem \u003ca href=\"./educators.html\"\u003ebaixar planos de aula\u003c/a\u003e com guias em vídeo para ajudar a ensinar recursos fundamentais de programação e tradições de fim de ano aos alunos em inglês, espanhol, francês, japonês e coreano."
+		"message": "Na vila, você pode praticar suas habilidades básicas de programação, criar obras de arte originais, testar seu conhecimento geográfico e conhecer organizações de caridade, como a <a href=\"https://www.khanacademy.org/\">Khan Academy</a> e a <a href=\"https://code.org/\">Code.org</a>. Os professores podem <a href=\"./educators.html\">baixar planos de aula</a> com guias em vídeo para ajudar a ensinar recursos fundamentais de programação e tradições de fim de ano aos alunos em inglês, espanhol, francês, japonês e coreano."
 	},
 	"press-asset-animation": {
 		"message": "Animação"
@@ -1461,7 +1461,7 @@
 		"message": "Aventuras educativas"
 	},
 	"press-edu1": {
-		"message": "Ampliamos nossa \u003ca href=\"./educators.html\"\u003epágina de recursos para educadores\u003c/a\u003e a fim de fornecer aos professores guias em vídeo para acompanhar planos de aula que agora estão disponíveis em cinco idiomas. Todos seus jogos favoritos continuam apresentando conceitos básicos de programação aplicados a tradições de fim de ano globais. O Siga o Papai Noel no Google incentiva o aprendizado sobre as festas de fim de ano de forma divertida. Para saber mais, confira \u003ca href=\"./educators.html\"\u003enossos jogos educativos\u003c/a\u003e."
+		"message": "Ampliamos nossa <a href=\"./educators.html\">página de recursos para educadores</a> a fim de fornecer aos professores guias em vídeo para acompanhar planos de aula que agora estão disponíveis em cinco idiomas. Todos seus jogos favoritos continuam apresentando conceitos básicos de programação aplicados a tradições de fim de ano globais. O Siga o Papai Noel no Google incentiva o aprendizado sobre as festas de fim de ano de forma divertida. Para saber mais, confira <a href=\"./educators.html\">nossos jogos educativos</a>."
 	},
 	"press-games-title": {
 		"message": "Diversão e jogos"
@@ -1491,19 +1491,19 @@
 		"message": "Crie um duende:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Se você sempre sonhou em fundar um grupo de dança com duendes muito talentosos, este momento é seu. Com um modelo de aprendizado de máquina chamado \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, você pode treinar um duende para que ele arrase na pista usando seus passos de dança."
+		"message": "Se você sempre sonhou em fundar um grupo de dança com duendes muito talentosos, este momento é seu. Com um modelo de aprendizado de máquina chamado <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, você pode treinar um duende para que ele arrase na pista usando seus passos de dança."
 	},
 	"press-whatsnew2-title": {
 		"message": "Danças com duendes:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Você também poderá ver a localização em tempo real do Papai Noel no Google Maps. Basta tocar nas três linhas horizontais e selecionar \"Compartilhamento de local\" para ver exatamente onde o Papai Noel está ao longo da jornada dele. Como atalho, você também pode acessar \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+		"message": "Você também poderá ver a localização em tempo real do Papai Noel no Google Maps. Basta tocar nas três linhas horizontais e selecionar \"Compartilhamento de local\" para ver exatamente onde o Papai Noel está ao longo da jornada dele. Como atalho, você também pode acessar <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>."
 	},
 	"press-whatsnew3-title": {
 		"message": "Uma nova maneira de seguir o Papai Noel:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Se você quiser entrar no clima do fim de ano, confira os adesivos de fim de ano disponíveis no Gboard para \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e e nosso \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eapp Android\u003c/a\u003e. Além disso, peça para o Google Assistente \"Chamar o Papai Noel\" e depois \"Contar uma história de Natal\" para relaxar ouvindo uma boa história."
+		"message": "Se você quiser entrar no clima do fim de ano, confira os adesivos de fim de ano disponíveis no Gboard para <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> e nosso <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">app Android</a>. Além disso, peça para o Google Assistente \"Chamar o Papai Noel\" e depois \"Contar uma história de Natal\" para relaxar ouvindo uma boa história."
 	},
 	"press-whatsnew4-title": {
 		"message": "Mais diversão de fim de ano:"
@@ -7323,7 +7323,7 @@
 		"message": "Instalar"
 	},
 	"village_santa_intall_ios": {
-		"message": "Basta tocar em \u003cspan\u003e\u003c/span\u003e e selecionar \"Adicionar à tela inicial\""
+		"message": "Basta tocar em <span></span> e selecionar \"Adicionar à tela inicial\""
 	},
 	"village_takesoff": {
 		"message": "O Papai Noel decola em"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbábue"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Status Pré-Voo"
+	},
+	"tracker_preflight_1": {
+		"message": "Papai Noel acorda, toma chocolate quente e confere o relógio polar"
+	},
+	"tracker_preflight_2": {
+		"message": "Inspeção final dos presentes especiais e embrulho expresso na oficina"
+	},
+	"tracker_preflight_3": {
+		"message": "Manutenção dos patins de prata e polimento aerodinâmico do trenó"
+	},
+	"tracker_preflight_4": {
+		"message": "Revisão das listas de crianças boazinhas no correio polar"
+	},
+	"tracker_preflight_5": {
+		"message": "Análise dos ventos e monitoramento radar da aurora boreal"
+	},
+	"tracker_preflight_6": {
+		"message": "Lanche energético para as renas com cenouras mágicas e cubos de açúcar"
+	},
+	"tracker_preflight_7": {
+		"message": "Elfos carregam o saco sem fundo de brinquedos no trenó"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibrando a rota mundial no GPS do Google Maps"
+	},
+	"tracker_preflight_9": {
+		"message": "Papai Noel veste a roupa térmica vermelha e botas de voo"
+	},
+	"tracker_preflight_10": {
+		"message": "Colocação dos arreios de couro e guizos de prata nas renas"
+	},
+	"tracker_preflight_11": {
+		"message": "Escovação das renas e teste de iluminação do nariz vermelho de Rudolph"
+	},
+	"tracker_preflight_12": {
+		"message": "Renas saem dos estábulos em direção à pista de táxi"
+	},
+	"tracker_preflight_13": {
+		"message": "Engate das oito renas e de Rudolph ao trenó do Papai Noel"
+	},
+	"tracker_preflight_14": {
+		"message": "Papai Noel sobe a bordo e completa a checklist pré-voo"
+	},
+	"tracker_preflight_15": {
+		"message": "Elfos limpam a neve da pista e inspecionam as luzes de aproximação"
+	},
+	"tracker_preflight_16": {
+		"message": "Autorização de decolagem concedida pela Torre do Polo Norte"
+	},
+	"tracker_preflight_17": {
+		"message": "Alinhamento na pista de decolagem com guizos tinindo a todo volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Distribuição de pó mágico sobre as renas prontas para a partida"
+	},
+	"tracker_preflight_19": {
+		"message": "Motores mágicos na potência máxima, Papai Noel segura as rédeas!"
+	},
+	"tracker_preflight_20": {
+		"message": "Contagem regressiva final para a decolagem! Segurem-se firme!"
 	}
 }

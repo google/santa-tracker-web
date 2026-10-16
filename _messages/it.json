@@ -3,7 +3,7 @@
 		"message": "La vigilia di Natale ti mostreremo la plancia di comando di Babbo Natale, super tecnologica, che gli consentirà di guidare la slitta durante il suo viaggio intorno al mondo. Abbiamo ricevuto questa speciale anteprima da uno dei tanti elfi sviluppatori di Babbo Natale, che stanno lavorando sodo al Polo Nord per aiutare Babbo Natale nei preparativi per il grande giorno. La plancia di comando di Babbo Natale, dotata delle soluzioni più recenti e sofisticate della tecnologia di Google Maps e delle tecniche di costruzione di slitte, ti permetterà di seguire Babbo Natale nel suo viaggio intorno al mondo e scoprire qualche dettaglio su alcune delle tappe lungo il percorso."
 	},
 	"about-content-three": {
-		"message": "Segui Babbo Natale di Google Maps è stato creato e sviluppato da Google, con un po' di aiuto da parte degli elfi di Babbo Natale. Hai bisogno di aiuto o hai un'altra domanda? Visita il nostro \u003ca href=\"//support.google.com/santatracker\"\u003eCentro assistenza\u003c/a\u003e."
+		"message": "Segui Babbo Natale di Google Maps è stato creato e sviluppato da Google, con un po' di aiuto da parte degli elfi di Babbo Natale. Hai bisogno di aiuto o hai un'altra domanda? Visita il nostro <a href=\"//support.google.com/santatracker\">Centro assistenza</a>."
 	},
 	"about-content-two": {
 		"message": "I nostri amici elfi ti hanno anche invitato a esplorare il villaggio mentre Babbo Natale si dedica ai preparativi per la partenza. Non perdere tempo e scopri il villaggio di Babbo Natale, dove potrai partecipare ad attività divertenti e incontrare qualche simpatico elfo."
@@ -501,7 +501,7 @@
 		"message": "Fantastico"
 	},
 	"codelab-mwc-promo": {
-		"message": "Esplora altri progetti di programmazione di Google alla pagina \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Esplora altri progetti di programmazione di Google alla pagina <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Prossima sfida"
@@ -684,13 +684,13 @@
 		"message": "Si è verificato un problema, ma i folletti di Babbo Natale stanno cercando una soluzione."
 	},
 	"error-internal": {
-		"message": "Purtroppo si è verificato un problema. Abbiamo informato gli elfi di Babbo Natale, ma prova a tornare al \u003ca href=\"./\"\u003evillaggio di Babbo Natale\u003c/a\u003e."
+		"message": "Purtroppo si è verificato un problema. Abbiamo informato gli elfi di Babbo Natale, ma prova a tornare al <a href=\"./\">villaggio di Babbo Natale</a>."
 	},
 	"error-lost-connection": {
 		"message": "Abbiamo perso i contatti con il Polo Nord. Gli elfi di Babbo Natale si stanno dando un gran daffare per risolvere il problema. Resta sintonizzato."
 	},
 	"error-not-found": {
-		"message": "Purtroppo i folletti di Babbo Natale non riescono a trovare questa pagina. Potresti avere più fortuna se tornassi al \u003ca href=\"./\"\u003evillaggio di Babbo Natale\u003c/a\u003e."
+		"message": "Purtroppo i folletti di Babbo Natale non riescono a trovare questa pagina. Potresti avere più fortuna se tornassi al <a href=\"./\">villaggio di Babbo Natale</a>."
 	},
 	"error-out-of-date": {
 		"message": "Questa è una versione precedente del villaggio di Babbo Natale! Prova ad aprire di nuovo Segui Babbo Natale per visualizzare la versione più aggiornata."
@@ -720,7 +720,7 @@
 		"message": "Per tutto il mese di dicembre, usa l'Assistente Google per scoprire di più su Babbo Natale! Questa integrazione è disponibile per alcune lingue."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Con l'autorizzazione dei genitori, i bambini sotto i 13 anni possono avere un'esperienza con l'Assistente Google personalizzata quando accedono con il loro account, gestito tramite \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Con l'autorizzazione dei genitori, i bambini sotto i 13 anni possono avere un'esperienza con l'Assistente Google personalizzata quando accedono con il loro account, gestito tramite <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "L'Assistente Google ti mette in contatto con il Polo Nord, dove Babbo Natale è indaffarato con le prove per un concerto musicale. Conosce un solo brano, puoi aiutarlo a decidere quale sia il modo migliore per eseguirlo?"
@@ -1215,7 +1215,7 @@
 		"message": "Norvegese"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya diffonde una cultura scientifica pratica ai bambini nelle zone rurali dell'India. Nei laboratori scientifici e in quelli mobili viene trattato qualsiasi argomento, dal sistema solare a come funziona il cervello. L'organizzazione ha coinvolto più di 5 milioni di bambini e oltre 200.000 insegnanti in 14 stati dell'India; si tratta di uno dei principali programmi di formazione scientifica al mondo. Google.org è orgogliosa di \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003esostenere\u003c/a\u003e Agastya."
+		"message": "Agastya diffonde una cultura scientifica pratica ai bambini nelle zone rurali dell'India. Nei laboratori scientifici e in quelli mobili viene trattato qualsiasi argomento, dal sistema solare a come funziona il cervello. L'organizzazione ha coinvolto più di 5 milioni di bambini e oltre 200.000 insegnanti in 14 stati dell'India; si tratta di uno dei principali programmi di formazione scientifica al mondo. Google.org è orgogliosa di <a href=\"https://www.google.org/impact-challenge/agastya/\">sostenere</a> Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Insegnanti e studenti"
@@ -1248,7 +1248,7 @@
 		"message": "Abbiamo collaborato con Google.org per presentare cinque organizzazioni non profit nel campo dell'istruzione che abbracciano lo spirito natalizio tutto l'anno. Fai scorrere la pagina verso il basso per saperne di più sul contributo offerto da ogni organizzazione. Mostra il tuo sostegno colorando questa serie di decorazioni e appendendole al tuo albero o regalandole ai tuoi cari."
 	},
 	"nonprofit-jane-description": {
-		"message": "Nel regno animale, gli scimpanzé sono la specie vivente più vicina all'uomo. Oggi, ne rimangono meno di 300.000 a causa della perdita del loro habitat, delle malattie e del commercio illegale. Il Jane Goodall Institute (JGI) protegge gli scimpanzé osservandone e capendone i comportamenti e gli habitat in cui vivono. Il JGI lavora anche per creare una comunità di persone che proteggono e conservano la natura e l'ambiente in cui noi tutti viviamo. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eEsplora gli habitat degli scimpanzé\u003c/a\u003e nel parco di Gombe, Tanzania."
+		"message": "Nel regno animale, gli scimpanzé sono la specie vivente più vicina all'uomo. Oggi, ne rimangono meno di 300.000 a causa della perdita del loro habitat, delle malattie e del commercio illegale. Il Jane Goodall Institute (JGI) protegge gli scimpanzé osservandone e capendone i comportamenti e gli habitat in cui vivono. Il JGI lavora anche per creare una comunità di persone che proteggono e conservano la natura e l'ambiente in cui noi tutti viviamo. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Esplora gli habitat degli scimpanzé</a> nel parco di Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Scimpanzé"
@@ -1287,13 +1287,13 @@
 		"message": "Occhiali intelligenti"
 	},
 	"nonprofit-solar-description": {
-		"message": "1,3 miliardi di persone non hanno accesso all'elettricità e molte utilizzano le lampade a cherosene, che bruciano combustibile inquinando gli ambienti. Le luci solari, invece, assorbono energia dal sole durante il giorno e garantiscono l'illuminazione per leggere, giocare e tonare a casa in tutta sicurezza nelle ore notturne senza ricorrere alla combustione e, quindi, senza inquinare. SolarAid consente di usufruire delle luci solari a molte persone bisognose. Google.org è orgogliosa di \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003esostenere\u003c/a\u003e SolarAid."
+		"message": "1,3 miliardi di persone non hanno accesso all'elettricità e molte utilizzano le lampade a cherosene, che bruciano combustibile inquinando gli ambienti. Le luci solari, invece, assorbono energia dal sole durante il giorno e garantiscono l'illuminazione per leggere, giocare e tonare a casa in tutta sicurezza nelle ore notturne senza ricorrere alla combustione e, quindi, senza inquinare. SolarAid consente di usufruire delle luci solari a molte persone bisognose. Google.org è orgogliosa di <a href=\"https://www.google.org/impact-challenge/solaraid/\">sostenere</a> SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Luci a energia solare"
 	},
 	"nonprofit-water-description": {
-		"message": "L'acqua ha molteplici ambiti di utilizzo; è necessaria, ad esempio, per fare la doccia e il bagno, per cucinare e, naturalmente, per bere. L'acqua potabile è un bene prezioso e molte persone sono costrette a ricorrere a pozzi scavati a mano per accedere alle falde acquifere, ovvero a masse d'acqua situate in profondità tra strati di roccia e terra. charity: water collabora con partner locali alla realizzazione di pozzi e altri progetti idrici nelle zone più bisognose. Google.org è orgogliosa di \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003esostenere\u003c/a\u003e charity: water."
+		"message": "L'acqua ha molteplici ambiti di utilizzo; è necessaria, ad esempio, per fare la doccia e il bagno, per cucinare e, naturalmente, per bere. L'acqua potabile è un bene prezioso e molte persone sono costrette a ricorrere a pozzi scavati a mano per accedere alle falde acquifere, ovvero a masse d'acqua situate in profondità tra strati di roccia e terra. charity: water collabora con partner locali alla realizzazione di pozzi e altri progetti idrici nelle zone più bisognose. Google.org è orgogliosa di <a href=\"https://www.google.org/global-impact-awards/charity-water/\">sostenere</a> charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Pozzo"
@@ -1305,7 +1305,7 @@
 		"message": "Mobilità"
 	},
 	"nonprofit-wwf-description": {
-		"message": "Il cambiamento climatico continua a turbare l'equilibrio di molti ecosistemi mondiali, in località calde e fredde. Nell'Artide, gli orsi polari non solo stanno perdendo il loro habitat di ghiaccio marino a causa dell'aumentare delle temperature, ma devono far fronte anche ad altre minacce dovute all'attività umana, come lo sviluppo e la spedizione di petrolio e gas. Il World Wildlife Fund lavora per garantire la sopravvivenza delle specie attraverso la ricerca scientifica e la collaborazione con le comunità autoctone dell'Artide. Google.org è fiera di \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003esostenere\u003c/a\u003e questa iniziativa con il World Wildlife Fund."
+		"message": "Il cambiamento climatico continua a turbare l'equilibrio di molti ecosistemi mondiali, in località calde e fredde. Nell'Artide, gli orsi polari non solo stanno perdendo il loro habitat di ghiaccio marino a causa dell'aumentare delle temperature, ma devono far fronte anche ad altre minacce dovute all'attività umana, come lo sviluppo e la spedizione di petrolio e gas. Il World Wildlife Fund lavora per garantire la sopravvivenza delle specie attraverso la ricerca scientifica e la collaborazione con le comunità autoctone dell'Artide. Google.org è fiera di <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">sostenere</a> questa iniziativa con il World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Orso polare"
@@ -1440,7 +1440,7 @@
 		"message": "Il villaggio di Babbo Natale offre per il 15° anno consecutivo attività natalizie interattive ed educative, nello spirito del divertimento. Sotto l'occhio esperto della signora Natale, i folletti hanno rimodernato il villaggio con un look molto chic e contenuti nuovi di zecca. Grazie a un sistema di riscaldamento alimentato da cioccolata calda, non ci vorrà tutto il mese di dicembre per scongelarlo. Decine di attività saranno disponibili a partire dal 4 dicembre, il che significa che sia tu sia i folletti avrete ancora più tempo per giocare ed esplorare il villaggio di Babbo Natale."
 	},
 	"press-about-village2": {
-		"message": "Nel villaggio, potrai fare pratica con competenze di programmazione base, creare opere d'arte originali, mettere alla prova le tue conoscenze geografiche e imparare di più sulle organizzazioni di beneficenza come la \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e e \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Gli insegnanti possono persino \u003ca href=\"./educators.html\"\u003escaricare i piani delle lezioni\u003c/a\u003e corredati da guide video per spiegare agli studenti i concetti base della programmazione e le tradizioni natalizie in inglese, spagnolo, francese, giapponese e coreano."
+		"message": "Nel villaggio, potrai fare pratica con competenze di programmazione base, creare opere d'arte originali, mettere alla prova le tue conoscenze geografiche e imparare di più sulle organizzazioni di beneficenza come la <a href=\"https://www.khanacademy.org/\">Khan Academy</a> e <a href=\"https://code.org/\">Code.org</a>. Gli insegnanti possono persino <a href=\"./educators.html\">scaricare i piani delle lezioni</a> corredati da guide video per spiegare agli studenti i concetti base della programmazione e le tradizioni natalizie in inglese, spagnolo, francese, giapponese e coreano."
 	},
 	"press-asset-animation": {
 		"message": "Animazione"
@@ -1461,7 +1461,7 @@
 		"message": "Avventure educative"
 	},
 	"press-edu1": {
-		"message": "Abbiamo ampliato la \u003ca href=\"./educators.html\"\u003epagina delle risorse per gli insegnanti\u003c/a\u003e, che ora include guide video da utilizzare insieme ai piani delle lezioni adesso disponibili in cinque lingue. Tutti i tuoi giochi preferiti sono rimasti invariati e continuano ad applicare concetti base della programmazione alle tradizioni legate alle feste in tutto il mondo. Segui Babbo Natale di Google promuove l'apprendimento sfruttando festività e divertimento. Per ulteriori informazioni, vai alla pagina dei \u003ca href=\"./educators.html\"\u003enostri giochi educativi\u003c/a\u003e."
+		"message": "Abbiamo ampliato la <a href=\"./educators.html\">pagina delle risorse per gli insegnanti</a>, che ora include guide video da utilizzare insieme ai piani delle lezioni adesso disponibili in cinque lingue. Tutti i tuoi giochi preferiti sono rimasti invariati e continuano ad applicare concetti base della programmazione alle tradizioni legate alle feste in tutto il mondo. Segui Babbo Natale di Google promuove l'apprendimento sfruttando festività e divertimento. Per ulteriori informazioni, vai alla pagina dei <a href=\"./educators.html\">nostri giochi educativi</a>."
 	},
 	"press-games-title": {
 		"message": "Giochi e divertimento"
@@ -1491,19 +1491,19 @@
 		"message": "Crea un folletto:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Se hai sempre sognato di fondare una compagnia di danza con un gruppo di folletti ballerini di gran talento, ecco la tua occasione. O quasi. Grazie a un modello di machine learning chiamato \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, potrai insegnare i tuoi passi di danza a un folletto, in modo che sia pronto per la pista."
+		"message": "Se hai sempre sognato di fondare una compagnia di danza con un gruppo di folletti ballerini di gran talento, ecco la tua occasione. O quasi. Grazie a un modello di machine learning chiamato <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, potrai insegnare i tuoi passi di danza a un folletto, in modo che sia pronto per la pista."
 	},
 	"press-whatsnew2-title": {
 		"message": "Balla con i folletti:"
 	},
 	"press-whatsnew3-text": {
-		"message": "Potrai vedere la posizione di Babbo Natale in tempo reale su Google Maps: basta toccare il pulsante del menu con tre trattini e poi \"Condivisione della posizione\" per scoprire dove si trovi precisamente Babbo Natale. Puoi anche usare una scorciatoia andando direttamente alla pagina \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e."
+		"message": "Potrai vedere la posizione di Babbo Natale in tempo reale su Google Maps: basta toccare il pulsante del menu con tre trattini e poi \"Condivisione della posizione\" per scoprire dove si trovi precisamente Babbo Natale. Puoi anche usare una scorciatoia andando direttamente alla pagina <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a>."
 	},
 	"press-whatsnew3-title": {
 		"message": "Un nuovo modo per seguire Babbo Natale:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Se vuoi diffondere lo spirito natalizio ancora di più, usa uno degli adesivi di Gboard disponibili su \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e e sulla nostra \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eapp Android\u003c/a\u003e. Inoltre potrai chiedere all'Assistente Google \"Dov'è Babbo Natale?\" o \"Raccontami una storia natalizia\" per divertirti con un racconto a tema."
+		"message": "Se vuoi diffondere lo spirito natalizio ancora di più, usa uno degli adesivi di Gboard disponibili su <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> e sulla nostra <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">app Android</a>. Inoltre potrai chiedere all'Assistente Google \"Dov'è Babbo Natale?\" o \"Raccontami una storia natalizia\" per divertirti con un racconto a tema."
 	},
 	"press-whatsnew4-title": {
 		"message": "Ancora più divertimento natalizio:"
@@ -3523,6 +3523,51 @@
 	},
 	"tracker_departing_in": {
 		"message": "Partenza tra"
+	},
+	"tracker_preflight_title": {
+		"message": "Monitoraggio Pre-Volo di Babbo Natale"
+	},
+	"tracker_status": {
+		"message": "Stato"
+	},
+	"tracker_offline": {
+		"message": "Offline"
+	},
+	"tracker_preflight_status": {
+		"message": "Stato Pre-Volo"
+	},
+	"tracker_preflight_1": {
+		"message": "Babbo Natale si sveglia, beve una cioccolata calda e controlla l'orologio polare"
+	},
+	"tracker_preflight_2": {
+		"message": "Controllo finale dei regali speciali e impacchettamento espresso nel laboratorio"
+	},
+	"tracker_preflight_3": {
+		"message": "Manutenzione ai pattini d'argento e lucidatura aerodinamica della slitta"
+	},
+	"tracker_preflight_4": {
+		"message": "Revisione delle liste dei buoni e dei birichini all'ufficio postale"
+	},
+	"tracker_preflight_5": {
+		"message": "Analisi dei venti in quota e monitoraggio dell'aurora boreale"
+	},
+	"tracker_preflight_6": {
+		"message": "Spuntino energetico per le renne con carote speciali e zollette di zucchero"
+	},
+	"tracker_preflight_7": {
+		"message": "Gli elfi caricano il sacco senza fondo a bordo della slitta"
+	},
+	"tracker_preflight_8": {
+		"message": "Taratura della rotta mondiale sul GPS di Google Maps"
+	},
+	"tracker_preflight_9": {
+		"message": "Babbo Natale indossa la tuta termica rossa e gli stivali da volo"
+	},
+	"tracker_preflight_10": {
+		"message": "Bardatura delle renne con finimenti di cuoio e campanellini d'argento"
+	},
+	"tracker_preflight_11": {
+		"message": "Strigliatura speciale e accensione di prova del naso rosso di Rudolph"
 	},
 	"tracker_distance_away_km": {
 		"message": "Babbo Natale è a {{distance_away}} km di distanza"
@@ -7323,7 +7368,7 @@
 		"message": "Installa"
 	},
 	"village_santa_intall_ios": {
-		"message": "Tocca \u003cspan\u003e\u003c/span\u003e e \"Aggiungi a schermata Home\""
+		"message": "Tocca <span></span> e \"Aggiungi a schermata Home\""
 	},
 	"village_takesoff": {
 		"message": "Babbo Natale decolla tra"
@@ -7369,5 +7414,32 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabwe"
+	},
+	"tracker_preflight_12": {
+		"message": "Uscita delle renne dalle stalle verso l'area di raccordo pista"
+	},
+	"tracker_preflight_13": {
+		"message": "Aggancio delle otto renne e di Rudolph alla slitta di Babbo Natale"
+	},
+	"tracker_preflight_14": {
+		"message": "Babbo Natale sale a bordo e completa la checklist dei comandi"
+	},
+	"tracker_preflight_15": {
+		"message": "Gli elfi spazzano la neve dalla pista ed eseguono l'ispezione luci"
+	},
+	"tracker_preflight_16": {
+		"message": "Autorizzazione al decollo ricevuta dalla Torre del Polo Nord"
+	},
+	"tracker_preflight_17": {
+		"message": "Allineamento sulla pista di decollo e campanellini a tutto volume"
+	},
+	"tracker_preflight_18": {
+		"message": "Distribuzione della polvere magica sulle renne pronte allo scatto"
+	},
+	"tracker_preflight_19": {
+		"message": "Motori magici al massimo, Babbo Natale afferra le redini!"
+	},
+	"tracker_preflight_20": {
+		"message": "Conto alla rovescia finale per il decollo! Tenetevi forte!"
 	}
 }

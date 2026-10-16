@@ -3,7 +3,7 @@
 		"message": "En Nochebuena, tendremos el agrado de presentar el panel de Santa, la tecnología que impulsa el trineo en su viaje alrededor del mundo. Hemos recibido esta especial vista previa de uno de los tantos duendes programadores de Santa, que trabajan arduamente en el Polo Norte para ayudar a Santa a prepararse para el gran día. El panel de Santa, que presenta la última y mejor tecnología de Google Maps y de diseño de trineos, te permitirá hacer un seguimiento de su viaje por todo el mundo, y podrás aprender más acerca de los diferentes destinos de su recorrido."
 	},
 	"about-content-three": {
-		"message": "Sigue a Santa de Google Maps ha sido creada y diseñada por Google, con ayuda de los duendes de Santa. ¿Necesitas ayuda o tienes más preguntas? Visita nuestro \u003ca href=\"//support.google.com/santatracker\"\u003eCentro de ayuda\u003c/a\u003e."
+		"message": "Sigue a Santa de Google Maps ha sido creada y diseñada por Google, con ayuda de los duendes de Santa. ¿Necesitas ayuda o tienes más preguntas? Visita nuestro <a href=\"//support.google.com/santatracker\">Centro de ayuda</a>."
 	},
 	"about-content-two": {
 		"message": "Nuestros simpáticos duendes también te han invitado a explorar la aldea mientras Santa se prepara para su viaje. Así que únete a ellos y explora la aldea. Puedes encontrar divertidas actividades y conocer a los encantadores duendes."
@@ -501,7 +501,7 @@
 		"message": "Excelente"
 	},
 	"codelab-mwc-promo": {
-		"message": "Explora más proyectos de codificación de Google en \u003ca href=\"//www.madewithcode.com/\" target=\"_blank\"\u003eMadewithCode.com\u003c/a\u003e."
+		"message": "Explora más proyectos de codificación de Google en <a href=\"//www.madewithcode.com/\" target=\"_blank\">MadewithCode.com</a>."
 	},
 	"codelab-next-challenge": {
 		"message": "Siguiente desafío"
@@ -684,13 +684,13 @@
 		"message": "Ocurrió un problema. Los duendes de Santa están tratando de resolverlo."
 	},
 	"error-internal": {
-		"message": "Ocurrió un problema. Ya les avisamos a los duendes, pero puedes regresar a la \u003ca href=\"./\"\u003ealdea de Santa\u003c/a\u003e para volver a intentarlo."
+		"message": "Ocurrió un problema. Ya les avisamos a los duendes, pero puedes regresar a la <a href=\"./\">aldea de Santa</a> para volver a intentarlo."
 	},
 	"error-lost-connection": {
 		"message": "Parece que perdimos la conexión con el Polo Norte. Los duendes de Santa están trabajando con empeño para restaurarla. Mantente al tanto."
 	},
 	"error-not-found": {
-		"message": "Los duendes de Santa no pudieron encontrar la página. Vuelve a la \u003ca href=\"./\"\u003ealdea de Santa\u003c/a\u003e para buscarla."
+		"message": "Los duendes de Santa no pudieron encontrar la página. Vuelve a la <a href=\"./\">aldea de Santa</a> para buscarla."
 	},
 	"error-out-of-date": {
 		"message": "Esta es una versión desactualizada de la aldea de Santa. Vuelve a abrir Sigue a Santa para ver la versión más reciente."
@@ -720,7 +720,7 @@
 		"message": "Usa el Asistente de Google para descubrir más sobre Santa Claus en diciembre. Esta integración solo está disponible en algunos idiomas."
 	},
 	"familyguide_assistant_body_02": {
-		"message": "Los niños menores de 13 años pueden tener una experiencia personalizada con el Asistente de Google, siempre que cuenten con el permiso de sus padres y hayan accedido a sus cuentas administradas con \u003ca href=\"https://families.google.com/familylink/\" target=\"_blank\"\u003eFamily Link\u003c/a\u003e."
+		"message": "Los niños menores de 13 años pueden tener una experiencia personalizada con el Asistente de Google, siempre que cuenten con el permiso de sus padres y hayan accedido a sus cuentas administradas con <a href=\"https://families.google.com/familylink/\" target=\"_blank\">Family Link</a>."
 	},
 	"familyguide_assistant_card01_body": {
 		"message": "El Asistente de Google te conecta con el Polo Norte, donde Santa está ocupado ensayando para su presentación en un concierto. Solo se sabe una canción. ¿Puedes ayudarlo a encontrar la mejor forma de tocarla?"
@@ -1215,7 +1215,7 @@
 		"message": "Noruego"
 	},
 	"nonprofit-agastya-description": {
-		"message": "Agastya facilita la educación científica a los niños en toda el área rural de la India. Tanto en sus centros científicos como en las camionetas científicas móviles, abarcan una gran cantidad de temas, desde el sistema solar hasta el funcionamiento del cerebro. La organización ha llegado a más de 5 millones de niños y 200,000 maestros en 14 estados de la India, y es uno de los programas de educación científica más grandes del mundo. Google.org se enorgullese de ser un \u003ca href=\"https://www.google.org/impact-challenge/agastya/\"\u003ebenefactor\u003c/a\u003e de Agastya."
+		"message": "Agastya facilita la educación científica a los niños en toda el área rural de la India. Tanto en sus centros científicos como en las camionetas científicas móviles, abarcan una gran cantidad de temas, desde el sistema solar hasta el funcionamiento del cerebro. La organización ha llegado a más de 5 millones de niños y 200,000 maestros en 14 estados de la India, y es uno de los programas de educación científica más grandes del mundo. Google.org se enorgullese de ser un <a href=\"https://www.google.org/impact-challenge/agastya/\">benefactor</a> de Agastya."
 	},
 	"nonprofit-agastya-type": {
 		"message": "Maestros y estudiantes"
@@ -1248,7 +1248,7 @@
 		"message": "Nos asociamos con Google.org para presentar cinco organizaciones educativas sin fines de lucro que trabajan todo el año con espíritu navideño. Desplázate hacia abajo para descubrir a cada organización. Si quieres apoyarlas, pinta estos adornos y cuélgalos en tu arbolito o regálaselos a tus seres queridos."
 	},
 	"nonprofit-jane-description": {
-		"message": "En el reino animal, el chimpancé es la especie viviente más parecida a los seres humanos. Actualmente, quedan menos de 300 000 chimpancés debido a la destrucción de su hábitat y el tráfico ilegal de vida silvestre. El Instituto Jane Goodall (JGI) trabaja para proteger a esta especie mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. Además, JGI trabaja para fomentar en las comunidades la protección y la conservación de la vida silvestre y el medioambiente que todos compartimos. \u003ca href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\"\u003eExplora los hábitats de los chimpancés\u003c/a\u003e en Gombe, Tanzania."
+		"message": "En el reino animal, el chimpancé es la especie viviente más parecida a los seres humanos. Actualmente, quedan menos de 300 000 chimpancés debido a la destrucción de su hábitat y el tráfico ilegal de vida silvestre. El Instituto Jane Goodall (JGI) trabaja para proteger a esta especie mediante la observación y el estudio de sus comportamientos y de los hábitats donde viven. Además, JGI trabaja para fomentar en las comunidades la protección y la conservación de la vida silvestre y el medioambiente que todos compartimos. <a href=\"//www.google.com/maps/about/behind-the-scenes/streetview/treks/gombe-tanzania/\">Explora los hábitats de los chimpancés</a> en Gombe, Tanzania."
 	},
 	"nonprofit-jane-type": {
 		"message": "Chimpancé"
@@ -1287,13 +1287,13 @@
 		"message": "Lentes inteligentes"
 	},
 	"nonprofit-solar-description": {
-		"message": "Existen 1,300 millones de personas que no tienen acceso a electricidad, y muchas de ellas deben usar lámparas de querosén, que queman combustible y contaminan hogares. Sin embargo, las luces solares absorben la energía del sol durante el día y proporcionan horas de luz durante la tarde sin combustión ni contaminación. Permiten leer, jugar y llegar a salvo a casa en la noche. SolarAid les proporciona acceso a las luces solares a muchas personas que las necesitan. Google.org se enorgullece de ser un \u003ca href=\"https://www.google.org/impact-challenge/solaraid/\"\u003ebenefactor\u003c/a\u003e de SolarAid."
+		"message": "Existen 1,300 millones de personas que no tienen acceso a electricidad, y muchas de ellas deben usar lámparas de querosén, que queman combustible y contaminan hogares. Sin embargo, las luces solares absorben la energía del sol durante el día y proporcionan horas de luz durante la tarde sin combustión ni contaminación. Permiten leer, jugar y llegar a salvo a casa en la noche. SolarAid les proporciona acceso a las luces solares a muchas personas que las necesitan. Google.org se enorgullece de ser un <a href=\"https://www.google.org/impact-challenge/solaraid/\">benefactor</a> de SolarAid."
 	},
 	"nonprofit-solar-type": {
 		"message": "Luz solar"
 	},
 	"nonprofit-water-description": {
-		"message": "Solemos usar el agua para darnos duchas y baños, para cocinar y, desde luego, para beber. El agua limpia es un recurso valioso, y muchas personas dependen de pozos que se excavan manualmente para acceder a acuíferos que retienen el agua limpia en lo profundo del suelo, entre las capas de roca y tierra. charity: water trabaja con socios locales para construir pozos y otros proyectos hídricos en los lugares que más los necesitan. Google.org se enorgullece de ser un \u003ca href=\"https://www.google.org/global-impact-awards/charity-water/\"\u003ebenefactor\u003c/a\u003e de charity: water."
+		"message": "Solemos usar el agua para darnos duchas y baños, para cocinar y, desde luego, para beber. El agua limpia es un recurso valioso, y muchas personas dependen de pozos que se excavan manualmente para acceder a acuíferos que retienen el agua limpia en lo profundo del suelo, entre las capas de roca y tierra. charity: water trabaja con socios locales para construir pozos y otros proyectos hídricos en los lugares que más los necesitan. Google.org se enorgullece de ser un <a href=\"https://www.google.org/global-impact-awards/charity-water/\">benefactor</a> de charity: water."
 	},
 	"nonprofit-water-type": {
 		"message": "Pozo"
@@ -1305,7 +1305,7 @@
 		"message": "Movilidad"
 	},
 	"nonprofit-wwf-description": {
-		"message": "El cambio climático sigue alterando el equilibrio de muchos de los ecosistemas de nuestro planeta, tanto en lugares fríos como cálidos. En el Ártico, las temperaturas en aumento ponen en peligro el hábitat de hielo marino donde viven los osos polares. Esta especie, además, se ve expuesta a otras amenazas propias de las actividades humanas, como aquellas relacionadas con la producción y el transporte de gas y petróleo. La organización World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica y su labor en asociación con las comunidades autóctonas del Ártico. Google.org se enorgullece de ser un \u003ca href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\"\u003edefensor\u003c/a\u003e de World Wildlife Fund."
+		"message": "El cambio climático sigue alterando el equilibrio de muchos de los ecosistemas de nuestro planeta, tanto en lugares fríos como cálidos. En el Ártico, las temperaturas en aumento ponen en peligro el hábitat de hielo marino donde viven los osos polares. Esta especie, además, se ve expuesta a otras amenazas propias de las actividades humanas, como aquellas relacionadas con la producción y el transporte de gas y petróleo. La organización World Wildlife Fund trabaja para garantizar la supervivencia de las especies mediante la investigación científica y su labor en asociación con las comunidades autóctonas del Ártico. Google.org se enorgullece de ser un <a href=\"https://www.worldwildlife.org/stories/google-helps-wwf-stop-wildlife-crime\">defensor</a> de World Wildlife Fund."
 	},
 	"nonprofit-wwf-type": {
 		"message": "Oso polar"
@@ -1440,7 +1440,7 @@
 		"message": "La aldea de Santa celebra 15 años de actividades navideñas divertidas, interactivas y educativas. Con la orientación experta de la señora Claus, los duendes actualizaron el lugar con un aspecto sofisticado y contenido nuevo. Además, gracias a un nuevo sistema de calefacción con chocolate caliente, la aldea ya no tardará todo el mes en descongelarse, por lo que todas las actividades estarán disponibles a partir del 4 de diciembre. Ahora los duendes y tú tendrán más tiempo para jugar y aprender en la aldea de Santa."
 	},
 	"press-about-village2": {
-		"message": "En la aldea, puedes practicar habilidades de codificación básicas, crear obras de arte originales, poner a prueba tus conocimientos de geografía y obtener más información sobre organizaciones de caridad, como \u003ca href=\"https://www.khanacademy.org/\"\u003eKhan Academy\u003c/a\u003e y \u003ca href=\"https://code.org/\"\u003eCode.org\u003c/a\u003e. Además, los profesores pueden \u003ca href=\"./educators.html\"\u003edescargar planificaciones de clases\u003c/a\u003e con guías en video para enseñarles a sus estudiantes habilidades fundamentales de codificación y tradiciones navideñas en coreano, español, francés, inglés y japonés."
+		"message": "En la aldea, puedes practicar habilidades de codificación básicas, crear obras de arte originales, poner a prueba tus conocimientos de geografía y obtener más información sobre organizaciones de caridad, como <a href=\"https://www.khanacademy.org/\">Khan Academy</a> y <a href=\"https://code.org/\">Code.org</a>. Además, los profesores pueden <a href=\"./educators.html\">descargar planificaciones de clases</a> con guías en video para enseñarles a sus estudiantes habilidades fundamentales de codificación y tradiciones navideñas en coreano, español, francés, inglés y japonés."
 	},
 	"press-asset-animation": {
 		"message": "Animación"
@@ -1461,7 +1461,7 @@
 		"message": "Aventuras educativas"
 	},
 	"press-edu1": {
-		"message": "Expandimos nuestra \u003ca href=\"./educators.html\"\u003epágina de recursos para educadores\u003c/a\u003e a fin de proporcionar a los profesores guías en video en cinco idiomas para complementar las planificaciones de clases. Todos tus juegos favoritos siguen igual y presentan los conceptos básicos de codificación en el contexto de las fiestas en todo el mundo. Además, Sigue a Santa de Google promueve experiencias de aprendizaje navideñas de manera divertida. Consulta \u003ca href=\"./educators.html\"\u003enuestros juegos educativos\u003c/a\u003e para obtener más información."
+		"message": "Expandimos nuestra <a href=\"./educators.html\">página de recursos para educadores</a> a fin de proporcionar a los profesores guías en video en cinco idiomas para complementar las planificaciones de clases. Todos tus juegos favoritos siguen igual y presentan los conceptos básicos de codificación en el contexto de las fiestas en todo el mundo. Además, Sigue a Santa de Google promueve experiencias de aprendizaje navideñas de manera divertida. Consulta <a href=\"./educators.html\">nuestros juegos educativos</a> para obtener más información."
 	},
 	"press-games-title": {
 		"message": "Un mundo de juegos y diversión"
@@ -1491,19 +1491,19 @@
 		"message": "Crea un duende:"
 	},
 	"press-whatsnew2-text": {
-		"message": "Si siempre quisiste formar un grupo de baile con duendes talentosos, llegó el momento de hacer realidad tu sueño… Bueno, más o menos. Usa \u003ca href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\"\u003ePoseNet\u003c/a\u003e, un modelo de aprendizaje automático, para que los duendes aprendan tus pasos de baile y salgan a la pista."
+		"message": "Si siempre quisiste formar un grupo de baile con duendes talentosos, llegó el momento de hacer realidad tu sueño… Bueno, más o menos. Usa <a href=\"https://medium.com/tensorflow/real-time-human-pose-estimation-in-the-browser-with-tensorflow-js-7dd0bc881cd5\">PoseNet</a>, un modelo de aprendizaje automático, para que los duendes aprendan tus pasos de baile y salgan a la pista."
 	},
 	"press-whatsnew2-title": {
 		"message": "Danza con duendes:"
 	},
 	"press-whatsnew3-text": {
-		"message": "En Google Maps, también podrás ver la ubicación de Santa en tiempo real. Para ello, presiona el botón de navegación y, luego, “Compartir ubicación” a fin de saber exactamente dónde está el trineo. Otra opción es visitar \u003ca href=\"https://g.co/findsanta\"\u003ehttps://g.co/findsanta\u003c/a\u003e para obtener esta información rápidamente."
+		"message": "En Google Maps, también podrás ver la ubicación de Santa en tiempo real. Para ello, presiona el botón de navegación y, luego, “Compartir ubicación” a fin de saber exactamente dónde está el trineo. Otra opción es visitar <a href=\"https://g.co/findsanta\">https://g.co/findsanta</a> para obtener esta información rápidamente."
 	},
 	"press-whatsnew3-title": {
 		"message": "Una nueva manera de seguir a Santa:"
 	},
 	"press-whatsnew4-text": {
-		"message": "Si quieres más alegría navideña, prueba las calcomanías de Gboard, disponibles en \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\"\u003eAndroid\u003c/a\u003e, \u003ca href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\"\u003eiOS\u003c/a\u003e y nuestra \u003ca href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\"\u003eapp para Android\u003c/a\u003e. Además, dile al Asistente de Google “Cuéntame una historia navideña” para disfrutar de un momento literario, o bien pregúntale “¿Dónde está Santa?”."
+		"message": "Si quieres más alegría navideña, prueba las calcomanías de Gboard, disponibles en <a href=\"https://play.google.com/store/apps/details?id=com.google.android.inputmethod.latin\">Android</a>, <a href=\"https://itunes.apple.com/us/app/gboard-the-google-keyboard/id1091700242?mt=8\">iOS</a> y nuestra <a href=\"https://play.google.com/store/apps/details?id=com.google.android.apps.santatracker\">app para Android</a>. Además, dile al Asistente de Google “Cuéntame una historia navideña” para disfrutar de un momento literario, o bien pregúntale “¿Dónde está Santa?”."
 	},
 	"press-whatsnew4-title": {
 		"message": "Más diversión navideña:"
@@ -7323,7 +7323,7 @@
 		"message": "Instalar"
 	},
 	"village_santa_intall_ios": {
-		"message": "Presiona \u003cspan\u003e\u003c/span\u003e y luego “Agregar a la pantalla principal”."
+		"message": "Presiona <span></span> y luego “Agregar a la pantalla principal”."
 	},
 	"village_takesoff": {
 		"message": "Santa despegará en"
@@ -7369,5 +7369,71 @@
 	},
 	"zw_country_name": {
 		"message": "Zimbabue"
+	},
+	"tracker_offline": {
+		"message": "Desconectado"
+	},
+	"tracker_preflight_status": {
+		"message": "Estado previo al vuelo"
+	},
+	"tracker_preflight_1": {
+		"message": "Papá Noel se despierta, toma chocolate caliente y revisa el reloj polar"
+	},
+	"tracker_preflight_2": {
+		"message": "Inspección final de regalos especiales y envoltorio exprés en el taller"
+	},
+	"tracker_preflight_3": {
+		"message": "Mantenimiento de patines de plata y pulido aerodinámico del trineo"
+	},
+	"tracker_preflight_4": {
+		"message": "Revisión de las listas de niños buenos en la oficina de correos polar"
+	},
+	"tracker_preflight_5": {
+		"message": "Análisis de vientos en altura y escaneo radar de la aurora boreal"
+	},
+	"tracker_preflight_6": {
+		"message": "Tentempié energético para los renos con zanahorias especiales y azúcar"
+	},
+	"tracker_preflight_7": {
+		"message": "Los elfos cargan el saco de juguetes sin fondo en el trineo"
+	},
+	"tracker_preflight_8": {
+		"message": "Calibración de la ruta mundial en el GPS de Google Maps"
+	},
+	"tracker_preflight_9": {
+		"message": "Papá Noel se pone el traje térmico rojo y las botas de vuelo"
+	},
+	"tracker_preflight_10": {
+		"message": "Aparejo de los renos con arneses de cuero y cascabeles de plata"
+	},
+	"tracker_preflight_11": {
+		"message": "Cepillado de los renos y prueba de iluminación de la nariz de Rudolph"
+	},
+	"tracker_preflight_12": {
+		"message": "Los renos salen de los establos hacia la pista de carreteo"
+	},
+	"tracker_preflight_13": {
+		"message": "Enganche de los ocho renos y de Rudolph al trineo de Papá Noel"
+	},
+	"tracker_preflight_14": {
+		"message": "Papá Noel sube a bordo y completa la lista de verificación previa al vuelo"
+	},
+	"tracker_preflight_15": {
+		"message": "Los elfos retiran la nieve de la pista e inspeccionan las luces de aproximación"
+	},
+	"tracker_preflight_16": {
+		"message": "Autorización de despegue concedida por la Torre del Polo Norte"
+	},
+	"tracker_preflight_17": {
+		"message": "Alineación en la pista de despegue y cascabeles a todo volumen"
+	},
+	"tracker_preflight_18": {
+		"message": "Distribución de polvo mágico sobre los renos listos para el despegue"
+	},
+	"tracker_preflight_19": {
+		"message": "¡Motores mágicos a máxima potencia, Papá Noel sujeta las riendas!"
+	},
+	"tracker_preflight_20": {
+		"message": "¡Cuenta regresiva final para el despegue! ¡Agárrense fuerte!"
 	}
 }
