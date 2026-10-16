@@ -14,8 +14,36 @@
  * limitations under the License.
  */
 
-import messages from '../:messages.json?module';
 import {join} from './lib/url.js';
+
+let messages = {};
+
+function resolveCurrentLang() {
+  if (typeof document !== 'undefined' && document.documentElement && document.documentElement.lang) {
+    return document.documentElement.lang;
+  }
+  if (typeof window !== 'undefined') {
+    const fromPath = (window.location.pathname.match(/\/intl\/([a-zA-Z-]+)/) || [])[1];
+    if (fromPath) return fromPath;
+    const fromQuery = (window.location.search.match(/[?&](?:hl|lang)=([a-zA-Z-]+)/) || [])[1];
+    if (fromQuery) return fromQuery;
+    const fromCookie = (document.cookie.match(/santa-lang=([a-zA-Z-]+)/) || [])[1];
+    if (fromCookie) return fromCookie;
+  }
+  return 'it';
+}
+
+const activeLang = resolveCurrentLang();
+try {
+  const xhr = new XMLHttpRequest();
+  xhr.open('GET', new URL(`../:messages.json?lang=${activeLang}`, import.meta.url).href, false);
+  xhr.send(null);
+  if (xhr.status === 200) {
+    messages = JSON.parse(xhr.responseText);
+  }
+} catch (e) {
+  console.warn('Failed to load synchronous messages for', activeLang, e);
+}
 
 /**
  * @fileoverview Magic helpers for development. These should only be used as tagged templates and,
@@ -25,7 +53,7 @@ import {join} from './lib/url.js';
  */
 
  /**
-  * Returns the English development string for Santa Tracker.
+  * Returns the development string for Santa Tracker in the active language.
   *
   * @param {string} id of message
   * @return {string|?} resulting text of message
