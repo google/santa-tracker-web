@@ -173,35 +173,22 @@ async function serve() {
     let pathname = req.path || parsedUrl.pathname;
 
     const languageMatch = /^\/intl\/([-_\w]+)(\/|$)/.exec(pathname);
-    if (languageMatch) {
-      if (!languageMatch[2]) {
-        // fix "/intl/xx" => "/intl/xx/"
-        res.writeHead(301, {'Location': pathname + '/' + (parsedUrl.search || '')});
-        return res.end();
-      }
-      currentLang = matchSupportedLang(languageMatch[1]);
-      pathname = '/' + pathname.substr(languageMatch[0].length);
-      req.url = pathname + (parsedUrl.search || '');
-      req.path = pathname;
+    if (!languageMatch) {
+      const browserLang = detectFromAcceptLanguage(req.headers['accept-language']) || 'it';
+      const cleanPath = pathname.startsWith('/') ? pathname : '/' + pathname;
+      res.writeHead(302, {'Location': `/intl/${browserLang}${cleanPath}${parsedUrl.search || ''}`});
+      return res.end();
     }
 
-    if (!currentLang) {
-      const qLang = parsedUrl.searchParams.get('hl') || parsedUrl.searchParams.get('lang');
-      if (qLang) currentLang = matchSupportedLang(qLang);
+    if (!languageMatch[2]) {
+      // fix "/intl/xx" => "/intl/xx/"
+      res.writeHead(301, {'Location': pathname + '/' + (parsedUrl.search || '')});
+      return res.end();
     }
-
-    if (!currentLang && req.headers['cookie']) {
-      const m = /santa-lang=([-_\w]+)/.exec(req.headers['cookie']);
-      if (m && m[1]) currentLang = matchSupportedLang(m[1]);
-    }
-
-    if (!currentLang && req.headers['accept-language']) {
-      currentLang = detectFromAcceptLanguage(req.headers['accept-language']);
-    }
-
-    if (!currentLang) {
-      currentLang = yargs.lang || 'it';
-    }
+    currentLang = matchSupportedLang(languageMatch[1]) || 'it';
+    pathname = '/' + pathname.substr(languageMatch[0].length);
+    req.url = pathname + (parsedUrl.search || '');
+    req.path = pathname;
 
     let servePath = 'index.html';
     const simplePathMatch = /^\/(\w+)\.html$/.exec(pathname);
