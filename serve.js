@@ -132,9 +132,43 @@ async function serve() {
 
   const prodServer = polka();
 
+  const availableLangs = new Set([
+    'af', 'bg', 'ca', 'da', 'de', 'el', 'en-GB', 'en', 'es-419', 'es', 'et', 'eu', 'fi',
+    'fr-CA', 'fr', 'gl', 'hi', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'lv',
+    'ml', 'nl', 'no', 'pl', 'pt-BR', 'pt-PT', 'ro', 'ru', 'sk', 'sl', 'sr', 'sv',
+    'ta', 'th', 'tl', 'uk', 'vi', 'zh-CN', 'zh-HK', 'zh-TW'
+  ]);
+
+  function matchSupportedLang(raw) {
+    if (!raw) return null;
+    const lower = raw.trim().replace(/_/g, '-').toLowerCase();
+    for (const l of availableLangs) {
+      if (l.toLowerCase() === lower) return l;
+    }
+    const base = lower.split('-')[0];
+    for (const l of availableLangs) {
+      if (l.toLowerCase() === base) return l;
+    }
+    for (const l of availableLangs) {
+      if (l.toLowerCase().startsWith(base + '-')) return l;
+    }
+    return null;
+  }
+
+  function detectFromAcceptLanguage(header) {
+    if (!header) return null;
+    const parts = header.split(',');
+    for (const part of parts) {
+      const code = part.split(';')[0].trim();
+      const matched = matchSupportedLang(code);
+      if (matched) return matched;
+    }
+    return null;
+  }
+
   const prodHtmlMiddleware = async (req, res, next) => {
     // Match Google's serving infrastructure, and serve valid files under /intl/XX/.
-    let currentLang = yargs.lang || 'en';
+    let currentLang = null;
     const parsedUrl = new URL(req.url, 'http://localhost');
     let pathname = req.path || parsedUrl.pathname;
 
@@ -145,10 +179,28 @@ async function serve() {
         res.writeHead(301, {'Location': pathname + '/' + (parsedUrl.search || '')});
         return res.end();
       }
-      currentLang = languageMatch[1];
+      currentLang = matchSupportedLang(languageMatch[1]);
       pathname = '/' + pathname.substr(languageMatch[0].length);
       req.url = pathname + (parsedUrl.search || '');
       req.path = pathname;
+    }
+
+    if (!currentLang) {
+      const qLang = parsedUrl.searchParams.get('hl') || parsedUrl.searchParams.get('lang');
+      if (qLang) currentLang = matchSupportedLang(qLang);
+    }
+
+    if (!currentLang && req.headers['cookie']) {
+      const m = /santa-lang=([-_\w]+)/.exec(req.headers['cookie']);
+      if (m && m[1]) currentLang = matchSupportedLang(m[1]);
+    }
+
+    if (!currentLang && req.headers['accept-language']) {
+      currentLang = detectFromAcceptLanguage(req.headers['accept-language']);
+    }
+
+    if (!currentLang) {
+      currentLang = yargs.lang || 'it';
     }
 
     let servePath = 'index.html';

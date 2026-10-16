@@ -19,17 +19,53 @@ import {join} from './lib/url.js';
 let messages = {};
 
 function resolveCurrentLang() {
-  if (typeof document !== 'undefined' && document.documentElement && document.documentElement.lang) {
-    return document.documentElement.lang;
-  }
   if (typeof window !== 'undefined') {
+    // 1. Explicit /intl/<lang>/ path
     const fromPath = (window.location.pathname.match(/\/intl\/([a-zA-Z-]+)/) || [])[1];
     if (fromPath) return fromPath;
+
+    // 2. Query param ?hl= or ?lang=
     const fromQuery = (window.location.search.match(/[?&](?:hl|lang)=([a-zA-Z-]+)/) || [])[1];
     if (fromQuery) return fromQuery;
+  }
+
+  // 3. documentElement.lang set by server
+  if (typeof document !== 'undefined' && document.documentElement && document.documentElement.lang) {
+    const docLang = document.documentElement.lang.trim();
+    if (docLang) return docLang;
+  }
+
+  if (typeof window !== 'undefined') {
+    // 4. Saved language cookie
     const fromCookie = (document.cookie.match(/santa-lang=([a-zA-Z-]+)/) || [])[1];
     if (fromCookie) return fromCookie;
   }
+
+  // 5. Browser language (navigator.languages / navigator.language)
+  if (typeof navigator !== 'undefined') {
+    const navLangs = navigator.languages || [navigator.language || navigator.userLanguage];
+    const supported = [
+      'af', 'bg', 'ca', 'da', 'de', 'el', 'en-GB', 'en', 'es-419', 'es', 'et', 'eu', 'fi',
+      'fr-CA', 'fr', 'gl', 'hi', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ko', 'lt', 'lv',
+      'ml', 'nl', 'no', 'pl', 'pt-BR', 'pt-PT', 'ro', 'ru', 'sk', 'sl', 'sr', 'sv',
+      'ta', 'th', 'tl', 'uk', 'vi', 'zh-CN', 'zh-HK', 'zh-TW'
+    ];
+    for (const raw of navLangs) {
+      if (!raw) continue;
+      const lower = raw.toLowerCase().replace(/_/g, '-');
+      for (const l of supported) {
+        if (l.toLowerCase() === lower) return l;
+      }
+      const base = lower.split('-')[0];
+      for (const l of supported) {
+        if (l.toLowerCase() === base) return l;
+      }
+      for (const l of supported) {
+        if (l.toLowerCase().startsWith(base + '-')) return l;
+      }
+    }
+  }
+
   return 'it';
 }
 
