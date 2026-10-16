@@ -131,8 +131,12 @@ class ModvilTrackerStatsElement extends LitElement {
     const year = new Date(now).getUTCFullYear();
     const takeoffTime = Date.UTC(year, 11, 24, 10, 0, 0);
     const isBeforeTakeoff = now < takeoffTime;
+    const isItalian = (_msg`tracker_preflight_status` === 'Stato Pre-Volo');
     const d = this.details || {
-      raw: {city: "Santa's Village", region: 'North Pole'},
+      raw: {
+        city: isItalian ? 'Villaggio di Babbo Natale' : "Santa's Village",
+        region: isItalian ? 'Polo Nord' : 'North Pole',
+      },
       home: isBeforeTakeoff,
       stop: true,
       presents: 0,
