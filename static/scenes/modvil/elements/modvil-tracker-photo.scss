@@ -28,6 +28,9 @@
   position: relative;
   transition: transform 0.4s ease-in-out, opacity 0.2s ease-in-out;
   overflow: hidden;
+  display: block;
+  color: inherit;
+  text-decoration: none;
 
   &::after {
     content: '';
@@ -53,6 +56,11 @@
   :host([destroy]) & {
     transform: translateY(0) scale(0);
   }
+
+  // Show underline on the text when the parent card (.inner) is hovered
+  &:hover>.attribution>span {
+    text-decoration: underline;
+  }
 }
 
 .attribution {
@@ -72,15 +80,11 @@
   align-items: flex-end;
   justify-content: space-between;
 
-  a {
+  span {
     color: inherit;
     text-decoration: none;
     padding: 0 10px 8.5px;
     flex-grow: 100;
-
-    &[href]:hover {
-      text-decoration: underline;
-    }
 
     &::after {
       // big click target
