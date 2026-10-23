@@ -2583,6 +2583,30 @@
     "description": "Describes the number of players that are still playing a game, out of a total number that started the game. The numbers will both always be two or greater, so plurals are fine.",
     "raw": "<ph name=\"REMAINING\"><ex>10</ex>{{remaining}}</ph> of <ph name=\"TOTAL\"><ex>18</ex>{{total}}</ph> elves remaining"
   },
+  "snowball_mode_quick": {
+    "description": "Label on a button that starts a shorter game with fewer players. Keep short, it sits inside a round button.",
+    "message": "Quick Mode"
+  },
+  "snowball_mode_quick_description": {
+    "description": "Explains the 'Quick Mode' button, shown below it. The number of elves must match the game configuration.",
+    "message": "25 elves battle in a small arena"
+  },
+  "snowball_mode_arena": {
+    "description": "Label on a button that starts the full-length game with many players. Keep short, it sits inside a round button.",
+    "message": "Arena Mode"
+  },
+  "snowball_mode_arena_description": {
+    "description": "Explains the 'Arena Mode' button, shown below it. The number of elves must match the game configuration.",
+    "message": "100 elves battle in a large arena"
+  },
+  "snowball_gameover_win": {
+    "description": "Very large headline shown when the player is the last elf standing. A playful rhyme in English ('winner' / 'winter'), in the style of a victory catchphrase. Prefer a short celebratory phrase that rhymes or plays on words in your language over a literal translation. Keep it short: it is displayed at 42px.",
+    "message": "Winner winner, merry winter!"
+  },
+  "snowball_gameover_lose": {
+    "description": "Very large headline shown when the player has been knocked out. A pun on 'no hard feelings', where 'no' becomes 'snow'. It should feel light and encouraging, not mocking, since the player just lost. Prefer a short, kind phrase that puns on snow or cold in your language over a literal translation. Keep it short: it is displayed at 42px.",
+    "message": "Snow hard feelings!"
+  },
   "snowflake_choose_background": {
     "description": "Tell user to choose background for their postcard.",
     "message": "Pick a backdrop"

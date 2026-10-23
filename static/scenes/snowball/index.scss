@@ -140,14 +140,32 @@ santa-weather {
   background-position: top left;
 }
 
-#jumpBtn {
-  display: block;
+#modeChoice {
+  display: flex;
   position: absolute;
 
   top: 50%;
   left: 50%;
 
   transform: translate(-50%, -50%);
+
+  // Top-aligned rather than centred, so the two circles stay level even when
+  // one caption wraps to more lines than the other.
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.modeOption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin: 0 24px;
+}
+
+.modeBtn {
+  display: block;
+  position: relative;
 
   border: 0;
   outline: none;
@@ -159,13 +177,14 @@ santa-weather {
   border-radius: 140px;
   background-color: #fff;
   box-shadow: 0px 5% 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
 
-#jumpBtn:active:after {
+.modeBtn:active:after {
   top: 5%;
 }
 
-#jumpBtn:after {
+.modeBtn:after {
   content: '';
   display: block;
   position: absolute;
@@ -178,11 +197,11 @@ santa-weather {
 
   background-image: url('img/parachute-button.png');
   background-repeat: no-repeat;
-  background-size: 40%;
-  background-position: center;
+  background-size: 34%;
+  background-position: center 30%;
 }
 
-#jumpBtn:before {
+.modeBtn:before {
   content: '';
   display: block;
   position: absolute;
@@ -194,12 +213,94 @@ santa-weather {
   background-color: #448B4D;
 }
 
+/**
+ * Sized to fit "Arena Mode" on one line inside the circle. Translations can be
+ * longer, so the box wraps and stays centred rather than overflowing the art.
+ */
+.modeName {
+  position: absolute;
+  z-index: 1;
+  left: 12%;
+  right: 12%;
+  top: 52%;
+
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 40px;
+  line-height: 1.05;
+  color: #fff;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+
+  pointer-events: none;
+}
+
+.modeBtn:active .modeName {
+  top: 57%;
+}
+
+/**
+ * Revealed only while its own button is hovered. Kept at `opacity: 0` rather
+ * than `display: none` so the buttons never shift as captions appear, and so
+ * the text stays in the accessibility tree for `aria-labelledby`.
+ */
+.modeDesc {
+  width: 280px;
+  margin: 20px 0 0;
+
+  text-align: center;
+  font-family: 'Lobster', cursive;
+  font-size: 22px;
+  line-height: 1.25;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+
+  opacity: 0;
+  transition: opacity 0.18s ease-in-out;
+  // Never capture the pointer, so moving onto the caption can't steal hover
+  // from the button that reveals it.
+  pointer-events: none;
+}
+
+.modeBtn:hover + .modeDesc,
+.modeBtn:focus-visible + .modeDesc {
+  opacity: 1;
+}
+
+@keyframes caption-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Touch devices have no hover state, so there is no moment at which a
+// hover-triggered caption could be read: the first tap is already the click
+// that starts the game. Reveal both captions once, shortly after the splash
+// settles, keeping the fade rather than snapping them into place.
+@media (hover: none) {
+  .modeDesc {
+    animation: caption-fade-in 0.4s ease-in-out 0.6s both;
+  }
+}
+
 [hidden] {
   display: none !important;
 }
 
+/**
+ * Two buttons need ~608px of room, so shrink the pair before the viewport can
+ * clip it, then stack them once even the scaled row no longer fits.
+ */
+@media (max-width: 700px) {
+  #modeChoice {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
 @media (max-width: 600px) {
-  #jumpBtn {
+  #modeChoice {
     transform: translate(-50%, -50%) scale(0.75);
   }
 
@@ -220,5 +321,17 @@ santa-weather {
     width: 100px;
     height: 100px;
     margin-top: -50px;
+  }
+}
+
+@media (max-width: 480px) {
+  #modeChoice {
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+
+  .modeOption {
+    margin: 24px 0;
   }
 }

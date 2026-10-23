@@ -30,6 +30,9 @@ export class SantaBadgeElement extends LitElement {
     return {
       level: {type: Number},
       maxLevel: {type: Number},
+      // Optional caption for the level counter, set by a scene that counts
+      // something other than levels (e.g. 'iced').
+      levelLabel: {type: String},
       score: {type: Number},
       _levelActive: {type: Boolean},
       time: {type: Number},
@@ -46,6 +49,7 @@ export class SantaBadgeElement extends LitElement {
 
     this.level = 0;
     this.maxLevel = 0;
+    this.levelLabel = '';
     this.score = 0;
     this.time = 0;
 
@@ -98,11 +102,15 @@ export class SantaBadgeElement extends LitElement {
     let maxLevel = 0;
     if (this.maxLevel > 0) {
       maxLevel = this.maxLevel;
-    } else if (this.maxLevel === 0) {
-      levelText = _msg`snowball_iced`;
+    }
+    if (this.levelLabel === 'iced') {
+      levelText = _msg`snowball_iced_count`;
     }
 
-    const displayRight = (this.level || this.score);
+    // Counters with a known target stay on screen from zero, so the player can
+    // see what they're working towards.
+    const displayLevel = (this.level || maxLevel);
+    const displayRight = (displayLevel || this.score);
 
     return html`
 <main>
@@ -114,12 +122,12 @@ export class SantaBadgeElement extends LitElement {
       <label>${_msg`time`}</label>
     </div>
   </div>
-  <div class="item ${this.level && (this._levelActive || !displayScore) ? 'alt-active' : ''}" ?hidden=${!displayRight}>
+  <div class="item ${displayLevel && (this._levelActive || !displayScore) ? 'alt-active' : ''}" ?hidden=${!displayRight}>
     <div class="data">
       <span>${score}<small>${unit}</small></span>
       <label>${_msg`score`}</label>
     </div>
-    <div class="data alt" ?hidden=${!this.level}>
+    <div class="data alt" ?hidden=${!displayLevel}>
       <span>${this.level}<span class="dim" ?hidden=${!maxLevel}><small>&middot;</small>${maxLevel}</span></span>
       <label>${levelText}</label>
     </div>

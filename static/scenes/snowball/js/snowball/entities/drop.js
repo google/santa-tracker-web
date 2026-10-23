@@ -20,6 +20,7 @@ import {Circle} from '../../engine/utils/collision-2d.js';
 import {randomValue} from '../../engine/utils/function.js';
 import {Arrival} from '../components/arrival.js';
 import {Contents} from '../components/contents.js';
+import {powerupType} from '../components/powerup.js';
 import {Presence} from '../components/presence.js';
 
 import {Elf} from './elf.js';
@@ -109,6 +110,90 @@ export const generateDropTexture = (() => {
   };
 })();
 
+// A first aid kit rather than another wrapped present, because every colour
+// combination above is a saturated box with a ribbon and a shield drop needs to
+// be tellable from one at a glance, across the map, while spinning.
+const caseColor = '#FFFFFF';
+const crossColor = '#D93025';
+
+// Four times the gift texture, matching the elf's. The gifts get away with 128
+// because their edges are all axis-aligned bands that happen to land on texel
+// boundaries; the kit's outline and cross are thin shapes whose edges are what
+// the eye lands on, and at 64 texels to a face they resolved to a stair.
+const textureSize = 512;
+const faceSize = textureSize / 2;
+
+// Proportions of one face, so the artwork survives a change to `textureSize`.
+const outlineRatio = 5 / 64;
+const armLengthRatio = 22 / 64;     // half the cross's span
+const armThicknessRatio = 9 / 64;   // half a bar's width
+
+/**
+ * Paints the shield drop: a white case edged in red, with a red cross on its
+ * four sides.
+ *
+ * Where the cross goes is dictated by the cube's UVs, which are hand-authored
+ * above and are not as arbitrary as they look. They only ever address the left
+ * half of the texture, and they split it in two: the four faces that spin past
+ * the camera all read v 0..0.5, while the two faces on the spin axis read
+ * v 0.5..1. Textures upload with `flipY`, so v 0..0.5 is the *bottom* half of
+ * the canvas. Painting the cross into that half therefore marks exactly the
+ * four sides and leaves the ends clean.
+ *
+ * The same split is why the gift wrapping works: its vertical ribbon spans the
+ * full height and so wraps all four sides, while its horizontal ribbon sits a
+ * quarter of the way down and crosses only the two ends, exactly as a real
+ * present is wrapped.
+ */
+export const generateFirstAidTexture = (() => {
+  // Its own canvas, never repainted, so unlike `generateDropTexture` this can
+  // hand the canvas straight to the texture. That sidesteps the round trip
+  // through `toDataURL` and an `img`, whose decode does not finish before the
+  // first `needsUpdate` and leaves the very first drop of a given colour
+  // briefly untextured.
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+
+  canvas.width = canvas.height = textureSize;
+
+  context.fillStyle = caseColor;
+  context.fillRect(0, 0, textureSize, textureSize);
+
+  context.fillStyle = crossColor;
+
+  // The UVs never read past u 0.5, so the right half is dead space. Flooding it
+  // means that when a distant, mipmapped drop samples across the seam it pulls
+  // the outline's red rather than bare white.
+  context.fillRect(faceSize, 0, faceSize, textureSize);
+
+  /** Edges one face-sized quadrant, which is to say one group of faces. */
+  const outlineWidth = faceSize * outlineRatio;
+  const outline = (x, y) => {
+    context.fillRect(x, y, faceSize, outlineWidth);
+    context.fillRect(x, y + faceSize - outlineWidth, faceSize, outlineWidth);
+    context.fillRect(x, y, outlineWidth, faceSize);
+    context.fillRect(x + faceSize - outlineWidth, y, outlineWidth, faceSize);
+  };
+
+  outline(0, faceSize);  // the four sides
+  outline(0, 0);         // the two ends
+
+  // Centre of the quadrant the four side faces sample.
+  const centerX = faceSize / 2;
+  const centerY = faceSize + faceSize / 2;
+  const armLength = faceSize * armLengthRatio;
+  const armThickness = faceSize * armThicknessRatio;
+
+  context.fillRect(
+      centerX - armThickness, centerY - armLength,
+      armThickness * 2, armLength * 2);
+  context.fillRect(
+      centerX - armLength, centerY - armThickness,
+      armLength * 2, armThickness * 2);
+
+  return () => canvas;
+})();
+
 /**
  * @constructor
  * @extends {THREE.Object3D}
@@ -134,10 +219,23 @@ export class Drop extends AllocatableEntityObject3D {
     this.collider = Circle.allocate(10, this.position);
   }
 
-  onAllocated(colorCombo = randomValue(colorCombos)) {
-    this.model.scale.set(Math.random() * 7 + 12, Math.random() * 7 + 12, Math.random() * 5 + 10);
+  /**
+   * A drop looks like whatever is inside it. The contents are pushed onto
+   * `contents` by the drop system a moment later, but the appearance has to be
+   * settled here, while the model is being set up.
+   */
+  onAllocated(containedItem = powerupType.BIG_SNOWBALL) {
+    if (containedItem === powerupType.SHIELD) {
+      // Fixed, and nearly cubic, where the gifts are deliberately irregular: a
+      // first aid kit reads as standard issue, and square faces keep the cross
+      // from being stretched into a lopsided one.
+      this.model.scale.set(15, 15, 13);
+      this.model.material.map.image = generateFirstAidTexture();
+    } else {
+      this.model.scale.set(Math.random() * 7 + 12, Math.random() * 7 + 12, Math.random() * 5 + 10);
+      this.model.material.map.image = generateDropTexture(...randomValue(colorCombos));
+    }
 
-    this.model.material.map.image = generateDropTexture(...colorCombo);
     this.model.material.map.needsUpdate = true;
 
     this.arrival = new Arrival();
