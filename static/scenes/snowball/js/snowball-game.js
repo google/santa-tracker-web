@@ -38,13 +38,96 @@ const GameType = {
   MULTIPLAYER: 'multiplayer'
 };
 
+/**
+ * Quick is a quarter of Arena's field with a quarter of the players, so the
+ * steady-state density (~41 tiles per elf) matches. It differs in how quickly
+ * it gets there: `initialPlayers` puts about half the field's elves down at
+ * the drop rather than trickling them all in, so the fighting starts early
+ * without the opening feeling packed.
+ *
+ * The tile scale is the same in both modes, so the hexes are the same physical
+ * size on screen; there are simply fewer of them.
+ */
+export const GameMode = {
+  QUICK: {
+    name: 'quick',
+    maximumPlayers: 25,
+    initialPlayers: 12,
+    // Thinner cover than Arena: on a quarter-sized field the same proportion
+    // of trees leaves noticeably less room to manoeuvre.
+    treeDensity: 0.10,
+    unitWidth: 32,
+    unitHeight: 32,
+    // Every 5 seconds, a random 1 to 3 gifts, against Arena's single gift every
+    // ~10.4 seconds.
+    dropInterval: 5 * 60,
+    dropCount: {min: 1, max: 3},
+    // Each gift is a shield one time in two, from the very first drop after
+    // the opening gifts. Those are always big snowballs; see `LocalLevel`.
+    shieldChance: 1 / 2,
+    shieldUnlock: {ticks: 0},  // Unlocked from the first frame.
+    // Idle bots walk to a shield gift within this many tiles. Without it, as
+    // in Arena, a bot only collects a gift it happens to wander onto.
+    botShieldRange: 8
+  },
+  ARENA: {
+    name: 'arena',
+    maximumPlayers: 100,
+    initialPlayers: 25,
+    treeDensity: 0.15,
+    unitWidth: 64,
+    unitHeight: 64,
+    // 300000 ms / 30 drops / 16 ms/f = 625 f/drop
+    dropInterval: 625,
+    // One drop in three is a shield — a first aid kit — instead of a big
+    // snowball.
+    shieldChance: 1 / 3,
+    // Shields join the drops a minute in, once fewer than 70 elves are left,
+    // or once 30% of the island has sunk, whichever comes first.
+    shieldUnlock: {
+      ticks: 60 * 60,  // Ticks run at 60 to the second.
+      remainingElves: 70,
+      tileFraction: 0.7
+    }
+  }
+};
+
+const TILE_SCALE = 64.0;
+
 export class SnowballGame extends Game {
   static get is() { return 'snowball-game'; }
 
-  get maximumPlayers() { return 100; };
+  get maximumPlayers() { return this._gameMode.maximumPlayers; };
+
+  /** How many elves are on the field at the drop; the rest trickle in. */
+  get initialPlayers() { return this._gameMode.initialPlayers; };
+
+  get gameMode() { return this._gameMode; }
+
+  /**
+   * Selects a game mode, either by mode object or by name. The grid dimensions
+   * get baked into shader uniforms and the mouse-picking plane the first time
+   * the map is set up, so this must be assigned before the game's first frame.
+   */
+  set gameMode(mode) {
+    const nextMode = typeof mode === 'string'
+        ? Object.keys(GameMode).map(key => GameMode[key])
+            .find(candidate => candidate.name === mode)
+        : mode;
+
+    if (nextMode == null) {
+      console.warn(`Unknown snowball game mode: ${mode}`);
+      return;
+    }
+
+    this._gameMode = nextMode;
+    this.mapSystem.resize(nextMode.unitWidth, nextMode.unitHeight, TILE_SCALE);
+  }
 
   constructor() {
     super();
+
+    this._gameMode = GameMode.ARENA;
 
     this.assetBaseUrl = '';
     this.collisionSystem = new Collision2DSystem(object => object.collider || object);
@@ -54,7 +137,8 @@ export class SnowballGame extends Game {
     this.parachuteSystem = new ParachuteSystem();
     this.entityRemovalSystem = new EntityRemovalSystem();
     this.dropSystem = new DropSystem();
-    this.mapSystem = new MapSystem(64.0, 64.0, 64.0);
+    this.mapSystem = new MapSystem(
+        GameMode.ARENA.unitWidth, GameMode.ARENA.unitHeight, TILE_SCALE);
     this.botSystem = new BotSystem();
     this.clientSystem = new ClientSystem();
     this.networkSystem = new NetworkSystem();
