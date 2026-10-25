@@ -227,3 +227,66 @@ button.ghost {
   background: rgba(56, 189, 248, 0.18);
   box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
 }
+
+.tune-panel {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 30;
+  width: 224px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.88);
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
+  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.45);
+  color: #F8FAFC;
+  font-size: 12px;
+  line-height: 1.3;
+  user-select: none;
+}
+
+.tune-panel-title {
+  font-weight: 700;
+  font-size: 12.5px;
+  color: #38BDF8;
+  margin-bottom: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tune-row {
+  margin-bottom: 5px;
+}
+
+.tune-row label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 1px;
+}
+
+.tune-row input[type="range"] {
+  width: 100%;
+  margin: 0;
+  height: 16px;
+  accent-color: #38BDF8;
+  cursor: pointer;
+}
+
+.tune-copy-btn {
+  width: 100%;
+  margin: 6px 0 0;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 8px;
+  background: #3399FF;
+  border: 1px solid #1B69C1;
+  color: #FFFFFF;
+  box-shadow: none;
+}
+
+.tune-copy-btn:hover {
+  background: #1B69C1;
+}
