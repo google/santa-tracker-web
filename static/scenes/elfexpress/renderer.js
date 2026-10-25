@@ -52,6 +52,7 @@ BG.onload = () => { bgReady = true; };
 BG.src = 'img/workshop-bg.svg';
 
 let scale = 1, offsetX = 0, offsetY = 0;
+let lastFitW = 0, lastFitH = 0;
 export let viewX0 = 0, viewY0 = 0, viewX1 = W, viewY1 = H;
 
 const mqReduce = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -64,6 +65,8 @@ export function fit() {
   const stg = document.getElementById('stage');
   const vw = (stg && stg.clientWidth) || window.innerWidth || W;
   const vh = (stg && stg.clientHeight) || window.innerHeight || H;
+  lastFitW = vw;
+  lastFitH = vh;
   const availW = Math.max(120, vw - PAD_SIDE * 2);
   const availH = Math.max(120, vh - PAD_TOP - PAD_BOT);
   scale = Math.min(availW / BOX_W, availH / BOX_H);
@@ -84,6 +87,10 @@ export function fit() {
 }
 
 export function toGame(ev) {
+  const stg = document.getElementById('stage');
+  if (stg && stg.clientWidth > 0 && stg.clientHeight > 0 && (stg.clientWidth !== lastFitW || stg.clientHeight !== lastFitH)) {
+    fit();
+  }
   const r = cv.getBoundingClientRect();
   return {
     x: (ev.clientX - r.left - offsetX) / scale,
@@ -928,7 +935,7 @@ function drawLines(g2, S, floors, sleighTargetVal) {
     drawSleighAndReindeer(g2, S, S.inSleigh, 0, 0, 0, 1, curWaveHasStar);
   }
 
-  // Sleigh counter showing "Sleigh X of 7" and gifts in sleigh
+  // Sleigh counter showing "Sleigh X of 8" and gifts in sleigh
   const sleighNum = Math.min(SLEIGHS.length, (S.sleighsDone || 0) + 1);
   g2.fillStyle = 'rgba(255,255,255,.96)'; g2.strokeStyle = '#D92626';
   g2.lineWidth = 1.8;
@@ -942,7 +949,7 @@ function drawLines(g2, S, floors, sleighTargetVal) {
   g2.font = "bold 13px 'Google Sans',sans-serif";
   g2.fillText(S.inSleigh + ' / ' + sleighTargetVal, SLEIGH_X, SLEIGH_Y + 23);
 
-  // 7-sleigh stars strip under the sleigh counter
+  // 8-sleigh stars strip under the sleigh counter
   if (S.waveStars && S.waveStars.length) {
     g2.save();
     g2.font = "bold 12px 'Google Sans',sans-serif";
@@ -1426,6 +1433,10 @@ function drawTuneSpeedHud(g2, S) {
 }
 
 export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
+  const stg = document.getElementById('stage');
+  if (stg && stg.clientWidth > 0 && stg.clientHeight > 0 && (stg.clientWidth !== lastFitW || stg.clientHeight !== lastFitH)) {
+    fit();
+  }
   if (S.mode === 'takeoff' || (S.mode === 'over' && S.won)) {
     drawTakeoff(cx, S, S.takeoff);
     return;

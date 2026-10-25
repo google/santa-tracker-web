@@ -31,14 +31,14 @@ export const TUNE = {
   fallTime: 0.34,          // Fall duration from belt edge to floor (s)
   humanTimePerGift: 0.60,  // Playable check: 0.6s per gift to see toy, choose chute, and tap twice
   reactionTime: 0.30,      // 0.30s per tap x 2 taps = 0.60s per gift
-  minSpareByWave: [0.60, 0.60, 0.60, 0.60, 0.60, 0.60, 0.60], // Minimum spare time per gift (0.60s rule)
+  minSpareByWave: [0.60, 0.60, 0.60, 0.60, 0.60, 0.60, 0.60, 0.60], // Minimum spare time per gift (0.60s rule)
   recycleLimit: 15,        // Recycled gifts before Game Over — unchanged
   relaxTime: 3.0,          // 3s break between levels after a sleigh fills (with "Phew!" cue)
   sleighFlyTime: 1.8,      // Sleigh + reindeer takeoff & glide-back duration during the 3s break (s)
-  dualToysFromWave: 4,     // Sleigh (1-7) that introduces second toys at level start (Sleigh 4)
+  dualToysFromWave: 4,     // Sleigh (1-8) that introduces second toys at level start (Sleigh 4)
   twoHands: true,          // Feature flag: two-hand carrying (enabled from Sleigh 6)
-  sackFromWave: 6,         // Sleigh (1-7) where two-hand carrying starts (Sleigh 6)
-  hurryMusicFromWave: 7,   // Sleigh (1-7) that starts game_hurry_up music at level start (Sleigh 7 only)
+  sackFromWave: 6,         // Sleigh (1-8) where two-hand carrying starts (Sleigh 6)
+  hurryMusicFromWave: 8,   // Sleigh (1-8) that starts game_hurry_up music at level start (Sleigh 8 only)
   basePoints: 100,
   sleighBonus: 400,
   comboStep: 4,
@@ -54,7 +54,7 @@ export const GUST = {
   beltMul: 1.70,           // Belt speed multiplier when a gust pushes gifts
 };
 
-// 7 sleighs (~3 minutes total). Each level is steady flow -> speed-up -> burst until sleigh is full -> 3s break.
+// 8 sleighs. Each level is steady flow -> speed-up -> burst until sleigh is full -> 3s break.
 export const WAVES = [
   {
     wave: 1,
@@ -86,7 +86,7 @@ export const WAVES = [
     speedUpCount: 3,
     speedUpGap: 2.20,
     burstSize: 2,
-    burstGap: 1.80,
+    burstGap: 1.20,
     breathe: 3.0,
     teeter: 2.35,
     gustOnBurst: false,
@@ -101,7 +101,7 @@ export const WAVES = [
     speedUpCount: 3,
     speedUpGap: 2.00,
     burstSize: 3,
-    burstGap: 1.50,
+    burstGap: 1.00,
     breathe: 3.0,
     teeter: 2.30,
     gustOnBurst: false,
@@ -116,7 +116,7 @@ export const WAVES = [
     speedUpCount: 3,
     speedUpGap: 1.80,
     burstSize: 3,
-    burstGap: 1.40,
+    burstGap: 0.95,
     breathe: 3.0,
     teeter: 2.20,
     gustOnBurst: false,
@@ -131,7 +131,7 @@ export const WAVES = [
     speedUpCount: 4,
     speedUpGap: 1.70,
     burstSize: 3,
-    burstGap: 1.30,
+    burstGap: 0.90,
     breathe: 3.0,
     teeter: 2.15,
     gustOnBurst: false,
@@ -146,7 +146,7 @@ export const WAVES = [
     speedUpCount: 4,
     speedUpGap: 1.70,
     burstSize: 4,
-    burstGap: 1.30,
+    burstGap: 0.80,
     breathe: 3.0,
     teeter: 2.10,
     gustOnBurst: true,
@@ -157,29 +157,45 @@ export const WAVES = [
     startFloors: 5,
     pulses: 1,
     flowCount: 5,
-    flowGap: 1.90,
-    speedUpCount: 4,
-    speedUpGap: 1.50,
-    burstSize: 4,
-    burstGap: 1.10,
+    flowGap: 1.80,
+    speedUpCount: 5,
+    speedUpGap: 1.40,
+    burstSize: 5,
+    burstGap: 0.80,
+    breathe: 3.0,
+    teeter: 2.00,
+    gustOnBurst: true,
+  },
+  {
+    wave: 8,
+    floors: 5,
+    startFloors: 5,
+    pulses: 1,
+    flowCount: 5,
+    flowGap: 1.70,
+    speedUpCount: 5,
+    speedUpGap: 1.30,
+    burstSize: 6,
+    burstGap: 0.70,
     breathe: 3.0,
     teeter: 2.00,
     gustOnBurst: true,
   },
 ];
 
-// Sleigh capacity per level equals that level's total gifts: [4, 8, 9, 10, 11, 12, 13]
+// Sleigh capacity per level equals that level's total gifts: [4, 8, 9, 10, 11, 12, 15, 16]
 export const SLEIGHS = WAVES.map(w => w.flowCount + (w.speedUpCount || 0) + w.burstSize);
 
-// Snowfall intensity spread over the 7 sleighs (sleighsDone 0..6)
+// Snowfall intensity spread over the 8 sleighs (sleighsDone 0..7)
 export const SNOW = [
   { at: 0, fall: 0.10 },
-  { at: 1, fall: 0.25 },
-  { at: 2, fall: 0.45 },
-  { at: 3, fall: 0.75 },
-  { at: 4, fall: 1.15 },
-  { at: 5, fall: 1.65 },
-  { at: 6, fall: 2.20 },
+  { at: 1, fall: 0.22 },
+  { at: 2, fall: 0.40 },
+  { at: 3, fall: 0.65 },
+  { at: 4, fall: 0.95 },
+  { at: 5, fall: 1.30 },
+  { at: 6, fall: 1.72 },
+  { at: 7, fall: 2.20 },
 ];
 export const SNOW_PILE = 0.048;
 
@@ -265,9 +281,9 @@ export const GEAR = {
   sneakers: 2,
   bells: 3,
   blanket: 4,
-  lights: 4,
-  hat: 5,
-  nose: 6,
+  lights: 5,
+  hat: 6,
+  nose: 7,
 };
 
 export const ELF_MIN_X = 72, ELF_MAX_X = 598;
