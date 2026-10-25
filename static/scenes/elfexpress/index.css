@@ -87,6 +87,7 @@ canvas {
   width: 100%;
   max-height: min(calc(100vh - 64px), 680px);
   overflow-y: auto;
+  touch-action: pan-y;
   position: relative;
 }
 
@@ -226,6 +227,39 @@ button.ghost {
   border-color: #38BDF8;
   background: rgba(56, 189, 248, 0.18);
   box-shadow: 0 0 14px rgba(56, 189, 248, 0.35);
+}
+
+@media (max-height: 500px) {
+  .screen {
+    padding: 12px 16px;
+  }
+  .panel {
+    padding: 12px 18px;
+    max-width: 540px;
+    max-height: calc(100vh - 24px);
+  }
+  h1 {
+    font-size: 28px;
+    margin-bottom: 2px;
+  }
+  .sub {
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+  .elf-picker {
+    max-width: 500px;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .elf-card {
+    width: 72px;
+    height: 96px;
+    padding: 6px;
+  }
+  button {
+    padding: 9px 22px;
+    margin: 4px;
+  }
 }
 
 .tune-panel {

@@ -499,10 +499,8 @@ function verifyWaveSolvable(q, teeter, carryCap, startFloor, startX) {
           tried.add(cat);
           const nextT = st.t + reactTap + simTravelTime(st.floor, st.x, cat, DROP_X);
           if (firstUncaught >= 0 && gifts[firstUncaught].tDeadline < nextT) continue;
-          const idx = st.bag.indexOf(cat);
-          const nextBag = st.bag.slice();
-          nextBag.splice(idx, 1);
-          const nextProg = prog + 1;
+          const nextBag = st.bag.filter(c => c !== cat);
+          const nextProg = prog + (st.bag.length - nextBag.length);
           const k = `${st.mask}|${nextBag.join(',')}|${cat}|1`;
           const map = levels[nextProg];
           const prev = map.get(k);
@@ -1154,29 +1152,37 @@ function releaseGift(onlyMatching = false) {
   if (!e.bag.length || e.climbing || e.x < LADDER_CX - 16) return false;
   if (S.tut && (S.tut !== 3 || e.floor !== 1)) return false;
 
-  let idx = e.bag.findIndex(item => item.cat === e.floor);
-  if (onlyMatching && idx < 0) return false;
-  if (idx < 0) idx = 0;
+  const matching = e.bag.filter(item => item.cat === e.floor);
+  if (onlyMatching && !matching.length) return false;
+  const toDrop = matching.length ? matching : [e.bag[0]];
 
-  const [g] = e.bag.splice(idx, 1);
+  for (let dIdx = 0; dIdx < toDrop.length; dIdx++) {
+    const g = toDrop[dIdx];
+    const bagIdx = e.bag.indexOf(g);
+    if (bagIdx >= 0) e.bag.splice(bagIdx, 1);
+    g.dropFloor = e.floor; g.ductFloor = e.floor;
+    g.state = 'toStation'; g.tilt = 0; g.spin = 0;
+    const cy = chuteY(e.floor);
+    const startX = Math.max(g.x, CHUTE_CX) - dIdx * 20;
+    pathTo(g, [{ x: startX, y: cy }, { x: MACH_CX, y: cy }], LINE_SPEED);
+    if (e.floor === g.cat) {
+      S.combo++;
+      const m = Math.min(1 + Math.floor(S.combo / TUNE.comboStep), TUNE.comboMax);
+      S.score += TUNE.basePoints * m;
+      S.floorPulse[e.floor] = 0.5;
+      puff(CHUTE_CX, chuteY(e.floor), CATS[e.floor].color, 10);
+    } else {
+      S.misfiled++; breakCombo();
+      puff(CHUTE_CX, chuteY(e.floor), '#FF3333', 8);
+    }
+  }
   syncCarry();
   S.twoHandsArrowChute = -1;
-  g.dropFloor = e.floor; g.ductFloor = e.floor;
-  g.state = 'toStation'; g.tilt = 0; g.spin = 0;
-  const cy = chuteY(e.floor);
-  pathTo(g, [{ x: Math.max(g.x, CHUTE_CX), y: cy }, { x: MACH_CX, y: cy }], LINE_SPEED);
-  if (e.floor === g.cat) {
+  if (matching.length) {
     api.play('pd_player_present_pickup');
-    S.combo++;
-    const m = Math.min(1 + Math.floor(S.combo / TUNE.comboStep), TUNE.comboMax);
-    S.score += TUNE.basePoints * m;
     reportScore();
-    S.floorPulse[e.floor] = 0.5;
-    puff(CHUTE_CX, chuteY(e.floor), CATS[e.floor].color, 10);
   } else {
     api.play('pd_item_miss');
-    S.misfiled++; breakCombo();
-    puff(CHUTE_CX, chuteY(e.floor), '#FF3333', 8);
   }
   if (S.tut === 3) {
     S.tut = 4;
@@ -1822,7 +1828,7 @@ cv.addEventListener('pointerdown', ev => {
 cv.addEventListener('contextmenu', ev => ev.preventDefault());
 
 const el = id => document.getElementById(id);
-const show = (id, on) => el(id).classList.toggle('on', on);
+const show = (id, on) => { const node = el(id); if (node) node.classList.toggle('on', on); };
 const say = m => { el('sr').textContent = m; };
 
 function endRun(won) {
@@ -1846,6 +1852,7 @@ function endRun(won) {
 
 // Starts either at a specific wave (1..5) if waveNum > 0, or at Wave 1 with the 5-step Diner Dash tutorial.
 function start(waveNum = 0) {
+  fit();
   newGame();
   api.play('game_hurry_up_end');
   api.play('music_start_ingame');
@@ -1872,12 +1879,9 @@ function start(waveNum = 0) {
   if (!raf) raf = requestAnimationFrame(frame);
 }
 
-function startTutorial() {
-  start(0);
+if (el('btnSkipTut')) {
+  el('btnSkipTut').addEventListener('click', ev => { ev.currentTarget.blur(); start(1); });
 }
-
-el('btnTut').addEventListener('click', ev => { ev.currentTarget.blur(); startTutorial(); });
-el('btnSkipTut').addEventListener('click', ev => { ev.currentTarget.blur(); start(1); });
 buildElfPicker();
 el('btnStart').addEventListener('click', ev => { ev.currentTarget.blur(); start(shortcutWave || 0); });
 
@@ -1932,6 +1936,7 @@ fit(); newGame(); S.mode = 'idle';
 if (hasTuneFlag(null)) initTunePanel();
 raf = requestAnimationFrame(frame);
 api.ready(data => {
+  fit();
   api.play('qd_load_sounds');
   if (hasTuneFlag(data)) initTunePanel();
   shortcutWave = parseWaveShortcut(data);
