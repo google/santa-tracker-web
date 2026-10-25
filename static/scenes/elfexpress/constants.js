@@ -17,6 +17,176 @@
 import '../../src/magic.js';
 import { _msg } from '../../src/magic.js';
 
+// ============================================================================
+// GAMEPLAY & WAVE SETTINGS (Tune all difficulty, timing, and wave numbers here)
+// ============================================================================
+
+export const TUNE = {
+  baseRunSpeed: 1200,      // Original 100% elf horizontal run speed (px/s)
+  baseClimbSpeed: 700,     // Original 100% elf ladder climb speed (px/s)
+  speedPct: 100,           // Current elf speed as % of base (100%)
+  runSpeed: 1200,          // Elf horizontal run speed at 100% (px/s)
+  climbSpeed: 700,         // Elf ladder climb speed at 100% (px/s)
+  teeterTime: 2.40,        // Default teeter time fallback (s)
+  fallTime: 0.34,          // Fall duration from belt edge to floor (s)
+  humanTimePerGift: 0.60,  // Playable check: 0.6s per gift to see toy, choose chute, and tap twice
+  reactionTime: 0.30,      // 0.30s per tap x 2 taps = 0.60s per gift
+  minSpareByWave: [0.60, 0.60, 0.60, 0.60, 0.60, 0.60, 0.60], // Minimum spare time per gift (0.60s rule)
+  recycleLimit: 15,        // Recycled gifts before Game Over — unchanged
+  relaxTime: 3.0,          // 3s break between levels after a sleigh fills (with "Phew!" cue)
+  sleighFlyTime: 1.8,      // Sleigh + reindeer takeoff & glide-back duration during the 3s break (s)
+  dualToysFromWave: 4,     // Sleigh (1-7) that introduces second toys at level start (Sleigh 4)
+  twoHands: true,          // Feature flag: two-hand carrying (enabled from Sleigh 6)
+  sackFromWave: 6,         // Sleigh (1-7) where two-hand carrying starts (Sleigh 6)
+  hurryMusicFromWave: 7,   // Sleigh (1-7) that starts game_hurry_up music at level start (Sleigh 7 only)
+  basePoints: 100,
+  sleighBonus: 400,
+  comboStep: 4,
+  comboMax: 5,
+  starGood: 4,
+  starOk: 9,
+};
+
+export const GUST = {
+  warnTime: 0.85,          // Short visual warning duration before a wind gust hits (s)
+  dur: 1.50,               // Active wind gust duration (s)
+  front: 0.45,             // Time for wind front to sweep across the workshop (s)
+  beltMul: 1.70,           // Belt speed multiplier when a gust pushes gifts
+};
+
+// 7 sleighs (~3 minutes total). Each level is steady flow -> speed-up -> burst until sleigh is full -> 3s break.
+export const WAVES = [
+  {
+    wave: 1,
+    floors: 2,
+    startFloors: 2,
+    pulses: 1,
+    flowCount: 4,
+    flowGap: 2.40,
+    speedUpCount: 0,
+    speedUpGap: 2.40,
+    burstSize: 0,
+    burstGap: 2.40,
+    breathe: 3.0,
+    teeter: 2.40,
+    gustOnBurst: false,
+  },
+  {
+    wave: 2,
+    floors: 5,
+    startFloors: 2,
+    progressiveFloors: [
+      { atGift: 0, floors: 3 },
+      { atGift: 2, floors: 4 },
+      { atGift: 4, floors: 5 },
+    ],
+    pulses: 1,
+    flowCount: 3,
+    flowGap: 2.60,
+    speedUpCount: 3,
+    speedUpGap: 2.20,
+    burstSize: 2,
+    burstGap: 1.80,
+    breathe: 3.0,
+    teeter: 2.35,
+    gustOnBurst: false,
+  },
+  {
+    wave: 3,
+    floors: 5,
+    startFloors: 5,
+    pulses: 1,
+    flowCount: 3,
+    flowGap: 2.40,
+    speedUpCount: 3,
+    speedUpGap: 2.00,
+    burstSize: 3,
+    burstGap: 1.50,
+    breathe: 3.0,
+    teeter: 2.30,
+    gustOnBurst: false,
+  },
+  {
+    wave: 4,
+    floors: 5,
+    startFloors: 5,
+    pulses: 1,
+    flowCount: 4,
+    flowGap: 2.20,
+    speedUpCount: 3,
+    speedUpGap: 1.80,
+    burstSize: 3,
+    burstGap: 1.40,
+    breathe: 3.0,
+    teeter: 2.20,
+    gustOnBurst: false,
+  },
+  {
+    wave: 5,
+    floors: 5,
+    startFloors: 5,
+    pulses: 1,
+    flowCount: 4,
+    flowGap: 2.10,
+    speedUpCount: 4,
+    speedUpGap: 1.70,
+    burstSize: 3,
+    burstGap: 1.30,
+    breathe: 3.0,
+    teeter: 2.15,
+    gustOnBurst: false,
+  },
+  {
+    wave: 6,
+    floors: 5,
+    startFloors: 5,
+    pulses: 1,
+    flowCount: 4,
+    flowGap: 2.10,
+    speedUpCount: 4,
+    speedUpGap: 1.70,
+    burstSize: 4,
+    burstGap: 1.30,
+    breathe: 3.0,
+    teeter: 2.10,
+    gustOnBurst: true,
+  },
+  {
+    wave: 7,
+    floors: 5,
+    startFloors: 5,
+    pulses: 1,
+    flowCount: 5,
+    flowGap: 1.90,
+    speedUpCount: 4,
+    speedUpGap: 1.50,
+    burstSize: 4,
+    burstGap: 1.10,
+    breathe: 3.0,
+    teeter: 2.00,
+    gustOnBurst: true,
+  },
+];
+
+// Sleigh capacity per level equals that level's total gifts: [4, 8, 9, 10, 11, 12, 13]
+export const SLEIGHS = WAVES.map(w => w.flowCount + (w.speedUpCount || 0) + w.burstSize);
+
+// Snowfall intensity spread over the 7 sleighs (sleighsDone 0..6)
+export const SNOW = [
+  { at: 0, fall: 0.10 },
+  { at: 1, fall: 0.25 },
+  { at: 2, fall: 0.45 },
+  { at: 3, fall: 0.75 },
+  { at: 4, fall: 1.15 },
+  { at: 5, fall: 1.65 },
+  { at: 6, fall: 2.20 },
+];
+export const SNOW_PILE = 0.048;
+
+// ============================================================================
+// ASSETS, LAYOUT & SCENE CONSTANTS
+// ============================================================================
+
 export const ELVES = [
   { id: 'elf1', front: { w: 267.2, h: 560.6, src: 'img/elf-1-front.svg' }, side: { w: 173.6, h: 522.8, src: 'img/elf-1-side.svg' } },
   { id: 'elf2', front: { w: 236.6, h: 404.0, src: 'img/elf-2-front.svg' }, side: { w: 150.2, h: 382.4, src: 'img/elf-2-side.svg' } },
@@ -36,66 +206,6 @@ export const ENDING = {
   big: _msg`elfexpress_win_big`,
   small: _msg`elfexpress_win_small`,
 };
-
-// Core player movement, teeter window, fail threshold, and scoring constants.
-export const TUNE = {
-  runSpeed: 1200,
-  climbSpeed: 700,
-  teeterTime: 2.40,
-  fallTime: 0.34,
-  recycleLimit: 15,
-  basePoints: 100,
-  sleighBonus: 400,
-  comboStep: 4,
-  comboMax: 5,
-  starGood: 4,
-  starOk: 9,
-};
-
-// Gifts needed to fill and launch each of the 9 sleighs (sleighsDone 0..8).
-export const SLEIGHS = [4, 5, 6, 7, 8, 9, 10, 11, 12];
-
-// Snowfall intensity by sleighsDone (0..8): stays calm across Sleighs 1-3 (0.10-0.26),
-// jumps noticeably at Sleigh 4 (at: 3 -> 0.90) when the 5th floor opens, then climbs to 2.40.
-export const SNOW = [
-  { at: 0, fall: 0.10 },
-  { at: 1, fall: 0.18 },
-  { at: 2, fall: 0.26 },
-  { at: 3, fall: 0.90 },
-  { at: 4, fall: 1.15 },
-  { at: 5, fall: 1.45 },
-  { at: 6, fall: 1.75 },
-  { at: 7, fall: 2.10 },
-  { at: 8, fall: 2.40 },
-];
-export const SNOW_PILE = 0.048;
-
-// Wind gusts begin at Sleigh 6 (sleighsDone 5), one sleigh after the Sleigh 5 second-icon reveal,
-// and grow more frequent toward Sleigh 9.
-export const GUST = {
-  fromSleigh: 5,
-  gapEarly: [5.5, 9.0],
-  gapLate: [3.0, 5.5],
-  dur: 2.4,
-  front: 0.8,
-  beltMul: 1.7,
-  teeterBonus: 0.80,
-};
-
-// Per-sleigh wave tuning (sleighsDone 0..8): opens one new floor/category per sleigh on Sleighs 2-4
-// (reaching all 5 floors on Sleigh 4), while spawn intervals step down ~5.3% per sleigh from 2.40s
-// on Sleigh 1 to 1.55s on Sleigh 9 (above the ~1.475s expected 5-floor round trip).
-export const WAVES = [
-  { interval: 2.40, floors: 2, weights: [50, 50, 0, 0, 0] },
-  { interval: 2.27, floors: 3, weights: [36, 34, 30, 0, 0] },
-  { interval: 2.15, floors: 4, weights: [26, 26, 25, 23, 0] },
-  { interval: 2.04, floors: 5, weights: [20, 20, 20, 20, 20] },
-  { interval: 1.93, floors: 5, weights: [20, 20, 20, 20, 20] },
-  { interval: 1.83, floors: 5, weights: [19, 20, 20, 20, 21] },
-  { interval: 1.73, floors: 5, weights: [17, 19, 20, 22, 22] },
-  { interval: 1.64, floors: 5, weights: [15, 18, 20, 23, 24] },
-  { interval: 1.55, floors: 5, weights: [14, 17, 20, 23, 26] },
-];
 
 export const SKIN_TONES = ['#FADCBC', '#E0BB95', '#BF8F68', '#9B643D', '#584539'];
 
@@ -149,8 +259,15 @@ export const BIN_X = 664, BIN_Y = 664;
 export const SLEIGH_X = 760, SLEIGH_Y = 596;
 export const DEER_X = 848, DEER_Y = 605, DEER_S = 1.55;
 export const GEAR = {
-  appear: 1, scarf: 2, goggles: 3, sneakers: 4,
-  bells: 5, blanket: 6, lights: 7, hat: 8, nose: 9,
+  appear: 0,
+  scarf: 0,
+  goggles: 1,
+  sneakers: 2,
+  bells: 3,
+  blanket: 4,
+  lights: 4,
+  hat: 5,
+  nose: 6,
 };
 
 export const ELF_MIN_X = 72, ELF_MAX_X = 598;
@@ -167,7 +284,7 @@ export const chuteY = f => feetY(f) - 30;
 export const carryY = f => feetY(f) - CARRY_OFF;
 
 export function unlockSleigh(f) {
-  for (let i = 0; i < WAVES.length; i++) if (WAVES[i].floors > f) return i + 1;
+  for (let i = 0; i < WAVES.length; i++) if ((WAVES[i].floors || 2) > f) return i + 1;
   return WAVES.length;
 }
 export const OPENS_AT_LABELS = [0, 1, 2, 3, 4].map(f => msgOpensAtSleigh(unlockSleigh(f)));
@@ -265,23 +382,50 @@ export function takeoffPath(k) {
   return { x: 6 + e * 236, y: 168 - e * 150 };
 }
 
+// Diner Dash style 5-step tutorial at the start of Wave 1:
+// 1. Intro box (OK)
+// 2. First toy teeters -> "Tap the conveyor to catch the toy." (continues when caught, arrow on belt)
+// 3. "Now drop it in the matching chute so it gets the right wrapping." (continues when delivered, arrow on chute)
+// 4. One toy teeters and falls on purpose -> "Be careful! Sometimes you can't catch them all." (OK)
+// 5. Toy goes to recycler & recycler flashes -> "Missed toys go to the recycler. You can miss up to 15 and still load the sleighs." (OK -> wave starts)
 export const TUT = [
-  { go: 'tap', hole: null, t: _msg`elfexpress_tut_1_t`, b: [_msg`elfexpress_tut_1_b1`, _msg`elfexpress_tut_1_b2`] },
-  { go: 'belt', f: 0, hole: 'belt', t: _msg`elfexpress_tut_2_t`, b: [_msg`elfexpress_tut_2_b1`, _msg`elfexpress_tut_2_b2`] },
-  { go: 'chute', f: 1, hole: 'chute1', t: _msg`elfexpress_tut_3_t`, b: [_msg`elfexpress_tut_3_b1`, _msg`elfexpress_tut_3_b2`] },
-  { go: 'sleigh', hole: 'sleigh', t: _msg`elfexpress_tut_4_t`, b: [_msg`elfexpress_tut_4_b1`, _msg`elfexpress_tut_4_b2`] },
-  { go: 'belt', f: 0, hole: 'belt', spawn: 0, t: _msg`elfexpress_tut_5_t`, b: [_msg`elfexpress_tut_5_b1`, _msg`elfexpress_tut_5_b2`] },
-  { go: 'chute', f: 1, hole: 'chute1', t: _msg`elfexpress_tut_6_t`, b: [_msg`elfexpress_tut_6_b1`, _msg`elfexpress_tut_6_b2`] },
-  { go: 'bin', hole: 'bin', t: _msg`elfexpress_tut_7_t`, b: [_msg`elfexpress_tut_7_b1`, _msg`elfexpress_tut_7_b2`] },
-  { go: 'tap', hole: 'bin', t: '', b: [_msg`elfexpress_tut_8_b1`] },
-  { go: 'belt', f: 0, hole: 'belt', spawn: 0, t: _msg`elfexpress_tut_9_t`, b: [_msg`elfexpress_tut_9_b1`] },
-  { go: 'chute', f: 0, hole: 'chute0', t: '', b: [_msg`elfexpress_tut_10_b1`] },
-  { go: 'done', hole: 'sleigh', t: _msg`elfexpress_tut_11_t`, b: [] },
-  { go: 'tap', hole: 'reindeer', t: _msg`elfexpress_tut_12_t`, b: [_msg`elfexpress_tut_12_b1`, _msg`elfexpress_tut_12_b2`] },
-  { go: 'tap', hole: 'reindeer', gear: true, t: _msg`elfexpress_tut_13_t`, b: [_msg`elfexpress_tut_13_b1`] },
-  { go: 'tap', hole: 'chute2', treats: true, t: _msg`elfexpress_tut_14_t`, b: [_msg`elfexpress_tut_14_b1`] },
-  { go: 'tap', hole: null, gust: true, t: _msg`elfexpress_tut_15_t`, b: [_msg`elfexpress_tut_15_b1`, _msg`elfexpress_tut_15_b2`] },
+  {
+    step: 1,
+    go: 'ok',
+    ok: true,
+    text: 'Help the elves sort the toys so they can be wrapped!',
+  },
+  {
+    step: 2,
+    go: 'belt',
+    f: 0,
+    ok: false,
+    text: 'Tap the conveyor to catch the toy.',
+  },
+  {
+    step: 3,
+    go: 'chute',
+    f: 1,
+    ok: false,
+    text: 'Now drop it in the matching chute so it gets the right wrapping.',
+  },
+  {
+    step: 4,
+    go: 'ok',
+    ok: true,
+    text: "Be careful! Sometimes you can't catch them all.",
+  },
+  {
+    step: 5,
+    go: 'ok',
+    ok: true,
+    get text() {
+      return `Missed toys go to the recycler. You can miss up to ${TUNE.recycleLimit} and still load the sleighs.`;
+    },
+  },
 ];
+
+export const TWO_HANDS_TEXT = 'Now you can carry two toys!';
 
 export function tutHole(h) {
   if (h === 'belt') return [BUILD_X0, feetY(0) - FLOOR_H, TAP_SPLIT - BUILD_X0, FLOOR_H];

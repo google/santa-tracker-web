@@ -25,7 +25,7 @@ import {
   ELF_H, GIFT_R, BOX_X, BOX_Y, BOX_W, BOX_H, PAD_TOP, PAD_BOT, PAD_SIDE,
   feetY, beltY, chuteY, carryY, STARS_BG, HILLS_BG,
   PXS, CWS, CHS, GYS, PXC, SPR_SLEIGH, SPR_DEER_A, SPR_DEER_B,
-  CITY_FAR, CITY, MOON_X, MOON_Y, MOON_R, takeoffPath, TUT, tutHole,
+  CITY_FAR, CITY, MOON_X, MOON_Y, MOON_R, takeoffPath, TUT, TWO_HANDS_TEXT, tutHole,
 } from './constants.js';
 
 export const cv = document.getElementById('game');
@@ -470,6 +470,7 @@ function drawGift(g2, g) {
   g2.save();
   if (g.state === 'belt' && g.x < 44) { g2.beginPath(); g2.rect(18, 0, W, H); g2.clip(); }
   g2.translate(g.x, g.y);
+  if (g.state === 'inBin') g2.scale(0.80, 0.80);
   if (g.tilt) g2.rotate(g.tilt);
   if (g.spin && (g.state === 'toBin' || g.state === 'landed')) g2.rotate(Math.sin(g.spin) * 0.28);
   if (g.wrapped) drawWrapped(g2, 0, 0, 0.92, CATS[g.cat].color);
@@ -484,7 +485,7 @@ function drawGift(g2, g) {
   g2.restore();
 }
 
-function drawElf(g2, e, elfChoice) {
+function drawElf(g2, S, e, elfChoice) {
   const d = ELVES[elfChoice] || ELVES[0];
   const pics = ELF_IMG[elfChoice] || ELF_IMG[0];
   const moving = e.bob !== 0 || e.climbing;
@@ -494,11 +495,47 @@ function drawElf(g2, e, elfChoice) {
   const k = Math.min(ELF_H / d.front.h, 50 / d.front.w);
   const w = v.w * k, h = v.h * k;
   const hop = e.climbing ? -Math.abs(Math.sin(e.bob)) * 2 : (moving ? -Math.abs(Math.sin(e.bob)) * 3 : 0);
+  const resting = Boolean(S && S.relaxT > 0 && !moving && !e.climbing && !reduceMotion);
+  const bPhase = resting ? (S.t || 0) * 3.8 : 0;
+  const bSin = resting ? Math.sin(bPhase) : 0;
+
   g2.save();
   g2.translate(e.x, e.y + hop);
+  if (resting) {
+    // Gentle squash and stretch anchored at the feet while catching breath
+    g2.scale(1 - 0.028 * bSin, 1 + 0.036 * bSin);
+  }
   if (moving && e.facing < 0) g2.scale(-1, 1);
   g2.drawImage(im, -w / 2, -h, w, h);
   g2.restore();
+
+  // Small frosty breath puff on each breath out during the break
+  if (resting) {
+    const cyc = ((bPhase % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+    // Exhale occurs as sin(bPhase) falls from +1 to -1 (cyc in [PI/2, 3*PI/2])
+    if (cyc >= Math.PI * 0.45 && cyc <= Math.PI * 1.45) {
+      const p = (cyc - Math.PI * 0.45) / Math.PI;
+      const alpha = Math.sin(p * Math.PI) * 0.72;
+      const dir = e.facing >= 0 ? 1 : -1;
+      const mx0 = e.x + dir * 7;
+      const my0 = e.y - h * 0.77;
+      g2.save();
+      for (let i = 0; i < 3; i++) {
+        const ip = Math.min(1, Math.max(0, p - i * 0.12));
+        if (ip <= 0) continue;
+        const px = mx0 + dir * (4 + ip * 16 + i * 3.5);
+        const py = my0 - ip * 8 - i * 2;
+        const pr = 2.4 + ip * 3.4 + i * 0.8;
+        g2.fillStyle = i === 0
+          ? `rgba(255,255,255,${(alpha * 0.85).toFixed(3)})`
+          : `rgba(224,242,254,${(alpha * 0.65).toFixed(3)})`;
+        g2.beginPath();
+        g2.arc(px, py, pr, 0, Math.PI * 2);
+        g2.fill();
+      }
+      g2.restore();
+    }
+  }
 }
 
 function drawPadlock(g2, x, y, s) {
@@ -513,7 +550,8 @@ function drawPadlock(g2, x, y, s) {
 function drawFloorBelt(g2, S, f) {
   const by = beltY(f);
   g2.fillStyle = '#D8DDE2';
-  const shift = (S.t * 58) % 32;
+  const bt = S.beltAnimT !== undefined ? S.beltAnimT : S.t;
+  const shift = (bt * 58) % 32;
   for (let bx = BUILD_X0 - 26 + shift; bx < TEETER_X + 8; bx += 32) {
     if (bx < BUILD_X0 - 24) continue;
     g2.beginPath(); g2.arc(bx, by + 10, 4, 0, 7); g2.fill();
@@ -612,6 +650,28 @@ function wrapText(g2, txt, maxW) {
   return lines;
 }
 
+function getGuideTargets(S) {
+  let beltFloor = -1;
+  let chuteFloor = -1;
+  let beltGift = null;
+
+  // Bouncing arrows for tutorial steps 2 (belt) and 3 (chute), plus once on one matching chute the first time holding 2 gifts
+  if (S.tut === 2 && S.tutBoxUp) {
+    beltGift = S.gifts.find(g => g.tutGift) || S.gifts[0] || null;
+    beltFloor = beltGift ? beltGift.belt : 0;
+  } else if (S.tut === 3 && S.tutBoxUp) {
+    const bag = (S.elf && S.elf.bag) || [];
+    chuteFloor = bag.length ? bag[0].cat : 1;
+  } else if (!S.tut && TUNE.twoHands && S.twoHandsArrowChute !== undefined && S.twoHandsArrowChute >= 0) {
+    const bag = (S.elf && S.elf.bag) || [];
+    if (bag.length === 2) {
+      chuteFloor = S.twoHandsArrowChute;
+    }
+  }
+
+  return { beltFloor, chuteFloor, beltGift };
+}
+
 function drawWorkshop(g2, S, floors) {
   if (S.snowDepth > 0.01) {
     g2.save(); g2.globalAlpha = 0.95;
@@ -624,7 +684,10 @@ function drawWorkshop(g2, S, floors) {
     g2.stroke(); g2.restore();
   }
 
-  const carrying = !!S.elf.carrying;
+  const bag = S.elf.bag || (S.elf.carrying ? [S.elf.carrying] : []);
+  const carrying = bag.length > 0;
+  const canCarryMore = bag.length < (S.carryCap || 1);
+  const guide = getGuideTargets(S);
 
   for (let f = 0; f < 5; f++) {
     const y = feetY(f), open = f < floors;
@@ -635,25 +698,30 @@ function drawWorkshop(g2, S, floors) {
       const lby = chuteY(f) - CHUTE_BH / 2;
       g2.fillStyle = '#FFFFFF'; g2.strokeStyle = '#74797E'; g2.lineWidth = 2;
       g2.beginPath(); g2.roundRect(CHUTE_BX, lby, CHUTE_BW, CHUTE_BH, 13); g2.fill(); g2.stroke();
-      drawPadlock(g2, CHUTE_BX + 28, lby + CHUTE_BH / 2, 1.1);
-      g2.fillStyle = '#1D1D1D'; g2.textAlign = 'left';
-      drawFitText(g2, OPENS_AT_LABELS[f], CHUTE_BX + 50, lby + CHUTE_BH / 2 + 4, 146, 12, 9);
+      if (OPENS_AT_LABELS[f]) {
+        drawPadlock(g2, CHUTE_BX + 28, lby + CHUTE_BH / 2, 1.1);
+        g2.fillStyle = '#1D1D1D'; g2.textAlign = 'left';
+        drawFitText(g2, OPENS_AT_LABELS[f], CHUTE_BX + 50, lby + CHUTE_BH / 2 + 4, 146, 12, 9);
+      } else {
+        drawPadlock(g2, CHUTE_BX + CHUTE_BW / 2, lby + CHUTE_BH / 2, 1.25);
+      }
       continue;
     }
 
     const beltSel = S.cmd && S.cmd.type === 'belt' && S.cmd.floor === f;
     const beltQ = S.queue && S.queue.type === 'belt' && S.queue.floor === f;
-    const liveHere = !carrying && S.gifts.some(g => g.belt === f &&
+    const tutBeltGlow = guide.beltFloor === f;
+    const liveHere = canCarryMore && S.gifts.some(g => g.belt === f &&
       (g.state === 'belt' || g.state === 'teeter' || g.state === 'falling'));
-    if (beltSel || S.beltPulse[f] > 0) {
-      g2.fillStyle = beltSel ? 'rgba(43,127,217,.16)' : 'rgba(42,157,92,.16)';
+    if (beltSel || tutBeltGlow || S.beltPulse[f] > 0) {
+      g2.fillStyle = tutBeltGlow ? 'rgba(253,224,71,.24)' : (beltSel ? 'rgba(43,127,217,.16)' : 'rgba(42,157,92,.16)');
       g2.beginPath(); g2.roundRect(BUILD_X0 + 6, y - FLOOR_H + 6, TAP_SPLIT - BUILD_X0 - 14, FLOOR_H - 12, 10);
       g2.fill();
     }
-    if (beltSel || (liveHere && !carrying)) {
-      g2.strokeStyle = beltSel ? '#3399FF'
-        : 'rgba(43,127,217,' + (reduceMotion ? 0.55 : (0.32 + 0.38 * Math.abs(Math.sin(S.t * 3.5)))) + ')';
-      g2.lineWidth = beltSel ? 3 : 2.4;
+    if (beltSel || tutBeltGlow || (liveHere && canCarryMore)) {
+      g2.strokeStyle = tutBeltGlow ? '#FDE047' : (beltSel ? '#3399FF'
+        : 'rgba(43,127,217,' + (reduceMotion ? 0.55 : (0.32 + 0.38 * Math.abs(Math.sin(S.t * 3.5)))) + ')');
+      g2.lineWidth = (beltSel || tutBeltGlow) ? 3.2 : 2.4;
       g2.beginPath(); g2.roundRect(BUILD_X0 + 6, y - FLOOR_H + 6, TAP_SPLIT - BUILD_X0 - 14, FLOOR_H - 12, 10);
       g2.stroke();
     }
@@ -675,7 +743,8 @@ function drawWorkshop(g2, S, floors) {
     }
 
     const sel = S.cmd && S.cmd.type === 'chute' && S.cmd.floor === f;
-    const match = S.revealed && carrying && S.elf.carrying.cat === f;
+    const tutChuteGlow = guide.chuteFloor === f;
+    const match = tutChuteGlow || (carrying && bag.some(g => g.cat === f));
     const hi = sel || match;
     const q = S.queue && S.queue.type === 'chute' && S.queue.floor === f;
     const cyy = chuteY(f), by2 = cyy - CHUTE_BH / 2;
@@ -685,7 +754,7 @@ function drawWorkshop(g2, S, floors) {
     const popElapsed = Math.max(0, popDur - popT);
     const blink = !reduceMotion && popT > 0 && Math.sin(popElapsed * Math.PI * 3.5) > 0;
 
-    if ((!carrying || (S.revealed && !match)) && !hi && pulse <= 0 && popT <= 0) {
+    if ((!carrying || !match) && !hi && pulse <= 0 && popT <= 0) {
       g2.fillStyle = 'rgba(255,255,255,.18)';
       g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.fill();
     }
@@ -704,7 +773,7 @@ function drawWorkshop(g2, S, floors) {
       g2.beginPath(); g2.roundRect(CHUTE_BX - 3, by2 - 3, CHUTE_BW + 6, CHUTE_BH + 6, 15);
       g2.stroke(); g2.setLineDash([]);
     }
-    if (match || (!S.revealed && carrying && !S.cmd)) {
+    if (match) {
       g2.strokeStyle = 'rgba(255,255,255,' + (reduceMotion ? 0.75 : (0.4 + 0.5 * Math.abs(Math.sin(S.t * 3.5)))) + ')';
       g2.lineWidth = 3;
       g2.beginPath(); g2.roundRect(CHUTE_BX - 3, by2 - 3, CHUTE_BW + 6, CHUTE_BH + 6, 15); g2.stroke();
@@ -740,11 +809,63 @@ function drawWorkshop(g2, S, floors) {
   }
 }
 
+function drawSleighAndReindeer(g2, S, giftsCount, dx, dy, rot, alpha, hasStar = true) {
+  if (alpha <= 0.001) return;
+  const SK = 1.1, sw = PROPS.sleigh.w * SK, sh = PROPS.sleigh.h * SK;
+  const sx = SLEIGH_X - sw / 2, sy = SLEIGH_Y + 36 - sh;
+  g2.save();
+  g2.globalAlpha = Math.min(1, Math.max(0, alpha));
+  g2.translate(SLEIGH_X + dx, SLEIGH_Y + dy);
+  if (rot) g2.rotate(rot);
+  g2.translate(-SLEIGH_X, -SLEIGH_Y);
+  if (S.mode === 'hitch' && PROPS.santa.img.complete) g2.drawImage(PROPS.santa.img, sx, sy, sw, sh);
+  const nGifts = Math.min(giftsCount || 0, 12);
+  for (let i = 0; i < nGifts; i++) {
+    drawWrapped(g2, SLEIGH_X - 22 + (i % 4) * 20, SLEIGH_Y - 12 - Math.floor(i / 4) * 14, 0.38, CATS[i % 5].color);
+  }
+  if (PROPS.sleigh.img.complete) g2.drawImage(PROPS.sleigh.img, sx, sy, sw, sh);
+  // Sleigh star badge (earned if wave has 0 misses)
+  g2.save();
+  g2.font = "bold 20px 'Google Sans',sans-serif";
+  g2.textAlign = 'center';
+  g2.textBaseline = 'middle';
+  if (hasStar) {
+    g2.shadowColor = '#FDE047';
+    g2.shadowBlur = 8;
+    g2.strokeStyle = '#92400E';
+    g2.lineWidth = 3.5;
+    g2.strokeText('★', SLEIGH_X + 34, SLEIGH_Y - 10);
+    g2.fillStyle = '#FFE14D';
+    g2.fillText('★', SLEIGH_X + 34, SLEIGH_Y - 10);
+  } else {
+    g2.strokeStyle = 'rgba(15,23,42,.6)';
+    g2.lineWidth = 3;
+    g2.strokeText('☆', SLEIGH_X + 34, SLEIGH_Y - 10);
+    g2.fillStyle = 'rgba(255,255,255,.55)';
+    g2.fillText('☆', SLEIGH_X + 34, SLEIGH_Y - 10);
+  }
+  g2.restore();
+  drawReindeer(g2, S);
+  g2.restore();
+}
+
 function drawLines(g2, S, floors, sleighTargetVal) {
   g2.lineCap = 'round'; g2.lineJoin = 'round';
   for (let f = 4; f >= 0; f--) drawSorter(g2, S, f, f < floors);
 
   drawDrift(g2, BIN_X - 37, BIN_X + 37, BIN_Y - 18, S.snowDepth * 0.85, false);
+  if (S.binPulse && S.binPulse > 0) {
+    g2.save();
+    const bp = reduceMotion ? 0.8 : (0.5 + 0.5 * Math.abs(Math.sin(S.t * 10)));
+    g2.fillStyle = 'rgba(253,224,71,' + (0.28 * bp) + ')';
+    g2.strokeStyle = '#FDE047';
+    g2.lineWidth = 3.5;
+    g2.beginPath();
+    g2.roundRect(BIN_X - 48, BIN_Y - 46, 96, 80, 14);
+    g2.fill();
+    g2.stroke();
+    g2.restore();
+  }
   g2.strokeStyle = '#FFFFFF'; g2.lineWidth = 2.6; g2.lineCap = 'round';
   g2.beginPath(); g2.moveTo(BIN_X - 9, BIN_Y + 2); g2.lineTo(BIN_X, BIN_Y - 7);
   g2.lineTo(BIN_X + 9, BIN_Y + 2); g2.stroke();
@@ -752,41 +873,108 @@ function drawLines(g2, S, floors, sleighTargetVal) {
 
   const frac = Math.min(1, S.recycled / TUNE.recycleLimit);
   const fw = 84, fh = 9, fx = BIN_X - fw / 2, fy = BIN_Y - 38;
+  const bShake = (S.binShake && S.binShake > 0 && !reduceMotion) ? S.binShake : 0;
+  const bxOff = bShake > 0 ? Math.sin(S.t * 48) * 5.5 * bShake : 0;
+  const byOff = bShake > 0 ? Math.cos(S.t * 36) * 2.5 * bShake : 0;
+  g2.save();
+  if (bShake > 0) g2.translate(bxOff, byOff);
   g2.fillStyle = 'rgba(255,255,255,.9)'; g2.beginPath(); g2.roundRect(fx, fy, fw, fh, 5); g2.fill();
-  g2.fillStyle = frac > 0.75 ? '#FF3333' : frac > 0.5 ? '#FF7733' : '#32A658';
-  g2.beginPath(); g2.roundRect(fx, fy, Math.max(3, fw * frac), fh, 5); g2.fill();
-  g2.font = "bold 13px 'Google Sans',sans-serif"; g2.textAlign = 'center';
+  if (S.recycled > 0) {
+    const fillW = Math.max(6, fw * frac);
+    g2.fillStyle = (S.binPulse && S.binPulse > 0) ? '#FF3333' : (frac > 0.75 ? '#FF3333' : frac > 0.5 ? '#FF7733' : '#32A658');
+    g2.beginPath(); g2.roundRect(fx, fy, fillW, fh, 5); g2.fill();
+    if (bShake > 0 || (S.binPulse && S.binPulse > 0)) {
+      g2.strokeStyle = '#FDE047'; g2.lineWidth = 2;
+      g2.beginPath(); g2.roundRect(fx - 1, fy - 1, fillW + 2, fh + 2, 5); g2.stroke();
+    }
+  }
+  g2.font = (bShake > 0 ? "bold 14px 'Google Sans',sans-serif" : "bold 13px 'Google Sans',sans-serif");
+  g2.textAlign = 'center';
   g2.strokeStyle = 'rgba(15,23,42,.75)'; g2.lineWidth = 3;
   g2.strokeText(S.recycled + ' / ' + TUNE.recycleLimit, BIN_X, BIN_Y + 22);
-  g2.fillStyle = '#FFFFFF';
+  g2.fillStyle = (bShake > 0 || (S.binPulse && S.binPulse > 0)) ? '#FDE047' : '#FFFFFF';
   g2.fillText(S.recycled + ' / ' + TUNE.recycleLimit, BIN_X, BIN_Y + 22);
+  g2.restore();
 
-  const SK = 1.1, sw = PROPS.sleigh.w * SK, sh = PROPS.sleigh.h * SK;
-  const sx = SLEIGH_X - sw / 2, sy = SLEIGH_Y + 36 - sh;
-  if (S.mode === 'hitch' && PROPS.santa.img.complete) g2.drawImage(PROPS.santa.img, sx, sy, sw, sh);
-  for (let i = 0; i < Math.min(S.inSleigh, 12); i++) {
-    drawWrapped(g2, SLEIGH_X - 22 + (i % 4) * 20, SLEIGH_Y - 12 - Math.floor(i / 4) * 14, 0.38, CATS[i % 5].color);
+  const curWaveHasStar = (S.waveRecycled || 0) === 0;
+  if (S.sleighFlyT > 0) {
+    const flyDur = S.sleighFlyDur || TUNE.sleighFlyTime || TUNE.relaxTime || 1.5;
+    const prog = Math.min(1, Math.max(0, 1 - S.sleighFlyT / flyDur));
+    const depStar = S.lastSleighStar !== undefined ? S.lastSleighStar : true;
+    if (reduceMotion) {
+      if (prog < 0.5) {
+        drawSleighAndReindeer(g2, S, S.sleighFlyGifts || 10, 0, 0, 0, 1 - prog * 2, depStar);
+      } else {
+        drawSleighAndReindeer(g2, S, S.inSleigh, 0, 0, 0, (prog - 0.5) * 2, curWaveHasStar);
+      }
+    } else if (prog < 0.52) {
+      const p1 = prog / 0.52;
+      const e1 = p1 * p1;
+      const dx = e1 * 340;
+      const dy = -e1 * 260;
+      const rot = -0.16 * Math.sin(p1 * Math.PI * 0.5);
+      const alpha = p1 > 0.82 ? (1 - p1) / 0.18 : 1;
+      drawSleighAndReindeer(g2, S, S.sleighFlyGifts || 10, dx, dy, rot, alpha, depStar);
+    } else {
+      const p2 = (prog - 0.52) / 0.48;
+      const rem = Math.pow(1 - p2, 3);
+      const dx = rem * 260;
+      const dy = -rem * 80;
+      const rot = -0.08 * rem;
+      const alpha = Math.min(1, p2 / 0.22);
+      drawSleighAndReindeer(g2, S, S.inSleigh, dx, dy, rot, alpha, curWaveHasStar);
+    }
+  } else {
+    drawSleighAndReindeer(g2, S, S.inSleigh, 0, 0, 0, 1, curWaveHasStar);
   }
-  if (PROPS.sleigh.img.complete) g2.drawImage(PROPS.sleigh.img, sx, sy, sw, sh);
 
+  // Sleigh counter showing "Sleigh X of 7" and gifts in sleigh
+  const sleighNum = Math.min(SLEIGHS.length, (S.sleighsDone || 0) + 1);
   g2.fillStyle = 'rgba(255,255,255,.96)'; g2.strokeStyle = '#D92626';
   g2.lineWidth = 1.8;
-  g2.beginPath(); g2.roundRect(SLEIGH_X - 25, SLEIGH_Y + 3, 50, 18, 9);
+  g2.beginPath(); g2.roundRect(SLEIGH_X - 48, SLEIGH_Y - 2, 96, 32, 10);
   g2.fill(); g2.stroke();
-  g2.textAlign = 'center'; g2.fillStyle = '#1D1D1D';
+  g2.textAlign = 'center';
+  g2.fillStyle = '#B91C1C';
+  g2.font = "bold 10px 'Google Sans',sans-serif";
+  g2.fillText(`Sleigh ${sleighNum} of ${SLEIGHS.length}`, SLEIGH_X, SLEIGH_Y + 9);
+  g2.fillStyle = '#1D1D1D';
   g2.font = "bold 13px 'Google Sans',sans-serif";
-  g2.fillText(S.inSleigh + ' / ' + sleighTargetVal, SLEIGH_X, SLEIGH_Y + 16);
+  g2.fillText(S.inSleigh + ' / ' + sleighTargetVal, SLEIGH_X, SLEIGH_Y + 23);
+
+  // 7-sleigh stars strip under the sleigh counter
+  if (S.waveStars && S.waveStars.length) {
+    g2.save();
+    g2.font = "bold 12px 'Google Sans',sans-serif";
+    g2.textAlign = 'center';
+    const nStars = S.waveStars.length;
+    const stepX = 12;
+    const startX = SLEIGH_X - ((nStars - 1) * stepX) / 2;
+    for (let i = 0; i < nStars; i++) {
+      const sx0 = startX + i * stepX;
+      const sy0 = SLEIGH_Y + 42;
+      const done = i < S.sleighsDone;
+      const earned = !!S.waveStars[i];
+      g2.strokeStyle = 'rgba(15,23,42,.75)';
+      g2.lineWidth = 2.5;
+      const ch = (done && earned) ? '★' : '☆';
+      g2.strokeText(ch, sx0, sy0);
+      g2.fillStyle = (done && earned) ? '#FFE14D' : (done ? 'rgba(255,255,255,.55)' : 'rgba(255,255,255,.35)');
+      g2.fillText(ch, sx0, sy0);
+    }
+    g2.restore();
+  }
+
   const m = Math.min(1 + Math.floor(S.combo / TUNE.comboStep), TUNE.comboMax);
   if (m > 1) {
     g2.fillStyle = 'rgba(255,255,255,.96)'; g2.strokeStyle = '#E7AD03';
     g2.lineWidth = 1.8;
-    g2.beginPath(); g2.roundRect(SLEIGH_X - 25, SLEIGH_Y + 24, 50, 18, 9);
+    g2.beginPath(); g2.roundRect(SLEIGH_X - 25, SLEIGH_Y + 48, 50, 18, 9);
     g2.fill(); g2.stroke();
     g2.fillStyle = '#E7AD03'; g2.font = "bold 12px 'Google Sans',sans-serif";
-    g2.fillText('✨ x' + m, SLEIGH_X, SLEIGH_Y + 37);
+    g2.fillText('✨ x' + m, SLEIGH_X, SLEIGH_Y + 61);
   }
   g2.textAlign = 'left';
-  drawReindeer(g2, S);
 }
 
 function drawSnow(g2, S) {
@@ -991,8 +1179,10 @@ function drawTakeoff(g2, S, t) {
   if (t > 2.2) {
     const on = reduceMotion || Math.floor(t * 2.5) % 2 === 0 || t > 3.4;
     if (on) {
-      const stars = Math.max(1, Math.min(3, (S && S.stars) || 3));
-      const starStr = '★★★☆☆'.slice(3 - stars, 6 - stars).split('').join(' ');
+      const waveStars = (S && S.waveStars && S.waveStars.length)
+        ? S.waveStars
+        : Array.from({ length: SLEIGHS.length }, () => true);
+      const starStr = waveStars.map(s => s ? '★' : '☆').join(' ');
       g2.textAlign = 'center';
       g2.font = "400 64px Lobster, 'Google Sans', cursive";
       g2.lineJoin = 'round';
@@ -1015,69 +1205,224 @@ function drawTakeoff(g2, S, t) {
   }
 }
 
-function drawTutorial(g2, S) {
-  const st = TUT[S.tut - 1]; if (!st) return;
-  const r = tutHole(st.hole), pulse = reduceMotion ? 1 : (0.5 + 0.5 * Math.sin(S.t * 3.5));
+function drawGustWarning(g2, S) {
+  if (!S.gustWarnT || S.gustWarnT <= 0) return;
+  const pulse = reduceMotion ? 0.85 : (0.45 + 0.55 * Math.abs(Math.sin(S.t * 14)));
+  const warnBelts = (S.gustWarnBelts && S.gustWarnBelts.length) ? S.gustWarnBelts : [0, 1, 2, 3, 4];
   g2.save();
-  g2.fillStyle = 'rgba(2,6,23,.66)'; g2.beginPath();
-  g2.rect(viewX0 - 40, viewY0 - 40, (viewX1 - viewX0) + 80, (viewY1 - viewY0) + 80);
-  if (r) g2.roundRect(r[0], r[1], r[2], r[3], 14);
-  g2.fill('evenodd');
-  if (r) {
-    g2.strokeStyle = '#FDE047'; g2.lineWidth = 3 + 2 * pulse;
-    g2.beginPath(); g2.roundRect(r[0], r[1], r[2], r[3], 14); g2.stroke();
+  g2.lineCap = 'round';
+  g2.lineJoin = 'round';
+  for (const f of warnBelts) {
+    const by = beltY(f) - 10;
+    const gl = g2.createLinearGradient(BUILD_X0 - 20, 0, TEETER_X + 10, 0);
+    gl.addColorStop(0, 'rgba(56,189,248,' + (0.55 * pulse) + ')');
+    gl.addColorStop(1, 'rgba(224,242,254,0)');
+    g2.fillStyle = gl;
+    g2.fillRect(BUILD_X0 - 20, by - 26, (TEETER_X - BUILD_X0) + 30, 48);
+
+    for (let i = 0; i < 3; i++) {
+      const cx0 = BUILD_X0 - 4 + i * 24 + (reduceMotion ? 0 : ((S.t * 95) % 18));
+      g2.strokeStyle = i % 2 === 0 ? '#FFFFFF' : '#7DD3FC';
+      g2.globalAlpha = pulse * (1 - i * 0.22);
+      g2.lineWidth = 3;
+      g2.beginPath();
+      g2.moveTo(cx0 - 8, by - 10);
+      g2.lineTo(cx0 + 2, by);
+      g2.lineTo(cx0 - 8, by + 10);
+      g2.stroke();
+    }
   }
-  const bw = 620, maxW = bw - 44;
-  const tFont = st.t && st.t.length > 38 ? "bold 22px 'Google Sans',sans-serif" : "bold 25px 'Google Sans',sans-serif";
-  g2.font = tFont;
-  const tLines = st.t ? wrapText(g2, st.t, maxW) : [];
-  const bFont = "18.5px 'Google Sans',sans-serif";
-  g2.font = bFont;
-  const bLines = [];
-  for (const ln of (st.b || [])) { if (ln) bLines.push(...wrapText(g2, ln, maxW)); }
-  const fTxt = TUT_FOOTERS[st.go] || '';
-  const bStep = bLines.length > 3 ? 22 : 25;
-  let contentH = tLines.length * 28;
-  if (st.treats) contentH += (tLines.length ? 10 : 0) + 52;
-  if (bLines.length) contentH += ((tLines.length || st.treats) ? 12 : 0) + bLines.length * bStep;
-  if (fTxt) contentH += ((tLines.length || st.treats || bLines.length) ? 14 : 0) + 18;
-  const padY = (bLines.length > 3 || (st.treats && tLines.length > 1)) ? 14 : 20;
-  const bh = Math.max(76, contentH + padY * 2);
-  let by = st.treats ? 48 : Math.max(52, Math.round(135 - bh / 2));
-  if (r && r[1] > 250 && by + bh > r[1] - 34) by = Math.max(12, r[1] - 34 - bh);
-  g2.fillStyle = 'rgba(15,23,42,.96)'; g2.strokeStyle = '#38BDF8'; g2.lineWidth = 2;
-  g2.beginPath(); g2.roundRect(W / 2 - bw / 2, by, bw, bh, 18); g2.fill(); g2.stroke();
+  g2.restore();
+}
+
+function drawBounceArrow(g2, x, y, pulse, color = '#FDE047') {
+  const bob = reduceMotion ? 0 : Math.sin(pulse * Math.PI * 2) * 7;
+  const tipY = y + bob;
+  g2.save();
+  g2.shadowColor = color;
+  g2.shadowBlur = 14;
+  g2.fillStyle = color;
+  g2.strokeStyle = '#1D1D1D';
+  g2.lineWidth = 3.2;
+  g2.lineJoin = 'round';
+  g2.beginPath();
+  g2.moveTo(x - 7, tipY - 30);
+  g2.lineTo(x + 7, tipY - 30);
+  g2.lineTo(x + 7, tipY - 15);
+  g2.lineTo(x + 16, tipY - 15);
+  g2.lineTo(x, tipY);
+  g2.lineTo(x - 16, tipY - 15);
+  g2.lineTo(x - 7, tipY - 15);
+  g2.closePath();
+  g2.fill();
+  g2.stroke();
+  g2.restore();
+}
+
+function drawHandSlots() {
+  // Tray removed: held gifts are drawn directly at the elf's hands on each side.
+}
+
+function drawGuideArrows(g2, S) {
+  const guide = getGuideTargets(S);
+  const pulse = (S.uiT || S.t || 0) * 1.9;
+
+  // Bouncing arrows for tutorial steps 2 (conveyor) and 3 (chute), and first two-hand carry
+  if (guide.beltGift) {
+    const gx = Math.max(BUILD_X0 + 36, Math.min(TEETER_X, guide.beltGift.x));
+    const gy = beltY(guide.beltGift.belt) - 34;
+    drawBounceArrow(g2, gx, gy, pulse, '#FDE047');
+  } else if (guide.chuteFloor >= 0) {
+    const cx0 = CHUTE_BX + CHUTE_BW / 2;
+    const cy0 = chuteY(guide.chuteFloor) - CHUTE_BH / 2 - 6;
+    drawBounceArrow(g2, cx0, cy0, pulse, '#FDE047');
+  }
+}
+
+function drawBreatheCue(g2, S) {
+  if (!S || !S.breatheCueT || S.breatheCueT <= 0) return;
+  const e = S.elf;
+  const dur = S.breatheCueDur || 3.0;
+  const prog = Math.min(1, Math.max(0, 1 - S.breatheCueT / dur));
+  const alpha = prog < 0.12 ? prog / 0.12 : (prog > 0.80 ? (1 - prog) / 0.20 : 1);
+  const floatY = reduceMotion ? 0 : prog * 18;
+  const bx = Math.max(BUILD_X0 + 60, Math.min(BUILD_X1 - 60, e.x));
+  const by = Math.max(72, e.y - 106 - floatY);
+
+  g2.save();
+  g2.globalAlpha = Math.max(0, Math.min(1, alpha));
+  g2.font = "400 28px Lobster, 'Google Sans', cursive";
   g2.textAlign = 'center';
-  let cy = by + (bh - contentH) / 2;
-  if (tLines.length) {
-    g2.fillStyle = '#FDE047'; g2.font = tFont;
-    for (const ln of tLines) { g2.fillText(ln, W / 2, cy + 21); cy += 28; }
+  g2.textBaseline = 'middle';
+  g2.shadowColor = 'rgba(15,23,42,.55)';
+  g2.shadowBlur = 6;
+  g2.shadowOffsetY = 2;
+  g2.fillStyle = '#FFFFFF';
+  g2.fillText('Phew!', bx, by);
+  g2.restore();
+}
+
+export const TUT_BOX_RECT = { x: 104, y: 120, w: 460, h: 124 };
+export const TUT_OK_RECT = { x: 280, y: 194, w: 108, h: 36 };
+
+function getActiveTextBox(S) {
+  if (!S) return null;
+  if (S.tut && S.tutBoxUp) return TUT[S.tut - 1] || null;
+  if (S.twoHandsBoxUp && TUNE.twoHands) return { ok: true, text: TWO_HANDS_TEXT };
+  return null;
+}
+
+export function isTutOkClick(p, S) {
+  const st = getActiveTextBox(S);
+  if (!st || !st.ok) return false;
+  return (
+    p.x >= TUT_BOX_RECT.x - 10 &&
+    p.x <= TUT_BOX_RECT.x + TUT_BOX_RECT.w + 10 &&
+    p.y >= TUT_BOX_RECT.y - 10 &&
+    p.y <= TUT_BOX_RECT.y + TUT_BOX_RECT.h + 10
+  );
+}
+
+function drawTutorialBox(g2, S) {
+  const st = getActiveTextBox(S);
+  if (!st || !st.text) return;
+
+  const boxW = 460;
+  const hasOk = !!st.ok;
+  g2.save();
+  g2.font = "bold 18px 'Google Sans',sans-serif";
+  const lines = wrapText(g2, st.text, boxW - 44);
+  const lineH = 25;
+  const textH = lines.length * lineH;
+  const boxH = textH + (hasOk ? 76 : 36);
+  const boxX = Math.round((BUILD_X0 + BUILD_X1) / 2 - boxW / 2);
+  const boxY = 124;
+
+  TUT_BOX_RECT.x = boxX;
+  TUT_BOX_RECT.y = boxY;
+  TUT_BOX_RECT.w = boxW;
+  TUT_BOX_RECT.h = boxH;
+
+  // Diner Dash style small card with warm cream fill and crisp gold/amber border
+  g2.shadowColor = 'rgba(15,23,42,.42)';
+  g2.shadowBlur = 18;
+  g2.shadowOffsetY = 6;
+  g2.fillStyle = '#FFFBEB';
+  g2.strokeStyle = '#D97706';
+  g2.lineWidth = 4;
+  g2.beginPath();
+  g2.roundRect(boxX, boxY, boxW, boxH, 18);
+  g2.fill();
+  g2.shadowBlur = 0;
+  g2.shadowOffsetY = 0;
+  g2.stroke();
+
+  g2.strokeStyle = '#FDE68A';
+  g2.lineWidth = 2;
+  g2.beginPath();
+  g2.roundRect(boxX + 4, boxY + 4, boxW - 8, boxH - 8, 14);
+  g2.stroke();
+
+  g2.fillStyle = '#1E293B';
+  g2.textAlign = 'center';
+  g2.textBaseline = 'middle';
+  const startY = boxY + 26 + lineH * 0.35;
+  for (let i = 0; i < lines.length; i++) {
+    g2.fillText(lines[i], boxX + boxW / 2, startY + i * lineH);
   }
-  if (st.treats) {
-    if (tLines.length) cy += 10;
-    drawIconBadge(g2, 2, W / 2 - 34, cy + 26, 1.2, 0);
-    drawIconBadge(g2, 2, W / 2 + 34, cy + 26, 1.2, 1);
-    cy += 52;
-  }
-  if (bLines.length) {
-    if (tLines.length || st.treats) cy += 12;
-    g2.fillStyle = '#F8FAFC'; g2.font = bFont;
-    for (const ln of bLines) { g2.fillText(ln, W / 2, cy + 18); cy += bStep; }
-  }
-  if (fTxt) {
-    if (tLines.length || st.treats || bLines.length) cy += 14;
-    g2.fillStyle = '#7DD3FC'; g2.font = "bold 14px 'Google Sans',sans-serif";
-    g2.globalAlpha = 0.6 + 0.4 * pulse;
-    g2.fillText(fTxt, W / 2, cy + 14);
-    g2.globalAlpha = 1;
-  }
-  if (r && r[1] > 250) {
-    const ax = r[0] + r[2] / 2, ay = r[1] - 12 - 8 * (reduceMotion ? 0.5 : pulse);
-    g2.fillStyle = '#FDE047';
-    g2.beginPath(); g2.moveTo(ax - 14, ay - 18); g2.lineTo(ax + 14, ay - 18); g2.lineTo(ax, ay); g2.closePath();
+
+  if (hasOk) {
+    const btnW = 104, btnH = 36;
+    const btnX = Math.round(boxX + (boxW - btnW) / 2);
+    const btnY = boxY + boxH - btnH - 14;
+    TUT_OK_RECT.x = btnX;
+    TUT_OK_RECT.y = btnY;
+    TUT_OK_RECT.w = btnW;
+    TUT_OK_RECT.h = btnH;
+
+    g2.fillStyle = '#16A34A';
+    g2.strokeStyle = '#14532D';
+    g2.lineWidth = 2.5;
+    g2.beginPath();
+    g2.roundRect(btnX, btnY, btnW, btnH, 18);
     g2.fill();
+    g2.stroke();
+
+    g2.font = "bold 16px 'Google Sans',sans-serif";
+    g2.fillStyle = '#FFFFFF';
+    g2.fillText('OK', btnX + btnW / 2, btnY + btnH / 2 + 1);
   }
-  g2.restore(); g2.textAlign = 'left';
+  g2.restore();
+}
+
+function drawTuneSpeedHud(g2, S) {
+  if (!S || !S.tuneMode) return;
+  const sleighNum = Math.min(SLEIGHS.length, (S.sleighsDone || 0) + 1);
+  const timerStr = (S.sleighTimer || 0).toFixed(1);
+  const runSpd = Math.round(TUNE.runSpeed || 1200);
+  const climbSpd = Math.round(TUNE.climbSpeed || 700);
+  const pct = Math.round(TUNE.speedPct || 100);
+  const live = Math.round(S.liveSpeed || 0);
+  const label = `Sleigh ${sleighNum}/${SLEIGHS.length}: ${timerStr}s · Speed: ${runSpd}/${climbSpd} px/s (${pct}%) · Live ${live} px/s`;
+
+  g2.save();
+  g2.font = "bold 13px 'Google Sans',monospace,sans-serif";
+  const w = Math.max(360, g2.measureText(label).width + 24);
+  const x = 184;
+  const y = 14;
+  g2.fillStyle = 'rgba(15,23,42,.88)';
+  g2.strokeStyle = '#38BDF8';
+  g2.lineWidth = 2;
+  g2.beginPath();
+  g2.roundRect(x, y, w, 28, 8);
+  g2.fill();
+  g2.stroke();
+
+  g2.fillStyle = '#F8FAFC';
+  g2.textAlign = 'left';
+  g2.textBaseline = 'middle';
+  g2.fillText(label, x + 12, y + 14);
+  g2.restore();
 }
 
 export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
@@ -1097,6 +1442,7 @@ export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
   drawDrift(cx, viewX0 - 20, viewX1 + 20, GROUND_Y + 8, S.snowDepth, true);
   drawLines(cx, S, floors, sleighTargetVal);
   drawWorkshop(cx, S, floors);
+  drawGustWarning(cx, S);
 
   const front = gustFront(S);
   for (const g of S.gifts) {
@@ -1104,10 +1450,14 @@ export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
     if (S.gustT > 0 && g.state === 'belt' && g.x < front) drawWind(cx, S, g);
     drawGift(cx, g);
   }
-  drawElf(cx, S.elf, elfChoice);
-  if (S.elf.carrying) drawGift(cx, S.elf.carrying);
+  drawElf(cx, S, S.elf, elfChoice);
+  drawHandSlots(cx, S, S.elf);
+  const bag = S.elf.bag || (S.elf.carrying ? [S.elf.carrying] : []);
+  for (const g of bag) drawGift(cx, g);
+  drawBreatheCue(cx, S);
 
-  if (!S.elf.carrying && canCatch && S.catchFlash <= 0) {
+  const canCarryMore = bag.length < (S.carryCap || 1);
+  if (canCarryMore && canCatch && S.catchFlash <= 0) {
     const r = 26 + (reduceMotion ? 4 : Math.abs(Math.sin(S.t * 3.5)) * 8);
     cx.strokeStyle = '#FF7733'; cx.lineWidth = 4;
     cx.beginPath(); cx.arc(S.elf.x, carryY(S.elf.floor), r, 0, 7); cx.stroke();
@@ -1137,23 +1487,8 @@ export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
   drawSnow(cx, S);
   drawGust(cx, S);
 
-  if (S.hint > 0) {
-    cx.globalAlpha = Math.min(1, S.hint / 2);
-    cx.textAlign = 'center';
-    cx.font = "bold 14px 'Google Sans',sans-serif";
-    const hy = GROUND_Y - 92 - (reduceMotion ? 0 : Math.abs(Math.sin(S.t * 3)) * 6);
-    const htxt = S.elf.carrying ? HINT_CHUTE : HINT_CATCH;
-    const hLines = wrapText(cx, htxt, 380);
-    cx.strokeStyle = '#FFFFFF'; cx.lineWidth = 4; cx.lineJoin = 'round';
-    cx.fillStyle = '#D92626';
-    for (let i = 0; i < hLines.length; i++) {
-      const ly = hy - (hLines.length - 1 - i) * 18;
-      cx.strokeText(hLines[i], 300, ly);
-      cx.fillText(hLines[i], 300, ly);
-    }
-    cx.textAlign = 'left'; cx.globalAlpha = 1;
-  }
-
-  drawTutorial(cx, S);
+  drawGuideArrows(cx, S);
+  drawTutorialBox(cx, S);
+  drawTuneSpeedHud(cx, S);
   cx.restore();
 }
