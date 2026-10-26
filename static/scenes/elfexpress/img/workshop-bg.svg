@@ -5,7 +5,7 @@
 <rect x="400" y="60" width="224" height="560" rx="10" fill="#D8DDE2"/>
 </g>
 <g id="04-Roof-And-Frame" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
-<polygon points="22,60 334,12 646,60"/>
+<polygon points="22,60 334,12 646,60" fill="#7C5539"/>
 <line x1="44" y1="60" x2="44" y2="622"/>
 <line x1="624" y1="60" x2="624" y2="622"/>
 </g>

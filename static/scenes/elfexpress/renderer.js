@@ -781,7 +781,7 @@ function drawChuteFunnel(g2, cyy, mainColor, darkColor, highlightColor, highligh
 
 function drawWorkshop(g2, S, floors) {
   if (S.snowDepth > 0.01) {
-    g2.save(); g2.globalAlpha = 0.95;
+    g2.save();
     g2.strokeStyle = '#FFFFFF'; g2.lineWidth = 8 + S.snowDepth * 15;
     g2.lineJoin = 'round'; g2.lineCap = 'round';
     g2.beginPath();
