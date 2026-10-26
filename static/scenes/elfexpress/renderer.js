@@ -18,7 +18,6 @@ import '../../src/magic.js';
 import { _msg } from '../../src/magic.js';
 import {
   ELVES, PROPS, PRESENTS, ENDING, TUNE, SLEIGHS, GUST, CATS, CAT_UPPER,
-  OPENS_AT_LABELS, HINT_CATCH, HINT_CHUTE, REVEAL_BANNER, TUT_FOOTERS,
   W, H, FLOOR_H, BUILD_X0, BUILD_X1, GROUND_Y, TAP_SPLIT, TEETER_X,
   DROP_X0, DROP_X1, CHUTE_BX, CHUTE_BW, CHUTE_BH, MACH_CX, MACH_W, MACH_H,
   MACH_L, MACH_R, BIN_X, BIN_Y, SLEIGH_X, SLEIGH_Y, DEER_X, GEAR,
@@ -805,13 +804,7 @@ function drawWorkshop(g2, S, floors) {
       const cyy = chuteY(f);
       const lby = cyy - CHUTE_BH / 2;
       drawChuteFunnel(g2, cyy, '#ECEFF1', '#90A4AE', null, 1);
-      if (OPENS_AT_LABELS[f]) {
-        drawPadlock(g2, CHUTE_BX + 28, lby + CHUTE_BH / 2, 1.1);
-        g2.fillStyle = '#1D1D1D'; g2.textAlign = 'left';
-        drawFitText(g2, OPENS_AT_LABELS[f], CHUTE_BX + 50, lby + CHUTE_BH / 2 + 4, 122, 12, 9);
-      } else {
-        drawPadlock(g2, CHUTE_BX + 90, lby + CHUTE_BH / 2, 1.25);
-      }
+      drawPadlock(g2, CHUTE_BX + 90, lby + CHUTE_BH / 2, 1.25);
       continue;
     }
 

@@ -244,16 +244,7 @@ export const ELF_LABELS = [
   _msg`elfexpress_elf_yellow`,
 ];
 
-export const msgOpensAtSleigh = n => _msg`elfexpress_opens_at_sleigh`.replace('{sleigh}', n);
 export const msgSleighAway = (done, total) => _msg`elfexpress_sr_sleigh_away`.replace('{done}', done).replace('{total}', total);
-export const HINT_CATCH = _msg`elfexpress_hint_catch`;
-export const HINT_CHUTE = _msg`elfexpress_hint_chute`;
-export const REVEAL_BANNER = _msg`elfexpress_new_gifts_banner`;
-export const TUT_FOOTERS = {
-  tap: _msg`elfexpress_tut_footer_tap`,
-  belt: _msg`elfexpress_tut_footer_belt`,
-  chute: _msg`elfexpress_tut_footer_chute`,
-};
 
 export const W = 900, H = 700;
 export const FLOOR_H = 112;
@@ -302,12 +293,6 @@ export const chuteY = f => feetY(f) - 30;
 export const elfCarryOff = (elfIdx = 0) =>
   Math.round(CARRY_OFF * ((ELVES[elfIdx] || ELVES[0]).front.h / ELVES[0].front.h));
 export const carryY = (f, elfIdx = 0) => feetY(f) - elfCarryOff(elfIdx);
-
-export function unlockSleigh(f) {
-  for (let i = 0; i < WAVES.length; i++) if ((WAVES[i].floors || 2) > f) return i + 1;
-  return WAVES.length;
-}
-export const OPENS_AT_LABELS = [0, 1, 2, 3, 4].map(f => msgOpensAtSleigh(unlockSleigh(f)));
 
 export const STARS_BG = [
   [60,90,3],[120,180,2],[210,64,2],[690,80,3],[762,150,2],[830,70,2],
