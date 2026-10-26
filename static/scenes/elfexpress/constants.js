@@ -204,12 +204,12 @@ export const SNOW_PILE = 0.048;
 // ============================================================================
 
 export const ELVES = [
-  { id: 'elf1', front: { w: 267.2, h: 560.6, src: 'img/elf-1-front.svg' }, side: { w: 173.6, h: 522.8, src: 'img/elf-1-side.svg' } },
-  { id: 'elf2', front: { w: 236.6, h: 404.0, src: 'img/elf-2-front.svg' }, side: { w: 150.2, h: 382.4, src: 'img/elf-2-side.svg' } },
-  { id: 'elf3', front: { w: 234.8, h: 405.8, src: 'img/elf-3-front.svg' }, side: { w: 150.2, h: 369.8, src: 'img/elf-3-side.svg' } },
-  { id: 'elf4', front: { w: 265.4, h: 558.8, src: 'img/elf-4-front.svg' }, side: { w: 155.6, h: 535.4, src: 'img/elf-4-side.svg' } },
-  { id: 'elf5', front: { w: 270.8, h: 486.8, src: 'img/elf-5-front.svg' }, side: { w: 184.4, h: 456.2, src: 'img/elf-5-side.svg' } },
-  { id: 'elf6', front: { w: 270.8, h: 427.4, src: 'img/elf-6-front.svg' }, side: { w: 186.2, h: 389.6, src: 'img/elf-6-side.svg' } },
+  { id: 'elf1', front: { w: 267.2, h: 560.6, pad: 16.25, src: 'img/elf-1-front.svg' }, side: { w: 173.6, h: 522.8, pad: 16.25, src: 'img/elf-1-side.svg' } },
+  { id: 'elf2', front: { w: 236.6, h: 404.0, pad: 14.89, src: 'img/elf-2-front.svg' }, side: { w: 150.2, h: 382.4, pad: 14.96, src: 'img/elf-2-side.svg' } },
+  { id: 'elf3', front: { w: 234.8, h: 405.8, pad: 16.04, src: 'img/elf-3-front.svg' }, side: { w: 150.2, h: 369.8, pad: 16.04, src: 'img/elf-3-side.svg' } },
+  { id: 'elf4', front: { w: 265.4, h: 558.8, pad: 14.70, src: 'img/elf-4-front.svg' }, side: { w: 155.6, h: 535.4, pad: 14.70, src: 'img/elf-4-side.svg' } },
+  { id: 'elf5', front: { w: 270.8, h: 486.8, pad: 15.55, src: 'img/elf-5-front.svg' }, side: { w: 184.4, h: 456.2, pad: 15.16, src: 'img/elf-5-side.svg' } },
+  { id: 'elf6', front: { w: 270.8, h: 427.4, pad: 14.81, src: 'img/elf-6-front.svg' }, side: { w: 186.2, h: 389.6, pad: 14.78, src: 'img/elf-6-side.svg' } },
 ];
 
 export const PROPS = {

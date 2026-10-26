@@ -501,6 +501,7 @@ function drawElf(g2, S, e, elfChoice) {
   const v = moving ? d.side : d.front;
   const k = ELF_SCALE;
   const w = v.w * k, h = v.h * k;
+  const footPad = (v.pad || 0) * k;
   const hop = e.climbing ? -Math.abs(Math.sin(e.bob)) * 2 : (moving ? -Math.abs(Math.sin(e.bob)) * 3 : 0);
   const resting = Boolean(S && S.relaxT > 0 && !moving && !e.climbing && !reduceMotion);
   const bPhase = resting ? (S.t || 0) * 3.8 : 0;
@@ -513,7 +514,7 @@ function drawElf(g2, S, e, elfChoice) {
     g2.scale(1 - 0.028 * bSin, 1 + 0.036 * bSin);
   }
   if (moving && e.facing < 0) g2.scale(-1, 1);
-  g2.drawImage(im, -w / 2, -h, w, h);
+  g2.drawImage(im, -w / 2, -h + footPad, w, h);
   g2.restore();
 
   // Small frosty breath puff on each breath out during the break

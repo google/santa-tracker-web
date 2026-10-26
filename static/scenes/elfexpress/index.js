@@ -1297,6 +1297,7 @@ function stepTo(e, tf, tx, dt) {
     e.y = wantY;
     e.floor = tf;
     e.climbing = false;
+    e.bob = 0;
     rem -= needClimbT;
   }
   e.y = feetY(tf);
@@ -1313,6 +1314,10 @@ function updateElf(dt) {
   const prevX = e.x, prevY = e.y;
   if (S.twoHandsBoxUp || (S.tut && S.tut !== 2 && S.tut !== 3)) {
     clearKeys();
+    if (!e.climbing) {
+      e.y = feetY(e.floor);
+      e.bob = 0;
+    }
     S.liveSpeed = 0;
     return;
   }
@@ -1387,6 +1392,7 @@ function updateElf(dt) {
         e.floor = e.climbTo;
         e.climbing = false;
         e.climbTo = null;
+        e.bob = 0;
         moveX(e, e.x + mx * 1000, remDt);
         runIntoChuteDrop();
         if (e.bag.length < S.carryCap) doAction(false, false);
@@ -1404,16 +1410,20 @@ function updateElf(dt) {
           e.floor = e.climbTo;
           e.climbing = false;
           e.climbTo = null;
+          e.bob = 0;
         } else {
           e.y += Math.sign(dy) * rem;
           rem = 0;
         }
       }
-      e.bob += remDt * 14;
-      if (!e.climbing && mx) {
+      if (e.climbing) {
+        e.bob += remDt * 14;
+      } else if (mx) {
         moveX(e, e.x + mx * 1000, rem / TUNE.climbSpeed);
         runIntoChuteDrop();
         if (e.bag.length < S.carryCap) doAction(false, false);
+      } else {
+        e.bob = 0;
       }
       finishUpdateElf();
       return;
@@ -1444,12 +1454,14 @@ function updateElf(dt) {
         if (e.x >= CHUTE_BX - 12 || arrived) {
           if (e.bag.length > 0) releaseGift(false);
           S.cmd = S.queue || null; S.queue = null;
+          if (!S.cmd) e.bob = 0;
           finishUpdateElf();
           return;
         }
       } else {
         idleCatch();
         if (!S.cmd || S.cmd.type !== 'belt') {
+          if (!S.cmd) e.bob = 0;
           finishUpdateElf();
           return;
         }
@@ -1465,10 +1477,12 @@ function updateElf(dt) {
           S.cmd = S.queue || null; S.queue = null;
         }
       }
+      if (!S.cmd) e.bob = 0;
     }
     finishUpdateElf();
     return;
   }
+  if (!e.climbing) e.y = feetY(e.floor);
   e.bob = 0;
   idleCatch();
   finishUpdateElf();
