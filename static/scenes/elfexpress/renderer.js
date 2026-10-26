@@ -706,6 +706,79 @@ function getGuideTargets(S) {
   return { beltFloor, chuteFloor, beltGift };
 }
 
+const CHUTE_FUNNEL_DARK = ['#028899', '#D9B826', '#CC2222', '#5200BF', '#237A3F'];
+
+function drawChuteFunnel(g2, cyy, mainColor, darkColor, highlightColor, highlightAlpha = 1) {
+  const topY = cyy - CHUTE_BH / 2;
+  const botY = cyy + CHUTE_BH / 2;
+  const leftX = CHUTE_BX;
+  const plateR = CHUTE_BX + 172;
+  const coneR = CHUTE_BX + CHUTE_BW;
+
+  // Optional flat highlight halo behind the chute (no outlines)
+  if (highlightColor) {
+    g2.save();
+    g2.globalAlpha = highlightAlpha;
+    g2.fillStyle = highlightColor;
+    g2.beginPath();
+    g2.moveTo(leftX - 10, topY - 8);
+    g2.lineTo(plateR + 4, topY - 8);
+    g2.lineTo(coneR + 8, cyy - 15);
+    g2.lineTo(coneR + 8, cyy + 15);
+    g2.lineTo(plateR + 4, botY + 5);
+    g2.lineTo(leftX - 6, botY + 5);
+    g2.closePath();
+    g2.fill();
+    g2.restore();
+  }
+
+  // 1. Horizontal pipe neck leading into the wrapping machine
+  g2.fillStyle = '#565D63';
+  g2.fillRect(coneR - 10, cyy - 12, 30, 24);
+  g2.fillStyle = '#74797E';
+  g2.fillRect(coneR - 10, cyy - 12, 30, 17);
+  g2.fillStyle = '#41474C';
+  g2.fillRect(coneR + 8, cyy - 15, 7, 30);
+
+  // 2. Top & left flared funnel hopper opening (dark interior where toys drop in)
+  g2.fillStyle = darkColor;
+  g2.beginPath();
+  g2.moveTo(leftX - 6, topY - 5);
+  g2.lineTo(plateR + 2, topY - 5);
+  g2.lineTo(plateR, topY + 4);
+  g2.lineTo(leftX, botY);
+  g2.lineTo(leftX - 6, botY - 4);
+  g2.closePath();
+  g2.fill();
+
+  g2.fillStyle = '#1E293B';
+  g2.beginPath();
+  g2.moveTo(leftX - 2, topY - 2);
+  g2.lineTo(plateR - 4, topY - 2);
+  g2.lineTo(plateR - 10, topY + 5);
+  g2.lineTo(leftX + 6, topY + 5);
+  g2.lineTo(leftX + 6, botY - 6);
+  g2.lineTo(leftX - 2, botY - 9);
+  g2.closePath();
+  g2.fill();
+
+  // 3. Funnel cone on the right tapering into the pipe to the wrapping machine
+  g2.fillStyle = darkColor;
+  g2.beginPath();
+  g2.moveTo(plateR - 2, topY + 3);
+  g2.lineTo(coneR, cyy - 11);
+  g2.lineTo(coneR, cyy + 11);
+  g2.lineTo(plateR - 2, botY);
+  g2.closePath();
+  g2.fill();
+
+  // 4. Flat label plate on the front of the funnel (flat colors, no outlines)
+  g2.fillStyle = mainColor;
+  g2.beginPath();
+  g2.roundRect(leftX + 4, topY + 3, plateR - leftX - 4, CHUTE_BH - 3, 6);
+  g2.fill();
+}
+
 function drawWorkshop(g2, S, floors) {
   if (S.snowDepth > 0.01) {
     g2.save(); g2.globalAlpha = 0.95;
@@ -729,15 +802,15 @@ function drawWorkshop(g2, S, floors) {
     if (!open) {
       g2.fillStyle = 'rgba(185,189,195,.58)';
       g2.fillRect(BUILD_X0 + 2, y - FLOOR_H + 2, BUILD_X1 - BUILD_X0 - 4, FLOOR_H - 4);
-      const lby = chuteY(f) - CHUTE_BH / 2;
-      g2.fillStyle = '#FFFFFF'; g2.strokeStyle = '#74797E'; g2.lineWidth = 2;
-      g2.beginPath(); g2.roundRect(CHUTE_BX, lby, CHUTE_BW, CHUTE_BH, 13); g2.fill(); g2.stroke();
+      const cyy = chuteY(f);
+      const lby = cyy - CHUTE_BH / 2;
+      drawChuteFunnel(g2, cyy, '#ECEFF1', '#90A4AE', null, 1);
       if (OPENS_AT_LABELS[f]) {
         drawPadlock(g2, CHUTE_BX + 28, lby + CHUTE_BH / 2, 1.1);
         g2.fillStyle = '#1D1D1D'; g2.textAlign = 'left';
-        drawFitText(g2, OPENS_AT_LABELS[f], CHUTE_BX + 50, lby + CHUTE_BH / 2 + 4, 146, 12, 9);
+        drawFitText(g2, OPENS_AT_LABELS[f], CHUTE_BX + 50, lby + CHUTE_BH / 2 + 4, 122, 12, 9);
       } else {
-        drawPadlock(g2, CHUTE_BX + CHUTE_BW / 2, lby + CHUTE_BH / 2, 1.25);
+        drawPadlock(g2, CHUTE_BX + 90, lby + CHUTE_BH / 2, 1.25);
       }
       continue;
     }
@@ -788,57 +861,54 @@ function drawWorkshop(g2, S, floors) {
     const popElapsed = Math.max(0, popDur - popT);
     const blink = !reduceMotion && popT > 0 && Math.sin(popElapsed * Math.PI * 3.5) > 0;
 
-    if ((!carrying || !match) && !hi && pulse <= 0 && popT <= 0) {
-      g2.fillStyle = 'rgba(255,255,255,.18)';
-      g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.fill();
+    let hiColor = null;
+    let hiAlpha = 1;
+    if (popT > 0) {
+      hiColor = (reduceMotion || blink) ? '#FFE14D' : '#FFFFFF';
+    } else if (q) {
+      hiColor = '#32A658';
+    } else if (match) {
+      hiColor = '#FFFFFF';
+      hiAlpha = reduceMotion ? 0.85 : (0.55 + 0.45 * Math.abs(Math.sin(S.t * 3.5)));
+    } else if (hi || pulse > 0) {
+      hiColor = '#FFFFFF';
     }
-    if (hi || pulse > 0 || popT > 0) {
-      g2.fillStyle = popT > 0 ? (reduceMotion ? 'rgba(255,255,255,.45)' : (blink ? 'rgba(255,225,77,.45)' : 'rgba(255,255,255,.55)'))
-        : (hi ? 'rgba(255,255,255,.28)' : 'rgba(255,255,255,.45)');
-      g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.fill();
-    }
-    g2.strokeStyle = popT > 0 ? ((reduceMotion || blink) ? '#FFE14D' : '#FFFFFF')
-      : ((hi || pulse > 0) ? '#FFFFFF' : 'rgba(29,29,29,.24)');
-    g2.lineWidth = (hi || popT > 0) ? 3.5 : 2;
-    g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.stroke();
 
-    if (q) {
-      g2.strokeStyle = '#32A658'; g2.lineWidth = 2.8; g2.setLineDash([8, 6]);
-      g2.beginPath(); g2.roundRect(CHUTE_BX - 3, by2 - 3, CHUTE_BW + 6, CHUTE_BH + 6, 15);
-      g2.stroke(); g2.setLineDash([]);
-    }
-    if (match) {
-      g2.strokeStyle = 'rgba(255,255,255,' + (reduceMotion ? 0.75 : (0.4 + 0.5 * Math.abs(Math.sin(S.t * 3.5)))) + ')';
-      g2.lineWidth = 3;
-      g2.beginPath(); g2.roundRect(CHUTE_BX - 3, by2 - 3, CHUTE_BW + 6, CHUTE_BH + 6, 15); g2.stroke();
+    drawChuteFunnel(g2, cyy, cat.color, CHUTE_FUNNEL_DARK[f], hiColor, hiAlpha);
+
+    if (hi || pulse > 0 || popT > 0) {
+      g2.fillStyle = popT > 0 ? (reduceMotion ? 'rgba(255,255,255,.32)' : (blink ? 'rgba(255,225,77,.35)' : 'rgba(255,255,255,.38)'))
+        : (hi ? 'rgba(255,255,255,.22)' : 'rgba(255,255,255,.34)');
+      g2.beginPath();
+      g2.roundRect(CHUTE_BX + 4, by2 + 3, 168, CHUTE_BH - 3, 6);
+      g2.fill();
     }
 
     g2.save(); g2.globalAlpha = 1;
-    const iconY = by2 + CHUTE_BH / 2;
+    const iconY = by2 + CHUTE_BH / 2 + 1;
     if (S.catDual && S.catDual[f]) {
       const prog = (popT > 0 && !reduceMotion) ? Math.min(1, popElapsed / 1.4) : 1;
       const slide = Math.min(1, prog / 0.28);
       const ease = 1 - Math.pow(1 - slide, 3);
-      const x0 = CHUTE_BX + 32 - 9 * ease;
+      const x0 = CHUTE_BX + 30 - 9 * ease;
       const s0 = 0.90 - 0.12 * ease;
-      const x1 = CHUTE_BX + 32 + 24 * ease;
+      const x1 = CHUTE_BX + 30 + 24 * ease;
       const s1 = prog < 0.24 ? (0.2 + (prog / 0.24) * 0.88)
         : prog < 0.65 ? (0.78 + 0.30 * Math.abs(Math.cos((prog - 0.24) / 0.41 * Math.PI))) : 0.78;
       drawIconBadge(g2, f, x0, iconY, s0, 0);
       if (popT > 0) {
-        g2.strokeStyle = (reduceMotion || blink) ? '#FFE14D' : '#FFFFFF';
-        g2.lineWidth = 3;
-        g2.beginPath(); g2.arc(x1, iconY, (GIFT_R + 5) * s1, 0, 7); g2.stroke();
+        g2.fillStyle = (reduceMotion || blink) ? '#FFE14D' : '#FFFFFF';
+        g2.beginPath(); g2.arc(x1, iconY, (GIFT_R + 6) * s1, 0, 7); g2.fill();
       }
       drawIconBadge(g2, f, x1, iconY, s1, 1);
       g2.restore();
       g2.fillStyle = cat.ink; g2.textAlign = 'left';
-      drawFitText(g2, CAT_UPPER[f], CHUTE_BX + 62 + 16 * ease, cyy + 5, 134 - 16 * ease, 14, 9);
+      drawFitText(g2, CAT_UPPER[f], CHUTE_BX + 58 + 16 * ease, cyy + 6, 114 - 16 * ease, 14, 9);
     } else {
-      drawIconBadge(g2, f, CHUTE_BX + 32, iconY, 0.9, 0);
+      drawIconBadge(g2, f, CHUTE_BX + 30, iconY, 0.9, 0);
       g2.restore();
       g2.fillStyle = cat.ink; g2.textAlign = 'left';
-      drawFitText(g2, CAT_UPPER[f], CHUTE_BX + 62, cyy + 5, 134, 14, 9);
+      drawFitText(g2, CAT_UPPER[f], CHUTE_BX + 58, cyy + 6, 114, 14, 9);
     }
   }
 }
