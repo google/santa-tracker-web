@@ -22,7 +22,7 @@ import {
   W, H, FLOOR_H, BUILD_X0, BUILD_X1, GROUND_Y, TAP_SPLIT, TEETER_X,
   DROP_X0, DROP_X1, CHUTE_BX, CHUTE_BW, CHUTE_BH, MACH_CX, MACH_W, MACH_H,
   MACH_L, MACH_R, BIN_X, BIN_Y, SLEIGH_X, SLEIGH_Y, DEER_X, GEAR,
-  ELF_H, GIFT_R, BOX_X, BOX_Y, BOX_W, BOX_H, PAD_TOP, PAD_BOT, PAD_SIDE,
+  ELF_H, ELF_SCALE, GIFT_R, BOX_X, BOX_Y, BOX_W, BOX_H, PAD_TOP, PAD_BOT, PAD_SIDE,
   feetY, beltY, chuteY, carryY, STARS_BG, HILLS_BG,
   PXS, CWS, CHS, GYS, PXC, SPR_SLEIGH, SPR_DEER_A, SPR_DEER_B,
   CITY_FAR, CITY, MOON_X, MOON_Y, MOON_R, takeoffPath, TUT, TWO_HANDS_TEXT, tutHole,
@@ -499,7 +499,7 @@ function drawElf(g2, S, e, elfChoice) {
   const im = moving ? pics.side : pics.front;
   if (!im.complete || !im.naturalWidth) return;
   const v = moving ? d.side : d.front;
-  const k = Math.min(ELF_H / d.front.h, 50 / d.front.w);
+  const k = ELF_SCALE;
   const w = v.w * k, h = v.h * k;
   const hop = e.climbing ? -Math.abs(Math.sin(e.bob)) * 2 : (moving ? -Math.abs(Math.sin(e.bob)) * 3 : 0);
   const resting = Boolean(S && S.relaxT > 0 && !moving && !e.climbing && !reduceMotion);
@@ -1284,15 +1284,17 @@ function drawGuideArrows(g2, S) {
   }
 }
 
-function drawBreatheCue(g2, S) {
+function drawBreatheCue(g2, S, elfChoice) {
   if (!S || !S.breatheCueT || S.breatheCueT <= 0) return;
   const e = S.elf;
+  const d = ELVES[elfChoice] || ELVES[0];
+  const elfH = d.front.h * ELF_SCALE;
   const dur = S.breatheCueDur || 3.0;
   const prog = Math.min(1, Math.max(0, 1 - S.breatheCueT / dur));
   const alpha = prog < 0.12 ? prog / 0.12 : (prog > 0.80 ? (1 - prog) / 0.20 : 1);
   const floatY = reduceMotion ? 0 : prog * 18;
   const bx = Math.max(BUILD_X0 + 60, Math.min(BUILD_X1 - 60, e.x));
-  const by = Math.max(72, e.y - 106 - floatY);
+  const by = Math.max(72, e.y - elfH - 12 - floatY);
 
   g2.save();
   g2.globalAlpha = Math.max(0, Math.min(1, alpha));
@@ -1463,18 +1465,18 @@ export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
   drawHandSlots(cx, S, S.elf);
   const bag = S.elf.bag || (S.elf.carrying ? [S.elf.carrying] : []);
   for (const g of bag) drawGift(cx, g);
-  drawBreatheCue(cx, S);
+  drawBreatheCue(cx, S, elfChoice);
 
   const canCarryMore = bag.length < (S.carryCap || 1);
   if (canCarryMore && canCatch && S.catchFlash <= 0) {
     const r = 26 + (reduceMotion ? 4 : Math.abs(Math.sin(S.t * 3.5)) * 8);
     cx.strokeStyle = '#FF7733'; cx.lineWidth = 4;
-    cx.beginPath(); cx.arc(S.elf.x, carryY(S.elf.floor), r, 0, 7); cx.stroke();
+    cx.beginPath(); cx.arc(S.elf.x, carryY(S.elf.floor, elfChoice), r, 0, 7); cx.stroke();
   }
   if (S.catchFlash > 0) {
     cx.strokeStyle = 'rgba(245,166,35,' + S.catchFlash * 2.5 + ')'; cx.lineWidth = 5;
     cx.beginPath();
-    cx.arc(S.elf.x, carryY(S.elf.floor), 26 + (0.3 - S.catchFlash) * 85, 0, 7); cx.stroke();
+    cx.arc(S.elf.x, carryY(S.elf.floor, elfChoice), 26 + (0.3 - S.catchFlash) * 85, 0, 7); cx.stroke();
   }
 
   for (const p of S.fx) {

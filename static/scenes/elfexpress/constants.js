@@ -287,6 +287,7 @@ export const GEAR = {
 
 export const ELF_MIN_X = 72, ELF_MAX_X = 598;
 export const ELF_H = 94;
+export const ELF_SCALE = ELF_H / ELVES[0].front.h;
 export const CARRY_OFF = 54;
 export const GIFT_R = 17;
 
@@ -296,7 +297,9 @@ export const PAD_TOP = 8, PAD_BOT = 4, PAD_SIDE = 4;
 export const feetY = f => GROUND_Y - f * FLOOR_H;
 export const beltY = f => feetY(f) - 88;
 export const chuteY = f => feetY(f) - 30;
-export const carryY = f => feetY(f) - CARRY_OFF;
+export const elfCarryOff = (elfIdx = 0) =>
+  Math.round(CARRY_OFF * ((ELVES[elfIdx] || ELVES[0]).front.h / ELVES[0].front.h));
+export const carryY = (f, elfIdx = 0) => feetY(f) - elfCarryOff(elfIdx);
 
 export function unlockSleigh(f) {
   for (let i = 0; i < WAVES.length; i++) if ((WAVES[i].floors || 2) > f) return i + 1;
