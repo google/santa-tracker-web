@@ -17,7 +17,7 @@
 import '../../src/magic.js';
 import { _msg } from '../../src/magic.js';
 import {
-  ELVES, PROPS, PRESENTS, ENDING, TUNE, SLEIGHS, GUST, CATS, CAT_UPPER,
+  ELVES, PROPS, PRESENTS, TOY_ICONS, ENDING, TUNE, SLEIGHS, GUST, CATS, CAT_UPPER,
   W, H, FLOOR_H, BUILD_X0, BUILD_X1, GROUND_Y, TAP_SPLIT, TEETER_X,
   DROP_X0, DROP_X1, CHUTE_BX, CHUTE_BW, CHUTE_BH, MACH_CX, MACH_W, MACH_H,
   MACH_L, MACH_R, BIN_X, BIN_Y, SLEIGH_X, SLEIGH_Y, DEER_X, GEAR,
@@ -50,6 +50,12 @@ export const PRESENT_IMG = PRESENTS.map(src => {
   im.src = src;
   return im;
 });
+
+export const ICON_IMG = TOY_ICONS.map(pair => pair.map(spec => {
+  const im = new Image();
+  im.src = spec.src;
+  return im;
+}));
 
 const BG = new Image();
 let bgReady = false;
@@ -303,6 +309,21 @@ function drawReindeer(g2, S) {
 }
 
 function drawIcon(g2, cat, x, y, s, v = 0) {
+  const vIdx = v ? 1 : 0;
+  const spec = TOY_ICONS[cat] && TOY_ICONS[cat][vIdx];
+  const im = ICON_IMG[cat] && ICON_IMG[cat][vIdx];
+  if (spec && im && im.complete && im.naturalWidth) {
+    const maxDim = spec.size || 32;
+    const fitK = maxDim / Math.max(spec.w, spec.h);
+    const dw = spec.w * fitK;
+    const dh = spec.h * fitK;
+    g2.save();
+    g2.translate(x, y);
+    g2.scale(s, s);
+    g2.drawImage(im, -dw / 2, -dh / 2, dw, dh);
+    g2.restore();
+    return;
+  }
   g2.save(); g2.translate(x, y); g2.scale(s, s);
   g2.lineWidth = 2.2; g2.lineJoin = 'round'; g2.lineCap = 'round';
   if (cat === 0) {

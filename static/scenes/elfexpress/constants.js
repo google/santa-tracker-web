@@ -219,6 +219,29 @@ export const PROPS = {
 
 export const PRESENTS = ['img/present-a.svg', 'img/present-b.svg'];
 
+export const TOY_ICONS = [
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-sports-football.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-sports-skate.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-vehicles-car.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-vehicles-train.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-treats-candy-cane.svg' },
+    { w: 56, h: 34, size: 27, src: 'img/icon-treats-candy.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-books-stack.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-books-storybook.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-plush-bear.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-plush-frenchie.svg' },
+  ],
+];
+
 export const ENDING = {
   big: _msg`elfexpress_win_big`,
   small: _msg`elfexpress_win_small`,

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <title>Elf Express - toy car icon (Vehicles)</title>
+  <defs><clipPath id="right"><rect x="32" y="0" width="32" height="64"/></clipPath></defs>
+  <g>
+    <path d="M17 32 L22.5 19.5 Q23.5 17 26.5 17 H39 Q42 17 43.2 19.5 L49 32 Z" fill="#FFE14D"/>
+    <rect x="5" y="29" width="54" height="17" rx="8" fill="#FFE14D"/>
+    <path d="M22.5 30 L26.3 21 Q26.8 20 28 20 H31 V30 Z" fill="#BAE6FD"/>
+    <path d="M33.5 20 H38 Q39.2 20 39.7 21 L43.5 30 H33.5 Z" fill="#BAE6FD"/>
+    <rect x="5" y="36" width="54" height="3.5" fill="#FFFFFF"/>
+    <circle cx="55" cy="33.5" r="2.4" fill="#FEF3C7"/>
+    <rect x="5" y="31" width="3" height="4.5" rx="1.5" fill="#FF3333"/>
+    <circle cx="19" cy="46" r="7.5" fill="#64748B"/>
+    <circle cx="45" cy="46" r="7.5" fill="#64748B"/>
+    <circle cx="19" cy="46" r="3.2" fill="#E2E8F0"/>
+    <circle cx="45" cy="46" r="3.2" fill="#E2E8F0"/>
+  </g>
+<g clip-path="url(#right)">
+    <path d="M17 32 L22.5 19.5 Q23.5 17 26.5 17 H39 Q42 17 43.2 19.5 L49 32 Z" fill="#F2C200"/>
+    <rect x="5" y="29" width="54" height="17" rx="8" fill="#F2C200"/>
+    <path d="M22.5 30 L26.3 21 Q26.8 20 28 20 H31 V30 Z" fill="#93C5FD"/>
+    <path d="M33.5 20 H38 Q39.2 20 39.7 21 L43.5 30 H33.5 Z" fill="#93C5FD"/>
+    <rect x="5" y="36" width="54" height="3.5" fill="#E2E8F0"/>
+    <circle cx="55" cy="33.5" r="2.4" fill="#FDE68A"/>
+    <rect x="5" y="31" width="3" height="4.5" rx="1.5" fill="#D92626"/>
+    <circle cx="19" cy="46" r="7.5" fill="#64748B"/>
+    <circle cx="45" cy="46" r="7.5" fill="#64748B"/>
+    <circle cx="19" cy="46" r="3.2" fill="#CBD5E1"/>
+    <circle cx="45" cy="46" r="3.2" fill="#CBD5E1"/>
+  </g>
+</svg>
