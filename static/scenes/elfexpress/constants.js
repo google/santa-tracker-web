@@ -213,7 +213,7 @@ export const ELVES = [
 ];
 
 export const PROPS = {
-  sleigh: { w: 125.9, h: 103, file: 'img/sleigh-empty.svg' },
+  sleigh: { w: 125.9, h: 103, file: 'img/sleigh-driverless.svg' },
   rudolph: { w: 260.65, h: 365.5, file: 'img/rudolph.svg' },
 };
 
