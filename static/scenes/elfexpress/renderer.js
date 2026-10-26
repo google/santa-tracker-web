@@ -17,7 +17,7 @@
 import '../../src/magic.js';
 import { _msg } from '../../src/magic.js';
 import {
-  ELVES, PROPS, ENDING, TUNE, SLEIGHS, GUST, CATS, CAT_UPPER,
+  ELVES, PROPS, PRESENTS, ENDING, TUNE, SLEIGHS, GUST, CATS, CAT_UPPER,
   OPENS_AT_LABELS, HINT_CATCH, HINT_CHUTE, REVEAL_BANNER, TUT_FOOTERS,
   W, H, FLOOR_H, BUILD_X0, BUILD_X1, GROUND_Y, TAP_SPLIT, TEETER_X,
   DROP_X0, DROP_X1, CHUTE_BX, CHUTE_BW, CHUTE_BH, MACH_CX, MACH_W, MACH_H,
@@ -44,6 +44,12 @@ export const ELF_IMG = ELVES.map(d => {
   const s = new Image();
   s.src = d.side.src;
   return { front: f, side: s };
+});
+
+export const PRESENT_IMG = PRESENTS.map(src => {
+  const im = new Image();
+  im.src = src;
+  return im;
 });
 
 const BG = new Image();
@@ -97,15 +103,6 @@ export function toGame(ev) {
     y: (ev.clientY - r.top - offsetY) / scale,
   };
 }
-
-const GRAD = {};
-const grad = (k, make) => (GRAD[k] || (GRAD[k] = make()));
-const wrapGrad = t => grad('w' + t, () => {
-  const g = cx.createLinearGradient(-15, -14, 15, 14);
-  g.addColorStop(0, t);
-  g.addColorStop(1, '#3A068D');
-  return g;
-});
 
 const has = (S, k) => S.tutGear || S.sleighsDone >= GEAR[k];
 const gustFront = S => -160 + (W + 320) * Math.min(1, (GUST.dur - S.gustT) / GUST.front);
@@ -446,17 +443,21 @@ function drawIcon(g2, cat, x, y, s, v = 0) {
   g2.restore();
 }
 
-function drawWrapped(g2, x, y, s, tint) {
-  g2.save(); g2.translate(x, y); g2.scale(s, s);
-  g2.fillStyle = wrapGrad(tint || '#6F00FF');
-  g2.strokeStyle = '#FFF'; g2.lineWidth = 2; g2.lineJoin = 'round';
-  g2.beginPath(); g2.roundRect(-15, -14, 30, 28, 4); g2.fill(); g2.stroke();
-  g2.strokeStyle = '#FFE14D'; g2.lineWidth = 4;
-  g2.beginPath(); g2.moveTo(0, -14); g2.lineTo(0, 14); g2.stroke();
-  g2.beginPath(); g2.moveTo(-15, 0); g2.lineTo(15, 0); g2.stroke();
-  g2.fillStyle = '#FFE14D'; g2.strokeStyle = '#FFF'; g2.lineWidth = 1.5;
-  g2.beginPath(); g2.arc(-4, -16, 4.5, 0, 7); g2.fill(); g2.stroke();
-  g2.beginPath(); g2.arc(4, -16, 4.5, 0, 7); g2.fill(); g2.stroke();
+function drawWrapped(g2, x, y, s, variant = 0) {
+  const idx = Math.abs(Math.round(Number(variant) || 0)) % PRESENT_IMG.length;
+  const im = PRESENT_IMG[idx];
+  g2.save();
+  g2.translate(x, y);
+  g2.scale(s, s);
+  if (im && im.complete && im.naturalWidth) {
+    g2.drawImage(im, -16, -16, 32, 32);
+  } else {
+    g2.fillStyle = idx === 0 ? '#00C1F2' : '#D93670';
+    g2.fillRect(-15, -14, 30, 28);
+    g2.fillStyle = '#FFE14D';
+    g2.fillRect(-2.5, -14, 5, 28);
+    g2.fillRect(-15, -6, 30, 4.5);
+  }
   g2.restore();
 }
 
@@ -480,7 +481,7 @@ function drawGift(g2, g) {
   if (g.state === 'inBin') g2.scale(0.80, 0.80);
   if (g.tilt) g2.rotate(g.tilt);
   if (g.spin && (g.state === 'toBin' || g.state === 'landed')) g2.rotate(Math.sin(g.spin) * 0.28);
-  if (g.wrapped) drawWrapped(g2, 0, 0, 0.92, CATS[g.cat].color);
+  if (g.wrapped) drawWrapped(g2, 0, 0, 0.92, g.id || g.cat || 0);
   else {
     const c = CATS[g.cat];
     g2.fillStyle = c.glow; g2.beginPath(); g2.arc(0, 0, GIFT_R + 7, 0, 7); g2.fill();
@@ -578,7 +579,7 @@ function drawSorter(g2, S, f, live) {
     g2.strokeStyle = '#FFFFFF'; g2.lineWidth = 2.4;
     g2.beginPath(); g2.roundRect(MACH_L, T, MACH_W, MACH_H, 9); g2.fill(); g2.stroke();
   }
-  drawWrapped(g2, MACH_CX, cy, 0.5, (hot && ok) ? '#FFFFFF' : '#9D87F5');
+  drawWrapped(g2, MACH_CX, cy, 0.5, f);
 
   g2.lineCap = 'round'; g2.lineJoin = 'round'; g2.lineWidth = 2.6;
   g2.strokeStyle = (hot && ok) ? '#FFFFFF' : 'rgba(255,255,255,.75)';
@@ -828,7 +829,7 @@ function drawSleighAndReindeer(g2, S, giftsCount, dx, dy, rot, alpha, hasStar = 
   g2.translate(-SLEIGH_X, -SLEIGH_Y);
   const nGifts = Math.min(giftsCount || 0, 12);
   for (let i = 0; i < nGifts; i++) {
-    drawWrapped(g2, SLEIGH_X - 22 + (i % 4) * 20, SLEIGH_Y - 12 - Math.floor(i / 4) * 14, 0.38, CATS[i % 5].color);
+    drawWrapped(g2, SLEIGH_X - 22 + (i % 4) * 20, SLEIGH_Y - 12 - Math.floor(i / 4) * 14, 0.38, i);
   }
   if (PROPS.sleigh.img.complete) g2.drawImage(PROPS.sleigh.img, sx, sy, sw, sh);
   // Sleigh star badge (earned if wave has 0 misses)

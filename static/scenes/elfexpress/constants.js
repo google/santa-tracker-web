@@ -217,6 +217,8 @@ export const PROPS = {
   rudolph: { w: 260.65, h: 365.5, file: 'img/rudolph.svg' },
 };
 
+export const PRESENTS = ['img/present-a.svg', 'img/present-b.svg'];
+
 export const ENDING = {
   big: _msg`elfexpress_win_big`,
   small: _msg`elfexpress_win_small`,
