@@ -558,13 +558,38 @@ function drawPadlock(g2, x, y, s) {
 
 function drawFloorBelt(g2, S, f) {
   const by = beltY(f);
-  g2.fillStyle = '#D8DDE2';
+  const bx0 = 18, bw = 188, bh = 20;
+  g2.save();
+  // Solid flat belt band (no outlines, no gradients)
+  g2.fillStyle = '#41474C';
+  g2.beginPath();
+  g2.roundRect(bx0, by, bw, bh, 5);
+  g2.fill();
+
+  g2.fillStyle = '#565D63';
+  g2.beginPath();
+  g2.roundRect(bx0 + 3, by + 3, bw - 6, bh - 6, 3);
+  g2.fill();
+  g2.clip();
+
+  // Flat moving chevrons showing rightward belt direction
   const bt = S.beltAnimT !== undefined ? S.beltAnimT : S.t;
-  const shift = (bt * 58) % 32;
-  for (let bx = BUILD_X0 - 26 + shift; bx < TEETER_X + 8; bx += 32) {
-    if (bx < BUILD_X0 - 24) continue;
-    g2.beginPath(); g2.arc(bx, by + 10, 4, 0, 7); g2.fill();
+  const step = 28;
+  const shift = reduceMotion ? 0 : ((bt * 58) % step);
+  g2.fillStyle = '#B9BDC3';
+  const cy = by + bh / 2;
+  for (let cx0 = bx0 - step + shift; cx0 < bx0 + bw + step; cx0 += step) {
+    g2.beginPath();
+    g2.moveTo(cx0 - 5, cy - 5);
+    g2.lineTo(cx0 + 1, cy - 5);
+    g2.lineTo(cx0 + 6, cy);
+    g2.lineTo(cx0 + 1, cy + 5);
+    g2.lineTo(cx0 - 5, cy + 5);
+    g2.lineTo(cx0, cy);
+    g2.closePath();
+    g2.fill();
   }
+  g2.restore();
 }
 
 function drawSorter(g2, S, f, live) {
