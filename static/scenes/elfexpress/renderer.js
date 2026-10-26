@@ -825,7 +825,6 @@ function drawSleighAndReindeer(g2, S, giftsCount, dx, dy, rot, alpha, hasStar = 
   g2.translate(SLEIGH_X + dx, SLEIGH_Y + dy);
   if (rot) g2.rotate(rot);
   g2.translate(-SLEIGH_X, -SLEIGH_Y);
-  if (S.mode === 'hitch' && PROPS.santa.img.complete) g2.drawImage(PROPS.santa.img, sx, sy, sw, sh);
   const nGifts = Math.min(giftsCount || 0, 12);
   for (let i = 0; i < nGifts; i++) {
     drawWrapped(g2, SLEIGH_X - 22 + (i % 4) * 20, SLEIGH_Y - 12 - Math.floor(i / 4) * 14, 0.38, CATS[i % 5].color);
@@ -1173,15 +1172,14 @@ function drawTakeoff(g2, S, t) {
     pxs(g2, q.x - 2, q.y + 30 + Math.round(Math.sin(i * 0.6 + t * 4) * 3), 1, 1,
       i % 3 ? '#FFE14D' : '#FFFFFF');
   }
-  const gallop = (!reduceMotion && Math.floor(t * 9) % 2) ? SPR_DEER_B : SPR_DEER_A;
-  const TEAM = [[54,-14],[88,-32],[122,-50]];
-  for (let i = 0; i < TEAM.length; i++) {
-    sprite(g2, gallop, p.x + TEAM[i][0], p.y + TEAM[i][1], 2);
-  }
-  for (let i = 0; i < 60; i++) {
-    pxs(g2, p.x + 46 + i, p.y + 16 - Math.round(i * 0.52), 1, 1, '#7C5539');
-  }
-  sprite(g2, SPR_SLEIGH, p.x, p.y, 2);
+  const sx = p.x * PXS + 36;
+  const sy = p.y * PXS + 36;
+  g2.save();
+  g2.translate(sx, sy);
+  g2.scale(0.82, 0.82);
+  g2.translate(-SLEIGH_X, -SLEIGH_Y);
+  drawSleighAndReindeer(g2, S, 12, 0, 0, -0.18, 1, true);
+  g2.restore();
 
   if (t > 2.2) {
     const on = reduceMotion || Math.floor(t * 2.5) % 2 === 0 || t > 3.4;

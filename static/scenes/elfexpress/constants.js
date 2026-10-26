@@ -213,8 +213,7 @@ export const ELVES = [
 ];
 
 export const PROPS = {
-  sleigh: { w: 125.9, h: 103, file: 'img/sleigh.svg' },
-  santa: { w: 125.9, h: 103, file: 'img/santa.svg' },
+  sleigh: { w: 125.9, h: 103, file: 'img/sleigh-empty.svg' },
   rudolph: { w: 260.65, h: 365.5, file: 'img/rudolph.svg' },
 };
 
@@ -325,22 +324,22 @@ export const PXC = {
 };
 
 export const SPR_SLEIGH = [
-  '............WW..........',
-  '...........WWWW.........',
-  '..........RRRRW.........',
-  '.........RRRRRRW........',
-  '........WWWWWWWWW.......',
-  '........SSSSSSSS.......G',
-  '.......GKKSKKSG.......GG',
-  '......WWWSPSSWWW.....GG.',
-  '......WWWWWWWWWW....RR..',
-  '.....WWWWWWWWWWWW..RR...',
-  '.....WWWWWWWWWWWW.RR....',
-  'T.N..WWWWWWWWWWW..RR....',
-  'TTNN..WWWWWWWWWRRRR.....',
-  'TTNN.RRWWWWWWWRRRRR.....',
-  'RRRRRRRKKKKKRRRRRRR.....',
-  'RRRRRRRKGGGKRRRRRRR.....',
+  '........................',
+  '........................',
+  '........................',
+  '........................',
+  '........................',
+  '.......................G',
+  '......................GG',
+  '.....................GG.',
+  '......TTTT..GGGG....RR..',
+  '......TTTT.GGGGGG..RR...',
+  '..NNNNTTTT.GGGGGG.RR....',
+  'T.NNNNTTTT.GGGGG..RR....',
+  'TTNNNNTTTTRRRRRRRRR.....',
+  'TTNN.RRRRRRRRRRRRRR.....',
+  'RRRRRRRRRRRRRRRRRRR.....',
+  'RRRRRRRRRRRRRRRRRRR.....',
   'rRRRRRRRRRRRRRRRRr......',
   '.rrrrrrrrrrrrrrrr.......',
   'GGGGGGGGGGGGGGGGGG......',
