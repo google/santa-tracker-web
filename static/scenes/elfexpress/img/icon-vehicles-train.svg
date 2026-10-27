@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <title>Elf Express - toy train icon (Vehicles)</title>
+  <defs><clipPath id="right"><rect x="32" y="0" width="32" height="64"/></clipPath></defs>
+  <g>
+    <circle cx="47" cy="9.5" r="4" fill="#FFFFFF"/>
+    <circle cx="53" cy="6" r="3" fill="#FFFFFF"/>
+    <rect x="40" y="17" width="8" height="13" rx="2" fill="#FFE14D"/>
+    <rect x="38" y="14" width="12" height="4.5" rx="2.25" fill="#FFE14D"/>
+    <rect x="22" y="27" width="33" height="17" rx="8.5" fill="#38BDF8"/>
+    <rect x="34" y="27" width="3" height="17" fill="#FFE14D"/>
+    <path d="M5 22 Q5 19 8 19 H27 Q30 19 30 22 V44 H5 Z" fill="#FF3333"/>
+    <rect x="3" y="15" width="29" height="5" rx="2.5" fill="#FFE14D"/>
+    <rect x="10" y="23.5" width="14" height="10" rx="2.5" fill="#BAE6FD"/>
+    <path d="M53 44 L60 50 H53 Z" fill="#FFE14D"/>
+    <rect x="4" y="42" width="52" height="5" rx="2.5" fill="#64748B"/>
+    <circle cx="15" cy="49.5" r="7.5" fill="#64748B"/>
+    <circle cx="34" cy="51" r="5.8" fill="#64748B"/>
+    <circle cx="47.5" cy="51" r="5.8" fill="#64748B"/>
+    <circle cx="15" cy="49.5" r="3.2" fill="#E2E8F0"/>
+    <circle cx="34" cy="51" r="2.5" fill="#E2E8F0"/>
+    <circle cx="47.5" cy="51" r="2.5" fill="#E2E8F0"/>
+  </g>
+<g clip-path="url(#right)">
+    <circle cx="47" cy="9.5" r="4" fill="#E2E8F0"/>
+    <circle cx="53" cy="6" r="3" fill="#E2E8F0"/>
+    <rect x="40" y="17" width="8" height="13" rx="2" fill="#F2C200"/>
+    <rect x="38" y="14" width="12" height="4.5" rx="2.25" fill="#F2C200"/>
+    <rect x="22" y="27" width="33" height="17" rx="8.5" fill="#0EA5E9"/>
+    <rect x="34" y="27" width="3" height="17" fill="#F2C200"/>
+    <path d="M5 22 Q5 19 8 19 H27 Q30 19 30 22 V44 H5 Z" fill="#D92626"/>
+    <rect x="3" y="15" width="29" height="5" rx="2.5" fill="#F2C200"/>
+    <rect x="10" y="23.5" width="14" height="10" rx="2.5" fill="#93C5FD"/>
+    <path d="M53 44 L60 50 H53 Z" fill="#F2C200"/>
+    <rect x="4" y="42" width="52" height="5" rx="2.5" fill="#64748B"/>
+    <circle cx="15" cy="49.5" r="7.5" fill="#64748B"/>
+    <circle cx="34" cy="51" r="5.8" fill="#64748B"/>
+    <circle cx="47.5" cy="51" r="5.8" fill="#64748B"/>
+    <circle cx="15" cy="49.5" r="3.2" fill="#CBD5E1"/>
+    <circle cx="34" cy="51" r="2.5" fill="#CBD5E1"/>
+    <circle cx="47.5" cy="51" r="2.5" fill="#CBD5E1"/>
+  </g>
+</svg>

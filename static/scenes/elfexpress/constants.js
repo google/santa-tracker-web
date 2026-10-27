@@ -35,7 +35,7 @@ export const TUNE = {
   recycleLimit: 15,        // Recycled gifts before Game Over — unchanged
   relaxTime: 3.0,          // 3s break between levels after a sleigh fills (with "Phew!" cue)
   sleighFlyTime: 1.8,      // Sleigh + reindeer takeoff & glide-back duration during the 3s break (s)
-  dualToysFromWave: 4,     // Sleigh (1-8) that introduces second toys at level start (Sleigh 4)
+  dualToysFromWave: 3,     // Sleigh (1-8) that introduces second toys at level start (Sleigh 3)
   twoHands: true,          // Feature flag: two-hand carrying (enabled from Sleigh 6)
   sackFromWave: 6,         // Sleigh (1-8) where two-hand carrying starts (Sleigh 6)
   hurryMusicFromWave: 8,   // Sleigh (1-8) that starts game_hurry_up music at level start (Sleigh 8 only)
@@ -62,11 +62,11 @@ export const WAVES = [
     startFloors: 2,
     pulses: 1,
     flowCount: 4,
-    flowGap: 2.40,
+    flowGap: 2.00,
     speedUpCount: 0,
-    speedUpGap: 2.40,
+    speedUpGap: 2.00,
     burstSize: 0,
-    burstGap: 2.40,
+    burstGap: 2.00,
     breathe: 3.0,
     teeter: 2.40,
     gustOnBurst: false,
@@ -82,13 +82,13 @@ export const WAVES = [
     ],
     pulses: 1,
     flowCount: 3,
-    flowGap: 2.60,
+    flowGap: 1.90,
     speedUpCount: 3,
-    speedUpGap: 2.20,
+    speedUpGap: 1.60,
     burstSize: 2,
-    burstGap: 1.20,
+    burstGap: 1.00,
     breathe: 3.0,
-    teeter: 2.35,
+    teeter: 2.30,
     gustOnBurst: false,
   },
   {
@@ -97,13 +97,13 @@ export const WAVES = [
     startFloors: 5,
     pulses: 1,
     flowCount: 3,
-    flowGap: 2.40,
-    speedUpCount: 3,
-    speedUpGap: 2.00,
+    flowGap: 1.80,
+    speedUpCount: 4,
+    speedUpGap: 1.50,
     burstSize: 3,
-    burstGap: 1.00,
+    burstGap: 0.90,
     breathe: 3.0,
-    teeter: 2.30,
+    teeter: 2.20,
     gustOnBurst: false,
   },
   {
@@ -112,13 +112,13 @@ export const WAVES = [
     startFloors: 5,
     pulses: 1,
     flowCount: 4,
-    flowGap: 2.20,
-    speedUpCount: 3,
-    speedUpGap: 1.80,
+    flowGap: 1.80,
+    speedUpCount: 4,
+    speedUpGap: 1.40,
     burstSize: 3,
-    burstGap: 0.95,
+    burstGap: 0.90,
     breathe: 3.0,
-    teeter: 2.20,
+    teeter: 2.15,
     gustOnBurst: false,
   },
   {
@@ -127,13 +127,13 @@ export const WAVES = [
     startFloors: 5,
     pulses: 1,
     flowCount: 4,
-    flowGap: 2.10,
+    flowGap: 1.70,
     speedUpCount: 4,
-    speedUpGap: 1.70,
-    burstSize: 3,
-    burstGap: 0.90,
+    speedUpGap: 1.40,
+    burstSize: 4,
+    burstGap: 0.85,
     breathe: 3.0,
-    teeter: 2.15,
+    teeter: 2.10,
     gustOnBurst: false,
   },
   {
@@ -146,9 +146,9 @@ export const WAVES = [
     speedUpCount: 4,
     speedUpGap: 1.70,
     burstSize: 4,
-    burstGap: 0.80,
+    burstGap: 0.90,
     breathe: 3.0,
-    teeter: 2.10,
+    teeter: 2.20,
     gustOnBurst: true,
   },
   {
@@ -159,11 +159,11 @@ export const WAVES = [
     flowCount: 5,
     flowGap: 1.80,
     speedUpCount: 5,
-    speedUpGap: 1.40,
-    burstSize: 5,
-    burstGap: 0.80,
+    speedUpGap: 1.45,
+    burstSize: 4,
+    burstGap: 0.90,
     breathe: 3.0,
-    teeter: 2.00,
+    teeter: 2.10,
     gustOnBurst: true,
   },
   {
@@ -174,16 +174,16 @@ export const WAVES = [
     flowCount: 5,
     flowGap: 1.70,
     speedUpCount: 5,
-    speedUpGap: 1.30,
-    burstSize: 6,
-    burstGap: 0.70,
+    speedUpGap: 1.35,
+    burstSize: 5,
+    burstGap: 0.85,
     breathe: 3.0,
-    teeter: 2.00,
+    teeter: 2.10,
     gustOnBurst: true,
   },
 ];
 
-// Sleigh capacity per level equals that level's total gifts: [4, 8, 9, 10, 11, 12, 15, 16]
+// Sleigh capacity per level equals that level's total gifts: [4, 8, 10, 11, 12, 12, 14, 15]
 export const SLEIGHS = WAVES.map(w => w.flowCount + (w.speedUpCount || 0) + w.burstSize);
 
 // Snowfall intensity spread over the 8 sleighs (sleighsDone 0..7)
@@ -204,19 +204,43 @@ export const SNOW_PILE = 0.048;
 // ============================================================================
 
 export const ELVES = [
-  { id: 'elf1', front: { w: 267.2, h: 560.6, src: 'img/elf-1-front.svg' }, side: { w: 173.6, h: 522.8, src: 'img/elf-1-side.svg' } },
-  { id: 'elf2', front: { w: 236.6, h: 404.0, src: 'img/elf-2-front.svg' }, side: { w: 150.2, h: 382.4, src: 'img/elf-2-side.svg' } },
-  { id: 'elf3', front: { w: 234.8, h: 405.8, src: 'img/elf-3-front.svg' }, side: { w: 150.2, h: 369.8, src: 'img/elf-3-side.svg' } },
-  { id: 'elf4', front: { w: 265.4, h: 558.8, src: 'img/elf-4-front.svg' }, side: { w: 155.6, h: 535.4, src: 'img/elf-4-side.svg' } },
-  { id: 'elf5', front: { w: 270.8, h: 486.8, src: 'img/elf-5-front.svg' }, side: { w: 184.4, h: 456.2, src: 'img/elf-5-side.svg' } },
-  { id: 'elf6', front: { w: 270.8, h: 427.4, src: 'img/elf-6-front.svg' }, side: { w: 186.2, h: 389.6, src: 'img/elf-6-side.svg' } },
+  { id: 'elf1', front: { w: 267.2, h: 560.6, pad: 16.25, src: 'img/elf-1-front.svg' }, side: { w: 173.6, h: 522.8, pad: 16.25, src: 'img/elf-1-side.svg' } },
+  { id: 'elf2', front: { w: 236.6, h: 404.0, pad: 14.89, src: 'img/elf-2-front.svg' }, side: { w: 150.2, h: 382.4, pad: 14.96, src: 'img/elf-2-side.svg' } },
+  { id: 'elf3', front: { w: 234.8, h: 405.8, pad: 16.04, src: 'img/elf-3-front.svg' }, side: { w: 150.2, h: 369.8, pad: 16.04, src: 'img/elf-3-side.svg' } },
+  { id: 'elf4', front: { w: 265.4, h: 558.8, pad: 14.70, src: 'img/elf-4-front.svg' }, side: { w: 155.6, h: 535.4, pad: 14.70, src: 'img/elf-4-side.svg' } },
+  { id: 'elf5', front: { w: 270.8, h: 486.8, pad: 15.55, src: 'img/elf-5-front.svg' }, side: { w: 184.4, h: 456.2, pad: 15.16, src: 'img/elf-5-side.svg' } },
+  { id: 'elf6', front: { w: 270.8, h: 427.4, pad: 14.81, src: 'img/elf-6-front.svg' }, side: { w: 186.2, h: 389.6, pad: 14.78, src: 'img/elf-6-side.svg' } },
 ];
 
 export const PROPS = {
-  sleigh: { w: 125.9, h: 103, file: 'img/sleigh.svg' },
-  santa: { w: 125.9, h: 103, file: 'img/santa.svg' },
+  sleigh: { w: 125.9, h: 103, file: 'img/sleigh-driverless.svg' },
   rudolph: { w: 260.65, h: 365.5, file: 'img/rudolph.svg' },
 };
+
+export const PRESENTS = ['img/present-a.svg', 'img/present-b.svg'];
+
+export const TOY_ICONS = [
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-sports-football.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-sports-skate.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-vehicles-car.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-vehicles-train.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-treats-candy-cane.svg' },
+    { w: 56, h: 34, size: 27, src: 'img/icon-treats-candy.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-books-stack.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-books-storybook.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-plush-bear.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-plush-frenchie.svg' },
+  ],
+];
 
 export const ENDING = {
   big: _msg`elfexpress_win_big`,
@@ -243,16 +267,7 @@ export const ELF_LABELS = [
   _msg`elfexpress_elf_yellow`,
 ];
 
-export const msgOpensAtSleigh = n => _msg`elfexpress_opens_at_sleigh`.replace('{sleigh}', n);
 export const msgSleighAway = (done, total) => _msg`elfexpress_sr_sleigh_away`.replace('{done}', done).replace('{total}', total);
-export const HINT_CATCH = _msg`elfexpress_hint_catch`;
-export const HINT_CHUTE = _msg`elfexpress_hint_chute`;
-export const REVEAL_BANNER = _msg`elfexpress_new_gifts_banner`;
-export const TUT_FOOTERS = {
-  tap: _msg`elfexpress_tut_footer_tap`,
-  belt: _msg`elfexpress_tut_footer_belt`,
-  chute: _msg`elfexpress_tut_footer_chute`,
-};
 
 export const W = 900, H = 700;
 export const FLOOR_H = 112;
@@ -288,6 +303,7 @@ export const GEAR = {
 
 export const ELF_MIN_X = 72, ELF_MAX_X = 598;
 export const ELF_H = 94;
+export const ELF_SCALE = ELF_H / ELVES[0].front.h;
 export const CARRY_OFF = 54;
 export const GIFT_R = 17;
 
@@ -297,13 +313,9 @@ export const PAD_TOP = 8, PAD_BOT = 4, PAD_SIDE = 4;
 export const feetY = f => GROUND_Y - f * FLOOR_H;
 export const beltY = f => feetY(f) - 88;
 export const chuteY = f => feetY(f) - 30;
-export const carryY = f => feetY(f) - CARRY_OFF;
-
-export function unlockSleigh(f) {
-  for (let i = 0; i < WAVES.length; i++) if ((WAVES[i].floors || 2) > f) return i + 1;
-  return WAVES.length;
-}
-export const OPENS_AT_LABELS = [0, 1, 2, 3, 4].map(f => msgOpensAtSleigh(unlockSleigh(f)));
+export const elfCarryOff = (elfIdx = 0) =>
+  Math.round(CARRY_OFF * ((ELVES[elfIdx] || ELVES[0]).front.h / ELVES[0].front.h));
+export const carryY = (f, elfIdx = 0) => feetY(f) - elfCarryOff(elfIdx);
 
 export const STARS_BG = [
   [60,90,3],[120,180,2],[210,64,2],[690,80,3],[762,150,2],[830,70,2],
@@ -325,22 +337,22 @@ export const PXC = {
 };
 
 export const SPR_SLEIGH = [
-  '............WW..........',
-  '...........WWWW.........',
-  '..........RRRRW.........',
-  '.........RRRRRRW........',
-  '........WWWWWWWWW.......',
-  '........SSSSSSSS.......G',
-  '.......GKKSKKSG.......GG',
-  '......WWWSPSSWWW.....GG.',
-  '......WWWWWWWWWW....RR..',
-  '.....WWWWWWWWWWWW..RR...',
-  '.....WWWWWWWWWWWW.RR....',
-  'T.N..WWWWWWWWWWW..RR....',
-  'TTNN..WWWWWWWWWRRRR.....',
-  'TTNN.RRWWWWWWWRRRRR.....',
-  'RRRRRRRKKKKKRRRRRRR.....',
-  'RRRRRRRKGGGKRRRRRRR.....',
+  '........................',
+  '........................',
+  '........................',
+  '........................',
+  '........................',
+  '.......................G',
+  '......................GG',
+  '.....................GG.',
+  '......TTTT..GGGG....RR..',
+  '......TTTT.GGGGGG..RR...',
+  '..NNNNTTTT.GGGGGG.RR....',
+  'T.NNNNTTTT.GGGGG..RR....',
+  'TTNNNNTTTTRRRRRRRRR.....',
+  'TTNN.RRRRRRRRRRRRRR.....',
+  'RRRRRRRRRRRRRRRRRRR.....',
+  'RRRRRRRRRRRRRRRRRRR.....',
   'rRRRRRRRRRRRRRRRRr......',
   '.rrrrrrrrrrrrrrrr.......',
   'GGGGGGGGGGGGGGGGGG......',
