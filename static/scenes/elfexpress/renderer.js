@@ -113,10 +113,13 @@ const gustFront = S => -160 + (W + 320) * Math.min(1, (GUST.dur - S.gustT) / GUS
 function drawBackdrop(g2) {
   const x0 = viewX0 - 40, y0 = viewY0 - 40;
   const x1 = viewX1 + 40, y1 = viewY1 + 40;
-  const skyR = Math.max(650, (x1 - x0) * 0.55, (y1 - y0) * 0.72);
-  const sky = g2.createRadialGradient(W * 0.5, H * 0.28, 0, W * 0.5, H * 0.28, skyR);
-  sky.addColorStop(0, '#E3F4FF');
-  sky.addColorStop(1, '#2B7FD9');
+  const skyR = Math.round(Math.max(650, (x1 - x0) * 0.55, (y1 - y0) * 0.72));
+  const sky = grad('sky' + skyR, () => {
+    const gr = g2.createRadialGradient(W * 0.5, H * 0.28, 0, W * 0.5, H * 0.28, skyR);
+    gr.addColorStop(0, '#E3F4FF');
+    gr.addColorStop(1, '#2B7FD9');
+    return gr;
+  });
   g2.fillStyle = sky;
   g2.fillRect(x0, y0, x1 - x0, y1 - y0);
   g2.save();
@@ -170,17 +173,15 @@ function drawDrift(g2, x0, x1, y, depth, lumpy) {
 }
 
 function gearC(g2, S) {
-  const t = S.t, pulse = 0.75 + 0.25 * Math.sin(t * 5);
   g2.save(); g2.lineCap = 'round';
   if (!has(S, 'sneakers')) for (const x of [76, 227.6, 95.6, 207.5]) {
     g2.fillStyle = '#5B3A1E'; g2.beginPath(); g2.roundRect(x - 10, 350, 20, 16, 5); g2.fill();
   }
   if (has(S, 'sneakers')) for (const [x, far] of [[76, 1], [227.6, 1], [95.6, 0], [207.5, 0]]) {
-    g2.shadowColor = '#22D3EE'; g2.shadowBlur = 10 * pulse;
     g2.fillStyle = far ? '#D61F45' : '#FF2D55';
     g2.beginPath(); g2.roundRect(x - 13, 312, 28, 44, 9); g2.fill();
     g2.beginPath(); g2.roundRect(x - 32, 336, 47, 24, 12); g2.fill();
-    g2.shadowBlur = 0; g2.fillStyle = '#FFFFFF';
+    g2.fillStyle = '#FFFFFF';
     g2.beginPath(); g2.ellipse(x - 25, 350, 10, 9, 0, 0, 7); g2.fill();
     g2.beginPath(); g2.roundRect(x - 35, 356, 53, 12, 6); g2.fill();
     g2.strokeStyle = '#22D3EE'; g2.lineWidth = 3;
@@ -197,21 +198,19 @@ function gearC(g2, S) {
 }
 
 function gearD(g2, S) {
-  const pulse = 0.75 + 0.25 * Math.sin(S.t * 5);
   g2.save();
   if (has(S, 'blanket')) {
-    g2.shadowColor = '#39FF88'; g2.shadowBlur = 14 * pulse;
     g2.fillStyle = '#16A34A'; g2.strokeStyle = '#FDE047'; g2.lineWidth = 6;
     g2.beginPath(); g2.moveTo(110, 172); g2.lineTo(214, 172); g2.lineTo(214, 228);
     for (let x = 214; x > 110; x -= 13) g2.quadraticCurveTo(x - 6.5, 242, x - 13, 228);
     g2.closePath(); g2.fill(); g2.stroke();
-    g2.shadowBlur = 0; g2.fillStyle = '#FFFFFF'; g2.fillRect(110, 193, 104, 16);
+    g2.fillStyle = '#FFFFFF'; g2.fillRect(110, 193, 104, 16);
     g2.fillStyle = '#FF2D55';
     for (let x = 118; x < 212; x += 16) {
       g2.beginPath(); g2.moveTo(x, 201); g2.lineTo(x + 5, 195);
       g2.lineTo(x + 10, 201); g2.lineTo(x + 5, 207); g2.closePath(); g2.fill();
     }
-    g2.shadowColor = '#FDE047'; g2.shadowBlur = 10; g2.fillStyle = '#FDE047';
+    g2.fillStyle = '#FDE047';
     for (const x of [110, 214]) {
       g2.beginPath(); g2.arc(x, 232, 6, 0, 7); g2.fill();
       g2.fillRect(x - 3, 232, 6, 16);
@@ -221,16 +220,16 @@ function gearD(g2, S) {
 }
 
 function gearA(g2, S) {
-  const t = S.t, gust = S.gustT > 0, pulse = 0.75 + 0.25 * Math.sin(t * 5);
+  const t = S.t, gust = S.gustT > 0;
   gearC(g2, S); gearD(g2, S);
-  g2.save(); g2.shadowBlur = 12 * pulse;
+  g2.save();
   if (!has(S, 'blanket') && S.snowDepth > 0.3) {
     g2.globalAlpha = Math.min(1, (S.snowDepth - 0.3) * 2); g2.fillStyle = '#F1F5F9';
     g2.beginPath(); g2.ellipse(160, 177, 45, 9, 0, 0, 7); g2.fill(); g2.globalAlpha = 1;
   }
   if (has(S, 'scarf')) {
     const f = (gust ? 3.2 : 1) * Math.sin(t * (gust ? 11 : 3)) * 5;
-    g2.shadowColor = '#FF3B5C'; g2.fillStyle = '#FF2D55';
+    g2.fillStyle = '#FF2D55';
     g2.beginPath(); g2.roundRect(50, 140, 52, 22, 10); g2.fill();
     g2.beginPath(); g2.moveTo(95, 144); g2.quadraticCurveTo(125, 142 + f, 150, 127 + f * 2);
     g2.quadraticCurveTo(128, 160 + f, 95, 160); g2.closePath(); g2.fill();
@@ -238,10 +237,10 @@ function gearA(g2, S) {
   }
   if (has(S, 'bells')) {
     const s = Math.sin(t * (gust ? 9 : 2.4)) * 3;
-    g2.shadowColor = '#FDE047'; g2.fillStyle = '#FF2D55'; g2.fillRect(54, 172, 46, 8);
-    g2.shadowBlur = 20 * pulse; g2.fillStyle = '#FDE047';
+    g2.fillStyle = '#FF2D55'; g2.fillRect(54, 172, 46, 8);
+    g2.fillStyle = '#FDE047';
     g2.beginPath(); g2.arc(60 + s, 191, 12, 0, 7); g2.fill();
-    g2.shadowBlur = 0; g2.fillStyle = '#FFFFFF';
+    g2.fillStyle = '#FFFFFF';
     g2.beginPath(); g2.arc(56 + s, 187, 3.5, 0, 7); g2.fill();
   }
   g2.restore();
@@ -253,32 +252,28 @@ function gearB(g2, S) {
   if (has(S, 'goggles')) {
     g2.strokeStyle = '#FDE047'; g2.lineWidth = 8;
     g2.beginPath(); g2.moveTo(40, 106); g2.lineTo(97, 103); g2.stroke();
-    g2.shadowColor = '#22D3EE'; g2.shadowBlur = 14;
     g2.fillStyle = '#22D3EE'; g2.strokeStyle = '#FDE047'; g2.lineWidth = 5;
     g2.beginPath(); g2.ellipse(52, 110, 15, 13, 0, 0, 7); g2.fill(); g2.stroke();
-    g2.shadowBlur = 0; g2.fillStyle = '#FFFFFF';
+    g2.fillStyle = '#FFFFFF';
     g2.beginPath(); g2.ellipse(47, 105, 5, 3.5, 0, 0, 7); g2.fill();
   }
   if (has(S, 'lights')) {
-    const tw = 0.75 + 0.25 * Math.abs(Math.sin(t * 4));
     [[60, 3, '#FF2D55'], [82, 7, '#39FF88']].forEach(([x, y, c]) => {
-      g2.shadowColor = c; g2.shadowBlur = 22 * tw;
       g2.fillStyle = '#9CA3AF'; g2.fillRect(x - 5, y - 2, 10, 8);
       g2.fillStyle = c; g2.beginPath(); g2.ellipse(x, y - 13, 12, 14, 0, 0, 7); g2.fill();
-      g2.shadowBlur = 0; g2.fillStyle = '#FFFFFF';
+      g2.fillStyle = '#FFFFFF';
       g2.beginPath(); g2.arc(x - 4, y - 18, 4, 0, 7); g2.fill();
     });
   }
   if (has(S, 'hat')) {
-    g2.shadowColor = '#FF3B5C'; g2.shadowBlur = 12; g2.fillStyle = '#FF2D55';
+    g2.fillStyle = '#FF2D55';
     g2.beginPath(); g2.moveTo(60, 94); g2.lineTo(92, 50); g2.lineTo(100, 96); g2.closePath(); g2.fill();
-    g2.shadowColor = '#FFFFFF'; g2.fillStyle = '#FFFFFF';
+    g2.fillStyle = '#FFFFFF';
     g2.beginPath(); g2.roundRect(56, 88, 48, 12, 6); g2.fill();
     g2.beginPath(); g2.arc(92, 48, 9, 0, 7); g2.fill();
   }
   if (has(S, 'nose')) {
     const p = 0.6 + 0.4 * Math.abs(Math.sin(t * 4));
-    g2.shadowBlur = 0;
     g2.fillStyle = 'rgba(255,45,85,' + (0.6 * p) + ')';
     g2.beginPath(); g2.arc(10, 125, 40 * p, 0, 7); g2.fill();
     g2.fillStyle = 'rgba(255,255,255,.9)';
@@ -837,8 +832,6 @@ function drawSleighAndReindeer(g2, S, giftsCount, dx, dy, rot, alpha, hasStar = 
   g2.textAlign = 'center';
   g2.textBaseline = 'middle';
   if (hasStar) {
-    g2.shadowColor = '#FDE047';
-    g2.shadowBlur = 8;
     g2.strokeStyle = '#92400E';
     g2.lineWidth = 3.5;
     g2.strokeText('★', SLEIGH_X + 34, SLEIGH_Y - 10);
@@ -987,31 +980,14 @@ function drawLines(g2, S, floors, sleighTargetVal) {
 function drawSnow(g2, S) {
   if (S.snowAmt < 0.01) return;
   g2.save();
-  const n = Math.min(S.snow.length, Math.round(S.snow.length * (0.12 + S.snowAmt * 0.36)));
+  g2.fillStyle = '#FFFFFF';
+  const n = Math.min(S.snow.length, Math.round(S.snow.length * Math.min(0.55, 0.12 + S.snowAmt * 0.20)));
   for (let i = 0; i < n; i++) {
     const s = S.snow[i];
-    const alpha = Math.min(1, s.a * (0.55 + S.snowAmt * 0.45));
-    g2.globalAlpha = alpha;
-    if (s.crystal && s.r > 2.2) {
-      g2.strokeStyle = '#FFFFFF';
-      g2.lineWidth = 1.3;
-      g2.lineCap = 'round';
-      g2.beginPath();
-      g2.moveTo(s.x - s.r, s.y); g2.lineTo(s.x + s.r, s.y);
-      g2.moveTo(s.x, s.y - s.r); g2.lineTo(s.x, s.y + s.r);
-      const d = s.r * 0.65;
-      g2.moveTo(s.x - d, s.y - d); g2.lineTo(s.x + d, s.y + d);
-      g2.moveTo(s.x - d, s.y + d); g2.lineTo(s.x + d, s.y - d);
-      g2.stroke();
-    } else if (s.large) {
-      g2.fillStyle = 'rgba(224,242,254,0.45)';
-      g2.beginPath(); g2.arc(s.x, s.y, s.r + 1.8, 0, 7); g2.fill();
-      g2.fillStyle = '#FFFFFF';
-      g2.beginPath(); g2.arc(s.x, s.y, s.r, 0, 7); g2.fill();
-    } else {
-      g2.fillStyle = '#FFFFFF';
-      g2.beginPath(); g2.arc(s.x, s.y, s.r, 0, 7); g2.fill();
-    }
+    g2.globalAlpha = Math.min(1, s.a * (0.55 + S.snowAmt * 0.35));
+    g2.beginPath();
+    g2.arc(s.x, s.y, s.r, 0, 7);
+    g2.fill();
   }
   g2.restore();
 }
@@ -1020,28 +996,19 @@ function drawWind(g2, S, g) {
   if (g.state === 'belt' && g.x < 18) return;
   const k = 1 - Math.abs(S.gustT / GUST.dur - 0.5) * 2;
   g2.save(); g2.lineCap = 'round';
-  for (let i = 0; i < 7; i++) {
-    const off = (i - 3) * 6.5;
-    const ph = (S.t * 2.4 + i * 0.31) % 1;
+  for (let i = 0; i < 3; i++) {
+    const off = (i - 1) * 9;
+    const ph = (S.t * 2.4 + i * 0.41) % 1;
     const taper = 1 - Math.abs(off) / 22;
-    const len = (14 + 34 * taper) * (0.6 + 0.4 * Math.sin(S.t * 9 + i));
-    const x = g.x - 20 - ph * 20;
-    g2.globalAlpha = 0.85 * k * taper * (1 - ph * 0.55);
-    g2.strokeStyle = i % 3 ? '#C1E8ED' : '#FFFFFF';
-    g2.lineWidth = 1 + 2 * taper;
+    const len = (14 + 28 * taper) * (0.65 + 0.35 * Math.sin(S.t * 9 + i));
+    const x = g.x - 18 - ph * 18;
+    g2.globalAlpha = 0.8 * k * taper * (1 - ph * 0.55);
+    g2.strokeStyle = i === 1 ? '#FFFFFF' : '#C1E8ED';
+    g2.lineWidth = 1.4 + 1.4 * taper;
     g2.beginPath();
-    g2.moveTo(x - len, g.y + off + Math.sin(S.t * 7 + i * 1.4) * 2);
+    g2.moveTo(x - len, g.y + off);
     g2.lineTo(x, g.y + off * 0.75);
     g2.stroke();
-  }
-  g2.fillStyle = '#FFFFFF';
-  for (let i = 0; i < 6; i++) {
-    const ph = (S.t * 1.9 + i * 0.17) % 1;
-    g2.globalAlpha = k * (1 - ph) * 0.95;
-    g2.beginPath();
-    g2.arc(g.x - 46 + ph * 58, g.y - 15 + i * 6 + Math.sin(S.t * 8 + i * 2) * 4,
-      1.5 + (i % 2), 0, 7);
-    g2.fill();
   }
   g2.restore();
 }
@@ -1051,25 +1018,18 @@ function drawGust(g2, S) {
   const front = gustFront(S);
   const k = Math.min(1, S.gustT / (GUST.dur * 0.4));
   g2.save(); g2.lineCap = 'round';
-  for (let i = 0; i < 64; i++) {
+  for (let i = 0; i < 18; i++) {
     const y = (i * 149) % (H - 20) + 10;
-    const len = 60 + (i % 5) * 44;
-    const x = ((S.t * 800 + i * 97) % (W + 520)) - 260;
+    const len = 56 + (i % 4) * 36;
+    const x = ((S.t * 800 + i * 137) % (W + 520)) - 260;
     if (x > front) continue;
     const near = Math.max(0, 1 - (front - x) / 400);
-    g2.globalAlpha = 0.85 * k * (0.2 + near * 0.8);
-    g2.strokeStyle = i % 4 ? '#C1E8ED' : '#FFFFFF';
-    g2.lineWidth = 2 + (i % 3) * 1.4;
+    g2.globalAlpha = 0.78 * k * (0.2 + near * 0.8);
+    g2.strokeStyle = i % 3 ? '#C1E8ED' : '#FFFFFF';
+    g2.lineWidth = 2 + (i % 2) * 1.2;
     g2.beginPath(); g2.moveTo(x - len, y); g2.lineTo(x, y + 2); g2.stroke();
   }
-  if (front < W + 60) {
-    const gl = g2.createLinearGradient(front - 100, 0, front + 8, 0);
-    gl.addColorStop(0, 'rgba(224,242,254,0)');
-    gl.addColorStop(1, 'rgba(255,255,255,.7)');
-    g2.globalAlpha = 0.55 * k;
-    g2.fillStyle = gl; g2.fillRect(front - 100, 0, 108, H);
-  }
-  g2.globalAlpha = 0.12 * k; g2.fillStyle = '#BFDBFE';
+  g2.globalAlpha = 0.08 * k; g2.fillStyle = '#BFDBFE';
   g2.fillRect(viewX0 - 40, viewY0 - 40, (viewX1 - viewX0) + 80, (viewY1 - viewY0) + 80);
   g2.restore();
 }
@@ -1216,14 +1176,18 @@ function drawGustWarning(g2, S) {
   if (!S.gustWarnT || S.gustWarnT <= 0) return;
   const pulse = reduceMotion ? 0.85 : (0.45 + 0.55 * Math.abs(Math.sin(S.t * 14)));
   const warnBelts = (S.gustWarnBelts && S.gustWarnBelts.length) ? S.gustWarnBelts : [0, 1, 2, 3, 4];
+  const gl = grad('gustWarn', () => {
+    const gr = g2.createLinearGradient(BUILD_X0 - 20, 0, TEETER_X + 10, 0);
+    gr.addColorStop(0, 'rgba(56,189,248,0.55)');
+    gr.addColorStop(1, 'rgba(224,242,254,0)');
+    return gr;
+  });
   g2.save();
   g2.lineCap = 'round';
   g2.lineJoin = 'round';
   for (const f of warnBelts) {
     const by = beltY(f) - 10;
-    const gl = g2.createLinearGradient(BUILD_X0 - 20, 0, TEETER_X + 10, 0);
-    gl.addColorStop(0, 'rgba(56,189,248,' + (0.55 * pulse) + ')');
-    gl.addColorStop(1, 'rgba(224,242,254,0)');
+    g2.globalAlpha = pulse;
     g2.fillStyle = gl;
     g2.fillRect(BUILD_X0 - 20, by - 26, (TEETER_X - BUILD_X0) + 30, 48);
 
@@ -1246,8 +1210,6 @@ function drawBounceArrow(g2, x, y, pulse, color = '#FDE047') {
   const bob = reduceMotion ? 0 : Math.sin(pulse * Math.PI * 2) * 7;
   const tipY = y + bob;
   g2.save();
-  g2.shadowColor = color;
-  g2.shadowBlur = 14;
   g2.fillStyle = color;
   g2.strokeStyle = '#1D1D1D';
   g2.lineWidth = 3.2;
@@ -1301,9 +1263,9 @@ function drawBreatheCue(g2, S) {
   g2.font = "400 28px Lobster, 'Google Sans', cursive";
   g2.textAlign = 'center';
   g2.textBaseline = 'middle';
-  g2.shadowColor = 'rgba(15,23,42,.55)';
-  g2.shadowBlur = 6;
-  g2.shadowOffsetY = 2;
+  g2.strokeStyle = 'rgba(15,23,42,.65)';
+  g2.lineWidth = 4;
+  g2.strokeText('Phew!', bx, by);
   g2.fillStyle = '#FFFFFF';
   g2.fillText('Phew!', bx, by);
   g2.restore();
