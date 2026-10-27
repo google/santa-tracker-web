@@ -721,7 +721,7 @@ function startWave(waveIdx) {
   const startFloors = w.startFloors || w.floors || 2;
   S.unlockedFloors = startFloors;
 
-  // Sleigh 4+: Second toys introduced at the start of the level
+  // Sleigh 3+: Second toys introduced at the start of the level
   if (waveNum >= TUNE.dualToysFromWave && !S.revealed) {
     S.revealed = true;
     for (let i = 0; i < 5; i++) {
