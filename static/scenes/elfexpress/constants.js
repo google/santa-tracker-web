@@ -35,7 +35,7 @@ export const TUNE = {
   recycleLimit: 15,        // Recycled gifts before Game Over — unchanged
   relaxTime: 3.0,          // 3s break between levels after a sleigh fills (with "Phew!" cue)
   sleighFlyTime: 1.8,      // Sleigh + reindeer takeoff & glide-back duration during the 3s break (s)
-  dualToysFromWave: 4,     // Sleigh (1-8) that introduces second toys at level start (Sleigh 4)
+  dualToysFromWave: 3,     // Sleigh (1-8) that introduces second toys at level start (Sleigh 3)
   twoHands: true,          // Feature flag: two-hand carrying (enabled from Sleigh 6)
   sackFromWave: 6,         // Sleigh (1-8) where two-hand carrying starts (Sleigh 6)
   hurryMusicFromWave: 8,   // Sleigh (1-8) that starts game_hurry_up music at level start (Sleigh 8 only)
@@ -62,11 +62,11 @@ export const WAVES = [
     startFloors: 2,
     pulses: 1,
     flowCount: 4,
-    flowGap: 2.40,
+    flowGap: 2.00,
     speedUpCount: 0,
-    speedUpGap: 2.40,
+    speedUpGap: 2.00,
     burstSize: 0,
-    burstGap: 2.40,
+    burstGap: 2.00,
     breathe: 3.0,
     teeter: 2.40,
     gustOnBurst: false,
@@ -82,13 +82,13 @@ export const WAVES = [
     ],
     pulses: 1,
     flowCount: 3,
-    flowGap: 2.60,
+    flowGap: 1.90,
     speedUpCount: 3,
-    speedUpGap: 2.20,
+    speedUpGap: 1.60,
     burstSize: 2,
-    burstGap: 1.20,
+    burstGap: 1.00,
     breathe: 3.0,
-    teeter: 2.35,
+    teeter: 2.30,
     gustOnBurst: false,
   },
   {
@@ -97,13 +97,13 @@ export const WAVES = [
     startFloors: 5,
     pulses: 1,
     flowCount: 3,
-    flowGap: 2.40,
-    speedUpCount: 3,
-    speedUpGap: 2.00,
+    flowGap: 1.80,
+    speedUpCount: 4,
+    speedUpGap: 1.50,
     burstSize: 3,
-    burstGap: 1.00,
+    burstGap: 0.90,
     breathe: 3.0,
-    teeter: 2.30,
+    teeter: 2.20,
     gustOnBurst: false,
   },
   {
@@ -112,13 +112,13 @@ export const WAVES = [
     startFloors: 5,
     pulses: 1,
     flowCount: 4,
-    flowGap: 2.20,
-    speedUpCount: 3,
-    speedUpGap: 1.80,
+    flowGap: 1.80,
+    speedUpCount: 4,
+    speedUpGap: 1.40,
     burstSize: 3,
-    burstGap: 0.95,
+    burstGap: 0.90,
     breathe: 3.0,
-    teeter: 2.20,
+    teeter: 2.15,
     gustOnBurst: false,
   },
   {
@@ -127,13 +127,13 @@ export const WAVES = [
     startFloors: 5,
     pulses: 1,
     flowCount: 4,
-    flowGap: 2.10,
+    flowGap: 1.70,
     speedUpCount: 4,
-    speedUpGap: 1.70,
-    burstSize: 3,
-    burstGap: 0.90,
+    speedUpGap: 1.40,
+    burstSize: 4,
+    burstGap: 0.85,
     breathe: 3.0,
-    teeter: 2.15,
+    teeter: 2.10,
     gustOnBurst: false,
   },
   {
@@ -146,9 +146,9 @@ export const WAVES = [
     speedUpCount: 4,
     speedUpGap: 1.70,
     burstSize: 4,
-    burstGap: 0.80,
+    burstGap: 0.90,
     breathe: 3.0,
-    teeter: 2.10,
+    teeter: 2.20,
     gustOnBurst: true,
   },
   {
@@ -159,11 +159,11 @@ export const WAVES = [
     flowCount: 5,
     flowGap: 1.80,
     speedUpCount: 5,
-    speedUpGap: 1.40,
-    burstSize: 5,
-    burstGap: 0.80,
+    speedUpGap: 1.45,
+    burstSize: 4,
+    burstGap: 0.90,
     breathe: 3.0,
-    teeter: 2.00,
+    teeter: 2.10,
     gustOnBurst: true,
   },
   {
@@ -174,16 +174,16 @@ export const WAVES = [
     flowCount: 5,
     flowGap: 1.70,
     speedUpCount: 5,
-    speedUpGap: 1.30,
-    burstSize: 6,
-    burstGap: 0.70,
+    speedUpGap: 1.35,
+    burstSize: 5,
+    burstGap: 0.85,
     breathe: 3.0,
-    teeter: 2.00,
+    teeter: 2.10,
     gustOnBurst: true,
   },
 ];
 
-// Sleigh capacity per level equals that level's total gifts: [4, 8, 9, 10, 11, 12, 15, 16]
+// Sleigh capacity per level equals that level's total gifts: [4, 8, 10, 11, 12, 12, 14, 15]
 export const SLEIGHS = WAVES.map(w => w.flowCount + (w.speedUpCount || 0) + w.burstSize);
 
 // Snowfall intensity spread over the 8 sleighs (sleighsDone 0..7)

@@ -314,10 +314,9 @@ function buildElfPicker() {
 }
 
 function makeSnow() {
-  return Array.from({ length: 450 }, (_, i) => {
+  return Array.from({ length: 160 }, (_, i) => {
     const isLarge = i % 8 === 0;
-    const isCrystal = i % 18 === 0;
-    const r = isLarge ? 2.6 + Math.random() * 2.4 : 1.2 + Math.random() * 1.8;
+    const r = isLarge ? 2.6 + Math.random() * 2.0 : 1.2 + Math.random() * 1.6;
     return {
       x: -300 + Math.random() * (W + 600),
       y: -80 + Math.random() * (H + 160),
@@ -326,7 +325,7 @@ function makeSnow() {
       sw: 0.8 + Math.random() * 1.8,
       ph: Math.random() * 6.28,
       a: 0.5 + Math.random() * 0.5,
-      crystal: isCrystal,
+      crystal: false,
       large: isLarge,
     };
   });
@@ -356,7 +355,8 @@ function newGame() {
     phase: 'flow', relaxT: 0, sleighFlyT: 0, sleighFlyDur: 1.8, sleighFlyGifts: 0,
     breatheCueT: 0, breatheCueDur: 3.0, breatheSlowT: 0, breatheArmed: false,
     sleighTimer: 0,
-    twoHandsBoxUp: false, twoHandsIntroShown: false, twoHandsArrowShown: false, twoHandsArrowChute: -1,
+    twoHandsBoxUp: false, twoHandsIntroShown: false, twoHandsStage: null, twoHandsBelt: -1,
+    twoHandsArrowShown: false, twoHandsArrowChute: -1,
     waveQueue: [], spawnTimer: 1.0, lastBelt: -1, lastCat: 0,
     gifts: [], fx: [], nextId: 1, recent: [],
     shake: 0, catchFlash: 0,
@@ -470,7 +470,8 @@ function verifyWaveSolvable(q, teeter, carryCap, startFloor, startX) {
     t += ev.delay;
     if (ev.action === 'gift') {
       const spd = ev.gusted ? 165 * GUST.beltMul : 165;
-      const tTeeter = t + (TEETER_X - (-30)) / spd;
+      const startXPos = ev.startX !== undefined ? ev.startX : -30;
+      const tTeeter = t + (TEETER_X - startXPos) / spd;
       const tReady = tTeeter;
       gifts.push({ belt: ev.belt, cat: ev.cat, tReady, tDeadline: tTeeter + teeter });
     }
@@ -579,14 +580,51 @@ function buildWaveQueue(waveIdx) {
     };
 
     // 1. Steady flow phase
+    const isTwoHandsWave = Boolean(TUNE.twoHands && (waveIdx + 1) === TUNE.sackFromWave && w.flowCount >= 2);
     for (let i = 0; i < w.flowCount; i++) {
       const unlocked = checkProgressiveFloor();
+      if (isTwoHandsWave && i === 0) {
+        const b0 = unlocked ? (unlocked - 1) : pickNearbyFloor(prevC, 2, prevB, curFloors);
+        const c0 = pickNearbyFloor(b0, 1, -1, curFloors);
+        const c1 = pickNearbyFloor(b0, 2, c0, curFloors);
+        recentSim.push(c0, c1);
+        while (recentSim.length > 4) recentSim.shift();
+        prevB = b0;
+        prevC = c1;
+        q.push({
+          delay: 0.15,
+          delayType: 'init',
+          phase: 'flow',
+          action: 'gift',
+          belt: b0,
+          cat: c0,
+          startX: -10,
+          twoHandsPair: true,
+          unlockFloor: unlocked,
+          gusted: false,
+        });
+        q.push({
+          delay: 0,
+          delayType: 'init',
+          phase: 'flow',
+          action: 'gift',
+          belt: b0,
+          cat: c1,
+          startX: -52,
+          twoHandsPair: true,
+          unlockFloor: 0,
+          gusted: false,
+        });
+        giftIdx += 2;
+        i++;
+        continue;
+      }
       const b = unlocked ? (unlocked - 1) : pickNearbyFloor(prevC, 2, prevB, curFloors);
       const c = unlocked ? pickNearbyFloor(b, 1, -1, curFloors) : nextCat(curFloors);
       prevB = b;
       prevC = c;
       q.push({
-        delay: i === 0 ? 0.35 : w.flowGap,
+        delay: i === 0 ? 0.35 : ((isTwoHandsWave && i === 2) ? w.flowGap + 0.85 : w.flowGap),
         delayType: i === 0 ? 'init' : 'flow',
         phase: 'flow',
         action: 'gift',
@@ -721,7 +759,7 @@ function startWave(waveIdx) {
   const startFloors = w.startFloors || w.floors || 2;
   S.unlockedFloors = startFloors;
 
-  // Sleigh 4+: Second toys introduced at the start of the level
+  // Sleigh 3+: Second toys introduced at the start of the level
   if (waveNum >= TUNE.dualToysFromWave && !S.revealed) {
     S.revealed = true;
     for (let i = 0; i < 5; i++) {
@@ -755,6 +793,14 @@ function startWave(waveIdx) {
   }
 
   S.waveQueue = buildWaveQueue(S.sleighsDone);
+  if (TUNE.twoHands && waveNum === TUNE.sackFromWave) {
+    const firstPair = S.waveQueue.find(ev => ev.twoHandsPair);
+    S.twoHandsStage = firstPair ? 'catch' : null;
+    S.twoHandsBelt = firstPair ? firstPair.belt : -1;
+  } else {
+    S.twoHandsStage = null;
+    S.twoHandsBelt = -1;
+  }
   S.spawnTimer = S.waveQueue.length ? S.waveQueue[0].delay : 1.0;
   syncTunePanel();
   reportScore();
@@ -858,8 +904,9 @@ function processWaveQueue(dt) {
       S.gustWarnT = ev.warnDur || GUST.warnTime;
       S.gustWarnBelts = ev.belts ? ev.belts.slice() : [0, 1, 2, 3, 4];
     } else if (ev.action === 'gift') {
-      const g = spawnGiftOnBelt(ev.belt, -30, null, ev.cat);
+      const g = spawnGiftOnBelt(ev.belt, ev.startX !== undefined ? ev.startX : -30, null, ev.cat);
       if (ev.gusted) g.gusted = true;
+      if (ev.twoHandsPair) g.twoHandsPair = true;
       if (ev.triggerGust) triggerGustNow(S.gustWarnBelts.length ? S.gustWarnBelts : [ev.belt]);
     }
     if (S.waveQueue.length) {
@@ -945,6 +992,13 @@ function updateGifts(dt) {
     }
   }
   S.gifts = S.gifts.filter(g => g.state !== 'done');
+  if (S.twoHandsStage === 'catch' && !S.waveQueue.some(ev => ev.twoHandsPair)) {
+    const pairStillOnBelt = S.gifts.some(g => g.twoHandsPair &&
+      (g.state === 'belt' || g.state === 'teeter' || g.state === 'falling' || g.state === 'landed'));
+    if (!pairStillOnBelt) {
+      S.twoHandsStage = S.elf.bag.length > 0 ? 'deliver' : 'done';
+    }
+  }
 }
 
 function pathTo(g, pts, speed) {
@@ -1069,13 +1123,14 @@ function catchable(forgiving) {
   const e = S.elf;
   if (e.climbing || e.bag.length >= S.carryCap) return null;
   if (S.tut && S.tut !== 2) return null;
-  const minX = forgiving ? BUILD_X0 : DROP_X0 - 28;
-  const maxX = forgiving ? LADDER_CX + 16 : DROP_X1 + 32;
+  const minX = BUILD_X0;
+  const maxX = forgiving ? LADDER_CX + 16 : TAP_SPLIT + 16;
   if (e.x < minX || e.x > maxX) return null;
+  const beltMinX = g => (forgiving ? BUILD_X0 + 10 : (g.gusted || g.tilt ? TEETER_X - 95 : TEETER_X - 70));
   const cands = S.gifts.filter(g => !g.tutWatch && g.belt === e.floor &&
     (g.state === 'teeter' || g.state === 'falling' ||
-      (g.state === 'belt' && g.x >= (forgiving ? BUILD_X0 + 10 : TEETER_X - 45)) ||
-      (g.state === 'landed' && (forgiving ? g.x <= BUILD_X1 - 24 : Math.abs(g.x - e.x) <= 56))));
+      (g.state === 'belt' && g.x >= beltMinX(g)) ||
+      (g.state === 'landed' && (forgiving ? g.x <= BUILD_X1 - 24 : (g.x <= TAP_SPLIT + 16 || Math.abs(g.x - e.x) <= 72)))));
   if (!cands.length) return null;
   const prio = st => st === 'falling' ? 4 : st === 'teeter' ? 3 : st === 'landed' ? 2 : 1;
   cands.sort((a, b) => (prio(b.state) - prio(a.state)) || (b.timer - a.timer) || (b.x - a.x));
@@ -1131,6 +1186,12 @@ function doAction(edge, manual) {
   g.state = 'carried'; g.tilt = 0; g.timer = 0; g.spin = 0;
   e.bag.push(g);
   syncCarry();
+  if (S.twoHandsStage === 'catch' && e.bag.length >= 2) {
+    S.twoHandsStage = 'deliver';
+    for (const item of e.bag) {
+      S.floorPulse[item.cat] = 1.2;
+    }
+  }
   if (TUNE.twoHands && e.bag.length === 2 && !S.twoHandsArrowShown) {
     S.twoHandsArrowShown = true;
     S.twoHandsArrowChute = e.bag[0].cat;
@@ -1141,7 +1202,12 @@ function doAction(edge, manual) {
     S.tut = 3;
     S.tutBoxUp = true;
   }
-  S.cmd = S.queue || null; S.queue = null;
+  const keepBeltForPair = S.twoHandsStage === 'catch' && e.bag.length < S.carryCap &&
+    S.gifts.some(o => o.twoHandsPair && o.belt === e.floor &&
+      (o.state === 'belt' || o.state === 'teeter' || o.state === 'falling' || o.state === 'landed'));
+  if (!keepBeltForPair) {
+    S.cmd = null; S.queue = null;
+  }
   S.catchFlash = 0.3;
   S.beltPulse[e.floor] = 0.5;
   puff(e.x, carryY(e.floor, elfChoice), '#FF7733', 10);
@@ -1178,6 +1244,9 @@ function releaseGift(onlyMatching = false) {
   }
   syncCarry();
   S.twoHandsArrowChute = -1;
+  if (S.twoHandsStage === 'deliver' && e.bag.length === 0) {
+    S.twoHandsStage = 'done';
+  }
   if (matching.length) {
     api.play('pd_player_present_pickup');
     reportScore();
@@ -1453,7 +1522,7 @@ function updateElf(dt) {
       if (cmdType === 'chute') {
         if (e.x >= CHUTE_BX - 12 || arrived) {
           if (e.bag.length > 0) releaseGift(false);
-          S.cmd = S.queue || null; S.queue = null;
+          S.cmd = null; S.queue = null;
           if (!S.cmd) e.bob = 0;
           finishUpdateElf();
           return;
@@ -1470,11 +1539,11 @@ function updateElf(dt) {
     if (arrived && S.cmd) {
       if (S.cmd.type === 'chute') {
         if (e.bag.length > 0) releaseGift(false);
-        S.cmd = S.queue || null; S.queue = null;
+        S.cmd = null; S.queue = null;
       } else {
         idleCatch();
         if (S.cmd && S.cmd.type === 'belt') {
-          S.cmd = S.queue || null; S.queue = null;
+          S.cmd = null; S.queue = null;
         }
       }
       if (!S.cmd) e.bob = 0;
@@ -1674,7 +1743,7 @@ function frame(now) {
     }
   }
   if (S) {
-    renderScene(S, elfChoice, activeFloors(), sleighTarget(), !!catchable(true));
+    renderScene(S, elfChoice, activeFloors(), sleighTarget(), !!catchable(false));
   }
 }
 
@@ -1819,17 +1888,18 @@ function tapTarget(p) {
   if (f >= activeFloors()) return;
   const t = { type: p.x < TAP_SPLIT ? 'belt' : 'chute', floor: f };
 
-  const carrying = S.elf.bag.length > 0;
-  const canCarryMore = S.elf.bag.length < S.carryCap;
-  const busy = !!S.cmd;
   S.elf.climbTo = null;
-  if (busy && carrying && t.type === 'belt' && S.cmd.type === 'chute') {
-    S.queue = t; clearKeys(); return;
+  S.cmd = t;
+  S.queue = null;
+  clearKeys();
+  if (!S.elf.climbing && S.elf.floor === f) {
+    if (t.type === 'chute' && S.elf.x >= CHUTE_BX - 12 && S.elf.bag.length > 0) {
+      releaseGift(false);
+      S.cmd = null;
+    } else if (t.type === 'belt' && S.elf.bag.length < S.carryCap && catchable(false)) {
+      doAction(false, false);
+    }
   }
-  if (busy && canCarryMore && t.type === 'chute' && S.cmd.type === 'belt') {
-    S.queue = t; clearKeys(); return;
-  }
-  S.cmd = t; S.queue = null; clearKeys();
 }
 
 cv.addEventListener('pointerdown', ev => {
