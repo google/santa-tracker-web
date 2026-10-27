@@ -655,23 +655,36 @@ function wrapText(g2, txt, maxW) {
 function getGuideTargets(S) {
   let beltFloor = -1;
   let chuteFloor = -1;
+  let chuteFloors = [];
   let beltGift = null;
 
-  // Bouncing arrows for tutorial steps 2 (belt) and 3 (chute), plus once on one matching chute the first time holding 2 gifts
+  // Bouncing arrows for tutorial steps 2 (belt) and 3 (chute), plus the Sleigh 6 two-hands moment
   if (S.tut === 2 && S.tutBoxUp) {
     beltGift = S.gifts.find(g => g.tutGift) || S.gifts[0] || null;
     beltFloor = beltGift ? beltGift.belt : 0;
   } else if (S.tut === 3 && S.tutBoxUp) {
     const bag = (S.elf && S.elf.bag) || [];
     chuteFloor = bag.length ? bag[0].cat : 1;
-  } else if (!S.tut && TUNE.twoHands && S.twoHandsArrowChute !== undefined && S.twoHandsArrowChute >= 0) {
-    const bag = (S.elf && S.elf.bag) || [];
-    if (bag.length === 2) {
-      chuteFloor = S.twoHandsArrowChute;
+    chuteFloors = [chuteFloor];
+  } else if (!S.tut && !S.twoHandsBoxUp && TUNE.twoHands) {
+    if (S.twoHandsStage === 'catch') {
+      beltFloor = S.twoHandsBelt >= 0 ? S.twoHandsBelt : 0;
+      beltGift = S.gifts.find(g => g.twoHandsPair &&
+        (g.state === 'belt' || g.state === 'teeter' || g.state === 'falling' || g.state === 'landed')) || null;
+    } else if (S.twoHandsStage === 'deliver') {
+      const bag = (S.elf && S.elf.bag) || [];
+      chuteFloors = Array.from(new Set(bag.map(g => g.cat)));
+      chuteFloor = chuteFloors.length ? chuteFloors[0] : -1;
+    } else if (S.twoHandsArrowChute !== undefined && S.twoHandsArrowChute >= 0) {
+      const bag = (S.elf && S.elf.bag) || [];
+      if (bag.length === 2) {
+        chuteFloor = S.twoHandsArrowChute;
+        chuteFloors = [chuteFloor];
+      }
     }
   }
 
-  return { beltFloor, chuteFloor, beltGift };
+  return { beltFloor, chuteFloor, chuteFloors, beltGift };
 }
 
 function drawWorkshop(g2, S, floors) {
@@ -745,7 +758,7 @@ function drawWorkshop(g2, S, floors) {
     }
 
     const sel = S.cmd && S.cmd.type === 'chute' && S.cmd.floor === f;
-    const tutChuteGlow = guide.chuteFloor === f;
+    const tutChuteGlow = guide.chuteFloor === f || (guide.chuteFloors && guide.chuteFloors.includes(f));
     const match = tutChuteGlow || (carrying && bag.some(g => g.cat === f));
     const hi = sel || match;
     const q = S.queue && S.queue.type === 'chute' && S.queue.floor === f;
@@ -761,13 +774,14 @@ function drawWorkshop(g2, S, floors) {
       g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.fill();
     }
     if (hi || pulse > 0 || popT > 0) {
-      g2.fillStyle = popT > 0 ? (reduceMotion ? 'rgba(255,255,255,.45)' : (blink ? 'rgba(255,225,77,.45)' : 'rgba(255,255,255,.55)'))
+      g2.fillStyle = (popT > 0 || tutChuteGlow)
+        ? (reduceMotion ? 'rgba(255,225,77,.45)' : ((blink || tutChuteGlow) ? 'rgba(255,225,77,.42)' : 'rgba(255,255,255,.55)'))
         : (hi ? 'rgba(255,255,255,.28)' : 'rgba(255,255,255,.45)');
       g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.fill();
     }
-    g2.strokeStyle = popT > 0 ? ((reduceMotion || blink) ? '#FFE14D' : '#FFFFFF')
+    g2.strokeStyle = (popT > 0 || tutChuteGlow) ? ((reduceMotion || blink || tutChuteGlow) ? '#FFE14D' : '#FFFFFF')
       : ((hi || pulse > 0) ? '#FFFFFF' : 'rgba(29,29,29,.24)');
-    g2.lineWidth = (hi || popT > 0) ? 3.5 : 2;
+    g2.lineWidth = (hi || popT > 0 || tutChuteGlow) ? 3.5 : 2;
     g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.stroke();
 
     if (q) {
@@ -776,8 +790,10 @@ function drawWorkshop(g2, S, floors) {
       g2.stroke(); g2.setLineDash([]);
     }
     if (match) {
-      g2.strokeStyle = 'rgba(255,255,255,' + (reduceMotion ? 0.75 : (0.4 + 0.5 * Math.abs(Math.sin(S.t * 3.5)))) + ')';
-      g2.lineWidth = 3;
+      g2.strokeStyle = tutChuteGlow
+        ? ('rgba(253,224,71,' + (reduceMotion ? 0.9 : (0.55 + 0.45 * Math.abs(Math.sin(S.t * 5)))) + ')')
+        : ('rgba(255,255,255,' + (reduceMotion ? 0.75 : (0.4 + 0.5 * Math.abs(Math.sin(S.t * 3.5)))) + ')');
+      g2.lineWidth = tutChuteGlow ? 3.8 : 3;
       g2.beginPath(); g2.roundRect(CHUTE_BX - 3, by2 - 3, CHUTE_BW + 6, CHUTE_BH + 6, 15); g2.stroke();
     }
 
@@ -1236,11 +1252,20 @@ function drawGuideArrows(g2, S) {
   const guide = getGuideTargets(S);
   const pulse = (S.uiT || S.t || 0) * 1.9;
 
-  // Bouncing arrows for tutorial steps 2 (conveyor) and 3 (chute), and first two-hand carry
-  if (guide.beltGift) {
-    const gx = Math.max(BUILD_X0 + 36, Math.min(TEETER_X, guide.beltGift.x));
-    const gy = beltY(guide.beltGift.belt) - 34;
+  // Bouncing arrows for tutorial steps 2 (conveyor) and 3 (chute), and Sleigh 6 two-hands moment
+  if (guide.beltGift || guide.beltFloor >= 0) {
+    const gx = guide.beltGift
+      ? Math.max(BUILD_X0 + 36, Math.min(TEETER_X, guide.beltGift.x))
+      : (BUILD_X0 + TEETER_X) / 2;
+    const bf = guide.beltGift ? guide.beltGift.belt : guide.beltFloor;
+    const gy = beltY(bf) - 34;
     drawBounceArrow(g2, gx, gy, pulse, '#FDE047');
+  } else if (guide.chuteFloors && guide.chuteFloors.length) {
+    const cx0 = CHUTE_BX + CHUTE_BW / 2;
+    for (const cf of guide.chuteFloors) {
+      const cy0 = chuteY(cf) - CHUTE_BH / 2 - 6;
+      drawBounceArrow(g2, cx0, cy0, pulse, '#FDE047');
+    }
   } else if (guide.chuteFloor >= 0) {
     const cx0 = CHUTE_BX + CHUTE_BW / 2;
     const cy0 = chuteY(guide.chuteFloor) - CHUTE_BH / 2 - 6;
