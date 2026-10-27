@@ -314,10 +314,9 @@ function buildElfPicker() {
 }
 
 function makeSnow() {
-  return Array.from({ length: 450 }, (_, i) => {
+  return Array.from({ length: 160 }, (_, i) => {
     const isLarge = i % 8 === 0;
-    const isCrystal = i % 18 === 0;
-    const r = isLarge ? 2.6 + Math.random() * 2.4 : 1.2 + Math.random() * 1.8;
+    const r = isLarge ? 2.6 + Math.random() * 2.0 : 1.2 + Math.random() * 1.6;
     return {
       x: -300 + Math.random() * (W + 600),
       y: -80 + Math.random() * (H + 160),
@@ -326,7 +325,7 @@ function makeSnow() {
       sw: 0.8 + Math.random() * 1.8,
       ph: Math.random() * 6.28,
       a: 0.5 + Math.random() * 0.5,
-      crystal: isCrystal,
+      crystal: false,
       large: isLarge,
     };
   });
@@ -1069,13 +1068,14 @@ function catchable(forgiving) {
   const e = S.elf;
   if (e.climbing || e.bag.length >= S.carryCap) return null;
   if (S.tut && S.tut !== 2) return null;
-  const minX = forgiving ? BUILD_X0 : DROP_X0 - 28;
-  const maxX = forgiving ? LADDER_CX + 16 : DROP_X1 + 32;
+  const minX = BUILD_X0;
+  const maxX = forgiving ? LADDER_CX + 16 : TAP_SPLIT + 16;
   if (e.x < minX || e.x > maxX) return null;
+  const beltMinX = g => (forgiving ? BUILD_X0 + 10 : (g.gusted || g.tilt ? TEETER_X - 95 : TEETER_X - 70));
   const cands = S.gifts.filter(g => !g.tutWatch && g.belt === e.floor &&
     (g.state === 'teeter' || g.state === 'falling' ||
-      (g.state === 'belt' && g.x >= (forgiving ? BUILD_X0 + 10 : TEETER_X - 45)) ||
-      (g.state === 'landed' && (forgiving ? g.x <= BUILD_X1 - 24 : Math.abs(g.x - e.x) <= 56))));
+      (g.state === 'belt' && g.x >= beltMinX(g)) ||
+      (g.state === 'landed' && (forgiving ? g.x <= BUILD_X1 - 24 : (g.x <= TAP_SPLIT + 16 || Math.abs(g.x - e.x) <= 72)))));
   if (!cands.length) return null;
   const prio = st => st === 'falling' ? 4 : st === 'teeter' ? 3 : st === 'landed' ? 2 : 1;
   cands.sort((a, b) => (prio(b.state) - prio(a.state)) || (b.timer - a.timer) || (b.x - a.x));
@@ -1141,7 +1141,7 @@ function doAction(edge, manual) {
     S.tut = 3;
     S.tutBoxUp = true;
   }
-  S.cmd = S.queue || null; S.queue = null;
+  S.cmd = null; S.queue = null;
   S.catchFlash = 0.3;
   S.beltPulse[e.floor] = 0.5;
   puff(e.x, carryY(e.floor), '#FF7733', 10);
@@ -1443,7 +1443,7 @@ function updateElf(dt) {
       if (cmdType === 'chute') {
         if (e.x >= CHUTE_BX - 12 || arrived) {
           if (e.bag.length > 0) releaseGift(false);
-          S.cmd = S.queue || null; S.queue = null;
+          S.cmd = null; S.queue = null;
           finishUpdateElf();
           return;
         }
@@ -1458,11 +1458,11 @@ function updateElf(dt) {
     if (arrived && S.cmd) {
       if (S.cmd.type === 'chute') {
         if (e.bag.length > 0) releaseGift(false);
-        S.cmd = S.queue || null; S.queue = null;
+        S.cmd = null; S.queue = null;
       } else {
         idleCatch();
         if (S.cmd && S.cmd.type === 'belt') {
-          S.cmd = S.queue || null; S.queue = null;
+          S.cmd = null; S.queue = null;
         }
       }
     }
@@ -1660,7 +1660,7 @@ function frame(now) {
     }
   }
   if (S) {
-    renderScene(S, elfChoice, activeFloors(), sleighTarget(), !!catchable(true));
+    renderScene(S, elfChoice, activeFloors(), sleighTarget(), !!catchable(false));
   }
 }
 
@@ -1805,17 +1805,18 @@ function tapTarget(p) {
   if (f >= activeFloors()) return;
   const t = { type: p.x < TAP_SPLIT ? 'belt' : 'chute', floor: f };
 
-  const carrying = S.elf.bag.length > 0;
-  const canCarryMore = S.elf.bag.length < S.carryCap;
-  const busy = !!S.cmd;
   S.elf.climbTo = null;
-  if (busy && carrying && t.type === 'belt' && S.cmd.type === 'chute') {
-    S.queue = t; clearKeys(); return;
+  S.cmd = t;
+  S.queue = null;
+  clearKeys();
+  if (!S.elf.climbing && S.elf.floor === f) {
+    if (t.type === 'chute' && S.elf.x >= CHUTE_BX - 12 && S.elf.bag.length > 0) {
+      releaseGift(false);
+      S.cmd = null;
+    } else if (t.type === 'belt' && S.elf.bag.length < S.carryCap && catchable(false)) {
+      doAction(false, false);
+    }
   }
-  if (busy && canCarryMore && t.type === 'chute' && S.cmd.type === 'belt') {
-    S.queue = t; clearKeys(); return;
-  }
-  S.cmd = t; S.queue = null; clearKeys();
 }
 
 cv.addEventListener('pointerdown', ev => {
