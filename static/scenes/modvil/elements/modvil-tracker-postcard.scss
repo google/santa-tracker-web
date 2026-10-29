@@ -1,0 +1,298 @@
+/**
+ * Copyright 2026 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+:host {
+  display: block;
+  font-family: 'Roboto', 'Google Sans', sans-serif;
+  user-select: none;
+}
+
+.postcard-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.postcard-scene {
+  container-type: inline-size;  // enables cqw units on the back side
+  // Leaves room for the carousel arrows on both sides and the header/footer above and below.
+  width: min(640px, calc(100vw - 200px), calc((100vh - 220px) * 4 / 3));
+
+  @media (max-width: 600px) {
+    width: min(calc(100vw - 112px), calc((100vh - 220px) * 4 / 3));
+  }
+  aspect-ratio: 4 / 3;
+  perspective: 1200px;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+
+  &:focus-visible .postcard-face {
+    box-shadow: 0 0 0 4px #ffeb3b, 0 12px 32px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.postcard-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  background: #fffdf7;
+  border: 6px solid #fff;
+  box-sizing: border-box;
+}
+
+.postcard-front {
+  transform: rotateY(0deg);
+}
+
+.postcard-back {
+  transform: rotateY(180deg);
+}
+
+.postcard-scene.is-flipped {
+  .postcard-front {
+    transform: rotateY(-180deg);
+  }
+  .postcard-back {
+    transform: rotateY(0deg);
+  }
+}
+
+.front-illustration {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.front-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 24px 16px 12px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.location-label {
+  display: flex;
+  flex-direction: column;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+
+  .city {
+    font-family: 'Lobster', cursive, sans-serif;
+    font-size: 26px;
+    line-height: 1.1;
+  }
+
+  .region {
+    font-size: 13px;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+}
+
+// Back side, based on the "Santa's Travel Journal" template. Every word is live text (localized
+// via _msg / route data); only the stamp is an image. Sizes use container query units (cqw) so
+// the whole back scales with the card, from the small gallery tile up to the big carousel card.
+$back-paper: #e9dcc3;   // sampled from the template
+$back-ink: #2b2622;
+$back-rule: #b9ab93;
+$back-muted: #8a8174;
+
+.postcard-back {
+  display: grid;
+  grid-template-columns: 1.12fr 1.5px 1fr;
+  column-gap: 4.5cqw;
+  padding: 5cqw 4.5cqw 3.6cqw;
+  background: $back-paper;
+  color: $back-ink;
+}
+
+.back-left {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.journal-title {
+  margin: 0 0 3.4cqw;
+  padding-bottom: 1.6cqw;
+  border-bottom: 0.35cqw solid $back-rule;
+  font: 500 2cqw / 1.2 'Roboto', 'Google Sans', sans-serif;
+  letter-spacing: 0.22em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  color: #3d3731;
+}
+
+.dispatch-message,
+.dispatch-next {
+  margin: 0;
+  // Handwriting look where the font exists; other scripts (CJK, Arabic, ...) fall back cleanly.
+  font-family: 'Comic Neue', 'Comic Sans MS', 'Chalkboard SE', 'Patrick Hand', cursive, sans-serif;
+  font-size: 3.4cqw;
+  line-height: 1.4;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+}
+
+.dispatch-next {
+  margin-top: 1.4em;  // one blank line, like a new paragraph in a handwritten note
+}
+
+// Sits just under the note (not pinned to the bottom of the card).
+.dispatch-signature {
+  margin: 3cqw 0 0;
+  text-align: end;
+  font-family: 'Lobster', 'Brush Script MT', cursive;
+  font-size: 3.8cqw;
+  color: $back-ink;
+}
+
+.back-divider {
+  background: $back-ink;
+  opacity: 0.75;
+  margin: 8cqw 0 4cqw;
+}
+
+.back-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.stamp {
+  position: absolute;
+  top: -3cqw;
+  inset-inline-end: -1cqw;
+  width: 15cqw;
+  aspect-ratio: 150 / 180;
+  transform: rotate(2deg);
+
+  .stamp-frame {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .stamp-spark {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 56%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.postmark {
+  position: absolute;
+  top: 7cqw;
+  inset-inline-end: 6cqw;
+  width: 31cqw;
+  height: auto;
+  color: #443a32;  // same ink as postcard_postmark.png
+  overflow: visible;
+  transform: rotate(-4deg);
+
+  // Font sizes are in the SVG's own units (artwork is 965 wide), so they scale with it.
+  .pm-arc {
+    font: 600 50px 'Roboto', sans-serif;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    fill: currentColor;
+  }
+
+  .pm-brand {
+    font-size: 40px;
+    letter-spacing: 0.02em;
+    text-transform: none;
+  }
+
+  .pm-date {
+    font: 500 62px 'Roboto', sans-serif;
+    text-transform: uppercase;
+    fill: currentColor;
+  }
+}
+
+.address {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+// Text sits right on its ruled line, like handwriting on a real postcard.
+.address-line {
+  display: flex;
+  align-items: flex-end;
+  height: 6.4cqw;
+  padding: 0 1.2cqw 0.5cqw;
+  box-sizing: border-box;
+  border-bottom: 0.25cqw solid $back-rule;
+  font-family: 'Comic Neue', 'Comic Sans MS', 'Chalkboard SE', 'Patrick Hand', cursive, sans-serif;
+  font-size: 3.1cqw;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.back-footer {
+  margin-top: 3cqw;
+  text-align: end;
+  font: 400 1.9cqw / 1.2 'Roboto', sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $back-muted;
+}
+
+.postcard-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.action-btn {
+  appearance: none;
+  border: none;
+  background: #fff;
+  color: #1f1f1f;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background: #f1f3f4;
+  }
+}
