@@ -1,0 +1,364 @@
+/**
+ * Copyright 2026 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+:host {
+  display: inline-block;
+  position: relative;
+  z-index: 1000001;  // above .info (1000000) so the gallery covers the bottom cards
+}
+
+.mailbox-button {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  display: block;
+  cursor: pointer;
+  position: relative;
+  transform-origin: 50% 100%;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.06);
+  }
+
+  &:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+    border-radius: 12px;
+  }
+
+  &.receiving {
+    animation: mailbox-bounce 0.6s ease 1.4s;
+  }
+}
+
+.mailbox-icon {
+  display: block;
+  width: 104px;  // Figma: Santa Postcards / mailbox, 104x95
+  height: 95px;
+  filter: drop-shadow(1px 2px 0 rgba(0, 0, 0, 0.25));  // matches santa-button svg
+}
+
+.unread-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #ffeb3b;
+  color: #212121;
+  font-size: 11px;
+  font-weight: 800;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.fly-in-preview {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 240px;
+  aspect-ratio: 4 / 3;
+  background: #fff;
+  padding: 6px;
+  border-radius: 10px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+  z-index: 900;
+  pointer-events: auto;
+  cursor: pointer;
+  opacity: 0;  // animated via Web Animations in _triggerFlyIn()
+  transform: translate(-50%, -50%);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+
+  span {
+    position: absolute;
+    bottom: 12px;
+    left: 14px;
+    color: #fff;
+    font-family: 'Lobster', cursive, sans-serif;
+    font-size: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes mailbox-bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.22);
+  }
+  70% {
+    transform: scale(0.93);
+  }
+}
+
+// Option B: light scrim over the map, postcard centred in a red "mailbox slot" frame.
+$mailbox-red: #dc1e23;       // main body colour sampled from mailbox.png
+$mailbox-red-dark: #a01b20;  // shadow colour sampled from mailbox.png
+$mailbox-cream: #fffaf0;
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 16px 24px;  // clear the host page header buttons (menu, mute) drawn above this iframe
+  box-sizing: border-box;
+  background: rgba(10, 30, 40, 0.38);
+  color: #fff;
+  overflow-y: auto;
+  animation: scrim-in 0.2s ease-out;
+}
+
+@keyframes scrim-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.slot-frame {
+  background: $mailbox-red;
+  padding: 10px;
+  border-radius: 14px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35), inset 0 -4px 0 $mailbox-red-dark;
+  animation: card-in 0.25s ease-out;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.97);
+  }
+}
+
+.gallery-panel {
+  width: min(960px, 100%);
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: $mailbox-cream;
+  border: 8px solid $mailbox-red;
+  border-radius: 16px;
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  animation: card-in 0.25s ease-out;
+}
+
+.gallery-header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: $mailbox-red;
+  color: #fff;
+
+  h2 {
+    margin: 0;
+    text-align: center;
+    font-family: 'Lobster', cursive, sans-serif;
+    font-weight: normal;
+    font-size: 26px;
+  }
+
+  .count {
+    justify-self: end;
+    font-weight: 700;
+    opacity: 0.9;
+  }
+}
+
+.icon-btn,
+.nav-btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, background 0.15s ease;
+
+  svg {
+    width: 60%;
+    height: 60%;
+    fill: $mailbox-red;
+  }
+
+  &:hover {
+    transform: scale(1.08);
+  }
+
+  &:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+  }
+
+  &[hidden] {
+    visibility: hidden;
+  }
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+}
+
+.back-btn svg,
+.nav-btn.prev svg {
+  transform: scaleX(-1);
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  max-width: 100%;
+
+  @media (max-width: 600px) {
+    gap: 8px;
+  }
+}
+
+.nav-btn {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 56px;
+
+  @media (max-width: 600px) {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.carousel-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 20px;
+
+  .counter {
+    font-weight: 700;
+    font-size: 16px;
+    opacity: 0.9;
+  }
+}
+
+.pill-btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 10px 20px;
+  background: #fff;
+  color: $mailbox-red;
+  font-weight: 700;
+  font-size: 15px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+
+  &:hover {
+    background: #fff3f3;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+  }
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.grid-card {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  background: #fff;
+  padding: 6px 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.15s ease;
+
+  &:nth-child(odd) {
+    transform: rotate(-1.5deg);
+  }
+
+  &:nth-child(even) {
+    transform: rotate(1.5deg);
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: rotate(0) scale(1.04);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  span {
+    color: #212121;
+    font-weight: 700;
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.empty-msg {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 24px 32px;
+  border-radius: 12px;
+}

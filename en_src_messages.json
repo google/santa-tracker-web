@@ -10076,5 +10076,117 @@
   "decmonth_long": {
     "description": "'December', the month. Any length is fine. Placed before a number indicating the date within December something opens.",
     "message": "December"
+  },
+  "postcard_mailbox_label": {
+    "description": "Opens Santa's postcard collection gallery; 'Postcards' is a plural noun. Appears as the accessible label and tooltip on the top-right mailbox button in the Santa Tracker map view. [CHAR_LIMIT=40]",
+    "message": "Santa's Postcards"
+  },
+  "postcard_flip_to_back": {
+    "description": "Flips the postcard over to show the back side with Santa's written message; 'Flip' is an action verb and 'note' is a singular noun. Appears as a button below the postcard in the gallery modal. [CHAR_LIMIT=30]",
+    "message": "Flip to read note"
+  },
+  "postcard_flip_to_front": {
+    "description": "Flips the postcard back over to show the front illustration; 'Flip' is an action verb. Appears as a button below the postcard in the gallery modal when viewing the back side. [CHAR_LIMIT=30]",
+    "message": "Flip to front"
+  },
+  "postcard_download": {
+    "description": "Saves the postcard image to the user's device; 'Download' is an action verb and 'postcard' is a singular noun. Appears as an action button below the postcard in the gallery modal. [CHAR_LIMIT=30]",
+    "message": "Download postcard"
+  },
+  "postcard_share": {
+    "description": "Opens the system share sheet to share the postcard; 'Share' is an action verb and 'postcard' is a singular noun. Appears as an action button below the postcard in the gallery modal. [CHAR_LIMIT=30]",
+    "message": "Share postcard"
+  },
+  "postcard_recipient_name": {
+    "description": "Name of the person Santa is sending the postcard to back home; 'Mrs. Claus' is Santa's wife. Appears on the first address line on the right side of the back of every postcard. [CHAR_LIMIT=30]",
+    "message": "Mrs. Claus"
+  },
+  "postcard_recipient_street": {
+    "description": "Playful fictional street address of Santa's home at the North Pole. Appears on the second address line on the right side of the back of every postcard. [CHAR_LIMIT=30]",
+    "message": "123 Elf Road"
+  },
+  "postcard_santa_signature": {
+    "description": "Santa's handwritten sign-off under his short note on the back of a postcard; 'Santa' is a name. [CHAR_LIMIT=20]",
+    "message": "\u2014 Santa"
+  },
+  "postcard_mailbox_empty": {
+    "description": "Informs the user that no postcards have arrived yet before Santa reaches his first postcard stop. Appears inside the postcard gallery modal when the collection is empty. [CHAR_LIMIT=90]",
+    "message": "No postcards yet! Check back as Santa visits stops around the world."
+  },
+  "postcard_note_provideniya": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Provideniya, Russia (Stop 1). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Our very first stop of the night in snowy Provideniya! The reindeer dashed right over Emma Bay while the harbor lights twinkled across the ice."
+  },
+  "postcard_note_anadyr": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Anadyr, Russia (Stop 2). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Even in the frosty winter night, the brightly painted houses of Anadyr are glowing with holiday cheer! Dasher and Dancer are already hitting their stride."
+  },
+  "postcard_note_petropavlovsk-kamchatsky": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Petropavlovsk-Kamchatsky, Russia (Stop 3). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "What a majestic view over Avacha Bay! We glided past the snow-capped volcanoes of Kamchatka under a blanket of sparkling stars."
+  },
+  "postcard_note_bikini": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Bikini, Marshall Islands (Stop 4). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "From snowy peaks straight to the warm Pacific breeze! The turquoise ring of Bikini Atoll is shimmering beneath the moonlight tonight."
+  },
+  "postcard_note_majuro": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Majuro, Marshall Islands (Stop 5). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Swooping low over the narrow coral islands of Majuro! The ocean waves are gently lapping the shore as we deliver gifts along the lagoon."
+  },
+  "postcard_note_tarawa": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Tarawa, Kiribati (Stop 6). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Mauri from Tarawa! The palm fronds are rustling in the warm equatorial breeze while Rudolph leads the sleigh across the bright coral reefs."
+  },
+  "postcard_note_funafuti": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Funafuti, Tuvalu (Stop 7). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Gliding over the crystal-clear lagoon of Funafuti! The stars are reflecting off the calm Pacific waters like thousands of tiny lanterns."
+  },
+  "postcard_note_atafu": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Atafu, Tokelau (Stop 8). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "The coral lagoon in Atafu is glowing under the night sky! The reindeer loved skimming right above the coconut palms."
+  },
+  "postcard_note_apia": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Apia, Samoa (Stop 9). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Talofa from Apia! Warm tropical air and festive island songs greeted us as we circled above Mount Vaea and the harbor."
+  },
+  "postcard_note_suva": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Suva, Fiji (Stop 10). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Bula from Suva! The lush green hills and harbor lights of Fiji looked magical as we delivered presents across the island."
+  },
+  "postcard_previous": {
+    "description": "Shows the previous postcard in Santa's postcard collection; used as the accessible label of a left-arrow button in the open mailbox view. [CHAR_LIMIT=40]",
+    "message": "Previous postcard"
+  },
+  "postcard_next": {
+    "description": "Shows the next postcard in Santa's postcard collection; used as the accessible label of a right-arrow button in the open mailbox view. [CHAR_LIMIT=40]",
+    "message": "Next postcard"
+  },
+  "postcard_view_all": {
+    "description": "Opens a grid view showing every postcard Santa has sent so far; 'postcards' is a plural noun. Appears as a button below the postcard in the open mailbox view. [CHAR_LIMIT=30]",
+    "message": "See all postcards"
+  },
+  "postcard_back_to_carousel": {
+    "description": "Returns from the grid of all postcards to viewing one postcard at a time; used as the accessible label of a back-arrow button in the open mailbox view. [CHAR_LIMIT=40]",
+    "message": "Back to postcard"
+  },
+  "postcard_close_mailbox": {
+    "description": "Closes the open mailbox view and returns to the Santa Tracker map; used as the accessible label of an X button. [CHAR_LIMIT=40]",
+    "message": "Close mailbox"
+  },
+  "postcard_recipient_city": {
+    "description": "Playful fictional town and postcode for Santa's home. Appears on the third address line on the right side of the back of every postcard. Adapt the postcode format to your locale if you like. [CHAR_LIMIT=30]",
+    "message": "North Pole, 88888"
+  },
+  "postcard_journal_title": {
+    "description": "Heading printed at the top left of the back of every postcard, above Santa's note; 'Journal' means a travel diary. Displayed in capital letters. [CHAR_LIMIT=32]",
+    "message": "Santa's Travel Journal"
+  },
+  "postcard_made_with_gemini": {
+    "description": "Text around the bottom of the circular rubber-stamp postmark on the back of every postcard, saying the postcard was created with Google's Gemini AI. 'Gemini' is a product name; do not translate it. [CHAR_LIMIT=22]",
+    "message": "Made with Gemini"
+  },
+  "postcard_next_stop": {
+    "description": "Last line of Santa's handwritten note on the back of a postcard, telling the reader where he is flying to next. Keep {city} exactly as is; it is replaced with the name of the next city on Santa's route (e.g. 'Off to Hartford next!'). [CHAR_LIMIT=50]",
+    "message": "Off to {city} next!"
   }
 }
