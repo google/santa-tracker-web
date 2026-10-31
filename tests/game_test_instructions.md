@@ -48,7 +48,7 @@ app.Game.prototype.advanceTime = function(duration) {
 ```
 
 ### 2. Seeded Randomness & Deterministic PRNG
-- Replace unseeded `Math.random()` with the shared Closure PRNG module [`static/scenes/_shared/js/random.js`](file:///usr/local/google/home/swansonjeremy/santa/santa-tracker-web/static/scenes/_shared/js/random.js) (`goog.provide('Random')`).
+- Replace unseeded `Math.random()` with the shared PRNG module [`static/scenes/_shared/js/random.js`](../static/scenes/_shared/js/random.js) (`goog.provide('Random')` in Closure scenes, or `<script src="../_shared/js/random.js"></script>` + `window.Random.random()` in pure ES-module scenes).
 - Do **NOT** write duplicative PRNG functions in individual scene files, and do **NOT** globally override `Math.random`.
 - Seeding is handled by the shared `load()` test helper (Part 2 §0): it sets `window.__RANDOM_SEED__` before any page script runs (so randomness consumed while the scene is constructed is seeded), then calls `window.Random.setSeed('test1234')` once the scene is ready. Scenes with no randomness at all don't need to include `Random`; the helper only seeds it when it's present.
 - **Determinism as a Testing Superpower**: When a fixed seed is used, all procedural behaviors—such as level layouts, item spawns, card shuffles, target appearances, event sequences, and physics starting conditions—are completely reproducible across test runs. This enables tests to play and interact with the game naturally as a real user would, without needing artificial state manipulations or cheats.
@@ -67,7 +67,7 @@ app.Game.prototype.advanceTime = function(duration) {
 ## Part 2: Test Writing
 
 ### 0. Shared Test Helpers (required)
-Use [`tests/helpers.js`](file:///usr/local/google/home/swansonjeremy/santa/santa-tracker-web/tests/helpers.js) instead of writing per-file boilerplate (see `tests/boatload.spec.js`):
+Use [`tests/helpers.js`](./helpers.js) instead of writing per-file boilerplate (see `tests/boatload.spec.js`):
 ```javascript
 const { test, expect } = require('@playwright/test');
 const { expectGameOverOverlay, sceneHelpers } = require('./helpers');
@@ -149,7 +149,7 @@ test('...', async ({ page }) => {
   - This prevents false-positive tests that pass trivially due to passive hitboxes, default auto-advancements, or unintended fall-through states.
 
 ### 7. Shared Game Over Screen Assertions
-- Verify the gameover screen using the shared helper `expectGameOverOverlay(page)` from [`tests/helpers.js`](file:///usr/local/google/home/swansonjeremy/santa/santa-tracker-web/tests/helpers.js).
+- Verify the gameover screen using the shared helper `expectGameOverOverlay(page)` from [`tests/helpers.js`](./helpers.js).
 - Where the game supports it, also test restarting from the overlay (click `santa-overlay #playagainButton` and assert the game unfreezes and is back in its initial state).
 
 ### 8. Debugging & Iteration Workflow
@@ -166,9 +166,9 @@ test('...', async ({ page }) => {
 - **File layout**:
   - Tests: `tests/<scene>.spec.js`. If a scene needs more than one spec file, prefix them all with the scene name (e.g. `tests/<scene>_playthrough.spec.js`).
   - Recorded input fixtures: `tests/fixtures/<scene>_inputs.json`.
-  - Playthrough video recorders: `tests/tools/record_<scene>.js`, built on the shared [`tests/tools/recorder.js`](file:///usr/local/google/home/swansonjeremy/santa/santa-tracker-web/tests/tools/recorder.js) (`runRecording(...)`). Don't copy the server/ffmpeg/capture plumbing. Videos go to `videos/` (git-ignored).
+  - Playthrough video recorders: `tests/tools/record_<scene>.js`, built on the shared [`tests/tools/recorder.js`](./tools/recorder.js) (`runRecording(...)`). Don't copy the server/ffmpeg/capture plumbing. Videos go to `videos/` (git-ignored).
 - **Don't commit scratch work**: no analysis/debug scripts, JSON dumps, screenshots, planning docs (e.g. `PROJECT.md`) or exploratory "stress"/"investigation" spec files. Keep only tests that assert real game behavior.
 - **No absolute or machine-specific paths** (home directories, agent artifact directories, etc.) in tests or tools.
 - **Don't edit shared config for one scene**: leave `playwright.config.js`, `.gitignore`, `build/` and `static/src/` alone. Use `test.setTimeout(...)` for long tests. If a shared change really is needed, call it out separately.
-- **Running tests in a worktree**: many worktrees run at once and the config reuses an already running dev server, so always pick a port unique to your worktree, e.g. `PORT=8123 npx playwright test tests/<scene>.spec.js`. The same `PORT` is used by the recorders.
+- **Running tests in a worktree**: many worktrees run at once and the config reuses an already running dev server, so always pick a port unique to your worktree, e.g. `PORT=8100 npx playwright test tests/<scene>.spec.js`. Note that `serve.js` binds **both** `PORT` (prod host) and `PORT + 80` (static assets) on `127.0.0.1` — space ports across parallel worktrees (e.g. multiples of 100: `8100`, `8200`, `8300`, ...) so neither `PORT` nor `PORT + 80` collides, and never pass `--all` (`0.0.0.0`). The same `PORT` (or `--port <port>`) is used by the recorders.
 - **Worktree setup**: symlink `node_modules` from the main checkout (`ln -s ../../santa-tracker-web/node_modules node_modules`). It is git-ignored; don't commit it.
