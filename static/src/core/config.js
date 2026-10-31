@@ -106,7 +106,7 @@ function expontentialDelay(range, failures = 0) {
       failedRefreshCount = 0;
     } catch (e) {
       ++failedRefreshCount;
-      console.warn('failed to refresh Remote Config', err);
+      console.warn('failed to refresh Remote Config', e);
     }
     queueRefresh();
   }
