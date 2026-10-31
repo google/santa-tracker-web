@@ -4998,6 +4998,94 @@
     "description": "Heading above the next stop for Santa",
     "message": "Next stop"
   },
+  "tracker_offline": {
+    "description": "Offline status when Santa Tracker is active before 2 hours prior to takeoff.",
+    "message": "Offline"
+  },
+  "tracker_preflight_1": {
+    "description": "Pre-flight stage 1: 120-110 minutes before takeoff.",
+    "message": "Loading Santa's sleigh with gifts from the main workshop"
+  },
+  "tracker_preflight_2": {
+    "description": "Pre-flight stage 2: 110-100 minutes before takeoff.",
+    "message": "Checking toy inventory against the Nice List"
+  },
+  "tracker_preflight_3": {
+    "description": "Pre-flight stage 3: 100-90 minutes before takeoff.",
+    "message": "Wrapping final oversized and fragile presents"
+  },
+  "tracker_preflight_4": {
+    "description": "Pre-flight stage 4: 90-80 minutes before takeoff.",
+    "message": "Loading sleigh compartments: Europe, Americas, Asia, Africa & Oceania"
+  },
+  "tracker_preflight_5": {
+    "description": "Pre-flight stage 5: 80-72 minutes before takeoff.",
+    "message": "Polishing sleigh runners and inspecting harness fittings"
+  },
+  "tracker_preflight_6": {
+    "description": "Pre-flight stage 6: 72-64 minutes before takeoff.",
+    "message": "Grooming and brushing all nine reindeer"
+  },
+  "tracker_preflight_7": {
+    "description": "Pre-flight stage 7: 64-56 minutes before takeoff.",
+    "message": "Feeding reindeer high-energy magic carrots and moss"
+  },
+  "tracker_preflight_8": {
+    "description": "Pre-flight stage 8: 56-48 minutes before takeoff.",
+    "message": "Testing harness bells and audio communication system"
+  },
+  "tracker_preflight_9": {
+    "description": "Pre-flight stage 9: 48-40 minutes before takeoff.",
+    "message": "Installing Rudolph's red nose guidance bulb and testing beacon"
+  },
+  "tracker_preflight_10": {
+    "description": "Pre-flight stage 10: 40-33 minutes before takeoff.",
+    "message": "Calibrating the GPS (Global Present System) and star charts"
+  },
+  "tracker_preflight_11": {
+    "description": "Pre-flight stage 11: 33-26 minutes before takeoff.",
+    "message": "Syncing world clocks to Greenwich Mean Time"
+  },
+  "tracker_preflight_12": {
+    "description": "Pre-flight stage 12: 26-20 minutes before takeoff.",
+    "message": "Reindeer taxiing out of the stables to the taxiway"
+  },
+  "tracker_preflight_13": {
+    "description": "Pre-flight stage 13: 20-15 minutes before takeoff.",
+    "message": "Hitching all eight reindeer and Rudolph to Santa's sleigh"
+  },
+  "tracker_preflight_14": {
+    "description": "Pre-flight stage 14: 15-10 minutes before takeoff.",
+    "message": "Santa boards the sleigh and completes the pre-flight checklist"
+  },
+  "tracker_preflight_15": {
+    "description": "Pre-flight stage 15: 10-7 minutes before takeoff.",
+    "message": "Elves clearing runway snow & inspecting runway approach lights"
+  },
+  "tracker_preflight_16": {
+    "description": "Pre-flight stage 16: 7-4 minutes before takeoff.",
+    "message": "Takeoff clearance received from North Pole Tower"
+  },
+  "tracker_preflight_17": {
+    "description": "Pre-flight stage 17: 4-2 minutes before takeoff.",
+    "message": "Sleigh lining up on the runway, bells jingling at full volume"
+  },
+  "tracker_preflight_18": {
+    "description": "Pre-flight stage 18: 2-1 minutes before takeoff.",
+    "message": "Spreading magic dust over the reindeer primed for takeoff"
+  },
+  "tracker_preflight_19": {
+    "description": "Pre-flight stage 19: 60-30 seconds before takeoff.",
+    "message": "Magic engines at max power, Santa grips the reins!"
+  },
+  "tracker_preflight_20": {
+    "description": "Pre-flight stage 20: final 30 seconds before takeoff.",
+    "message": "Final countdown to liftoff! Hold on tight!"
+  },
+  "tracker_preflight_status": {
+    "description": "Heading above pre-flight status in the Santa Tracker before takeoff.",
+    "message": "Pre-Flight Status"
+  },
   "tracker_santa_update": {
     "message": "SANTA UPDATE"
   },
