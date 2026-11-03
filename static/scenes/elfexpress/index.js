@@ -462,12 +462,13 @@ function simTravelTime(f1, x1, f2, x2) {
 function verifyWaveSolvable(q, teeter, carryCap, startFloor, startX) {
   const humanPerGift = TUNE.humanTimePerGift !== undefined ? TUNE.humanTimePerGift : 0.60;
   const reactTap = humanPerGift / 2;
+  const beltSpd = TUNE.beltSpeed || 115;
   const gifts = [];
   let t = 0;
   for (const ev of q) {
     t += ev.delay;
     if (ev.action === 'gift') {
-      const spd = ev.gusted ? 165 * GUST.beltMul : 165;
+      const spd = ev.gusted ? beltSpd * GUST.beltMul : beltSpd;
       const startXPos = ev.startX !== undefined ? ev.startX : -30;
       const tTeeter = t + (TEETER_X - startXPos) / spd;
       const tReady = tTeeter;
@@ -514,12 +515,19 @@ function verifyWaveSolvable(q, teeter, carryCap, startFloor, startX) {
           const bit = 1n << BigInt(gi);
           if (st.mask & bit) continue;
           countUncaught++;
-          if (countUncaught > 2) break;
+          if (countUncaught > 4) break;
           const g = gifts[gi];
           const catchT = Math.max(st.t + reactTap + simTravelTime(st.floor, st.x, g.belt, CATCH_X), g.tReady + humanPerGift);
           const slack = g.tDeadline - catchT;
           if (slack < 0) continue;
-          if (gi > firstUncaught && gifts[firstUncaught].tDeadline < catchT) continue;
+          let expiredEarlier = false;
+          for (let ei = firstUncaught; ei < gi; ei++) {
+            if (!(st.mask & (1n << BigInt(ei))) && gifts[ei].tDeadline < catchT) {
+              expiredEarlier = true;
+              break;
+            }
+          }
+          if (expiredEarlier) continue;
           const nextSlack = Math.min(st.minSlack, slack);
           const nextMask = st.mask | bit;
           const nextBag = st.bag.concat([g.cat]);
@@ -584,8 +592,9 @@ function buildWaveQueue(waveIdx) {
       const c = unlocked ? pickNearbyFloor(b, 1, -1, curFloors) : nextCat(curFloors);
       prevB = b;
       prevC = c;
+      const leadGap = (waveIdx >= 2 && (i === 1 || i === 2)) ? Math.min(w.flowGap, 0.65) : w.flowGap;
       q.push({
-        delay: i === 0 ? 0.35 : w.flowGap,
+        delay: i === 0 ? 0.25 : leadGap,
         delayType: i === 0 ? 'init' : 'flow',
         phase: 'flow',
         action: 'gift',
@@ -870,7 +879,8 @@ function updateGifts(dt) {
         const blown = g.gusted || (S.gustT > 0 && inGustBelts && g.x < gustFront());
         if (blown) g.gusted = true;
         g.tilt = blown ? 0.16 : 0;
-        g.x = Math.min(g.x + 165 * (blown ? GUST.beltMul : beltSpeedMul) * dt, limit);
+        const beltSpd = TUNE.beltSpeed || 115;
+        g.x = Math.min(g.x + beltSpd * (blown ? GUST.beltMul : beltSpeedMul) * dt, limit);
         if (!teetering[g.belt] && g.x >= TEETER_X - 0.5) {
           g.state = 'teeter'; g.timer = 0; teetering[g.belt] = g;
         }
