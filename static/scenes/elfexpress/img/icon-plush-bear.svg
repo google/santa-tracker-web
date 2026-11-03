@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <title>Elf Express - teddy bear icon (Plush)</title>
+  <defs><clipPath id="right"><rect x="32" y="0" width="32" height="64"/></clipPath></defs>
+  <g>
+    <circle cx="19" cy="15" r="7" fill="#C98A46"/>
+    <circle cx="45" cy="15" r="7" fill="#C98A46"/>
+    <circle cx="19" cy="15" r="3.5" fill="#EBC48E"/>
+    <circle cx="45" cy="15" r="3.5" fill="#EBC48E"/>
+    <rect x="18" y="36" width="28" height="22" rx="11" fill="#C98A46"/>
+    <circle cx="17" cy="44" r="5.5" fill="#C98A46"/>
+    <circle cx="47" cy="44" r="5.5" fill="#C98A46"/>
+    <circle cx="23" cy="57" r="5.5" fill="#C98A46"/>
+    <circle cx="41" cy="57" r="5.5" fill="#C98A46"/>
+    <circle cx="23" cy="57.5" r="2.8" fill="#EBC48E"/>
+    <circle cx="41" cy="57.5" r="2.8" fill="#EBC48E"/>
+    <ellipse cx="32" cy="48" rx="7.5" ry="6.5" fill="#EBC48E"/>
+    <circle cx="32" cy="25" r="15" fill="#C98A46"/>
+    <ellipse cx="32" cy="30.5" rx="7.5" ry="5.5" fill="#EBC48E"/>
+    <ellipse cx="32" cy="28" rx="3.2" ry="2.3" fill="#3B2314"/>
+    <circle cx="25.5" cy="22.5" r="2.1" fill="#3B2314"/>
+    <circle cx="38.5" cy="22.5" r="2.1" fill="#3B2314"/>
+    <path d="M32 40 L24 35.5 Q22.5 35 22.5 36.6 V43.4 Q22.5 45 24 44.5 Z" fill="#32A658"/>
+    <path d="M32 40 L40 35.5 Q41.5 35 41.5 36.6 V43.4 Q41.5 45 40 44.5 Z" fill="#32A658"/>
+    <circle cx="32" cy="40" r="2.8" fill="#278A47"/>
+  </g>
+<g clip-path="url(#right)">
+    <circle cx="19" cy="15" r="7" fill="#B07434"/>
+    <circle cx="45" cy="15" r="7" fill="#B07434"/>
+    <circle cx="19" cy="15" r="3.5" fill="#D9AE76"/>
+    <circle cx="45" cy="15" r="3.5" fill="#D9AE76"/>
+    <rect x="18" y="36" width="28" height="22" rx="11" fill="#B07434"/>
+    <circle cx="17" cy="44" r="5.5" fill="#B07434"/>
+    <circle cx="47" cy="44" r="5.5" fill="#B07434"/>
+    <circle cx="23" cy="57" r="5.5" fill="#B07434"/>
+    <circle cx="41" cy="57" r="5.5" fill="#B07434"/>
+    <circle cx="23" cy="57.5" r="2.8" fill="#D9AE76"/>
+    <circle cx="41" cy="57.5" r="2.8" fill="#D9AE76"/>
+    <ellipse cx="32" cy="48" rx="7.5" ry="6.5" fill="#D9AE76"/>
+    <circle cx="32" cy="25" r="15" fill="#B07434"/>
+    <ellipse cx="32" cy="30.5" rx="7.5" ry="5.5" fill="#D9AE76"/>
+    <ellipse cx="32" cy="28" rx="3.2" ry="2.3" fill="#3B2314"/>
+    <circle cx="25.5" cy="22.5" r="2.1" fill="#3B2314"/>
+    <circle cx="38.5" cy="22.5" r="2.1" fill="#3B2314"/>
+    <path d="M32 40 L24 35.5 Q22.5 35 22.5 36.6 V43.4 Q22.5 45 24 44.5 Z" fill="#278A47"/>
+    <path d="M32 40 L40 35.5 Q41.5 35 41.5 36.6 V43.4 Q41.5 45 40 44.5 Z" fill="#278A47"/>
+    <circle cx="32" cy="40" r="2.8" fill="#1F6E39"/>
+  </g>
+</svg>

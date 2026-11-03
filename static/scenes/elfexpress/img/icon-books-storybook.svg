@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <title>Elf Express - open storybook icon (Books)</title>
+  <defs><clipPath id="right"><rect x="32" y="0" width="32" height="64"/></clipPath></defs>
+  <g>
+    <path d="M32 22 Q21 16.5 4 18 V50 Q21 48.5 32 55 Q43 48.5 60 50 V18 Q43 16.5 32 22 Z" fill="#8A3DFF"/>
+    <path d="M31 21 Q21 15 8 15.5 V46 Q21 45.5 31 51 Z" fill="#FFF7ED"/>
+    <path d="M33 21 Q43 15 56 15.5 V46 Q43 45.5 33 51 Z" fill="#FFF7ED"/>
+    <rect x="12" y="22" width="14" height="2.6" rx="1.3" fill="#DCC8FF"/>
+    <rect x="12" y="28" width="15" height="2.6" rx="1.3" fill="#DCC8FF"/>
+    <rect x="12" y="34" width="13" height="2.6" rx="1.3" fill="#DCC8FF"/>
+    <rect x="12" y="40" width="10" height="2.6" rx="1.3" fill="#DCC8FF"/>
+    <path d="M44.5 23 L46.9 27.9 L52.3 28.6 L48.3 32.3 L49.4 37.6 L44.5 35 L39.6 37.6 L40.7 32.3 L36.7 28.6 L42.1 27.9 Z" fill="#FFE14D"/>
+    <path d="M37 53 V61 L39.5 58.5 L42 61 V51.5 Z" fill="#FF3333"/>
+  </g>
+<g clip-path="url(#right)">
+    <path d="M32 22 Q21 16.5 4 18 V50 Q21 48.5 32 55 Q43 48.5 60 50 V18 Q43 16.5 32 22 Z" fill="#6F00FF"/>
+    <path d="M31 21 Q21 15 8 15.5 V46 Q21 45.5 31 51 Z" fill="#F1E4D3"/>
+    <path d="M33 21 Q43 15 56 15.5 V46 Q43 45.5 33 51 Z" fill="#F1E4D3"/>
+    <rect x="12" y="22" width="14" height="2.6" rx="1.3" fill="#C2A3FF"/>
+    <rect x="12" y="28" width="15" height="2.6" rx="1.3" fill="#C2A3FF"/>
+    <rect x="12" y="34" width="13" height="2.6" rx="1.3" fill="#C2A3FF"/>
+    <rect x="12" y="40" width="10" height="2.6" rx="1.3" fill="#C2A3FF"/>
+    <path d="M44.5 23 L46.9 27.9 L52.3 28.6 L48.3 32.3 L49.4 37.6 L44.5 35 L39.6 37.6 L40.7 32.3 L36.7 28.6 L42.1 27.9 Z" fill="#F2C200"/>
+    <path d="M37 53 V61 L39.5 58.5 L42 61 V51.5 Z" fill="#D92626"/>
+  </g>
+</svg>
