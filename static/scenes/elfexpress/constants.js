@@ -32,7 +32,7 @@ export const TUNE = {
   humanTimePerGift: 0.60,  // Playable check: 0.6s per gift to see toy, choose chute, and tap twice
   reactionTime: 0.30,      // 0.30s per tap x 2 taps = 0.60s per gift
   minSpareByWave: [0.60, 0.60, 0.60, 0.60, 0.60, 0.60, 0.60, 0.60], // Minimum spare time per gift (0.60s rule)
-  recycleLimit: 15,        // Recycled gifts before Game Over — unchanged
+  recycleLimit: 10,        // Recycled gifts per sleigh before Game Over (resets to 0 each sleigh)
   relaxTime: 3.0,          // 3s break between levels after a sleigh fills (with "Phew!" cue)
   sleighFlyTime: 1.8,      // Sleigh + reindeer takeoff & glide-back duration during the 3s break (s)
   dualToysFromWave: 3,     // Sleigh (1-8) that introduces second toys at level start (Sleigh 3)

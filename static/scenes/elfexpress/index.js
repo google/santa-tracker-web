@@ -348,7 +348,7 @@ function newGame() {
   }
   S = {
     mode: 'play', t: 0, uiT: 0, beltAnimT: 0, score: 0, combo: 0,
-    sleighsDone: 0, inSleigh: 0, recycled: 0, waveRecycled: 0, missed: 0, misfiled: 0,
+    sleighsDone: 0, inSleigh: 0, recycled: 0, waveRecycled: 0, recycleDrainFrom: 0, recycleDrainDur: 0, missed: 0, misfiled: 0,
     unlockedFloors: 2,
     waveStars: Array.from({ length: SLEIGHS.length }, () => false), lastSleighStar: true,
     firstMissFlashed: false,
@@ -704,7 +704,10 @@ function buildWaveQueue(waveIdx) {
 function startWave(waveIdx) {
   S.sleighsDone = Math.max(0, Math.min(WAVES.length - 1, waveIdx));
   S.inSleigh = 0;
+  S.recycled = 0;
   S.waveRecycled = 0;
+  S.recycleDrainFrom = 0;
+  S.recycleDrainDur = 0;
   S.sleighTimer = 0;
   S.phase = 'flow';
   S.relaxT = 0;
@@ -782,6 +785,10 @@ function processWaveQueue(dt) {
   if (S.tut) return;
   if (S.relaxT > 0) {
     S.relaxT = Math.max(0, S.relaxT - dt);
+    if (S.recycleDrainFrom > 0 && S.recycleDrainDur > 0) {
+      const k = Math.max(0, (S.relaxT - 0.35) / Math.max(0.5, S.recycleDrainDur - 0.35));
+      S.recycled = Math.max(0, Math.ceil(S.recycleDrainFrom * k - 0.05));
+    }
     if (S.relaxT <= 0) {
       startWave(S.sleighsDone);
     }
@@ -1213,6 +1220,11 @@ function landInSleigh(g) {
     S.breatheCueDur = pauseDur;
     S.breatheCueT = pauseDur;
     S.breatheSlowT = pauseDur;
+    S.recycleDrainFrom = S.recycled || 0;
+    S.recycleDrainDur = pauseDur;
+    if (S.recycleDrainFrom > 0) {
+      puff(BIN_X, BIN_Y - 12, '#38BDF8', 10);
+    }
     S.sleighFlyDur = Math.min(pauseDur, TUNE.sleighFlyTime || 1.8);
     S.sleighFlyT = S.sleighFlyDur;
     S.sleighFlyGifts = prevTarget;
