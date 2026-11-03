@@ -10107,7 +10107,7 @@
   },
   "postcard_santa_signature": {
     "description": "Santa's handwritten sign-off under his short note on the back of a postcard; 'Santa' is a name. [CHAR_LIMIT=20]",
-    "message": "\u2014 Santa"
+    "message": "Santa"
   },
   "postcard_mailbox_empty": {
     "description": "Informs the user that no postcards have arrived yet before Santa reaches his first postcard stop. Appears inside the postcard gallery modal when the collection is empty. [CHAR_LIMIT=90]",
