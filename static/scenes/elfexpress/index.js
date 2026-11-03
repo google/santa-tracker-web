@@ -314,10 +314,9 @@ function buildElfPicker() {
 }
 
 function makeSnow() {
-  return Array.from({ length: 450 }, (_, i) => {
+  return Array.from({ length: 160 }, (_, i) => {
     const isLarge = i % 8 === 0;
-    const isCrystal = i % 18 === 0;
-    const r = isLarge ? 2.6 + Math.random() * 2.4 : 1.2 + Math.random() * 1.8;
+    const r = isLarge ? 2.6 + Math.random() * 2.0 : 1.2 + Math.random() * 1.6;
     return {
       x: -300 + Math.random() * (W + 600),
       y: -80 + Math.random() * (H + 160),
@@ -326,7 +325,7 @@ function makeSnow() {
       sw: 0.8 + Math.random() * 1.8,
       ph: Math.random() * 6.28,
       a: 0.5 + Math.random() * 0.5,
-      crystal: isCrystal,
+      crystal: false,
       large: isLarge,
     };
   });
@@ -349,14 +348,13 @@ function newGame() {
   }
   S = {
     mode: 'play', t: 0, uiT: 0, beltAnimT: 0, score: 0, combo: 0,
-    sleighsDone: 0, inSleigh: 0, recycled: 0, waveRecycled: 0, missed: 0, misfiled: 0,
+    sleighsDone: 0, inSleigh: 0, recycled: 0, waveRecycled: 0, recycleDrainFrom: 0, recycleDrainDur: 0, missed: 0, misfiled: 0,
     unlockedFloors: 2,
     waveStars: Array.from({ length: SLEIGHS.length }, () => false), lastSleighStar: true,
     firstMissFlashed: false,
     phase: 'flow', relaxT: 0, sleighFlyT: 0, sleighFlyDur: 1.8, sleighFlyGifts: 0,
     breatheCueT: 0, breatheCueDur: 3.0, breatheSlowT: 0, breatheArmed: false,
     sleighTimer: 0,
-    twoHandsBoxUp: false, twoHandsIntroShown: false, twoHandsArrowShown: false, twoHandsArrowChute: -1,
     waveQueue: [], spawnTimer: 1.0, lastBelt: -1, lastCat: 0,
     gifts: [], fx: [], nextId: 1, recent: [],
     shake: 0, catchFlash: 0,
@@ -366,7 +364,7 @@ function newGame() {
     hint: 0, floorPulse: [0, 0, 0, 0, 0], beltPulse: [0, 0, 0, 0, 0], binPulse: 0, binShake: 0,
     catDual: [false, false, false, false, false], catPop: [0, 0, 0, 0, 0],
     revealT: 0, revealed: false,
-    hasSack: false, carryCap: 1, sackPop: 0,
+    carryCap: 2,
     actionEdge: false, actionHeld: false, actionBuf: 0,
     skin: SKIN_TONES[Math.floor(Math.random() * SKIN_TONES.length)],
     elf: {
@@ -464,13 +462,15 @@ function simTravelTime(f1, x1, f2, x2) {
 function verifyWaveSolvable(q, teeter, carryCap, startFloor, startX) {
   const humanPerGift = TUNE.humanTimePerGift !== undefined ? TUNE.humanTimePerGift : 0.60;
   const reactTap = humanPerGift / 2;
+  const beltSpd = TUNE.beltSpeed || 115;
   const gifts = [];
   let t = 0;
   for (const ev of q) {
     t += ev.delay;
     if (ev.action === 'gift') {
-      const spd = ev.gusted ? 165 * GUST.beltMul : 165;
-      const tTeeter = t + (TEETER_X - (-30)) / spd;
+      const spd = ev.gusted ? beltSpd * GUST.beltMul : beltSpd;
+      const startXPos = ev.startX !== undefined ? ev.startX : -30;
+      const tTeeter = t + (TEETER_X - startXPos) / spd;
       const tReady = tTeeter;
       gifts.push({ belt: ev.belt, cat: ev.cat, tReady, tDeadline: tTeeter + teeter });
     }
@@ -515,12 +515,19 @@ function verifyWaveSolvable(q, teeter, carryCap, startFloor, startX) {
           const bit = 1n << BigInt(gi);
           if (st.mask & bit) continue;
           countUncaught++;
-          if (countUncaught > 2) break;
+          if (countUncaught > 4) break;
           const g = gifts[gi];
           const catchT = Math.max(st.t + reactTap + simTravelTime(st.floor, st.x, g.belt, CATCH_X), g.tReady + humanPerGift);
           const slack = g.tDeadline - catchT;
           if (slack < 0) continue;
-          if (gi > firstUncaught && gifts[firstUncaught].tDeadline < catchT) continue;
+          let expiredEarlier = false;
+          for (let ei = firstUncaught; ei < gi; ei++) {
+            if (!(st.mask & (1n << BigInt(ei))) && gifts[ei].tDeadline < catchT) {
+              expiredEarlier = true;
+              break;
+            }
+          }
+          if (expiredEarlier) continue;
           const nextSlack = Math.min(st.minSlack, slack);
           const nextMask = st.mask | bit;
           const nextBag = st.bag.concat([g.cat]);
@@ -544,7 +551,7 @@ function verifyWaveSolvable(q, teeter, carryCap, startFloor, startX) {
 function buildWaveQueue(waveIdx) {
   const w = WAVES[Math.min(waveIdx, WAVES.length - 1)];
   const maxFloors = w.floors || 2;
-  const carryCap = (TUNE.twoHands && (waveIdx + 1) >= TUNE.sackFromWave) ? 2 : 1;
+  const carryCap = 2;
   const startFloor = (S && S.elf) ? Math.min(maxFloors - 1, S.elf.floor) : 0;
   const startX = (S && S.elf) ? S.elf.x : DROP_CX;
   const minSpare = (TUNE.minSpareByWave && TUNE.minSpareByWave[waveIdx] !== undefined)
@@ -585,13 +592,20 @@ function buildWaveQueue(waveIdx) {
       const c = unlocked ? pickNearbyFloor(b, 1, -1, curFloors) : nextCat(curFloors);
       prevB = b;
       prevC = c;
+      let d = i === 0 ? 0.25 : w.flowGap;
+      let sx = -30;
+      if (waveIdx >= 2 && i < 3) {
+        d = i === 0 ? 0.12 : (i === 1 ? 0.22 : 0.28);
+        sx = i === 0 ? 18 : (i === 1 ? -22 : -54);
+      }
       q.push({
-        delay: i === 0 ? 0.35 : w.flowGap,
+        delay: d,
         delayType: i === 0 ? 'init' : 'flow',
         phase: 'flow',
         action: 'gift',
         belt: b,
         cat: c,
+        startX: sx,
         unlockFloor: unlocked,
         gusted: false,
       });
@@ -687,6 +701,98 @@ function buildWaveQueue(waveIdx) {
       }
     }
 
+    // 4. Convert w.pairs gift pairs into simultaneous spawns on different belts (Sleigh 3+)
+    const wantPairs = w.pairs || 0;
+    if (wantPairs > 0 && curFloors >= 2) {
+      const giftIndices = [];
+      for (let qi = 0; qi < q.length; qi++) {
+        if (q[qi].action === 'gift') giftIndices.push(qi);
+      }
+      const span = Math.max(2, giftIndices.length - 3);
+      let placed = 0;
+      let lastPairOrder = -3;
+      for (let p = 0; p < wantPairs; p++) {
+        const targetOrder = 2 + Math.floor(((p + 0.5) * span) / wantPairs);
+        for (let off = 0; off < giftIndices.length; off++) {
+          const ord = targetOrder + (off % 2 === 0 ? off / 2 : -Math.ceil(off / 2));
+          if (ord < 2 || ord >= giftIndices.length - 1) continue;
+          if (ord - lastPairOrder < 3) continue;
+          const qi1 = giftIndices[ord];
+          const qi2 = giftIndices[ord + 1];
+          if (qi2 !== qi1 + 1) continue;
+          const ev1 = q[qi1];
+          const ev2 = q[qi2];
+          if (ev1.unlockFloor || ev2.unlockFloor || ev1.triggerGust || ev2.triggerGust) continue;
+          if (ev1.paired || ev2.paired) continue;
+          const b1 = ev1.belt;
+          const b2 = pickNearbyFloor(b1, 2, b1, curFloors);
+          if (b2 === b1) continue;
+          ev1.paired = true;
+          ev1.startX = -24;
+          ev1.delay += 0.40;
+          ev2.paired = true;
+          ev2.belt = b2;
+          ev2.cat = pickNearbyFloor(ev1.cat, 1, -1, curFloors);
+          ev2.delay = 0;
+          ev2.startX = -38;
+          if (ord + 2 < giftIndices.length) {
+            q[giftIndices[ord + 2]].delay += 0.60;
+          }
+          lastPairOrder = ord;
+          placed++;
+          break;
+        }
+      }
+    }
+
+    // 5. Convert w.gusts pairs into wind-created pairs (Sleigh 5+):
+    //    Gift 1 starts on belt b1 while 1s snow-streak warning sweeps in from the left;
+    //    ~1s later, a gust pushes Gift 2 faster along belt b2 so both reach their edges together.
+    const wantGusts = w.gusts || 0;
+    if (wantGusts > 0 && curFloors >= 2) {
+      const giftIndices = [];
+      for (let qi = 0; qi < q.length; qi++) {
+        if (q[qi].action === 'gift') giftIndices.push(qi);
+      }
+      const span = Math.max(2, giftIndices.length - 2);
+      let lastGustOrder = -2;
+      for (let gIdx = 0; gIdx < wantGusts; gIdx++) {
+        const targetOrder = 1 + Math.floor(((gIdx + 0.5) * span) / wantGusts);
+        for (let off = 0; off < giftIndices.length; off++) {
+          const ord = targetOrder + (off % 2 === 0 ? off / 2 : -Math.ceil(off / 2));
+          if (ord < 1 || ord >= giftIndices.length - 1) continue;
+          if (ord - lastGustOrder < 2) continue;
+          const qi1 = giftIndices[ord];
+          const qi2 = giftIndices[ord + 1];
+          if (qi2 !== qi1 + 1) continue;
+          const ev1 = q[qi1];
+          const ev2 = q[qi2];
+          if (ev1.unlockFloor || ev2.unlockFloor || ev1.paired || ev2.paired) continue;
+          if (ev1.gustLead || ev1.triggerGust || ev2.gustLead || ev2.triggerGust) continue;
+          const b1 = ev1.belt;
+          const b2 = pickNearbyFloor(b1, 2, b1, curFloors);
+          if (b2 === b1) continue;
+          ev1.gustLead = true;
+          ev1.warnDur = GUST.warnTime;
+          ev1.warnBelts = [b2, b1];
+          ev1.delay += 0.40;
+          ev1.startX = -30;
+          ev2.gusted = true;
+          ev2.triggerGust = true;
+          ev2.gustBelts = [b2];
+          ev2.belt = b2;
+          ev2.cat = pickNearbyFloor(ev1.cat, 1, -1, curFloors);
+          ev2.delay = Math.max(0.75, GUST.warnTime - 0.04);
+          ev2.startX = -30;
+          if (ord + 2 < giftIndices.length) {
+            q[giftIndices[ord + 2]].delay += 0.60;
+          }
+          lastGustOrder = ord;
+          break;
+        }
+      }
+    }
+
     const slack = verifyWaveSolvable(q, w.teeter, carryCap, startFloor, startX);
     if (slack > bestSlack || !bestQ) {
       bestSlack = slack;
@@ -705,7 +811,10 @@ function buildWaveQueue(waveIdx) {
 function startWave(waveIdx) {
   S.sleighsDone = Math.max(0, Math.min(WAVES.length - 1, waveIdx));
   S.inSleigh = 0;
+  S.recycled = 0;
   S.waveRecycled = 0;
+  S.recycleDrainFrom = 0;
+  S.recycleDrainDur = 0;
   S.sleighTimer = 0;
   S.phase = 'flow';
   S.relaxT = 0;
@@ -721,7 +830,7 @@ function startWave(waveIdx) {
   const startFloors = w.startFloors || w.floors || 2;
   S.unlockedFloors = startFloors;
 
-  // Sleigh 4+: Second toys introduced at the start of the level
+  // Sleigh 3+: Second toys introduced at the start of the level
   if (waveNum >= TUNE.dualToysFromWave && !S.revealed) {
     S.revealed = true;
     for (let i = 0; i < 5; i++) {
@@ -731,22 +840,7 @@ function startWave(waveIdx) {
     }
   }
 
-  // Two-hands mode starting from Sleigh 6
-  if (TUNE.twoHands && waveNum >= TUNE.sackFromWave) {
-    if (!S.hasSack) {
-      S.hasSack = true;
-      S.carryCap = 2;
-      S.sackPop = 2.0;
-      puff(S.elf.x, S.elf.y - 38, '#FDE047', 16);
-    }
-    if (waveNum === TUNE.sackFromWave && !S.twoHandsIntroShown) {
-      S.twoHandsIntroShown = true;
-      S.twoHandsBoxUp = true;
-    }
-  } else {
-    S.hasSack = false;
-    S.carryCap = 1;
-  }
+  S.carryCap = 2;
 
   // Sleigh 7 (finale): hurry-up music starts at the beginning of the level
   if (waveNum >= TUNE.hurryMusicFromWave) {
@@ -795,19 +889,12 @@ function triggerGustNow(belts) {
 }
 
 function processWaveQueue(dt) {
-  if (S.tut || S.twoHandsBoxUp) return;
+  if (S.tut) return;
   if (S.relaxT > 0) {
     S.relaxT = Math.max(0, S.relaxT - dt);
-    if (TUNE.twoHands && S.sleighsDone + 1 === TUNE.sackFromWave && !S.twoHandsIntroShown && S.relaxT <= 1.2) {
-      S.twoHandsIntroShown = true;
-      S.twoHandsBoxUp = true;
-      if (!S.hasSack) {
-        S.hasSack = true;
-        S.carryCap = 2;
-        S.sackPop = 2.0;
-        puff(S.elf.x, S.elf.y - 38, '#FDE047', 16);
-      }
-      return;
+    if (S.recycleDrainFrom > 0 && S.recycleDrainDur > 0) {
+      const k = Math.max(0, (S.relaxT - 0.35) / Math.max(0.5, S.recycleDrainDur - 0.35));
+      S.recycled = Math.max(0, Math.ceil(S.recycleDrainFrom * k - 0.05));
     }
     if (S.relaxT <= 0) {
       startWave(S.sleighsDone);
@@ -858,9 +945,15 @@ function processWaveQueue(dt) {
       S.gustWarnT = ev.warnDur || GUST.warnTime;
       S.gustWarnBelts = ev.belts ? ev.belts.slice() : [0, 1, 2, 3, 4];
     } else if (ev.action === 'gift') {
-      const g = spawnGiftOnBelt(ev.belt, -30, null, ev.cat);
+      const g = spawnGiftOnBelt(ev.belt, ev.startX !== undefined ? ev.startX : -30, null, ev.cat);
+      if (ev.gustLead) {
+        S.gustWarnT = ev.warnDur || GUST.warnTime;
+        S.gustWarnBelts = ev.warnBelts ? ev.warnBelts.slice() : [ev.belt];
+      }
       if (ev.gusted) g.gusted = true;
-      if (ev.triggerGust) triggerGustNow(S.gustWarnBelts.length ? S.gustWarnBelts : [ev.belt]);
+      if (ev.triggerGust) {
+        triggerGustNow(ev.gustBelts || (S.gustWarnBelts.length ? S.gustWarnBelts : [ev.belt]));
+      }
     }
     if (S.waveQueue.length) {
       S.spawnTimer += S.waveQueue[0].delay;
@@ -871,7 +964,7 @@ function processWaveQueue(dt) {
 }
 
 function updateGifts(dt) {
-  const pausedByBox = (S.tut && S.tutBoxUp) || S.twoHandsBoxUp;
+  const pausedByBox = Boolean(S.tut && S.tutBoxUp);
   const pausedBelts = S.relaxT > 0 || pausedByBox;
   const beltSpeedMul = (S.breatheSlowT > 0) ? 0.35 : 1.0;
   const teetering = [];
@@ -890,7 +983,8 @@ function updateGifts(dt) {
         const blown = g.gusted || (S.gustT > 0 && inGustBelts && g.x < gustFront());
         if (blown) g.gusted = true;
         g.tilt = blown ? 0.16 : 0;
-        g.x = Math.min(g.x + 165 * (blown ? GUST.beltMul : beltSpeedMul) * dt, limit);
+        const beltSpd = TUNE.beltSpeed || 115;
+        g.x = Math.min(g.x + beltSpd * (blown ? GUST.beltMul : beltSpeedMul) * dt, limit);
         if (!teetering[g.belt] && g.x >= TEETER_X - 0.5) {
           g.state = 'teeter'; g.timer = 0; teetering[g.belt] = g;
         }
@@ -1021,7 +1115,7 @@ function updateTransit(g, dt) {
       if (!reduceMotion) S.shake = Math.max(S.shake, 0.24);
       api.play('pd_item_miss');
       puff(BIN_X, BIN_Y - 10, '#FF3333', 14);
-      S.tut = 5;
+      S.tut = 6;
       S.tutBoxUp = true;
       return;
     }
@@ -1068,14 +1162,16 @@ function updateTransit(g, dt) {
 function catchable(forgiving) {
   const e = S.elf;
   if (e.climbing || e.bag.length >= S.carryCap) return null;
-  if (S.tut && S.tut !== 2) return null;
-  const minX = forgiving ? BUILD_X0 : DROP_X0 - 28;
-  const maxX = forgiving ? LADDER_CX + 16 : DROP_X1 + 32;
+  if (S.tut && S.tut !== 2 && S.tut !== 3) return null;
+  const minX = BUILD_X0;
+  const maxX = forgiving ? LADDER_CX + 16 : TAP_SPLIT + 16;
   if (e.x < minX || e.x > maxX) return null;
+  const beltMinX = g => (forgiving ? BUILD_X0 + 10 : (g.gusted || g.tilt ? TEETER_X - 95 : TEETER_X - 70));
   const cands = S.gifts.filter(g => !g.tutWatch && g.belt === e.floor &&
+    (!S.tut || g.belt === (S.tut === 3 ? 1 : 0)) &&
     (g.state === 'teeter' || g.state === 'falling' ||
-      (g.state === 'belt' && g.x >= (forgiving ? BUILD_X0 + 10 : TEETER_X - 45)) ||
-      (g.state === 'landed' && (forgiving ? g.x <= BUILD_X1 - 24 : Math.abs(g.x - e.x) <= 56))));
+      (g.state === 'belt' && g.x >= beltMinX(g)) ||
+      (g.state === 'landed' && (forgiving ? g.x <= BUILD_X1 - 24 : (g.x <= TAP_SPLIT + 16 || Math.abs(g.x - e.x) <= 72)))));
   if (!cands.length) return null;
   const prio = st => st === 'falling' ? 4 : st === 'teeter' ? 3 : st === 'landed' ? 2 : 1;
   cands.sort((a, b) => (prio(b.state) - prio(a.state)) || (b.timer - a.timer) || (b.x - a.x));
@@ -1096,15 +1192,15 @@ function doAction(edge, manual) {
 
   if (e.bag.length >= S.carryCap) {
     if (edge && manual && !e.climbing && !S.keys.left) {
-      if (!S.tut || (S.tut === 3 && e.floor === 1)) {
+      if (!S.tut || (S.tut === 4 && e.bag.some(item => item.cat === e.floor))) {
         S.cmd = { type: 'chute', floor: e.floor }; S.queue = null; S.actionBuf = 0;
       }
     }
     return;
   }
 
-  if (S.tut && S.tut !== 2) {
-    if (e.bag.length > 0 && edge && manual && !e.climbing && !S.keys.left && S.tut === 3 && e.floor === 1) {
+  if (S.tut && S.tut !== 2 && S.tut !== 3) {
+    if (e.bag.length > 0 && edge && manual && !e.climbing && !S.keys.left && S.tut === 4 && e.bag.some(item => item.cat === e.floor)) {
       S.cmd = { type: 'chute', floor: e.floor }; S.queue = null; S.actionBuf = 0;
     }
     return;
@@ -1114,11 +1210,11 @@ function doAction(edge, manual) {
   if (!g) {
     if (edge && manual && !e.climbing) {
       if (e.bag.length > 0 && e.x >= LADDER_CX - 16 && !S.keys.left) {
-        if (!S.tut || (S.tut === 3 && e.floor === 1)) {
+        if (!S.tut || (S.tut === 4 && e.bag.some(item => item.cat === e.floor))) {
           S.cmd = { type: 'chute', floor: e.floor }; S.queue = null; S.actionBuf = 0;
         }
       } else if (e.x > DROP_X1 + 24 && !S.keys.right) {
-        if (!S.tut || (S.tut === 2 && e.floor === 0)) {
+        if (!S.tut || (S.tut === 2 && e.floor === 0) || (S.tut === 3 && e.floor === 1)) {
           S.cmd = { type: 'belt', floor: e.floor }; S.queue = null; S.actionBuf = 0;
         }
       }
@@ -1131,17 +1227,18 @@ function doAction(edge, manual) {
   g.state = 'carried'; g.tilt = 0; g.timer = 0; g.spin = 0;
   e.bag.push(g);
   syncCarry();
-  if (TUNE.twoHands && e.bag.length === 2 && !S.twoHandsArrowShown) {
-    S.twoHandsArrowShown = true;
-    S.twoHandsArrowChute = e.bag[0].cat;
-  }
   S.actionBuf = 0; S.actionHeld = false;
   api.play('pd_player_present_pickup');
   if (S.tut === 2) {
     S.tut = 3;
+    S.tutBoxUp = false;
+    S.tutTimer = 0;
+    tutGift(0, 1);
+  } else if (S.tut === 3) {
+    S.tut = 4;
     S.tutBoxUp = true;
   }
-  S.cmd = S.queue || null; S.queue = null;
+  S.cmd = null; S.queue = null;
   S.catchFlash = 0.3;
   S.beltPulse[e.floor] = 0.5;
   puff(e.x, carryY(e.floor), '#FF7733', 10);
@@ -1150,7 +1247,7 @@ function doAction(edge, manual) {
 function releaseGift(onlyMatching = false) {
   const e = S.elf;
   if (!e.bag.length || e.climbing || e.x < LADDER_CX - 16) return false;
-  if (S.tut && (S.tut !== 3 || e.floor !== 1)) return false;
+  if (S.tut && (S.tut !== 4 || !e.bag.some(item => item.cat === e.floor))) return false;
 
   const matching = e.bag.filter(item => item.cat === e.floor);
   if (onlyMatching && !matching.length) return false;
@@ -1177,15 +1274,14 @@ function releaseGift(onlyMatching = false) {
     }
   }
   syncCarry();
-  S.twoHandsArrowChute = -1;
   if (matching.length) {
     api.play('pd_player_present_pickup');
     reportScore();
   } else {
     api.play('pd_item_miss');
   }
-  if (S.tut === 3) {
-    S.tut = 4;
+  if (S.tut === 4 && e.bag.length === 0) {
+    S.tut = 5;
     S.tutBoxUp = false;
     S.tutTimer = 0;
     tutWatchGift(0);
@@ -1202,7 +1298,7 @@ function autoDropAtChute() {
 function landInSleigh(g) {
   if (S.mode !== 'play') return;
   if (g && g.tutGift) {
-    S.inSleigh = 1;
+    S.inSleigh = Math.min(2, (S.inSleigh || 0) + 1);
     puff(SLEIGH_X, SLEIGH_Y - 18, '#FFE14D', 16);
     return;
   }
@@ -1238,6 +1334,11 @@ function landInSleigh(g) {
     S.breatheCueDur = pauseDur;
     S.breatheCueT = pauseDur;
     S.breatheSlowT = pauseDur;
+    S.recycleDrainFrom = S.recycled || 0;
+    S.recycleDrainDur = pauseDur;
+    if (S.recycleDrainFrom > 0) {
+      puff(BIN_X, BIN_Y - 12, '#38BDF8', 10);
+    }
     S.sleighFlyDur = Math.min(pauseDur, TUNE.sleighFlyTime || 1.8);
     S.sleighFlyT = S.sleighFlyDur;
     S.sleighFlyGifts = prevTarget;
@@ -1311,7 +1412,7 @@ function stepTo(e, tf, tx, dt) {
 function updateElf(dt) {
   const e = S.elf;
   const prevX = e.x, prevY = e.y;
-  if (S.twoHandsBoxUp || (S.tut && S.tut !== 2 && S.tut !== 3)) {
+  if (S.tut && S.tut !== 2 && S.tut !== 3 && S.tut !== 4) {
     clearKeys();
     S.liveSpeed = 0;
     return;
@@ -1443,7 +1544,7 @@ function updateElf(dt) {
       if (cmdType === 'chute') {
         if (e.x >= CHUTE_BX - 12 || arrived) {
           if (e.bag.length > 0) releaseGift(false);
-          S.cmd = S.queue || null; S.queue = null;
+          S.cmd = null; S.queue = null;
           finishUpdateElf();
           return;
         }
@@ -1458,11 +1559,11 @@ function updateElf(dt) {
     if (arrived && S.cmd) {
       if (S.cmd.type === 'chute') {
         if (e.bag.length > 0) releaseGift(false);
-        S.cmd = S.queue || null; S.queue = null;
+        S.cmd = null; S.queue = null;
       } else {
         idleCatch();
         if (S.cmd && S.cmd.type === 'belt') {
-          S.cmd = S.queue || null; S.queue = null;
+          S.cmd = null; S.queue = null;
         }
       }
     }
@@ -1520,10 +1621,10 @@ function updateSnow(dt) {
   }
 }
 
-function tutGift(cat) {
+function tutGift(cat, belt = 0) {
   S.gifts.push({
-    id: S.nextId++, cat, v: 0, belt: 0, state: 'belt',
-    x: TEETER_X - 42, y: beltY(0) - GIFT_R,
+    id: S.nextId++, cat, v: 0, belt, state: 'belt',
+    x: TEETER_X - 42, y: beltY(belt) - GIFT_R,
     timer: 0, teeter: 1e9, tutGift: true,
     wrapped: false, tilt: 0, spin: 0, gusted: false,
     path: null, seg: 0, p: 0, speed: 0, dropFloor: -1, ductFloor: -1,
@@ -1561,17 +1662,6 @@ function tutFinish() {
 
 function tutDismissOk() {
   if (!S) return false;
-  if (S.twoHandsBoxUp) {
-    api.play('pd_player_present_pickup');
-    S.twoHandsBoxUp = false;
-    if (S.relaxT > 0) {
-      S.relaxT = 0;
-      S.breatheCueT = 0;
-      S.breatheSlowT = 0;
-      startWave(S.sleighsDone);
-    }
-    return true;
-  }
   if (!S.tut || !S.tutBoxUp) return false;
   const st = TUT[S.tut - 1];
   if (!st || !st.ok) return false;
@@ -1580,15 +1670,15 @@ function tutDismissOk() {
     S.tut = 2;
     S.tutBoxUp = false;
     S.tutTimer = 0;
-    tutGift(1);
+    tutGift(1, 0);
     return true;
   }
-  if (S.tut === 4) {
+  if (S.tut === 5) {
     S.tutBoxUp = false;
     S.tutTimer = 0;
     return true;
   }
-  if (S.tut === 5) {
+  if (S.tut === 6) {
     tutFinish();
     return true;
   }
@@ -1597,15 +1687,16 @@ function tutDismissOk() {
 
 function updateTutorial(dt) {
   if (!S || !S.tut) return;
-  if (S.tut === 2 && !S.tutBoxUp) {
-    const g = S.gifts.find(item => item.tutGift);
+  if ((S.tut === 2 || S.tut === 3) && !S.tutBoxUp) {
+    const wantBelt = S.tut === 3 ? 1 : 0;
+    const g = S.gifts.find(item => item.tutGift && item.belt === wantBelt && item.state !== 'carried');
     if (g && g.state === 'teeter' && g.timer >= 0.22) {
       S.tutBoxUp = true;
     }
-  } else if (S.tut === 4 && !S.tutBoxUp) {
+  } else if (S.tut === 5 && !S.tutBoxUp) {
     const g = S.gifts.find(item => item.tutWatch);
-    if (g && (g.state === 'falling' || g.state === 'landed') && !g.shownStep4) {
-      g.shownStep4 = true;
+    if (g && (g.state === 'falling' || g.state === 'landed') && !g.shownStep5) {
+      g.shownStep5 = true;
       S.tutBoxUp = true;
     }
   }
@@ -1622,7 +1713,7 @@ function frame(now) {
     S.takeoff += dt;
   } else if (S && S.mode === 'play') {
     S.uiT = (S.uiT || 0) + dt;
-    const pausedByTutBox = (S.tut && S.tutBoxUp) || S.twoHandsBoxUp;
+    const pausedByTutBox = Boolean(S.tut && S.tutBoxUp);
     if (!pausedByTutBox) {
       S.t += dt;
       if (!S.tut && S.relaxT <= 0) {
@@ -1631,8 +1722,8 @@ function frame(now) {
       const beltMul = (S.breatheSlowT > 0 || S.relaxT > 0) ? 0.28 : 1.0;
       S.beltAnimT += dt * beltMul;
       processWaveQueue(dt);
-    } else if (S.tut === 5) {
-      // Keep recycler flash/shake animated while Step 5 box is up
+    } else if (S.tut === 6) {
+      // Keep recycler flash/shake animated while Step 6 box is up
       S.t += dt;
     }
     updateElf(dt);
@@ -1646,11 +1737,10 @@ function frame(now) {
     if (!pausedByTutBox) updateSnow(dt);
     if (S.shake > 0) S.shake = Math.max(0, S.shake - dt * 2.2);
     if (S.catchFlash > 0) S.catchFlash = Math.max(0, S.catchFlash - dt * 1.4);
-    if (S.sackPop > 0) S.sackPop = Math.max(0, S.sackPop - dt);
     if (!pausedByTutBox && S.breatheCueT > 0) S.breatheCueT = Math.max(0, S.breatheCueT - dt);
     if (!pausedByTutBox && S.breatheSlowT > 0) S.breatheSlowT = Math.max(0, S.breatheSlowT - dt);
-    if (S.binPulse > 0 && S.tut !== 5) S.binPulse = Math.max(0, S.binPulse - dt);
-    if (S.binShake > 0 && S.tut !== 5) S.binShake = Math.max(0, S.binShake - dt * 1.4);
+    if (S.binPulse > 0 && S.tut !== 6) S.binPulse = Math.max(0, S.binPulse - dt);
+    if (S.binShake > 0 && S.tut !== 6) S.binShake = Math.max(0, S.binShake - dt * 1.4);
     if (S.sleighFlyT > 0) S.sleighFlyT = Math.max(0, S.sleighFlyT - dt);
     for (let i = 0; i < 5; i++) {
       if (S.floorPulse[i] > 0) S.floorPulse[i] = Math.max(0, S.floorPulse[i] - dt * 1.6);
@@ -1660,7 +1750,7 @@ function frame(now) {
     }
   }
   if (S) {
-    renderScene(S, elfChoice, activeFloors(), sleighTarget(), !!catchable(true));
+    renderScene(S, elfChoice, activeFloors(), sleighTarget(), !!catchable(false));
   }
 }
 
@@ -1671,7 +1761,7 @@ function onKeyDown(ev) {
   if (!S || S.mode !== 'play') return;
   const k = KEYMAP[ev.key];
   if (k) {
-    if (S.twoHandsBoxUp || (S.tut && S.tut !== 2 && S.tut !== 3)) {
+    if (S.tut && S.tut !== 2 && S.tut !== 3 && S.tut !== 4) {
       ev.preventDefault();
       return;
     }
@@ -1713,7 +1803,7 @@ function onKeyDown(ev) {
       document.activeElement.blur();
       cv.focus({ preventScroll: true });
     }
-    if (!ev.repeat && ((S.tut && S.tutBoxUp) || S.twoHandsBoxUp) && tutDismissOk()) {
+    if (!ev.repeat && S.tut && S.tutBoxUp && tutDismissOk()) {
       ev.preventDefault();
       return;
     }
@@ -1782,12 +1872,6 @@ window.addEventListener('blur', () => {
 });
 
 function tapTarget(p) {
-  if (S.twoHandsBoxUp) {
-    if (isTutOkClick(p, S)) {
-      tutDismissOk();
-    }
-    return;
-  }
   if (S.tut) {
     if (S.tutBoxUp && isTutOkClick(p, S)) {
       tutDismissOk();
@@ -1797,7 +1881,13 @@ function tapTarget(p) {
     if (!st || st.ok) return;
     const tf = Math.max(0, Math.min(4, Math.floor((GROUND_Y - p.y) / FLOOR_H)));
     const side = p.x < TAP_SPLIT ? 'belt' : 'chute';
-    if (!((st.go === 'belt' || st.go === 'chute') && side === st.go && tf === st.f)) return;
+    if (st.go === 'belt') {
+      if (side !== 'belt' || tf !== st.f) return;
+    } else if (st.go === 'chute') {
+      if (side !== 'chute' || !S.elf.bag.some(g => g.cat === tf)) return;
+    } else {
+      return;
+    }
   }
 
   let f = Math.floor((GROUND_Y - p.y) / FLOOR_H);
@@ -1805,17 +1895,18 @@ function tapTarget(p) {
   if (f >= activeFloors()) return;
   const t = { type: p.x < TAP_SPLIT ? 'belt' : 'chute', floor: f };
 
-  const carrying = S.elf.bag.length > 0;
-  const canCarryMore = S.elf.bag.length < S.carryCap;
-  const busy = !!S.cmd;
   S.elf.climbTo = null;
-  if (busy && carrying && t.type === 'belt' && S.cmd.type === 'chute') {
-    S.queue = t; clearKeys(); return;
+  S.cmd = t;
+  S.queue = null;
+  clearKeys();
+  if (!S.elf.climbing && S.elf.floor === f) {
+    if (t.type === 'chute' && S.elf.x >= CHUTE_BX - 12 && S.elf.bag.length > 0) {
+      releaseGift(false);
+      S.cmd = null;
+    } else if (t.type === 'belt' && S.elf.bag.length < S.carryCap && catchable(false)) {
+      doAction(false, false);
+    }
   }
-  if (busy && canCarryMore && t.type === 'chute' && S.cmd.type === 'belt') {
-    S.queue = t; clearKeys(); return;
-  }
-  S.cmd = t; S.queue = null; clearKeys();
 }
 
 cv.addEventListener('pointerdown', ev => {
