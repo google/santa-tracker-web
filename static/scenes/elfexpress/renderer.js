@@ -25,7 +25,7 @@ import {
   ELF_H, GIFT_R, BOX_X, BOX_Y, BOX_W, BOX_H, PAD_TOP, PAD_BOT, PAD_SIDE,
   feetY, beltY, chuteY, carryY, STARS_BG, HILLS_BG,
   PXS, CWS, CHS, GYS, PXC, SPR_SLEIGH, SPR_DEER_A, SPR_DEER_B,
-  CITY_FAR, CITY, MOON_X, MOON_Y, MOON_R, takeoffPath, TUT, TWO_HANDS_TEXT, tutHole,
+  CITY_FAR, CITY, MOON_X, MOON_Y, MOON_R, takeoffPath, TUT, tutHole,
 } from './constants.js';
 
 export const cv = document.getElementById('game');
@@ -658,7 +658,7 @@ function getGuideTargets(S) {
   let chuteFloors = [];
   let beltGift = null;
 
-  // Bouncing arrows for tutorial steps 2 (belt) and 3 (chute), plus the Sleigh 6 two-hands moment
+  // Bouncing arrows for tutorial catch (belt) and drop (chute) steps
   if (S.tut === 2 && S.tutBoxUp) {
     beltGift = S.gifts.find(g => g.tutGift) || S.gifts[0] || null;
     beltFloor = beltGift ? beltGift.belt : 0;
@@ -666,22 +666,6 @@ function getGuideTargets(S) {
     const bag = (S.elf && S.elf.bag) || [];
     chuteFloor = bag.length ? bag[0].cat : 1;
     chuteFloors = [chuteFloor];
-  } else if (!S.tut && !S.twoHandsBoxUp && TUNE.twoHands) {
-    if (S.twoHandsStage === 'catch') {
-      beltFloor = S.twoHandsBelt >= 0 ? S.twoHandsBelt : 0;
-      beltGift = S.gifts.find(g => g.twoHandsPair &&
-        (g.state === 'belt' || g.state === 'teeter' || g.state === 'falling' || g.state === 'landed')) || null;
-    } else if (S.twoHandsStage === 'deliver') {
-      const bag = (S.elf && S.elf.bag) || [];
-      chuteFloors = Array.from(new Set(bag.map(g => g.cat)));
-      chuteFloor = chuteFloors.length ? chuteFloors[0] : -1;
-    } else if (S.twoHandsArrowChute !== undefined && S.twoHandsArrowChute >= 0) {
-      const bag = (S.elf && S.elf.bag) || [];
-      if (bag.length === 2) {
-        chuteFloor = S.twoHandsArrowChute;
-        chuteFloors = [chuteFloor];
-      }
-    }
   }
 
   return { beltFloor, chuteFloor, chuteFloors, beltGift };
@@ -701,7 +685,7 @@ function drawWorkshop(g2, S, floors) {
 
   const bag = S.elf.bag || (S.elf.carrying ? [S.elf.carrying] : []);
   const carrying = bag.length > 0;
-  const canCarryMore = bag.length < (S.carryCap || 1);
+  const canCarryMore = bag.length < (S.carryCap || 2);
   const guide = getGuideTargets(S);
 
   for (let f = 0; f < 5; f++) {
@@ -1302,7 +1286,6 @@ export const TUT_OK_RECT = { x: 280, y: 194, w: 108, h: 36 };
 function getActiveTextBox(S) {
   if (!S) return null;
   if (S.tut && S.tutBoxUp) return TUT[S.tut - 1] || null;
-  if (S.twoHandsBoxUp && TUNE.twoHands) return { ok: true, text: TWO_HANDS_TEXT };
   return null;
 }
 
@@ -1454,7 +1437,7 @@ export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
   for (const g of bag) drawGift(cx, g);
   drawBreatheCue(cx, S);
 
-  const canCarryMore = bag.length < (S.carryCap || 1);
+  const canCarryMore = bag.length < (S.carryCap || 2);
   if (canCarryMore && canCatch && S.catchFlash <= 0) {
     const r = 26 + (reduceMotion ? 4 : Math.abs(Math.sin(S.t * 3.5)) * 8);
     cx.strokeStyle = '#FF7733'; cx.lineWidth = 4;
