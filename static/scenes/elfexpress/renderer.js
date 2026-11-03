@@ -873,7 +873,11 @@ function drawLines(g2, S, floors, sleighTargetVal) {
   g2.lineTo(BIN_X + 9, BIN_Y + 2); g2.stroke();
   g2.beginPath(); g2.moveTo(BIN_X, BIN_Y - 7); g2.lineTo(BIN_X, BIN_Y + 9); g2.stroke();
 
-  const frac = Math.min(1, S.recycled / TUNE.recycleLimit);
+  const draining = S.relaxT > 0 && (S.recycleDrainFrom || 0) > 0 && (S.recycleDrainDur || 0) > 0;
+  const drainVal = draining
+    ? S.recycleDrainFrom * Math.max(0, (S.relaxT - 0.35) / Math.max(0.5, S.recycleDrainDur - 0.35))
+    : S.recycled;
+  const frac = Math.min(1, Math.max(0, drainVal / TUNE.recycleLimit));
   const fw = 84, fh = 9, fx = BIN_X - fw / 2, fy = BIN_Y - 38;
   const bShake = (S.binShake && S.binShake > 0 && !reduceMotion) ? S.binShake : 0;
   const bxOff = bShake > 0 ? Math.sin(S.t * 48) * 5.5 * bShake : 0;
@@ -881,12 +885,14 @@ function drawLines(g2, S, floors, sleighTargetVal) {
   g2.save();
   if (bShake > 0) g2.translate(bxOff, byOff);
   g2.fillStyle = 'rgba(255,255,255,.9)'; g2.beginPath(); g2.roundRect(fx, fy, fw, fh, 5); g2.fill();
-  if (S.recycled > 0) {
-    const fillW = Math.max(6, fw * frac);
-    g2.fillStyle = (S.binPulse && S.binPulse > 0) ? '#FF3333' : (frac > 0.75 ? '#FF3333' : frac > 0.5 ? '#FF7733' : '#32A658');
+  if (drainVal > 0.02) {
+    const fillW = Math.max(4, fw * frac);
+    g2.fillStyle = draining
+      ? '#38BDF8'
+      : ((S.binPulse && S.binPulse > 0) ? '#FF3333' : (frac > 0.75 ? '#FF3333' : frac > 0.5 ? '#FF7733' : '#32A658'));
     g2.beginPath(); g2.roundRect(fx, fy, fillW, fh, 5); g2.fill();
-    if (bShake > 0 || (S.binPulse && S.binPulse > 0)) {
-      g2.strokeStyle = '#FDE047'; g2.lineWidth = 2;
+    if (draining || bShake > 0 || (S.binPulse && S.binPulse > 0)) {
+      g2.strokeStyle = draining ? '#BAE6FD' : '#FDE047'; g2.lineWidth = 2;
       g2.beginPath(); g2.roundRect(fx - 1, fy - 1, fillW + 2, fh + 2, 5); g2.stroke();
     }
   }
@@ -894,7 +900,7 @@ function drawLines(g2, S, floors, sleighTargetVal) {
   g2.textAlign = 'center';
   g2.strokeStyle = 'rgba(15,23,42,.75)'; g2.lineWidth = 3;
   g2.strokeText(S.recycled + ' / ' + TUNE.recycleLimit, BIN_X, BIN_Y + 22);
-  g2.fillStyle = (bShake > 0 || (S.binPulse && S.binPulse > 0)) ? '#FDE047' : '#FFFFFF';
+  g2.fillStyle = draining ? '#BAE6FD' : ((bShake > 0 || (S.binPulse && S.binPulse > 0)) ? '#FDE047' : '#FFFFFF');
   g2.fillText(S.recycled + ' / ' + TUNE.recycleLimit, BIN_X, BIN_Y + 22);
   g2.restore();
 
