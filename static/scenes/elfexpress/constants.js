@@ -36,8 +36,6 @@ export const TUNE = {
   relaxTime: 3.0,          // 3s break between levels after a sleigh fills (with "Phew!" cue)
   sleighFlyTime: 1.8,      // Sleigh + reindeer takeoff & glide-back duration during the 3s break (s)
   dualToysFromWave: 3,     // Sleigh (1-8) that introduces second toys at level start (Sleigh 3)
-  twoHands: true,          // Feature flag: two-hand carrying (enabled from Sleigh 6)
-  sackFromWave: 6,         // Sleigh (1-8) where two-hand carrying starts (Sleigh 6)
   hurryMusicFromWave: 8,   // Sleigh (1-8) that starts game_hurry_up music at level start (Sleigh 8 only)
   basePoints: 100,
   sleighBonus: 400,
@@ -440,8 +438,6 @@ export const TUT = [
     },
   },
 ];
-
-export const TWO_HANDS_TEXT = 'Now you can carry two toys!';
 
 export function tutHole(h) {
   if (h === 'belt') return [BUILD_X0, feetY(0) - FLOOR_H, TAP_SPLIT - BUILD_X0, FLOOR_H];

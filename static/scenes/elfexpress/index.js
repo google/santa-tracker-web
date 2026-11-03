@@ -355,8 +355,6 @@ function newGame() {
     phase: 'flow', relaxT: 0, sleighFlyT: 0, sleighFlyDur: 1.8, sleighFlyGifts: 0,
     breatheCueT: 0, breatheCueDur: 3.0, breatheSlowT: 0, breatheArmed: false,
     sleighTimer: 0,
-    twoHandsBoxUp: false, twoHandsIntroShown: false, twoHandsStage: null, twoHandsBelt: -1,
-    twoHandsArrowShown: false, twoHandsArrowChute: -1,
     waveQueue: [], spawnTimer: 1.0, lastBelt: -1, lastCat: 0,
     gifts: [], fx: [], nextId: 1, recent: [],
     shake: 0, catchFlash: 0,
@@ -366,7 +364,7 @@ function newGame() {
     hint: 0, floorPulse: [0, 0, 0, 0, 0], beltPulse: [0, 0, 0, 0, 0], binPulse: 0, binShake: 0,
     catDual: [false, false, false, false, false], catPop: [0, 0, 0, 0, 0],
     revealT: 0, revealed: false,
-    hasSack: false, carryCap: 1, sackPop: 0,
+    carryCap: 2,
     actionEdge: false, actionHeld: false, actionBuf: 0,
     skin: SKIN_TONES[Math.floor(Math.random() * SKIN_TONES.length)],
     elf: {
@@ -545,7 +543,7 @@ function verifyWaveSolvable(q, teeter, carryCap, startFloor, startX) {
 function buildWaveQueue(waveIdx) {
   const w = WAVES[Math.min(waveIdx, WAVES.length - 1)];
   const maxFloors = w.floors || 2;
-  const carryCap = (TUNE.twoHands && (waveIdx + 1) >= TUNE.sackFromWave) ? 2 : 1;
+  const carryCap = 2;
   const startFloor = (S && S.elf) ? Math.min(maxFloors - 1, S.elf.floor) : 0;
   const startX = (S && S.elf) ? S.elf.x : DROP_CX;
   const minSpare = (TUNE.minSpareByWave && TUNE.minSpareByWave[waveIdx] !== undefined)
@@ -580,51 +578,14 @@ function buildWaveQueue(waveIdx) {
     };
 
     // 1. Steady flow phase
-    const isTwoHandsWave = Boolean(TUNE.twoHands && (waveIdx + 1) === TUNE.sackFromWave && w.flowCount >= 2);
     for (let i = 0; i < w.flowCount; i++) {
       const unlocked = checkProgressiveFloor();
-      if (isTwoHandsWave && i === 0) {
-        const b0 = unlocked ? (unlocked - 1) : pickNearbyFloor(prevC, 2, prevB, curFloors);
-        const c0 = pickNearbyFloor(b0, 1, -1, curFloors);
-        const c1 = pickNearbyFloor(b0, 2, c0, curFloors);
-        recentSim.push(c0, c1);
-        while (recentSim.length > 4) recentSim.shift();
-        prevB = b0;
-        prevC = c1;
-        q.push({
-          delay: 0.15,
-          delayType: 'init',
-          phase: 'flow',
-          action: 'gift',
-          belt: b0,
-          cat: c0,
-          startX: -10,
-          twoHandsPair: true,
-          unlockFloor: unlocked,
-          gusted: false,
-        });
-        q.push({
-          delay: 0,
-          delayType: 'init',
-          phase: 'flow',
-          action: 'gift',
-          belt: b0,
-          cat: c1,
-          startX: -52,
-          twoHandsPair: true,
-          unlockFloor: 0,
-          gusted: false,
-        });
-        giftIdx += 2;
-        i++;
-        continue;
-      }
       const b = unlocked ? (unlocked - 1) : pickNearbyFloor(prevC, 2, prevB, curFloors);
       const c = unlocked ? pickNearbyFloor(b, 1, -1, curFloors) : nextCat(curFloors);
       prevB = b;
       prevC = c;
       q.push({
-        delay: i === 0 ? 0.35 : ((isTwoHandsWave && i === 2) ? w.flowGap + 0.85 : w.flowGap),
+        delay: i === 0 ? 0.35 : w.flowGap,
         delayType: i === 0 ? 'init' : 'flow',
         phase: 'flow',
         action: 'gift',
@@ -769,22 +730,7 @@ function startWave(waveIdx) {
     }
   }
 
-  // Two-hands mode starting from Sleigh 6
-  if (TUNE.twoHands && waveNum >= TUNE.sackFromWave) {
-    if (!S.hasSack) {
-      S.hasSack = true;
-      S.carryCap = 2;
-      S.sackPop = 2.0;
-      puff(S.elf.x, S.elf.y - 38, '#FDE047', 16);
-    }
-    if (waveNum === TUNE.sackFromWave && !S.twoHandsIntroShown) {
-      S.twoHandsIntroShown = true;
-      S.twoHandsBoxUp = true;
-    }
-  } else {
-    S.hasSack = false;
-    S.carryCap = 1;
-  }
+  S.carryCap = 2;
 
   // Sleigh 7 (finale): hurry-up music starts at the beginning of the level
   if (waveNum >= TUNE.hurryMusicFromWave) {
@@ -793,14 +739,6 @@ function startWave(waveIdx) {
   }
 
   S.waveQueue = buildWaveQueue(S.sleighsDone);
-  if (TUNE.twoHands && waveNum === TUNE.sackFromWave) {
-    const firstPair = S.waveQueue.find(ev => ev.twoHandsPair);
-    S.twoHandsStage = firstPair ? 'catch' : null;
-    S.twoHandsBelt = firstPair ? firstPair.belt : -1;
-  } else {
-    S.twoHandsStage = null;
-    S.twoHandsBelt = -1;
-  }
   S.spawnTimer = S.waveQueue.length ? S.waveQueue[0].delay : 1.0;
   syncTunePanel();
   reportScore();
@@ -841,20 +779,9 @@ function triggerGustNow(belts) {
 }
 
 function processWaveQueue(dt) {
-  if (S.tut || S.twoHandsBoxUp) return;
+  if (S.tut) return;
   if (S.relaxT > 0) {
     S.relaxT = Math.max(0, S.relaxT - dt);
-    if (TUNE.twoHands && S.sleighsDone + 1 === TUNE.sackFromWave && !S.twoHandsIntroShown && S.relaxT <= 1.2) {
-      S.twoHandsIntroShown = true;
-      S.twoHandsBoxUp = true;
-      if (!S.hasSack) {
-        S.hasSack = true;
-        S.carryCap = 2;
-        S.sackPop = 2.0;
-        puff(S.elf.x, S.elf.y - 38, '#FDE047', 16);
-      }
-      return;
-    }
     if (S.relaxT <= 0) {
       startWave(S.sleighsDone);
     }
@@ -906,7 +833,6 @@ function processWaveQueue(dt) {
     } else if (ev.action === 'gift') {
       const g = spawnGiftOnBelt(ev.belt, ev.startX !== undefined ? ev.startX : -30, null, ev.cat);
       if (ev.gusted) g.gusted = true;
-      if (ev.twoHandsPair) g.twoHandsPair = true;
       if (ev.triggerGust) triggerGustNow(S.gustWarnBelts.length ? S.gustWarnBelts : [ev.belt]);
     }
     if (S.waveQueue.length) {
@@ -918,7 +844,7 @@ function processWaveQueue(dt) {
 }
 
 function updateGifts(dt) {
-  const pausedByBox = (S.tut && S.tutBoxUp) || S.twoHandsBoxUp;
+  const pausedByBox = Boolean(S.tut && S.tutBoxUp);
   const pausedBelts = S.relaxT > 0 || pausedByBox;
   const beltSpeedMul = (S.breatheSlowT > 0) ? 0.35 : 1.0;
   const teetering = [];
@@ -992,13 +918,6 @@ function updateGifts(dt) {
     }
   }
   S.gifts = S.gifts.filter(g => g.state !== 'done');
-  if (S.twoHandsStage === 'catch' && !S.waveQueue.some(ev => ev.twoHandsPair)) {
-    const pairStillOnBelt = S.gifts.some(g => g.twoHandsPair &&
-      (g.state === 'belt' || g.state === 'teeter' || g.state === 'falling' || g.state === 'landed'));
-    if (!pairStillOnBelt) {
-      S.twoHandsStage = S.elf.bag.length > 0 ? 'deliver' : 'done';
-    }
-  }
 }
 
 function pathTo(g, pts, speed) {
@@ -1186,28 +1105,13 @@ function doAction(edge, manual) {
   g.state = 'carried'; g.tilt = 0; g.timer = 0; g.spin = 0;
   e.bag.push(g);
   syncCarry();
-  if (S.twoHandsStage === 'catch' && e.bag.length >= 2) {
-    S.twoHandsStage = 'deliver';
-    for (const item of e.bag) {
-      S.floorPulse[item.cat] = 1.2;
-    }
-  }
-  if (TUNE.twoHands && e.bag.length === 2 && !S.twoHandsArrowShown) {
-    S.twoHandsArrowShown = true;
-    S.twoHandsArrowChute = e.bag[0].cat;
-  }
   S.actionBuf = 0; S.actionHeld = false;
   api.play('pd_player_present_pickup');
   if (S.tut === 2) {
     S.tut = 3;
     S.tutBoxUp = true;
   }
-  const keepBeltForPair = S.twoHandsStage === 'catch' && e.bag.length < S.carryCap &&
-    S.gifts.some(o => o.twoHandsPair && o.belt === e.floor &&
-      (o.state === 'belt' || o.state === 'teeter' || o.state === 'falling' || o.state === 'landed'));
-  if (!keepBeltForPair) {
-    S.cmd = null; S.queue = null;
-  }
+  S.cmd = null; S.queue = null;
   S.catchFlash = 0.3;
   S.beltPulse[e.floor] = 0.5;
   puff(e.x, carryY(e.floor), '#FF7733', 10);
@@ -1243,10 +1147,6 @@ function releaseGift(onlyMatching = false) {
     }
   }
   syncCarry();
-  S.twoHandsArrowChute = -1;
-  if (S.twoHandsStage === 'deliver' && e.bag.length === 0) {
-    S.twoHandsStage = 'done';
-  }
   if (matching.length) {
     api.play('pd_player_present_pickup');
     reportScore();
@@ -1380,7 +1280,7 @@ function stepTo(e, tf, tx, dt) {
 function updateElf(dt) {
   const e = S.elf;
   const prevX = e.x, prevY = e.y;
-  if (S.twoHandsBoxUp || (S.tut && S.tut !== 2 && S.tut !== 3)) {
+  if (S.tut && S.tut !== 2 && S.tut !== 3) {
     clearKeys();
     S.liveSpeed = 0;
     return;
@@ -1630,17 +1530,6 @@ function tutFinish() {
 
 function tutDismissOk() {
   if (!S) return false;
-  if (S.twoHandsBoxUp) {
-    api.play('pd_player_present_pickup');
-    S.twoHandsBoxUp = false;
-    if (S.relaxT > 0) {
-      S.relaxT = 0;
-      S.breatheCueT = 0;
-      S.breatheSlowT = 0;
-      startWave(S.sleighsDone);
-    }
-    return true;
-  }
   if (!S.tut || !S.tutBoxUp) return false;
   const st = TUT[S.tut - 1];
   if (!st || !st.ok) return false;
@@ -1691,7 +1580,7 @@ function frame(now) {
     S.takeoff += dt;
   } else if (S && S.mode === 'play') {
     S.uiT = (S.uiT || 0) + dt;
-    const pausedByTutBox = (S.tut && S.tutBoxUp) || S.twoHandsBoxUp;
+    const pausedByTutBox = Boolean(S.tut && S.tutBoxUp);
     if (!pausedByTutBox) {
       S.t += dt;
       if (!S.tut && S.relaxT <= 0) {
@@ -1715,7 +1604,6 @@ function frame(now) {
     if (!pausedByTutBox) updateSnow(dt);
     if (S.shake > 0) S.shake = Math.max(0, S.shake - dt * 2.2);
     if (S.catchFlash > 0) S.catchFlash = Math.max(0, S.catchFlash - dt * 1.4);
-    if (S.sackPop > 0) S.sackPop = Math.max(0, S.sackPop - dt);
     if (!pausedByTutBox && S.breatheCueT > 0) S.breatheCueT = Math.max(0, S.breatheCueT - dt);
     if (!pausedByTutBox && S.breatheSlowT > 0) S.breatheSlowT = Math.max(0, S.breatheSlowT - dt);
     if (S.binPulse > 0 && S.tut !== 5) S.binPulse = Math.max(0, S.binPulse - dt);
@@ -1740,7 +1628,7 @@ function onKeyDown(ev) {
   if (!S || S.mode !== 'play') return;
   const k = KEYMAP[ev.key];
   if (k) {
-    if (S.twoHandsBoxUp || (S.tut && S.tut !== 2 && S.tut !== 3)) {
+    if (S.tut && S.tut !== 2 && S.tut !== 3) {
       ev.preventDefault();
       return;
     }
@@ -1782,7 +1670,7 @@ function onKeyDown(ev) {
       document.activeElement.blur();
       cv.focus({ preventScroll: true });
     }
-    if (!ev.repeat && ((S.tut && S.tutBoxUp) || S.twoHandsBoxUp) && tutDismissOk()) {
+    if (!ev.repeat && S.tut && S.tutBoxUp && tutDismissOk()) {
       ev.preventDefault();
       return;
     }
@@ -1851,12 +1739,6 @@ window.addEventListener('blur', () => {
 });
 
 function tapTarget(p) {
-  if (S.twoHandsBoxUp) {
-    if (isTutOkClick(p, S)) {
-      tutDismissOk();
-    }
-    return;
-  }
   if (S.tut) {
     if (S.tutBoxUp && isTutOkClick(p, S)) {
       tutDismissOk();
