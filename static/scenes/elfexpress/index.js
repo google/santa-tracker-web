@@ -592,14 +592,20 @@ function buildWaveQueue(waveIdx) {
       const c = unlocked ? pickNearbyFloor(b, 1, -1, curFloors) : nextCat(curFloors);
       prevB = b;
       prevC = c;
-      const leadGap = (waveIdx >= 2 && (i === 1 || i === 2)) ? Math.min(w.flowGap, 0.65) : w.flowGap;
+      let d = i === 0 ? 0.25 : w.flowGap;
+      let sx = -30;
+      if (waveIdx >= 2 && i < 3) {
+        d = i === 0 ? 0.12 : (i === 1 ? 0.22 : 0.28);
+        sx = i === 0 ? 18 : (i === 1 ? -22 : -54);
+      }
       q.push({
-        delay: i === 0 ? 0.25 : leadGap,
+        delay: d,
         delayType: i === 0 ? 'init' : 'flow',
         phase: 'flow',
         action: 'gift',
         belt: b,
         cat: c,
+        startX: sx,
         unlockFloor: unlocked,
         gusted: false,
       });
@@ -723,14 +729,14 @@ function buildWaveQueue(waveIdx) {
           if (b2 === b1) continue;
           ev1.paired = true;
           ev1.startX = -24;
-          ev1.delay += 0.35;
+          ev1.delay += 0.40;
           ev2.paired = true;
           ev2.belt = b2;
-          ev2.cat = pickNearbyFloor(b2, 1, -1, curFloors);
+          ev2.cat = pickNearbyFloor(ev1.cat, 1, -1, curFloors);
           ev2.delay = 0;
           ev2.startX = -38;
           if (ord + 2 < giftIndices.length) {
-            q[giftIndices[ord + 2]].delay += 0.45;
+            q[giftIndices[ord + 2]].delay += 0.60;
           }
           lastPairOrder = ord;
           placed++;
@@ -769,17 +775,17 @@ function buildWaveQueue(waveIdx) {
           ev1.gustLead = true;
           ev1.warnDur = GUST.warnTime;
           ev1.warnBelts = [b2, b1];
-          ev1.delay += 0.35;
+          ev1.delay += 0.40;
           ev1.startX = -30;
           ev2.gusted = true;
           ev2.triggerGust = true;
           ev2.gustBelts = [b2];
           ev2.belt = b2;
-          ev2.cat = pickNearbyFloor(b2, 1, -1, curFloors);
+          ev2.cat = pickNearbyFloor(ev1.cat, 1, -1, curFloors);
           ev2.delay = Math.max(0.75, GUST.warnTime - 0.04);
           ev2.startX = -30;
           if (ord + 2 < giftIndices.length) {
-            q[giftIndices[ord + 2]].delay += 0.45;
+            q[giftIndices[ord + 2]].delay += 0.60;
           }
           lastGustOrder = ord;
           break;
