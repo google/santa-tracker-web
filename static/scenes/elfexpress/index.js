@@ -695,6 +695,50 @@ function buildWaveQueue(waveIdx) {
       }
     }
 
+    // 4. Convert w.pairs gift pairs into simultaneous spawns on different belts (Sleigh 3+)
+    const wantPairs = w.pairs || 0;
+    if (wantPairs > 0 && curFloors >= 2) {
+      const giftIndices = [];
+      for (let qi = 0; qi < q.length; qi++) {
+        if (q[qi].action === 'gift') giftIndices.push(qi);
+      }
+      const span = Math.max(2, giftIndices.length - 3);
+      let placed = 0;
+      let lastPairOrder = -3;
+      for (let p = 0; p < wantPairs; p++) {
+        const targetOrder = 2 + Math.floor(((p + 0.5) * span) / wantPairs);
+        for (let off = 0; off < giftIndices.length; off++) {
+          const ord = targetOrder + (off % 2 === 0 ? off / 2 : -Math.ceil(off / 2));
+          if (ord < 2 || ord >= giftIndices.length - 1) continue;
+          if (ord - lastPairOrder < 3) continue;
+          const qi1 = giftIndices[ord];
+          const qi2 = giftIndices[ord + 1];
+          if (qi2 !== qi1 + 1) continue;
+          const ev1 = q[qi1];
+          const ev2 = q[qi2];
+          if (ev1.unlockFloor || ev2.unlockFloor || ev1.triggerGust || ev2.triggerGust) continue;
+          if (ev1.paired || ev2.paired) continue;
+          const b1 = ev1.belt;
+          const b2 = pickNearbyFloor(b1, 2, b1, curFloors);
+          if (b2 === b1) continue;
+          ev1.paired = true;
+          ev1.startX = -24;
+          ev1.delay += 0.35;
+          ev2.paired = true;
+          ev2.belt = b2;
+          ev2.cat = pickNearbyFloor(b2, 1, -1, curFloors);
+          ev2.delay = 0;
+          ev2.startX = -38;
+          if (ord + 2 < giftIndices.length) {
+            q[giftIndices[ord + 2]].delay += 0.45;
+          }
+          lastPairOrder = ord;
+          placed++;
+          break;
+        }
+      }
+    }
+
     const slack = verifyWaveSolvable(q, w.teeter, carryCap, startFloor, startX);
     if (slack > bestSlack || !bestQ) {
       bestSlack = slack;
