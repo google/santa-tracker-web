@@ -553,7 +553,7 @@ function drawFloorBelt(g2, S, f) {
   const by = beltY(f);
   g2.fillStyle = '#D8DDE2';
   const bt = S.beltAnimT !== undefined ? S.beltAnimT : S.t;
-  const shift = (bt * 58) % 32;
+  const shift = (bt * 40) % 32;
   for (let bx = BUILD_X0 - 26 + shift; bx < TEETER_X + 8; bx += 32) {
     if (bx < BUILD_X0 - 24) continue;
     g2.beginPath(); g2.arc(bx, by + 10, 4, 0, 7); g2.fill();
