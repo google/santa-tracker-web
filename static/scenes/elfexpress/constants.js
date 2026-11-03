@@ -47,10 +47,10 @@ export const TUNE = {
 };
 
 export const GUST = {
-  warnTime: 0.85,          // Short visual warning duration before a wind gust hits (s)
-  dur: 1.50,               // Active wind gust duration (s)
-  front: 0.45,             // Time for wind front to sweep across the workshop (s)
-  beltMul: 1.70,           // Belt speed multiplier when a gust pushes gifts
+  warnTime: 1.00,          // 1s snow-streak warning sweeping in from the left before each gust (s)
+  dur: 2.40,               // Active wind gust duration so its effect is clearly visible (s)
+  front: 0.55,             // Time for wind front to sweep across the workshop (s)
+  beltMul: 1.95,           // Belt speed multiplier so a gusted gift catches up to form a pair
 };
 
 // 8 sleighs. Each level is steady flow -> speed-up -> burst until sleigh is full -> 3s break.
@@ -67,6 +67,7 @@ export const WAVES = [
     burstSize: 0,
     burstGap: 1.45,
     pairs: 0,
+    gusts: 0,
     breathe: 3.0,
     teeter: 2.50,
     gustOnBurst: false,
@@ -88,6 +89,7 @@ export const WAVES = [
     burstSize: 2,
     burstGap: 0.90,
     pairs: 0,
+    gusts: 0,
     breathe: 3.0,
     teeter: 2.45,
     gustOnBurst: false,
@@ -104,6 +106,7 @@ export const WAVES = [
     burstSize: 4,
     burstGap: 0.80,
     pairs: 1,
+    gusts: 0,
     breathe: 3.0,
     teeter: 2.40,
     gustOnBurst: false,
@@ -120,6 +123,7 @@ export const WAVES = [
     burstSize: 4,
     burstGap: 0.78,
     pairs: 2,
+    gusts: 0,
     breathe: 3.0,
     teeter: 2.35,
     gustOnBurst: false,
@@ -135,7 +139,8 @@ export const WAVES = [
     speedUpGap: 0.90,
     burstSize: 4,
     burstGap: 0.75,
-    pairs: 2,
+    pairs: 1,
+    gusts: 1,
     breathe: 3.0,
     teeter: 2.30,
     gustOnBurst: false,
@@ -152,9 +157,10 @@ export const WAVES = [
     burstSize: 5,
     burstGap: 0.75,
     pairs: 2,
+    gusts: 2,
     breathe: 3.0,
     teeter: 2.30,
-    gustOnBurst: true,
+    gustOnBurst: false,
   },
   {
     wave: 7,
@@ -167,10 +173,11 @@ export const WAVES = [
     speedUpGap: 0.85,
     burstSize: 5,
     burstGap: 0.72,
-    pairs: 3,
+    pairs: 2,
+    gusts: 3,
     breathe: 3.0,
     teeter: 2.25,
-    gustOnBurst: true,
+    gustOnBurst: false,
   },
   {
     wave: 8,
@@ -184,9 +191,10 @@ export const WAVES = [
     burstSize: 6,
     burstGap: 0.70,
     pairs: 3,
+    gusts: 4,
     breathe: 3.0,
     teeter: 2.25,
-    gustOnBurst: true,
+    gustOnBurst: false,
   },
 ];
 
