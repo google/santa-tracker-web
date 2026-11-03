@@ -1022,19 +1022,44 @@ function drawWind(g2, S, g) {
 }
 
 function drawGust(g2, S) {
-  if (S.gustT <= 0 || reduceMotion) return;
+  if ((S.gustT <= 0 && S.gustWarnT <= 0) || reduceMotion) return;
+  g2.save();
+  g2.lineCap = 'round';
+
+  // 1s before each gust: snow streaks sweeping in from the left as a warning
+  if (S.gustWarnT > 0 && S.gustT <= 0) {
+    const warnDur = GUST.warnTime || 1.0;
+    const prog = Math.min(1, Math.max(0, 1 - S.gustWarnT / warnDur));
+    const sweepRight = viewX0 + (TEETER_X + 90 - viewX0) * (0.35 + 0.65 * prog);
+    const kWarn = Math.sin(prog * Math.PI);
+    for (let i = 0; i < 16; i++) {
+      const y = (i * 139) % (H - 30) + 15;
+      const len = 44 + (i % 4) * 28;
+      const x = viewX0 - 60 + ((S.t * 620 + i * 97) % Math.max(180, sweepRight - viewX0 + 80));
+      if (x > sweepRight) continue;
+      g2.globalAlpha = (0.35 + 0.50 * kWarn) * Math.max(0.2, 1 - (sweepRight - x) / 320);
+      g2.strokeStyle = i % 2 === 0 ? '#FFFFFF' : '#BAE6FD';
+      g2.lineWidth = 2.2 + (i % 2) * 1.0;
+      g2.beginPath();
+      g2.moveTo(x - len, y - 2);
+      g2.lineTo(x, y + 2);
+      g2.stroke();
+    }
+    g2.restore();
+    return;
+  }
+
   const front = gustFront(S);
-  const k = Math.min(1, S.gustT / (GUST.dur * 0.4));
-  g2.save(); g2.lineCap = 'round';
-  for (let i = 0; i < 18; i++) {
+  const k = Math.min(1, S.gustT / (GUST.dur * 0.35));
+  for (let i = 0; i < 20; i++) {
     const y = (i * 149) % (H - 20) + 10;
-    const len = 56 + (i % 4) * 36;
-    const x = ((S.t * 800 + i * 137) % (W + 520)) - 260;
+    const len = 64 + (i % 4) * 38;
+    const x = ((S.t * 820 + i * 137) % (W + 520)) - 260;
     if (x > front) continue;
-    const near = Math.max(0, 1 - (front - x) / 400);
-    g2.globalAlpha = 0.78 * k * (0.2 + near * 0.8);
+    const near = Math.max(0, 1 - (front - x) / 420);
+    g2.globalAlpha = 0.82 * k * (0.25 + near * 0.75);
     g2.strokeStyle = i % 3 ? '#C1E8ED' : '#FFFFFF';
-    g2.lineWidth = 2 + (i % 2) * 1.2;
+    g2.lineWidth = 2.2 + (i % 2) * 1.2;
     g2.beginPath(); g2.moveTo(x - len, y); g2.lineTo(x, y + 2); g2.stroke();
   }
   g2.globalAlpha = 0.08 * k; g2.fillStyle = '#BFDBFE';

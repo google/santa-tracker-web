@@ -739,6 +739,54 @@ function buildWaveQueue(waveIdx) {
       }
     }
 
+    // 5. Convert w.gusts pairs into wind-created pairs (Sleigh 5+):
+    //    Gift 1 starts on belt b1 while 1s snow-streak warning sweeps in from the left;
+    //    ~1s later, a gust pushes Gift 2 faster along belt b2 so both reach their edges together.
+    const wantGusts = w.gusts || 0;
+    if (wantGusts > 0 && curFloors >= 2) {
+      const giftIndices = [];
+      for (let qi = 0; qi < q.length; qi++) {
+        if (q[qi].action === 'gift') giftIndices.push(qi);
+      }
+      const span = Math.max(2, giftIndices.length - 2);
+      let lastGustOrder = -2;
+      for (let gIdx = 0; gIdx < wantGusts; gIdx++) {
+        const targetOrder = 1 + Math.floor(((gIdx + 0.5) * span) / wantGusts);
+        for (let off = 0; off < giftIndices.length; off++) {
+          const ord = targetOrder + (off % 2 === 0 ? off / 2 : -Math.ceil(off / 2));
+          if (ord < 1 || ord >= giftIndices.length - 1) continue;
+          if (ord - lastGustOrder < 2) continue;
+          const qi1 = giftIndices[ord];
+          const qi2 = giftIndices[ord + 1];
+          if (qi2 !== qi1 + 1) continue;
+          const ev1 = q[qi1];
+          const ev2 = q[qi2];
+          if (ev1.unlockFloor || ev2.unlockFloor || ev1.paired || ev2.paired) continue;
+          if (ev1.gustLead || ev1.triggerGust || ev2.gustLead || ev2.triggerGust) continue;
+          const b1 = ev1.belt;
+          const b2 = pickNearbyFloor(b1, 2, b1, curFloors);
+          if (b2 === b1) continue;
+          ev1.gustLead = true;
+          ev1.warnDur = GUST.warnTime;
+          ev1.warnBelts = [b2, b1];
+          ev1.delay += 0.35;
+          ev1.startX = -30;
+          ev2.gusted = true;
+          ev2.triggerGust = true;
+          ev2.gustBelts = [b2];
+          ev2.belt = b2;
+          ev2.cat = pickNearbyFloor(b2, 1, -1, curFloors);
+          ev2.delay = Math.max(0.75, GUST.warnTime - 0.04);
+          ev2.startX = -30;
+          if (ord + 2 < giftIndices.length) {
+            q[giftIndices[ord + 2]].delay += 0.45;
+          }
+          lastGustOrder = ord;
+          break;
+        }
+      }
+    }
+
     const slack = verifyWaveSolvable(q, w.teeter, carryCap, startFloor, startX);
     if (slack > bestSlack || !bestQ) {
       bestSlack = slack;
@@ -892,8 +940,14 @@ function processWaveQueue(dt) {
       S.gustWarnBelts = ev.belts ? ev.belts.slice() : [0, 1, 2, 3, 4];
     } else if (ev.action === 'gift') {
       const g = spawnGiftOnBelt(ev.belt, ev.startX !== undefined ? ev.startX : -30, null, ev.cat);
+      if (ev.gustLead) {
+        S.gustWarnT = ev.warnDur || GUST.warnTime;
+        S.gustWarnBelts = ev.warnBelts ? ev.warnBelts.slice() : [ev.belt];
+      }
       if (ev.gusted) g.gusted = true;
-      if (ev.triggerGust) triggerGustNow(S.gustWarnBelts.length ? S.gustWarnBelts : [ev.belt]);
+      if (ev.triggerGust) {
+        triggerGustNow(ev.gustBelts || (S.gustWarnBelts.length ? S.gustWarnBelts : [ev.belt]));
+      }
     }
     if (S.waveQueue.length) {
       S.spawnTimer += S.waveQueue[0].delay;
