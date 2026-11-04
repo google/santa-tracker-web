@@ -33,7 +33,7 @@
   width: min(640px, calc(100vw - 200px), calc((100vh - 220px) * 4 / 3));
 
   @media (max-width: 600px) {
-    width: min(calc(100vw - 112px), calc((100vh - 220px) * 4 / 3));
+    width: min(calc(100vw - 132px), calc((100vh - 220px) * 4 / 3));
   }
   aspect-ratio: 4 / 3;
   perspective: 1200px;

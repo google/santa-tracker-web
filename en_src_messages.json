@@ -10081,6 +10081,10 @@
     "description": "Opens Santa's postcard collection gallery; 'Postcards' is a plural noun. Appears as the accessible label and tooltip on the top-right mailbox button in the Santa Tracker map view. [CHAR_LIMIT=40]",
     "message": "Santa's Postcards"
   },
+  "postcard_flip": {
+    "description": "Short label on the button that turns the postcard over (front to back and back again); 'Flip' is an action verb. Appears next to a round flip icon below the postcard in the mailbox. Keep very short. [CHAR_LIMIT=12]",
+    "message": "Flip"
+  },
   "postcard_flip_to_back": {
     "description": "Flips the postcard over to show the back side with Santa's written message; 'Flip' is an action verb and 'note' is a singular noun. Appears as a button below the postcard in the gallery modal. [CHAR_LIMIT=30]",
     "message": "Flip to read note"

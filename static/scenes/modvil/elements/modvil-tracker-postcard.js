@@ -92,8 +92,19 @@ export class ModvilTrackerPostcard extends LitElement {
   }
 
   updated(changedProps) {
+    // The host builds a fresh postcard object on every render, so only reset to the front
+    // when it's actually a different postcard (otherwise any host re-render un-flips it).
     if (changedProps.has('postcard')) {
-      this.flipped = false;
+      const prev = changedProps.get('postcard');
+      const prevId = prev ? prev.id : null;
+      const nextId = this.postcard ? this.postcard.id : null;
+      if (prevId !== nextId) {
+        this.flipped = false;
+      }
+    }
+    if (changedProps.has('flipped')) {
+      // Lets the host (e.g. the mailbox's flip button) keep its label in sync with the card.
+      this.dispatchEvent(new CustomEvent('flipped-changed', {detail: {flipped: this.flipped}}));
     }
   }
 

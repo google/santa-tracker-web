@@ -121,6 +121,12 @@
 $mailbox-red: #dc1e23;       // main body colour sampled from mailbox.png
 $mailbox-red-dark: #a01b20;  // shadow colour sampled from mailbox.png
 $mailbox-cream: #fffaf0;
+$mailbox-red-edge: #9b1519;  // hard "side" under flat red surfaces
+
+// Flat 3D look borrowed from the village's Family Guide button (.uibutton in
+// modvil/sass/newtoday.scss): solid colour, a hard darker edge underneath, a hard offset shadow,
+// lifts on hover and sinks when pressed.
+$hard-shadow: rgba(0, 0, 0, 0.1);
 
 .scrim {
   position: fixed;
@@ -145,16 +151,51 @@ $mailbox-cream: #fffaf0;
 }
 
 .close-btn {
+  appearance: none;
+  border: none;
+  cursor: pointer;
   position: absolute;
   top: 16px;
   right: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $mailbox-red;
+  box-shadow: 0 3px 0 $mailbox-red-edge, 2px 4px 0 $hard-shadow;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  svg {
+    width: 60%;
+    height: 60%;
+    fill: #fff;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 0 $mailbox-red-edge, 3px 6px 0 $hard-shadow;
+  }
+
+  &:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 $mailbox-red-edge;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 3px;
+  }
 }
 
 .slot-frame {
+  position: relative;
+  z-index: 1;  // above the side tabs so they look tucked underneath
   background: $mailbox-red;
   padding: 10px;
   border-radius: 14px;
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35), inset 0 -4px 0 $mailbox-red-dark;
+  box-shadow: 0 5px 0 $mailbox-red-edge, 5px 5px 0 $hard-shadow;
   animation: card-in 0.25s ease-out;
 }
 
@@ -202,8 +243,7 @@ $mailbox-cream: #fffaf0;
   }
 }
 
-.icon-btn,
-.nav-btn {
+.icon-btn {
   appearance: none;
   border: none;
   cursor: pointer;
@@ -240,8 +280,7 @@ $mailbox-cream: #fffaf0;
   height: 44px;
 }
 
-.back-btn svg,
-.nav-btn.prev svg {
+.back-btn svg {
   transform: scaleX(-1);
 }
 
@@ -249,57 +288,226 @@ $mailbox-cream: #fffaf0;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
   max-width: 100%;
-
-  @media (max-width: 600px) {
-    gap: 8px;
-  }
 }
 
-.nav-btn {
-  flex: 0 0 auto;
-  width: 56px;
-  height: 56px;
+// Prev/next: flat red tabs with dashed "stitching" that stick out from under the slot frame.
+// Visible reach outside the frame must fit the space postcard-scene leaves on each side
+// (100vw - 200px on desktop, 100vw - 132px on small screens, minus the scrim padding).
+$tab-tuck: 12px;  // how far each tab slides under the frame
 
-  @media (max-width: 600px) {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-.carousel-footer {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-top: 20px;
-
-  .counter {
-    font-weight: 700;
-    font-size: 16px;
-    opacity: 0.9;
-  }
-}
-
-.pill-btn {
+.nav-tab {
   appearance: none;
   border: none;
+  padding: 0;
   cursor: pointer;
-  border-radius: 999px;
-  padding: 10px 20px;
-  background: #fff;
-  color: $mailbox-red;
-  font-weight: 700;
-  font-size: 15px;
-  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+  flex: 0 0 auto;
+  position: relative;
+  z-index: 0;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px + $tab-tuck;
+  height: 120px;
+  background: $mailbox-red;
+  box-shadow: 0 5px 0 $mailbox-red-edge, 3px 5px 0 $hard-shadow;
+  transition: transform 0.2s, box-shadow 0.2s;
+  --tab-radius: 40px;
+
+  // Dashed "stitching" that follows the tab outline.
+  &::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    border: 2px dashed rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+  }
+
+  svg {
+    width: 44px;
+    height: 44px;
+    overflow: visible;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 3.4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &.prev {
+    margin-right: -$tab-tuck;
+    padding-right: $tab-tuck;
+    border-radius: var(--tab-radius) 6px 6px var(--tab-radius);
+
+    &::after {
+      left: 6px;
+      right: $tab-tuck + 6px;
+      border-radius: calc(var(--tab-radius) - 6px) 3px 3px calc(var(--tab-radius) - 6px);
+    }
+
+    svg {
+      transform: scaleX(-1);
+    }
+  }
+
+  &.next {
+    margin-left: -$tab-tuck;
+    padding-left: $tab-tuck;
+    border-radius: 6px var(--tab-radius) var(--tab-radius) 6px;
+
+    &::after {
+      right: 6px;
+      left: $tab-tuck + 6px;
+      border-radius: 3px calc(var(--tab-radius) - 6px) calc(var(--tab-radius) - 6px) 3px;
+    }
+  }
 
   &:hover {
-    background: #fff3f3;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 $mailbox-red-edge, 4px 7px 0 $hard-shadow;
+  }
+
+  &:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 $mailbox-red-edge;
   }
 
   &:focus-visible {
     outline: 3px solid #fff;
     outline-offset: 3px;
+  }
+
+  &[hidden] {
+    visibility: hidden;
+  }
+
+  @media (max-width: 600px) {
+    width: 50px + $tab-tuck;
+    height: 96px;
+    --tab-radius: 31px;
+
+    svg {
+      width: 34px;
+      height: 34px;
+    }
+  }
+}
+
+.carousel-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+// Pill buttons in the village "uibutton" style: the ::after is the face, the ::before is a copy
+// shifted down with a dark inset that reads as the button's side.
+.pill-btn {
+  --edge: 3px;
+  --lift: 2px;
+  appearance: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 1000px;
+  padding: 5px 18px 5px 5px;
+  // <button> doesn't inherit the page font; Google Sans (400/500/700) is loaded by modvil/index.html.
+  font-family: 'Google Sans', 'Arial', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  white-space: nowrap;
+  background: var(--face);
+  color: var(--text);
+  transition: transform 0.2s;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: inherit;
+    pointer-events: none;
+  }
+
+  &::after {
+    z-index: -1;
+  }
+
+  &::before {
+    z-index: -2;
+    transform: translateY(var(--edge));
+    box-shadow: inset 0 -20px 0 var(--side), 2px 2px 0 $hard-shadow;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  &:hover {
+    transform: translateY(calc(-1 * var(--lift)));
+
+    &::before {
+      transform: translateY(calc(var(--edge) + var(--lift)));
+      box-shadow: inset 0 -20px 0 var(--side), 3px 3px 0 $hard-shadow;
+    }
+  }
+
+  &:active {
+    transform: translateY(var(--edge));
+
+    &::before {
+      transform: translateY(0);
+      box-shadow: inset 0 -20px 0 var(--side);
+    }
+  }
+
+  &:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 5px;
+  }
+
+  // Round icon "picture" on the left, like the Family Guide button.
+  .badge {
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--badge);
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--icon);
+    }
+  }
+
+  .label {
+    padding-left: 10px;
+  }
+
+  &.primary {
+    --face: #{$mailbox-red};
+    --side: rgba(0, 0, 0, 0.3);
+    --text: #fff;
+    --badge: #fff;
+    --icon: #{$mailbox-red};
+  }
+
+  &.secondary {
+    --face: #fff;
+    --side: rgba(120, 20, 20, 0.18);
+    --text: #{$mailbox-red};
+    --badge: #{$mailbox-red};
+    --icon: #fff;
   }
 }
 
