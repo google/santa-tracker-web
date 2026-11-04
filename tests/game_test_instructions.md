@@ -19,8 +19,9 @@ Before writing tests, inspect the game's source code and modify it as necessary 
 When `window.__MANUAL_TIME__` is set, the game must disable or pause independent wall-clock loops so that **all** game state progression, timers, and frame updates advance strictly and exclusively when invoked via `window.__TEST_CONTROL__.advanceTime(seconds)`.
 
 - Expose **only** two global test control variables on `window`:
-  1. `window.__MANUAL_TIME__ = true;`
-  2. `window.__TEST_CONTROL__ = { advanceTime(seconds) }`
+  1. `window.__MANUAL_TIME__ = true;` (set by the test before the page loads)
+  2. `window.__TEST_CONTROL__ = { advanceTime(seconds), isReady() }`, created in the scene's `index.html` only when `window.__MANUAL_TIME__` is set. `isReady` returns `!!window.__SCENE_READY__`, which the scene sets to `true` at the end of its `api.ready(...)` callback (see `static/scenes/boatload/index.html`).
+- Tests may additionally set `window.__RANDOM_SEED__` (see §2); scenes don't need to read it.
 
 - **Uniform `advanceTime` Interface**:
   - `advanceTime(seconds)` must take a single parameter `seconds` (number of seconds to advance).
@@ -48,13 +49,15 @@ app.Game.prototype.advanceTime = function(duration) {
 
 ### 2. Seeded Randomness & Deterministic PRNG
 - Replace unseeded `Math.random()` with the shared Closure PRNG module [`static/scenes/_shared/js/random.js`](../static/scenes/_shared/js/random.js) (`goog.provide('Random')`).
-- Do **NOT** write duplicative PRNG functions in individual scene files.
-- Seed the PRNG during test initialization (`window.Random.setSeed('test1234')`).
+- Do **NOT** write duplicative PRNG functions in individual scene files, and do **NOT** globally override `Math.random`.
+- Seeding is handled by the shared `load()` test helper (Part 2 §0): it sets `window.__RANDOM_SEED__` before any page script runs (so randomness consumed while the scene is constructed is seeded), then calls `window.Random.setSeed('test1234')` once the scene is ready. Scenes with no randomness at all don't need to include `Random`; the helper only seeds it when it's present.
 - **Determinism as a Testing Superpower**: When a fixed seed is used, all procedural behaviors—such as level layouts, item spawns, card shuffles, target appearances, event sequences, and physics starting conditions—are completely reproducible across test runs. This enables tests to play and interact with the game naturally as a real user would, without needing artificial state manipulations or cheats.
 
 ### 3. Removing Non-Determinism
-- Replace real wall-clock timeouts or asynchronous `Date.now()` timers that bypass manual step loops with manual-time-compatible timer controls.
+- Replace real wall-clock timeouts or asynchronous `Date.now()` timers that bypass manual step loops with manual-time-compatible timer controls (e.g. the scene's existing `Coordinator`, a Phaser timer, or a countdown advanced in the step loop). This includes death/respawn delays and level transitions.
 - Ensure all animations, spawns, and state progressions advance strictly via manual time stepping.
+- **Shared level up banner** (`app.shared.LevelUp` / `LevelUp` from `static/scenes/_shared/js/levelup.js`): under manual time, call `this.levelUp.enableManualTime()` once and `this.levelUp.onFrame(dt)` from every step of the game's `advanceTime` loop. The banner callback then fires after a fixed amount of game time instead of waiting for CSS events. Do not reimplement or bypass the banner.
+- Don't change production behavior (e.g. rewrite a restart path) to make testing easier. Keep manual-time-only code paths behind `window.__MANUAL_TIME__`, and put genuine bug fixes found while testing in their own change.
 
 ### 4. Simulating External APIs & Dependencies
 - If a game relies on external network requests or APIs (e.g., backend services, high scores, remote config), create a version or fixture that fakes or simulates the API responses deterministically during testing.
@@ -62,6 +65,31 @@ app.Game.prototype.advanceTime = function(duration) {
 ---
 
 ## Part 2: Test Writing
+
+### 0. Shared Test Helpers (required)
+Use [`tests/helpers.js`](./helpers.js) instead of writing per-file boilerplate (see `tests/boatload.spec.js`):
+```javascript
+const { test, expect } = require('@playwright/test');
+const { expectGameOverOverlay, sceneHelpers } = require('./helpers');
+
+const game = sceneHelpers('<scene>', '#module-<scene>');
+
+test.beforeEach(async ({ page, baseURL }) => {
+  await game.load(page, baseURL);  // manual time, seeded PRNG, waits for isReady()
+});
+
+test('...', async ({ page }) => {
+  await game.iframe(page).focus();           // host <iframe> element, for native input
+  await page.keyboard.press('Space');
+  await game.advanceTime(page, 0.5);
+  await expect(game.frame(page).locator('.score')).toHaveText('10');  // inside the scene
+});
+```
+- To run code inside the scene, use `(await game.contentFrame(page)).evaluate(...)`. It is much faster than `game.gameElem(page).evaluate(...)`, which matters when a test makes hundreds of calls.
+- `game.advanceTime(page, secs, {step: 1/60})` advances in fixed steps within one round trip. Use it when a game's simulation depends on how time is chunked (e.g. replaying recorded per-frame inputs).
+- `load()` also waits for the host page to finish loading the scene, so the host's initial messages (e.g. `resume`) can't arrive mid-test.
+- Don't monkeypatch `customElements.define`, `santa-gameloader`, or the service worker. The loader already allows a longer timeout under `__MANUAL_TIME__`, and `playwright.config.js` blocks service workers.
+- Don't forward all browser console output or add debugging `console.log`s to committed tests or game code.
 
 ### 1. Feature Enumeration
 - Before writing tests, inspect the game features and list all test cases (e.g., automatic loading, tutorial display, controls/jumping, level advancement/speed increase, item pickup, collisions, timer expiration, gameover screen, restart).
@@ -98,10 +126,10 @@ app.Game.prototype.advanceTime = function(duration) {
 - **Do NOT** use synthetic JavaScript events (`window.dispatchEvent(new KeyboardEvent(...))`).
 - Use Playwright's native input simulation on the target element or iframe:
   ```javascript
-  const iframeElem = page.locator('iframe[src*="scenes/<game>"]');
-  await iframeElem.focus();
+  await game.iframe(page).focus();
   await page.keyboard.press('Space');
   ```
+- This includes clicks: use `locator.click()` / `page.mouse`, not `locator.dispatchEvent('click')`, and don't trigger the game's own event system (e.g. `jQuery(window).trigger(...)`).
 - **Structure Interaction Beats**:
   Regardless of the game genre (arcade, puzzle, rhythm, runner, etc.), structure interactions into distinct, logical gameplay beats:
   1. **Setup / Advance Beat**: Advance time in a consolidated step until the game reaches the exact state or moment required for the action (e.g., an element appears, a round starts, or a piece reaches an interactable position).
@@ -121,38 +149,8 @@ app.Game.prototype.advanceTime = function(duration) {
   - This prevents false-positive tests that pass trivially due to passive hitboxes, default auto-advancements, or unintended fall-through states.
 
 ### 7. Shared Game Over Screen Assertions
-- Verify the gameover screen using the shared helper `expectGameOverOverlay(page)` from [`tests/helpers.js`](./helpers.js):
-
-```javascript
-const { expect } = require('@playwright/test');
-
-/**
- * Asserts that the santa-overlay game over screen is visible on the page
- * with "Game Over" text, Play Again button, and Home button.
- * @param {import('@playwright/test').Page} page
- */
-async function expectGameOverOverlay(page) {
-  const overlay = page.locator('santa-overlay');
-  await expect(overlay).toBeVisible({ timeout: 10000 });
-
-  // Assert "Game Over" header text in hero element (scoped to avoid card link h1s)
-  const heading = overlay.locator('.hero h1');
-  await expect(heading).toBeVisible();
-  await expect(heading).toHaveText(/game\s*over/i);
-
-  // Assert Play Again button is visible
-  const playAgainBtn = overlay.locator('#playagainButton');
-  await expect(playAgainBtn).toBeVisible();
-
-  // Assert Home button is visible
-  const homeBtn = overlay.locator('santa-button[data-action="home"]');
-  await expect(homeBtn).toBeVisible();
-}
-
-module.exports = {
-  expectGameOverOverlay,
-};
-```
+- Verify the gameover screen using the shared helper `expectGameOverOverlay(page)` from [`tests/helpers.js`](./helpers.js).
+- Where the game supports it, also test restarting from the overlay (click `santa-overlay #playagainButton` and assert the game unfreezes and is back in its initial state).
 
 ### 8. Debugging & Iteration Workflow
 - **Browser Skill First**: For complicated tests or scenes, iterate by using the `/browser` skill to inspect the live page and DOM state visually and interactively. Use seeded random & manual time control so the browser state matches the test state.
@@ -160,3 +158,17 @@ module.exports = {
 - **Logging & Filtered Test Runs**: Adding console logging is a secondary option to obtain more information about the game and game state because it is slower. When running tests to inspect logs, run in a filtered manner (`npx playwright test tests/<game>.spec.js -g "test title"`) to execute only the minimal required tests.
 - **Consolidated Time Advancements**: In test cases, use consolidated `advanceTime(page, duration)` calls rather than calling `advanceTime` multiple times sequentially, except when separating distinct user input beats (e.g. setup, input delay, resolution).
 - **Final Validation**: Run all tests in the impacted test file(s) (`npx playwright test tests/<game>.spec.js`).
+
+---
+
+## Part 3: Files, Tooling & Repository Hygiene
+
+- **File layout**:
+  - Tests: `tests/<scene>.spec.js`. If a scene needs more than one spec file, prefix them all with the scene name (e.g. `tests/<scene>_playthrough.spec.js`).
+  - Recorded input fixtures: `tests/fixtures/<scene>_inputs.json`.
+  - Playthrough video recorders: `tests/tools/record_<scene>.js`, built on the shared [`tests/tools/recorder.js`](./tools/recorder.js) (`runRecording(...)`). Don't copy the server/ffmpeg/capture plumbing. Videos go to `videos/` (git-ignored).
+- **Don't commit scratch work**: no analysis/debug scripts, JSON dumps, screenshots, planning docs (e.g. `PROJECT.md`) or exploratory "stress"/"investigation" spec files. Keep only tests that assert real game behavior.
+- **No absolute or machine-specific paths** (home directories, agent artifact directories, etc.) in tests or tools.
+- **Don't edit shared config for one scene**: leave `playwright.config.js`, `.gitignore`, `build/` and `static/src/` alone. Use `test.setTimeout(...)` for long tests. If a shared change really is needed, call it out separately.
+- **Running tests in a worktree**: many worktrees run at once and the config reuses an already running dev server, so always pick a port unique to your worktree, e.g. `PORT=8123 npx playwright test tests/<scene>.spec.js`. The same `PORT` is used by the recorders.
+- **Worktree setup**: symlink `node_modules` from the main checkout (`ln -s ../../santa-tracker-web/node_modules node_modules`). It is git-ignored; don't commit it.

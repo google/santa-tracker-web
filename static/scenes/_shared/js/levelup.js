@@ -33,6 +33,20 @@ function LevelUp(_, bgElem, numberElem) {
   this.bgElem = $(bgElem);
   this.numberElem = $(numberElem);
 
+  /**
+   * Whether the animation is driven by onFrame() rather than CSS events and
+   * wall-clock timeouts. See enableManualTime().
+   * @private {boolean}
+   */
+  this.manualTime_ = false;
+
+  /**
+   * Pending steps of the animation when running under manual time. Each step
+   * fires after `remaining` seconds of game time, as advanced by onFrame().
+   * @private {!Array<{remaining: number, callback: (function()|undefined)}>}
+   */
+  this.manualTimers_ = [];
+
   this.onResizeBound_ = this.onResize_.bind(this);
   $(window).on('resize', this.onResizeBound_);
 
@@ -44,6 +58,60 @@ function LevelUp(_, bgElem, numberElem) {
  */
 LevelUp.prototype.dispose = function() {
   $(window).off('resize', this.onResizeBound_);
+  this.manualTimers_ = [];
+};
+
+/**
+ * Switches this LevelUp to manual time, for games running under
+ * `window.__MANUAL_TIME__`. Instead of waiting for CSS transition/animation
+ * events (or their wall-clock fallback timeouts), each step of the animation
+ * waits for a fixed amount of game time, advanced by calling onFrame() from
+ * the game's advanceTime/step loop.
+ */
+LevelUp.prototype.enableManualTime = function() {
+  this.manualTime_ = true;
+};
+
+/**
+ * Advances the level up animation by delta seconds of game time. Only has an
+ * effect after enableManualTime() has been called.
+ * @param {number} delta seconds of game time since the last call.
+ */
+LevelUp.prototype.onFrame = function(delta) {
+  if (!this.manualTimers_.length) {
+    return;
+  }
+  // Callbacks may queue further steps, so only process the current ones.
+  var timers = this.manualTimers_;
+  this.manualTimers_ = [];
+  var remaining = [];
+  for (var i = 0; i < timers.length; i++) {
+    var timer = timers[i];
+    timer.remaining -= delta;
+    if (timer.remaining <= 0) {
+      timer.callback && timer.callback();
+    } else {
+      remaining.push(timer);
+    }
+  }
+  this.manualTimers_ = remaining.concat(this.manualTimers_);
+};
+
+/**
+ * Waits for an event on elem, or the timeout, whichever comes first. Under
+ * manual time, waits for exactly `timeout` seconds of game time instead.
+ * @param {!Element|!jQuery} elem
+ * @param {string} event
+ * @param {number} timeout in seconds
+ * @param {function()=} opt_callback
+ * @private
+ */
+LevelUp.prototype.waitFor_ = function(elem, event, timeout, opt_callback) {
+  if (this.manualTime_) {
+    this.manualTimers_.push({remaining: timeout, callback: opt_callback});
+    return;
+  }
+  timeoutOneEvent(elem, event, timeout, opt_callback);
 };
 
 /**
@@ -77,7 +145,7 @@ LevelUp.prototype.numberHidden_ = function() {
  * @private
  */
 LevelUp.prototype.numberShown_ = function() {
-  timeoutOneEvent(this.numberElem, 'transitionend', 0.5, this.numberHidden_.bind(this));
+  this.waitFor_(this.numberElem, 'transitionend', 0.5, this.numberHidden_.bind(this));
   this.numberElem.addClass('hide');
   this.bgElem.css('border-width', 0);
 
@@ -91,10 +159,10 @@ LevelUp.prototype.numberShown_ = function() {
  */
 LevelUp.prototype.show = function(level, opt_callback) {
   this.bgElem.addClass('is-visible');
-  timeoutOneEvent(this.bgElem, 'transitionend', 1.0, opt_callback);
+  this.waitFor_(this.bgElem, 'transitionend', 1.0, opt_callback);
   this.bgElem.css('border-width', this.bgBorderWidth);
 
-  timeoutOneEvent(this.numberElem, 'animationend', 1.5, this.numberShown_.bind(this));
+  this.waitFor_(this.numberElem, 'animationend', 1.5, this.numberShown_.bind(this));
   this.numberElem.text('' + level).addClass('show');
 
   window.santaApp.fire('sound-trigger', 'level_transition_close');
