@@ -42,9 +42,12 @@ function postmarkDate(day) {
  */
 function renderPostmark(p) {
   const {month, day} = postmarkDate(p.postmarkDay || 24);
-  // Long city names (e.g. Petropavlovsk-Kamchatsky) would run off the top arc: shrink the
-  // font so the name fits in ~70% of the arc (about 400 SVG units).
-  const cityFontSize = Math.min(50, Math.floor(400 / (Math.max(1, p.city.length) * 0.75)));
+  // Long city names (e.g. Petropavlovsk-Kamchatsky) would run off the top arc: scale down
+  // gently for names over ~15 chars, clamped to at least 32px so text doesn't shrink too small.
+  const cityFontSize = Math.max(
+    32,
+    Math.min(50, Math.floor(500 / (Math.max(1, p.city.length) * 0.65))),
+  );
   return html`
     <svg class="postmark" viewBox="0 0 965 562" aria-hidden="true">
       <defs>
@@ -89,8 +92,19 @@ export class ModvilTrackerPostcard extends LitElement {
   }
 
   updated(changedProps) {
+    // The host builds a fresh postcard object on every render, so only reset to the front
+    // when it's actually a different postcard (otherwise any host re-render un-flips it).
     if (changedProps.has('postcard')) {
-      this.flipped = false;
+      const prev = changedProps.get('postcard');
+      const prevId = prev ? prev.id : null;
+      const nextId = this.postcard ? this.postcard.id : null;
+      if (prevId !== nextId) {
+        this.flipped = false;
+      }
+    }
+    if (changedProps.has('flipped')) {
+      // Lets the host (e.g. the mailbox's flip button) keep its label in sync with the card.
+      this.dispatchEvent(new CustomEvent('flipped-changed', {detail: {flipped: this.flipped}}));
     }
   }
 

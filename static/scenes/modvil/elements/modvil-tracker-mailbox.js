@@ -21,6 +21,10 @@ import './modvil-tracker-postcard.js';
 
 // Chevron pointing right; CSS flips it for "previous" / "back".
 const arrowSvg = html`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.6 5.4 10 4l8 8-8 8-1.4-1.4L15.2 12z"/></svg>`;
+// Rounded stroke chevron for the side tabs; CSS flips it for "previous".
+const tabChevronSvg = html`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>`;
+const flipSvg = html`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>`;
+const gridSvg = html`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zm9 0h7v7h-7zM4 13h7v7H4zm9 0h7v7h-7z"/></svg>`;
 const closeSvg = html`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>`;
 
 export class ModvilTrackerMailbox extends LitElement {
@@ -37,6 +41,7 @@ export class ModvilTrackerMailbox extends LitElement {
       _flyInPostcard: {type: Object},
       _unreadCount: {type: Number},
       _view: {type: String},
+      _flipped: {type: Boolean},
     };
   }
 
@@ -50,6 +55,7 @@ export class ModvilTrackerMailbox extends LitElement {
     this._unreadCount = 0;
     this._lastSeenStopId = null;
     this._view = 'carousel';  // 'carousel' | 'gallery'
+    this._flipped = false;  // whether the carousel card shows its back (mirrors the postcard)
     this._onKeyDown = this._onKeyDown.bind(this);
   }
 
@@ -131,6 +137,7 @@ export class ModvilTrackerMailbox extends LitElement {
       this._unreadCount = 0;
       this._selectedIndex = 0;
       this._view = 'carousel';
+      this._flipped = false;
       window.addEventListener('keydown', this._onKeyDown);
     } else {
       window.removeEventListener('keydown', this._onKeyDown);
@@ -162,6 +169,15 @@ export class ModvilTrackerMailbox extends LitElement {
       return;
     }
     this._selectedIndex = (this._selectedIndex + delta + count) % count;
+    this._flipped = false;
+  }
+
+  _toggleFlip() {
+    this._flipped = !this._flipped;
+  }
+
+  _onFlippedChanged(ev) {
+    this._flipped = ev.detail.flipped;
   }
 
   _onScrimClick(ev) {
@@ -177,6 +193,7 @@ export class ModvilTrackerMailbox extends LitElement {
 
   _openFromGallery(idx) {
     this._selectedIndex = idx;
+    this._flipped = false;
     this._view = 'carousel';
   }
 
@@ -184,28 +201,39 @@ export class ModvilTrackerMailbox extends LitElement {
     const index = Math.min(this._selectedIndex, cards.length - 1);
     const activeCard = cards[index];
     const multiple = cards.length > 1;
+    const flipLabel = this._flipped
+      ? POSTCARD_UI_STRINGS.flipToFront()
+      : POSTCARD_UI_STRINGS.flipToBack();
     return html`
       <div class="carousel">
         <button
-          class="nav-btn prev"
+          class="nav-tab prev"
           ?hidden=${!multiple}
           aria-label=${POSTCARD_UI_STRINGS.previous()}
           @click=${() => this._step(-1)}
-        >${arrowSvg}</button>
+        >${tabChevronSvg}</button>
         <div class="slot-frame">
-          <modvil-tracker-postcard .postcard=${activeCard}></modvil-tracker-postcard>
+          <modvil-tracker-postcard
+            .postcard=${activeCard}
+            .flipped=${this._flipped}
+            @flipped-changed=${this._onFlippedChanged}
+          ></modvil-tracker-postcard>
         </div>
         <button
-          class="nav-btn next"
+          class="nav-tab next"
           ?hidden=${!multiple}
           aria-label=${POSTCARD_UI_STRINGS.next()}
           @click=${() => this._step(+1)}
-        >${arrowSvg}</button>
+        >${tabChevronSvg}</button>
       </div>
       <div class="carousel-footer">
-        <span class="counter" ?hidden=${!multiple}>${index + 1} / ${cards.length}</span>
-        <button class="pill-btn" @click=${this._openGallery}>
-          ${POSTCARD_UI_STRINGS.viewAll()}
+        <button class="pill-btn primary" aria-label=${flipLabel} @click=${this._toggleFlip}>
+          <span class="badge">${flipSvg}</span>
+          <span class="label">${POSTCARD_UI_STRINGS.flip()}</span>
+        </button>
+        <button class="pill-btn secondary" @click=${this._openGallery}>
+          <span class="badge">${gridSvg}</span>
+          <span class="label">${POSTCARD_UI_STRINGS.viewAll()}</span>
         </button>
       </div>
     `;
@@ -274,7 +302,7 @@ export class ModvilTrackerMailbox extends LitElement {
               aria-label=${POSTCARD_UI_STRINGS.mailboxLabel()}
               @click=${this._onScrimClick}
             >
-              <button class="icon-btn close-btn" aria-label=${POSTCARD_UI_STRINGS.close()} @click=${this._toggleOpen}>${closeSvg}</button>
+              <button class="close-btn" aria-label=${POSTCARD_UI_STRINGS.close()} @click=${this._toggleOpen}>${closeSvg}</button>
               ${body}
             </div>
           `

@@ -31,6 +31,7 @@ export const POSTCARD_SHARED_ASSETS = {
 
 export const POSTCARD_UI_STRINGS = {
   mailboxLabel: () => _msg`postcard_mailbox_label`,
+  flip: () => _msg`postcard_flip`,
   flipToBack: () => _msg`postcard_flip_to_back`,
   flipToFront: () => _msg`postcard_flip_to_front`,
   download: () => _msg`postcard_download`,
