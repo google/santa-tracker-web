@@ -89,6 +89,28 @@ function listen(server, port, all) {
   });
 }
 
+/**
+ * Wraps a dhost handler so that a client closing its connection while a file
+ * is being sent doesn't crash the dev server. dhost rejects with
+ * ERR_STREAM_DESTROYED when it writes to a response whose connection was
+ * already closed (e.g. a page or test that navigated away mid-load), and polka
+ * doesn't handle rejected middleware, so it became an unhandled rejection.
+ * @param {function(?, ?, function()): !Promise} handler
+ * @return {function(?, ?, function()): !Promise}
+ */
+function ignoreClosedConnections(handler) {
+  return async (req, res, next) => {
+    try {
+      await handler(req, res, next);
+    } catch (err) {
+      if (err && err.code === 'ERR_STREAM_DESTROYED') {
+        return;  // the client has gone away; there's nothing left to send
+      }
+      throw err;
+    }
+  };
+}
+
 function clipboardCopy(v) {
   try {
     const clipboardy = require('clipboardy');
@@ -119,11 +141,11 @@ async function serve() {
     config,
   });
 
-  const staticHost = dhost({
+  const staticHost = ignoreClosedConnections(dhost({
     path: 'static',
     cors: true,
     serveLink: true,
-  });
+  }));
   const staticServer = polka();
   staticServer.use(yargs.prefix, vfsMiddleware(vfs, 'static'), staticHost);
 
@@ -169,7 +191,7 @@ async function serve() {
   prodServer.use(
     prodHtmlMiddleware,
     vfsMiddleware(vfs, 'prod'),
-    dhost({path: 'prod', listing: false}),
+    ignoreClosedConnections(dhost({path: 'prod', listing: false})),
   );
 
   // Listen, copy and announce prod URL.
