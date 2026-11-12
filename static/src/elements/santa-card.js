@@ -30,6 +30,7 @@ export const scenesWithColor = {
   buildandbolt: '#f8c328',
   codeboogie: '#f8c328',
   codelab: '#2a57ad',
+  elfexpress: '#7f54fa',
   elfmaker: '#3399ff',
   elfski: '#1b69c1',
   glider: '#7f54fa',
