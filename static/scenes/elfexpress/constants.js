@@ -219,19 +219,43 @@ export const SNOW_PILE = 0.048;
 // ============================================================================
 
 export const ELVES = [
-  { id: 'elf1', front: { w: 267.2, h: 560.6, src: 'img/elf-1-front.svg' }, side: { w: 173.6, h: 522.8, src: 'img/elf-1-side.svg' } },
-  { id: 'elf2', front: { w: 236.6, h: 404.0, src: 'img/elf-2-front.svg' }, side: { w: 150.2, h: 382.4, src: 'img/elf-2-side.svg' } },
-  { id: 'elf3', front: { w: 234.8, h: 405.8, src: 'img/elf-3-front.svg' }, side: { w: 150.2, h: 369.8, src: 'img/elf-3-side.svg' } },
-  { id: 'elf4', front: { w: 265.4, h: 558.8, src: 'img/elf-4-front.svg' }, side: { w: 155.6, h: 535.4, src: 'img/elf-4-side.svg' } },
-  { id: 'elf5', front: { w: 270.8, h: 486.8, src: 'img/elf-5-front.svg' }, side: { w: 184.4, h: 456.2, src: 'img/elf-5-side.svg' } },
-  { id: 'elf6', front: { w: 270.8, h: 427.4, src: 'img/elf-6-front.svg' }, side: { w: 186.2, h: 389.6, src: 'img/elf-6-side.svg' } },
+  { id: 'elf1', front: { w: 267.2, h: 560.6, pad: 16.25, src: 'img/elf-1-front.svg' }, side: { w: 173.6, h: 522.8, pad: 16.25, src: 'img/elf-1-side.svg' } },
+  { id: 'elf2', front: { w: 236.6, h: 404.0, pad: 14.89, src: 'img/elf-2-front.svg' }, side: { w: 150.2, h: 382.4, pad: 14.96, src: 'img/elf-2-side.svg' } },
+  { id: 'elf3', front: { w: 234.8, h: 405.8, pad: 16.04, src: 'img/elf-3-front.svg' }, side: { w: 150.2, h: 369.8, pad: 16.04, src: 'img/elf-3-side.svg' } },
+  { id: 'elf4', front: { w: 265.4, h: 558.8, pad: 14.70, src: 'img/elf-4-front.svg' }, side: { w: 155.6, h: 535.4, pad: 14.70, src: 'img/elf-4-side.svg' } },
+  { id: 'elf5', front: { w: 270.8, h: 486.8, pad: 15.55, src: 'img/elf-5-front.svg' }, side: { w: 184.4, h: 456.2, pad: 15.16, src: 'img/elf-5-side.svg' } },
+  { id: 'elf6', front: { w: 270.8, h: 427.4, pad: 14.81, src: 'img/elf-6-front.svg' }, side: { w: 186.2, h: 389.6, pad: 14.78, src: 'img/elf-6-side.svg' } },
 ];
 
 export const PROPS = {
-  sleigh: { w: 125.9, h: 103, file: 'img/sleigh.svg' },
-  santa: { w: 125.9, h: 103, file: 'img/santa.svg' },
+  sleigh: { w: 125.9, h: 103, file: 'img/sleigh-empty.svg' },
   rudolph: { w: 260.65, h: 365.5, file: 'img/rudolph.svg' },
 };
+
+export const PRESENTS = ['img/present-a.svg', 'img/present-b.svg'];
+
+export const TOY_ICONS = [
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-sports-football.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-sports-skate.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-vehicles-car.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-vehicles-train.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-treats-candy-cane.svg' },
+    { w: 56, h: 34, size: 27, src: 'img/icon-treats-candy.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-books-stack.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-books-storybook.svg' },
+  ],
+  [
+    { w: 64, h: 64, size: 32, src: 'img/icon-plush-bear.svg' },
+    { w: 64, h: 64, size: 32, src: 'img/icon-plush-frenchie.svg' },
+  ],
+];
 
 export const ENDING = {
   big: _msg`elfexpress_win_big`,
@@ -258,16 +282,7 @@ export const ELF_LABELS = [
   _msg`elfexpress_elf_yellow`,
 ];
 
-export const msgOpensAtSleigh = n => _msg`elfexpress_opens_at_sleigh`.replace('{sleigh}', n);
 export const msgSleighAway = (done, total) => _msg`elfexpress_sr_sleigh_away`.replace('{done}', done).replace('{total}', total);
-export const HINT_CATCH = _msg`elfexpress_hint_catch`;
-export const HINT_CHUTE = _msg`elfexpress_hint_chute`;
-export const REVEAL_BANNER = _msg`elfexpress_new_gifts_banner`;
-export const TUT_FOOTERS = {
-  tap: _msg`elfexpress_tut_footer_tap`,
-  belt: _msg`elfexpress_tut_footer_belt`,
-  chute: _msg`elfexpress_tut_footer_chute`,
-};
 
 export const W = 900, H = 700;
 export const FLOOR_H = 112;
@@ -303,6 +318,7 @@ export const GEAR = {
 
 export const ELF_MIN_X = 72, ELF_MAX_X = 598;
 export const ELF_H = 94;
+export const ELF_SCALE = ELF_H / ELVES[0].front.h;
 export const CARRY_OFF = 54;
 export const GIFT_R = 17;
 
@@ -312,13 +328,9 @@ export const PAD_TOP = 8, PAD_BOT = 4, PAD_SIDE = 4;
 export const feetY = f => GROUND_Y - f * FLOOR_H;
 export const beltY = f => feetY(f) - 88;
 export const chuteY = f => feetY(f) - 30;
-export const carryY = f => feetY(f) - CARRY_OFF;
-
-export function unlockSleigh(f) {
-  for (let i = 0; i < WAVES.length; i++) if ((WAVES[i].floors || 2) > f) return i + 1;
-  return WAVES.length;
-}
-export const OPENS_AT_LABELS = [0, 1, 2, 3, 4].map(f => msgOpensAtSleigh(unlockSleigh(f)));
+export const elfCarryOff = (elfIdx = 0) =>
+  Math.round(CARRY_OFF * ((ELVES[elfIdx] || ELVES[0]).front.h / ELVES[0].front.h));
+export const carryY = (f, elfIdx = 0) => feetY(f) - elfCarryOff(elfIdx);
 
 export const STARS_BG = [
   [60,90,3],[120,180,2],[210,64,2],[690,80,3],[762,150,2],[830,70,2],
@@ -340,22 +352,22 @@ export const PXC = {
 };
 
 export const SPR_SLEIGH = [
-  '............WW..........',
-  '...........WWWW.........',
-  '..........RRRRW.........',
-  '.........RRRRRRW........',
-  '........WWWWWWWWW.......',
-  '........SSSSSSSS.......G',
-  '.......GKKSKKSG.......GG',
-  '......WWWSPSSWWW.....GG.',
-  '......WWWWWWWWWW....RR..',
-  '.....WWWWWWWWWWWW..RR...',
-  '.....WWWWWWWWWWWW.RR....',
-  'T.N..WWWWWWWWWWW..RR....',
-  'TTNN..WWWWWWWWWRRRR.....',
-  'TTNN.RRWWWWWWWRRRRR.....',
-  'RRRRRRRKKKKKRRRRRRR.....',
-  'RRRRRRRKGGGKRRRRRRR.....',
+  '........................',
+  '........................',
+  '........................',
+  '........................',
+  '........................',
+  '.......................G',
+  '......................GG',
+  '.....................GG.',
+  '......TTTT..GGGG....RR..',
+  '......TTTT.GGGGGG..RR...',
+  '..NNNNTTTT.GGGGGG.RR....',
+  'T.NNNNTTTT.GGGGG..RR....',
+  'TTNNNNTTTTRRRRRRRRR.....',
+  'TTNN.RRRRRRRRRRRRRR.....',
+  'RRRRRRRRRRRRRRRRRRR.....',
+  'RRRRRRRRRRRRRRRRRRR.....',
   'rRRRRRRRRRRRRRRRRr......',
   '.rrrrrrrrrrrrrrrr.......',
   'GGGGGGGGGGGGGGGGGG......',

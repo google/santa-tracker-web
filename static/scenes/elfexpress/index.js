@@ -23,7 +23,7 @@ import {
   GROUND_Y, LADDER_CX, TAP_SPLIT, TEETER_X, DROP_X0, DROP_X1, DROP_CX,
   CHUTE_BX, CHUTE_CX, MACH_CX, SPINE_X, WRAP_X, LINE_SPEED, BIN_X, BIN_Y,
   SLEIGH_X, SLEIGH_Y, ELF_MIN_X, ELF_MAX_X, CARRY_OFF, GIFT_R,
-  feetY, beltY, chuteY, carryY, TUT, KEYMAP,
+  feetY, beltY, chuteY, elfCarryOff, carryY, TUT, KEYMAP,
 } from './constants.js';
 import {
   cv, fit, toGame, reduceMotion, viewX0, viewY0, viewX1, viewY1, renderScene, isTutOkClick,
@@ -1004,7 +1004,7 @@ function updateGifts(dt) {
         if (pausedByBox) break;
         g.timer += dt;
         const k = Math.min(1, g.timer / TUNE.fallTime);
-        const y0 = beltY(g.belt) - GIFT_R, y1 = carryY(g.belt);
+        const y0 = beltY(g.belt) - GIFT_R, y1 = carryY(g.belt, elfChoice);
         g.x = TEETER_X + 16 * k;
         g.y = y0 + (y1 - y0) * k * k;
         if (g.timer >= TUNE.fallTime) {
@@ -1020,7 +1020,7 @@ function updateGifts(dt) {
         const idx = e.bag.indexOf(g);
         const side = idx === 1 ? -e.facing : e.facing;
         g.x = e.x + side * 18;
-        g.y = e.y - CARRY_OFF + Math.sin(e.bob) * 2;
+        g.y = e.y - elfCarryOff(elfChoice) + Math.sin(e.bob) * 2;
         break;
       }
       case 'landed': {
@@ -1241,7 +1241,7 @@ function doAction(edge, manual) {
   S.cmd = null; S.queue = null;
   S.catchFlash = 0.3;
   S.beltPulse[e.floor] = 0.5;
-  puff(e.x, carryY(e.floor), '#FF7733', 10);
+  puff(e.x, carryY(e.floor, elfChoice), '#FF7733', 10);
 }
 
 function releaseGift(onlyMatching = false) {
@@ -1398,6 +1398,7 @@ function stepTo(e, tf, tx, dt) {
     e.y = wantY;
     e.floor = tf;
     e.climbing = false;
+    e.bob = 0;
     rem -= needClimbT;
   }
   e.y = feetY(tf);
@@ -1414,6 +1415,10 @@ function updateElf(dt) {
   const prevX = e.x, prevY = e.y;
   if (S.tut && S.tut !== 2 && S.tut !== 3 && S.tut !== 4) {
     clearKeys();
+    if (!e.climbing) {
+      e.y = feetY(e.floor);
+      e.bob = 0;
+    }
     S.liveSpeed = 0;
     return;
   }
@@ -1488,6 +1493,7 @@ function updateElf(dt) {
         e.floor = e.climbTo;
         e.climbing = false;
         e.climbTo = null;
+        e.bob = 0;
         moveX(e, e.x + mx * 1000, remDt);
         runIntoChuteDrop();
         if (e.bag.length < S.carryCap) doAction(false, false);
@@ -1505,16 +1511,20 @@ function updateElf(dt) {
           e.floor = e.climbTo;
           e.climbing = false;
           e.climbTo = null;
+          e.bob = 0;
         } else {
           e.y += Math.sign(dy) * rem;
           rem = 0;
         }
       }
-      e.bob += remDt * 14;
-      if (!e.climbing && mx) {
+      if (e.climbing) {
+        e.bob += remDt * 14;
+      } else if (mx) {
         moveX(e, e.x + mx * 1000, rem / TUNE.climbSpeed);
         runIntoChuteDrop();
         if (e.bag.length < S.carryCap) doAction(false, false);
+      } else {
+        e.bob = 0;
       }
       finishUpdateElf();
       return;
@@ -1545,12 +1555,14 @@ function updateElf(dt) {
         if (e.x >= CHUTE_BX - 12 || arrived) {
           if (e.bag.length > 0) releaseGift(false);
           S.cmd = null; S.queue = null;
+          if (!S.cmd) e.bob = 0;
           finishUpdateElf();
           return;
         }
       } else {
         idleCatch();
         if (!S.cmd || S.cmd.type !== 'belt') {
+          if (!S.cmd) e.bob = 0;
           finishUpdateElf();
           return;
         }
@@ -1566,10 +1578,12 @@ function updateElf(dt) {
           S.cmd = null; S.queue = null;
         }
       }
+      if (!S.cmd) e.bob = 0;
     }
     finishUpdateElf();
     return;
   }
+  if (!e.climbing) e.y = feetY(e.floor);
   e.bob = 0;
   idleCatch();
   finishUpdateElf();

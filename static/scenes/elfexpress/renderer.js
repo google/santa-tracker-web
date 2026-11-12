@@ -17,12 +17,11 @@
 import '../../src/magic.js';
 import { _msg } from '../../src/magic.js';
 import {
-  ELVES, PROPS, ENDING, TUNE, SLEIGHS, GUST, CATS, CAT_UPPER,
-  OPENS_AT_LABELS, HINT_CATCH, HINT_CHUTE, REVEAL_BANNER, TUT_FOOTERS,
+  ELVES, PROPS, PRESENTS, TOY_ICONS, ENDING, TUNE, SLEIGHS, GUST, CATS, CAT_UPPER,
   W, H, FLOOR_H, BUILD_X0, BUILD_X1, GROUND_Y, TAP_SPLIT, TEETER_X,
   DROP_X0, DROP_X1, CHUTE_BX, CHUTE_BW, CHUTE_BH, MACH_CX, MACH_W, MACH_H,
   MACH_L, MACH_R, BIN_X, BIN_Y, SLEIGH_X, SLEIGH_Y, DEER_X, GEAR,
-  ELF_H, GIFT_R, BOX_X, BOX_Y, BOX_W, BOX_H, PAD_TOP, PAD_BOT, PAD_SIDE,
+  ELF_H, ELF_SCALE, GIFT_R, BOX_X, BOX_Y, BOX_W, BOX_H, PAD_TOP, PAD_BOT, PAD_SIDE,
   feetY, beltY, chuteY, carryY, STARS_BG, HILLS_BG,
   PXS, CWS, CHS, GYS, PXC, SPR_SLEIGH, SPR_DEER_A, SPR_DEER_B,
   CITY_FAR, CITY, MOON_X, MOON_Y, MOON_R, takeoffPath, TUT, tutHole,
@@ -45,6 +44,18 @@ export const ELF_IMG = ELVES.map(d => {
   s.src = d.side.src;
   return { front: f, side: s };
 });
+
+export const PRESENT_IMG = PRESENTS.map(src => {
+  const im = new Image();
+  im.src = src;
+  return im;
+});
+
+export const ICON_IMG = TOY_ICONS.map(pair => pair.map(spec => {
+  const im = new Image();
+  im.src = spec.src;
+  return im;
+}));
 
 const BG = new Image();
 let bgReady = false;
@@ -100,12 +111,6 @@ export function toGame(ev) {
 
 const GRAD = {};
 const grad = (k, make) => (GRAD[k] || (GRAD[k] = make()));
-const wrapGrad = t => grad('w' + t, () => {
-  const g = cx.createLinearGradient(-15, -14, 15, 14);
-  g.addColorStop(0, t);
-  g.addColorStop(1, '#3A068D');
-  return g;
-});
 
 const has = (S, k) => S.tutGear || S.sleighsDone >= GEAR[k];
 const gustFront = S => -160 + (W + 320) * Math.min(1, (GUST.dur - S.gustT) / GUST.front);
@@ -302,6 +307,21 @@ function drawReindeer(g2, S) {
 }
 
 function drawIcon(g2, cat, x, y, s, v = 0) {
+  const vIdx = v ? 1 : 0;
+  const spec = TOY_ICONS[cat] && TOY_ICONS[cat][vIdx];
+  const im = ICON_IMG[cat] && ICON_IMG[cat][vIdx];
+  if (spec && im && im.complete && im.naturalWidth) {
+    const maxDim = spec.size || 32;
+    const fitK = maxDim / Math.max(spec.w, spec.h);
+    const dw = spec.w * fitK;
+    const dh = spec.h * fitK;
+    g2.save();
+    g2.translate(x, y);
+    g2.scale(s, s);
+    g2.drawImage(im, -dw / 2, -dh / 2, dw, dh);
+    g2.restore();
+    return;
+  }
   g2.save(); g2.translate(x, y); g2.scale(s, s);
   g2.lineWidth = 2.2; g2.lineJoin = 'round'; g2.lineCap = 'round';
   if (cat === 0) {
@@ -441,17 +461,21 @@ function drawIcon(g2, cat, x, y, s, v = 0) {
   g2.restore();
 }
 
-function drawWrapped(g2, x, y, s, tint) {
-  g2.save(); g2.translate(x, y); g2.scale(s, s);
-  g2.fillStyle = wrapGrad(tint || '#6F00FF');
-  g2.strokeStyle = '#FFF'; g2.lineWidth = 2; g2.lineJoin = 'round';
-  g2.beginPath(); g2.roundRect(-15, -14, 30, 28, 4); g2.fill(); g2.stroke();
-  g2.strokeStyle = '#FFE14D'; g2.lineWidth = 4;
-  g2.beginPath(); g2.moveTo(0, -14); g2.lineTo(0, 14); g2.stroke();
-  g2.beginPath(); g2.moveTo(-15, 0); g2.lineTo(15, 0); g2.stroke();
-  g2.fillStyle = '#FFE14D'; g2.strokeStyle = '#FFF'; g2.lineWidth = 1.5;
-  g2.beginPath(); g2.arc(-4, -16, 4.5, 0, 7); g2.fill(); g2.stroke();
-  g2.beginPath(); g2.arc(4, -16, 4.5, 0, 7); g2.fill(); g2.stroke();
+function drawWrapped(g2, x, y, s, variant = 0) {
+  const idx = Math.abs(Math.round(Number(variant) || 0)) % PRESENT_IMG.length;
+  const im = PRESENT_IMG[idx];
+  g2.save();
+  g2.translate(x, y);
+  g2.scale(s, s);
+  if (im && im.complete && im.naturalWidth) {
+    g2.drawImage(im, -16, -16, 32, 32);
+  } else {
+    g2.fillStyle = idx === 0 ? '#00C1F2' : '#D93670';
+    g2.fillRect(-15, -14, 30, 28);
+    g2.fillStyle = '#FFE14D';
+    g2.fillRect(-2.5, -14, 5, 28);
+    g2.fillRect(-15, -6, 30, 4.5);
+  }
   g2.restore();
 }
 
@@ -475,7 +499,7 @@ function drawGift(g2, g) {
   if (g.state === 'inBin') g2.scale(0.80, 0.80);
   if (g.tilt) g2.rotate(g.tilt);
   if (g.spin && (g.state === 'toBin' || g.state === 'landed')) g2.rotate(Math.sin(g.spin) * 0.28);
-  if (g.wrapped) drawWrapped(g2, 0, 0, 0.92, CATS[g.cat].color);
+  if (g.wrapped) drawWrapped(g2, 0, 0, 0.92, g.id || g.cat || 0);
   else {
     const c = CATS[g.cat];
     g2.fillStyle = c.glow; g2.beginPath(); g2.arc(0, 0, GIFT_R + 7, 0, 7); g2.fill();
@@ -494,8 +518,9 @@ function drawElf(g2, S, e, elfChoice) {
   const im = moving ? pics.side : pics.front;
   if (!im.complete || !im.naturalWidth) return;
   const v = moving ? d.side : d.front;
-  const k = Math.min(ELF_H / d.front.h, 50 / d.front.w);
+  const k = ELF_SCALE;
   const w = v.w * k, h = v.h * k;
+  const footPad = (v.pad || 0) * k;
   const hop = e.climbing ? -Math.abs(Math.sin(e.bob)) * 2 : (moving ? -Math.abs(Math.sin(e.bob)) * 3 : 0);
   const resting = Boolean(S && S.relaxT > 0 && !moving && !e.climbing && !reduceMotion);
   const bPhase = resting ? (S.t || 0) * 3.8 : 0;
@@ -508,7 +533,7 @@ function drawElf(g2, S, e, elfChoice) {
     g2.scale(1 - 0.028 * bSin, 1 + 0.036 * bSin);
   }
   if (moving && e.facing < 0) g2.scale(-1, 1);
-  g2.drawImage(im, -w / 2, -h, w, h);
+  g2.drawImage(im, -w / 2, -h + footPad, w, h);
   g2.restore();
 
   // Small frosty breath puff on each breath out during the break
@@ -551,13 +576,38 @@ function drawPadlock(g2, x, y, s) {
 
 function drawFloorBelt(g2, S, f) {
   const by = beltY(f);
-  g2.fillStyle = '#D8DDE2';
+  const bx0 = 18, bw = 188, bh = 20;
+  g2.save();
+  // Solid flat belt band (no outlines, no gradients)
+  g2.fillStyle = '#41474C';
+  g2.beginPath();
+  g2.roundRect(bx0, by, bw, bh, 5);
+  g2.fill();
+
+  g2.fillStyle = '#565D63';
+  g2.beginPath();
+  g2.roundRect(bx0 + 3, by + 3, bw - 6, bh - 6, 3);
+  g2.fill();
+  g2.clip();
+
+  // Flat moving chevrons showing rightward belt direction
   const bt = S.beltAnimT !== undefined ? S.beltAnimT : S.t;
-  const shift = (bt * 40) % 32;
-  for (let bx = BUILD_X0 - 26 + shift; bx < TEETER_X + 8; bx += 32) {
-    if (bx < BUILD_X0 - 24) continue;
-    g2.beginPath(); g2.arc(bx, by + 10, 4, 0, 7); g2.fill();
+  const step = 28;
+  const shift = reduceMotion ? 0 : ((bt * 40) % step);
+  g2.fillStyle = '#B9BDC3';
+  const cy = by + bh / 2;
+  for (let cx0 = bx0 - step + shift; cx0 < bx0 + bw + step; cx0 += step) {
+    g2.beginPath();
+    g2.moveTo(cx0 - 5, cy - 5);
+    g2.lineTo(cx0 + 1, cy - 5);
+    g2.lineTo(cx0 + 6, cy);
+    g2.lineTo(cx0 + 1, cy + 5);
+    g2.lineTo(cx0 - 5, cy + 5);
+    g2.lineTo(cx0, cy);
+    g2.closePath();
+    g2.fill();
   }
+  g2.restore();
 }
 
 function drawSorter(g2, S, f, live) {
@@ -572,7 +622,7 @@ function drawSorter(g2, S, f, live) {
     g2.strokeStyle = '#FFFFFF'; g2.lineWidth = 2.4;
     g2.beginPath(); g2.roundRect(MACH_L, T, MACH_W, MACH_H, 9); g2.fill(); g2.stroke();
   }
-  drawWrapped(g2, MACH_CX, cy, 0.5, (hot && ok) ? '#FFFFFF' : '#9D87F5');
+  drawWrapped(g2, MACH_CX, cy, 0.5, f);
 
   g2.lineCap = 'round'; g2.lineJoin = 'round'; g2.lineWidth = 2.6;
   g2.strokeStyle = (hot && ok) ? '#FFFFFF' : 'rgba(255,255,255,.75)';
@@ -673,9 +723,82 @@ function getGuideTargets(S) {
   return { beltFloor, chuteFloor, chuteFloors, beltGift };
 }
 
+const CHUTE_FUNNEL_DARK = ['#028899', '#D9B826', '#CC2222', '#5200BF', '#237A3F'];
+
+function drawChuteFunnel(g2, cyy, mainColor, darkColor, highlightColor, highlightAlpha = 1) {
+  const topY = cyy - CHUTE_BH / 2;
+  const botY = cyy + CHUTE_BH / 2;
+  const leftX = CHUTE_BX;
+  const plateR = CHUTE_BX + 172;
+  const coneR = CHUTE_BX + CHUTE_BW;
+
+  // Optional flat highlight halo behind the chute (no outlines)
+  if (highlightColor) {
+    g2.save();
+    g2.globalAlpha = highlightAlpha;
+    g2.fillStyle = highlightColor;
+    g2.beginPath();
+    g2.moveTo(leftX - 10, topY - 8);
+    g2.lineTo(plateR + 4, topY - 8);
+    g2.lineTo(coneR + 8, cyy - 15);
+    g2.lineTo(coneR + 8, cyy + 15);
+    g2.lineTo(plateR + 4, botY + 5);
+    g2.lineTo(leftX - 6, botY + 5);
+    g2.closePath();
+    g2.fill();
+    g2.restore();
+  }
+
+  // 1. Horizontal pipe neck leading into the wrapping machine
+  g2.fillStyle = '#565D63';
+  g2.fillRect(coneR - 10, cyy - 12, 30, 24);
+  g2.fillStyle = '#74797E';
+  g2.fillRect(coneR - 10, cyy - 12, 30, 17);
+  g2.fillStyle = '#41474C';
+  g2.fillRect(coneR + 8, cyy - 15, 7, 30);
+
+  // 2. Top & left flared funnel hopper opening (dark interior where toys drop in)
+  g2.fillStyle = darkColor;
+  g2.beginPath();
+  g2.moveTo(leftX - 6, topY - 5);
+  g2.lineTo(plateR + 2, topY - 5);
+  g2.lineTo(plateR, topY + 4);
+  g2.lineTo(leftX, botY);
+  g2.lineTo(leftX - 6, botY - 4);
+  g2.closePath();
+  g2.fill();
+
+  g2.fillStyle = '#1E293B';
+  g2.beginPath();
+  g2.moveTo(leftX - 2, topY - 2);
+  g2.lineTo(plateR - 4, topY - 2);
+  g2.lineTo(plateR - 10, topY + 5);
+  g2.lineTo(leftX + 6, topY + 5);
+  g2.lineTo(leftX + 6, botY - 6);
+  g2.lineTo(leftX - 2, botY - 9);
+  g2.closePath();
+  g2.fill();
+
+  // 3. Funnel cone on the right tapering into the pipe to the wrapping machine
+  g2.fillStyle = darkColor;
+  g2.beginPath();
+  g2.moveTo(plateR - 2, topY + 3);
+  g2.lineTo(coneR, cyy - 11);
+  g2.lineTo(coneR, cyy + 11);
+  g2.lineTo(plateR - 2, botY);
+  g2.closePath();
+  g2.fill();
+
+  // 4. Flat label plate on the front of the funnel (flat colors, no outlines)
+  g2.fillStyle = mainColor;
+  g2.beginPath();
+  g2.roundRect(leftX + 4, topY + 3, plateR - leftX - 4, CHUTE_BH - 3, 6);
+  g2.fill();
+}
+
 function drawWorkshop(g2, S, floors) {
   if (S.snowDepth > 0.01) {
-    g2.save(); g2.globalAlpha = 0.95;
+    g2.save();
     g2.strokeStyle = '#FFFFFF'; g2.lineWidth = 8 + S.snowDepth * 15;
     g2.lineJoin = 'round'; g2.lineCap = 'round';
     g2.beginPath();
@@ -696,16 +819,10 @@ function drawWorkshop(g2, S, floors) {
     if (!open) {
       g2.fillStyle = 'rgba(185,189,195,.58)';
       g2.fillRect(BUILD_X0 + 2, y - FLOOR_H + 2, BUILD_X1 - BUILD_X0 - 4, FLOOR_H - 4);
-      const lby = chuteY(f) - CHUTE_BH / 2;
-      g2.fillStyle = '#FFFFFF'; g2.strokeStyle = '#74797E'; g2.lineWidth = 2;
-      g2.beginPath(); g2.roundRect(CHUTE_BX, lby, CHUTE_BW, CHUTE_BH, 13); g2.fill(); g2.stroke();
-      if (OPENS_AT_LABELS[f]) {
-        drawPadlock(g2, CHUTE_BX + 28, lby + CHUTE_BH / 2, 1.1);
-        g2.fillStyle = '#1D1D1D'; g2.textAlign = 'left';
-        drawFitText(g2, OPENS_AT_LABELS[f], CHUTE_BX + 50, lby + CHUTE_BH / 2 + 4, 146, 12, 9);
-      } else {
-        drawPadlock(g2, CHUTE_BX + CHUTE_BW / 2, lby + CHUTE_BH / 2, 1.25);
-      }
+      const cyy = chuteY(f);
+      const lby = cyy - CHUTE_BH / 2;
+      drawChuteFunnel(g2, cyy, '#ECEFF1', '#90A4AE', null, 1);
+      drawPadlock(g2, CHUTE_BX + 90, lby + CHUTE_BH / 2, 1.25);
       continue;
     }
 
@@ -755,60 +872,58 @@ function drawWorkshop(g2, S, floors) {
     const popElapsed = Math.max(0, popDur - popT);
     const blink = !reduceMotion && popT > 0 && Math.sin(popElapsed * Math.PI * 3.5) > 0;
 
-    if ((!carrying || !match) && !hi && pulse <= 0 && popT <= 0) {
-      g2.fillStyle = 'rgba(255,255,255,.18)';
-      g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.fill();
+    let hiColor = null;
+    let hiAlpha = 1;
+    if (popT > 0) {
+      hiColor = (reduceMotion || blink) ? '#FFE14D' : '#FFFFFF';
+    } else if (tutChuteGlow) {
+      hiColor = '#FDE047';
+      hiAlpha = reduceMotion ? 0.9 : (0.55 + 0.45 * Math.abs(Math.sin(S.t * 5)));
+    } else if (q) {
+      hiColor = '#32A658';
+    } else if (match) {
+      hiColor = '#FFFFFF';
+      hiAlpha = reduceMotion ? 0.85 : (0.55 + 0.45 * Math.abs(Math.sin(S.t * 3.5)));
+    } else if (hi || pulse > 0) {
+      hiColor = '#FFFFFF';
     }
+
+    drawChuteFunnel(g2, cyy, cat.color, CHUTE_FUNNEL_DARK[f], hiColor, hiAlpha);
+
     if (hi || pulse > 0 || popT > 0) {
       g2.fillStyle = (popT > 0 || tutChuteGlow)
-        ? (reduceMotion ? 'rgba(255,225,77,.45)' : ((blink || tutChuteGlow) ? 'rgba(255,225,77,.42)' : 'rgba(255,255,255,.55)'))
-        : (hi ? 'rgba(255,255,255,.28)' : 'rgba(255,255,255,.45)');
-      g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.fill();
-    }
-    g2.strokeStyle = (popT > 0 || tutChuteGlow) ? ((reduceMotion || blink || tutChuteGlow) ? '#FFE14D' : '#FFFFFF')
-      : ((hi || pulse > 0) ? '#FFFFFF' : 'rgba(29,29,29,.24)');
-    g2.lineWidth = (hi || popT > 0 || tutChuteGlow) ? 3.5 : 2;
-    g2.beginPath(); g2.roundRect(CHUTE_BX, by2, CHUTE_BW, CHUTE_BH, 13); g2.stroke();
-
-    if (q) {
-      g2.strokeStyle = '#32A658'; g2.lineWidth = 2.8; g2.setLineDash([8, 6]);
-      g2.beginPath(); g2.roundRect(CHUTE_BX - 3, by2 - 3, CHUTE_BW + 6, CHUTE_BH + 6, 15);
-      g2.stroke(); g2.setLineDash([]);
-    }
-    if (match) {
-      g2.strokeStyle = tutChuteGlow
-        ? ('rgba(253,224,71,' + (reduceMotion ? 0.9 : (0.55 + 0.45 * Math.abs(Math.sin(S.t * 5)))) + ')')
-        : ('rgba(255,255,255,' + (reduceMotion ? 0.75 : (0.4 + 0.5 * Math.abs(Math.sin(S.t * 3.5)))) + ')');
-      g2.lineWidth = tutChuteGlow ? 3.8 : 3;
-      g2.beginPath(); g2.roundRect(CHUTE_BX - 3, by2 - 3, CHUTE_BW + 6, CHUTE_BH + 6, 15); g2.stroke();
+        ? (reduceMotion ? 'rgba(255,225,77,.35)' : ((blink || tutChuteGlow) ? 'rgba(255,225,77,.35)' : 'rgba(255,255,255,.38)'))
+        : (hi ? 'rgba(255,255,255,.22)' : 'rgba(255,255,255,.34)');
+      g2.beginPath();
+      g2.roundRect(CHUTE_BX + 4, by2 + 3, 168, CHUTE_BH - 3, 6);
+      g2.fill();
     }
 
     g2.save(); g2.globalAlpha = 1;
-    const iconY = by2 + CHUTE_BH / 2;
+    const iconY = by2 + CHUTE_BH / 2 + 1;
     if (S.catDual && S.catDual[f]) {
       const prog = (popT > 0 && !reduceMotion) ? Math.min(1, popElapsed / 1.4) : 1;
       const slide = Math.min(1, prog / 0.28);
       const ease = 1 - Math.pow(1 - slide, 3);
-      const x0 = CHUTE_BX + 32 - 9 * ease;
+      const x0 = CHUTE_BX + 30 - 9 * ease;
       const s0 = 0.90 - 0.12 * ease;
-      const x1 = CHUTE_BX + 32 + 24 * ease;
+      const x1 = CHUTE_BX + 30 + 24 * ease;
       const s1 = prog < 0.24 ? (0.2 + (prog / 0.24) * 0.88)
         : prog < 0.65 ? (0.78 + 0.30 * Math.abs(Math.cos((prog - 0.24) / 0.41 * Math.PI))) : 0.78;
       drawIconBadge(g2, f, x0, iconY, s0, 0);
       if (popT > 0) {
-        g2.strokeStyle = (reduceMotion || blink) ? '#FFE14D' : '#FFFFFF';
-        g2.lineWidth = 3;
-        g2.beginPath(); g2.arc(x1, iconY, (GIFT_R + 5) * s1, 0, 7); g2.stroke();
+        g2.fillStyle = (reduceMotion || blink) ? '#FFE14D' : '#FFFFFF';
+        g2.beginPath(); g2.arc(x1, iconY, (GIFT_R + 6) * s1, 0, 7); g2.fill();
       }
       drawIconBadge(g2, f, x1, iconY, s1, 1);
       g2.restore();
       g2.fillStyle = cat.ink; g2.textAlign = 'left';
-      drawFitText(g2, CAT_UPPER[f], CHUTE_BX + 62 + 16 * ease, cyy + 5, 134 - 16 * ease, 14, 9);
+      drawFitText(g2, CAT_UPPER[f], CHUTE_BX + 58 + 16 * ease, cyy + 6, 114 - 16 * ease, 14, 9);
     } else {
-      drawIconBadge(g2, f, CHUTE_BX + 32, iconY, 0.9, 0);
+      drawIconBadge(g2, f, CHUTE_BX + 30, iconY, 0.9, 0);
       g2.restore();
       g2.fillStyle = cat.ink; g2.textAlign = 'left';
-      drawFitText(g2, CAT_UPPER[f], CHUTE_BX + 62, cyy + 5, 134, 14, 9);
+      drawFitText(g2, CAT_UPPER[f], CHUTE_BX + 58, cyy + 6, 114, 14, 9);
     }
   }
 }
@@ -822,10 +937,9 @@ function drawSleighAndReindeer(g2, S, giftsCount, dx, dy, rot, alpha, hasStar = 
   g2.translate(SLEIGH_X + dx, SLEIGH_Y + dy);
   if (rot) g2.rotate(rot);
   g2.translate(-SLEIGH_X, -SLEIGH_Y);
-  if (S.mode === 'hitch' && PROPS.santa.img.complete) g2.drawImage(PROPS.santa.img, sx, sy, sw, sh);
   const nGifts = Math.min(giftsCount || 0, 12);
   for (let i = 0; i < nGifts; i++) {
-    drawWrapped(g2, SLEIGH_X - 22 + (i % 4) * 20, SLEIGH_Y - 12 - Math.floor(i / 4) * 14, 0.38, CATS[i % 5].color);
+    drawWrapped(g2, SLEIGH_X - 22 + (i % 4) * 20, SLEIGH_Y - 12 - Math.floor(i / 4) * 14, 0.38, i);
   }
   if (PROPS.sleigh.img.complete) g2.drawImage(PROPS.sleigh.img, sx, sy, sw, sh);
   // Sleigh star badge (earned if wave has 0 misses)
@@ -1166,15 +1280,14 @@ function drawTakeoff(g2, S, t) {
     pxs(g2, q.x - 2, q.y + 30 + Math.round(Math.sin(i * 0.6 + t * 4) * 3), 1, 1,
       i % 3 ? '#FFE14D' : '#FFFFFF');
   }
-  const gallop = (!reduceMotion && Math.floor(t * 9) % 2) ? SPR_DEER_B : SPR_DEER_A;
-  const TEAM = [[54,-14],[88,-32],[122,-50]];
-  for (let i = 0; i < TEAM.length; i++) {
-    sprite(g2, gallop, p.x + TEAM[i][0], p.y + TEAM[i][1], 2);
-  }
-  for (let i = 0; i < 60; i++) {
-    pxs(g2, p.x + 46 + i, p.y + 16 - Math.round(i * 0.52), 1, 1, '#7C5539');
-  }
-  sprite(g2, SPR_SLEIGH, p.x, p.y, 2);
+  const sx = p.x * PXS + 36;
+  const sy = p.y * PXS + 36;
+  g2.save();
+  g2.translate(sx, sy);
+  g2.scale(0.82, 0.82);
+  g2.translate(-SLEIGH_X, -SLEIGH_Y);
+  drawSleighAndReindeer(g2, S, 12, 0, 0, -0.18, 1, true);
+  g2.restore();
 
   if (t > 2.2) {
     const on = reduceMotion || Math.floor(t * 2.5) % 2 === 0 || t > 3.4;
@@ -1290,15 +1403,17 @@ function drawGuideArrows(g2, S) {
   }
 }
 
-function drawBreatheCue(g2, S) {
+function drawBreatheCue(g2, S, elfChoice) {
   if (!S || !S.breatheCueT || S.breatheCueT <= 0) return;
   const e = S.elf;
+  const d = ELVES[elfChoice] || ELVES[0];
+  const elfH = d.front.h * ELF_SCALE;
   const dur = S.breatheCueDur || 3.0;
   const prog = Math.min(1, Math.max(0, 1 - S.breatheCueT / dur));
   const alpha = prog < 0.12 ? prog / 0.12 : (prog > 0.80 ? (1 - prog) / 0.20 : 1);
   const floatY = reduceMotion ? 0 : prog * 18;
   const bx = Math.max(BUILD_X0 + 60, Math.min(BUILD_X1 - 60, e.x));
-  const by = Math.max(72, e.y - 106 - floatY);
+  const by = Math.max(72, e.y - elfH - 12 - floatY);
 
   g2.save();
   g2.globalAlpha = Math.max(0, Math.min(1, alpha));
@@ -1468,18 +1583,18 @@ export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
   drawHandSlots(cx, S, S.elf);
   const bag = S.elf.bag || (S.elf.carrying ? [S.elf.carrying] : []);
   for (const g of bag) drawGift(cx, g);
-  drawBreatheCue(cx, S);
+  drawBreatheCue(cx, S, elfChoice);
 
   const canCarryMore = bag.length < (S.carryCap || 2);
   if (canCarryMore && canCatch && S.catchFlash <= 0) {
     const r = 26 + (reduceMotion ? 4 : Math.abs(Math.sin(S.t * 3.5)) * 8);
     cx.strokeStyle = '#FF7733'; cx.lineWidth = 4;
-    cx.beginPath(); cx.arc(S.elf.x, carryY(S.elf.floor), r, 0, 7); cx.stroke();
+    cx.beginPath(); cx.arc(S.elf.x, carryY(S.elf.floor, elfChoice), r, 0, 7); cx.stroke();
   }
   if (S.catchFlash > 0) {
     cx.strokeStyle = 'rgba(245,166,35,' + S.catchFlash * 2.5 + ')'; cx.lineWidth = 5;
     cx.beginPath();
-    cx.arc(S.elf.x, carryY(S.elf.floor), 26 + (0.3 - S.catchFlash) * 85, 0, 7); cx.stroke();
+    cx.arc(S.elf.x, carryY(S.elf.floor, elfChoice), 26 + (0.3 - S.catchFlash) * 85, 0, 7); cx.stroke();
   }
 
   for (const p of S.fx) {
