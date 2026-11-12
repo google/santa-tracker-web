@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <title>Elf Express - stack of books icon (Books)</title>
+  <defs><clipPath id="right"><rect x="32" y="0" width="32" height="64"/></clipPath></defs>
+  <g>
+    <rect x="7" y="44" width="48" height="12" rx="3" fill="#8A3DFF"/>
+    <rect x="49" y="46.5" width="4" height="7" rx="1" fill="#FFF7ED"/>
+    <rect x="12" y="44" width="3" height="12" fill="#DCC8FF"/>
+    <rect x="12" y="32" width="42" height="12" rx="3" fill="#32A658"/>
+    <rect x="48" y="34.5" width="4" height="7" rx="1" fill="#FFF7ED"/>
+    <rect x="17" y="32" width="3" height="12" fill="#8FD9A8"/>
+    <rect x="9" y="20" width="44" height="12" rx="3" fill="#FF3333"/>
+    <rect x="47" y="22.5" width="4" height="7" rx="1" fill="#FFF7ED"/>
+    <rect x="14" y="20" width="3" height="12" fill="#FDA4AF"/>
+    <path d="M24 26 L25.6 29.2 L29 29.6 L26.5 31.9 L27.2 35.2 L24 33.6 L20.8 35.2 L21.5 31.9 L19 29.6 L22.4 29.2 Z" transform="translate(4 -6.5)" fill="#FFE14D"/>
+    <path d="M38 20 H43 V31 L40.5 28.5 L38 31 Z" transform="translate(0 -4)" fill="#FFE14D"/>
+  </g>
+<g clip-path="url(#right)">
+    <rect x="7" y="44" width="48" height="12" rx="3" fill="#6F00FF"/>
+    <rect x="49" y="46.5" width="4" height="7" rx="1" fill="#F1E4D3"/>
+    <rect x="12" y="44" width="3" height="12" fill="#C2A3FF"/>
+    <rect x="12" y="32" width="42" height="12" rx="3" fill="#278A47"/>
+    <rect x="48" y="34.5" width="4" height="7" rx="1" fill="#F1E4D3"/>
+    <rect x="17" y="32" width="3" height="12" fill="#6CC98A"/>
+    <rect x="9" y="20" width="44" height="12" rx="3" fill="#D92626"/>
+    <rect x="47" y="22.5" width="4" height="7" rx="1" fill="#F1E4D3"/>
+    <rect x="14" y="20" width="3" height="12" fill="#FF6B6B"/>
+    <path d="M24 26 L25.6 29.2 L29 29.6 L26.5 31.9 L27.2 35.2 L24 33.6 L20.8 35.2 L21.5 31.9 L19 29.6 L22.4 29.2 Z" transform="translate(4 -6.5)" fill="#F2C200"/>
+    <path d="M38 20 H43 V31 L40.5 28.5 L38 31 Z" transform="translate(0 -4)" fill="#F2C200"/>
+  </g>
+</svg>
