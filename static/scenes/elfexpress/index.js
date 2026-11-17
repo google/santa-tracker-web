@@ -1683,7 +1683,7 @@ function updateGifts(dt) {
         const k = (g.tutGift && len > 100) ? 0.65 : Math.min(g.timer / len, 1);
         g.teeterProg = (g.tutGift && len > 100) ? 0 : k;
         g.tilt = reduceMotion ? 0
-          : Math.sin(g.timer * (4 + 18 * k * k) * Math.PI) * (0.08 + 0.42 * k * k);
+          : Math.sin(g.timer * 5.5 * Math.PI) * 0.14;
         if (!g.tutGift && g.timer >= len) {
           if (g.isSnowball) {
             g.state = 'falling';
@@ -1692,11 +1692,11 @@ function updateGifts(dt) {
           } else {
             g.state = 'fading';
             g.timer = 0;
-            g.fadeDur = 0.34;
+            g.fadeDur = 0.28;
             g.fadeAlpha = 1;
             g.tilt = 0;
-            puff(g.x, g.y, '#FF3333', 8);
-            puff(g.x, g.y, '#FFFFFF', 6);
+            puff(g.x, g.y, '#FFFFFF', 8);
+            puff(g.x, g.y, CATS[g.cat] ? CATS[g.cat].color : '#BAE6FD', 6);
             breakCombo();
             api.play('pd_item_miss');
             if (g.tutWatch) {
@@ -2497,7 +2497,7 @@ function startTutMissDemo() {
   e.bob = 0;
   syncCarry();
 
-  // 1. Toy at the far end (Belt 1) that teeters with the danger warning and fades away before the elf arrives
+  // 1. Toy at the far end (Belt 1) that gently teeters and fades away before the elf arrives
   S.gifts.push({
     id: S.nextId++, cat: 0, v: 0, belt: 1, state: 'teeter',
     x: TEETER_X, y: beltY(1) - GIFT_R,
