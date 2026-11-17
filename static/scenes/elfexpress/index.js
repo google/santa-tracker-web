@@ -1617,12 +1617,61 @@ function processWaveQueue(dt) {
   }
 }
 
+function elfHeadingTargetGift() {
+  if (!S || S.tut || !S.elf || S.elf.bag.length >= S.carryCap) return null;
+  let targetFloor = -1;
+  if (S.cmd && S.cmd.type === 'belt' && !S.cmd.commitSnowballId) {
+    targetFloor = S.cmd.floor;
+  } else if (S.queue && S.queue.type === 'belt') {
+    targetFloor = S.queue.floor;
+  } else if (S.elf.climbTo !== null && !S.keys.right) {
+    targetFloor = S.elf.climbTo;
+  } else if (!S.elf.climbing && S.keys.left && !S.keys.right) {
+    targetFloor = S.elf.floor;
+  }
+  if (targetFloor < 0) return null;
+  const cands = S.gifts.filter(g =>
+    !g.tutWatch && !g.isSnowball && g.belt === targetFloor &&
+    (g.state === 'teeter' || g.state === 'belt')
+  );
+  if (!cands.length) return null;
+  cands.sort((a, b) => {
+    const pa = a.state === 'teeter' ? 2 : 1;
+    const pb = b.state === 'teeter' ? 2 : 1;
+    if (pb !== pa) return pb - pa;
+    return (b.timer - a.timer) || (b.x - a.x);
+  });
+  return cands[0];
+}
+
+function recordGiftMiss(g) {
+  if (g.missCounted) return;
+  g.missCounted = true;
+  breakCombo();
+  api.play('pd_item_miss');
+  if (g.tutWatch) {
+    S.recycled = Math.min(TUNE.recycleLimit, (S.recycled || 0) + 1);
+    triggerBinRecycleFeedback(true);
+  } else {
+    S.missed++;
+    S.recycled++;
+    S.waveRecycled = (S.waveRecycled || 0) + 1;
+    triggerBinRecycleFeedback(false);
+    checkLoss();
+  }
+}
+
 function updateGifts(dt) {
   const pausedByBox = Boolean((S.tut === 1 && S.tutBoxUp) || S.snowballBoxUp);
   const pausedBelts = S.relaxT > 0 || pausedByBox;
   const beltSpeedMul = (S.breatheSlowT > 0) ? 0.35 : 1.0;
+  const headedGift = elfHeadingTargetGift();
   const teetering = [];
-  for (const g of S.gifts) if (g.state === 'teeter') teetering[g.belt] = g;
+  for (const g of S.gifts) {
+    if (g.state === 'teeter' || (g.state === 'fading' && !g.missCounted)) {
+      teetering[g.belt] = g;
+    }
+  }
 
   for (const g of S.gifts) {
     if (g.state === 'done') continue;
@@ -1633,7 +1682,7 @@ function updateGifts(dt) {
         const edgeGap = (g.isSnowball || (edgeItem && edgeItem.isSnowball)) ? 56 : 40;
         let limit = edgeItem ? TEETER_X - edgeGap : TEETER_X;
         for (const o of S.gifts) {
-          if (o !== g && o.belt === g.belt && (o.state === 'belt' || o.state === 'teeter') && o.x > g.x && o.x - g.x < 240) {
+          if (o !== g && o.belt === g.belt && (o.state === 'belt' || o.state === 'teeter' || (o.state === 'fading' && !o.missCounted)) && o.x > g.x && o.x - g.x < 240) {
             const minSep = (g.isSnowball || o.isSnowball) ? 56 : 40;
             limit = Math.min(limit, o.x - minSep);
           }
@@ -1718,6 +1767,8 @@ function updateGifts(dt) {
             puff(g.x, g.y - 6, '#BAE6FD', 10);
             g.state = 'done';
             g.tilt = 0;
+          } else if (g === headedGift && (g.graceTimer || 0) < (TUNE.onMyWayGrace || 1.0)) {
+            g.graceTimer = (g.graceTimer || 0) + dt;
           } else {
             g.state = 'fading';
             g.timer = 0;
@@ -1727,19 +1778,8 @@ function updateGifts(dt) {
             g.fadeAlpha = 1;
             g.fadeScale = 1;
             g.puffDone = false;
+            g.missCounted = false;
             g.tilt = 0;
-            breakCombo();
-            api.play('pd_item_miss');
-            if (g.tutWatch) {
-              S.recycled = Math.min(TUNE.recycleLimit, (S.recycled || 0) + 1);
-              triggerBinRecycleFeedback(true);
-            } else {
-              S.missed++;
-              S.recycled++;
-              S.waveRecycled = (S.waveRecycled || 0) + 1;
-              triggerBinRecycleFeedback(false);
-              checkLoss();
-            }
           }
         }
         break;
@@ -1758,6 +1798,9 @@ function updateGifts(dt) {
           g.fadeScale = 1 + 0.28 * Math.sin(s * Math.PI * 0.5);
           g.fadeAlpha = 1;
         } else {
+          if (!g.missCounted) {
+            recordGiftMiss(g);
+          }
           const s = (u - 0.38) / 0.62;
           g.fadeScale = Math.max(0, 1.28 * (1 - s * s));
           g.fadeAlpha = Math.max(0, 1 - Math.pow(s, 1.4));
@@ -1768,6 +1811,9 @@ function updateGifts(dt) {
           }
         }
         if (g.timer >= dur) {
+          if (!g.missCounted) {
+            recordGiftMiss(g);
+          }
           g.state = 'done';
         }
         break;
@@ -1937,11 +1983,11 @@ function catchable(forgiving) {
   const beltMinX = g => (forgiving ? BUILD_X0 + 10 : (g.gusted || g.tilt ? TEETER_X - 30 : TEETER_X - 20));
   const cands = S.gifts.filter(g => !g.tutWatch && !g.isSnowball && g.belt === e.floor &&
     (!S.tut || g.tutGift) &&
-    (g.state === 'teeter' || g.state === 'falling' ||
+    ((g.state === 'fading' && !g.missCounted) || g.state === 'teeter' || g.state === 'falling' ||
       (g.state === 'belt' && g.x >= beltMinX(g)) ||
       (g.state === 'landed' && (forgiving ? g.x <= BUILD_X1 - 24 : (g.x <= TAP_SPLIT + 16 || Math.abs(g.x - e.x) <= 72)))));
   if (!cands.length) return null;
-  const prio = st => st === 'falling' ? 4 : st === 'teeter' ? 3 : st === 'landed' ? 2 : 1;
+  const prio = st => st === 'fading' ? 5 : st === 'falling' ? 4 : st === 'teeter' ? 3 : st === 'landed' ? 2 : 1;
   cands.sort((a, b) => (prio(b.state) - prio(a.state)) || (b.timer - a.timer) || (b.x - a.x));
   return cands[0];
 }
@@ -1998,6 +2044,7 @@ function doAction(edge, manual) {
     e.x = Math.max(DROP_X0, Math.min(DROP_X1, e.x));
   }
   g.state = 'carried'; g.tilt = 0; g.timer = 0; g.spin = 0;
+  g.fadeScale = 1; g.fadeAlpha = 1; g.graceTimer = 0;
   e.bag.push(g);
   syncCarry();
   S.actionBuf = 0; S.actionHeld = false;
@@ -2876,7 +2923,7 @@ function resolveTapFloor(p) {
     let bestDist = 42;
     for (const g of S.gifts) {
       if (g.tutWatch || g.state === 'done' || g.state === 'carried' || g.belt > maxF) continue;
-      if (g.state === 'belt' || g.state === 'teeter' || g.state === 'falling' || g.state === 'landed') {
+      if (g.state === 'belt' || g.state === 'teeter' || (g.state === 'fading' && !g.missCounted) || g.state === 'falling' || g.state === 'landed') {
         const d = Math.hypot(p.x - g.x, p.y - g.y);
         if (d < bestDist) {
           bestDist = d;

@@ -32,6 +32,7 @@ export const TUNE = {
   snowballSlowMul: 0.50,   // Exact half speed multiplier while snow-covered
   snowballRadius: 31.5,    // Snowball radius on belt (~1.5x original size: 63x63 px)
   teeterTime: 2.35,        // Default teeter time fallback (s)
+  onMyWayGrace: 1.0,       // Extra wait cap (s) for the single teetering toy the elf is actively heading toward
   mouseTimeMul: 1.15,      // Mouse gets ~15% more time (spawn gaps and teeter times x1.15); touch is baseline (1.0)
   fallTime: 0.34,          // Fall duration from belt edge to floor (s)
   humanTimePerGift: 0.60,  // Playable check: 0.6s per gift to see toy, choose chute, and tap twice
