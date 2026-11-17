@@ -908,17 +908,17 @@ function createWaveSpawner(waveIdx, startFloor = 0) {
   const wantSnowballs = w.snowballs || 0;
   const snowballSlots = [];
   if (wantSnowballs === 1) {
-    snowballSlots.push({ cycle: 0, buildT: 4.8 });
+    snowballSlots.push({ cycle: 0, buildT: 3.0 });
   } else if (wantSnowballs === 2) {
-    snowballSlots.push({ cycle: 0, buildT: 4.2 }, { cycle: 0, buildT: 6.7 });
+    snowballSlots.push({ cycle: 0, buildT: 2.8 }, { cycle: 0, buildT: 5.6 });
   } else if (wantSnowballs === 3) {
-    snowballSlots.push({ cycle: 0, buildT: 4.2 }, { cycle: 0, buildT: 6.7 }, { cycle: 1, buildT: 4.2 });
+    snowballSlots.push({ cycle: 0, buildT: 2.6 }, { cycle: 0, buildT: 5.4 }, { cycle: 1, buildT: 2.8 });
   } else if (wantSnowballs >= 4) {
     snowballSlots.push(
-      { cycle: 0, buildT: 4.2 },
-      { cycle: 0, buildT: 6.7 },
-      { cycle: 1, buildT: 4.2 },
-      { cycle: 1, buildT: 6.7 }
+      { cycle: 0, buildT: 2.4 },
+      { cycle: 0, buildT: 5.2 },
+      { cycle: 1, buildT: 2.4 },
+      { cycle: 1, buildT: 5.2 }
     );
   }
   return {
@@ -950,6 +950,9 @@ function createWaveSpawner(waveIdx, startFloor = 0) {
     gustsSpawned: 0,
     snowballsSpawned: 0,
     snowballSlots,
+    lastSnowballBelt: -1,
+    beltLastWasSnowball: [false, false, false, false, false],
+    pendingAfterSnowballBelt: -1,
     peakTimes: [],
     giftsSpawned: 0,
     pendingJitter: 0,
@@ -1000,7 +1003,12 @@ function generateNextSpawnerEvents(sp, missesSoFar = 0) {
     sp.postBreatherHold = 0;
     const delay = sp.endGap + extraHold;
     const unlocked = checkSpawnerProgressiveFloor(sp);
-    const b = unlocked ? (unlocked - 1) : drawFloorFromBag(sp, sp.lastCat, -1, 1);
+    const forcedBelt = (!unlocked && sp.pendingAfterSnowballBelt >= 0 && sp.pendingAfterSnowballBelt < sp.curFloors)
+      ? sp.pendingAfterSnowballBelt
+      : -1;
+    if (forcedBelt >= 0) sp.pendingAfterSnowballBelt = -1;
+    const b = unlocked ? (unlocked - 1) : (forcedBelt >= 0 ? forcedBelt : drawFloorFromBag(sp, sp.lastCat, -1, 1));
+    sp.beltLastWasSnowball[b] = false;
     const c = drawCatFromBag(sp, b, 1);
     sp.clock += delay;
     sp.nomClock += delay;
@@ -1024,7 +1032,12 @@ function generateNextSpawnerEvents(sp, missesSoFar = 0) {
     const peakGap = Number((baseGap * 0.5).toFixed(3));
     const isPeakStart = sp.peakRemaining === sp.peakSize;
     const unlocked = checkSpawnerProgressiveFloor(sp);
-    const b = unlocked ? (unlocked - 1) : drawFloorFromBag(sp, sp.lastCat, -1, 1);
+    const forcedBelt = (!unlocked && sp.pendingAfterSnowballBelt >= 0 && sp.pendingAfterSnowballBelt < sp.curFloors)
+      ? sp.pendingAfterSnowballBelt
+      : -1;
+    if (forcedBelt >= 0) sp.pendingAfterSnowballBelt = -1;
+    const b = unlocked ? (unlocked - 1) : (forcedBelt >= 0 ? forcedBelt : drawFloorFromBag(sp, sp.lastCat, -1, 1));
+    sp.beltLastWasSnowball[b] = false;
     const c = drawCatFromBag(sp, b, 1);
     sp.clock += peakGap;
     sp.nomClock += peakGap;
@@ -1067,9 +1080,19 @@ function generateNextSpawnerEvents(sp, missesSoFar = 0) {
   const baseGap = spawnerIntervalAt(sp, sp.nomClock);
   const remBuild = (sp.cycleStartClock + BUILD_UP_DUR) - sp.nomClock;
   const nearGoal = sp.giftsSpawned >= goalGifts - 3 ? 1 : -1;
+  const nextSlot = sp.snowballSlots[0] || null;
+  const urgentSnowball = Boolean(nextSlot && (goalGifts - sp.giftsSpawned) <= sp.snowballSlots.length * 2 + 1);
+  const slotDueNow = Boolean(
+    nextSlot &&
+    sp.pendingAfterSnowballBelt < 0 &&
+    sp.giftsSpawned + 2 <= goalGifts &&
+    (urgentSnowball || sp.cycleIdx > nextSlot.cycle || (sp.cycleIdx === nextSlot.cycle && nomBuildT >= nextSlot.buildT))
+  );
 
   // Check if we should spawn the single pair (and optional gust) for this build-up cycle
   const canPair = !sp.pairDoneInCycle &&
+    sp.pendingAfterSnowballBelt < 0 &&
+    !slotDueNow &&
     sp.pairsSpawned < (w.pairs || 0) &&
     sp.curFloors >= 2 &&
     sp.giftsSpawned + 2 < goalGifts &&
@@ -1084,6 +1107,7 @@ function generateNextSpawnerEvents(sp, missesSoFar = 0) {
 
     const unlocked1 = checkSpawnerProgressiveFloor(sp);
     const b1 = unlocked1 ? (unlocked1 - 1) : drawFloorFromBag(sp, sp.lastCat, -1, 1);
+    sp.beltLastWasSnowball[b1] = false;
     const c1 = drawCatFromBag(sp, b1, 1);
     const pairLag = useGust ? 0.24 : 0.22;
     const nomPairStep = Math.max(0.28 + pairLag, baseGap);
@@ -1096,6 +1120,7 @@ function generateNextSpawnerEvents(sp, missesSoFar = 0) {
 
     const unlocked2 = checkSpawnerProgressiveFloor(sp);
     const b2 = unlocked2 ? (unlocked2 - 1) : drawFloorFromBag(sp, c1, b1, 1);
+    sp.beltLastWasSnowball[b2] = false;
     const c2 = sp.waveIdx <= 1 ? c1 : drawCatFromBag(sp, b2, 1);
     sp.clock += pairLag;
     sp.nomClock += pairLag;
@@ -1166,7 +1191,26 @@ function generateNextSpawnerEvents(sp, missesSoFar = 0) {
 
   const delay = stepGap + extraHold;
   const unlocked = checkSpawnerProgressiveFloor(sp);
-  const b = unlocked ? (unlocked - 1) : drawFloorFromBag(sp, sp.lastCat, -1, nearGoal);
+  let b;
+  if (unlocked) {
+    b = unlocked - 1;
+  } else if (sp.pendingAfterSnowballBelt >= 0 && sp.pendingAfterSnowballBelt < sp.curFloors) {
+    b = sp.pendingAfterSnowballBelt;
+    sp.pendingAfterSnowballBelt = -1;
+    if (b === sp.lastFloor) sp.floorRunLen++;
+    else { sp.lastFloor = b; sp.floorRunLen = 1; }
+  } else if (slotDueNow) {
+    const avoidBelt = sp.curFloors >= 2 ? sp.lastSnowballBelt : -1;
+    b = drawFloorFromBag(sp, sp.lastCat, avoidBelt, nearGoal);
+    if (sp.beltLastWasSnowball[b]) {
+      for (let f = 0; f < sp.curFloors; f++) {
+        if (!sp.beltLastWasSnowball[f]) { b = f; break; }
+      }
+    }
+  } else {
+    b = drawFloorFromBag(sp, sp.lastCat, -1, nearGoal);
+  }
+  sp.beltLastWasSnowball[b] = false;
   const c = drawCatFromBag(sp, b, nearGoal);
   sp.clock += delay;
   sp.nomClock += nomStep;
@@ -1185,6 +1229,21 @@ function generateNextSpawnerEvents(sp, missesSoFar = 0) {
     unlockFloor: unlocked,
     gusted: false,
   });
+
+  if (slotDueNow && !unlocked && !sp.beltLastWasSnowball[b] && sp.giftsSpawned < goalGifts) {
+    sp.snowballSlots.shift();
+    sp.snowballsSpawned++;
+    sp.lastSnowballBelt = b;
+    sp.beltLastWasSnowball[b] = true;
+    sp.pendingAfterSnowballBelt = b;
+    events.push({
+      delay: 0,
+      delayType: 'snowball',
+      phase,
+      action: 'snowball',
+      belt: b,
+    });
+  }
 
   if (sp.cycleBuildT >= BUILD_UP_DUR - 1e-4 && sp.giftsSpawned <= goalGifts) {
     sp.stage = 'peak';
@@ -1278,6 +1337,7 @@ function startWave(waveIdx) {
   S.waveQueue = buildWaveQueue(S.sleighsDone);
   S.gifts = [];
   S.snowballSchedule = [];
+  S.beltLastWasSnowball = [false, false, false, false, false];
   S.spawnTimer = S.waveQueue.length ? effEventDelay(S.waveQueue[0]) : 0.04;
   if (!S.tut && !S.firstSnowballShown && (w.snowballs || 0) > 0) {
     S.firstSnowballShown = true;
@@ -1333,24 +1393,24 @@ function pickupSnowball(sb) {
   return true;
 }
 
-function spawnSnowballOnBelt(preferredBelt, startX = 24) {
-  const nFloors = activeFloors();
-  let safeBelt = Math.max(0, Math.min(nFloors - 1, preferredBelt || 0));
-  // Prefer a belt where the snowball will roll unimpeded to the edge
-  let bestFrontX = Infinity;
-  for (let i = 0; i < nFloors; i++) {
-    const f = (safeBelt + i) % nFloors;
-    const front = nextBeltEdgeItem(f);
-    const fx = front ? front.x : -999;
-    if (fx < bestFrontX) {
-      bestFrontX = fx;
-      safeBelt = f;
+function beltTailX(floor) {
+  if (!S || !S.gifts) return Infinity;
+  let minX = Infinity;
+  for (const g of S.gifts) {
+    if (g.belt === floor && (g.state === 'belt' || g.state === 'teeter')) {
+      if (g.x < minX) minX = g.x;
     }
   }
-  const frontOnChosen = nextBeltEdgeItem(safeBelt);
-  const spawnX = (frontOnChosen && frontOnChosen.x > startX - 10 && frontOnChosen.x < TEETER_X - 46)
-    ? Math.min(TEETER_X - 44, frontOnChosen.x + 34)
-    : startX;
+  return minX;
+}
+
+function spawnSnowballOnBelt(belt, startX = -78) {
+  const nFloors = activeFloors();
+  const safeBelt = Math.max(0, Math.min(nFloors - 1, belt || 0));
+  if (!S.beltLastWasSnowball) S.beltLastWasSnowball = [false, false, false, false, false];
+  if (S.beltLastWasSnowball[safeBelt]) return null;
+  const tailX = beltTailX(safeBelt);
+  const spawnX = tailX < Infinity ? Math.min(startX, tailX - 52) : startX;
   const g = {
     id: S.nextId++, cat: 0, v: 0, belt: safeBelt, state: 'belt',
     isSnowball: true, tappedByPlayer: false,
@@ -1359,6 +1419,7 @@ function spawnSnowballOnBelt(preferredBelt, startX = 24) {
     wrapped: false, tilt: 0, spin: 0, gusted: false,
     path: null, seg: 0, p: 0, speed: 0, dropFloor: -1, ductFloor: -1,
   };
+  S.beltLastWasSnowball[safeBelt] = true;
   S.gifts.push(g);
   return g;
 }
@@ -1366,6 +1427,10 @@ function spawnSnowballOnBelt(preferredBelt, startX = 24) {
 function spawnGiftOnBelt(belt, startX = -30, teeterOverride = null, catOverride = null) {
   const nFloors = activeFloors();
   const safeBelt = Math.max(0, Math.min(nFloors - 1, belt));
+  const tailX = beltTailX(safeBelt);
+  const spawnX = tailX < Infinity ? Math.min(startX, tailX - 52) : startX;
+  if (!S.beltLastWasSnowball) S.beltLastWasSnowball = [false, false, false, false, false];
+  S.beltLastWasSnowball[safeBelt] = false;
   const cat = (catOverride !== null && catOverride !== undefined)
     ? Math.max(0, Math.min(nFloors - 1, catOverride))
     : pickCategory(null, nFloors);
@@ -1374,7 +1439,7 @@ function spawnGiftOnBelt(belt, startX = -30, teeterOverride = null, catOverride 
   const v = (S.revealed && Math.random() < 0.55) ? 1 : 0;
   const g = {
     id: S.nextId++, cat, v, belt: safeBelt, state: 'belt',
-    x: startX, y: beltY(safeBelt) - GIFT_R,
+    x: spawnX, y: beltY(safeBelt) - GIFT_R,
     timer: 0, teeter: teeterOverride || wave().teeter,
     wrapped: false, tilt: 0, spin: 0, gusted: false,
     path: null, seg: 0, p: 0, speed: 0, dropFloor: -1, ductFloor: -1,
@@ -1424,21 +1489,6 @@ function processWaveQueue(dt) {
   }
   const sp = S.spawner;
 
-  // Snowballs only during build-up, never in first 3s, never during a peak, never at the same moment as a pair or gust
-  if (sp.snowballSlots.length > 0 && sp.stage === 'buildup' && sp.postBreatherHold <= 0) {
-    const baseSleighT = (S.sleighTimer || 0) / inputTimeMul();
-    const activeSnowball = S.gifts.some(g => g.isSnowball && g.state !== 'done');
-    const nextEv = S.waveQueue[0];
-    const pairOrGustNow = S.gustT > 0 || S.gustWarnT > 0 || Boolean(nextEv && (nextEv.paired || nextEv.gusted || nextEv.gustLead));
-    const slot = sp.snowballSlots[0];
-    const slotDue = sp.cycleIdx > slot.cycle || (sp.cycleIdx === slot.cycle && sp.cycleBuildT >= slot.buildT);
-    if (!activeSnowball && baseSleighT >= 3.0 && !pairOrGustNow && slotDue) {
-      sp.snowballSlots.shift();
-      sp.snowballsSpawned++;
-      spawnSnowballOnBelt((sp.snowballsSpawned - 1) % activeFloors(), 24);
-    }
-  }
-
   if (!S.waveQueue.length) {
     const nextEvs = generateNextSpawnerEvents(sp, S.waveRecycled || 0);
     for (const ev of nextEvs) S.waveQueue.push(ev);
@@ -1452,8 +1502,9 @@ function processWaveQueue(dt) {
   const beltCap = beltCapForWave(S.sleighsDone);
   S.spawnTimer -= dt;
   while (S.waveQueue.length && S.spawnTimer <= 0) {
+    const nextAction = S.waveQueue[0].action;
     const onBelts = S.gifts.filter(g => !g.isSnowball && (g.state === 'belt' || g.state === 'teeter')).length;
-    if (onBelts >= beltCap) {
+    if (nextAction !== 'snowball' && onBelts >= beltCap) {
       S.spawnTimer = 0;
       break;
     }
@@ -1470,6 +1521,8 @@ function processWaveQueue(dt) {
     if (ev.action === 'gustWarn') {
       S.gustWarnT = ev.warnDur || GUST.warnTime;
       S.gustWarnBelts = ev.belts ? ev.belts.slice() : [0, 1, 2, 3, 4];
+    } else if (ev.action === 'snowball') {
+      spawnSnowballOnBelt(ev.belt, -78);
     } else if (ev.action === 'gift') {
       if (ev.isPeakStart) {
         sp.peakTimes.push(ev.peakClock);
