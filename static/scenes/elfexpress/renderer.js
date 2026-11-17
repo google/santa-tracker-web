@@ -919,7 +919,7 @@ function drawWorkshop(g2, S, floors) {
     const beltSel = S.cmd && S.cmd.type === 'belt' && S.cmd.floor === f;
     const beltQ = S.queue && S.queue.type === 'belt' && S.queue.floor === f;
     const tutBeltGlow = guide.beltFloor === f;
-    const liveHere = canCarryMore && S.gifts.some(g => g.belt === f && !g.isSnowball &&
+    const liveHere = canCarryMore && S.gifts.some(g => g.belt === f && !g.isSnowball && !g.tutWatch &&
       (g.state === 'belt' || g.state === 'teeter' || g.state === 'falling'));
     if (beltSel || tutBeltGlow || S.beltPulse[f] > 0) {
       g2.fillStyle = tutBeltGlow ? 'rgba(253,224,71,.24)' : (beltSel ? 'rgba(43,127,217,.16)' : 'rgba(42,157,92,.16)');
@@ -941,7 +941,7 @@ function drawWorkshop(g2, S, floors) {
 
     drawFloorBelt(g2, S, f);
 
-    const liveDrop = S.gifts.some(g => g.belt === f && !g.isSnowball && (g.state === 'teeter' || g.state === 'falling'));
+    const liveDrop = S.gifts.some(g => g.belt === f && !g.isSnowball && !g.tutWatch && (g.state === 'teeter' || g.state === 'falling'));
     if (liveDrop) {
       g2.strokeStyle = '#1B69C1';
       g2.lineWidth = 2.6;
