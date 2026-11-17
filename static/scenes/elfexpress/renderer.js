@@ -524,40 +524,24 @@ function drawGift(g2, g) {
   }
   if (g.state === 'fading') {
     const a = Math.max(0, Math.min(1, g.fadeAlpha !== undefined ? g.fadeAlpha : 1));
-    g2.globalAlpha *= a;
-    const sc = 0.72 + 0.28 * a;
+    g2.globalAlpha *= 0.38 * a;
+    const sc = 0.78 + 0.22 * a;
     g2.scale(sc, sc);
   } else if (g.state === 'inBin') {
     g2.scale(0.80, 0.80);
-  }
-  const teeterK = (g.state === 'teeter' && !g.tutGift) ? (g.teeterProg || 0) : 0;
-  const inDanger = teeterK >= 0.40;
-  const dangerU = inDanger ? (teeterK - 0.40) / 0.60 : 0;
-  const dangerFlash = inDanger && (reduceMotion ? teeterK >= 0.60 : (Math.sin((g.timer || 0) * (10 + 18 * dangerU) * Math.PI) > -0.15));
-  if (dangerFlash && !reduceMotion) {
-    const pSc = 1 + 0.08 * dangerU;
-    g2.scale(pSc, pSc);
+  } else if (g.state === 'teeter' && !g.tutGift) {
+    const teeterK = Math.max(0, Math.min(1, g.teeterProg || 0));
+    g2.globalAlpha *= 1 - 0.62 * teeterK;
   }
   if (g.tilt) g2.rotate(g.tilt);
   if (g.spin && (g.state === 'toBin' || g.state === 'landed')) g2.rotate(Math.sin(g.spin) * 0.28);
   if (g.wrapped) drawWrapped(g2, 0, 0, 0.92, g.id || g.cat || 0);
   else {
     const c = CATS[g.cat];
-    if (dangerFlash || g.state === 'fading') {
-      g2.fillStyle = '#FF3333';
-      g2.beginPath(); g2.arc(0, 0, GIFT_R + 8.5, 0, 7); g2.fill();
-      g2.strokeStyle = '#FFE14D'; g2.lineWidth = 2.2;
-      g2.beginPath(); g2.arc(0, 0, GIFT_R + 8.5, 0, 7); g2.stroke();
-      g2.fillStyle = '#7F1D1D';
-      g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.fill();
-      g2.strokeStyle = '#FF3333'; g2.lineWidth = 2.8;
-      g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.stroke();
-    } else {
-      g2.fillStyle = c.glow; g2.beginPath(); g2.arc(0, 0, GIFT_R + 7, 0, 7); g2.fill();
-      g2.fillStyle = 'rgba(15,23,42,.85)'; g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.fill();
-      g2.strokeStyle = c.color; g2.lineWidth = 2.4;
-      g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.stroke();
-    }
+    g2.fillStyle = c.glow; g2.beginPath(); g2.arc(0, 0, GIFT_R + 7, 0, 7); g2.fill();
+    g2.fillStyle = 'rgba(15,23,42,.85)'; g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.fill();
+    g2.strokeStyle = c.color; g2.lineWidth = 2.4;
+    g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.stroke();
     drawIcon(g2, g.cat, 0, 0, 1.02, g.v || 0);
   }
   g2.restore();
