@@ -502,26 +502,25 @@ export function takeoffPath(k) {
   return { x: 6 + e * 236, y: 168 - e * 150 };
 }
 
-// Diner Dash style 6-step tutorial at the start of Wave 1:
-// 1. "Help the elves sort the toys so they can be wrapped!" (OK)
-// 2. "Tap the conveyor to catch the toy." (continues when caught, arrow on belt 0)
+// Diner Dash style tutorial at the start of Wave 1:
+// 1. "Thanks for helping the elves wrap presents!"
+// 2. "Catch the toys, then tap the matching chute to send them off to get wrapped." (arrow on belt 0)
 // 3. "You can carry two! Catch another one." (second gift on belt 1; continues when caught)
-// 4. "Now drop each toy in its matching chute so it gets the right wrapping." (continues when both are delivered)
-// 5. "Be careful! Sometimes you can't catch them all." (one toy teeters and falls on purpose; OK)
-// 6. "Missed toys go to the recycler. You can miss up to <recycleLimit> per sleigh and still load it." (OK -> wave starts)
+// 4. Drop each toy in its matching chute (continues when both are delivered)
+// 5. "Sometimes you won't make it in time, or you'll put a toy in the wrong chute. Missed toys go to the recycler."
 export const TUT = [
   {
     step: 1,
     go: 'ok',
     ok: true,
-    text: 'Help the elves sort the toys so they can be wrapped!',
+    text: 'Thanks for helping the elves wrap presents!',
   },
   {
     step: 2,
     go: 'belt',
     f: 0,
     ok: true,
-    text: 'Tap the conveyor to catch the toy.',
+    text: 'Catch the toys, then tap the matching chute to send them off to get wrapped.',
   },
   {
     step: 3,
@@ -533,22 +532,20 @@ export const TUT = [
   {
     step: 4,
     go: 'chute',
-    ok: true,
-    text: 'Now drop each toy in its matching chute so it gets the right wrapping.',
+    ok: false,
+    text: 'Catch the toys, then tap the matching chute to send them off to get wrapped.',
   },
   {
     step: 5,
     go: 'ok',
     ok: true,
-    text: "Be careful! Sometimes you can't catch them all.",
+    text: "Sometimes you won't make it in time, or you'll put a toy in the wrong chute. Missed toys go to the recycler.",
   },
   {
     step: 6,
     go: 'ok',
     ok: true,
-    get text() {
-      return `Missed toys go to the recycler. You can miss up to ${TUNE.recycleLimit} per sleigh and still load it.`;
-    },
+    text: "Sometimes you won't make it in time, or you'll put a toy in the wrong chute. Missed toys go to the recycler.",
   },
 ];
 
