@@ -504,10 +504,8 @@ export function takeoffPath(k) {
 
 // Diner Dash style tutorial at the start of Wave 1:
 // 1. "Thanks for helping the elves wrap presents!"
-// 2. "Catch the toys, then tap the matching chute to send them off to get wrapped." (arrow on belt 0)
-// 3. "You can carry two! Catch another one." (second gift on belt 1; continues when caught)
-// 4. Drop each toy in its matching chute (continues when both are delivered)
-// 5. "Sometimes you won't make it in time, or you'll put a toy in the wrong chute. Missed toys go to the recycler."
+// 2. Two toys come out together; player can drop the first right away or carry both at once
+// 3. Automatic miss demo showing a belt miss and a wrong-chute miss going to the recycler
 export const TUT = [
   {
     step: 1,
@@ -517,26 +515,12 @@ export const TUT = [
   },
   {
     step: 2,
-    go: 'belt',
-    f: 0,
-    ok: true,
-    text: 'Catch the toys, then tap the matching chute to send them off to get wrapped.',
+    go: 'play',
+    ok: false,
+    text: 'Catch the toys, then tap the matching chute to send them off to get wrapped.\nYou can carry two toys at a time!',
   },
   {
     step: 3,
-    go: 'belt',
-    f: 1,
-    ok: true,
-    text: 'You can carry two! Catch another one.',
-  },
-  {
-    step: 4,
-    go: 'chute',
-    ok: false,
-    text: 'Catch the toys, then tap the matching chute to send them off to get wrapped.',
-  },
-  {
-    step: 5,
     go: 'ok',
     ok: true,
     text: "Sometimes you won't make it in time, or you'll put a toy in the wrong chute. Missed toys go to the recycler.",
