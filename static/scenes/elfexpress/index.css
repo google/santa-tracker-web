@@ -150,28 +150,51 @@ button.ghost {
   box-shadow: none;
 }
 
-.tut-skip-btn {
+#btnSkipTut.tut-skip-btn {
   position: absolute;
-  bottom: 18px;
-  left: 18px;
-  z-index: 8;
+  top: 72px;
+  left: 600px;
+  transform: translateX(-100%);
+  transform-origin: top right;
+  z-index: 9;
   display: none;
   min-height: 44px;
   align-items: center;
   justify-content: center;
-  border: 2px solid #3399FF;
+  border: 3px solid #D97706;
   border-radius: 999px;
-  padding: 10px 20px;
-  font-size: 13.5px;
-  font-weight: 700;
+  padding: 9px 22px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
   color: #1D1D1D;
-  background: #FFFFFF;
-  box-shadow: 0 4px 12px rgba(11, 40, 80, 0.28);
+  background: #FFE14D;
+  box-shadow: 0 0 0 3px #FFFFFF, 0 6px 16px rgba(15, 23, 42, 0.35);
   margin: 0;
+  white-space: nowrap;
+  animation: skipTutPulse 1.35s ease-in-out infinite;
 }
 
-.tut-skip-btn.on {
+#btnSkipTut.tut-skip-btn:hover {
+  transform: translateX(-100%);
+  background: #FFF394;
+}
+
+#btnSkipTut.tut-skip-btn.on {
   display: inline-flex;
+}
+
+@keyframes skipTutPulse {
+  0%, 100% {
+    background: #FFE14D;
+    border-color: #D97706;
+    box-shadow: 0 0 0 3px #FFFFFF, 0 6px 16px rgba(15, 23, 42, 0.35);
+  }
+  50% {
+    background: #FFF9C2;
+    border-color: #F59E0B;
+    box-shadow: 0 0 0 4px #FFFFFF, 0 0 20px rgba(255, 225, 77, 0.95), 0 6px 18px rgba(15, 23, 42, 0.4);
+  }
 }
 
 .vis-hidden {
@@ -183,11 +206,16 @@ button.ghost {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  button {
+  button,
+  #btnSkipTut.tut-skip-btn {
     transition: none;
+    animation: none;
   }
   button:hover {
     transform: none;
+  }
+  #btnSkipTut.tut-skip-btn:hover {
+    transform: translateX(-100%);
   }
 }
 
