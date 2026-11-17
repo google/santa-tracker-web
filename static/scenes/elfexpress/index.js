@@ -1355,7 +1355,7 @@ function spawnSnowballOnBelt(preferredBelt, startX = 24) {
     id: S.nextId++, cat: 0, v: 0, belt: safeBelt, state: 'belt',
     isSnowball: true, tappedByPlayer: false,
     x: spawnX, y: beltY(safeBelt) - GIFT_R,
-    timer: 0, teeter: 0,
+    timer: 0, teeter: wave().teeter,
     wrapped: false, tilt: 0, spin: 0, gusted: false,
     path: null, seg: 0, p: 0, speed: 0, dropFloor: -1, ductFloor: -1,
   };
@@ -1506,12 +1506,21 @@ function updateGifts(dt) {
   const pausedBelts = S.relaxT > 0 || pausedByBox;
   const beltSpeedMul = (S.breatheSlowT > 0) ? 0.35 : 1.0;
   const teetering = [];
-  for (const g of S.gifts) if (!g.isSnowball && g.state === 'teeter') teetering[g.belt] = g;
+  for (const g of S.gifts) if (g.state === 'teeter') teetering[g.belt] = g;
 
   for (const g of S.gifts) {
     switch (g.state) {
       case 'belt': {
         if (pausedBelts) break;
+        const edgeItem = teetering[g.belt];
+        const edgeGap = (g.isSnowball || (edgeItem && edgeItem.isSnowball)) ? 48 : 40;
+        let limit = edgeItem ? TEETER_X - edgeGap : TEETER_X;
+        for (const o of S.gifts) {
+          if (o !== g && o.belt === g.belt && (o.state === 'belt' || o.state === 'teeter') && o.x > g.x && o.x - g.x < 240) {
+            const minSep = (g.isSnowball || o.isSnowball) ? 48 : 40;
+            limit = Math.min(limit, o.x - minSep);
+          }
+        }
         if (g.isSnowball) {
           const inGustBelts = !S.gustBelts || S.gustBelts.includes(g.belt);
           const blown = g.gusted || (S.gustT > 0 && inGustBelts && g.x < gustFront());
@@ -1520,9 +1529,11 @@ function updateGifts(dt) {
             if (!g.gustMul) g.gustMul = S.gustMul || wave().gustMul || GUST.beltMul;
           }
           const effGustMul = g.gustMul || S.gustMul || wave().gustMul || GUST.beltMul;
-          const spd = Math.max(52, TUNE.beltSpeed || 38) * (blown ? effGustMul : beltSpeedMul);
-          g.x += spd * dt;
-          g.spin = (g.spin || 0) + (spd * dt) / (TUNE.snowballRadius || GIFT_R);
+          const beltSpd = TUNE.beltSpeed || 49;
+          const spd = beltSpd * (blown ? effGustMul : beltSpeedMul);
+          const prevX = g.x;
+          g.x = Math.min(g.x + spd * dt, limit);
+          g.spin = (g.spin || 0) + Math.max(0, g.x - prevX) / (TUNE.snowballRadius || GIFT_R);
 
           if (g.tappedByPlayer) {
             const e = S.elf;
@@ -1536,16 +1547,13 @@ function updateGifts(dt) {
             }
             g.tappedByPlayer = false;
           }
-          if (g.x >= TEETER_X - 0.5) {
-            g.state = 'falling';
+          if (!teetering[g.belt] && g.x >= TEETER_X - 0.5) {
+            g.x = TEETER_X;
+            g.state = 'teeter';
             g.timer = 0;
+            teetering[g.belt] = g;
           }
           break;
-        }
-        let limit = teetering[g.belt] ? TEETER_X - 40 : TEETER_X;
-        for (const o of S.gifts) {
-          if (o !== g && !o.isSnowball && o.belt === g.belt && (o.state === 'belt' || o.state === 'teeter') &&
-            o.x > g.x && o.x - g.x < 200) limit = Math.min(limit, o.x - 40);
         }
         const inGustBelts = !S.gustBelts || S.gustBelts.includes(g.belt);
         const blown = g.gusted || (S.gustT > 0 && inGustBelts && g.x < gustFront());
