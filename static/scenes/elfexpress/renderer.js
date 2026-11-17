@@ -1440,7 +1440,7 @@ function drawTakeoff(g2, S, t) {
     }
   }
 
-  const k = Math.min(t / 3.4, 1);
+  const k = Math.min(t / 2.4, 1);
   const p = takeoffPath(k);
   for (let i = 1; i < 30; i++) {
     const q = takeoffPath(k - i * 0.028);
@@ -1457,32 +1457,54 @@ function drawTakeoff(g2, S, t) {
   drawSleighAndReindeer(g2, S, 12, 0, 0, -0.18, 1, true);
   g2.restore();
 
-  if (t > 2.2) {
-    const on = reduceMotion || Math.floor(t * 2.5) % 2 === 0 || t > 3.4;
-    if (on) {
-      const waveStars = (S && S.waveStars && S.waveStars.length)
-        ? S.waveStars
-        : Array.from({ length: SLEIGHS.length }, () => true);
-      const starStr = waveStars.map(s => s ? '★' : '☆').join(' ');
-      g2.textAlign = 'center';
-      g2.font = "400 64px Lobster, 'Google Sans', cursive";
-      g2.lineJoin = 'round';
-      g2.strokeStyle = '#1D1D1D'; g2.lineWidth = 14;
-      g2.strokeText(ENDING.big, W / 2, H * 0.60, 820);
-      g2.fillStyle = '#FFE14D';
-      g2.fillText(ENDING.big, W / 2, H * 0.60, 820);
-      g2.font = "bold 20px 'Google Sans',sans-serif";
-      g2.strokeStyle = '#1D1D1D'; g2.lineWidth = 7;
-      g2.strokeText(ENDING.small, W / 2, H * 0.60 + 34, 820);
-      g2.fillStyle = '#FFFFFF';
-      g2.fillText(ENDING.small, W / 2, H * 0.60 + 34, 820);
-      g2.font = "bold 36px 'Google Sans',sans-serif";
-      g2.strokeStyle = '#1D1D1D'; g2.lineWidth = 9;
-      g2.strokeText(starStr, W / 2, H * 0.60 + 78);
-      g2.fillStyle = '#FF7733';
-      g2.fillText(starStr, W / 2, H * 0.60 + 78);
-      g2.textAlign = 'left';
-    }
+  // Flat Santa-Tracker style celebratory confetti
+  const CONFETTI_COLS = ['#FF3333', '#FFE14D', '#32A658', '#03B4C9', '#6F00FF', '#FFFFFF'];
+  g2.save();
+  for (let i = 0; i < 48; i++) {
+    const col = CONFETTI_COLS[i % CONFETTI_COLS.length];
+    const fallSpd = 68 + (i % 5) * 22;
+    const startY = -((i * 41) % 320);
+    const cy = reduceMotion
+      ? ((i * 53) % (H - 80)) + 24
+      : ((startY + t * fallSpd) % (H + 60)) - 20;
+    if (cy < -20 || cy > H + 20) continue;
+    const sway = reduceMotion ? 0 : Math.sin(t * (2.6 + (i % 4) * 0.5) + i * 1.3) * 18;
+    const cx0 = ((i * 73 + 29) % (W - 40)) + 20 + sway;
+    const ang = reduceMotion ? (i * 0.5) : (t * (2.2 + (i % 3) * 0.8) * (i % 2 ? 1 : -1) + i);
+    const cw = (i % 3 === 0) ? 10 : 12;
+    const ch = (i % 2 === 0) ? 6 : 8;
+    g2.save();
+    g2.translate(cx0, cy);
+    g2.rotate(ang);
+    g2.fillStyle = col;
+    g2.fillRect(-cw / 2, -ch / 2, cw, ch);
+    g2.restore();
+  }
+  g2.restore();
+
+  if (t > 0.65) {
+    const waveStars = (S && S.waveStars && S.waveStars.length)
+      ? S.waveStars
+      : Array.from({ length: SLEIGHS.length }, () => true);
+    const starStr = waveStars.map(s => s ? '★' : '☆').join(' ');
+    g2.textAlign = 'center';
+    g2.font = "400 64px Lobster, 'Google Sans', cursive";
+    g2.lineJoin = 'round';
+    g2.strokeStyle = '#1D1D1D'; g2.lineWidth = 14;
+    g2.strokeText(ENDING.big, W / 2, H * 0.60, 820);
+    g2.fillStyle = '#FFE14D';
+    g2.fillText(ENDING.big, W / 2, H * 0.60, 820);
+    g2.font = "bold 20px 'Google Sans',sans-serif";
+    g2.strokeStyle = '#1D1D1D'; g2.lineWidth = 7;
+    g2.strokeText(ENDING.small, W / 2, H * 0.60 + 34, 820);
+    g2.fillStyle = '#FFFFFF';
+    g2.fillText(ENDING.small, W / 2, H * 0.60 + 34, 820);
+    g2.font = "bold 36px 'Google Sans',sans-serif";
+    g2.strokeStyle = '#1D1D1D'; g2.lineWidth = 9;
+    g2.strokeText(starStr, W / 2, H * 0.60 + 78);
+    g2.fillStyle = '#FF7733';
+    g2.fillText(starStr, W / 2, H * 0.60 + 78);
+    g2.textAlign = 'left';
   }
 }
 
