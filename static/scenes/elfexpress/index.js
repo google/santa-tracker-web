@@ -1394,8 +1394,10 @@ function clearSnowballTaps() {
   }
 }
 
+const isTutBlockingBox = () => Boolean(S && S.tut && S.tutBoxUp && S.tut !== 2 && S.tut !== 3 && S.tut !== 4);
+
 function tryGrabBeltSnowball(forgiving = false) {
-  if (!S || S.mode !== 'play' || (S.tut && S.tutBoxUp) || S.snowballBoxUp) return false;
+  if (!S || S.mode !== 'play' || isTutBlockingBox() || S.snowballBoxUp) return false;
   const e = S.elf;
   if (e.climbing) return false;
   const maxX = forgiving ? LADDER_CX + 16 : TAP_SPLIT + 16;
@@ -1596,7 +1598,7 @@ function processWaveQueue(dt) {
 }
 
 function updateGifts(dt) {
-  const pausedByBox = Boolean((S.tut && S.tutBoxUp && S.tut !== 5) || S.snowballBoxUp);
+  const pausedByBox = Boolean((S.tut === 1 && S.tutBoxUp) || S.snowballBoxUp);
   const pausedBelts = S.relaxT > 0 || pausedByBox;
   const beltSpeedMul = (S.breatheSlowT > 0) ? 0.35 : 1.0;
   const teetering = [];
@@ -1899,7 +1901,10 @@ const atChute = () => !S.elf.climbing && S.elf.x >= LADDER_CX - 16;
 
 function doAction(edge, manual) {
   if (!S || S.mode !== 'play') return;
-  if ((S.tut && S.tutBoxUp) || S.snowballBoxUp) return;
+  if (isTutBlockingBox() || S.snowballBoxUp) return;
+  if (manual && S.tut && S.tutBoxUp && (S.tut === 2 || S.tut === 3 || S.tut === 4)) {
+    S.tutBoxUp = false;
+  }
   const e = S.elf;
 
   if (manual && edge && e.bag.length > 0 && atChute()) {
@@ -2156,7 +2161,7 @@ function stepTo(e, tf, tx, dt) {
 function updateElf(dt) {
   const e = S.elf;
   const prevX = e.x, prevY = e.y;
-  if (S.snowballBoxUp || (S.tut && (S.tutBoxUp || (S.tut !== 2 && S.tut !== 3 && S.tut !== 4) || (S.tut === 4 && e.bag.length === 0)))) {
+  if (S.snowballBoxUp || (S.tut && (isTutBlockingBox() || (S.tut !== 2 && S.tut !== 3 && S.tut !== 4) || (S.tut === 4 && e.bag.length === 0)))) {
     clearKeys();
     if (!e.climbing && S.tut !== 5) {
       e.y = feetY(e.floor);
@@ -2658,7 +2663,7 @@ function frame(now) {
     if (S.snowballBoxUp && S.snowballBoxLockT > 0) {
       S.snowballBoxLockT = Math.max(0, S.snowballBoxLockT - dt);
     }
-    const pausedByTutBox = Boolean((S.tut && S.tutBoxUp && S.tut !== 5) || S.snowballBoxUp);
+    const pausedByTutBox = Boolean((S.tut === 1 && S.tutBoxUp) || S.snowballBoxUp);
     if (!pausedByTutBox) {
       S.t += dt;
       if (!S.tut && S.relaxT <= 0) {
@@ -2703,9 +2708,12 @@ function onKeyDown(ev) {
   if (!S || S.mode !== 'play') return;
   const k = KEYMAP[ev.key];
   if (k) {
-    if (S.snowballBoxUp || (S.tut && (S.tutBoxUp || (S.tut !== 2 && S.tut !== 3 && S.tut !== 4) || (S.tut === 4 && S.elf.bag.length === 0) || (S.tut === 2 && (k === 'up' || k === 'down'))))) {
+    if (S.snowballBoxUp || (S.tut && (isTutBlockingBox() || (S.tut !== 2 && S.tut !== 3 && S.tut !== 4) || (S.tut === 4 && S.elf.bag.length === 0) || (S.tut === 2 && (k === 'up' || k === 'down'))))) {
       ev.preventDefault();
       return;
+    }
+    if (S.tut && S.tutBoxUp && (S.tut === 2 || S.tut === 3 || S.tut === 4)) {
+      S.tutBoxUp = false;
     }
     const wasDown = !!S.keys[k];
     S.keys[k] = true;
@@ -2749,10 +2757,13 @@ function onKeyDown(ev) {
       document.activeElement.blur();
       cv.focus({ preventScroll: true });
     }
-    if ((S.tut && S.tutBoxUp) || S.snowballBoxUp) {
+    if (isTutBlockingBox() || S.snowballBoxUp) {
       if (!ev.repeat) tutDismissOk();
       ev.preventDefault();
       return;
+    }
+    if (S.tut && S.tutBoxUp && (S.tut === 2 || S.tut === 3 || S.tut === 4)) {
+      S.tutBoxUp = false;
     }
     if (!ev.repeat) {
       S.actionEdge = true;
@@ -2818,15 +2829,43 @@ window.addEventListener('blur', () => {
   }
 });
 
+function resolveTapFloor(p) {
+  const maxF = activeFloors() - 1;
+  if (p.x < TAP_SPLIT && S && S.gifts) {
+    let bestF = -1;
+    let bestDist = 42;
+    for (const g of S.gifts) {
+      if (g.tutWatch || g.state === 'done' || g.state === 'carried' || g.belt > maxF) continue;
+      if (g.state === 'belt' || g.state === 'teeter' || g.state === 'falling' || g.state === 'landed') {
+        const d = Math.hypot(p.x - g.x, p.y - g.y);
+        if (d < bestDist) {
+          bestDist = d;
+          bestF = g.belt;
+        }
+      }
+    }
+    if (bestF >= 0) return bestF;
+    const bf = Math.floor((GROUND_Y - (p.y + 24)) / FLOOR_H);
+    return Math.max(0, Math.min(4, bf));
+  }
+  return Math.max(0, Math.min(4, Math.floor((GROUND_Y - p.y) / FLOOR_H)));
+}
+
 function tapTarget(p) {
-  if ((S.tut && S.tutBoxUp) || S.snowballBoxUp) {
-    tutDismissOk();
-    return;
+  if (S.snowballBoxUp) {
+    if (!tutDismissOk()) return;
   }
   if (S.tut) {
     const st = TUT[S.tut - 1];
-    if (!st || st.go === 'ok') return;
-    const tf = Math.max(0, Math.min(4, Math.floor((GROUND_Y - p.y) / FLOOR_H)));
+    if (!st) return;
+    if (st.go === 'ok') {
+      tutDismissOk();
+      return;
+    }
+    if (S.tutBoxUp) {
+      S.tutBoxUp = false;
+    }
+    const tf = resolveTapFloor(p);
     const side = p.x < TAP_SPLIT ? 'belt' : 'chute';
     if (st.go === 'belt') {
       if (side !== 'belt' || tf !== st.f) return;
@@ -2837,8 +2876,7 @@ function tapTarget(p) {
     }
   }
 
-  let f = Math.floor((GROUND_Y - p.y) / FLOOR_H);
-  f = Math.max(0, Math.min(4, f));
+  const f = resolveTapFloor(p);
   if (f >= activeFloors()) return;
   const t = { type: p.x < TAP_SPLIT ? 'belt' : 'chute', floor: f };
 
