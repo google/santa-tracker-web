@@ -27,7 +27,7 @@ export const TUNE = {
   speedPct: 100,           // Current elf speed as % of base (100%)
   runSpeed: 1200,          // Elf horizontal run speed at 100% (px/s)
   climbSpeed: 700,         // Elf ladder climb speed at 100% (px/s)
-  beltSpeed: 49,           // Conveyor belt speed (px/s, placeholder from test version D)
+  beltSpeed: 49,           // Conveyor belt speed (px/s, balance version E)
   snowballSlowTime: 2.5,   // Duration elf stays snow-covered and moves at half speed when catching a snowball (s)
   snowballSlowMul: 0.50,   // Exact half speed multiplier while snow-covered
   snowballRadius: 31.5,    // Snowball radius on belt (~1.5x original size: 63x63 px)
@@ -42,7 +42,7 @@ export const TUNE = {
   sleighFlyTime: 1.8,      // Sleigh + reindeer takeoff & glide-back duration during the 3s break (s)
   dualToysFromWave: 3,     // Sleigh (1-8) that introduces second toys at level start (Sleigh 3)
   hurryMusicFromWave: 8,   // Sleigh (1-8) that starts game_hurry_up music at level start (Sleigh 8 only)
-  snowBigFlakesFromWave: 6, // Sleigh (1-8) where big snowflakes and snow covering gifts turn on
+  snowBigFlakesFromWave: 5, // Sleigh (1-8) where big snowflakes and snow covering gifts turn on
   basePoints: 100,
   sleighBonus: 400,
   comboStep: 4,
@@ -174,11 +174,11 @@ export const WAVES = [
     startFloors: 5,
     pulses: 1,
     flowCount: 10,
-    flowGap: 1.11,
+    flowGap: 1.08,
     speedUpCount: 9,
-    speedUpGap: 1.02,
+    speedUpGap: 1,
     burstSize: 4,
-    burstGap: 0.93,
+    burstGap: 0.91,
     pairs: 11,
     snowballs: 2,
     gusts: 2,
@@ -199,11 +199,11 @@ export const WAVES = [
     startFloors: 5,
     pulses: 1,
     flowCount: 10,
-    flowGap: 1.02,
+    flowGap: 0.98,
     speedUpCount: 10,
-    speedUpGap: 0.94,
+    speedUpGap: 0.9,
     burstSize: 4,
-    burstGap: 0.86,
+    burstGap: 0.82,
     pairs: 12,
     snowballs: 3,
     gusts: 3,
@@ -224,11 +224,11 @@ export const WAVES = [
     startFloors: 5,
     pulses: 1,
     flowCount: 11,
-    flowGap: 0.94,
+    flowGap: 0.87,
     speedUpCount: 11,
-    speedUpGap: 0.86,
+    speedUpGap: 0.8,
     burstSize: 4,
-    burstGap: 0.79,
+    burstGap: 0.74,
     pairs: 13,
     snowballs: 3,
     gusts: 3,
@@ -248,12 +248,12 @@ export const WAVES = [
     floors: 5,
     startFloors: 5,
     pulses: 1,
-    flowCount: 12,
-    flowGap: 0.87,
+    flowCount: 13,
+    flowGap: 0.79,
     speedUpCount: 12,
-    speedUpGap: 0.79,
+    speedUpGap: 0.73,
     burstSize: 5,
-    burstGap: 0.72,
+    burstGap: 0.67,
     pairs: 15,
     snowballs: 4,
     gusts: 4,
@@ -287,7 +287,7 @@ export const SNOW = [
   { at: 7, fall: 2.20, label: 'Heaviest blizzard' },
 ];
 export const SNOW_PILE = 0.048;
-export const SNOW_BIG_FLAKES_FROM_WAVE = 6;
+export const SNOW_BIG_FLAKES_FROM_WAVE = 5;
 export const SNOW_MAX_GIFT_COVER = 0.32;
 
 // ============================================================================
