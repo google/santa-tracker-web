@@ -496,7 +496,7 @@ function drawIconBadge(g2, cat, x, y, s, v = 0) {
 function drawSnowballOnBelt(g2, g) {
   const r = TUNE.snowballRadius || 21;
   const sz = r * 2;
-  const ang = reduceMotion ? 0 : (g.spin || (g.x * 0.05));
+  const ang = reduceMotion ? 0 : ((g.spin || 0) + (g.tilt || 0));
   const sbImg = PROPS.snowball && PROPS.snowball.img;
   g2.save();
   g2.rotate(ang);
