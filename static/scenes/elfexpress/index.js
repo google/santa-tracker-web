@@ -1682,12 +1682,13 @@ function updateGifts(dt) {
         }
         const k = (g.tutGift && len > 100) ? 0.65 : Math.min(g.timer / len, 1);
         g.teeterProg = (g.tutGift && len > 100) ? 0 : k;
-        g.tilt = reduceMotion ? 0
+        g.tilt = (reduceMotion || g.isSnowball) ? 0
           : Math.sin(g.timer * 5.5 * Math.PI) * 0.14;
         if (!g.tutGift && g.timer >= len) {
           if (g.isSnowball) {
-            g.state = 'falling';
-            g.timer = 0;
+            puff(g.x, g.y - 6, '#FFFFFF', 14);
+            puff(g.x, g.y - 6, '#BAE6FD', 10);
+            g.state = 'done';
             g.tilt = 0;
           } else {
             g.state = 'fading';
