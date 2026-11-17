@@ -96,6 +96,11 @@ export function fit() {
   cx.setTransform(scale * dpr, 0, 0, scale * dpr, offsetX * dpr, offsetY * dpr);
   const dir = document.documentElement.dir || document.dir || 'inherit';
   if (cx.direction !== dir) cx.direction = dir;
+  const skipBtn = document.getElementById('btnSkipTut');
+  if (skipBtn) {
+    skipBtn.style.left = Math.round(offsetX + (BUILD_X1 - 12) * scale) + 'px';
+    skipBtn.style.top = Math.round(offsetY + 68 * scale) + 'px';
+  }
 }
 
 export function toGame(ev) {
@@ -1588,7 +1593,7 @@ function drawTutorialBox(g2, S) {
   const textH = lines.length * lineH;
   const boxH = textH + (showTapFooter ? 62 : 40);
   const boxX = Math.round((BUILD_X0 + BUILD_X1) / 2 - boxW / 2);
-  const boxY = 124;
+  const boxY = 132;
 
   TUT_BOX_RECT.x = boxX;
   TUT_BOX_RECT.y = boxY;
