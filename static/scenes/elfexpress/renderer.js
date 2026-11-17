@@ -522,16 +522,42 @@ function drawGift(g2, g) {
     g2.restore();
     return;
   }
-  if (g.state === 'inBin') g2.scale(0.80, 0.80);
+  if (g.state === 'fading') {
+    const a = Math.max(0, Math.min(1, g.fadeAlpha !== undefined ? g.fadeAlpha : 1));
+    g2.globalAlpha *= a;
+    const sc = 0.72 + 0.28 * a;
+    g2.scale(sc, sc);
+  } else if (g.state === 'inBin') {
+    g2.scale(0.80, 0.80);
+  }
+  const teeterK = (g.state === 'teeter' && !g.tutGift) ? (g.teeterProg || 0) : 0;
+  const inDanger = teeterK >= 0.40;
+  const dangerU = inDanger ? (teeterK - 0.40) / 0.60 : 0;
+  const dangerFlash = inDanger && (reduceMotion ? teeterK >= 0.60 : (Math.sin((g.timer || 0) * (10 + 18 * dangerU) * Math.PI) > -0.15));
+  if (dangerFlash && !reduceMotion) {
+    const pSc = 1 + 0.08 * dangerU;
+    g2.scale(pSc, pSc);
+  }
   if (g.tilt) g2.rotate(g.tilt);
   if (g.spin && (g.state === 'toBin' || g.state === 'landed')) g2.rotate(Math.sin(g.spin) * 0.28);
   if (g.wrapped) drawWrapped(g2, 0, 0, 0.92, g.id || g.cat || 0);
   else {
     const c = CATS[g.cat];
-    g2.fillStyle = c.glow; g2.beginPath(); g2.arc(0, 0, GIFT_R + 7, 0, 7); g2.fill();
-    g2.fillStyle = 'rgba(15,23,42,.85)'; g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.fill();
-    g2.strokeStyle = c.color; g2.lineWidth = 2.4;
-    g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.stroke();
+    if (dangerFlash || g.state === 'fading') {
+      g2.fillStyle = '#FF3333';
+      g2.beginPath(); g2.arc(0, 0, GIFT_R + 8.5, 0, 7); g2.fill();
+      g2.strokeStyle = '#FFE14D'; g2.lineWidth = 2.2;
+      g2.beginPath(); g2.arc(0, 0, GIFT_R + 8.5, 0, 7); g2.stroke();
+      g2.fillStyle = '#7F1D1D';
+      g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.fill();
+      g2.strokeStyle = '#FF3333'; g2.lineWidth = 2.8;
+      g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.stroke();
+    } else {
+      g2.fillStyle = c.glow; g2.beginPath(); g2.arc(0, 0, GIFT_R + 7, 0, 7); g2.fill();
+      g2.fillStyle = 'rgba(15,23,42,.85)'; g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.fill();
+      g2.strokeStyle = c.color; g2.lineWidth = 2.4;
+      g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.stroke();
+    }
     drawIcon(g2, g.cat, 0, 0, 1.02, g.v || 0);
   }
   g2.restore();
@@ -1177,7 +1203,7 @@ function drawSnow(g2, S) {
   const visGifts = [];
   if (S.gifts) {
     for (const g of S.gifts) {
-      if (g.state === 'done') continue;
+      if (g.state === 'done' || g.state === 'fading') continue;
       visGifts.push({ x: g.x, y: g.y, cover: 0 });
     }
   }
@@ -1640,6 +1666,35 @@ function drawTuneSpeedHud(g2, S) {
 }
 
 
+function drawBinPops(g2, S) {
+  if (!S || !S.binPops || !S.binPops.length) return;
+  g2.save();
+  g2.font = "bold 20px 'Google Sans',sans-serif";
+  g2.textAlign = 'center';
+  g2.textBaseline = 'middle';
+  for (const bp of S.binPops) {
+    const prog = Math.min(1, Math.max(0, bp.age / (bp.life || 0.95)));
+    const alpha = prog < 0.10 ? prog / 0.10 : (prog > 0.68 ? (1 - prog) / 0.32 : 1);
+    const lift = reduceMotion ? 12 : prog * 28;
+    const sc = prog < 0.22 ? (0.88 + 0.32 * (prog / 0.22)) : 1.0;
+    g2.save();
+    g2.globalAlpha = Math.max(0, Math.min(1, alpha));
+    g2.translate(bp.x || BIN_X, (bp.y || (BIN_Y - 26)) - lift);
+    g2.scale(sc, sc);
+    g2.fillStyle = '#FF3333';
+    g2.strokeStyle = '#FFFFFF';
+    g2.lineWidth = 2.5;
+    g2.beginPath();
+    g2.roundRect(-20, -13, 40, 26, 13);
+    g2.fill();
+    g2.stroke();
+    g2.fillStyle = '#FFFFFF';
+    g2.fillText('+1', 0, 1);
+    g2.restore();
+  }
+  g2.restore();
+}
+
 export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
   const stg = document.getElementById('stage');
   if (stg && stg.clientWidth > 0 && stg.clientHeight > 0 && (stg.clientWidth !== lastFitW || stg.clientHeight !== lastFitH)) {
@@ -1702,6 +1757,7 @@ export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
     }
   }
   cx.globalAlpha = 1;
+  drawBinPops(cx, S);
 
   drawSnow(cx, S);
   drawGust(cx, S);
