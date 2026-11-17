@@ -1914,7 +1914,7 @@ function doAction(edge, manual) {
     ensureTutGift(0, 1);
   } else if (S.tut === 3) {
     S.tut = 4;
-    S.tutBoxUp = true;
+    S.tutBoxUp = false;
     S.tutTimer = 0;
     clearKeys();
   }
