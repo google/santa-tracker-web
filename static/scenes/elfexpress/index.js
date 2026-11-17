@@ -1596,7 +1596,7 @@ function processWaveQueue(dt) {
 }
 
 function updateGifts(dt) {
-  const pausedByBox = Boolean((S.tut && S.tutBoxUp) || S.snowballBoxUp);
+  const pausedByBox = Boolean((S.tut && S.tutBoxUp && S.tut !== 5) || S.snowballBoxUp);
   const pausedBelts = S.relaxT > 0 || pausedByBox;
   const beltSpeedMul = (S.breatheSlowT > 0) ? 0.35 : 1.0;
   const teetering = [];
@@ -2027,12 +2027,7 @@ function landInSleigh(g) {
     S.inSleigh = Math.min(2, (S.inSleigh || 0) + 1);
     puff(SLEIGH_X, SLEIGH_Y - 18, '#FFE14D', 16);
     if (S.tut === 4 && S.inSleigh >= 2 && S.elf.bag.length === 0) {
-      S.tut = 5;
-      S.tutBoxUp = true;
-      S.tutTimer = 0;
-      S.cmd = null;
-      S.queue = null;
-      clearKeys();
+      startTutMissDemo();
     }
     return;
   }
@@ -2163,7 +2158,7 @@ function updateElf(dt) {
   const prevX = e.x, prevY = e.y;
   if (S.snowballBoxUp || (S.tut && (S.tutBoxUp || (S.tut !== 2 && S.tut !== 3 && S.tut !== 4) || (S.tut === 4 && e.bag.length === 0)))) {
     clearKeys();
-    if (!e.climbing) {
+    if (!e.climbing && S.tut !== 5) {
       e.y = feetY(e.floor);
       e.bob = 0;
     }
@@ -2486,14 +2481,51 @@ function ensureTutGift(cat, belt = 0) {
   tutGift(cat, belt);
 }
 
-function tutWatchGift(cat) {
+function startTutMissDemo() {
+  if (!S) return;
+  S.tut = 5;
+  S.tutBoxUp = true;
+  S.tutTimer = 0;
+  S.tutDemoLockT = 0.35;
+  S.cmd = null;
+  S.queue = null;
+  clearKeys();
+  S.gifts = [];
+  S.recycled = 0;
+  S.binPops = [];
+  const e = S.elf;
+  e.bag = [];
+  e.carrying = null;
+  e.climbing = false;
+  e.climbTo = null;
+  e.floor = 0;
+  e.x = CHUTE_CX;
+  e.y = feetY(0);
+  e.facing = -1;
+  e.bob = 0;
+  syncCarry();
+
+  // 1. Toy at the far end (Belt 1) that teeters with the danger warning and fades away before the elf arrives
   S.gifts.push({
-    id: S.nextId++, cat, v: 0, belt: 0, state: 'belt',
-    x: TEETER_X - 36, y: beltY(0) - GIFT_R,
-    timer: 0, teeter: 0.45, tutWatch: true,
+    id: S.nextId++, cat: 0, v: 0, belt: 1, state: 'teeter',
+    x: TEETER_X, y: beltY(1) - GIFT_R,
+    timer: 0.15, teeter: 1.45, teeterProg: 0.10, tutWatch: true,
     wrapped: false, tilt: 0, spin: 0, gusted: false,
     path: null, seg: 0, p: 0, speed: 0, dropFloor: -1, ductFloor: -1,
   });
+
+  // 2. Simultaneous toy dropped into the wrong chute on Floor 0 and sent to the recycler
+  const wrongGift = {
+    id: S.nextId++, cat: 1, v: 0, belt: 0, state: 'toStation',
+    x: CHUTE_BX + 24, y: chuteY(0),
+    timer: 0, teeter: 1.0, tutWatch: true,
+    wrapped: false, tilt: 0, spin: 0, gusted: false,
+    path: null, seg: 0, p: 0, speed: 0, dropFloor: 0, ductFloor: 0,
+  };
+  pathTo(wrongGift, [{ x: MACH_CX, y: chuteY(0) }], 360);
+  S.gifts.push(wrongGift);
+  S.floorPulse[0] = 0.45;
+  puff(CHUTE_CX, chuteY(0), '#FF3333', 8);
 }
 
 function tutFinish() {
@@ -2583,14 +2615,7 @@ function tutDismissOk() {
     return true;
   }
   if (S.tut === 5) {
-    S.tutBoxUp = false;
-    S.tutTimer = 0;
-    if (!S.gifts.some(g => g.tutWatch)) {
-      tutWatchGift(0);
-    }
-    return true;
-  }
-  if (S.tut === 6) {
+    if ((S.tutDemoLockT || 0) > 0) return false;
     tutFinish();
     return true;
   }
@@ -2603,6 +2628,19 @@ function updateTutorial(dt) {
     ensureTutGift(1, 0);
   } else if (S.tut === 3 && S.elf.bag.length < 2) {
     ensureTutGift(0, 1);
+  } else if (S.tut === 5) {
+    S.tutTimer = (S.tutTimer || 0) + dt;
+    if (S.tutDemoLockT > 0) {
+      S.tutDemoLockT = Math.max(0, S.tutDemoLockT - dt);
+    }
+    const e = S.elf;
+    const beltToy = S.gifts.find(g => g.tutWatch && g.belt === 1 && g.state === 'teeter');
+    if (beltToy && S.tutTimer >= 0.14) {
+      stepTo(e, 1, DROP_CX + 52, dt * 0.42);
+    } else if (!e.climbing) {
+      e.y = feetY(e.floor);
+      e.bob = 0;
+    }
   }
 }
 
@@ -2620,7 +2658,7 @@ function frame(now) {
     if (S.snowballBoxUp && S.snowballBoxLockT > 0) {
       S.snowballBoxLockT = Math.max(0, S.snowballBoxLockT - dt);
     }
-    const pausedByTutBox = Boolean((S.tut && S.tutBoxUp) || S.snowballBoxUp);
+    const pausedByTutBox = Boolean((S.tut && S.tutBoxUp && S.tut !== 5) || S.snowballBoxUp);
     if (!pausedByTutBox) {
       S.t += dt;
       if (!S.tut && S.relaxT <= 0) {
@@ -2643,8 +2681,8 @@ function frame(now) {
     if (S.catchFlash > 0) S.catchFlash = Math.max(0, S.catchFlash - dt * 1.4);
     if (!pausedByTutBox && S.breatheCueT > 0) S.breatheCueT = Math.max(0, S.breatheCueT - dt);
     if (!pausedByTutBox && S.breatheSlowT > 0) S.breatheSlowT = Math.max(0, S.breatheSlowT - dt);
-    if (S.binPulse > 0 && S.tut !== 6) S.binPulse = Math.max(0, S.binPulse - dt);
-    if (S.binShake > 0 && S.tut !== 6) S.binShake = Math.max(0, S.binShake - dt * 1.4);
+    if (S.binPulse > 0 && S.tut !== 5) S.binPulse = Math.max(0, S.binPulse - dt);
+    if (S.binShake > 0) S.binShake = Math.max(0, S.binShake - dt * 1.4);
     if (S.sleighFlyT > 0) S.sleighFlyT = Math.max(0, S.sleighFlyT - dt);
     for (let i = 0; i < 5; i++) {
       if (S.floorPulse[i] > 0) S.floorPulse[i] = Math.max(0, S.floorPulse[i] - dt * 1.6);

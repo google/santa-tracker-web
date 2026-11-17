@@ -541,12 +541,6 @@ export const TUT = [
     ok: true,
     text: "Sometimes you won't make it in time, or you'll put a toy in the wrong chute. Missed toys go to the recycler.",
   },
-  {
-    step: 6,
-    go: 'ok',
-    ok: true,
-    text: "Sometimes you won't make it in time, or you'll put a toy in the wrong chute. Missed toys go to the recycler.",
-  },
 ];
 
 export const SNOWBALL_TUT_BOX = {
