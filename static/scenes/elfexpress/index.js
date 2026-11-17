@@ -45,6 +45,7 @@ TUNE.climbSpeed = TUNE.baseClimbSpeed || 700;
 let S = null;
 let elfChoice = 0;
 let shortcutWave = 0;
+let missFxMode = 'A';
 let tunePanelEl = null;
 let tuneControls = null;
 let activeInputMode = 'touch';
@@ -104,6 +105,30 @@ function parseWaveShortcut(data) {
   }
   const n = parseInt(raw, 10);
   return (n >= 1 && n <= WAVES.length) ? n : 0;
+}
+
+function parseMissFx(data) {
+  let raw = data && (data.missfx || data.missFx);
+  if (raw === undefined || raw === null || raw === '') {
+    try {
+      const sp = new URLSearchParams(window.location.search);
+      raw = sp.get('missfx') || sp.get('missFx');
+    } catch (_) {}
+  }
+  if ((raw === undefined || raw === null || raw === '') && document.referrer) {
+    try {
+      const sp = new URL(document.referrer).searchParams;
+      raw = sp.get('missfx') || sp.get('missFx');
+    } catch (_) {}
+  }
+  if (raw === undefined || raw === null || raw === '') {
+    try {
+      const sp = new URLSearchParams(window.top.location.search);
+      raw = sp.get('missfx') || sp.get('missFx');
+    } catch (_) {}
+  }
+  const up = String(raw || '').trim().toUpperCase();
+  return (up === 'A' || up === 'B' || up === 'C') ? up : 'A';
 }
 
 function hasTuneFlag(data) {
@@ -428,6 +453,7 @@ function newGame() {
     },
     liveSpeed: 0,
     inputMode: activeInputMode,
+    missFx: missFxMode || 'A',
     tuneMode: !!tunePanelEl,
     cmd: null, queue: null, keys: {},
     beltIdleAfterGiftFloor: -1,
@@ -1682,8 +1708,16 @@ function updateGifts(dt) {
         }
         const k = (g.tutGift && len > 100) ? 0.65 : Math.min(g.timer / len, 1);
         g.teeterProg = (g.tutGift && len > 100) ? 0 : k;
-        g.tilt = (reduceMotion || g.isSnowball) ? 0
-          : Math.sin(g.timer * 5.5 * Math.PI) * 0.14;
+        if (reduceMotion || g.isSnowball) {
+          g.tilt = 0;
+        } else if (g.tutGift && len > 100) {
+          g.tilt = Math.sin(g.timer * 4.5 * Math.PI) * 0.10;
+        } else {
+          const freq = (1.4 + 3.2 * k * k) * Math.PI * 2;
+          g.wobblePhase = (g.wobblePhase || 0) + dt * freq;
+          const amp = 0.09 + 0.35 * Math.pow(k, 1.35);
+          g.tilt = Math.sin(g.wobblePhase) * amp;
+        }
         if (!g.tutGift && g.timer >= len) {
           if (g.isSnowball) {
             puff(g.x, g.y - 6, '#FFFFFF', 14);
@@ -1691,13 +1725,23 @@ function updateGifts(dt) {
             g.state = 'done';
             g.tilt = 0;
           } else {
+            const fx = (S && S.missFx) || missFxMode || 'A';
             g.state = 'fading';
             g.timer = 0;
-            g.fadeDur = 0.28;
+            g.missFx = fx;
+            g.baseX = g.x;
+            g.baseY = g.y;
+            g.fadeDur = fx === 'B' ? 0.34 : (fx === 'C' ? 0.38 : 0.36);
             g.fadeAlpha = 1;
-            g.tilt = 0;
-            puff(g.x, g.y, '#FFFFFF', 8);
-            puff(g.x, g.y, CATS[g.cat] ? CATS[g.cat].color : '#BAE6FD', 6);
+            g.fadeScale = 1;
+            g.fadeProg = 0;
+            g.puffDone = false;
+            g.tilt = fx === 'A' ? 0.18 : 0;
+            if (fx === 'C') {
+              puff(g.x, g.y, '#FFFFFF', 12);
+              puff(g.x, g.y, '#E2E8F0', 8);
+              g.puffDone = true;
+            }
             breakCombo();
             api.play('pd_item_miss');
             if (g.tutWatch) {
@@ -1717,8 +1761,49 @@ function updateGifts(dt) {
       case 'fading': {
         if (pausedByBox) break;
         g.timer += dt;
-        const dur = g.fadeDur || 0.34;
-        g.fadeAlpha = Math.max(0, 1 - g.timer / dur);
+        const dur = g.fadeDur || 0.36;
+        const u = Math.min(1, g.timer / dur);
+        g.fadeProg = u;
+        const fx = g.missFx || (S && S.missFx) || missFxMode || 'A';
+        const toyCol = CATS[g.cat] ? CATS[g.cat].color : '#BAE6FD';
+        if (fx === 'B') {
+          g.x = g.baseX !== undefined ? g.baseX : g.x;
+          g.y = g.baseY !== undefined ? g.baseY : g.y;
+          g.tilt = 0;
+          if (u < 0.38) {
+            const s = u / 0.38;
+            g.fadeScale = 1 + 0.28 * Math.sin(s * Math.PI * 0.5);
+            g.fadeAlpha = 1;
+          } else {
+            const s = (u - 0.38) / 0.62;
+            g.fadeScale = Math.max(0, 1.28 * (1 - s * s));
+            g.fadeAlpha = Math.max(0, 1 - Math.pow(s, 1.4));
+            if (!g.puffDone && u >= 0.42) {
+              g.puffDone = true;
+              puff(g.x, g.y, '#FFFFFF', 8);
+              puff(g.x, g.y, toyCol, 6);
+            }
+          }
+        } else if (fx === 'C') {
+          g.x = g.baseX !== undefined ? g.baseX : g.x;
+          g.y = g.baseY !== undefined ? g.baseY : g.y;
+          g.tilt = 0;
+          g.fadeAlpha = u < 0.30 ? Math.max(0, 1 - u / 0.30) : 0;
+          g.fadeScale = 1 - 0.25 * Math.min(1, u / 0.30);
+        } else {
+          const bx = g.baseX !== undefined ? g.baseX : TEETER_X;
+          const by = g.baseY !== undefined ? g.baseY : (beltY(g.belt) - GIFT_R);
+          g.x = bx + 14 * u;
+          g.y = by + 38 * (u * u);
+          g.tilt = reduceMotion ? 0 : (0.18 + 0.78 * u);
+          g.fadeScale = 1 - 0.28 * u;
+          g.fadeAlpha = Math.max(0, 1 - Math.pow(u, 1.25));
+          if (!g.puffDone && u >= 0.78) {
+            g.puffDone = true;
+            puff(g.x, g.y, '#FFFFFF', 7);
+            puff(g.x, g.y, toyCol, 5);
+          }
+        }
         if (g.timer >= dur) {
           g.state = 'done';
         }
@@ -3018,6 +3103,8 @@ api.addEventListener('restart', () => {
 
 api.addEventListener('data', ev => {
   const detail = ev && ev.detail;
+  missFxMode = parseMissFx(detail);
+  if (S) S.missFx = missFxMode;
   if (hasTuneFlag(detail)) initTunePanel();
   const w = parseWaveShortcut(detail);
   if (w) {
@@ -3035,12 +3122,15 @@ if (typeof CanvasRenderingContext2D !== 'undefined' &&
   };
 }
 
+missFxMode = parseMissFx(null);
 fit(); newGame(); S.mode = 'idle';
 if (hasTuneFlag(null)) initTunePanel();
 raf = requestAnimationFrame(frame);
 api.ready(data => {
   fit();
   api.play('qd_load_sounds');
+  missFxMode = parseMissFx(data);
+  if (S) S.missFx = missFxMode;
   if (hasTuneFlag(data)) initTunePanel();
   shortcutWave = parseWaveShortcut(data);
   if (shortcutWave) {
