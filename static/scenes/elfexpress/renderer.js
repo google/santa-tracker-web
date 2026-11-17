@@ -1570,7 +1570,7 @@ export const TUT_BOX_RECT = { x: 104, y: 120, w: 460, h: 124 };
 
 function getActiveTextBox(S) {
   if (!S) return null;
-  if (S.tut && S.tutBoxUp) return TUT[S.tut - 1] || null;
+  if (S.tut) return TUT[S.tut - 1] || null;
   if (S.snowballBoxUp) return SNOWBALL_TUT_BOX;
   return null;
 }
@@ -1578,6 +1578,7 @@ function getActiveTextBox(S) {
 function drawTutorialBox(g2, S) {
   const st = getActiveTextBox(S);
   if (!st || !st.text) return;
+  const showTapFooter = Boolean(S.snowballBoxUp || st.go === 'ok');
 
   const boxW = 460;
   g2.save();
@@ -1585,7 +1586,7 @@ function drawTutorialBox(g2, S) {
   const lines = wrapText(g2, st.text, boxW - 44);
   const lineH = 25;
   const textH = lines.length * lineH;
-  const boxH = textH + 62;
+  const boxH = textH + (showTapFooter ? 62 : 40);
   const boxX = Math.round((BUILD_X0 + BUILD_X1) / 2 - boxW / 2);
   const boxY = 124;
 
@@ -1617,14 +1618,16 @@ function drawTutorialBox(g2, S) {
   g2.fillStyle = '#1E293B';
   g2.textAlign = 'center';
   g2.textBaseline = 'middle';
-  const startY = boxY + 24 + lineH * 0.35;
+  const startY = boxY + (showTapFooter ? 24 : 20) + lineH * 0.35;
   for (let i = 0; i < lines.length; i++) {
     g2.fillText(lines[i], boxX + boxW / 2, startY + i * lineH);
   }
 
-  g2.font = "500 13px 'Google Sans',sans-serif";
-  g2.fillStyle = '#64748B';
-  g2.fillText('Tap anywhere to continue', boxX + boxW / 2, boxY + boxH - 20);
+  if (showTapFooter) {
+    g2.font = "500 13px 'Google Sans',sans-serif";
+    g2.fillStyle = '#64748B';
+    g2.fillText('Tap anywhere to continue', boxX + boxW / 2, boxY + boxH - 20);
+  }
   g2.restore();
 }
 
