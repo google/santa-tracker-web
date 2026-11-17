@@ -30,7 +30,7 @@ export const TUNE = {
   beltSpeed: 49,           // Conveyor belt speed (px/s, placeholder from test version D)
   snowballSlowTime: 2.5,   // Duration elf stays snow-covered and moves at half speed when catching a snowball (s)
   snowballSlowMul: 0.50,   // Exact half speed multiplier while snow-covered
-  snowballRadius: 21,      // Snowball radius on belt (~gift size)
+  snowballRadius: 31.5,    // Snowball radius on belt (~1.5x original size: 63x63 px)
   teeterTime: 2.35,        // Default teeter time fallback (s)
   mouseTimeMul: 1.15,      // Mouse gets ~15% more time (spawn gaps and teeter times x1.15); touch is baseline (1.0)
   fallTime: 0.34,          // Fall duration from belt edge to floor (s)
@@ -306,7 +306,7 @@ export const ELVES = [
 export const PROPS = {
   sleigh: { w: 125.9, h: 103, file: 'img/sleigh-empty.svg' },
   rudolph: { w: 260.65, h: 365.5, file: 'img/rudolph.svg' },
-  snowball: { w: 64, h: 64, file: 'img/snowball.png' },
+  snowball: { w: 128, h: 128, file: 'img/snowball.svg' },
 };
 
 export const PRESENTS = ['img/present-a.svg', 'img/present-b.svg'];
