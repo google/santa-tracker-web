@@ -1394,7 +1394,7 @@ function clearSnowballTaps() {
   }
 }
 
-const isTutBlockingBox = () => Boolean(S && S.tut && S.tutBoxUp && S.tut !== 2 && S.tut !== 3 && S.tut !== 4);
+const isTutBlockingBox = () => Boolean(S && S.tut === 1 && S.tutBoxUp);
 
 function tryGrabBeltSnowball(forgiving = false) {
   if (!S || S.mode !== 'play' || isTutBlockingBox() || S.snowballBoxUp) return false;
@@ -1881,13 +1881,13 @@ function updateTransit(g, dt) {
 function catchable(forgiving) {
   const e = S.elf;
   if (e.climbing || e.bag.length >= S.carryCap) return null;
-  if (S.tut && S.tut !== 2 && S.tut !== 3) return null;
+  if (S.tut && S.tut !== 2) return null;
   const minX = BUILD_X0;
   const maxX = forgiving ? LADDER_CX + 16 : TAP_SPLIT + 16;
   if (e.x < minX || e.x > maxX) return null;
   const beltMinX = g => (forgiving ? BUILD_X0 + 10 : (g.gusted || g.tilt ? TEETER_X - 30 : TEETER_X - 20));
   const cands = S.gifts.filter(g => !g.tutWatch && !g.isSnowball && g.belt === e.floor &&
-    (!S.tut || g.belt === (S.tut === 3 ? 1 : 0)) &&
+    (!S.tut || g.tutGift) &&
     (g.state === 'teeter' || g.state === 'falling' ||
       (g.state === 'belt' && g.x >= beltMinX(g)) ||
       (g.state === 'landed' && (forgiving ? g.x <= BUILD_X1 - 24 : (g.x <= TAP_SPLIT + 16 || Math.abs(g.x - e.x) <= 72)))));
@@ -1902,7 +1902,7 @@ const atChute = () => !S.elf.climbing && S.elf.x >= LADDER_CX - 16;
 function doAction(edge, manual) {
   if (!S || S.mode !== 'play') return;
   if (isTutBlockingBox() || S.snowballBoxUp) return;
-  if (manual && S.tut && S.tutBoxUp && (S.tut === 2 || S.tut === 3 || S.tut === 4)) {
+  if (manual && S.tut === 2 && S.tutBoxUp) {
     S.tutBoxUp = false;
   }
   const e = S.elf;
@@ -1919,17 +1919,14 @@ function doAction(edge, manual) {
 
   if (e.bag.length >= S.carryCap) {
     if (edge && manual && !e.climbing && !S.keys.left) {
-      if (!S.tut || (S.tut === 4 && e.bag.some(item => item.cat === e.floor))) {
+      if (!S.tut || (S.tut === 2 && e.bag.some(item => item.cat === e.floor))) {
         S.cmd = { type: 'chute', floor: e.floor }; S.queue = null; S.actionBuf = 0;
       }
     }
     return;
   }
 
-  if (S.tut && S.tut !== 2 && S.tut !== 3) {
-    if (e.bag.length > 0 && edge && manual && !e.climbing && !S.keys.left && S.tut === 4 && e.bag.some(item => item.cat === e.floor)) {
-      S.cmd = { type: 'chute', floor: e.floor }; S.queue = null; S.actionBuf = 0;
-    }
+  if (S.tut && S.tut !== 2) {
     return;
   }
 
@@ -1937,11 +1934,11 @@ function doAction(edge, manual) {
   if (!g) {
     if (edge && manual && !e.climbing) {
       if (e.bag.length > 0 && e.x >= LADDER_CX - 16 && !S.keys.left) {
-        if (!S.tut || (S.tut === 4 && e.bag.some(item => item.cat === e.floor))) {
+        if (!S.tut || (S.tut === 2 && e.bag.some(item => item.cat === e.floor))) {
           S.cmd = { type: 'chute', floor: e.floor }; S.queue = null; S.actionBuf = 0;
         }
       } else if (e.x > DROP_X1 + 24 && !S.keys.right) {
-        if (!S.tut || (S.tut === 2 && e.floor === 0) || (S.tut === 3 && e.floor === 1)) {
+        if (!S.tut || S.gifts.some(item => item.tutGift && item.belt === e.floor && item.state !== 'carried')) {
           S.cmd = { type: 'belt', floor: e.floor }; S.queue = null; S.actionBuf = 0;
         }
       }
@@ -1956,18 +1953,6 @@ function doAction(edge, manual) {
   syncCarry();
   S.actionBuf = 0; S.actionHeld = false;
   api.play('pd_player_present_pickup');
-  if (S.tut === 2) {
-    S.tut = 3;
-    S.tutBoxUp = true;
-    S.tutTimer = 0;
-    clearKeys();
-    ensureTutGift(0, 1);
-  } else if (S.tut === 3) {
-    S.tut = 4;
-    S.tutBoxUp = false;
-    S.tutTimer = 0;
-    clearKeys();
-  }
   S.cmd = null; S.queue = null;
   S.beltIdleAfterGiftFloor = S.keys.left ? -1 : e.floor;
   clearSnowballTaps();
@@ -1979,7 +1964,7 @@ function doAction(edge, manual) {
 function releaseGift(onlyMatching = false) {
   const e = S.elf;
   if (!e.bag.length || e.climbing || e.x < LADDER_CX - 16) return false;
-  if (S.tut && (S.tut !== 4 || !e.bag.some(item => item.cat === e.floor))) return false;
+  if (S.tut && (S.tut !== 2 || !e.bag.some(item => item.cat === e.floor))) return false;
 
   const matching = e.bag.filter(item => item.cat === e.floor);
   if (onlyMatching && !matching.length) return false;
@@ -2012,7 +1997,8 @@ function releaseGift(onlyMatching = false) {
   } else {
     api.play('pd_item_miss');
   }
-  if (S.tut === 4 && e.bag.length === 0) {
+  const hasBeltTutGift = S.gifts.some(item => item.tutGift && (item.state === 'belt' || item.state === 'teeter'));
+  if (S.tut === 2 && e.bag.length === 0 && !hasBeltTutGift) {
     S.cmd = null;
     S.queue = null;
     clearKeys();
@@ -2031,7 +2017,7 @@ function landInSleigh(g) {
   if (g && g.tutGift) {
     S.inSleigh = Math.min(2, (S.inSleigh || 0) + 1);
     puff(SLEIGH_X, SLEIGH_Y - 18, '#FFE14D', 16);
-    if (S.tut === 4 && S.inSleigh >= 2 && S.elf.bag.length === 0) {
+    if (S.tut === 2 && S.inSleigh >= 2 && S.elf.bag.length === 0) {
       startTutMissDemo();
     }
     return;
@@ -2161,9 +2147,10 @@ function stepTo(e, tf, tx, dt) {
 function updateElf(dt) {
   const e = S.elf;
   const prevX = e.x, prevY = e.y;
-  if (S.snowballBoxUp || (S.tut && (isTutBlockingBox() || (S.tut !== 2 && S.tut !== 3 && S.tut !== 4) || (S.tut === 4 && e.bag.length === 0)))) {
+  const tutHasBeltGift = Boolean(S.tut === 2 && S.gifts.some(g => g.tutGift && (g.state === 'belt' || g.state === 'teeter')));
+  if (S.snowballBoxUp || (S.tut && (isTutBlockingBox() || S.tut !== 2 || (e.bag.length === 0 && !tutHasBeltGift)))) {
     clearKeys();
-    if (!e.climbing && S.tut !== 5) {
+    if (!e.climbing && S.tut !== 3) {
       e.y = feetY(e.floor);
       e.bob = 0;
     }
@@ -2175,7 +2162,7 @@ function updateElf(dt) {
   const spdMul = elfSpeedMul();
   const effRunSpd = TUNE.runSpeed * spdMul;
   const effClimbSpd = TUNE.climbSpeed * spdMul;
-  const k = S.keys, maxF = S.tut === 2 ? 0 : activeFloors() - 1;
+  const k = S.keys, maxF = activeFloors() - 1;
   e.climbPause = 0;
   let mx = 0, my = 0;
   if (k.left) mx--; if (k.right) mx++; if (k.up) my--; if (k.down) my++;
@@ -2488,7 +2475,7 @@ function ensureTutGift(cat, belt = 0) {
 
 function startTutMissDemo() {
   if (!S) return;
-  S.tut = 5;
+  S.tut = 3;
   S.tutBoxUp = true;
   S.tutTimer = 0;
   S.tutDemoLockT = 0.35;
@@ -2597,29 +2584,18 @@ function tutDismissOk() {
   clearKeys();
   if (S.tut === 1) {
     S.tut = 2;
-    S.tutBoxUp = true;
+    S.tutBoxUp = false;
     S.tutTimer = 0;
     ensureTutGift(1, 0);
+    ensureTutGift(0, 1);
     return true;
   }
   if (S.tut === 2) {
     S.tutBoxUp = false;
     S.tutTimer = 0;
-    ensureTutGift(1, 0);
     return true;
   }
   if (S.tut === 3) {
-    S.tutBoxUp = false;
-    S.tutTimer = 0;
-    ensureTutGift(0, 1);
-    return true;
-  }
-  if (S.tut === 4) {
-    S.tutBoxUp = false;
-    S.tutTimer = 0;
-    return true;
-  }
-  if (S.tut === 5) {
     if ((S.tutDemoLockT || 0) > 0) return false;
     tutFinish();
     return true;
@@ -2629,11 +2605,13 @@ function tutDismissOk() {
 
 function updateTutorial(dt) {
   if (!S || !S.tut) return;
-  if (S.tut === 2 && S.elf.bag.length < 1) {
-    ensureTutGift(1, 0);
-  } else if (S.tut === 3 && S.elf.bag.length < 2) {
-    ensureTutGift(0, 1);
-  } else if (S.tut === 5) {
+  if (S.tut === 2) {
+    const totalActiveOrDone = (S.inSleigh || 0) + S.elf.bag.length + S.gifts.filter(g => g.tutGift && g.state !== 'carried').length;
+    if (totalActiveOrDone === 0) {
+      ensureTutGift(1, 0);
+      ensureTutGift(0, 1);
+    }
+  } else if (S.tut === 3) {
     S.tutTimer = (S.tutTimer || 0) + dt;
     if (S.tutDemoLockT > 0) {
       S.tutDemoLockT = Math.max(0, S.tutDemoLockT - dt);
@@ -2686,7 +2664,7 @@ function frame(now) {
     if (S.catchFlash > 0) S.catchFlash = Math.max(0, S.catchFlash - dt * 1.4);
     if (!pausedByTutBox && S.breatheCueT > 0) S.breatheCueT = Math.max(0, S.breatheCueT - dt);
     if (!pausedByTutBox && S.breatheSlowT > 0) S.breatheSlowT = Math.max(0, S.breatheSlowT - dt);
-    if (S.binPulse > 0 && S.tut !== 5) S.binPulse = Math.max(0, S.binPulse - dt);
+    if (S.binPulse > 0 && S.tut !== 3) S.binPulse = Math.max(0, S.binPulse - dt);
     if (S.binShake > 0) S.binShake = Math.max(0, S.binShake - dt * 1.4);
     if (S.sleighFlyT > 0) S.sleighFlyT = Math.max(0, S.sleighFlyT - dt);
     for (let i = 0; i < 5; i++) {
@@ -2708,11 +2686,12 @@ function onKeyDown(ev) {
   if (!S || S.mode !== 'play') return;
   const k = KEYMAP[ev.key];
   if (k) {
-    if (S.snowballBoxUp || (S.tut && (isTutBlockingBox() || (S.tut !== 2 && S.tut !== 3 && S.tut !== 4) || (S.tut === 4 && S.elf.bag.length === 0) || (S.tut === 2 && (k === 'up' || k === 'down'))))) {
+    const tutHasBeltGift = Boolean(S.tut === 2 && S.gifts.some(g => g.tutGift && (g.state === 'belt' || g.state === 'teeter')));
+    if (S.snowballBoxUp || (S.tut && (isTutBlockingBox() || S.tut !== 2 || (S.elf.bag.length === 0 && !tutHasBeltGift)))) {
       ev.preventDefault();
       return;
     }
-    if (S.tut && S.tutBoxUp && (S.tut === 2 || S.tut === 3 || S.tut === 4)) {
+    if (S.tut && S.tutBoxUp && S.tut === 2) {
       S.tutBoxUp = false;
     }
     const wasDown = !!S.keys[k];
@@ -2723,7 +2702,7 @@ function onKeyDown(ev) {
       S.queue = null;
       clearSnowballTaps();
       if (!ev.repeat && !wasDown) {
-        const e = S.elf, maxF = S.tut === 2 ? 0 : activeFloors() - 1;
+        const e = S.elf, maxF = activeFloors() - 1;
         if (k === 'up' || k === 'down') {
           const dir = k === 'up' ? 1 : -1;
           let base = e.climbTo !== null ? e.climbTo : e.floor;
@@ -2762,7 +2741,7 @@ function onKeyDown(ev) {
       ev.preventDefault();
       return;
     }
-    if (S.tut && S.tutBoxUp && (S.tut === 2 || S.tut === 3 || S.tut === 4)) {
+    if (S.tut && S.tutBoxUp && S.tut === 2) {
       S.tutBoxUp = false;
     }
     if (!ev.repeat) {
@@ -2867,7 +2846,15 @@ function tapTarget(p) {
     }
     const tf = resolveTapFloor(p);
     const side = p.x < TAP_SPLIT ? 'belt' : 'chute';
-    if (st.go === 'belt') {
+    if (st.go === 'play') {
+      if (side === 'belt') {
+        const hasToyHere = S.elf.bag.length < S.carryCap &&
+          S.gifts.some(g => g.tutGift && g.belt === tf && (g.state === 'belt' || g.state === 'teeter'));
+        if (!hasToyHere) return;
+      } else if (side === 'chute') {
+        if (!S.elf.bag.some(g => g.cat === tf)) return;
+      }
+    } else if (st.go === 'belt') {
       if (side !== 'belt' || tf !== st.f) return;
     } else if (st.go === 'chute') {
       if (side !== 'chute' || !S.elf.bag.some(g => g.cat === tf)) return;
