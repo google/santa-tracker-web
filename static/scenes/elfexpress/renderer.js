@@ -17,14 +17,15 @@
 import '../../src/magic.js';
 import { _msg } from '../../src/magic.js';
 import {
-  ELVES, PROPS, PRESENTS, TOY_ICONS, ENDING, TUNE, SLEIGHS, GUST, CATS, CAT_UPPER,
+  ELVES, PROPS, PRESENTS, TOY_ICONS, ENDING, TUNE, SLEIGHS, SNOW, SNOW_BIG_FLAKES_FROM_WAVE, SNOW_MAX_GIFT_COVER,
+  GUST, CATS, CAT_UPPER,
   W, H, FLOOR_H, BUILD_X0, BUILD_X1, GROUND_Y, TAP_SPLIT, TEETER_X,
   DROP_X0, DROP_X1, CHUTE_BX, CHUTE_BW, CHUTE_BH, MACH_CX, MACH_W, MACH_H,
   MACH_L, MACH_R, BIN_X, BIN_Y, SLEIGH_X, SLEIGH_Y, DEER_X, GEAR,
   ELF_H, ELF_SCALE, GIFT_R, BOX_X, BOX_Y, BOX_W, BOX_H, PAD_TOP, PAD_BOT, PAD_SIDE,
   feetY, beltY, chuteY, carryY, STARS_BG, HILLS_BG,
   PXS, CWS, CHS, GYS, PXC, SPR_SLEIGH, SPR_DEER_A, SPR_DEER_B,
-  CITY_FAR, CITY, MOON_X, MOON_Y, MOON_R, takeoffPath, TUT, tutHole,
+  CITY_FAR, CITY, MOON_X, MOON_Y, MOON_R, takeoffPath, TUT, SNOWBALL_TUT_BOX, tutHole,
 } from './constants.js';
 
 export const cv = document.getElementById('game');
@@ -492,10 +493,33 @@ function drawIconBadge(g2, cat, x, y, s, v = 0) {
   drawIcon(g2, cat, x, y, 1.02 * s, v);
 }
 
+function drawSnowballOnBelt(g2, g) {
+  const r = TUNE.snowballRadius || 21;
+  const sz = r * 2;
+  const ang = reduceMotion ? 0 : (g.spin || (g.x * 0.05));
+  const sbImg = PROPS.snowball && PROPS.snowball.img;
+  g2.save();
+  g2.rotate(ang);
+  if (sbImg && sbImg.complete && sbImg.naturalWidth) {
+    g2.drawImage(sbImg, -sz / 2, -sz / 2, sz, sz);
+  } else {
+    g2.fillStyle = '#FFFFFF';
+    g2.beginPath();
+    g2.arc(0, 0, r, 0, Math.PI * 2);
+    g2.fill();
+  }
+  g2.restore();
+}
+
 function drawGift(g2, g) {
   g2.save();
   if (g.state === 'belt' && g.x < 44) { g2.beginPath(); g2.rect(18, 0, W, H); g2.clip(); }
   g2.translate(g.x, g.y);
+  if (g.isSnowball) {
+    drawSnowballOnBelt(g2, g);
+    g2.restore();
+    return;
+  }
   if (g.state === 'inBin') g2.scale(0.80, 0.80);
   if (g.tilt) g2.rotate(g.tilt);
   if (g.spin && (g.state === 'toBin' || g.state === 'landed')) g2.rotate(Math.sin(g.spin) * 0.28);
@@ -535,6 +559,44 @@ function drawElf(g2, S, e, elfChoice) {
   if (moving && e.facing < 0) g2.scale(-1, 1);
   g2.drawImage(im, -w / 2, -h + footPad, w, h);
   g2.restore();
+
+  // Snow-covered elf when catching a snowball: big snowball with head, arms, and legs sticking out
+  if (S && S.snowballHitT > 0) {
+    const dur = TUNE.snowballSlowTime || 2.5;
+    const frac = Math.min(1, Math.max(0, S.snowballHitT / dur));
+    const snowR = 14 + 7.5 * (0.45 + 0.55 * frac);
+    const cySnow = e.y + hop - h * 0.41;
+    const sbImg = PROPS.snowball && PROPS.snowball.img;
+    g2.save();
+    g2.translate(e.x, cySnow);
+
+    // Arms & mittens sticking out on both sides of the snowball
+    g2.strokeStyle = '#16A34A';
+    g2.lineWidth = 5.5;
+    g2.lineCap = 'round';
+    g2.beginPath();
+    g2.moveTo(-snowR + 3, -2);
+    g2.lineTo(-snowR - 8, 3);
+    g2.moveTo(snowR - 3, -2);
+    g2.lineTo(snowR + 8, 3);
+    g2.stroke();
+    g2.fillStyle = '#DC2626';
+    g2.beginPath();
+    g2.arc(-snowR - 8, 3, 4.2, 0, Math.PI * 2);
+    g2.arc(snowR + 8, 3, 4.2, 0, Math.PI * 2);
+    g2.fill();
+
+    // Big snowball covering torso (head above and legs below remain visible)
+    if (sbImg && sbImg.complete && sbImg.naturalWidth) {
+      g2.drawImage(sbImg, -snowR, -snowR, snowR * 2, snowR * 2);
+    } else {
+      g2.fillStyle = '#FFFFFF';
+      g2.beginPath();
+      g2.arc(0, 0, snowR, 0, Math.PI * 2);
+      g2.fill();
+    }
+    g2.restore();
+  }
 
   // Small frosty breath puff on each breath out during the break
   if (resting) {
@@ -709,12 +771,12 @@ function getGuideTargets(S) {
   let beltGift = null;
 
   // Bouncing arrows for tutorial catch (belt) and drop (chute) steps
-  if ((S.tut === 2 || S.tut === 3) && S.tutBoxUp) {
+  if (S.tut === 2 || S.tut === 3) {
     const wantBelt = S.tut === 3 ? 1 : 0;
     beltGift = S.gifts.find(g => g.tutGift && g.belt === wantBelt && g.state !== 'carried') ||
       S.gifts.find(g => g.tutGift && g.state !== 'carried') || null;
     beltFloor = beltGift ? beltGift.belt : wantBelt;
-  } else if (S.tut === 4 && S.tutBoxUp) {
+  } else if (S.tut === 4) {
     const bag = (S.elf && S.elf.bag) || [];
     chuteFloors = Array.from(new Set(bag.map(g => g.cat)));
     chuteFloor = chuteFloors.length ? chuteFloors[0] : -1;
@@ -829,7 +891,7 @@ function drawWorkshop(g2, S, floors) {
     const beltSel = S.cmd && S.cmd.type === 'belt' && S.cmd.floor === f;
     const beltQ = S.queue && S.queue.type === 'belt' && S.queue.floor === f;
     const tutBeltGlow = guide.beltFloor === f;
-    const liveHere = canCarryMore && S.gifts.some(g => g.belt === f &&
+    const liveHere = canCarryMore && S.gifts.some(g => g.belt === f && !g.isSnowball &&
       (g.state === 'belt' || g.state === 'teeter' || g.state === 'falling'));
     if (beltSel || tutBeltGlow || S.beltPulse[f] > 0) {
       g2.fillStyle = tutBeltGlow ? 'rgba(253,224,71,.24)' : (beltSel ? 'rgba(43,127,217,.16)' : 'rgba(42,157,92,.16)');
@@ -851,7 +913,7 @@ function drawWorkshop(g2, S, floors) {
 
     drawFloorBelt(g2, S, f);
 
-    const liveDrop = S.gifts.some(g => g.belt === f && (g.state === 'teeter' || g.state === 'falling'));
+    const liveDrop = S.gifts.some(g => g.belt === f && !g.isSnowball && (g.state === 'teeter' || g.state === 'falling'));
     if (liveDrop) {
       g2.strokeStyle = '#1B69C1';
       g2.lineWidth = 2.6;
@@ -1103,12 +1165,54 @@ function drawSnow(g2, S) {
   if (S.snowAmt < 0.01) return;
   g2.save();
   g2.fillStyle = '#FFFFFF';
-  const n = Math.min(S.snow.length, Math.round(S.snow.length * Math.min(0.55, 0.12 + S.snowAmt * 0.20)));
+  const maxFall = SNOW[SNOW.length - 1] ? SNOW[SNOW.length - 1].fall : 2.20;
+  const norm = Math.min(1, S.snowAmt / maxFall);
+  const n = Math.min(S.snow.length, Math.max(14, Math.round(S.snow.length * (0.12 + 0.88 * norm))));
+  const snowCoverWave = (TUNE && TUNE.snowBigFlakesFromWave) || SNOW_BIG_FLAKES_FROM_WAVE || 5;
+  const bigFlakesOn = ((S.sleighsDone || 0) + 1) >= snowCoverWave;
+  const giftArea = Math.PI * GIFT_R * GIFT_R;
+  const maxCoverArea = bigFlakesOn ? giftArea * (SNOW_MAX_GIFT_COVER || 0.32) : 0;
+  const visGifts = [];
+  if (S.gifts) {
+    for (const g of S.gifts) {
+      if (g.state === 'done') continue;
+      visGifts.push({ x: g.x, y: g.y, cover: 0 });
+    }
+  }
   for (let i = 0; i < n; i++) {
     const s = S.snow[i];
-    g2.globalAlpha = Math.min(1, s.a * (0.55 + S.snowAmt * 0.35));
+    let r = (bigFlakesOn && s.large) ? (s.bigR || s.r * 1.8) : (s.baseR || s.r);
+    let blocked = false;
+    for (let gi = 0; gi < visGifts.length; gi++) {
+      const vg = visGifts[gi];
+      const dx = s.x - vg.x;
+      const dy = s.y - vg.y;
+      if (dx * dx + dy * dy < (GIFT_R + r) * (GIFT_R + r)) {
+        const flakeArea = Math.PI * r * r;
+        if (vg.cover + flakeArea > maxCoverArea) {
+          const remArea = maxCoverArea - vg.cover;
+          if (remArea >= Math.PI * 1.2 * 1.2) {
+            r = Math.min(r, Math.sqrt(remArea / Math.PI));
+          } else {
+            blocked = true;
+            break;
+          }
+        }
+      }
+    }
+    if (blocked) continue;
+    const usedArea = Math.PI * r * r;
+    for (let gi = 0; gi < visGifts.length; gi++) {
+      const vg = visGifts[gi];
+      const dx = s.x - vg.x;
+      const dy = s.y - vg.y;
+      if (dx * dx + dy * dy < (GIFT_R + r) * (GIFT_R + r)) {
+        vg.cover += usedArea;
+      }
+    }
+    g2.globalAlpha = Math.min(0.92, s.a * (0.50 + norm * 0.42));
     g2.beginPath();
-    g2.arc(s.x, s.y, s.r, 0, 7);
+    g2.arc(s.x, s.y, r, 0, 7);
     g2.fill();
   }
   g2.restore();
@@ -1117,16 +1221,18 @@ function drawSnow(g2, S) {
 function drawWind(g2, S, g) {
   if (g.state === 'belt' && g.x < 18) return;
   const k = 1 - Math.abs(S.gustT / GUST.dur - 0.5) * 2;
+  const mul = g.gustMul || S.gustMul || GUST.beltMul;
+  const strength = Math.max(0.55, Math.min(1.30, (mul - 1.15) / 0.95));
   g2.save(); g2.lineCap = 'round';
   for (let i = 0; i < 3; i++) {
     const off = (i - 1) * 9;
     const ph = (S.t * 2.4 + i * 0.41) % 1;
     const taper = 1 - Math.abs(off) / 22;
-    const len = (14 + 28 * taper) * (0.65 + 0.35 * Math.sin(S.t * 9 + i));
+    const len = (14 + 28 * taper) * strength * (0.65 + 0.35 * Math.sin(S.t * 9 + i));
     const x = g.x - 18 - ph * 18;
-    g2.globalAlpha = 0.8 * k * taper * (1 - ph * 0.55);
+    g2.globalAlpha = 0.8 * k * strength * taper * (1 - ph * 0.55);
     g2.strokeStyle = i === 1 ? '#FFFFFF' : '#C1E8ED';
-    g2.lineWidth = 1.4 + 1.4 * taper;
+    g2.lineWidth = (1.4 + 1.4 * taper) * Math.min(1.15, 0.75 + 0.35 * strength);
     g2.beginPath();
     g2.moveTo(x - len, g.y + off);
     g2.lineTo(x, g.y + off * 0.75);
@@ -1139,6 +1245,8 @@ function drawGust(g2, S) {
   if ((S.gustT <= 0 && S.gustWarnT <= 0) || reduceMotion) return;
   g2.save();
   g2.lineCap = 'round';
+  const mul = S.gustMul || GUST.beltMul;
+  const strength = Math.max(0.55, Math.min(1.30, (mul - 1.15) / 0.95));
 
   // 1s before each gust: snow streaks sweeping in from the left as a warning
   if (S.gustWarnT > 0 && S.gustT <= 0) {
@@ -1146,14 +1254,15 @@ function drawGust(g2, S) {
     const prog = Math.min(1, Math.max(0, 1 - S.gustWarnT / warnDur));
     const sweepRight = viewX0 + (TEETER_X + 90 - viewX0) * (0.35 + 0.65 * prog);
     const kWarn = Math.sin(prog * Math.PI);
-    for (let i = 0; i < 16; i++) {
+    const nWarn = Math.round(10 + 8 * strength);
+    for (let i = 0; i < nWarn; i++) {
       const y = (i * 139) % (H - 30) + 15;
-      const len = 44 + (i % 4) * 28;
+      const len = (44 + (i % 4) * 28) * strength;
       const x = viewX0 - 60 + ((S.t * 620 + i * 97) % Math.max(180, sweepRight - viewX0 + 80));
       if (x > sweepRight) continue;
-      g2.globalAlpha = (0.35 + 0.50 * kWarn) * Math.max(0.2, 1 - (sweepRight - x) / 320);
+      g2.globalAlpha = (0.35 + 0.50 * kWarn) * Math.min(1, 0.7 + 0.3 * strength) * Math.max(0.2, 1 - (sweepRight - x) / 320);
       g2.strokeStyle = i % 2 === 0 ? '#FFFFFF' : '#BAE6FD';
-      g2.lineWidth = 2.2 + (i % 2) * 1.0;
+      g2.lineWidth = 2.0 + (i % 2) * 1.0;
       g2.beginPath();
       g2.moveTo(x - len, y - 2);
       g2.lineTo(x, y + 2);
@@ -1165,18 +1274,19 @@ function drawGust(g2, S) {
 
   const front = gustFront(S);
   const k = Math.min(1, S.gustT / (GUST.dur * 0.35));
-  for (let i = 0; i < 20; i++) {
+  const nStreaks = Math.round(12 + 10 * strength);
+  for (let i = 0; i < nStreaks; i++) {
     const y = (i * 149) % (H - 20) + 10;
-    const len = 64 + (i % 4) * 38;
+    const len = (64 + (i % 4) * 38) * strength;
     const x = ((S.t * 820 + i * 137) % (W + 520)) - 260;
     if (x > front) continue;
     const near = Math.max(0, 1 - (front - x) / 420);
-    g2.globalAlpha = 0.82 * k * (0.25 + near * 0.75);
+    g2.globalAlpha = 0.82 * k * Math.min(1, 0.65 + 0.35 * strength) * (0.25 + near * 0.75);
     g2.strokeStyle = i % 3 ? '#C1E8ED' : '#FFFFFF';
-    g2.lineWidth = 2.2 + (i % 2) * 1.2;
+    g2.lineWidth = 2.0 + (i % 2) * 1.2;
     g2.beginPath(); g2.moveTo(x - len, y); g2.lineTo(x, y + 2); g2.stroke();
   }
-  g2.globalAlpha = 0.08 * k; g2.fillStyle = '#BFDBFE';
+  g2.globalAlpha = 0.08 * k * strength; g2.fillStyle = '#BFDBFE';
   g2.fillRect(viewX0 - 40, viewY0 - 40, (viewX1 - viewX0) + 80, (viewY1 - viewY0) + 80);
   g2.restore();
 }
@@ -1429,23 +1539,12 @@ function drawBreatheCue(g2, S, elfChoice) {
 }
 
 export const TUT_BOX_RECT = { x: 104, y: 120, w: 460, h: 124 };
-export const TUT_OK_RECT = { x: 280, y: 194, w: 108, h: 36 };
 
 function getActiveTextBox(S) {
   if (!S) return null;
   if (S.tut && S.tutBoxUp) return TUT[S.tut - 1] || null;
+  if (S.snowballBoxUp) return SNOWBALL_TUT_BOX;
   return null;
-}
-
-export function isTutOkClick(p, S) {
-  const st = getActiveTextBox(S);
-  if (!st || !st.ok) return false;
-  return (
-    p.x >= TUT_BOX_RECT.x - 10 &&
-    p.x <= TUT_BOX_RECT.x + TUT_BOX_RECT.w + 10 &&
-    p.y >= TUT_BOX_RECT.y - 10 &&
-    p.y <= TUT_BOX_RECT.y + TUT_BOX_RECT.h + 10
-  );
 }
 
 function drawTutorialBox(g2, S) {
@@ -1453,13 +1552,12 @@ function drawTutorialBox(g2, S) {
   if (!st || !st.text) return;
 
   const boxW = 460;
-  const hasOk = !!st.ok;
   g2.save();
   g2.font = "bold 18px 'Google Sans',sans-serif";
   const lines = wrapText(g2, st.text, boxW - 44);
   const lineH = 25;
   const textH = lines.length * lineH;
-  const boxH = textH + (hasOk ? 76 : 36);
+  const boxH = textH + 62;
   const boxX = Math.round((BUILD_X0 + BUILD_X1) / 2 - boxW / 2);
   const boxY = 124;
 
@@ -1491,32 +1589,14 @@ function drawTutorialBox(g2, S) {
   g2.fillStyle = '#1E293B';
   g2.textAlign = 'center';
   g2.textBaseline = 'middle';
-  const startY = boxY + 26 + lineH * 0.35;
+  const startY = boxY + 24 + lineH * 0.35;
   for (let i = 0; i < lines.length; i++) {
     g2.fillText(lines[i], boxX + boxW / 2, startY + i * lineH);
   }
 
-  if (hasOk) {
-    const btnW = 104, btnH = 36;
-    const btnX = Math.round(boxX + (boxW - btnW) / 2);
-    const btnY = boxY + boxH - btnH - 14;
-    TUT_OK_RECT.x = btnX;
-    TUT_OK_RECT.y = btnY;
-    TUT_OK_RECT.w = btnW;
-    TUT_OK_RECT.h = btnH;
-
-    g2.fillStyle = '#16A34A';
-    g2.strokeStyle = '#14532D';
-    g2.lineWidth = 2.5;
-    g2.beginPath();
-    g2.roundRect(btnX, btnY, btnW, btnH, 18);
-    g2.fill();
-    g2.stroke();
-
-    g2.font = "bold 16px 'Google Sans',sans-serif";
-    g2.fillStyle = '#FFFFFF';
-    g2.fillText('OK', btnX + btnW / 2, btnY + btnH / 2 + 1);
-  }
+  g2.font = "500 13px 'Google Sans',sans-serif";
+  g2.fillStyle = '#64748B';
+  g2.fillText('Tap anywhere to continue', boxX + boxW / 2, boxY + boxH - 20);
   g2.restore();
 }
 
@@ -1524,20 +1604,27 @@ function drawTuneSpeedHud(g2, S) {
   if (!S || !S.tuneMode) return;
   const sleighNum = Math.min(SLEIGHS.length, (S.sleighsDone || 0) + 1);
   const timerStr = (S.sleighTimer || 0).toFixed(1);
-  const runSpd = Math.round(TUNE.runSpeed || 1200);
-  const climbSpd = Math.round(TUNE.climbSpeed || 700);
-  const pct = Math.round(TUNE.speedPct || 100);
+  const slowed = S.snowballHitT > 0;
+  const spdMul = slowed ? (TUNE.snowballSlowMul || 0.5) : 1.0;
+  const runSpd = Math.round((TUNE.runSpeed || 1200) * spdMul);
+  const climbSpd = Math.round((TUNE.climbSpeed || 700) * spdMul);
+  const pct = Math.round((TUNE.speedPct || 100) * spdMul);
   const live = Math.round(S.liveSpeed || 0);
-  const label = `Sleigh ${sleighNum}/${SLEIGHS.length}: ${timerStr}s · Speed: ${runSpd}/${climbSpd} px/s (${pct}%) · Live ${live} px/s`;
+  const isMouse = S.inputMode === 'mouse';
+  const modeName = isMouse ? 'Mouse' : 'Touch';
+  const mulStr = isMouse ? '×1.15' : '×1.00';
+  const tapNum = S.inputTapCount || 0;
+  const slowTag = slowed ? ` [SNOWBALL ½ SPEED ${S.snowballHitT.toFixed(1)}s]` : '';
+  const label = `Input: ${modeName} (${mulStr}) [tap #${tapNum}] · Sleigh ${sleighNum}/${SLEIGHS.length}: ${timerStr}s · Speed: ${runSpd}/${climbSpd} px/s (${pct}%)${slowTag} · Live ${live} px/s`;
 
   g2.save();
   g2.font = "bold 13px 'Google Sans',monospace,sans-serif";
-  const w = Math.max(360, g2.measureText(label).width + 24);
-  const x = 184;
+  const w = Math.max(410, g2.measureText(label).width + 24);
+  const x = Math.round((BUILD_X0 + BUILD_X1) / 2 - w / 2);
   const y = 14;
-  g2.fillStyle = 'rgba(15,23,42,.88)';
-  g2.strokeStyle = '#38BDF8';
-  g2.lineWidth = 2;
+  g2.fillStyle = slowed ? 'rgba(12,74,110,.94)' : 'rgba(15,23,42,.90)';
+  g2.strokeStyle = slowed ? '#7DD3FC' : (isMouse ? '#4ADE80' : '#38BDF8');
+  g2.lineWidth = 2.2;
   g2.beginPath();
   g2.roundRect(x, y, w, 28, 8);
   g2.fill();
@@ -1549,6 +1636,7 @@ function drawTuneSpeedHud(g2, S) {
   g2.fillText(label, x + 12, y + 14);
   g2.restore();
 }
+
 
 export function renderScene(S, elfChoice, floors, sleighTargetVal, canCatch) {
   const stg = document.getElementById('stage');
