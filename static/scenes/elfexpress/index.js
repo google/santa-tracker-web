@@ -1294,6 +1294,7 @@ function buildWaveQueue(waveIdx) {
 }
 
 function startWave(waveIdx) {
+  show('btnSkipTut', false);
   S.sleighsDone = Math.max(0, Math.min(WAVES.length - 1, waveIdx));
   S.inSleigh = 0;
   S.recycled = 0;
@@ -2447,12 +2448,32 @@ function tutWatchGift(cat) {
 }
 
 function tutFinish() {
+  if (!S) return;
   S.tut = 0;
   S.tutBoxUp = false;
   S.tutTimer = 0;
   S.binPulse = 0;
   S.binShake = 0;
   S.gifts = [];
+  if (S.elf) {
+    S.elf.bag = [];
+    S.elf.carrying = null;
+    S.elf.climbing = false;
+    S.elf.climbTo = null;
+    S.elf.climbPause = 0;
+    S.elf.floor = 0;
+    S.elf.x = DROP_CX;
+    S.elf.y = feetY(0);
+    S.elf.facing = 1;
+    S.elf.bob = 0;
+  }
+  S.cmd = null;
+  S.queue = null;
+  S.actionEdge = false;
+  S.actionBuf = 0;
+  S.actionHeld = false;
+  clearKeys();
+  syncCarry();
   S.inSleigh = 0;
   S.recycled = 0;
   S.waveRecycled = 0;
@@ -2460,6 +2481,9 @@ function tutFinish() {
   S.misfiled = 0;
   S.combo = 0;
   S.score = 0;
+  S.floorPulse = [0, 0, 0, 0, 0];
+  S.beltPulse = [0, 0, 0, 0, 0];
+  S.machFlash = [0, 0, 0, 0, 0];
   show('btnSkipTut', false);
   api.play('pd_player_level_up');
   startWave(0);
@@ -2789,6 +2813,7 @@ function endRun(won) {
   S.mode = 'over';
   S.won = won;
   if (won) S.takeoff = 0;
+  show('btnSkipTut', false);
   unbindKeys();
   reportScore();
   api.play('game_hurry_up_end');
@@ -2813,11 +2838,11 @@ function start(waveNum = 0) {
     document.activeElement.blur();
   }
   show('scrTitle', false);
-  show('btnSkipTut', false);
   bindKeys();
   if (waveNum >= 1 && waveNum <= WAVES.length) {
     S.tut = 0;
     S.tutBoxUp = false;
+    show('btnSkipTut', false);
     startWave(waveNum - 1);
   } else {
     S.sleighsDone = 0;
@@ -2826,6 +2851,7 @@ function start(waveNum = 0) {
     S.tutTimer = 0;
     S.elf.x = CHUTE_CX;
     S.elf.facing = -1;
+    show('btnSkipTut', true);
     syncTunePanel();
   }
   last = 0;
@@ -2833,7 +2859,17 @@ function start(waveNum = 0) {
 }
 
 if (el('btnSkipTut')) {
-  el('btnSkipTut').addEventListener('click', ev => { ev.currentTarget.blur(); start(1); });
+  el('btnSkipTut').addEventListener('pointerdown', ev => ev.stopPropagation());
+  el('btnSkipTut').addEventListener('click', ev => {
+    ev.stopPropagation();
+    ev.currentTarget.blur();
+    cv.focus({ preventScroll: true });
+    if (S && S.mode === 'play' && S.tut > 0) {
+      tutFinish();
+    } else {
+      show('btnSkipTut', false);
+    }
+  });
 }
 buildElfPicker();
 el('btnStart').addEventListener('click', ev => { ev.currentTarget.blur(); start(shortcutWave || 0); });
