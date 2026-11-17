@@ -430,6 +430,7 @@ function newGame() {
     inputMode: activeInputMode,
     tuneMode: !!tunePanelEl,
     cmd: null, queue: null, keys: {},
+    beltIdleAfterGiftFloor: -1,
     firstSnowballShown: false, snowballBoxUp: false, snowballBoxLockT: 0, snowballHitT: 0, snowballShedAcc: 0, snowballSchedule: [],
     takeoff: 0, hitchT: 0, stars: 0, won: false,
     tut: 0, tutBoxUp: false, tutTimer: 0,
@@ -1365,11 +1366,40 @@ function nextBeltEdgeItem(floor) {
   return best;
 }
 
+function frontSnowballAtEdge(floor) {
+  const front = nextBeltEdgeItem(floor);
+  if (!front || !front.isSnowball) return null;
+  if (front.state === 'teeter' || (front.state === 'belt' && front.x >= TEETER_X - 36)) {
+    return front;
+  }
+  return null;
+}
+
+function activeCommittedSnowball() {
+  if (!S || !S.cmd || S.cmd.type !== 'belt' || !S.cmd.commitSnowballId || !S.gifts) return null;
+  return S.gifts.find(
+    g => g.id === S.cmd.commitSnowballId && g.isSnowball && (g.state === 'belt' || g.state === 'teeter')
+  ) || null;
+}
+
 function clearSnowballTaps() {
   if (!S || !S.gifts) return;
+  const keepId = S.cmd && S.cmd.commitSnowballId;
   for (const g of S.gifts) {
-    if (g.isSnowball) g.tappedByPlayer = false;
+    if (g.isSnowball && g.id !== keepId) g.tappedByPlayer = false;
   }
+}
+
+function tryGrabBeltSnowball(forgiving = false) {
+  if (!S || S.mode !== 'play' || (S.tut && S.tutBoxUp) || S.snowballBoxUp) return false;
+  const e = S.elf;
+  if (e.climbing) return false;
+  const maxX = forgiving ? LADDER_CX + 16 : TAP_SPLIT + 16;
+  if (e.x < BUILD_X0 || e.x > maxX) return false;
+  if (!forgiving && S.beltIdleAfterGiftFloor === e.floor) return false;
+  const sb = frontSnowballAtEdge(e.floor);
+  if (sb) return pickupSnowball(sb);
+  return false;
 }
 
 function pickupSnowball(sb) {
@@ -1380,6 +1410,10 @@ function pickupSnowball(sb) {
   }
   sb.state = 'done';
   sb.tappedByPlayer = false;
+  S.beltIdleAfterGiftFloor = -1;
+  if (S.cmd && S.cmd.commitSnowballId === sb.id) {
+    S.cmd.commitSnowballId = 0;
+  }
   S.snowballHitT = TUNE.snowballSlowTime || 2.5;
   S.snowballShedAcc = 0;
   S.cmd = null;
@@ -1594,8 +1628,13 @@ function updateGifts(dt) {
               pickupSnowball(g);
               break;
             }
-            if (S.cmd && S.cmd.type === 'belt' && S.cmd.floor === g.belt && S.cmd.targetSnowballId === g.id) {
-              g.x = Math.min(g.x, TEETER_X);
+            if (S.cmd && S.cmd.type === 'belt' && S.cmd.floor === g.belt && S.cmd.commitSnowballId === g.id) {
+              if (!teetering[g.belt] && g.x >= TEETER_X - 0.5) {
+                g.x = TEETER_X;
+                g.state = 'teeter';
+                g.timer = 0;
+                teetering[g.belt] = g;
+              }
               break;
             }
             g.tappedByPlayer = false;
@@ -1628,6 +1667,9 @@ function updateGifts(dt) {
         if (pausedBelts) break;
         g.timer += dt;
         const len = teeterLen(g);
+        if (g.isSnowball && S.cmd && S.cmd.type === 'belt' && S.cmd.commitSnowballId === g.id) {
+          g.timer = Math.min(g.timer, Math.max(0, len - 0.02));
+        }
         const k = (g.tutGift && len > 100) ? 0.65 : Math.min(g.timer / len, 1);
         g.tilt = reduceMotion ? 0
           : Math.sin(g.timer * (3 + 11 * k * k) * Math.PI) * (0.06 + 0.30 * k * k);
@@ -1814,6 +1856,10 @@ function doAction(edge, manual) {
     return;
   }
 
+  if (!S.tut && tryGrabBeltSnowball(manual)) {
+    return;
+  }
+
   if (e.bag.length >= S.carryCap) {
     if (edge && manual && !e.climbing && !S.keys.left) {
       if (!S.tut || (S.tut === 4 && e.bag.some(item => item.cat === e.floor))) {
@@ -1866,6 +1912,7 @@ function doAction(edge, manual) {
     clearKeys();
   }
   S.cmd = null; S.queue = null;
+  S.beltIdleAfterGiftFloor = S.keys.left ? -1 : e.floor;
   clearSnowballTaps();
   S.catchFlash = 0.3;
   S.beltPulse[e.floor] = 0.5;
@@ -2081,11 +2128,18 @@ function updateElf(dt) {
   let mx = 0, my = 0;
   if (k.left) mx--; if (k.right) mx++; if (k.up) my--; if (k.down) my++;
 
+  if (S.beltIdleAfterGiftFloor >= 0) {
+    if (e.climbing || e.floor !== S.beltIdleAfterGiftFloor || e.x > TAP_SPLIT + 16 || mx < 0) {
+      S.beltIdleAfterGiftFloor = -1;
+    }
+  }
+
   if (mx <= 0 || e.climbing || e.x < CHUTE_BX - 12) {
     e.droppedOnRun = false;
   }
 
-  if (mx || my) {
+  const lockedSnowball = activeCommittedSnowball();
+  if ((mx || my) && !lockedSnowball) {
     if (e.climbing && e.climbTo === null) {
       let near = S.cmd ? S.cmd.floor : e.floor, best = 1e9;
       if (!S.cmd) {
@@ -2100,7 +2154,7 @@ function updateElf(dt) {
     clearSnowballTaps();
   }
 
-  if (my && e.climbTo === null && !e.climbing) {
+  if (!lockedSnowball && my && e.climbTo === null && !e.climbing) {
     const dir = my < 0 ? 1 : -1;
     const nextF = Math.max(0, Math.min(maxF, e.floor + dir));
     if (nextF !== e.floor) e.climbTo = nextF;
@@ -2129,7 +2183,7 @@ function updateElf(dt) {
     }
   };
 
-  if (e.climbTo !== null) {
+  if (!lockedSnowball && e.climbTo !== null) {
     const tf = Math.max(0, Math.min(maxF, e.climbTo));
     e.climbTo = tf;
     if (tf === e.floor && !e.climbing) {
@@ -2159,7 +2213,7 @@ function updateElf(dt) {
         e.bob = 0;
         moveX(e, e.x + mx * 1000, remDt);
         runIntoChuteDrop();
-        if (e.bag.length < S.carryCap) doAction(false, false);
+        if (!tryGrabBeltSnowball(false) && e.bag.length < S.carryCap) doAction(false, false);
         finishUpdateElf();
         return;
       }
@@ -2185,7 +2239,7 @@ function updateElf(dt) {
       } else if (mx) {
         moveX(e, e.x + mx * 1000, rem / effClimbSpd);
         runIntoChuteDrop();
-        if (e.bag.length < S.carryCap) doAction(false, false);
+        if (!tryGrabBeltSnowball(false) && e.bag.length < S.carryCap) doAction(false, false);
       } else {
         e.bob = 0;
       }
@@ -2194,16 +2248,17 @@ function updateElf(dt) {
     }
   }
 
-  if (mx) {
+  if (!lockedSnowball && mx) {
     e.y = feetY(e.floor);
     moveX(e, e.x + mx * 1000, dt);
     runIntoChuteDrop();
-    if (e.bag.length < S.carryCap) doAction(false, false);
+    if (!tryGrabBeltSnowball(false) && e.bag.length < S.carryCap) doAction(false, false);
     finishUpdateElf();
     return;
   }
 
   const idleCatch = () => {
+    if (tryGrabBeltSnowball(false)) return;
     if (e.bag.length < S.carryCap) doAction(false, false);
   };
 
@@ -2224,15 +2279,21 @@ function updateElf(dt) {
           return;
         }
       } else {
-        const targetSb = S.cmd.targetSnowballId
-          ? S.gifts.find(g => g.id === S.cmd.targetSnowballId && g.isSnowball && g.state === 'belt')
+        const targetSb = S.cmd.commitSnowballId
+          ? S.gifts.find(g => g.id === S.cmd.commitSnowballId && g.isSnowball && (g.state === 'belt' || g.state === 'teeter'))
           : null;
         if (targetSb) {
-          if ((e.x <= TAP_SPLIT + 16 || arrived) && targetSb.x >= TEETER_X - 36) {
+          if ((e.x <= TAP_SPLIT + 16 || arrived) && (targetSb.state === 'teeter' || targetSb.x >= TEETER_X - 36)) {
             pickupSnowball(targetSb);
             finishUpdateElf();
             return;
           }
+          finishUpdateElf();
+          return;
+        }
+        const edgeSb = (e.x <= TAP_SPLIT + 16 || arrived) ? frontSnowballAtEdge(cmdFloor) : null;
+        if (edgeSb) {
+          pickupSnowball(edgeSb);
           finishUpdateElf();
           return;
         }
@@ -2250,13 +2311,19 @@ function updateElf(dt) {
         S.cmd = null; S.queue = null;
         clearSnowballTaps();
       } else {
-        const targetSb = S.cmd.targetSnowballId
-          ? S.gifts.find(g => g.id === S.cmd.targetSnowballId && g.isSnowball && g.state === 'belt')
+        const targetSb = S.cmd.commitSnowballId
+          ? S.gifts.find(g => g.id === S.cmd.commitSnowballId && g.isSnowball && (g.state === 'belt' || g.state === 'teeter'))
           : null;
         if (targetSb) {
-          if (targetSb.x >= TEETER_X - 36) {
+          if (targetSb.state === 'teeter' || targetSb.x >= TEETER_X - 36) {
             pickupSnowball(targetSb);
           }
+          finishUpdateElf();
+          return;
+        }
+        const edgeSb = frontSnowballAtEdge(cmdFloor);
+        if (edgeSb) {
+          pickupSnowball(edgeSb);
           finishUpdateElf();
           return;
         }
@@ -2525,32 +2592,35 @@ function onKeyDown(ev) {
     }
     const wasDown = !!S.keys[k];
     S.keys[k] = true;
-    S.cmd = null;
-    S.queue = null;
-    clearSnowballTaps();
-    if (!ev.repeat && !wasDown) {
-      const e = S.elf, maxF = S.tut === 2 ? 0 : activeFloors() - 1;
-      if (k === 'up' || k === 'down') {
-        const dir = k === 'up' ? 1 : -1;
-        let base = e.climbTo !== null ? e.climbTo : e.floor;
-        if (e.climbing) {
-          const curDir = feetY(base) < e.y ? 1 : feetY(base) > e.y ? -1 : 0;
-          if (curDir && curDir !== dir) {
-            if (dir > 0) {
-              for (let f = 0; f <= maxF; f++) { if (feetY(f) < e.y - 1) { base = f - 1; break; } }
-            } else {
-              for (let f = maxF; f >= 0; f--) { if (feetY(f) > e.y + 1) { base = f + 1; break; } }
+    if (k === 'left') S.beltIdleAfterGiftFloor = -1;
+    if (!activeCommittedSnowball()) {
+      S.cmd = null;
+      S.queue = null;
+      clearSnowballTaps();
+      if (!ev.repeat && !wasDown) {
+        const e = S.elf, maxF = S.tut === 2 ? 0 : activeFloors() - 1;
+        if (k === 'up' || k === 'down') {
+          const dir = k === 'up' ? 1 : -1;
+          let base = e.climbTo !== null ? e.climbTo : e.floor;
+          if (e.climbing) {
+            const curDir = feetY(base) < e.y ? 1 : feetY(base) > e.y ? -1 : 0;
+            if (curDir && curDir !== dir) {
+              if (dir > 0) {
+                for (let f = 0; f <= maxF; f++) { if (feetY(f) < e.y - 1) { base = f - 1; break; } }
+              } else {
+                for (let f = maxF; f >= 0; f--) { if (feetY(f) > e.y + 1) { base = f + 1; break; } }
+              }
             }
           }
-        }
-        const nextF = Math.max(0, Math.min(maxF, base + dir));
-        if (nextF !== e.floor || e.climbing) {
-          e.climbTo = nextF;
-          e.climbPause = 0;
-        }
-      } else if (!e.climbing && !S.keys.up && !S.keys.down) {
-        if ((k === 'left' && e.x <= LADDER_CX + 8) || (k === 'right' && e.x >= LADDER_CX - 8)) {
-          e.climbTo = null;
+          const nextF = Math.max(0, Math.min(maxF, base + dir));
+          if (nextF !== e.floor || e.climbing) {
+            e.climbTo = nextF;
+            e.climbPause = 0;
+          }
+        } else if (!e.climbing && !S.keys.up && !S.keys.down) {
+          if ((k === 'left' && e.x <= LADDER_CX + 8) || (k === 'right' && e.x >= LADDER_CX - 8)) {
+            e.climbTo = null;
+          }
         }
       }
     }
@@ -2654,12 +2724,21 @@ function tapTarget(p) {
   f = Math.max(0, Math.min(4, f));
   if (f >= activeFloors()) return;
   const t = { type: p.x < TAP_SPLIT ? 'belt' : 'chute', floor: f };
+
+  if (activeCommittedSnowball()) {
+    if (t.type !== 'belt' || t.floor !== S.cmd.floor) {
+      S.queue = t;
+    }
+    return;
+  }
+
   clearSnowballTaps();
   if (t.type === 'belt') {
-    const front = nextBeltEdgeItem(f);
-    if (front && front.isSnowball) {
-      front.tappedByPlayer = true;
-      t.targetSnowballId = front.id;
+    S.beltIdleAfterGiftFloor = -1;
+    const edgeSb = frontSnowballAtEdge(f);
+    if (edgeSb) {
+      edgeSb.tappedByPlayer = true;
+      t.commitSnowballId = edgeSb.id;
     }
   }
 
@@ -2671,9 +2750,9 @@ function tapTarget(p) {
     if (t.type === 'chute' && S.elf.x >= CHUTE_BX - 12 && S.elf.bag.length > 0) {
       releaseGift(false);
       S.cmd = null;
-    } else if (t.type === 'belt' && t.targetSnowballId) {
-      const sb = S.gifts.find(g => g.id === t.targetSnowballId && g.isSnowball && g.state === 'belt');
-      if (sb && S.elf.x <= TAP_SPLIT + 16 && sb.x >= TEETER_X - 36) {
+    } else if (t.type === 'belt' && t.commitSnowballId) {
+      const sb = S.gifts.find(g => g.id === t.commitSnowballId && g.isSnowball && (g.state === 'belt' || g.state === 'teeter'));
+      if (sb && S.elf.x <= TAP_SPLIT + 16 && (sb.state === 'teeter' || sb.x >= TEETER_X - 36)) {
         pickupSnowball(sb);
       }
     } else if (t.type === 'belt' && S.elf.bag.length < S.carryCap && catchable(false)) {
