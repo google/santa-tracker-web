@@ -518,29 +518,6 @@ function drawSnowballOnBelt(g2, g) {
   g2.restore();
 }
 
-function drawPoofCloud(g2, u) {
-  const expand = u < 0.32 ? (u / 0.32) : 1 + (u - 0.32) * 0.55;
-  const alpha = u < 0.20 ? (u / 0.20) : Math.max(0, 1 - (u - 0.20) / 0.80);
-  const rScale = u < 0.35 ? (0.55 + 0.45 * (u / 0.35)) : Math.max(0.2, 1 - (u - 0.35) * 0.65);
-  g2.save();
-  g2.globalAlpha *= alpha;
-  const puffs = [
-    [0, 0, 17, '#FFFFFF'],
-    [-12, -5, 13, '#E2E8F0'],
-    [12, -4, 13, '#FFFFFF'],
-    [-9, 8, 12, '#FFFFFF'],
-    [10, 7, 12, '#E2E8F0'],
-    [0, -11, 12, '#FFFFFF'],
-  ];
-  for (const [px, py, pr, col] of puffs) {
-    g2.fillStyle = col;
-    g2.beginPath();
-    g2.arc(px * expand, py * expand, pr * rScale, 0, Math.PI * 2);
-    g2.fill();
-  }
-  g2.restore();
-}
-
 function drawGift(g2, g) {
   g2.save();
   if (g.state === 'belt' && g.x < 44) { g2.beginPath(); g2.rect(18, 0, W, H); g2.clip(); }
@@ -550,7 +527,6 @@ function drawGift(g2, g) {
     g2.restore();
     return;
   }
-  const isPoofCloud = g.state === 'fading' && g.missFx === 'C';
   let drawToyBody = true;
   if (g.state === 'fading') {
     const a = Math.max(0, Math.min(1, g.fadeAlpha !== undefined ? g.fadeAlpha : 1));
@@ -576,9 +552,6 @@ function drawGift(g2, g) {
       g2.beginPath(); g2.arc(0, 0, GIFT_R + 2, 0, 7); g2.stroke();
       drawIcon(g2, g.cat, 0, 0, 1.02, g.v || 0);
     }
-  }
-  if (isPoofCloud) {
-    drawPoofCloud(g2, g.fadeProg || 0);
   }
   g2.restore();
 }
