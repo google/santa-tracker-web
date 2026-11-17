@@ -494,11 +494,13 @@ function drawIconBadge(g2, cat, x, y, s, v = 0) {
 }
 
 function drawSnowballOnBelt(g2, g) {
-  const r = TUNE.snowballRadius || 21;
+  const r = TUNE.snowballRadius || 31.5;
   const sz = r * 2;
-  const ang = reduceMotion ? 0 : ((g.spin || 0) + (g.tilt || 0));
+  const yOff = g.state === 'falling' ? 0 : -6.5;
+  const ang = reduceMotion ? 0 : (g.state === 'falling' ? (g.spin || 0) : (g.tilt || 0));
   const sbImg = PROPS.snowball && PROPS.snowball.img;
   g2.save();
+  g2.translate(0, yOff);
   g2.rotate(ang);
   if (sbImg && sbImg.complete && sbImg.naturalWidth) {
     g2.drawImage(sbImg, -sz / 2, -sz / 2, sz, sz);

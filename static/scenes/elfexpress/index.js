@@ -1448,7 +1448,7 @@ function spawnSnowballOnBelt(belt, startX = -78) {
   if (!S.beltLastWasSnowball) S.beltLastWasSnowball = [false, false, false, false, false];
   if (S.beltLastWasSnowball[safeBelt]) return null;
   const tailX = beltTailX(safeBelt);
-  const spawnX = tailX < Infinity ? Math.min(startX, tailX - 52) : startX;
+  const spawnX = tailX < Infinity ? Math.min(startX, tailX - 56) : startX;
   const g = {
     id: S.nextId++, cat: 0, v: 0, belt: safeBelt, state: 'belt',
     isSnowball: true, tappedByPlayer: false,
@@ -1466,7 +1466,8 @@ function spawnGiftOnBelt(belt, startX = -30, teeterOverride = null, catOverride 
   const nFloors = activeFloors();
   const safeBelt = Math.max(0, Math.min(nFloors - 1, belt));
   const tailX = beltTailX(safeBelt);
-  const spawnX = tailX < Infinity ? Math.min(startX, tailX - 52) : startX;
+  const minTailGap = (S.beltLastWasSnowball && S.beltLastWasSnowball[safeBelt]) ? 56 : 52;
+  const spawnX = tailX < Infinity ? Math.min(startX, tailX - minTailGap) : startX;
   if (!S.beltLastWasSnowball) S.beltLastWasSnowball = [false, false, false, false, false];
   S.beltLastWasSnowball[safeBelt] = false;
   const cat = (catOverride !== null && catOverride !== undefined)
@@ -1605,11 +1606,11 @@ function updateGifts(dt) {
       case 'belt': {
         if (pausedBelts) break;
         const edgeItem = teetering[g.belt];
-        const edgeGap = (g.isSnowball || (edgeItem && edgeItem.isSnowball)) ? 48 : 40;
+        const edgeGap = (g.isSnowball || (edgeItem && edgeItem.isSnowball)) ? 56 : 40;
         let limit = edgeItem ? TEETER_X - edgeGap : TEETER_X;
         for (const o of S.gifts) {
           if (o !== g && o.belt === g.belt && (o.state === 'belt' || o.state === 'teeter') && o.x > g.x && o.x - g.x < 240) {
-            const minSep = (g.isSnowball || o.isSnowball) ? 48 : 40;
+            const minSep = (g.isSnowball || o.isSnowball) ? 56 : 40;
             limit = Math.min(limit, o.x - minSep);
           }
         }
