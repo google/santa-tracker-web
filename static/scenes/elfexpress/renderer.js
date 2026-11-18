@@ -26,6 +26,7 @@ import {
   feetY, beltY, chuteY, carryY, STARS_BG, HILLS_BG,
   PXS, CWS, CHS, GYS, PXC, SPR_SLEIGH, SPR_DEER_A, SPR_DEER_B,
   CITY_FAR, CITY, MOON_X, MOON_Y, MOON_R, takeoffPath, TUT, SNOWBALL_TUT_BOX, tutHole,
+  msgSleighCounter,
 } from './constants.js';
 
 export const cv = document.getElementById('game');
@@ -1152,7 +1153,7 @@ function drawLines(g2, S, floors, sleighTargetVal) {
   g2.textAlign = 'center';
   g2.fillStyle = '#B91C1C';
   g2.font = "bold 10px 'Google Sans',sans-serif";
-  g2.fillText(`Sleigh ${sleighNum} of ${SLEIGHS.length}`, SLEIGH_X, SLEIGH_Y + 9);
+  g2.fillText(msgSleighCounter(sleighNum, SLEIGHS.length), SLEIGH_X, SLEIGH_Y + 9);
   g2.fillStyle = '#1D1D1D';
   g2.font = "bold 13px 'Google Sans',sans-serif";
   g2.fillText(S.inSleigh + ' / ' + sleighTargetVal, SLEIGH_X, SLEIGH_Y + 23);
@@ -1591,9 +1592,10 @@ function drawBreatheCue(g2, S, elfChoice) {
   g2.textBaseline = 'middle';
   g2.strokeStyle = 'rgba(15,23,42,.65)';
   g2.lineWidth = 4;
-  g2.strokeText('Phew!', bx, by);
+  const phewText = _msg`elfexpress_phew`;
+  g2.strokeText(phewText, bx, by);
   g2.fillStyle = '#FFFFFF';
-  g2.fillText('Phew!', bx, by);
+  g2.fillText(phewText, bx, by);
   g2.restore();
 }
 
@@ -1657,7 +1659,7 @@ function drawTutorialBox(g2, S) {
   if (showTapFooter) {
     g2.font = "500 13px 'Google Sans',sans-serif";
     g2.fillStyle = '#64748B';
-    g2.fillText('Tap anywhere to continue', boxX + boxW / 2, boxY + boxH - 20);
+    g2.fillText(_msg`elfexpress_tut_footer_tap`, boxX + boxW / 2, boxY + boxH - 20);
   }
   g2.restore();
 }
