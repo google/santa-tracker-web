@@ -361,6 +361,7 @@ export const ELF_LABELS = [
 ];
 
 export const msgSleighAway = (done, total) => _msg`elfexpress_sr_sleigh_away`.replace('{done}', done).replace('{total}', total);
+export const msgSleighCounter = (current, total) => _msg`elfexpress_sleigh_counter`.replace('{current}', current).replace('{total}', total);
 
 export const W = 900, H = 700;
 export const FLOOR_H = 112;
@@ -512,25 +513,25 @@ export const TUT = [
     step: 1,
     go: 'ok',
     ok: true,
-    text: 'Thanks for helping the elves wrap presents!',
+    text: _msg`elfexpress_tut_welcome`,
   },
   {
     step: 2,
     go: 'play',
     ok: false,
-    text: 'Catch the toys, then tap the matching chute to send them off to get wrapped.\nYou can carry two toys at a time!',
+    text: _msg`elfexpress_tut_catch`,
   },
   {
     step: 3,
     go: 'ok',
     ok: true,
-    text: "Sometimes you won't make it in time, or you'll put a toy in the wrong chute. Missed toys go to the recycler.",
+    text: _msg`elfexpress_tut_miss`,
   },
 ];
 
 export const SNOWBALL_TUT_BOX = {
   ok: true,
-  text: 'Watch out for snowballs! They slow you down.',
+  text: _msg`elfexpress_tut_snowball`,
 };
 
 export function tutHole(h) {
