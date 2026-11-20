@@ -1,4 +1,12 @@
+var randomHasGoog_ = typeof goog !== 'undefined';
+if (!randomHasGoog_) {
+  window['goog'] = {'provide': function() {}};
+  window['Random'] = window['Random'] || {};
+}
 goog.provide('Random');
+if (!randomHasGoog_) {
+  delete window['goog'];
+}
 
 Random.generator_ = null;
 
