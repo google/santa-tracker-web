@@ -1,45 +1,12 @@
 const { test, expect } = require('@playwright/test');
-const { expectGameOverOverlay } = require('./helpers');
+const { expectGameOverOverlay, sceneHelpers } = require('./helpers');
 
-function getHostUrl(baseURL) {
-  return `${baseURL || 'http://localhost:8000'}/boatload.html`;
-}
-
-async function advanceTime(page, seconds) {
-  const frameLoc = page.frameLocator('iframe[src*="boatload"]');
-  await frameLoc.locator('#module-boatload').evaluate((_, secs) => {
-    window.__TEST_CONTROL__.advanceTime(secs);
-  }, seconds);
-}
+const boatload = sceneHelpers('boatload', '#module-boatload');
+const advanceTime = boatload.advanceTime;
 
 test.describe('Boatload Game', () => {
   test.beforeEach(async ({ page, baseURL }) => {
-    await page.addInitScript(() => {
-      window.__MANUAL_TIME__ = true;
-    });
-
-    const hostUrl = getHostUrl(baseURL);
-    await page.goto(hostUrl, { waitUntil: 'domcontentloaded' });
-
-    // Target the actual scene iframe
-    const frameLoc = page.frameLocator('iframe[src*="boatload"]');
-    const gameElem = frameLoc.locator('#module-boatload');
-    await expect(gameElem).toBeVisible({ timeout: 30000 });
-
-    // Ensure __TEST_CONTROL__ is defined and ready or fail immediately
-    await gameElem.evaluate(async () => {
-      for (let i = 0; i < 100; i++) {
-        if (window.__TEST_CONTROL__ && window.__TEST_CONTROL__.isReady()) break;
-        await new Promise(r => setTimeout(r, 100));
-      }
-      if (!window.__TEST_CONTROL__) {
-        throw new Error('window.__TEST_CONTROL__ is not defined');
-      }
-      if (!window.Random || !window.Random.setSeed) {
-        throw new Error('window.Random.setSeed is not defined');
-      }
-      window.Random.setSeed('test1234');
-    });
+    await boatload.load(page, baseURL);
   });
 
   test('should load the hosted game automatically', async ({ page }) => {

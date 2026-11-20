@@ -185,7 +185,9 @@ class SantaGameLoaderElement extends HTMLElement {
 
     this._onWindowResize = dedup(this._onWindowResize.bind(this));
 
-    Loader.timeout = () => 20000;
+    // Tests (which set `__MANUAL_TIME__`) run against the dev server, which compiles each scene on
+    // its first request and can take longer than the normal timeout.
+    Loader.timeout = () => window.__MANUAL_TIME__ ? 90000 : 20000;
     Loader.unhandledLoad = (frame, href) => {
       console.warn('FAILING OPEN for unhandled load', frame, href);
     };
