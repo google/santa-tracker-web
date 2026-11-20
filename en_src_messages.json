@@ -2256,115 +2256,115 @@
     "message": "Penguin Dash"
   },
   "scene_elfexpress": {
-    "description": "Title of a scene/game. Catch falling presents off a conveyor belt and sort them into matching sleigh chutes. [CHAR_LIMIT=24]",
+    "description": "Title of a holiday game where the player sorts toys into matching chutes so they can be wrapped. [CHAR_LIMIT=24]",
     "message": "Elf Express"
   },
   "elfexpress_phew": {
-    "description": "Short relieved exclamation floating above the elf when they catch their breath after a gift wave in Elf Express. [CHAR_LIMIT=16]",
+    "description": "Short relieved exclamation said by an elf character when they catch their breath after completing a task. [CHAR_LIMIT=16]",
     "message": "Phew!"
   },
   "elfexpress_sleigh_counter": {
-    "description": "Label above the sleigh progress counter in Elf Express. {current} is the current sleigh number (e.g. 1) and {total} is the total number of sleighs (e.g. 8). [CHAR_LIMIT=24]",
+    "description": "Progress label in a game showing which sleigh the player is filling. {current} is the current sleigh number and {total} is the total number of sleighs. [CHAR_LIMIT=24]",
     "message": "Sleigh {current} of {total}"
   },
   "elfexpress_tut_catch": {
-    "description": "Tutorial step 2 instruction in Elf Express explaining how to catch toys and deliver them to matching chutes. [CHAR_LIMIT=140]",
+    "description": "Game tutorial instruction telling the player to catch toys and tap the matching chute to send them off to be wrapped. The second line says the player can carry two toys at once. [CHAR_LIMIT=140]",
     "message": "Catch the toys, then tap the matching chute to send them off to get wrapped.\nYou can carry two toys at a time!"
   },
   "elfexpress_tut_miss": {
-    "description": "Tutorial step 3 instruction in Elf Express explaining that missed or mis-sorted toys go to the recycler. [CHAR_LIMIT=140]",
+    "description": "Game tutorial instruction explaining that toys the player misses, or puts in the wrong chute, go into a recycling bin. [CHAR_LIMIT=140]",
     "message": "Sometimes you won't make it in time, or you'll put a toy in the wrong chute. Missed toys go to the recycler."
   },
   "elfexpress_tut_snowball": {
-    "description": "Tutorial callout shown when snowballs first appear in Elf Express, warning that snowballs slow the elf down. [CHAR_LIMIT=80]",
+    "description": "Game tutorial warning that snowballs on the conveyor belt make the player's elf move more slowly. [CHAR_LIMIT=80]",
     "message": "Watch out for snowballs! They slow you down."
   },
   "elfexpress_tut_welcome": {
-    "description": "Tutorial step 1 welcome message in Elf Express. [CHAR_LIMIT=80]",
+    "description": "First message of a game tutorial, thanking the player for helping Santa's elves wrap presents. [CHAR_LIMIT=80]",
     "message": "Thanks for helping the elves wrap presents!"
   },
   "elfexpress_pick_elf": {
-    "description": "Subtitle on the Elf Express start screen prompting the player to select an elf character. [CHAR_LIMIT=35]",
+    "description": "Heading on a game's start screen asking the player to choose an elf character. [CHAR_LIMIT=35]",
     "message": "Pick your elf"
   },
   "elfexpress_start": {
-    "description": "Primary button label on the Elf Express start screen to begin gameplay. [CHAR_LIMIT=24]",
+    "description": "Button on a game's start screen that starts play. 'Shift' means a work shift. [CHAR_LIMIT=24]",
     "message": "Start the shift"
   },
   "elfexpress_skip_tut": {
-    "description": "Button label in the bottom-left corner during the Elf Express tutorial to skip directly to gameplay. [CHAR_LIMIT=22]",
+    "description": "Button shown during a game tutorial that skips the tutorial and starts play. [CHAR_LIMIT=22]",
     "message": "Skip tutorial"
   },
   "elfexpress_elf_orange": {
-    "description": "Screen-reader label for the first selectable elf character wearing an orange outfit on the start screen. [CHAR_LIMIT=40]",
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing orange. [CHAR_LIMIT=40]",
     "message": "Elf in orange"
   },
   "elfexpress_elf_purple": {
-    "description": "Screen-reader label for the second selectable elf character wearing a purple outfit on the start screen. [CHAR_LIMIT=40]",
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing purple. [CHAR_LIMIT=40]",
     "message": "Elf in purple"
   },
   "elfexpress_elf_red": {
-    "description": "Screen-reader label for the third selectable elf character wearing a red outfit on the start screen. [CHAR_LIMIT=40]",
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing red. [CHAR_LIMIT=40]",
     "message": "Elf in red"
   },
   "elfexpress_elf_green": {
-    "description": "Screen-reader label for the fourth selectable elf character wearing a green outfit on the start screen. [CHAR_LIMIT=40]",
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing green. [CHAR_LIMIT=40]",
     "message": "Elf in green"
   },
   "elfexpress_elf_blue": {
-    "description": "Screen-reader label for the fifth selectable elf character wearing a blue outfit on the start screen. [CHAR_LIMIT=40]",
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing blue. [CHAR_LIMIT=40]",
     "message": "Elf in blue"
   },
   "elfexpress_elf_yellow": {
-    "description": "Screen-reader label for the sixth selectable elf character wearing a yellow outfit on the start screen. [CHAR_LIMIT=40]",
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing yellow. [CHAR_LIMIT=40]",
     "message": "Elf in yellow"
   },
   "elfexpress_cat_sports": {
-    "description": "Chute category label for sports gifts (basketball, soccer ball) on Floor 0 of Elf Express. [CHAR_LIMIT=12]",
+    "description": "Label on a chute where sports toys are sorted in a toy-sorting game. [CHAR_LIMIT=12]",
     "message": "Sports"
   },
   "elfexpress_cat_vehicles": {
-    "description": "Chute category label for vehicle gifts (toy car, train) on Floor 1 of Elf Express. [CHAR_LIMIT=12]",
+    "description": "Label on a chute where toy vehicles are sorted in a toy-sorting game. [CHAR_LIMIT=12]",
     "message": "Vehicles"
   },
   "elfexpress_cat_treats": {
-    "description": "Chute category label for sweet treat gifts (candy cane, cupcake) on Floor 2 of Elf Express. [CHAR_LIMIT=12]",
+    "description": "Label on a chute where sweets (like candy) are sorted in a toy-sorting game. [CHAR_LIMIT=12]",
     "message": "Treats"
   },
   "elfexpress_cat_books": {
-    "description": "Chute category label for book gifts (open book, closed book) on Floor 3 of Elf Express. [CHAR_LIMIT=12]",
+    "description": "Label on a chute where books are sorted in a toy-sorting game. [CHAR_LIMIT=12]",
     "message": "Books"
   },
   "elfexpress_cat_plush": {
-    "description": "Chute category label for plush toy gifts (teddy bear, bunny) on Floor 4 of Elf Express. [CHAR_LIMIT=12]",
+    "description": "Label on a chute where stuffed toys (like teddy bears) are sorted in a toy-sorting game. [CHAR_LIMIT=12]",
     "message": "Plush"
   },
   "elfexpress_win_big": {
-    "description": "Large celebratory headline displayed in the sky during the win takeoff animation in Elf Express. [CHAR_LIMIT=28]",
+    "description": "Big celebration headline, shown in all capital letters, when the player wins a game. [CHAR_LIMIT=28]",
     "message": "HAPPY HOLIDAYS"
   },
   "elfexpress_win_small": {
-    "description": "Subtitle displayed below the headline during the win takeoff animation in Elf Express. [CHAR_LIMIT=50]",
+    "description": "Line under the win headline saying all the gifts are wrapped and ready for delivery. [CHAR_LIMIT=50]",
     "message": "All the gifts are ready to go!"
   },
   "elfexpress_sr_sleigh_away": {
-    "description": "Screen-reader announcement read when a sleigh is filled. {done} is completed sleighs (e.g. 1) and {total} is total sleighs (e.g. 9). [CHAR_LIMIT=40]",
+    "description": "Screen-reader announcement (not shown on screen) when the player fills a sleigh with gifts and it leaves. {done} is the number of sleighs filled so far and {total} is the total number of sleighs. [CHAR_LIMIT=40]",
     "message": "Sleigh away. {done} of {total}."
   },
   "elfexpress_sr_last_sleigh": {
-    "description": "Screen-reader announcement read when the player reaches the 9th and final sleigh. [CHAR_LIMIT=60]",
+    "description": "Screen-reader announcement (not shown on screen) when the player reaches the last level of a game, where heavy snow is falling. [CHAR_LIMIT=60]",
     "message": "Last sleigh. It is snowing hard out there."
   },
   "elfexpress_sr_gust": {
-    "description": "Screen-reader announcement read when a wind gust blows through the workshop. [CHAR_LIMIT=50]",
+    "description": "Screen-reader announcement (not shown on screen) when a strong gust of wind blows through a toy workshop in a game. [CHAR_LIMIT=50]",
     "message": "Wow, what a storm out there!"
   },
   "elfexpress_sr_win": {
-    "description": "Screen-reader announcement read when Santa takes off at the end of a winning run. [CHAR_LIMIT=70]",
+    "description": "Screen-reader announcement (not shown on screen) when the player wins a game by wrapping all the gifts. [CHAR_LIMIT=70]",
     "message": "Congratulations! You've helped wrap all the gifts!"
   },
   "elfexpress_tut_footer_tap": {
-    "description": "Footer prompt on tutorial cards where tapping anywhere advances to the next step. [CHAR_LIMIT=40]",
+    "description": "Hint at the bottom of each game tutorial message telling the player to tap anywhere to go to the next step. [CHAR_LIMIT=40]",
     "message": "Tap anywhere to continue"
   },
   "scene_elfmaker": {
