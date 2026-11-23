@@ -78,7 +78,12 @@ app.Game.prototype.start = function(data) {
   this.initialBeard_ = this.cloth.save();
 
   if (data && data.beard) {
-    this.cloth.restore(data.beard);
+    try {
+      this.cloth.restore(data.beard);
+    } catch (e) {
+      console.warn('[SantaSelfie] Could not restore beard from URL data:', e);
+      this.cloth.resetCloth();
+    }
   }
 };
 

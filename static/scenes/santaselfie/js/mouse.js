@@ -57,6 +57,9 @@ app.Mouse = function($elem) {
   }.bind(this));
 
   $elem.on('mousedown touchstart', function(e) {
+    if ($(e.target).closest('.Tools, button').length) {
+      return;
+    }
     this.down = true;
 
     e.preventDefault();
@@ -68,6 +71,10 @@ app.Mouse = function($elem) {
     if (e.cancelable) {
       e.preventDefault();
     }
+  }.bind(this));
+
+  $(window).on('mouseup.santaselfie touchend.santaselfie', function() {
+    this.down = false;
   }.bind(this));
 };
 
