@@ -93,12 +93,19 @@ function invokeCompiler(compiler) {
 }
 
 
+const sceneCache = new Map();
+
 /**
  * @param {string} sceneName
  * @param {boolean=} compile
+ * @param {boolean=} cache
  * @return {{code: string, map: !Object}}
  */
-module.exports = async function compile(sceneName, compile=true) {
+module.exports = async function compile(sceneName, compile=true, cache=false) {
+  const cacheKey = `${sceneName}-${compile}`;
+  if (cache && sceneCache.has(cacheKey)) {
+    return sceneCache.get(cacheKey);
+  }
   const compilerSrc = [
     'build/transpile/export.js',
     'static/scenes/_shared/js',
@@ -171,7 +178,11 @@ module.exports = async function compile(sceneName, compile=true) {
     map.sources.push(`static/scenes/${sceneName}/js`, `static/scenes/_shared/js`);
     map.sourcesContent.push(null, null);
 
-    return {code, map};
+    const result = {code, map};
+    if (cache) {
+      sceneCache.set(cacheKey, result);
+    }
+    return result;
   } finally {
     sourceMapTemp.removeCallback();
   }

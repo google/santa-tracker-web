@@ -35,4 +35,6 @@ const textureMemo = assetPath => {
 export const tiles = textureMemo('img/tiles.png');
 export const snowball = textureMemo('img/snowball.png');
 export const parachute = textureMemo('img/parachute.png');
+// Laid out for the gift cube's UVs; see the note above `Drop` in drop.js.
+export const shieldGift = textureMemo('img/shield-gift.png');
 

@@ -16,6 +16,7 @@
 
 goog.provide('Bubble');
 
+goog.require('Random');
 goog.require('app.shared.pools');
 
 /**
@@ -29,7 +30,7 @@ Bubble = function(game) {
   this.elem = $('<div class="bubble hidden"></div>');
   this.elem[0].bubble = this;
 
-  var type = Math.ceil(Math.random() * 6);
+  var type = Math.ceil(Random.random() * 6);
   this.elem.addClass('bubble--' + type);
   this.game.bubblesElem.append(this.elem);
 };

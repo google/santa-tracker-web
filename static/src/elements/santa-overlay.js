@@ -55,6 +55,14 @@ export class SantaOverlayElement extends LitElement {
     return {
       isPaused: {type: Boolean},
       shareUrl: {type: String},
+      // Optional headline supplied by the scene, replacing the generic "Game
+      // Over!" for games that want to distinguish winning from losing. Already
+      // localized by the scene; empty for scenes that do not set it.
+      gameoverMessage: {type: String},
+      // Optional artwork variant supplied by the scene, selecting a
+      // `gameover-<name>` background in place of the default trophy elf.
+      // Empty for scenes that do not set it.
+      gameoverArt: {type: String},
       _shortUrl: {type: Promise},
     };
   }
@@ -101,11 +109,22 @@ export class SantaOverlayElement extends LitElement {
     const hasUrl = Boolean(this.shareUrl);
     const heroClass = hasUrl ? 'share' : (this.isPaused ? 'pause' : 'gameover');
 
+    // CSS hides this heading unless the hero is in its `gameover` state, so a
+    // scene's headline can never leak onto the pause or share screens.
+    const heading = this.gameoverMessage || _msg`gameover`;
+
+    // Likewise the artwork: pause and share have their own, so the scene's
+    // choice is only honoured in the gameover state. The value arrives from an
+    // iframe, so strip anything that could add a second class or break out of
+    // the attribute.
+    const art = (this.gameoverArt || '').replace(/[^a-z0-9-]/g, '');
+    const heroArt = (heroClass === 'gameover' && art) ? ` gameover-${art}` : '';
+
     return html`
 <div class="backdrop">
   <main>
-    <div class="hero ${heroClass}">
-      <h1>${_msg`gameover`}</h1>
+    <div class="hero ${heroClass}${heroArt}">
+      <h1>${heading}</h1>
     </div>
     <nav>
       <div class="url" ?hidden=${!hasUrl}>

@@ -15,7 +15,6 @@
  */
 
 import { Drop } from '../entities/drop.js';
-import { randomValue } from '../../engine/utils/function.js';
 import { powerupType } from '../components/powerup.js';
 
 const {
@@ -31,6 +30,14 @@ export class DropSystem {
     this.parachutingDrops = [];
     this.drops = [];
     this.dropLayer = new Object3D();
+    // The mode is fixed for the duration of a match, and `addDrop` has no
+    // reference to `game`, so the odds are cached here, along with the
+    // thresholds that `shieldsShouldUnlock` checks.
+    const {gameMode} = game;
+    this.shieldChance = (gameMode && gameMode.shieldChance) || 0;
+    this.shieldUnlock = (gameMode && gameMode.shieldUnlock) || {};
+    // Latched in `update`, and reset here so a restart opens with snowballs.
+    this.shieldsUnlocked = false;
   }
 
   teardown(game) {
@@ -49,15 +56,83 @@ export class DropSystem {
     this.parachutingDrops = [];
   }
 
-  addDrop(tileIndex = -1, containedItem = randomValue(powerupType)) {
-    const drop = Drop.allocate();
+  addDrop(tileIndex = -1, containedItem = this.rollContents()) {
+    // Passed to `allocate` as well as pushed below: the drop paints itself to
+    // match its contents, so a shield arrives as a first aid kit rather than
+    // another wrapped present.
+    const drop = Drop.allocate(containedItem);
 
     drop.arrival.tileIndex = tileIndex;
-    drop.contents.inventory.push(powerupType.BIG_SNOWBALL);
-    //drop.contents.inventory.push(containedItem);
+    drop.contents.inventory.push(containedItem);
 
     this.drops.push(drop);
     this.newDrops.push(drop);
+  }
+
+  /**
+   * Once unlocked, shields are sprinkled among the gifts; until then every gift
+   * is a big snowball. `randomValue(powerupType)` is not used here because it
+   * would also roll `NOTHING`, and the odds need to be tuned per mode anyway.
+   */
+  rollContents() {
+    if (!this.shieldsUnlocked) {
+      return powerupType.BIG_SNOWBALL;
+    }
+
+    return Math.random() < this.shieldChance
+        ? powerupType.SHIELD
+        : powerupType.BIG_SNOWBALL;
+  }
+
+  /**
+   * Whether shields have earned their place in the drop rotation yet.
+   *
+   * Shields are held back from the opening of a match. Early on the field is
+   * crowded and the island is wide, so immunity mostly buys a player a free
+   * walk across open ground; the powerup only becomes interesting once the
+   * match has tightened up. Meeting any one condition is enough, because a
+   * match can tighten in three unrelated ways -- slowly, through attrition, or
+   * through the map closing in -- and waiting for all three would hold shields
+   * back until a game was nearly over.
+   *
+   * The thresholds are per mode (`GameMode.shieldUnlock` in snowball-game.js),
+   * and a mode can leave a condition out by omitting it.
+   *
+   * All three are monotonic -- time only advances, elves only fall, tiles only
+   * sink -- so this is never asked again once it has answered.
+   */
+  shieldsShouldUnlock(game) {
+    if (this.shieldChance <= 0) {
+      return false;
+    }
+
+    const {ticks, remainingElves, tileFraction} = this.shieldUnlock;
+    const {mapSystem, stateSystem, tick, setupTick} = game;
+
+    // The match has run long enough.
+    if (ticks != null && tick - setupTick >= ticks) {
+      return true;
+    }
+
+    const {population} = stateSystem;
+
+    // The field has thinned out. Counts elves yet to be knocked out, including
+    // any still to spawn, which is the same figure the HUD shows as remaining.
+    if (remainingElves != null && population != null &&
+        (population.maximum - population.knockedOut) < remainingElves) {
+      return true;
+    }
+
+    const {map} = mapSystem;
+
+    // The island has eroded.
+    if (tileFraction != null && map != null &&
+        map.initialPassableTileCount > 0 &&
+        map.passableTileCount <= map.initialPassableTileCount * tileFraction) {
+      return true;
+    }
+
+    return false;
   }
 
   update(game) {
@@ -69,6 +144,10 @@ export class DropSystem {
       parachuteSystem
     } = game;
     const { map, grid } = mapSystem;
+
+    if (!this.shieldsUnlocked && this.shieldsShouldUnlock(game)) {
+      this.shieldsUnlocked = true;
+    }
 
     if (map == null) {
       return;
