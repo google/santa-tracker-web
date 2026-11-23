@@ -2255,6 +2255,118 @@
     "description": "Title of a scene/game. Help a penguin navigate icebergs to pick up presents.",
     "message": "Penguin Dash"
   },
+  "scene_elfexpress": {
+    "description": "Title of a holiday game where the player sorts toys into matching chutes so they can be wrapped. [CHAR_LIMIT=24]",
+    "message": "Elf Express"
+  },
+  "elfexpress_phew": {
+    "description": "Short relieved exclamation said by an elf character when they catch their breath after completing a task. [CHAR_LIMIT=16]",
+    "message": "Phew!"
+  },
+  "elfexpress_sleigh_counter": {
+    "description": "Progress label in a game showing which sleigh the player is filling. {current} is the current sleigh number and {total} is the total number of sleighs. [CHAR_LIMIT=24]",
+    "message": "Sleigh {current} of {total}"
+  },
+  "elfexpress_tut_catch": {
+    "description": "Game tutorial instruction telling the player to catch toys and tap the matching chute to send them off to be wrapped. The second line says the player can carry two toys at once. [CHAR_LIMIT=140]",
+    "message": "Catch the toys, then tap the matching chute to send them off to get wrapped.\nYou can carry two toys at a time!"
+  },
+  "elfexpress_tut_miss": {
+    "description": "Game tutorial instruction explaining that toys the player misses, or puts in the wrong chute, go into a recycling bin. [CHAR_LIMIT=140]",
+    "message": "Sometimes you won't make it in time, or you'll put a toy in the wrong chute. Missed toys go to the recycler."
+  },
+  "elfexpress_tut_snowball": {
+    "description": "Game tutorial warning that snowballs on the conveyor belt make the player's elf move more slowly. [CHAR_LIMIT=80]",
+    "message": "Watch out for snowballs! They slow you down."
+  },
+  "elfexpress_tut_welcome": {
+    "description": "First message of a game tutorial, thanking the player for helping Santa's elves wrap presents. [CHAR_LIMIT=80]",
+    "message": "Thanks for helping the elves wrap presents!"
+  },
+  "elfexpress_pick_elf": {
+    "description": "Heading on a game's start screen asking the player to choose an elf character. [CHAR_LIMIT=35]",
+    "message": "Pick your elf"
+  },
+  "elfexpress_start": {
+    "description": "Button on a game's start screen that starts play. 'Shift' means a work shift. [CHAR_LIMIT=24]",
+    "message": "Start the shift"
+  },
+  "elfexpress_skip_tut": {
+    "description": "Button shown during a game tutorial that skips the tutorial and starts play. [CHAR_LIMIT=22]",
+    "message": "Skip tutorial"
+  },
+  "elfexpress_elf_orange": {
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing orange. [CHAR_LIMIT=40]",
+    "message": "Elf in orange"
+  },
+  "elfexpress_elf_purple": {
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing purple. [CHAR_LIMIT=40]",
+    "message": "Elf in purple"
+  },
+  "elfexpress_elf_red": {
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing red. [CHAR_LIMIT=40]",
+    "message": "Elf in red"
+  },
+  "elfexpress_elf_green": {
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing green. [CHAR_LIMIT=40]",
+    "message": "Elf in green"
+  },
+  "elfexpress_elf_blue": {
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing blue. [CHAR_LIMIT=40]",
+    "message": "Elf in blue"
+  },
+  "elfexpress_elf_yellow": {
+    "description": "Screen-reader label (not shown on screen) for a selectable elf character wearing yellow. [CHAR_LIMIT=40]",
+    "message": "Elf in yellow"
+  },
+  "elfexpress_cat_sports": {
+    "description": "Label on a chute where sports toys are sorted in a toy-sorting game. [CHAR_LIMIT=12]",
+    "message": "Sports"
+  },
+  "elfexpress_cat_vehicles": {
+    "description": "Label on a chute where toy vehicles are sorted in a toy-sorting game. [CHAR_LIMIT=12]",
+    "message": "Vehicles"
+  },
+  "elfexpress_cat_treats": {
+    "description": "Label on a chute where sweets (like candy) are sorted in a toy-sorting game. [CHAR_LIMIT=12]",
+    "message": "Treats"
+  },
+  "elfexpress_cat_books": {
+    "description": "Label on a chute where books are sorted in a toy-sorting game. [CHAR_LIMIT=12]",
+    "message": "Books"
+  },
+  "elfexpress_cat_plush": {
+    "description": "Label on a chute where stuffed toys (like teddy bears) are sorted in a toy-sorting game. [CHAR_LIMIT=12]",
+    "message": "Plush"
+  },
+  "elfexpress_win_big": {
+    "description": "Big celebration headline, shown in all capital letters, when the player wins a game. [CHAR_LIMIT=28]",
+    "message": "HAPPY HOLIDAYS"
+  },
+  "elfexpress_win_small": {
+    "description": "Line under the win headline saying all the gifts are wrapped and ready for delivery. [CHAR_LIMIT=50]",
+    "message": "All the gifts are ready to go!"
+  },
+  "elfexpress_sr_sleigh_away": {
+    "description": "Screen-reader announcement (not shown on screen) when the player fills a sleigh with gifts and it leaves. {done} is the number of sleighs filled so far and {total} is the total number of sleighs. [CHAR_LIMIT=40]",
+    "message": "Sleigh away. {done} of {total}."
+  },
+  "elfexpress_sr_last_sleigh": {
+    "description": "Screen-reader announcement (not shown on screen) when the player reaches the last level of a game, where heavy snow is falling. [CHAR_LIMIT=60]",
+    "message": "Last sleigh. It is snowing hard out there."
+  },
+  "elfexpress_sr_gust": {
+    "description": "Screen-reader announcement (not shown on screen) when a strong gust of wind blows through a toy workshop in a game. [CHAR_LIMIT=50]",
+    "message": "Wow, what a storm out there!"
+  },
+  "elfexpress_sr_win": {
+    "description": "Screen-reader announcement (not shown on screen) when the player wins a game by wrapping all the gifts. [CHAR_LIMIT=70]",
+    "message": "Congratulations! You've helped wrap all the gifts!"
+  },
+  "elfexpress_tut_footer_tap": {
+    "description": "Hint at the bottom of each game tutorial message telling the player to tap anywhere to go to the next step. [CHAR_LIMIT=40]",
+    "message": "Tap anywhere to continue"
+  },
   "scene_elfmaker": {
     "description": "Title of a scene/game. Create an Elf that looks just like you.",
     "message": "Elf Maker"
@@ -2582,6 +2694,30 @@
   "snowball_remaining": {
     "description": "Describes the number of players that are still playing a game, out of a total number that started the game. The numbers will both always be two or greater, so plurals are fine.",
     "raw": "<ph name=\"REMAINING\"><ex>10</ex>{{remaining}}</ph> of <ph name=\"TOTAL\"><ex>18</ex>{{total}}</ph> elves remaining"
+  },
+  "snowball_mode_quick": {
+    "description": "Label on a button that starts a shorter game with fewer players. Keep short, it sits inside a round button.",
+    "message": "Quick Mode"
+  },
+  "snowball_mode_quick_description": {
+    "description": "Explains the 'Quick Mode' button, shown below it. The number of elves must match the game configuration.",
+    "message": "25 elves battle in a small arena"
+  },
+  "snowball_mode_arena": {
+    "description": "Label on a button that starts the full-length game with many players. Keep short, it sits inside a round button.",
+    "message": "Arena Mode"
+  },
+  "snowball_mode_arena_description": {
+    "description": "Explains the 'Arena Mode' button, shown below it. The number of elves must match the game configuration.",
+    "message": "100 elves battle in a large arena"
+  },
+  "snowball_gameover_win": {
+    "description": "Very large headline shown when the player is the last elf standing. A playful rhyme in English ('winner' / 'winter'), in the style of a victory catchphrase. Prefer a short celebratory phrase that rhymes or plays on words in your language over a literal translation. Keep it short: it is displayed at 42px.",
+    "message": "Winner winner, merry winter!"
+  },
+  "snowball_gameover_lose": {
+    "description": "Very large headline shown when the player has been knocked out. A pun on 'no hard feelings', where 'no' becomes 'snow'. It should feel light and encouraging, not mocking, since the player just lost. Prefer a short, kind phrase that puns on snow or cold in your language over a literal translation. Keep it short: it is displayed at 42px.",
+    "message": "Snow hard feelings!"
   },
   "snowflake_choose_background": {
     "description": "Tell user to choose background for their postcard.",
@@ -9796,5 +9932,121 @@
   "decmonth_long": {
     "description": "'December', the month. Any length is fine. Placed before a number indicating the date within December something opens.",
     "message": "December"
+  },
+  "postcard_mailbox_label": {
+    "description": "Opens Santa's postcard collection gallery; 'Postcards' is a plural noun. Appears as the accessible label and tooltip on the top-right mailbox button in the Santa Tracker map view. [CHAR_LIMIT=40]",
+    "message": "Santa's Postcards"
+  },
+  "postcard_flip": {
+    "description": "Short label on the button that turns the postcard over (front to back and back again); 'Flip' is an action verb. Appears next to a round flip icon below the postcard in the mailbox. Keep very short. [CHAR_LIMIT=12]",
+    "message": "Flip"
+  },
+  "postcard_flip_to_back": {
+    "description": "Flips the postcard over to show the back side with Santa's written message; 'Flip' is an action verb and 'note' is a singular noun. Appears as a button below the postcard in the gallery modal. [CHAR_LIMIT=30]",
+    "message": "Flip to read note"
+  },
+  "postcard_flip_to_front": {
+    "description": "Flips the postcard back over to show the front illustration; 'Flip' is an action verb. Appears as a button below the postcard in the gallery modal when viewing the back side. [CHAR_LIMIT=30]",
+    "message": "Flip to front"
+  },
+  "postcard_download": {
+    "description": "Saves the postcard image to the user's device; 'Download' is an action verb and 'postcard' is a singular noun. Appears as an action button below the postcard in the gallery modal. [CHAR_LIMIT=30]",
+    "message": "Download postcard"
+  },
+  "postcard_share": {
+    "description": "Opens the system share sheet to share the postcard; 'Share' is an action verb and 'postcard' is a singular noun. Appears as an action button below the postcard in the gallery modal. [CHAR_LIMIT=30]",
+    "message": "Share postcard"
+  },
+  "postcard_recipient_name": {
+    "description": "Name of the person Santa is sending the postcard to back home; 'Mrs. Claus' is Santa's wife. Appears on the first address line on the right side of the back of every postcard. [CHAR_LIMIT=30]",
+    "message": "Mrs. Claus"
+  },
+  "postcard_recipient_street": {
+    "description": "Playful fictional street address of Santa's home at the North Pole. Appears on the second address line on the right side of the back of every postcard. [CHAR_LIMIT=30]",
+    "message": "123 Elf Road"
+  },
+  "postcard_santa_signature": {
+    "description": "Santa's handwritten sign-off under his short note on the back of a postcard; 'Santa' is a name. [CHAR_LIMIT=20]",
+    "message": "Santa"
+  },
+  "postcard_mailbox_empty": {
+    "description": "Informs the user that no postcards have arrived yet before Santa reaches his first postcard stop. Appears inside the postcard gallery modal when the collection is empty. [CHAR_LIMIT=90]",
+    "message": "No postcards yet! Check back as Santa visits stops around the world."
+  },
+  "postcard_note_provideniya": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Provideniya, Russia (Stop 1). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Our very first stop of the night in snowy Provideniya! The reindeer dashed right over Emma Bay while the harbor lights twinkled across the ice."
+  },
+  "postcard_note_anadyr": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Anadyr, Russia (Stop 2). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Even in the frosty winter night, the brightly painted houses of Anadyr are glowing with holiday cheer! Dasher and Dancer are already hitting their stride."
+  },
+  "postcard_note_petropavlovsk-kamchatsky": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Petropavlovsk-Kamchatsky, Russia (Stop 3). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "What a majestic view over Avacha Bay! We glided past the snow-capped volcanoes of Kamchatka under a blanket of sparkling stars."
+  },
+  "postcard_note_bikini": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Bikini, Marshall Islands (Stop 4). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "From snowy peaks straight to the warm Pacific breeze! The turquoise ring of Bikini Atoll is shimmering beneath the moonlight tonight."
+  },
+  "postcard_note_majuro": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Majuro, Marshall Islands (Stop 5). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Swooping low over the narrow coral islands of Majuro! The ocean waves are gently lapping the shore as we deliver gifts along the lagoon."
+  },
+  "postcard_note_tarawa": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Tarawa, Kiribati (Stop 6). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Mauri from Tarawa! The palm fronds are rustling in the warm equatorial breeze while Rudolph leads the sleigh across the bright coral reefs."
+  },
+  "postcard_note_funafuti": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Funafuti, Tuvalu (Stop 7). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Gliding over the crystal-clear lagoon of Funafuti! The stars are reflecting off the calm Pacific waters like thousands of tiny lanterns."
+  },
+  "postcard_note_atafu": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Atafu, Tokelau (Stop 8). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "The coral lagoon in Atafu is glowing under the night sky! The reindeer loved skimming right above the coconut palms."
+  },
+  "postcard_note_apia": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Apia, Samoa (Stop 9). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Talofa from Apia! Warm tropical air and festive island songs greeted us as we circled above Mount Vaea and the harbor."
+  },
+  "postcard_note_suva": {
+    "description": "Short 2-3 sentence festive dispatch written by Santa on the back of a postcard from Suva, Fiji (Stop 10). Tone is warm, playful, and family-friendly. Appears on the back left side of the postcard. [CHAR_LIMIT=220]",
+    "message": "Bula from Suva! The lush green hills and harbor lights of Fiji looked magical as we delivered presents across the island."
+  },
+  "postcard_previous": {
+    "description": "Shows the previous postcard in Santa's postcard collection; used as the accessible label of a left-arrow button in the open mailbox view. [CHAR_LIMIT=40]",
+    "message": "Previous postcard"
+  },
+  "postcard_next": {
+    "description": "Shows the next postcard in Santa's postcard collection; used as the accessible label of a right-arrow button in the open mailbox view. [CHAR_LIMIT=40]",
+    "message": "Next postcard"
+  },
+  "postcard_view_all": {
+    "description": "Opens a grid view showing every postcard Santa has sent so far; 'postcards' is a plural noun. Appears as a button below the postcard in the open mailbox view. [CHAR_LIMIT=30]",
+    "message": "See all postcards"
+  },
+  "postcard_back_to_carousel": {
+    "description": "Returns from the grid of all postcards to viewing one postcard at a time; used as the accessible label of a back-arrow button in the open mailbox view. [CHAR_LIMIT=40]",
+    "message": "Back to postcard"
+  },
+  "postcard_close_mailbox": {
+    "description": "Closes the open mailbox view and returns to the Santa Tracker map; used as the accessible label of an X button. [CHAR_LIMIT=40]",
+    "message": "Close mailbox"
+  },
+  "postcard_recipient_city": {
+    "description": "Playful fictional town and postcode for Santa's home. Appears on the third address line on the right side of the back of every postcard. Adapt the postcode format to your locale if you like. [CHAR_LIMIT=30]",
+    "message": "North Pole, 88888"
+  },
+  "postcard_journal_title": {
+    "description": "Heading printed at the top left of the back of every postcard, above Santa's note; 'Journal' means a travel diary. Displayed in capital letters. [CHAR_LIMIT=32]",
+    "message": "Santa's Travel Journal"
+  },
+  "postcard_made_with_gemini": {
+    "description": "Text around the bottom of the circular rubber-stamp postmark on the back of every postcard, saying the postcard was created with Google's Gemini AI. 'Gemini' is a product name; do not translate it. [CHAR_LIMIT=22]",
+    "message": "Made with Gemini"
+  },
+  "postcard_next_stop": {
+    "description": "Last line of Santa's handwritten note on the back of a postcard, telling the reader where he is flying to next. Keep {city} exactly as is; it is replaced with the name of the next city on Santa's route (e.g. 'Off to Hartford next!'). [CHAR_LIMIT=50]",
+    "message": "Off to {city} next!"
   }
 }

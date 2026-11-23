@@ -6,8 +6,8 @@
     "dev": "npm run start",
     "start": "./serve.js",
     "release": "./release.js",
-
     "staging-check": "node .cloudbuild/staging-check.js",
+    "test": "playwright test",
     "postinstall": "ln -s ../node_modules static/node_modules || true"
   },
   "dependencies": {
@@ -44,7 +44,6 @@
     "lottie-web": "^5.5.10",
     "mime-types": "^2.1.21",
     "mocha": "^10.5.2",
-
     "parse5": "^5.1.0",
     "polka": "^0.5.2",
     "pretty-ms": "^4.0.0",
@@ -62,6 +61,7 @@
   },
   "devDependencies": {
     "@google-cloud/cloudbuild": "^4.5.0",
-    "@google-cloud/error-reporting": "^2.0.4"
+    "@google-cloud/error-reporting": "^2.0.4",
+    "@playwright/test": "^1.61.1"
   }
 }

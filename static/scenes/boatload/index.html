@@ -91,6 +91,19 @@
 
   const game = new Game(document.getElementById('module-boatload'));
 
+  if (window.__MANUAL_TIME__) {
+    game.manualTime = true;
+    window.__TEST_CONTROL__ = {
+      advanceTime: (seconds) => {
+        if (!game.isPlaying && !game.started) {
+          game.start();
+        }
+        game.advanceTime(seconds);
+      },
+      isReady: () => !!window.__SCENE_READY__,
+    };
+  }
+
   api.addEventListener('pause', (ev) => game.pause());
   api.addEventListener('resume', (ev) => game.resume());
   api.addEventListener('restart', (ev) => game.restart());
@@ -102,7 +115,10 @@
   });
 
   api.ready(() => {
-    game.start();
+    if (!game.started) {
+      game.start();
+    }
+    window.__SCENE_READY__ = true;
   });
 
 </script>

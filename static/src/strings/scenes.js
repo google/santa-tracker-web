@@ -31,6 +31,7 @@ export default {
   'codelab': _msg`scene_codelab`,
   'commandcentre': _msg`scene_commandcentre`,
   'comroom': _msg`scene_videoscene_comroom`,
+  'elfexpress': _msg`scene_elfexpress`,
   'elfmaker': _msg`scene_elfmaker`,
   'elfski': _msg`scene_elfski`,
   'factory': _msg`scene_factory`,
