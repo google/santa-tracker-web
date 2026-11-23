@@ -3560,6 +3560,12 @@
 	"tracker_next_stop": {
 		"message": "Next stop"
 	},
+	"tracker_santa_is_at": {
+		"message": "Santa Claus is at {{location}}"
+	},
+	"tracker_santa_is_heading_to": {
+		"message": "Santa Claus is heading to {{location}}"
+	},
 	"tracker_santa_update": {
 		"message": "SANTA UPDATE"
 	},
