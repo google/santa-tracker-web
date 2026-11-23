@@ -306,6 +306,8 @@ global.subscribe((state) => {
   scoreOverlayElement.hidden = (state.status === '') || orientationChangeNeeded;
   scoreOverlayElement.isPaused = (!gameover && state.sceneHasPause);
   scoreOverlayElement.shareUrl = state.shareUrl;
+  scoreOverlayElement.gameoverMessage = state.gameoverMessage || '';
+  scoreOverlayElement.gameoverArt = state.gameoverArt || '';
   if (!scoreOverlayElement.hidden) {
     scoreOverlayElement.focus();
   }
@@ -320,6 +322,7 @@ global.subscribe((state) => {
   const score = {
     level: 0,
     maxLevel: 0,
+    levelLabel: '',
     score: 0,
     time: 0,
   };
@@ -581,6 +584,11 @@ async function runner(control, route) {
 
         global.setState({
           status: 'gameover',
+          // Both always written, even when absent, so that a headline or
+          // artwork set by one scene cannot survive into the next one's game
+          // over screen.
+          gameoverMessage: (payload && payload.gameoverMessage) || '',
+          gameoverArt: (payload && payload.gameoverArt) || '',
         });
         analyticsLogEnd();
         continue;
@@ -635,6 +643,8 @@ loaderElement.addEventListener(gameloader.events.load, async (ev) => {
     control: null,
     sceneHasPause: false,
     score: {},
+    gameoverMessage: '',
+    gameoverArt: '',
   });
 });
 

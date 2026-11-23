@@ -17,6 +17,7 @@
 goog.provide('app.Obstacle');
 
 goog.require('Constants');
+goog.require('Random');
 goog.require('app.shared.pools');
 
 /**
@@ -51,7 +52,7 @@ app.Obstacle.prototype.onInit = function(startX, level) {
   var obstacleArray = level > 0 ? Constants.OBSTACLES_PLATFORM :
       Constants.OBSTACLES_GROUND;
   var type = obstacleArray[
-      Math.floor(Math.random() * obstacleArray.length)];
+      Math.floor(Random.random() * obstacleArray.length)];
   this.elem.addClass(type.css);
 
   this.x = startX;

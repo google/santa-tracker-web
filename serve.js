@@ -35,7 +35,10 @@ const yargs = require('yargs')
     .option('port', {
       alias: 'p',
       type: 'number',
-      default: process.env.PORT || 8000,
+      default: Number(process.env.PORT) || 8000,
+      coerce(v) {
+        return Number(v) || 8000;
+      },
       describe: 'Static port',
     })
     .option('all', {
@@ -62,6 +65,11 @@ const yargs = require('yargs')
       type: 'boolean',
       default: true,
       describe: 'Compile Closure scenes',
+    })
+    .option('cache', {
+      type: 'boolean',
+      default: false,
+      describe: 'Cache compiled Closure scenes in memory',
     })
     .argv;
 
@@ -106,6 +114,7 @@ const config = {
 async function serve() {
   const vfs = santaVfs(config.staticScope, {
     compile: yargs.compile,
+    cache: yargs.cache,
     lang: yargs.lang,
     config,
   });

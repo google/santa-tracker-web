@@ -193,6 +193,20 @@
 
   const game = new Game(document.getElementById('module-runner'));
 
+  if (window.__MANUAL_TIME__) {
+    game.manualTime = true;
+    window.__TEST_CONTROL__ = {
+      game,
+      advanceTime: (seconds) => {
+        if (!game.isPlaying && !game.started) {
+          game.start();
+        }
+        game.advanceTime(seconds);
+      },
+      isReady: () => !!window.__SCENE_READY__,
+    };
+  }
+
   api.addEventListener('pause', (ev) => game.pause());
   api.addEventListener('resume', (ev) => game.resume());
   api.addEventListener('restart', (ev) => game.restart());
@@ -203,8 +217,11 @@
     sound: [],
   });
 
-  api.ready(async () => {
-    game.start();
+  api.ready(() => {
+    if (!game.started) {
+      game.start();
+    }
+    window.__SCENE_READY__ = true;
   });
 
 </script>

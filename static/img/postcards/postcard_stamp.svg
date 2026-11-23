@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 180" width="150" height="180">
+  <!-- Postcard stamp frame (perforated paper, no text). The official Gemini spark (gemini_spark.png) is layered on top in code. -->
+  <defs>
+    <radialGradient id="paper" cx="50%" cy="48%" r="62%">
+      <stop offset="0" stop-color="#fdf6e4"/>
+      <stop offset="0.55" stop-color="#f6e7c5"/>
+      <stop offset="1" stop-color="#e3b67c"/>
+    </radialGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- White stamp paper with scalloped (perforated) edges. -->
+  <g filter="url(#soft)">
+    <path fill="#fbfaf6" d="
+      M8 4 h134 a4 4 0 0 0 4 4 v164 a4 4 0 0 0 -4 4 h-134 a4 4 0 0 0 -4 -4 v-164 a4 4 0 0 0 4 -4z"/>
+    <g fill="#e9dcc3">
+      <circle cx="15" cy="4" r="4"/><circle cx="30" cy="4" r="4"/><circle cx="45" cy="4" r="4"/><circle cx="60" cy="4" r="4"/>
+      <circle cx="75" cy="4" r="4"/><circle cx="90" cy="4" r="4"/><circle cx="105" cy="4" r="4"/><circle cx="120" cy="4" r="4"/><circle cx="135" cy="4" r="4"/>
+      <circle cx="15" cy="176" r="4"/><circle cx="30" cy="176" r="4"/><circle cx="45" cy="176" r="4"/><circle cx="60" cy="176" r="4"/>
+      <circle cx="75" cy="176" r="4"/><circle cx="90" cy="176" r="4"/><circle cx="105" cy="176" r="4"/><circle cx="120" cy="176" r="4"/><circle cx="135" cy="176" r="4"/>
+      <circle cx="4" cy="20" r="4"/><circle cx="4" cy="36" r="4"/><circle cx="4" cy="52" r="4"/><circle cx="4" cy="68" r="4"/><circle cx="4" cy="84" r="4"/>
+      <circle cx="4" cy="100" r="4"/><circle cx="4" cy="116" r="4"/><circle cx="4" cy="132" r="4"/><circle cx="4" cy="148" r="4"/><circle cx="4" cy="164" r="4"/>
+      <circle cx="146" cy="20" r="4"/><circle cx="146" cy="36" r="4"/><circle cx="146" cy="52" r="4"/><circle cx="146" cy="68" r="4"/><circle cx="146" cy="84" r="4"/>
+      <circle cx="146" cy="100" r="4"/><circle cx="146" cy="116" r="4"/><circle cx="146" cy="132" r="4"/><circle cx="146" cy="148" r="4"/><circle cx="146" cy="164" r="4"/>
+    </g>
+  </g>
+
+  <!-- Inner printed area. -->
+  <rect x="16" y="16" width="118" height="148" fill="url(#paper)"/>
+
+</svg>
