@@ -88,6 +88,7 @@ class ModvilTrackerElement extends LitElement {
     this._santaNode = document.createElement('santa-santa');
     this._infoNode = document.createElement('div');  // until replaced later
     this._photosNode = document.createElement('div');  // until replaced later
+    this._mailboxNode = null;
 
     this._preparePromise = this.prepareMaps().then(() => {
       this._ready = true;
@@ -255,8 +256,11 @@ class ModvilTrackerElement extends LitElement {
 
   _onMarkerClick(id) {
     gtag('event', 'tracker', {action: 'click', label: 'marker'});
-    if (this.width <= 600) {
-      return;  // ignore click, mobile UI
+    if (this._mailboxNode) {
+      this._mailboxNode.openForStop(id);
+    }
+    if (this._width <= 600) {
+      return;  // ignore map refocus on mobile UI
     }
 
     const cand = this._dataManager.stop(id);
@@ -384,6 +388,7 @@ class ModvilTrackerElement extends LitElement {
   firstUpdated() {
     this._infoNode = this.renderRoot.querySelector('.info') || this._infoOffsetNode;
     this._photosNode = this.renderRoot.querySelector('modvil-tracker-photos') || this._photosNode;
+    this._mailboxNode = this.renderRoot.querySelector('modvil-tracker-mailbox');
   }
 
   _onFocusSantaClick() {

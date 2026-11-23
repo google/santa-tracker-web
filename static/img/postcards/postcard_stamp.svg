@@ -1,33 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 180" width="150" height="180">
-  <!-- Postcard stamp frame (perforated paper, no text). The official Gemini spark (gemini_spark.png) is layered on top in code. -->
+  <!-- Perforated postage stamp frame (no text). The official Gemini spark (gemini_spark.png) is layered on top in code. -->
   <defs>
-    <radialGradient id="paper" cx="50%" cy="48%" r="62%">
-      <stop offset="0" stop-color="#fdf6e4"/>
-      <stop offset="0.55" stop-color="#f6e7c5"/>
-      <stop offset="1" stop-color="#e3b67c"/>
+    <radialGradient id="paper" cx="50%" cy="48%" r="64%">
+      <stop offset="0" stop-color="#fef9ec"/>
+      <stop offset="0.58" stop-color="#f6e7c4"/>
+      <stop offset="1" stop-color="#e3b87e"/>
     </radialGradient>
-    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="1.5" stdDeviation="1.5" flood-color="#000" flood-opacity="0.25"/>
+    <filter id="paper-shadow" x="-12%" y="-10%" width="126%" height="124%">
+      <feDropShadow dx="0.6" dy="1.4" stdDeviation="1.1" flood-color="#2a1c0e" flood-opacity="0.26"/>
     </filter>
+    <!-- Real punched-out perforation holes along all four edges. -->
+    <mask id="perforations">
+      <rect x="4" y="4" width="142" height="172" rx="1.5" fill="#fff"/>
+      <g fill="#000">
+        <circle cx="15" cy="4" r="4.1"/><circle cx="30" cy="4" r="4.1"/><circle cx="45" cy="4" r="4.1"/>
+        <circle cx="60" cy="4" r="4.1"/><circle cx="75" cy="4" r="4.1"/><circle cx="90" cy="4" r="4.1"/>
+        <circle cx="105" cy="4" r="4.1"/><circle cx="120" cy="4" r="4.1"/><circle cx="135" cy="4" r="4.1"/>
+        <circle cx="15" cy="176" r="4.1"/><circle cx="30" cy="176" r="4.1"/><circle cx="45" cy="176" r="4.1"/>
+        <circle cx="60" cy="176" r="4.1"/><circle cx="75" cy="176" r="4.1"/><circle cx="90" cy="176" r="4.1"/>
+        <circle cx="105" cy="176" r="4.1"/><circle cx="120" cy="176" r="4.1"/><circle cx="135" cy="176" r="4.1"/>
+        <circle cx="4" cy="19" r="4.1"/><circle cx="4" cy="35" r="4.1"/><circle cx="4" cy="51" r="4.1"/>
+        <circle cx="4" cy="67" r="4.1"/><circle cx="4" cy="83" r="4.1"/><circle cx="4" cy="99" r="4.1"/>
+        <circle cx="4" cy="115" r="4.1"/><circle cx="4" cy="131" r="4.1"/><circle cx="4" cy="147" r="4.1"/>
+        <circle cx="4" cy="163" r="4.1"/>
+        <circle cx="146" cy="19" r="4.1"/><circle cx="146" cy="35" r="4.1"/><circle cx="146" cy="51" r="4.1"/>
+        <circle cx="146" cy="67" r="4.1"/><circle cx="146" cy="83" r="4.1"/><circle cx="146" cy="99" r="4.1"/>
+        <circle cx="146" cy="115" r="4.1"/><circle cx="146" cy="131" r="4.1"/><circle cx="146" cy="147" r="4.1"/>
+        <circle cx="146" cy="163" r="4.1"/>
+      </g>
+    </mask>
   </defs>
 
-  <!-- White stamp paper with scalloped (perforated) edges. -->
-  <g filter="url(#soft)">
-    <path fill="#fbfaf6" d="
-      M8 4 h134 a4 4 0 0 0 4 4 v164 a4 4 0 0 0 -4 4 h-134 a4 4 0 0 0 -4 -4 v-164 a4 4 0 0 0 4 -4z"/>
-    <g fill="#e9dcc3">
-      <circle cx="15" cy="4" r="4"/><circle cx="30" cy="4" r="4"/><circle cx="45" cy="4" r="4"/><circle cx="60" cy="4" r="4"/>
-      <circle cx="75" cy="4" r="4"/><circle cx="90" cy="4" r="4"/><circle cx="105" cy="4" r="4"/><circle cx="120" cy="4" r="4"/><circle cx="135" cy="4" r="4"/>
-      <circle cx="15" cy="176" r="4"/><circle cx="30" cy="176" r="4"/><circle cx="45" cy="176" r="4"/><circle cx="60" cy="176" r="4"/>
-      <circle cx="75" cy="176" r="4"/><circle cx="90" cy="176" r="4"/><circle cx="105" cy="176" r="4"/><circle cx="120" cy="176" r="4"/><circle cx="135" cy="176" r="4"/>
-      <circle cx="4" cy="20" r="4"/><circle cx="4" cy="36" r="4"/><circle cx="4" cy="52" r="4"/><circle cx="4" cy="68" r="4"/><circle cx="4" cy="84" r="4"/>
-      <circle cx="4" cy="100" r="4"/><circle cx="4" cy="116" r="4"/><circle cx="4" cy="132" r="4"/><circle cx="4" cy="148" r="4"/><circle cx="4" cy="164" r="4"/>
-      <circle cx="146" cy="20" r="4"/><circle cx="146" cy="36" r="4"/><circle cx="146" cy="52" r="4"/><circle cx="146" cy="68" r="4"/><circle cx="146" cy="84" r="4"/>
-      <circle cx="146" cy="100" r="4"/><circle cx="146" cy="116" r="4"/><circle cx="146" cy="132" r="4"/><circle cx="146" cy="148" r="4"/><circle cx="146" cy="164" r="4"/>
+  <g filter="url(#paper-shadow)">
+    <g mask="url(#perforations)">
+      <rect x="4" y="4" width="142" height="172" fill="#fcfaf4"/>
+      <rect x="15" y="15" width="120" height="150" fill="url(#paper)"/>
+      <!-- Engraved philatelic inner border -->
+      <rect x="19.5" y="19.5" width="111" height="141" fill="none" stroke="#c59960" stroke-width="1" opacity="0.65"/>
+      <rect x="22.5" y="22.5" width="105" height="135" fill="none" stroke="#c59960" stroke-width="0.5" opacity="0.42"/>
     </g>
   </g>
-
-  <!-- Inner printed area. -->
-  <rect x="16" y="16" width="118" height="148" fill="url(#paper)"/>
-
 </svg>
