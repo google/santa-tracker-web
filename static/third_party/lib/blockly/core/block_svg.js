@@ -522,7 +522,10 @@ Blockly.BlockSvg.prototype.addSelect = function() {
   Blockly.addClass_(/** @type {!Element} */ (this.svgGroup_),
                     'blocklySelected');
   // Move the selected block to the top of the stack.
-  this.svgGroup_.parentNode.appendChild(this.svgGroup_);
+  if (!this.block_.isInFlyout && this.svgGroup_.parentNode &&
+      this.svgGroup_.parentNode.lastChild !== this.svgGroup_) {
+    this.svgGroup_.parentNode.appendChild(this.svgGroup_);
+  }
 };
 
 /**
