@@ -76,7 +76,7 @@ class SantaInterludeElement extends HTMLElement {
       loop: true,
       container: lastLayer,
       rendererSettings: {
-        preserveAspectRatio: 'xMidYMid meet',
+        preserveAspectRatio: 'xMidYMid slice',
       },
     });
     this._interludeAnimation.addEventListener('DOMLoaded', () => {
