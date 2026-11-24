@@ -71,12 +71,13 @@ class SantaInterludeElement extends HTMLElement {
       }
     });
 
+    const isPortraitMobile = window.innerWidth <= 600 && window.innerHeight > window.innerWidth;
     this._interludeAnimation = loadAnimation(_static`img/interlude/loader.json`, {
       autoplay: true,
       loop: true,
       container: lastLayer,
       rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
+        preserveAspectRatio: isPortraitMobile ? 'xMidYMid slice' : 'xMidYMid meet',
       },
     });
     this._interludeAnimation.addEventListener('DOMLoaded', () => {
