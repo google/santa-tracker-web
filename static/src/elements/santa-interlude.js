@@ -87,7 +87,16 @@ class SantaInterludeElement extends HTMLElement {
 
     this.shadowRoot.append(this._hostElement);
 
-    this._onWindowResize = buildSafeResize(this._interludeAnimation);
+    const safeResize = buildSafeResize(this._interludeAnimation);
+    this._onWindowResize = () => {
+      const portraitMobile = window.innerWidth <= 600 && window.innerHeight > window.innerWidth;
+      const ratio = portraitMobile ? 'xMidYMid slice' : 'xMidYMid meet';
+      const r = this._interludeAnimation.renderer;
+      if (r && r.renderConfig && r.renderConfig.preserveAspectRatio !== ratio) {
+        r.renderConfig.preserveAspectRatio = ratio;
+      }
+      safeResize();
+    };
   }
 
   connectedCallback() {
