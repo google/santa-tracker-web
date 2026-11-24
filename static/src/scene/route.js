@@ -95,7 +95,11 @@ export const rectify = (el) => {
   const hrefs = el.querySelectorAll('[href]');
   for (let i = 0; i < hrefs.length; ++i) {
     const c = hrefs[i];
-    const url = href(c.getAttribute('href'));
+    const rawHref = c.getAttribute('href');
+    if (rawHref && rawHref.startsWith('#')) {
+      continue;
+    }
+    const url = href(rawHref);
     if (url !== null) {
       c.setAttribute('href', url.toString());
     }
