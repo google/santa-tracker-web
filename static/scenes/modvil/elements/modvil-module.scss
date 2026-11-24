@@ -107,7 +107,7 @@ main > div.anim {
   main {
     display: flex;
     justify-content: center;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
 
   .cards {

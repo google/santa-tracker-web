@@ -109,6 +109,7 @@ svg {
 .counter-box {
   width: 40px;
   position: relative;
+  overflow: hidden;
 
   &.large {
     width: 48px;
