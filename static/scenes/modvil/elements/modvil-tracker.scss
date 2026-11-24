@@ -69,11 +69,7 @@
 .buttons {
   position: absolute;
   right: 16px;
-  top: 12px;  // mailbox sits in the header row; the countdown is hidden during the flight
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 12px;
+  top: 72px;
 
   santa-button {
     display: inline-block;
@@ -144,7 +140,7 @@
         order: -50;
       }
       > * {
-        min-width: 180px;
+        min-width: 160px;
       }
     }
 
