@@ -188,37 +188,19 @@ h2 {
   display: none;
 }
 
-@media (max-width: 300px) {
+@media (max-width: 458px) {
   .counter-box[data-order="3"] {
     display: none;
   }
 }
-@media (max-width: 330px) {
+@media (max-width: 422px) {
   .counter-box[data-order="2"] {
     display: none;
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 350px) {
   .counter-box[data-order="1"] {
     display: none;
-  }
-}
-@media (max-width: 458px) {
-  .counter-box {
-    width: 34px;
-
-    &.large {
-      width: 40px;
-    }
-
-    .holder {
-      font-size: 18px;
-    }
-
-    h2 {
-      font-size: 7px;
-      letter-spacing: 0.5px;
-    }
   }
 }
 
