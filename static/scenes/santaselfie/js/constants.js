@@ -43,7 +43,12 @@ app.Constants = {
 
   NEAR_SANTA_DIM: 230,
 
-  // Serialization constants
-  ENCODER: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split(''),
+  // Decorations are shown this much smaller than their images, on the beard and on the cursor.
+  DECORATION_SCALE: 0.8,
+
+  // Custom spray: how many picked colours a beard can hold, and the colour it starts with.
+  MAX_CUSTOM_SPRAYS: 12,
+  DEFAULT_CUSTOM_COLOR: 'a0522d',
+
   INTERACTION_URL_DELAY: 250,
 };

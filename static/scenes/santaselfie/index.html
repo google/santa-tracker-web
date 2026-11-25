@@ -58,61 +58,145 @@
         </div>
       </div>
       <div class="Tools board">
+        <div class="Tools-tabs">
+          <button type="button" class="Tools-tab Tools-tab--hair is-active" data-tab="hair" title="Barber Tools & Hair Colors">
+            <span class="Tools-tabIcon Tools-tabIcon--hair"></span>
+          </button>
+          <button type="button" class="Tools-tab Tools-tab--decor" data-tab="decor" title="Festive Decorations">
+            <span class="Tools-tabIcon Tools-tabIcon--decor"></span>
+          </button>
+        </div>
+        <div class="ColorPicker">
+          <div class="ColorPicker-fieldWrap">
+            <canvas class="ColorPicker-field" width="180" height="120"></canvas>
+            <div class="ColorPicker-marker"></div>
+          </div>
+        </div>
         <div class="Tools--scrollable">
           <div class="Tool Tool-ornament"></div>
-          <div class="Tool-container Tool-shadow Tool-shadow--clipper Tool--mobile">
-            <div class="Tool Tool-clipper">
-              <div class="Tool-animation Tool-clipper--animate"></div>
+          <div class="Tools-pages">
+            <div class="Tools-page Tools-page--hair is-active">
+              <div class="Tool-container Tool-shadow Tool-shadow--clipper Tool--mobile">
+                <div class="Tool Tool-clipper">
+                  <div class="Tool-animation Tool-clipper--animate"></div>
+                </div>
+              </div>
+              <div class="Tool-container Tool-shadow Tool-shadow--hairgrow Tool--mobile">
+                <div class="Tool Tool-hairgrow">
+                  <div class="Tool-animation Tool-hairgrow--animate"></div>
+                </div>
+              </div>
+              <div class="Tool-container Tool-shadow Tool-shadow--hairclean">
+                <div class="Tool Tool-hairclean">
+                  <div class="Tool-animation Tool-hairclean--animate"></div>
+                </div>
+              </div>
+              <div class="Tool-container Tool-shadow Tool-shadow--hairdryer Tool--mobile">
+                <div class="Tool Tool-hairdryer"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
+                <div class="Tool Tool-spray Tool-spray--red"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
+                <div class="Tool Tool-spray Tool-spray--orange"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
+                <div class="Tool Tool-spray Tool-spray--yellow"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
+                <div class="Tool Tool-spray Tool-spray--green"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
+                <div class="Tool Tool-spray Tool-spray--cyan"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
+                <div class="Tool Tool-spray Tool-spray--purple"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
+                <div class="Tool Tool-spray Tool-spray--pink"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
+                <div class="Tool Tool-spray Tool-spray--blue"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
+                <div class="Tool Tool-spray Tool-spray--whitedots"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
+                <div class="Tool Tool-spray Tool-spray--wave"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
+                <div class="Tool Tool-spray Tool-spray--triangle"></div>
+              </div>
+              <div class="Tool-container Tool-container--small Tool-container--custom Tool-shadow Tool-shadow--spray Tool--mobile">
+                <div class="Tool Tool-spray Tool-spray--custom"></div>
+              </div>
             </div>
-          </div>
-          <div class="Tool-container Tool-shadow Tool-shadow--hairgrow Tool--mobile">
-            <div class="Tool Tool-hairgrow">
-              <div class="Tool-animation Tool-hairgrow--animate"></div>
+            <div class="Tools-page Tools-page--decor">
+              <div class="Decor-viewport">
+                <div class="Decor-page Decor-page--1 is-active">
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--candycane">
+                    <div class="Tool Tool-decoration Tool-decoration--candycane"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--gingerbread">
+                    <div class="Tool Tool-decoration Tool-decoration--gingerbread"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--star">
+                    <div class="Tool Tool-decoration Tool-decoration--star"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--snowman">
+                    <div class="Tool Tool-decoration Tool-decoration--snowman"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--teddybear">
+                    <div class="Tool Tool-decoration Tool-decoration--teddybear"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--bauble">
+                    <div class="Tool Tool-decoration Tool-decoration--bauble"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--bow">
+                    <div class="Tool Tool-decoration Tool-decoration--bow"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--holly">
+                    <div class="Tool Tool-decoration Tool-decoration--holly"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--lightbulb">
+                    <div class="Tool Tool-decoration Tool-decoration--lightbulb"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--snowflake">
+                    <div class="Tool Tool-decoration Tool-decoration--snowflake"></div>
+                  </div>
+                </div>
+                <div class="Decor-page Decor-page--2">
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--gift">
+                    <div class="Tool Tool-decoration Tool-decoration--gift"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--bell">
+                    <div class="Tool Tool-decoration Tool-decoration--bell"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--tree">
+                    <div class="Tool Tool-decoration Tool-decoration--tree"></div>
+                  </div>
+                  <div class="Tool-container Tool-container--decor Tool-shadow Tool-shadow--wreath">
+                    <div class="Tool Tool-decoration Tool-decoration--wreath"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="Decor-nav">
+                <button type="button" class="Decor-navBtn Decor-navBtn--up" title="Previous page" disabled aria-label="Previous decorations page">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z" fill="#ffffff"/>
+                  </svg>
+                </button>
+                <div class="Decor-navDots">
+                  <span class="Decor-navDot is-active" data-page="1"></span>
+                  <span class="Decor-navDot" data-page="2"></span>
+                </div>
+                <button type="button" class="Decor-navBtn Decor-navBtn--down" title="Next page" aria-label="Next decorations page">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6z" fill="#ffffff"/>
+                  </svg>
+                </button>
+              </div>
             </div>
-          </div>
-          <div class="Tool-container Tool-shadow Tool-shadow--hairclean">
-            <div class="Tool Tool-hairclean">
-              <div class="Tool-animation Tool-hairclean--animate"></div>
-            </div>
-          </div>
-          <div class="Tool-container Tool-shadow Tool-shadow--hairdryer Tool--mobile">
-            <div class="Tool Tool-hairdryer"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
-            <div class="Tool Tool-spray Tool-spray--red"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
-            <div class="Tool Tool-spray Tool-spray--orange"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
-            <div class="Tool Tool-spray Tool-spray--yellow"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
-            <div class="Tool Tool-spray Tool-spray--green"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray Tool--mobile">
-            <div class="Tool Tool-spray Tool-spray--cyan"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
-            <div class="Tool Tool-spray Tool-spray--purple"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
-            <div class="Tool Tool-spray Tool-spray--pink"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--spray">
-            <div class="Tool Tool-spray Tool-spray--blue"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--snowman">
-            <div class="Tool Tool-decoration Tool-decoration--snowman"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--bauble">
-            <div class="Tool Tool-decoration Tool-decoration--bauble"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--bow">
-            <div class="Tool Tool-decoration Tool-decoration--bow"></div>
-          </div>
-          <div class="Tool-container Tool-container--small Tool-shadow Tool-shadow--holly">
-            <div class="Tool Tool-decoration Tool-decoration--holly"></div>
           </div>
         </div>
       </div>
@@ -126,10 +210,23 @@
         <img id="spray--purple" src="img/tools/sprays/purple.png" width="128" height="128" />
         <img id="spray--pink" src="img/tools/sprays/pink.png" width="128" height="128" />
         <img id="spray--blue" src="img/tools/sprays/blue.png" width="128" height="128" />
+        <img id="spray--whitedots" src="img/tools/sprays/whitedots.png" width="128" height="128" />
+        <img id="spray--wave" src="img/tools/sprays/wave.png" width="128" height="128" />
+        <img id="spray--triangle" src="img/tools/sprays/triangle.png" width="128" height="128" />
+        <img id="candycane" src="img/tools/decorations/candycane.svg" width="68" height="138" />
+        <img id="gingerbread" src="img/tools/decorations/gingerbread.svg" width="100" height="100" />
+        <img id="star" src="img/tools/decorations/star.svg" width="110" height="110" />
+        <img id="teddybear" src="img/tools/decorations/teddybear.svg" width="95" height="114" />
         <img id="snowman" src="img/tools/decorations/snowman.svg" width="84" height="138" />
-        <img id="bauble" src="img/tools/decorations/bauble.svg" width="75" height="128" />
+        <img id="bauble" src="img/tools/decorations/bauble.svg" width="75" height="100" />
         <img id="bow" src="img/tools/decorations/bow.svg" width="127" height="94" />
         <img id="holly" src="img/tools/decorations/holly.svg" width="120" height="138" />
+        <img id="lightbulb" src="img/tools/decorations/lightbulb.svg" width="73" height="114" />
+        <img id="snowflake" src="img/tools/decorations/snowflake.svg" width="100" height="111" />
+        <img id="gift" src="img/tools/decorations/gift.svg" width="90" height="110" />
+        <img id="bell" src="img/tools/decorations/bell.svg" width="100" height="110" />
+        <img id="tree" src="img/tools/decorations/tree.svg" width="94" height="115" />
+        <img id="wreath" src="img/tools/decorations/wreath.svg" width="103" height="125" />
       </div>
     </div>
   </div>
@@ -162,28 +259,50 @@
     'img/santa/body.svg',
     'img/santa/face.svg',
     'img/share.svg',
+    'img/icons/bell.svg',
+    'img/icons/scissors.svg',
     'img/sprites/clipper.png',
     'img/sprites/hairclean.png',
     'img/sprites/hairgrow.png',
     'img/tools/clipper.svg',
     'img/tools/decorations/bauble.svg',
+    'img/tools/decorations/bell.svg',
     'img/tools/decorations/bow.svg',
+    'img/tools/decorations/candycane.svg',
+    'img/tools/decorations/gift.svg',
+    'img/tools/decorations/gingerbread.svg',
     'img/tools/decorations/holly.svg',
+    'img/tools/decorations/lightbulb.svg',
+    'img/tools/decorations/snowflake.svg',
     'img/tools/decorations/snowman.svg',
+    'img/tools/decorations/star.svg',
+    'img/tools/decorations/teddybear.svg',
+    'img/tools/decorations/tree.svg',
+    'img/tools/decorations/wreath.svg',
     'img/tools/hairclean.svg',
     'img/tools/hairdryer--center.svg',
     'img/tools/hairdryer--left.svg',
     'img/tools/hairdryer--right.svg',
     'img/tools/hairgrow.svg',
     'img/tools/shadows/bauble.svg',
+    'img/tools/shadows/bell.svg',
     'img/tools/shadows/bow.svg',
+    'img/tools/shadows/candycane.svg',
     'img/tools/shadows/clipper.svg',
+    'img/tools/shadows/gift.svg',
+    'img/tools/shadows/gingerbread.svg',
     'img/tools/shadows/hairclean.svg',
     'img/tools/shadows/hairdryer.svg',
     'img/tools/shadows/hairgrow.svg',
     'img/tools/shadows/holly.svg',
+    'img/tools/shadows/lightbulb.svg',
+    'img/tools/shadows/snowflake.svg',
     'img/tools/shadows/snowman.svg',
     'img/tools/shadows/spray.svg',
+    'img/tools/shadows/star.svg',
+    'img/tools/shadows/teddybear.svg',
+    'img/tools/shadows/tree.svg',
+    'img/tools/shadows/wreath.svg',
     'img/tools/spray--blue.svg',
     'img/tools/spray--cyan.svg',
     'img/tools/spray--green.svg',
@@ -192,6 +311,9 @@
     'img/tools/spray--purple.svg',
     'img/tools/spray--red.svg',
     'img/tools/spray--yellow.svg',
+    'img/tools/spray--whitedots.svg',
+    'img/tools/spray--wave.svg',
+    'img/tools/spray--triangle.svg',
     'img/tools/sprays/blue.png',
     'img/tools/sprays/cyan.png',
     'img/tools/sprays/green.png',
@@ -200,6 +322,9 @@
     'img/tools/sprays/purple.png',
     'img/tools/sprays/red.png',
     'img/tools/sprays/yellow.png',
+    'img/tools/sprays/whitedots.png',
+    'img/tools/sprays/wave.png',
+    'img/tools/sprays/triangle.png',
     'img/tray_lg.svg',
     'img/tray_ornament_lg.svg',
   );

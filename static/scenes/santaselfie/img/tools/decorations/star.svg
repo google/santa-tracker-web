@@ -1,0 +1,14 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110" width="110" height="110">
+  <defs>
+    <!-- Star silhouette with rounded tips. -->
+    <clipPath id="star-shape">
+      <path d="M52.22,11.93 A3,3 0 0 1 57.78,11.93 L67.93,37.20 L95.10,39.04 A3,3 0 0 1 96.82,44.34 L75.92,61.80 L82.57,88.20 A3,3 0 0 1 78.06,91.48 L55.00,77.00 L31.94,91.48 A3,3 0 0 1 27.43,88.20 L34.08,61.80 L13.18,44.34 A3,3 0 0 1 14.90,39.04 L42.07,37.20 Z" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#star-shape)">
+    <!-- Darker tone: the right-hand half of every point. -->
+    <rect width="110" height="110" fill="#fbb000" />
+    <!-- Lighter left-hand half of every point, meeting at the center (55, 55). -->
+    <path fill="#ffdd3c" d="M55,55 L55,5 L42.07,37.20 Z M55,55 L102.55,39.55 L67.93,37.20 Z M55,55 L84.39,95.45 L75.92,61.80 Z M55,55 L25.61,95.45 L55,77 Z M55,55 L7.45,39.55 L34.08,61.80 Z" />
+  </g>
+</svg>

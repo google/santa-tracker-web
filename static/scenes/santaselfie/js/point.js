@@ -42,6 +42,21 @@ app.Point = function(game, options) {
 
   this.draw = options.hasOwnProperty('draw') ? options.draw : true;
   this.constrain = options.hasOwnProperty('constrain') ? options.constrain : true;
+  this.spray = null;
+  this.pattern = null;
+  this.decoration = null;
+  this.decorOffsetX = 0;
+  this.decorOffsetY = 0;
+
+  // Pseudo-random deterministic offsets and radius for irregular white dots pattern
+  var h1 = Math.abs(Math.sin(this.x * 12.9898 + this.y * 78.233) * 43758.5453) % 1;
+  var h2 = Math.abs(Math.sin(this.x * 39.3456 + this.y * 11.789) * 24634.6345) % 1;
+  var h3 = Math.abs(Math.sin(this.x * 73.1592 + this.y * 91.357) * 58392.1947) % 1;
+
+  this.dotOffsetX = (h2 - 0.5) * 12;
+  this.dotOffsetY = (h3 - 0.5) * 12;
+  this.dotRadius = 24 + h1 * 8; // radius 24px to 32px (diameter 48px to 64px)
+  this.triangleRotation = Math.random() * 2 * Math.PI;
 };
 
 app.Point.prototype.reset = function() {
@@ -50,9 +65,14 @@ app.Point.prototype.reset = function() {
   if (this.draw) {
     var decoration = this.decoration;
     var spray = this.spray;
+    var pattern = this.pattern;
     point = new app.Point(this.game_, this.options);
     point.decoration = decoration;
+    point.decorOffsetX = this.decorOffsetX;
+    point.decorOffsetY = this.decorOffsetY;
     point.spray = spray;
+    point.pattern = pattern;
+    point.triangleRotation = this.triangleRotation;
   } else {
     point = new app.Point(this.game_, this.options);
   }
@@ -135,13 +155,74 @@ app.Point.prototype.drawSpray = function(ctx, scale) {
   }
 };
 
+app.Point.prototype.drawPattern = function(ctx, scale) {
+  if (this.pattern && !this.decoration && this.draw) {
+    // this.pattern is the hidden <img id="spray--..."> of the pattern spray that was used
+    if (this.pattern.id === 'spray--wave') {
+      var yCenter = this.y * scale;
+      var xCenter = this.x * scale;
+      var amp = 7 * scale;
+
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 5 * scale;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      ctx.beginPath();
+      for (var dx = -30; dx <= 30; dx += 2) {
+        var wx = xCenter + dx * scale;
+        var wy = yCenter + Math.sin(dx * Math.PI / 15) * amp;
+        if (dx === -30) {
+          ctx.moveTo(wx, wy);
+        } else {
+          ctx.lineTo(wx, wy);
+        }
+      }
+      ctx.stroke();
+    } else if (this.pattern.id === 'spray--triangle') {
+      var xCenter = this.x * scale;
+      var yCenter = this.y * scale;
+      var side = 55 * scale;
+      var r = side / Math.sqrt(3);
+
+      ctx.save();
+      ctx.translate(xCenter, yCenter);
+      ctx.rotate(this.triangleRotation);
+
+      ctx.strokeStyle = '#ffffff';
+      ctx.lineWidth = 5 * scale;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      ctx.beginPath();
+      ctx.moveTo(0, -r);
+      ctx.lineTo(side / 2, r / 2);
+      ctx.lineTo(-side / 2, r / 2);
+      ctx.closePath();
+      ctx.stroke();
+      ctx.restore();
+    } else {
+      var dotX = (this.x + this.dotOffsetX) * scale;
+      var dotY = (this.y + this.dotOffsetY) * scale;
+      var dotRadius = this.dotRadius * scale;
+
+      ctx.fillStyle = '#ffffff';
+      ctx.beginPath();
+      ctx.arc(dotX, dotY, dotRadius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+};
+
 app.Point.prototype.drawDecoration = function(ctx, scale) {
   if (this.decoration && this.draw) {
-    var x = this.x - this.decoration.width / 2;
-    var y = this.y - this.decoration.height / 2;
+    var width = this.decoration.width * app.Constants.DECORATION_SCALE;
+    var height = this.decoration.height * app.Constants.DECORATION_SCALE;
 
-    ctx.drawImage(this.decoration, x * scale, y * scale, this.decoration.width * scale,
-                  this.decoration.height * scale);
+    ctx.drawImage(this.decoration,
+        (this.x + this.decorOffsetX - width / 2) * scale,
+        (this.y + this.decorOffsetY - height / 2) * scale,
+        width * scale, height * scale);
   }
 };
 

@@ -15,6 +15,8 @@
  */
 
 goog.provide('app.Tools');
+goog.require('app.ColorPicker');
+goog.require('app.Constants');
 goog.require('app.shared.utils');
 goog.require('app.utils');
 
@@ -54,6 +56,8 @@ app.Tool = function($elem, name, mouseOffset) {
 app.Tool.prototype.select = function(mouseCoords) {
   this.isSelected = true;
 
+  // Attach to the main board so the floating tool remains visible across any active tab
+  this.elem.append(this.el);
   this.el.addClass('Tool--selected');
   this.width = this.el.width();
 
@@ -79,6 +83,8 @@ app.Tool.prototype.deselect = function() {
     top: '',
     left: ''
   });
+  // Restore element into its original wardrobe container slot
+  this.container.append(this.el);
   this.elem.css({
     cursor: ''
   });
@@ -305,6 +311,82 @@ app.Spray.prototype = Object.create(app.Tool.prototype);
 
 
 /**
+ * Spray whose colour the player picks from a popup that opens when the spray is picked up.
+ * @constructor
+ * @extends {app.Tool}
+ * @param {!jQuery} $elem toolbox elem
+ * @param {function(string): void} onPick called with the picked colour as rrggbb
+ */
+app.CustomSpray = function($elem, onPick) {
+  app.Tool.call(this, $elem, 'spray--custom', {x: 47, y: 0});
+
+  this.picker = new app.ColorPicker($elem, onPick);
+
+  /** @type {?HTMLCanvasElement} What the canvas paints on the beard; see setSpray. */
+  this.spray = null;
+};
+app.CustomSpray.prototype = Object.create(app.Tool.prototype);
+
+
+/**
+ * @param {!app.Mouse.CoordsType} mouseCoords at selection time
+ * @override
+ */
+app.CustomSpray.prototype.select = function(mouseCoords) {
+  app.Tool.prototype.select.call(this, mouseCoords);
+  this.picker.open();
+};
+
+
+/**
+ * @override
+ */
+app.CustomSpray.prototype.deselect = function() {
+  app.Tool.prototype.deselect.call(this);
+  this.picker.close();
+};
+
+
+/**
+ * @param {!HTMLCanvasElement} spray image to paint with
+ * @param {string} color its colour as rrggbb, shown on the bottle
+ */
+app.CustomSpray.prototype.setSpray = function(spray, color) {
+  this.spray = spray;
+  // On the container too: the bottle stays in the wardrobe while the spray is in use, as the
+  // button that opens the colour picker.
+  this.el.add(this.container).css('background-image',
+      'url("data:image/svg+xml,' + encodeURIComponent(app.CustomSpray.bottleSvg_(color)) + '")');
+};
+
+
+/**
+ * The rainbow spray bottle, with the loaded colour shown on its label.
+ * @param {string} color rrggbb
+ * @return {string} SVG source
+ * @private
+ */
+app.CustomSpray.bottleSvg_ = function(color) {
+  return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 93 196">' +
+      '<g opacity=".25"><path d="M45 16.6h5v12.7h-5z"/><path d="M30.2 23h34.7v13.9H30.2z"/>' +
+      '<path d="M61.2 28H33c-8.3 0-15.8 4.1-20.5 10.9-5.2 7.5-8 16.7-7.4 26.6 1.2 21.7 19 39.2 40.7 40C70 106.4 90 87 90 63c0-8.6-2.6-16.7-7-23.4C78.3 32.5 69.8 28 61.2 28z"/>' +
+      '<path d="M5 50h85v143.4H5z"/><path d="M2.1 48.1H93V52H2.1z"/><path d="M2.1 191H92v4.9H2.1z"/><path d="M39 2h17v19H39z"/></g>' +
+      '<path fill="#546E7A" d="M43 14.6h5v12.7h-5z"/><path fill="#546E7A" d="M37 0h17v19H37z"/>' +
+      '<path fill="#373D40" d="M28.2 21h34.7v13.9H28.2z"/>' +
+      '<path fill="#8B8B8B" d="M59.2 26H31c-8.3 0-15.8 4.1-20.5 10.9-5.2 7.5-8 16.7-7.4 26.6 1.2 21.7 19 39.2 40.7 40C68 104.4 88 85 88 61c0-8.6-2.6-16.7-7-23.4C76.3 30.5 67.8 26 59.2 26z"/>' +
+      '<path fill="#E53935" d="M3 48h85v24H3z"/><path fill="#FB8C00" d="M3 72h85v24H3z"/>' +
+      '<path fill="#FDD835" d="M3 96h85v24H3z"/><path fill="#43A047" d="M3 120h85v24H3z"/>' +
+      '<path fill="#1E88E5" d="M3 144h85v24H3z"/><path fill="#8E24AA" d="M3 168h85v23.4H3z"/>' +
+      '<path opacity=".2" fill="#1A242A" d="M52.1 48H88v143.4H52.1z"/>' +
+      '<path fill="#373D40" d="M.1 46.1H91V50H.1z"/><path fill="#373D40" d="M.1 189H90v4.9H.1z"/>' +
+      '<circle fill="#fff" cx="45.1" cy="116.6" r="27"/>' +
+      '<circle fill="#' + color + '" stroke="#373D40" stroke-width="2" cx="45.1" cy="116.6" r="20"/>' +
+      '</svg>';
+};
+
+
+
+/**
  * Decorations that stick on the beard
  * @constructor
  * @extends {app.Tool}
@@ -319,6 +401,27 @@ app.Decoration = function($elem, name, offset, decoration) {
   this.decoration = decoration;
 };
 app.Decoration.prototype = Object.create(app.Tool.prototype);
+
+
+/**
+ * @param {!app.Mouse.CoordsType} mouseCoords at selection time
+ * @override
+ */
+app.Decoration.prototype.select = function(mouseCoords) {
+  app.Tool.prototype.select.call(this, mouseCoords);
+  // The cursor shows the decoration at the size it will have on the beard. It is centred on the
+  // pointer, so scaling about its centre keeps it in place.
+  this.el.css('transform', 'scale(' + app.Constants.DECORATION_SCALE + ')');
+};
+
+
+/**
+ * @override
+ */
+app.Decoration.prototype.deselect = function() {
+  app.Tool.prototype.deselect.call(this);
+  this.el.css('transform', '');
+};
 
 
 
@@ -345,11 +448,33 @@ app.Tools = function(game, $elem) {
   this.sprayPurple = new app.Spray($elem, 'purple');
   this.sprayPink = new app.Spray($elem, 'pink');
   this.sprayBlue = new app.Spray($elem, 'blue');
+  this.sprayCustom = new app.CustomSpray($elem, this.pickCustomColor.bind(this));
+  this.sprayWhiteDots = new app.Spray($elem, 'whitedots');
+  this.sprayWhiteDots.isPattern = true;
+  this.sprayWhiteDots.patternType = 'dots';
 
-  this.decorationSnowman = new app.Decoration($elem, 'snowman', {x: 40, y: 50}, $elem.find('#snowman')[0]);
-  this.decorationBauble = new app.Decoration($elem, 'bauble', {x: 40, y: 50}, $elem.find('#bauble')[0]);
-  this.decorationBow = new app.Decoration($elem, 'bow', {x: 50, y: 45}, $elem.find('#bow')[0]);
-  this.decorationHolly = new app.Decoration($elem, 'holly', {x: 40, y: 45}, $elem.find('#holly')[0]);
+  this.sprayWave = new app.Spray($elem, 'wave');
+  this.sprayWave.isPattern = true;
+  this.sprayWave.patternType = 'wave';
+
+  this.sprayTriangle = new app.Spray($elem, 'triangle');
+  this.sprayTriangle.isPattern = true;
+  this.sprayTriangle.patternType = 'triangle';
+
+  this.decorationCandycane = new app.Decoration($elem, 'candycane', {x: 34, y: 69}, $elem.find('#candycane')[0]);
+  this.decorationGingerbread = new app.Decoration($elem, 'gingerbread', {x: 50, y: 50}, $elem.find('#gingerbread')[0]);
+  this.decorationStar = new app.Decoration($elem, 'star', {x: 55, y: 55}, $elem.find('#star')[0]);
+  this.decorationTeddybear = new app.Decoration($elem, 'teddybear', {x: 48, y: 57}, $elem.find('#teddybear')[0]);
+  this.decorationSnowman = new app.Decoration($elem, 'snowman', {x: 42, y: 69}, $elem.find('#snowman')[0]);
+  this.decorationBauble = new app.Decoration($elem, 'bauble', {x: 38, y: 50}, $elem.find('#bauble')[0]);
+  this.decorationBow = new app.Decoration($elem, 'bow', {x: 64, y: 47}, $elem.find('#bow')[0]);
+  this.decorationHolly = new app.Decoration($elem, 'holly', {x: 60, y: 69}, $elem.find('#holly')[0]);
+  this.decorationLightbulb = new app.Decoration($elem, 'lightbulb', {x: 36, y: 57}, $elem.find('#lightbulb')[0]);
+  this.decorationSnowflake = new app.Decoration($elem, 'snowflake', {x: 50, y: 55}, $elem.find('#snowflake')[0]);
+  this.decorationGift = new app.Decoration($elem, 'gift', {x: 45, y: 55}, $elem.find('#gift')[0]);
+  this.decorationBell = new app.Decoration($elem, 'bell', {x: 50, y: 55}, $elem.find('#bell')[0]);
+  this.decorationTree = new app.Decoration($elem, 'tree', {x: 47, y: 58}, $elem.find('#tree')[0]);
+  this.decorationWreath = new app.Decoration($elem, 'wreath', {x: 52, y: 62}, $elem.find('#wreath')[0]);
 
   this.tools = [
     this.clipper,
@@ -365,11 +490,25 @@ app.Tools = function(game, $elem) {
     this.sprayPurple,
     this.sprayPink,
     this.sprayBlue,
+    this.sprayCustom,
+    this.sprayWhiteDots,
+    this.sprayWave,
+    this.sprayTriangle,
 
+    this.decorationCandycane,
+    this.decorationGingerbread,
+    this.decorationStar,
+    this.decorationTeddybear,
     this.decorationSnowman,
     this.decorationBauble,
     this.decorationBow,
-    this.decorationHolly
+    this.decorationHolly,
+    this.decorationLightbulb,
+    this.decorationSnowflake,
+    this.decorationGift,
+    this.decorationBell,
+    this.decorationTree,
+    this.decorationWreath
   ];
 
   this.sprays = [
@@ -383,12 +522,218 @@ app.Tools = function(game, $elem) {
     this.sprayBlue.spray
   ];
 
+  // The colours picked for the custom spray. Each has a spray image of its own, so hair painted
+  // earlier keeps its colour, and a saved beard refers to them by position in these lists.
+  /** @type {!Array<!HTMLCanvasElement>} */
+  this.customSprays = [];
+  /** @private {!Array<string>} */
+  this.customColors_ = [];
+  /** @private {number} */
+  this.customReplaceIndex_ = 0;
+  this.pickCustomColor(app.Constants.DEFAULT_CUSTOM_COLOR);
+
+  this.patterns = [
+    this.sprayWhiteDots.spray,
+    this.sprayWave.spray,
+    this.sprayTriangle.spray
+  ];
+
   this.decorations = [
+    this.decorationCandycane.decoration,
+    this.decorationGingerbread.decoration,
+    this.decorationStar.decoration,
+    this.decorationTeddybear.decoration,
     this.decorationSnowman.decoration,
     this.decorationBauble.decoration,
     this.decorationBow.decoration,
-    this.decorationHolly.decoration
+    this.decorationHolly.decoration,
+    this.decorationLightbulb.decoration,
+    this.decorationSnowflake.decoration,
+    this.decorationGift.decoration,
+    this.decorationBell.decoration,
+    this.decorationTree.decoration,
+    this.decorationWreath.decoration
   ];
+
+  $elem.find('.Tools-tabs').on('click touchend', '.Tools-tab', (e) => {
+    this.switchTab(String($(e.currentTarget).data('tab')));
+  });
+
+  this.initDecorPagination_();
+};
+
+
+/**
+ * Initializes vertical pagination for the festive decorations page.
+ * @private
+ */
+app.Tools.prototype.initDecorPagination_ = function() {
+  this.decorCurrentPage_ = 1;
+  this.decorTotalPages_ = 2;
+  var self = this;
+  var decorPage = this.elem.find('.Tools-page--decor');
+
+  this.setDecorPage = function(page) {
+    if (page < 1 || page > self.decorTotalPages_) {
+      return;
+    }
+    self.decorCurrentPage_ = page;
+    decorPage.find('.Decor-page').removeClass('is-active');
+    decorPage.find('.Decor-page--' + page).addClass('is-active');
+
+    decorPage.find('.Decor-navDot').removeClass('is-active');
+    decorPage.find('.Decor-navDot[data-page="' + page + '"]').addClass('is-active');
+
+    decorPage.find('.Decor-navBtn--up').prop('disabled', page === 1);
+    decorPage.find('.Decor-navBtn--down').prop('disabled', page === self.decorTotalPages_);
+  };
+
+  decorPage.on('click touchend', '.Decor-navBtn--up', function(e) {
+    e.preventDefault();
+    self.setDecorPage(self.decorCurrentPage_ - 1);
+  });
+
+  decorPage.on('click touchend', '.Decor-navBtn--down', function(e) {
+    e.preventDefault();
+    self.setDecorPage(self.decorCurrentPage_ + 1);
+  });
+
+  decorPage.on('click touchend', '.Decor-navDot', function(e) {
+    e.preventDefault();
+    self.setDecorPage(Number($(this).data('page')));
+  });
+
+  decorPage.on('wheel', function(e) {
+    if (e.originalEvent.deltaY > 20) {
+      self.setDecorPage(self.decorCurrentPage_ + 1);
+    } else if (e.originalEvent.deltaY < -20) {
+      self.setDecorPage(self.decorCurrentPage_ - 1);
+    }
+  });
+};
+
+
+/**
+ * Loads a colour into the custom spray.
+ * @param {string} color rrggbb
+ */
+app.Tools.prototype.pickCustomColor = function(color) {
+  var slot = this.customColors_.indexOf(color);
+
+  if (slot === -1) {
+    if (this.customSprays.length < app.Constants.MAX_CUSTOM_SPRAYS) {
+      slot = this.customSprays.push(app.Tools.createCanvas_()) - 1;
+    } else {
+      // Every slot is taken. Reuse one whose colour is no longer on the beard; if they all are,
+      // the oldest is recoloured, and the hair painted with it changes colour too.
+      var points = this.game_.cloth.points;
+      slot = this.customSprays.findIndex(function(spray) {
+        return !points.some(function(point) {
+          return point.draw && point.spray === spray;
+        });
+      });
+      if (slot === -1) {
+        slot = this.customReplaceIndex_++ % app.Constants.MAX_CUSTOM_SPRAYS;
+      }
+    }
+    this.setCustomColor_(slot, color);
+  }
+
+  this.sprayCustom.setSpray(this.customSprays[slot], color);
+  this.sprayCustom.picker.close();
+};
+
+
+/**
+ * @return {!HTMLCanvasElement}
+ * @private
+ */
+app.Tools.createCanvas_ = function() {
+  return /** @type {!HTMLCanvasElement} */ (document.createElement('canvas'));
+};
+
+
+/**
+ * @param {number} slot position in customSprays, which must exist
+ * @param {string} color rrggbb
+ * @private
+ */
+app.Tools.prototype.setCustomColor_ = function(slot, color) {
+  var canvas = this.customSprays[slot];
+  canvas.width = canvas.height = 128;  // also clears a canvas that is being reused
+
+  var ctx = canvas.getContext('2d');
+  var rgb = [0, 2, 4].map(function(i) {
+    return parseInt(color.substr(i, 2), 16);
+  }).join(',');
+  var gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+
+  // The same soft falloff as the spray images of the fixed colours.
+  [0.94, 0.87, 0.74, 0.54, 0.31, 0.15, 0.07, 0.03, 0].forEach(function(alpha, i) {
+    gradient.addColorStop(i / 8, 'rgba(' + rgb + ',' + alpha + ')');
+  });
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, 128, 128);
+
+  this.customColors_[slot] = color;
+};
+
+
+/**
+ * @return {string} the custom colours a saved beard needs, joined with dots; empty if none
+ */
+app.Tools.prototype.customColors = function() {
+  var customSprays = this.customSprays;
+  var lastUsed = -1;
+
+  this.game_.cloth.points.forEach(function(point) {
+    if (point.draw) {
+      lastUsed = Math.max(lastUsed, customSprays.indexOf(point.spray));
+    }
+  });
+
+  return this.customColors_.slice(0, lastUsed + 1).join('.');
+};
+
+
+/**
+ * Replaces the custom colours with those of a saved beard.
+ * @param {string} colors as returned by customColors
+ */
+app.Tools.prototype.setCustomColors = function(colors) {
+  if (!/^[0-9a-f]{6}(\.[0-9a-f]{6})*$/.test(colors)) {
+    console.error('[SantaSelfie] Ignoring custom colours that are not rrggbb: ' + colors);
+    return;
+  }
+
+  colors.split('.').slice(0, app.Constants.MAX_CUSTOM_SPRAYS).forEach(function(color, slot) {
+    this.customSprays[slot] = this.customSprays[slot] || app.Tools.createCanvas_();
+    this.setCustomColor_(slot, color);
+  }, this);
+
+  // Slot 0 held the starting colour and has just been recoloured, so show that on the bottle.
+  this.sprayCustom.setSpray(this.customSprays[0], this.customColors_[0]);
+};
+
+
+/**
+ * @return {!Array<!HTMLImageElement|!HTMLCanvasElement>} fixed colours, then custom ones
+ */
+app.Tools.prototype.allSprays = function() {
+  return this.sprays.concat(this.customSprays);
+};
+
+
+/**
+ * Switch active wardrobe tab and page.
+ * @param {string} tabName
+ */
+app.Tools.prototype.switchTab = function(tabName) {
+  this.elem.find('.Tools-tab').removeClass('is-active');
+  this.elem.find('.Tools-tab--' + tabName).addClass('is-active');
+
+  this.elem.find('.Tools-page').removeClass('is-active');
+  this.elem.find('.Tools-page--' + tabName).addClass('is-active');
 };
 
 
@@ -452,6 +797,11 @@ app.Tools.prototype.mouseChanged = function(mouse, mouseCoords) {
     this.selectedTool.move(mouseCoords);
   }
 
+  // Starting to paint without picking keeps the current colour.
+  if (mouseCoords.down && this.sprayCustom.picker.isOpen) {
+    this.sprayCustom.picker.close();
+  }
+
   if (this.hairdryer.isSelected && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
     app.utils.triggerStart('selfie_dryer');
   } else if (!mouseCoords.down) {
@@ -495,10 +845,20 @@ app.Tools.prototype.deselect = function() {
  * @private
  */
 app.Tools.prototype.selectTool_ = function(e) {
+  if ($(e.target).closest('.Decor-nav').length) {
+    return;
+  }
+  // Pressing the custom spray's bottle while the spray is in use brings the colour picker back.
+  // With the picker already open it puts the spray down, like any other tool.
+  if (this.sprayCustom.isSelected && !this.sprayCustom.picker.isOpen &&
+      $(e.target).closest(this.sprayCustom.container).length) {
+    this.sprayCustom.picker.open();
+    return;
+  }
   var previousTool = this.selectedTool;
 
   this.selectedTool = this.tools.filter(function(tool) {
-    if (tool.container[0] === e.target && !tool.isSelected) {
+    if ($(e.target).closest(tool.container).length && !tool.isSelected) {
       return tool;
     }
   })[0];

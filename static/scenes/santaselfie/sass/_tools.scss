@@ -18,8 +18,363 @@
   .Tools {
     bottom: 0;
     position: absolute;
-    right: 0;
-    
+    right: 50px; // leaves room for the tabs beside the tray
+    z-index: 20;
+  }
+
+  .Tools-tabs {
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    left: 100%;
+    margin-left: -4px;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .Tools-tab {
+    background: #6a1b9a;
+    border: 3px solid #b757c5;
+    border-left: none;
+    border-radius: 0 16px 16px 0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    margin-top: 6px;
+    outline: none;
+    padding: 0;
+    position: relative;
+    width: 46px;
+    transition: all 0.2s ease;
+
+    &.is-active {
+      background: #b757c5;
+      border-color: #ffd166;
+      box-shadow: 6px 4px 14px rgba(0, 0, 0, 0.5);
+      width: 50px;
+    }
+  }
+
+  .Tools-tabIcon {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 28px;
+    width: 28px;
+
+    &--hair {
+      background-image: url(img/icons/scissors.svg);
+    }
+
+    &--decor {
+      background-image: url(img/icons/bell.svg);
+    }
+  }
+
+  // Opens when the custom spray is picked up. It sits outside the tray, on the side the custom
+  // spray is on, so that it covers none of the tools.
+  .ColorPicker {
+    background: #6a1b9a;
+    border: 3px solid #b757c5;
+    border-radius: 14px;
+    bottom: 100%;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+    cursor: crosshair;
+    display: none;
+    left: 0;
+    margin-bottom: 8px;
+    padding: 8px;
+    position: absolute;
+    z-index: 30;
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  .ColorPicker-fieldWrap {
+    position: relative;
+  }
+
+  .ColorPicker-field {
+    border-radius: 8px;
+    display: block;
+    height: 120px;
+    width: 180px;
+  }
+
+  .ColorPicker-marker {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6);
+    display: none;
+    height: 10px;
+    margin: -7px 0 0 -7px;
+    pointer-events: none;
+    position: absolute;
+    width: 10px;
+
+    &.is-visible {
+      display: block;
+    }
+  }
+
+  // Its bottle is drawn on the container too, so it stays put while the spray is in use.
+  .Tool-container--custom {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+  }
+
+  .Tools-pages {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  .Tools-page {
+    align-content: flex-start;
+    display: none;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: flex-end;
+    width: 100%;
+
+    &.is-active {
+      display: flex;
+    }
+
+    &--decor {
+      align-content: stretch;
+      box-sizing: border-box;
+      justify-content: space-between;
+      overflow: hidden;
+      padding-top: 36px;
+      padding-bottom: 24px;
+      padding-left: 8px;
+      padding-right: 4px;
+      position: relative;
+
+      .Decor-viewport {
+        box-sizing: border-box;
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .Decor-page {
+        align-content: flex-start;
+        box-sizing: border-box;
+        display: none;
+        flex-wrap: wrap;
+        height: 100%;
+        position: relative;
+        width: 100%;
+
+        &.is-active {
+          display: flex;
+        }
+      }
+
+      .Tool-container {
+        align-items: center;
+        display: flex;
+        flex: 0 0 50%;
+        height: 96px;
+        justify-content: center;
+        left: 0;
+        margin: 0;
+        width: 50%;
+      }
+
+      .Tool-decoration {
+        left: 0;
+        top: 0;
+
+        // A hard-edged (no blur) darker shadow lifts each decor off the purple tray while it
+        // sits in the wardrobe.
+        &:not(.Tool--selected) {
+          filter: drop-shadow(2px 2px 0 rgba(74, 20, 110, 0.55));
+        }
+
+        &--candycane {
+          background-size: 24px 44px;
+        }
+        &--gingerbread {
+          background-size: 46px 48px;
+        }
+        &--star {
+          background-size: 44px 44px;
+        }
+        &--teddybear {
+          background-size: 44px 48px;
+        }
+        &--snowman {
+          background-size: 34px 48px;
+        }
+        &--bauble {
+          background-size: 36px 48px;
+        }
+        &--bow {
+          background-size: 46px 34px;
+        }
+        &--holly {
+          background-size: 42px 46px;
+        }
+        &--lightbulb {
+          background-size: 30px 46px;
+        }
+        &--snowflake {
+          background-size: 44px 44px;
+        }
+        &--gift {
+          background-size: 43px 46px;
+        }
+        &--bell {
+          background-size: 42px 46px;
+        }
+        &--tree {
+          background-size: 40px 48px;
+        }
+        &--wreath {
+          background-size: 46px 46px;
+        }
+      }
+
+      .Tool-shadow {
+        &--candycane {
+          background-size: 23px 43px;
+        }
+        &--gingerbread {
+          background-size: 45px 47px;
+        }
+        &--star {
+          background-size: 43px 43px;
+        }
+        &--teddybear {
+          background-size: 43px 47px;
+        }
+        &--snowman {
+          background-size: 33px 47px;
+        }
+        &--bauble {
+          background-size: 35px 47px;
+        }
+        &--bow {
+          background-size: 45px 33px;
+        }
+        &--holly {
+          background-size: 41px 45px;
+        }
+        &--lightbulb {
+          background-size: 29px 45px;
+        }
+        &--snowflake {
+          background-size: 43px 43px;
+        }
+        &--gift {
+          background-size: 42px 45px;
+        }
+        &--bell {
+          background-size: 41px 45px;
+        }
+        &--tree {
+          background-size: 39px 47px;
+        }
+        &--wreath {
+          background-size: 45px 45px;
+        }
+      }
+
+      .Decor-nav {
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        padding: 10px 0;
+        position: relative;
+        width: 36px;
+        z-index: 10;
+      }
+
+      .Decor-navBtn {
+        align-items: center;
+        background: #7b1fa2;
+        border: 2px solid #ce93d8;
+        border-radius: 50%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        display: flex;
+        height: 32px;
+        justify-content: center;
+        outline: none;
+        padding: 0;
+        transition: all 0.2s ease;
+        width: 32px;
+
+        &:hover:not(:disabled) {
+          background: #9c27b0;
+          border-color: #ffd166;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+          transform: scale(1.1);
+        }
+
+        &:active:not(:disabled) {
+          transform: scale(0.95);
+        }
+
+        &:disabled {
+          opacity: 0.25;
+          cursor: default;
+          box-shadow: none;
+        }
+
+        svg {
+          display: block;
+          pointer-events: none;
+        }
+      }
+
+      .Decor-navDots {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-content: center;
+        margin: 12px 0;
+      }
+
+      .Decor-navDot {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        cursor: pointer;
+        display: block;
+        height: 8px;
+        transition: all 0.2s ease;
+        width: 8px;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.8);
+          transform: scale(1.25);
+        }
+
+        &.is-active {
+          background: #ffd166;
+          box-shadow: 0 0 6px #ffd166;
+          border-radius: 5px;
+          height: 14px;
+          width: 8px;
+        }
+      }
+    }
   }
 
   .Tools--scrollable {
@@ -28,6 +383,7 @@
     flex-wrap: wrap;
     height: 580px;
     justify-content: flex-end;
+    overflow: hidden;
   }
 
   .Tool-container {
@@ -62,7 +418,7 @@
   .Tool--selected {
     background-size: contain !important;
     position: fixed;
-    z-index: 1;
+    z-index: 10000;
   }
 
   .Tool-buttons {
@@ -132,6 +488,18 @@
     background-image: url(img/tools/spray--blue.svg);
   }
 
+  .Tool-spray--whitedots {
+    background-image: url(img/tools/spray--whitedots.svg);
+  }
+
+  .Tool-spray--wave {
+    background-image: url(img/tools/spray--wave.svg);
+  }
+
+  .Tool-spray--triangle {
+    background-image: url(img/tools/spray--triangle.svg);
+  }
+
   .Tool-decoration--snowman {
     background-image: url(img/tools/decorations/snowman.svg);
   }
@@ -146,6 +514,46 @@
 
   .Tool-decoration--holly {
     background-image: url(img/tools/decorations/holly.svg);
+  }
+
+  .Tool-decoration--candycane {
+    background-image: url(img/tools/decorations/candycane.svg);
+  }
+
+  .Tool-decoration--gingerbread {
+    background-image: url(img/tools/decorations/gingerbread.svg);
+  }
+
+  .Tool-decoration--star {
+    background-image: url(img/tools/decorations/star.svg);
+  }
+
+  .Tool-decoration--teddybear {
+    background-image: url(img/tools/decorations/teddybear.svg);
+  }
+
+  .Tool-decoration--lightbulb {
+    background-image: url(img/tools/decorations/lightbulb.svg);
+  }
+
+  .Tool-decoration--snowflake {
+    background-image: url(img/tools/decorations/snowflake.svg);
+  }
+
+  .Tool-decoration--gift {
+    background-image: url(img/tools/decorations/gift.svg);
+  }
+
+  .Tool-decoration--bell {
+    background-image: url(img/tools/decorations/bell.svg);
+  }
+
+  .Tool-decoration--tree {
+    background-image: url(img/tools/decorations/tree.svg);
+  }
+
+  .Tool-decoration--wreath {
+    background-image: url(img/tools/decorations/wreath.svg);
   }
 
   .Tool-ornament {
@@ -205,6 +613,41 @@
     }
   }
 
+  .Tool-decoration {
+    &.Tool--selected {
+      height: 100em;
+      width: 100em;
+    }
+  }
+
+  .Tool-decoration--candycane {
+    &.Tool--selected {
+      height: 138em;
+      width: 68em;
+    }
+  }
+
+  .Tool-decoration--gingerbread {
+    &.Tool--selected {
+      height: 100em;
+      width: 100em;
+    }
+  }
+
+  .Tool-decoration--star {
+    &.Tool--selected {
+      height: 110em;
+      width: 110em;
+    }
+  }
+
+  .Tool-decoration--teddybear {
+    &.Tool--selected {
+      height: 114em;
+      width: 95em;
+    }
+  }
+
   .Tool-decoration--snowman {
     &.Tool--selected {
       height: 138em;
@@ -214,7 +657,7 @@
 
   .Tool-decoration--bauble {
     &.Tool--selected {
-      height: 128em;
+      height: 100em;
       width: 75em;
     }
   }
@@ -230,6 +673,48 @@
     &.Tool--selected {
       height: 138em;
       width: 120em;
+    }
+  }
+
+  .Tool-decoration--lightbulb {
+    &.Tool--selected {
+      height: 114em;
+      width: 73em;
+    }
+  }
+
+  .Tool-decoration--snowflake {
+    &.Tool--selected {
+      height: 111em;
+      width: 100em;
+    }
+  }
+
+  .Tool-decoration--gift {
+    &.Tool--selected {
+      height: 110em;
+      width: 104em;
+    }
+  }
+
+  .Tool-decoration--bell {
+    &.Tool--selected {
+      height: 110em;
+      width: 100em;
+    }
+  }
+
+  .Tool-decoration--tree {
+    &.Tool--selected {
+      height: 115em;
+      width: 94em;
+    }
+  }
+
+  .Tool-decoration--wreath {
+    &.Tool--selected {
+      height: 125em;
+      width: 103em;
     }
   }
 
@@ -257,15 +742,42 @@
   }
 }
 
-@media (min-width: 800px) and (min-height: 690px) {
+@media #{$layout-wide} {
   ##{$name} {
     .Tools {
       border-radius: 0 0 5px 5px;
       height: 2 * 156px + 3 * 78px;
       left: 20px;
+      right: auto;
       top: 50%;
-      margin-top: -290px;
+      margin-top: -273px;
       width: 232.3px;
+    }
+
+    .Tools-tabs {
+      bottom: auto;
+      top: 50px;
+    }
+
+    .ColorPicker {
+      bottom: 16px;
+      left: 100%;
+      margin: 0 0 0 12px;
+    }
+
+    .Tool-container--custom {
+      background-size: 27px 56px;
+    }
+
+    .Tools-tab {
+      height: 60px;
+      margin-bottom: 8px;
+      margin-top: 0;
+      width: 52px;
+
+      &.is-active {
+        width: 60px;
+      }
     }
 
     /**
@@ -436,21 +948,114 @@
     .Tool-shadow--holly {
       background-image: url(img/tools/shadows/holly.svg);
     }
-  }
-}
 
-@media (min-width: 800px) and (min-height: 840px) {
-  ##{$name} {
-    .Tools {
-      height: 2 * 156px + 3 * 78px;
+    .Tool-shadow--candycane {
+      background-image: url(img/tools/shadows/candycane.svg);
+    }
+
+    .Tool-shadow--gingerbread {
+      background-image: url(img/tools/shadows/gingerbread.svg);
+    }
+
+    .Tool-shadow--star {
+      background-image: url(img/tools/shadows/star.svg);
+    }
+
+    .Tool-shadow--teddybear {
+      background-image: url(img/tools/shadows/teddybear.svg);
+    }
+
+    .Tool-shadow--lightbulb {
+      background-image: url(img/tools/shadows/lightbulb.svg);
+    }
+
+    .Tool-shadow--snowflake {
+      background-image: url(img/tools/shadows/snowflake.svg);
+    }
+
+    .Tool-shadow--gift {
+      background-image: url(img/tools/shadows/gift.svg);
+    }
+
+    .Tool-shadow--bell {
+      background-image: url(img/tools/shadows/bell.svg);
+    }
+
+    .Tool-shadow--tree {
+      background-image: url(img/tools/shadows/tree.svg);
+    }
+
+    .Tool-shadow--wreath {
+      background-image: url(img/tools/shadows/wreath.svg);
     }
   }
 }
 
-@media (min-width: 1024px) {
+// Wide layout on a screen too short to centre the wardrobe: pin it near the top instead.
+@media (min-width: 800px) and (min-height: 566px) and (max-height: 600px) {
   ##{$name} {
     .Tools {
-      right: 50px; // make sure toolbox doesn't overlap mute button
+      top: 10px;
+      margin-top: 0;
+    }
+  }
+}
+
+// Compact layout: a low tray that leaves Santa free. The tools tab has the tools on one line and
+// the seven spray bottles on the next; the decors tab has two lines of seven decors.
+@media #{$layout-compact} {
+  ##{$name} {
+    // Line break between the tools (order 0) and the bottles.
+    .Tools-page--hair::before {
+      content: '';
+      order: 1;
+      width: 100%;
+    }
+
+    .Tool-container--small {
+      flex: 0 0 calc(100% / 7);
+      left: 0;
+      order: 3;
+      width: calc(100% / 7);
+    }
+
+    // First bottle on its line, next to where the colour picker opens.
+    .Tool-container--custom {
+      order: 2;
+    }
+
+    .Tools-page--decor {
+      // As tall as the two lines of the tools tab, however few decors there are.
+      min-height: 96px;
+      padding: 0;
+
+      .Decor-viewport {
+        align-content: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      // both pages flow into the one grid, so there is nothing to page through
+      .Decor-page {
+        display: contents !important;
+      }
+
+      .Decor-nav {
+        display: none;
+      }
+
+      .Tool-container {
+        flex: 0 0 calc(100% / 7);
+        height: 48px;
+        width: calc(100% / 7);
+      }
+
+      .Tool-decoration {
+        background-origin: content-box;
+        background-size: contain;
+        box-sizing: border-box;
+        padding: 4px;
+      }
     }
   }
 }

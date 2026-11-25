@@ -1,0 +1,75 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="95" height="114">
+  <defs>
+    <style>
+      .tb-body { fill: #a56736; }
+      .tb-tan { fill: #dfae7b; }
+      .tb-dark { fill: #2c1608; }
+      .tb-red { fill: #e52d27; }
+      .tb-darkred { fill: #b71c1c; }
+      .tb-white { fill: #ffffff; }
+      .tb-pink { fill: #f48fb1; }
+    </style>
+  </defs>
+
+  <!-- Left Ear -->
+  <circle class="tb-body" cx="24" cy="34" r="13" />
+  <circle class="tb-tan" cx="24" cy="34" r="7.5" />
+
+  <!-- Right Ear -->
+  <circle class="tb-body" cx="76" cy="34" r="13" />
+  <circle class="tb-tan" cx="76" cy="34" r="7.5" />
+
+  <!-- Feet / Lower Paws -->
+  <ellipse class="tb-body" cx="28" cy="107" rx="14" ry="10" />
+  <circle class="tb-tan" cx="28" cy="107" r="6" />
+
+  <ellipse class="tb-body" cx="72" cy="107" rx="14" ry="10" />
+  <circle class="tb-tan" cx="72" cy="107" r="6" />
+
+  <!-- Bear Torso -->
+  <ellipse class="tb-body" cx="50" cy="84" rx="27" ry="25" />
+
+  <!-- Belly Patch -->
+  <ellipse class="tb-tan" cx="50" cy="85" rx="17" ry="15" />
+
+  <!-- Arms / Hands -->
+  <ellipse class="tb-body" cx="17" cy="72" rx="9" ry="14" transform="rotate(-60 17 72)" />
+  <ellipse class="tb-body" cx="83" cy="72" rx="9" ry="14" transform="rotate(60 83 72)" />
+
+  <!-- Head -->
+  <circle class="tb-body" cx="50" cy="50" r="26" />
+
+  <!-- Cheeks -->
+  <circle class="tb-pink" cx="35" cy="54" r="4.5" opacity="0.5" />
+  <circle class="tb-pink" cx="65" cy="54" r="4.5" opacity="0.5" />
+
+  <!-- Snout / Muzzle -->
+  <ellipse class="tb-tan" cx="50" cy="56" rx="12" ry="9" />
+
+  <!-- Nose -->
+  <path class="tb-dark" d="M 45,51 C 45,51 47,49 50,49 C 53,49 55,51 55,51 C 55,54 53,56 50,56 C 47,56 45,54 45,51 Z" />
+  <circle class="tb-white" cx="48.5" cy="50.5" r="0.8" />
+
+  <!-- Mouth -->
+  <path d="M 50,56 L 50,60 M 46,60 Q 50,63 54,60" fill="none" stroke="#2c1608" stroke-width="1.6" stroke-linecap="round" />
+
+  <!-- Eyes -->
+  <circle class="tb-dark" cx="38" cy="45" r="3" />
+  <circle class="tb-white" cx="37" cy="44" r="1" />
+
+  <circle class="tb-dark" cx="62" cy="45" r="3" />
+  <circle class="tb-white" cx="61" cy="44" r="1" />
+
+  <!-- Festive Scarf / Bow at Neck -->
+  <path class="tb-red" d="M 33,68 C 38,65 62,65 67,68 C 69,72 65,76 50,76 C 35,76 31,72 33,68 Z" />
+  <path class="tb-darkred" d="M 56,73 L 64,88 L 56,89 L 52,74 Z" />
+  <circle class="tb-red" cx="50" cy="72" r="3.5" />
+
+  <!-- Santa Hat on Head (Tilted) -->
+  <!-- Red Hat Cone -->
+  <path class="tb-red" d="M 34,27 Q 48,15 72,13 Q 84,18 84,28 Q 70,25 34,27 Z" />
+  <!-- Hat Brim -->
+  <rect class="tb-white" x="32" y="24" width="38" height="8" rx="4" transform="rotate(-7 51 28)" />
+  <!-- Pom Pom -->
+  <circle class="tb-white" cx="84" cy="27" r="6" />
+</svg>
