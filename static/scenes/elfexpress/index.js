@@ -2918,23 +2918,25 @@ window.addEventListener('blur', () => {
 
 function resolveTapFloor(p) {
   const maxF = activeFloors() - 1;
+  // A tap right on a toy (or snowball) on the belt side goes to that toy's belt, including the top
+  // half that sticks up above the beam into the floor above
   if (p.x < TAP_SPLIT && S && S.gifts) {
     let bestF = -1;
-    let bestDist = 42;
+    let bestDist = Infinity;
     for (const g of S.gifts) {
       if (g.tutWatch || g.state === 'done' || g.state === 'carried' || g.belt > maxF) continue;
       if (g.state === 'belt' || g.state === 'teeter' || (g.state === 'fading' && !g.missCounted) || g.state === 'falling' || g.state === 'landed') {
+        const r = g.isSnowball ? (TUNE.snowballRadius || GIFT_R + 7) : GIFT_R + 7;
         const d = Math.hypot(p.x - g.x, p.y - g.y);
-        if (d < bestDist) {
+        if (d <= r && d < bestDist) {
           bestDist = d;
           bestF = g.belt;
         }
       }
     }
     if (bestF >= 0) return bestF;
-    const bf = Math.floor((GROUND_Y - (p.y + 24)) / FLOOR_H);
-    return Math.max(0, Math.min(4, bf));
   }
+  // Otherwise the floor whose area was tapped (from its beam up to the beam above), on both sides
   return Math.max(0, Math.min(4, Math.floor((GROUND_Y - p.y) / FLOOR_H)));
 }
 
