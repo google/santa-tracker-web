@@ -43,7 +43,9 @@ app.Constants = {
 
   NEAR_SANTA_DIM: 230,
 
-  // Serialization constants
-  ENCODER: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split(''),
+  // Custom spray: how many picked colours a beard can hold, and the colour it starts with.
+  MAX_CUSTOM_SPRAYS: 12,
+  DEFAULT_CUSTOM_COLOR: 'a0522d',
+
   INTERACTION_URL_DELAY: 250,
 };
