@@ -41,6 +41,7 @@ app.Cloth = function(game, canvas) {
     py: 0
   };
   this.canPlaceDecoration = true;
+  this.canPlacePattern = true;
   this.nearBeard = false;
 };
 
@@ -96,11 +97,18 @@ app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
     this.canPlaceDecoration = !mouseCoords.down;
   }
 
+  if (!this.canPlacePattern) {
+    // wait for mouse up before placing another pattern dot
+    this.canPlacePattern = !mouseCoords.down;
+  }
+
   if (this.mouse.down && tools.selectedTool &&
       (tools.selectedTool.spray || tools.hairclean.isSelected ||
        tools.selectedTool.decoration || tools.clipper.isSelected)) {
     var scale = mouse.scaleFactor;
     var anyNearBeard = false;
+    var closestPatternPoint = null;
+    var closestPatternDist = Infinity;
 
     var i = this.points.length;
     while (i--) {
@@ -118,13 +126,14 @@ app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
           anyNearBeard = true;
         }
 
-        if (tools.selectedTool.spray) {
+        if (tools.selectedTool.spray && !tools.selectedTool.isPattern) {
           this.points[i].spray = tools.selectedTool.spray;
           hasChanged = true;
         }
 
         if (tools.hairclean.isSelected) {
           this.points[i].spray = null;
+          this.points[i].pattern = null;
           this.points[i].decoration = null;
           hasChanged = true;
         }
@@ -137,6 +146,22 @@ app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
           break;
         }
       }
+
+      if (tools.selectedTool.isPattern && this.canPlacePattern && dist < 70 * scale) {
+        if (dist < closestPatternDist) {
+          closestPatternDist = dist;
+          closestPatternPoint = this.points[i];
+        }
+      }
+    }
+
+    if (closestPatternPoint) {
+      closestPatternPoint.pattern = tools.selectedTool.spray;
+      if (tools.selectedTool.patternType === 'triangle') {
+        closestPatternPoint.triangleRotation = Math.random() * 2 * Math.PI;
+      }
+      this.canPlacePattern = false;
+      hasChanged = true;
     }
 
     if (!anyNearBeard) {
@@ -345,6 +370,11 @@ app.Cloth.prototype.draw = function() {
     this.points[i].drawSpray(this.ctx, scale);
   }
 
+  i = this.points.length;
+  while (i--) {
+    this.points[i].drawPattern(this.ctx, scale);
+  }
+
   this.ctx.globalCompositeOperation = 'source-over';
 
   i = this.points.length;
@@ -383,34 +413,48 @@ app.Cloth.prototype.addHair_ = function() {
 };
 
 /**
+ * @return {number} how many colour states a point can have: none, or one of the colours.
+ * @private
+ */
+app.Cloth.prototype.numSprayStates_ = function() {
+  return 1 + this.game_.tools.sprays.length;
+};
+
+
+/**
  * Serialize the current state of the beard.
  * @return {string} encoded
  */
 app.Cloth.prototype.save = function() {
-  var points = this.points;
-  var encoder = app.Constants.ENCODER;
   var sprays = this.game_.tools.sprays;
+  var patterns = this.game_.tools.patterns;
   var decorations = this.game_.tools.decorations;
+  var numDecor = decorations.length + 1;
+  var numSpray = this.numSprayStates_();
 
-  var data = points.map(function(point) {
-    var index = 0;
+  // Colours come first so that a plain or just coloured point, by far the most common, gets a
+  // small state that encodes as a single letter.
+  return app.encoding.encode(this.points.map(function(point) {
+    var state = 0;
 
     if (point.draw && point.constrain) {  // don't save currently falling hair
-      index += 1;
+      state += 1;
     }
 
     if (point.draw && point.spray) {
-      index += (sprays.indexOf(point.spray) + 1) * 5; // color + color with decoration * 5
+      state += sprays.indexOf(point.spray) + 1;
     }
 
     if (point.draw && point.decoration) {
-      index += decorations.indexOf(point.decoration) + 1;
+      state += (decorations.indexOf(point.decoration) + 1) * numSpray;
     }
 
-    return encoder[index];
-  });
+    if (point.draw && point.pattern) {
+      state += (patterns.indexOf(point.pattern) + 1) * numSpray * numDecor;
+    }
 
-  return app.encoding.encode(data.join(''));
+    return state;
+  }));
 };
 
 
@@ -419,26 +463,29 @@ app.Cloth.prototype.save = function() {
  * @param {string} encoded string representing beard state.
  */
 app.Cloth.prototype.restore = function(encoded) {
-  var encoder = app.Constants.ENCODER;
   var sprays = this.game_.tools.sprays;
+  var patterns = this.game_.tools.patterns;
   var decorations = this.game_.tools.decorations;
-
-  var decoded = app.encoding.decode(encoded);
-
-  var data = decoded.split('').map(function(char) {
-    return encoder.indexOf(char);
-  });
+  var numDecor = decorations.length + 1;
+  var numSpray = this.numSprayStates_();
 
   var beardPoints = this.drawInitialCloth();
+  var data = app.encoding.decode(encoded, beardPoints.length);
 
   for (var i = 0; i < beardPoints.length; i++) {
     beardPoints[i].draw = beardPoints[i].constrain = data[i] > 0;
 
-    var spray = Math.floor((data[i] - 1) / 5);
-    beardPoints[i].spray = spray > 0 ? sprays[spray - 1] : undefined;
+    var val = data[i] - 1;
+    if (val >= 0) {
+      var spray = val % numSpray;
+      val = Math.floor(val / numSpray);
+      var decoration = val % numDecor;
+      var pattern = Math.floor(val / numDecor);
 
-    var decoration = (data[i] - 1) % 5;
-    beardPoints[i].decoration = decoration > 0 ? decorations[decoration - 1] : undefined;
+      beardPoints[i].decoration = decoration > 0 ? decorations[decoration - 1] : undefined;
+      beardPoints[i].spray = spray > 0 ? sprays[spray - 1] : undefined;
+      beardPoints[i].pattern = pattern > 0 ? patterns[pattern - 1] : undefined;
+    }
   }
 
   this.points = beardPoints;

@@ -54,6 +54,8 @@ app.Tool = function($elem, name, mouseOffset) {
 app.Tool.prototype.select = function(mouseCoords) {
   this.isSelected = true;
 
+  // Attach to the main board so the floating tool remains visible across any active tab
+  this.elem.append(this.el);
   this.el.addClass('Tool--selected');
   this.width = this.el.width();
 
@@ -79,6 +81,8 @@ app.Tool.prototype.deselect = function() {
     top: '',
     left: ''
   });
+  // Restore element into its original wardrobe container slot
+  this.container.append(this.el);
   this.elem.css({
     cursor: ''
   });
@@ -345,6 +349,17 @@ app.Tools = function(game, $elem) {
   this.sprayPurple = new app.Spray($elem, 'purple');
   this.sprayPink = new app.Spray($elem, 'pink');
   this.sprayBlue = new app.Spray($elem, 'blue');
+  this.sprayWhiteDots = new app.Spray($elem, 'whitedots');
+  this.sprayWhiteDots.isPattern = true;
+  this.sprayWhiteDots.patternType = 'dots';
+
+  this.sprayWave = new app.Spray($elem, 'wave');
+  this.sprayWave.isPattern = true;
+  this.sprayWave.patternType = 'wave';
+
+  this.sprayTriangle = new app.Spray($elem, 'triangle');
+  this.sprayTriangle.isPattern = true;
+  this.sprayTriangle.patternType = 'triangle';
 
   this.decorationSnowman = new app.Decoration($elem, 'snowman', {x: 40, y: 50}, $elem.find('#snowman')[0]);
   this.decorationBauble = new app.Decoration($elem, 'bauble', {x: 40, y: 50}, $elem.find('#bauble')[0]);
@@ -365,6 +380,9 @@ app.Tools = function(game, $elem) {
     this.sprayPurple,
     this.sprayPink,
     this.sprayBlue,
+    this.sprayWhiteDots,
+    this.sprayWave,
+    this.sprayTriangle,
 
     this.decorationSnowman,
     this.decorationBauble,
@@ -383,12 +401,35 @@ app.Tools = function(game, $elem) {
     this.sprayBlue.spray
   ];
 
+  this.patterns = [
+    this.sprayWhiteDots.spray,
+    this.sprayWave.spray,
+    this.sprayTriangle.spray
+  ];
+
   this.decorations = [
     this.decorationSnowman.decoration,
     this.decorationBauble.decoration,
     this.decorationBow.decoration,
     this.decorationHolly.decoration
   ];
+
+  $elem.find('.Tools-tabs').on('click touchend', '.Tools-tab', (e) => {
+    this.switchTab(String($(e.currentTarget).data('tab')));
+  });
+};
+
+
+/**
+ * Switch active wardrobe tab and page.
+ * @param {string} tabName
+ */
+app.Tools.prototype.switchTab = function(tabName) {
+  this.elem.find('.Tools-tab').removeClass('is-active');
+  this.elem.find('.Tools-tab--' + tabName).addClass('is-active');
+
+  this.elem.find('.Tools-page').removeClass('is-active');
+  this.elem.find('.Tools-page--' + tabName).addClass('is-active');
 };
 
 
@@ -498,7 +539,7 @@ app.Tools.prototype.selectTool_ = function(e) {
   var previousTool = this.selectedTool;
 
   this.selectedTool = this.tools.filter(function(tool) {
-    if (tool.container[0] === e.target && !tool.isSelected) {
+    if ($(e.target).closest(tool.container).length && !tool.isSelected) {
       return tool;
     }
   })[0];

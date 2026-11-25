@@ -43,7 +43,5 @@ app.Constants = {
 
   NEAR_SANTA_DIM: 230,
 
-  // Serialization constants
-  ENCODER: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split(''),
   INTERACTION_URL_DELAY: 250,
 };

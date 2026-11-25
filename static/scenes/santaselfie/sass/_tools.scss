@@ -18,8 +18,159 @@
   .Tools {
     bottom: 0;
     position: absolute;
-    right: 0;
-    
+    right: 50px; // leaves room for the tabs beside the tray
+    z-index: 20;
+  }
+
+  .Tools-tabs {
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    left: 100%;
+    margin-left: -4px;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .Tools-tab {
+    background: #6a1b9a;
+    border: 3px solid #b757c5;
+    border-left: none;
+    border-radius: 0 16px 16px 0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    margin-top: 6px;
+    outline: none;
+    padding: 0;
+    position: relative;
+    width: 46px;
+    transition: all 0.2s ease;
+
+    &.is-active {
+      background: #b757c5;
+      border-color: #ffd166;
+      box-shadow: 6px 4px 14px rgba(0, 0, 0, 0.5);
+      width: 50px;
+    }
+  }
+
+  .Tools-tabIcon {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    height: 28px;
+    width: 28px;
+
+    &--hair {
+      background-image: url(img/icons/scissors.svg);
+    }
+
+    &--decor {
+      background-image: url(img/icons/bell.svg);
+    }
+  }
+
+  .Tools-pages {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  .Tools-page {
+    align-content: flex-start;
+    display: none;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: flex-end;
+    width: 100%;
+
+    &.is-active {
+      display: flex;
+    }
+
+    &--decor {
+      align-content: stretch;
+      box-sizing: border-box;
+      justify-content: space-between;
+      overflow: hidden;
+      padding-top: 36px;
+      padding-bottom: 24px;
+      padding-left: 8px;
+      padding-right: 4px;
+      position: relative;
+
+      .Decor-viewport {
+        box-sizing: border-box;
+        flex: 1;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .Decor-page {
+        align-content: flex-start;
+        box-sizing: border-box;
+        display: none;
+        flex-wrap: wrap;
+        height: 100%;
+        position: relative;
+        width: 100%;
+
+        &.is-active {
+          display: flex;
+        }
+      }
+
+      .Tool-container {
+        align-items: center;
+        display: flex;
+        flex: 0 0 50%;
+        height: 96px;
+        justify-content: center;
+        left: 0;
+        margin: 0;
+        width: 50%;
+      }
+
+      .Tool-decoration {
+        left: 0;
+        top: 0;
+
+        &--snowman {
+          background-size: 34px 48px;
+        }
+        &--bauble {
+          background-size: 36px 48px;
+        }
+        &--bow {
+          background-size: 46px 34px;
+        }
+        &--holly {
+          background-size: 42px 46px;
+        }
+      }
+
+      .Tool-shadow {
+        &--snowman {
+          background-size: 33px 47px;
+        }
+        &--bauble {
+          background-size: 35px 47px;
+        }
+        &--bow {
+          background-size: 45px 33px;
+        }
+        &--holly {
+          background-size: 41px 45px;
+        }
+      }
+    }
   }
 
   .Tools--scrollable {
@@ -28,6 +179,7 @@
     flex-wrap: wrap;
     height: 580px;
     justify-content: flex-end;
+    overflow: hidden;
   }
 
   .Tool-container {
@@ -62,7 +214,7 @@
   .Tool--selected {
     background-size: contain !important;
     position: fixed;
-    z-index: 1;
+    z-index: 10000;
   }
 
   .Tool-buttons {
@@ -130,6 +282,18 @@
 
   .Tool-spray--blue {
     background-image: url(img/tools/spray--blue.svg);
+  }
+
+  .Tool-spray--whitedots {
+    background-image: url(img/tools/spray--whitedots.svg);
+  }
+
+  .Tool-spray--wave {
+    background-image: url(img/tools/spray--wave.svg);
+  }
+
+  .Tool-spray--triangle {
+    background-image: url(img/tools/spray--triangle.svg);
   }
 
   .Tool-decoration--snowman {
@@ -257,15 +421,32 @@
   }
 }
 
-@media (min-width: 800px) and (min-height: 690px) {
+@media #{$layout-wide} {
   ##{$name} {
     .Tools {
       border-radius: 0 0 5px 5px;
       height: 2 * 156px + 3 * 78px;
       left: 20px;
+      right: auto;
       top: 50%;
-      margin-top: -290px;
+      margin-top: -273px;
       width: 232.3px;
+    }
+
+    .Tools-tabs {
+      bottom: auto;
+      top: 50px;
+    }
+
+    .Tools-tab {
+      height: 60px;
+      margin-bottom: 8px;
+      margin-top: 0;
+      width: 52px;
+
+      &.is-active {
+        width: 60px;
+      }
     }
 
     /**
@@ -439,18 +620,62 @@
   }
 }
 
-@media (min-width: 800px) and (min-height: 840px) {
+// Wide layout on a screen too short to centre the wardrobe: pin it near the top instead.
+@media (min-width: 800px) and (min-height: 566px) and (max-height: 600px) {
   ##{$name} {
     .Tools {
-      height: 2 * 156px + 3 * 78px;
+      top: 10px;
+      margin-top: 0;
     }
   }
 }
 
-@media (min-width: 1024px) {
+// Compact layout: a low tray that leaves Santa free. The tools tab has the tools on one line and
+// the six spray bottles on the next; the decors tab has its decors on one line.
+@media #{$layout-compact} {
   ##{$name} {
-    .Tools {
-      right: 50px; // make sure toolbox doesn't overlap mute button
+    // Line break between the tools (order 0) and the bottles.
+    .Tools-page--hair::before {
+      content: '';
+      order: 1;
+      width: 100%;
+    }
+
+    .Tool-container--small {
+      flex: 0 0 calc(100% / 6);
+      left: 0;
+      order: 3;
+      width: calc(100% / 6);
+    }
+
+    .Tools-page--decor {
+      // As tall as the two lines of the tools tab, however few decors there are.
+      min-height: 96px;
+      padding: 0;
+
+      .Decor-viewport {
+        align-content: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      // the decors flow straight into the grid
+      .Decor-page {
+        display: contents !important;
+      }
+
+      .Tool-container {
+        flex: 0 0 calc(100% / 7);
+        height: 48px;
+        width: calc(100% / 7);
+      }
+
+      .Tool-decoration {
+        background-origin: content-box;
+        background-size: contain;
+        box-sizing: border-box;
+        padding: 4px;
+      }
     }
   }
 }

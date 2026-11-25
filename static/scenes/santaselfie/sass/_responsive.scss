@@ -16,15 +16,22 @@
 
 $ui-offset-mobile: 75px;
 
-// Mobile and tablet
-@media (max-width: 800px), (max-height: 690px) {
+// The scene has two layouts and every screen gets exactly one of them:
+// - wide: the tall wardrobe on the left. Screens at least 800px wide and 566px high (the
+//   wardrobe is 546px tall) that have a mouse or are in landscape.
+// - compact: the low tray along the bottom. Everything else, i.e. screens that are narrower or
+//   shorter than that, and touch screens held upright.
+$layout-wide: "(min-width: 800px) and (min-height: 566px) and (pointer: fine), (min-width: 800px) and (min-height: 566px) and (orientation: landscape)";
+$layout-compact: "(max-width: 799.98px), (max-height: 565.98px), (min-width: 800px) and (orientation: portrait) and (pointer: coarse), (min-width: 800px) and (orientation: portrait) and (pointer: none)";
+
+@media #{$layout-compact} {
   ##{$name} .Background-pole {
     display: none !important;
   }
 }
 
-// Tools' styles on mobile and tablet
-@media (max-width: 800px), (max-height: 690px) {
+// Tools' styles in the compact layout
+@media #{$layout-compact} {
   ##{$name} {
     .Buttons {
       top: $ui-offset-mobile !important;
@@ -38,6 +45,7 @@ $ui-offset-mobile: 75px;
       background-color: #B444BB  !important;
       background-image: none !important;
       width: 320px !important;
+      max-width: calc(100vw - 60px) !important; // tray plus tabs must fit narrow phones
       height: auto !important;
       padding: 5px !important;
     }
