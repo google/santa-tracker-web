@@ -26,7 +26,7 @@ goog.require('app.Tools');
 /**
  * Main game class
  * @param {!Element} elem An DOM element which wraps the game.
- * @param {function({beard: string}): void} callback
+ * @param {function(?{beard: string, colors: (string|undefined)}): void} callback
  * @constructor
  * @export
  */
@@ -55,7 +55,7 @@ app.Game = function(elem, callback) {
 
 /**
  * Start the game
- * @param {?{beard: string}} data
+ * @param {?{beard: string, colors: (string|undefined)}} data
  * @export
  */
 app.Game.prototype.start = function(data) {
@@ -78,6 +78,9 @@ app.Game.prototype.start = function(data) {
   this.initialBeard_ = this.cloth.save();
 
   if (data && data.beard) {
+    if (data.colors) {
+      this.tools.setCustomColors(data.colors);
+    }
     try {
       this.cloth.restore(data.beard);
     } catch (e) {
@@ -156,8 +159,13 @@ app.Game.prototype.interactionDone = function() {
  */
 app.Game.prototype.updateUrlState_ = function() {
   const s = this.cloth.save();
-  const data = (s === this.initialBeard_) ? null : {'beard': s};
-  this.callback_(data)
+  if (s === this.initialBeard_) {
+    this.callback_(null);
+    return;
+  }
+
+  const colors = this.tools.customColors();
+  this.callback_(colors ? {'beard': s, 'colors': colors} : {'beard': s});
 };
 
 

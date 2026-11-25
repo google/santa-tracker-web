@@ -413,11 +413,13 @@ app.Cloth.prototype.addHair_ = function() {
 };
 
 /**
- * @return {number} how many colour states a point can have: none, or one of the colours.
+ * @return {number} how many colour states a point can have: none, a fixed colour, or any of the
+ *     custom colour slots, counted whether or not they are in use so that a state always means
+ *     the same thing.
  * @private
  */
 app.Cloth.prototype.numSprayStates_ = function() {
-  return 1 + this.game_.tools.sprays.length;
+  return 1 + this.game_.tools.sprays.length + app.Constants.MAX_CUSTOM_SPRAYS;
 };
 
 
@@ -426,7 +428,7 @@ app.Cloth.prototype.numSprayStates_ = function() {
  * @return {string} encoded
  */
 app.Cloth.prototype.save = function() {
-  var sprays = this.game_.tools.sprays;
+  var sprays = this.game_.tools.allSprays();
   var patterns = this.game_.tools.patterns;
   var decorations = this.game_.tools.decorations;
   var numDecor = decorations.length + 1;
@@ -463,7 +465,7 @@ app.Cloth.prototype.save = function() {
  * @param {string} encoded string representing beard state.
  */
 app.Cloth.prototype.restore = function(encoded) {
-  var sprays = this.game_.tools.sprays;
+  var sprays = this.game_.tools.allSprays();
   var patterns = this.game_.tools.patterns;
   var decorations = this.game_.tools.decorations;
   var numDecor = decorations.length + 1;

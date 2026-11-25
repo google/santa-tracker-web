@@ -75,6 +75,61 @@
     }
   }
 
+  // Opens when the custom spray is picked up. It sits outside the tray, on the side the custom
+  // spray is on, so that it covers none of the tools.
+  .ColorPicker {
+    background: #6a1b9a;
+    border: 3px solid #b757c5;
+    border-radius: 14px;
+    bottom: 100%;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+    cursor: crosshair;
+    display: none;
+    left: 0;
+    margin-bottom: 8px;
+    padding: 8px;
+    position: absolute;
+    z-index: 30;
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  .ColorPicker-fieldWrap {
+    position: relative;
+  }
+
+  .ColorPicker-field {
+    border-radius: 8px;
+    display: block;
+    height: 120px;
+    width: 180px;
+  }
+
+  .ColorPicker-marker {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6);
+    display: none;
+    height: 10px;
+    margin: -7px 0 0 -7px;
+    pointer-events: none;
+    position: absolute;
+    width: 10px;
+
+    &.is-visible {
+      display: block;
+    }
+  }
+
+  // Its bottle is drawn on the container too, so it stays put while the spray is in use.
+  .Tool-container--custom {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 90% 90%;
+  }
+
   .Tools-pages {
     display: flex;
     flex-direction: column;
@@ -438,6 +493,16 @@
       top: 50px;
     }
 
+    .ColorPicker {
+      bottom: 16px;
+      left: 100%;
+      margin: 0 0 0 12px;
+    }
+
+    .Tool-container--custom {
+      background-size: 27px 56px;
+    }
+
     .Tools-tab {
       height: 60px;
       margin-bottom: 8px;
@@ -631,7 +696,7 @@
 }
 
 // Compact layout: a low tray that leaves Santa free. The tools tab has the tools on one line and
-// the six spray bottles on the next; the decors tab has its decors on one line.
+// the seven spray bottles on the next; the decors tab has its decors on one line.
 @media #{$layout-compact} {
   ##{$name} {
     // Line break between the tools (order 0) and the bottles.
@@ -642,10 +707,15 @@
     }
 
     .Tool-container--small {
-      flex: 0 0 calc(100% / 6);
+      flex: 0 0 calc(100% / 7);
       left: 0;
       order: 3;
-      width: calc(100% / 6);
+      width: calc(100% / 7);
+    }
+
+    // First bottle on its line, next to where the colour picker opens.
+    .Tool-container--custom {
+      order: 2;
     }
 
     .Tools-page--decor {
