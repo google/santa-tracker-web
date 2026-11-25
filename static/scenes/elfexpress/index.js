@@ -28,6 +28,7 @@ import {
 import {
   cv, fit, toGame, reduceMotion, viewX0, viewY0, viewX1, viewY1, renderScene,
 } from './renderer.js';
+import { snowmanHeight, snowmanToySpots } from './snowman.js';
 
 api.preload.sounds('pd_load_sounds', 'qd_load_sounds');
 
@@ -1361,6 +1362,7 @@ function startWave(waveIdx) {
   S.gifts = [];
   S.snowballSchedule = [];
   S.beltLastWasSnowball = [false, false, false, false, false];
+  if (S.snowballHitT > 0) snowPoof();  // a new sleigh always starts as the elf
   S.snowballHitT = 0;
   S.snowballShedAcc = 0;
   S.spawnTimer = S.waveQueue.length ? effEventDelay(S.waveQueue[0]) : 0.04;
@@ -1428,6 +1430,15 @@ function tryGrabBeltSnowball(forgiving = false) {
   return false;
 }
 
+// Quick white snow poof over the elf: when it turns into a snowman, and when it turns back
+function snowPoof() {
+  if (!S) return;
+  const e = S.elf;
+  const midY = carryY(e.floor, elfChoice);
+  puff(e.x, midY, '#FFFFFF', 16);
+  puff(e.x, midY - 22, '#FFFFFF', 8);
+}
+
 function pickupSnowball(sb) {
   if (!S || !sb || !sb.isSnowball || sb.state === 'done') return false;
   const e = S.elf;
@@ -1448,8 +1459,7 @@ function pickupSnowball(sb) {
   S.snowballShedAcc = 0;
   S.actionBuf = 0;
   S.actionHeld = false;
-  puff(e.x, carryY(e.floor, elfChoice), '#FFFFFF', 14);
-  puff(e.x, carryY(e.floor, elfChoice), '#BAE6FD', 8);
+  snowPoof();  // the elf turns into a snowman
   api.play('pd_item_miss');
   syncTunePanel();
   return true;
@@ -1848,6 +1858,16 @@ function updateGifts(dt) {
       case 'carried': {
         const e = S.elf;
         const idx = e.bag.indexOf(g);
+        if (S.snowballHitT > 0) {
+          // As a snowman: held out in its stick hands so the face, hat and scarf stay visible
+          const moving = e.bob !== 0 || e.climbing;
+          const hop = moving ? -Math.abs(Math.sin(e.bob)) * 2 : 0;
+          const spots = snowmanToySpots(snowmanHeight(elfChoice), moving, e.facing, e.bag.length);
+          const spot = spots[Math.min(idx, spots.length - 1)] || { x: 0, y: -elfCarryOff(elfChoice) };
+          g.x = e.x + spot.x;
+          g.y = e.y + hop + spot.y;
+          break;
+        }
         const side = idx === 1 ? -e.facing : e.facing;
         g.x = e.x + side * 18;
         g.y = e.y - elfCarryOff(elfChoice) + Math.sin(e.bob) * 2;
@@ -2310,8 +2330,8 @@ function updateElf(dt) {
         if (S.snowballShedAcc >= 16) {
           S.snowballShedAcc -= 16;
           puff(e.x + (Math.random() - 0.5) * 24, e.y - 38 + (Math.random() - 0.5) * 20, '#FFFFFF', 2);
-          puff(e.x + (Math.random() - 0.5) * 22, e.y - 38 + (Math.random() - 0.5) * 18, '#BAE6FD', 1);
         }
+        if (S.snowballHitT === 0) snowPoof();  // the snowman turns back into the elf
         if (S.snowballHitT === 0 || Math.floor(prevHit * 10) !== Math.floor(S.snowballHitT * 10)) {
           syncTunePanel();
         }

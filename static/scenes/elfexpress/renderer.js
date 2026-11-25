@@ -26,8 +26,9 @@ import {
   feetY, beltY, chuteY, carryY, STARS_BG, HILLS_BG,
   PXS, CWS, CHS, GYS, PXC, SPR_SLEIGH, SPR_DEER_A, SPR_DEER_B,
   CITY_FAR, CITY, MOON_X, MOON_Y, MOON_R, takeoffPath, TUT, SNOWBALL_TUT_BOX, tutHole,
-  msgSleighCounter,
+  msgSleighCounter, SNOWMAN_ART, SNOWMAN_ARM_ART,
 } from './constants.js';
+import { snowmanHeight, snowmanArms, SNOWMAN_BOX, SNOWMAN_ARM_BOX } from './snowman.js';
 
 export const cv = document.getElementById('game');
 cv.setAttribute('aria-label', _msg`scene_elfexpress`);
@@ -46,6 +47,17 @@ export const ELF_IMG = ELVES.map(d => {
   s.src = d.side.src;
   return { front: f, side: s };
 });
+
+// Snowman the elf turns into while slowed by a snowball, with the hat band and scarf in that elf's color
+export const SNOWMAN_IMG = SNOWMAN_ART.map(a => {
+  const f = new Image();
+  f.src = a.front;
+  const s = new Image();
+  s.src = a.side;
+  return { front: f, side: s };
+});
+export const SNOWMAN_ARM_IMG = new Image();
+SNOWMAN_ARM_IMG.src = SNOWMAN_ARM_ART;
 
 export const PRESENT_IMG = PRESENTS.map(src => {
   const im = new Image();
@@ -557,10 +569,46 @@ function drawGift(g2, g) {
   g2.restore();
 }
 
+// While slowed by a snowball the elf becomes a snowman: front view standing still, side view walking.
+// Stick arms hold the carried toys out beside or in front of the middle snowball (toys are drawn after this).
+function drawSnowman(g2, e, elfChoice, moving) {
+  const pics = SNOWMAN_IMG[elfChoice] || SNOWMAN_IMG[0];
+  const im = moving ? pics.side : pics.front;
+  if (!im.complete || !im.naturalWidth) return false;
+  const h = snowmanHeight(elfChoice);
+  const w = h * SNOWMAN_BOX.w / SNOWMAN_BOX.h;
+  const hop = moving ? -Math.abs(Math.sin(e.bob)) * 2 : 0;
+  const toys = (e.bag || []).length;
+  const arms = snowmanArms(h, moving, e.facing, toys);
+  g2.save();
+  g2.translate(e.x, e.y + hop);
+  g2.save();
+  if (moving && e.facing < 0) g2.scale(-1, 1);
+  g2.drawImage(im, -w / 2, -h, w, h);
+  g2.restore();
+  // Stick arms: one arm picture, turned to each arm's direction and stretched along its length only
+  if (SNOWMAN_ARM_IMG.complete && SNOWMAN_ARM_IMG.naturalWidth) {
+    const u = h / SNOWMAN_BOX.h;  // game px per snowman art unit
+    const A = SNOWMAN_ARM_BOX;
+    for (const a of arms) {
+      const dx = a.hx - a.sx, dy = a.hy - a.sy;
+      g2.save();
+      g2.translate(a.sx, a.sy);
+      g2.rotate(Math.atan2(dy, dx));
+      g2.scale(Math.hypot(dx, dy) / A.len, u);
+      g2.drawImage(SNOWMAN_ARM_IMG, A.x, A.y, A.w, A.h);
+      g2.restore();
+    }
+  }
+  g2.restore();
+  return true;
+}
+
 function drawElf(g2, S, e, elfChoice) {
   const d = ELVES[elfChoice] || ELVES[0];
   const pics = ELF_IMG[elfChoice] || ELF_IMG[0];
   const moving = e.bob !== 0 || e.climbing;
+  if (S && S.snowballHitT > 0 && drawSnowman(g2, e, elfChoice, moving)) return;
   const im = moving ? pics.side : pics.front;
   if (!im.complete || !im.naturalWidth) return;
   const v = moving ? d.side : d.front;
@@ -581,44 +629,6 @@ function drawElf(g2, S, e, elfChoice) {
   if (moving && e.facing < 0) g2.scale(-1, 1);
   g2.drawImage(im, -w / 2, -h + footPad, w, h);
   g2.restore();
-
-  // Snow-covered elf when catching a snowball: big snowball with head, arms, and legs sticking out
-  if (S && S.snowballHitT > 0) {
-    const dur = TUNE.snowballSlowTime || 2.5;
-    const frac = Math.min(1, Math.max(0, S.snowballHitT / dur));
-    const snowR = 14 + 7.5 * (0.45 + 0.55 * frac);
-    const cySnow = e.y + hop - h * 0.41;
-    const sbImg = PROPS.snowball && PROPS.snowball.img;
-    g2.save();
-    g2.translate(e.x, cySnow);
-
-    // Arms & mittens sticking out on both sides of the snowball
-    g2.strokeStyle = '#16A34A';
-    g2.lineWidth = 5.5;
-    g2.lineCap = 'round';
-    g2.beginPath();
-    g2.moveTo(-snowR + 3, -2);
-    g2.lineTo(-snowR - 8, 3);
-    g2.moveTo(snowR - 3, -2);
-    g2.lineTo(snowR + 8, 3);
-    g2.stroke();
-    g2.fillStyle = '#DC2626';
-    g2.beginPath();
-    g2.arc(-snowR - 8, 3, 4.2, 0, Math.PI * 2);
-    g2.arc(snowR + 8, 3, 4.2, 0, Math.PI * 2);
-    g2.fill();
-
-    // Big snowball covering torso (head above and legs below remain visible)
-    if (sbImg && sbImg.complete && sbImg.naturalWidth) {
-      g2.drawImage(sbImg, -snowR, -snowR, snowR * 2, snowR * 2);
-    } else {
-      g2.fillStyle = '#FFFFFF';
-      g2.beginPath();
-      g2.arc(0, 0, snowR, 0, Math.PI * 2);
-      g2.fill();
-    }
-    g2.restore();
-  }
 
   // Small frosty breath puff on each breath out during the break
   if (resting) {
