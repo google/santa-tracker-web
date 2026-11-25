@@ -360,6 +360,14 @@ export const ELF_LABELS = [
   _msg`elfexpress_elf_yellow`,
 ];
 
+// Snowman the elf turns into while slowed by a snowball: front and side art for each elf (same order as
+// ELVES), with the hat band and scarf in that elf's color, plus one stick arm the game places for each arm
+export const SNOWMAN_ART = ['orange', 'purple', 'red', 'green', 'blue', 'yellow'].map(c => ({
+  front: `img/snowman-front-${c}.svg`,
+  side: `img/snowman-side-${c}.svg`,
+}));
+export const SNOWMAN_ARM_ART = 'img/snowman-arm.svg';
+
 export const msgSleighAway = (done, total) => _msg`elfexpress_sr_sleigh_away`.replace('{done}', done).replace('{total}', total);
 export const msgSleighCounter = (current, total) => _msg`elfexpress_sleigh_counter`.replace('{current}', current).replace('{total}', total);
 
