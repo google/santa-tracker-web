@@ -45,6 +45,8 @@ app.Point = function(game, options) {
   this.spray = null;
   this.pattern = null;
   this.decoration = null;
+  this.decorOffsetX = 0;
+  this.decorOffsetY = 0;
 
   // Pseudo-random deterministic offsets and radius for irregular white dots pattern
   var h1 = Math.abs(Math.sin(this.x * 12.9898 + this.y * 78.233) * 43758.5453) % 1;
@@ -66,6 +68,8 @@ app.Point.prototype.reset = function() {
     var pattern = this.pattern;
     point = new app.Point(this.game_, this.options);
     point.decoration = decoration;
+    point.decorOffsetX = this.decorOffsetX;
+    point.decorOffsetY = this.decorOffsetY;
     point.spray = spray;
     point.pattern = pattern;
     point.triangleRotation = this.triangleRotation;
@@ -212,11 +216,13 @@ app.Point.prototype.drawPattern = function(ctx, scale) {
 
 app.Point.prototype.drawDecoration = function(ctx, scale) {
   if (this.decoration && this.draw) {
-    var x = this.x - this.decoration.width / 2;
-    var y = this.y - this.decoration.height / 2;
+    var width = this.decoration.width * app.Constants.DECORATION_SCALE;
+    var height = this.decoration.height * app.Constants.DECORATION_SCALE;
 
-    ctx.drawImage(this.decoration, x * scale, y * scale, this.decoration.width * scale,
-                  this.decoration.height * scale);
+    ctx.drawImage(this.decoration,
+        (this.x + this.decorOffsetX - width / 2) * scale,
+        (this.y + this.decorOffsetY - height / 2) * scale,
+        width * scale, height * scale);
   }
 };
 

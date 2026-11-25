@@ -1,0 +1,21 @@
+<svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120">
+  <g style="isolation:isolate" fill="#a52fb7" opacity=".75">
+    <!-- Left Ear -->
+    <circle cx="24" cy="34" r="13" />
+    <!-- Right Ear -->
+    <circle cx="76" cy="34" r="13" />
+    <!-- Lower Paws -->
+    <ellipse cx="28" cy="107" rx="14" ry="10" />
+    <ellipse cx="72" cy="107" rx="14" ry="10" />
+    <!-- Body -->
+    <ellipse cx="50" cy="84" rx="27" ry="25" />
+    <!-- Arms -->
+    <ellipse cx="17" cy="72" rx="9" ry="14" transform="rotate(-60 17 72)" />
+    <ellipse cx="83" cy="72" rx="9" ry="14" transform="rotate(60 83 72)" />
+    <!-- Head -->
+    <circle cx="50" cy="50" r="26" />
+    <!-- Hat cone & pompom silhouette -->
+    <path d="M 34,27 Q 48,15 72,13 Q 84,18 84,28 Q 70,25 34,27 Z" />
+    <circle cx="84" cy="27" r="6" />
+  </g>
+</svg>

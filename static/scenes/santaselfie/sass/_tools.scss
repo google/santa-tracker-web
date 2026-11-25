@@ -197,6 +197,24 @@
         left: 0;
         top: 0;
 
+        // A hard-edged (no blur) darker shadow lifts each decor off the purple tray while it
+        // sits in the wardrobe.
+        &:not(.Tool--selected) {
+          filter: drop-shadow(2px 2px 0 rgba(74, 20, 110, 0.55));
+        }
+
+        &--candycane {
+          background-size: 24px 44px;
+        }
+        &--gingerbread {
+          background-size: 46px 48px;
+        }
+        &--star {
+          background-size: 44px 44px;
+        }
+        &--teddybear {
+          background-size: 44px 48px;
+        }
         &--snowman {
           background-size: 34px 48px;
         }
@@ -209,9 +227,39 @@
         &--holly {
           background-size: 42px 46px;
         }
+        &--lightbulb {
+          background-size: 30px 46px;
+        }
+        &--snowflake {
+          background-size: 44px 44px;
+        }
+        &--gift {
+          background-size: 43px 46px;
+        }
+        &--bell {
+          background-size: 42px 46px;
+        }
+        &--tree {
+          background-size: 40px 48px;
+        }
+        &--wreath {
+          background-size: 46px 46px;
+        }
       }
 
       .Tool-shadow {
+        &--candycane {
+          background-size: 23px 43px;
+        }
+        &--gingerbread {
+          background-size: 45px 47px;
+        }
+        &--star {
+          background-size: 43px 43px;
+        }
+        &--teddybear {
+          background-size: 43px 47px;
+        }
         &--snowman {
           background-size: 33px 47px;
         }
@@ -223,6 +271,107 @@
         }
         &--holly {
           background-size: 41px 45px;
+        }
+        &--lightbulb {
+          background-size: 29px 45px;
+        }
+        &--snowflake {
+          background-size: 43px 43px;
+        }
+        &--gift {
+          background-size: 42px 45px;
+        }
+        &--bell {
+          background-size: 41px 45px;
+        }
+        &--tree {
+          background-size: 39px 47px;
+        }
+        &--wreath {
+          background-size: 45px 45px;
+        }
+      }
+
+      .Decor-nav {
+        align-items: center;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: center;
+        padding: 10px 0;
+        position: relative;
+        width: 36px;
+        z-index: 10;
+      }
+
+      .Decor-navBtn {
+        align-items: center;
+        background: #7b1fa2;
+        border: 2px solid #ce93d8;
+        border-radius: 50%;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        display: flex;
+        height: 32px;
+        justify-content: center;
+        outline: none;
+        padding: 0;
+        transition: all 0.2s ease;
+        width: 32px;
+
+        &:hover:not(:disabled) {
+          background: #9c27b0;
+          border-color: #ffd166;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+          transform: scale(1.1);
+        }
+
+        &:active:not(:disabled) {
+          transform: scale(0.95);
+        }
+
+        &:disabled {
+          opacity: 0.25;
+          cursor: default;
+          box-shadow: none;
+        }
+
+        svg {
+          display: block;
+          pointer-events: none;
+        }
+      }
+
+      .Decor-navDots {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-content: center;
+        margin: 12px 0;
+      }
+
+      .Decor-navDot {
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        cursor: pointer;
+        display: block;
+        height: 8px;
+        transition: all 0.2s ease;
+        width: 8px;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.8);
+          transform: scale(1.25);
+        }
+
+        &.is-active {
+          background: #ffd166;
+          box-shadow: 0 0 6px #ffd166;
+          border-radius: 5px;
+          height: 14px;
+          width: 8px;
         }
       }
     }
@@ -367,6 +516,46 @@
     background-image: url(img/tools/decorations/holly.svg);
   }
 
+  .Tool-decoration--candycane {
+    background-image: url(img/tools/decorations/candycane.svg);
+  }
+
+  .Tool-decoration--gingerbread {
+    background-image: url(img/tools/decorations/gingerbread.svg);
+  }
+
+  .Tool-decoration--star {
+    background-image: url(img/tools/decorations/star.svg);
+  }
+
+  .Tool-decoration--teddybear {
+    background-image: url(img/tools/decorations/teddybear.svg);
+  }
+
+  .Tool-decoration--lightbulb {
+    background-image: url(img/tools/decorations/lightbulb.svg);
+  }
+
+  .Tool-decoration--snowflake {
+    background-image: url(img/tools/decorations/snowflake.svg);
+  }
+
+  .Tool-decoration--gift {
+    background-image: url(img/tools/decorations/gift.svg);
+  }
+
+  .Tool-decoration--bell {
+    background-image: url(img/tools/decorations/bell.svg);
+  }
+
+  .Tool-decoration--tree {
+    background-image: url(img/tools/decorations/tree.svg);
+  }
+
+  .Tool-decoration--wreath {
+    background-image: url(img/tools/decorations/wreath.svg);
+  }
+
   .Tool-ornament {
     background-image: url(img/tray_ornament_lg.svg);
   }
@@ -424,6 +613,41 @@
     }
   }
 
+  .Tool-decoration {
+    &.Tool--selected {
+      height: 100em;
+      width: 100em;
+    }
+  }
+
+  .Tool-decoration--candycane {
+    &.Tool--selected {
+      height: 138em;
+      width: 68em;
+    }
+  }
+
+  .Tool-decoration--gingerbread {
+    &.Tool--selected {
+      height: 100em;
+      width: 100em;
+    }
+  }
+
+  .Tool-decoration--star {
+    &.Tool--selected {
+      height: 110em;
+      width: 110em;
+    }
+  }
+
+  .Tool-decoration--teddybear {
+    &.Tool--selected {
+      height: 114em;
+      width: 95em;
+    }
+  }
+
   .Tool-decoration--snowman {
     &.Tool--selected {
       height: 138em;
@@ -433,7 +657,7 @@
 
   .Tool-decoration--bauble {
     &.Tool--selected {
-      height: 128em;
+      height: 100em;
       width: 75em;
     }
   }
@@ -449,6 +673,48 @@
     &.Tool--selected {
       height: 138em;
       width: 120em;
+    }
+  }
+
+  .Tool-decoration--lightbulb {
+    &.Tool--selected {
+      height: 114em;
+      width: 73em;
+    }
+  }
+
+  .Tool-decoration--snowflake {
+    &.Tool--selected {
+      height: 111em;
+      width: 100em;
+    }
+  }
+
+  .Tool-decoration--gift {
+    &.Tool--selected {
+      height: 110em;
+      width: 104em;
+    }
+  }
+
+  .Tool-decoration--bell {
+    &.Tool--selected {
+      height: 110em;
+      width: 100em;
+    }
+  }
+
+  .Tool-decoration--tree {
+    &.Tool--selected {
+      height: 115em;
+      width: 94em;
+    }
+  }
+
+  .Tool-decoration--wreath {
+    &.Tool--selected {
+      height: 125em;
+      width: 103em;
     }
   }
 
@@ -682,6 +948,46 @@
     .Tool-shadow--holly {
       background-image: url(img/tools/shadows/holly.svg);
     }
+
+    .Tool-shadow--candycane {
+      background-image: url(img/tools/shadows/candycane.svg);
+    }
+
+    .Tool-shadow--gingerbread {
+      background-image: url(img/tools/shadows/gingerbread.svg);
+    }
+
+    .Tool-shadow--star {
+      background-image: url(img/tools/shadows/star.svg);
+    }
+
+    .Tool-shadow--teddybear {
+      background-image: url(img/tools/shadows/teddybear.svg);
+    }
+
+    .Tool-shadow--lightbulb {
+      background-image: url(img/tools/shadows/lightbulb.svg);
+    }
+
+    .Tool-shadow--snowflake {
+      background-image: url(img/tools/shadows/snowflake.svg);
+    }
+
+    .Tool-shadow--gift {
+      background-image: url(img/tools/shadows/gift.svg);
+    }
+
+    .Tool-shadow--bell {
+      background-image: url(img/tools/shadows/bell.svg);
+    }
+
+    .Tool-shadow--tree {
+      background-image: url(img/tools/shadows/tree.svg);
+    }
+
+    .Tool-shadow--wreath {
+      background-image: url(img/tools/shadows/wreath.svg);
+    }
   }
 }
 
@@ -696,7 +1002,7 @@
 }
 
 // Compact layout: a low tray that leaves Santa free. The tools tab has the tools on one line and
-// the seven spray bottles on the next; the decors tab has its decors on one line.
+// the seven spray bottles on the next; the decors tab has two lines of seven decors.
 @media #{$layout-compact} {
   ##{$name} {
     // Line break between the tools (order 0) and the bottles.
@@ -729,9 +1035,13 @@
         flex-wrap: wrap;
       }
 
-      // the decors flow straight into the grid
+      // both pages flow into the one grid, so there is nothing to page through
       .Decor-page {
         display: contents !important;
+      }
+
+      .Decor-nav {
+        display: none;
       }
 
       .Tool-container {

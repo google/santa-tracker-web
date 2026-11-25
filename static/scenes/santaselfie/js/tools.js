@@ -403,6 +403,27 @@ app.Decoration = function($elem, name, offset, decoration) {
 app.Decoration.prototype = Object.create(app.Tool.prototype);
 
 
+/**
+ * @param {!app.Mouse.CoordsType} mouseCoords at selection time
+ * @override
+ */
+app.Decoration.prototype.select = function(mouseCoords) {
+  app.Tool.prototype.select.call(this, mouseCoords);
+  // The cursor shows the decoration at the size it will have on the beard. It is centred on the
+  // pointer, so scaling about its centre keeps it in place.
+  this.el.css('transform', 'scale(' + app.Constants.DECORATION_SCALE + ')');
+};
+
+
+/**
+ * @override
+ */
+app.Decoration.prototype.deselect = function() {
+  app.Tool.prototype.deselect.call(this);
+  this.el.css('transform', '');
+};
+
+
 
 /**
  * The toolbox
@@ -440,10 +461,20 @@ app.Tools = function(game, $elem) {
   this.sprayTriangle.isPattern = true;
   this.sprayTriangle.patternType = 'triangle';
 
-  this.decorationSnowman = new app.Decoration($elem, 'snowman', {x: 40, y: 50}, $elem.find('#snowman')[0]);
-  this.decorationBauble = new app.Decoration($elem, 'bauble', {x: 40, y: 50}, $elem.find('#bauble')[0]);
-  this.decorationBow = new app.Decoration($elem, 'bow', {x: 50, y: 45}, $elem.find('#bow')[0]);
-  this.decorationHolly = new app.Decoration($elem, 'holly', {x: 40, y: 45}, $elem.find('#holly')[0]);
+  this.decorationCandycane = new app.Decoration($elem, 'candycane', {x: 34, y: 69}, $elem.find('#candycane')[0]);
+  this.decorationGingerbread = new app.Decoration($elem, 'gingerbread', {x: 50, y: 50}, $elem.find('#gingerbread')[0]);
+  this.decorationStar = new app.Decoration($elem, 'star', {x: 55, y: 55}, $elem.find('#star')[0]);
+  this.decorationTeddybear = new app.Decoration($elem, 'teddybear', {x: 48, y: 57}, $elem.find('#teddybear')[0]);
+  this.decorationSnowman = new app.Decoration($elem, 'snowman', {x: 42, y: 69}, $elem.find('#snowman')[0]);
+  this.decorationBauble = new app.Decoration($elem, 'bauble', {x: 38, y: 50}, $elem.find('#bauble')[0]);
+  this.decorationBow = new app.Decoration($elem, 'bow', {x: 64, y: 47}, $elem.find('#bow')[0]);
+  this.decorationHolly = new app.Decoration($elem, 'holly', {x: 60, y: 69}, $elem.find('#holly')[0]);
+  this.decorationLightbulb = new app.Decoration($elem, 'lightbulb', {x: 36, y: 57}, $elem.find('#lightbulb')[0]);
+  this.decorationSnowflake = new app.Decoration($elem, 'snowflake', {x: 50, y: 55}, $elem.find('#snowflake')[0]);
+  this.decorationGift = new app.Decoration($elem, 'gift', {x: 45, y: 55}, $elem.find('#gift')[0]);
+  this.decorationBell = new app.Decoration($elem, 'bell', {x: 50, y: 55}, $elem.find('#bell')[0]);
+  this.decorationTree = new app.Decoration($elem, 'tree', {x: 47, y: 58}, $elem.find('#tree')[0]);
+  this.decorationWreath = new app.Decoration($elem, 'wreath', {x: 52, y: 62}, $elem.find('#wreath')[0]);
 
   this.tools = [
     this.clipper,
@@ -464,10 +495,20 @@ app.Tools = function(game, $elem) {
     this.sprayWave,
     this.sprayTriangle,
 
+    this.decorationCandycane,
+    this.decorationGingerbread,
+    this.decorationStar,
+    this.decorationTeddybear,
     this.decorationSnowman,
     this.decorationBauble,
     this.decorationBow,
-    this.decorationHolly
+    this.decorationHolly,
+    this.decorationLightbulb,
+    this.decorationSnowflake,
+    this.decorationGift,
+    this.decorationBell,
+    this.decorationTree,
+    this.decorationWreath
   ];
 
   this.sprays = [
@@ -498,14 +539,76 @@ app.Tools = function(game, $elem) {
   ];
 
   this.decorations = [
+    this.decorationCandycane.decoration,
+    this.decorationGingerbread.decoration,
+    this.decorationStar.decoration,
+    this.decorationTeddybear.decoration,
     this.decorationSnowman.decoration,
     this.decorationBauble.decoration,
     this.decorationBow.decoration,
-    this.decorationHolly.decoration
+    this.decorationHolly.decoration,
+    this.decorationLightbulb.decoration,
+    this.decorationSnowflake.decoration,
+    this.decorationGift.decoration,
+    this.decorationBell.decoration,
+    this.decorationTree.decoration,
+    this.decorationWreath.decoration
   ];
 
   $elem.find('.Tools-tabs').on('click touchend', '.Tools-tab', (e) => {
     this.switchTab(String($(e.currentTarget).data('tab')));
+  });
+
+  this.initDecorPagination_();
+};
+
+
+/**
+ * Initializes vertical pagination for the festive decorations page.
+ * @private
+ */
+app.Tools.prototype.initDecorPagination_ = function() {
+  this.decorCurrentPage_ = 1;
+  this.decorTotalPages_ = 2;
+  var self = this;
+  var decorPage = this.elem.find('.Tools-page--decor');
+
+  this.setDecorPage = function(page) {
+    if (page < 1 || page > self.decorTotalPages_) {
+      return;
+    }
+    self.decorCurrentPage_ = page;
+    decorPage.find('.Decor-page').removeClass('is-active');
+    decorPage.find('.Decor-page--' + page).addClass('is-active');
+
+    decorPage.find('.Decor-navDot').removeClass('is-active');
+    decorPage.find('.Decor-navDot[data-page="' + page + '"]').addClass('is-active');
+
+    decorPage.find('.Decor-navBtn--up').prop('disabled', page === 1);
+    decorPage.find('.Decor-navBtn--down').prop('disabled', page === self.decorTotalPages_);
+  };
+
+  decorPage.on('click touchend', '.Decor-navBtn--up', function(e) {
+    e.preventDefault();
+    self.setDecorPage(self.decorCurrentPage_ - 1);
+  });
+
+  decorPage.on('click touchend', '.Decor-navBtn--down', function(e) {
+    e.preventDefault();
+    self.setDecorPage(self.decorCurrentPage_ + 1);
+  });
+
+  decorPage.on('click touchend', '.Decor-navDot', function(e) {
+    e.preventDefault();
+    self.setDecorPage(Number($(this).data('page')));
+  });
+
+  decorPage.on('wheel', function(e) {
+    if (e.originalEvent.deltaY > 20) {
+      self.setDecorPage(self.decorCurrentPage_ + 1);
+    } else if (e.originalEvent.deltaY < -20) {
+      self.setDecorPage(self.decorCurrentPage_ - 1);
+    }
   });
 };
 
@@ -742,6 +845,9 @@ app.Tools.prototype.deselect = function() {
  * @private
  */
 app.Tools.prototype.selectTool_ = function(e) {
+  if ($(e.target).closest('.Decor-nav').length) {
+    return;
+  }
   // Pressing the custom spray's bottle while the spray is in use brings the colour picker back.
   // With the picker already open it puts the spray down, like any other tool.
   if (this.sprayCustom.isSelected && !this.sprayCustom.picker.isOpen &&

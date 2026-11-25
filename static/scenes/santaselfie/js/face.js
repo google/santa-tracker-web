@@ -96,4 +96,8 @@ app.Face.prototype.mouseChanged = function(mouse, mouseCoords) {
       tools.clipper.isSelected);
   this.face.toggleClass('Face--shaving',
       tools.clipper.isSelected && mouseCoords.down && nearNose.call(this, 120));
+
+  this.face.toggleClass('Face--decorating', Boolean(
+      tools.selectedTool && tools.selectedTool.decoration &&
+      mouseCoords.down && this.game_.cloth.isPlacingDecor));
 };

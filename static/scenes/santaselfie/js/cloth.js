@@ -43,6 +43,7 @@ app.Cloth = function(game, canvas) {
   this.canPlaceDecoration = true;
   this.canPlacePattern = true;
   this.nearBeard = false;
+  this.isPlacingDecor = false;
 };
 
 
@@ -109,12 +110,17 @@ app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
     var anyNearBeard = false;
     var closestPatternPoint = null;
     var closestPatternDist = Infinity;
+    var closestDecorPoint = null;
+    var closestDecorDist = Infinity;
 
     var i = this.points.length;
     while (i--) {
       if (!this.points[i].draw) {
         continue;
       }
+
+      var currentDist = app.utils.distance(
+          this.points[i].x * scale - this.mouse.x, this.points[i].y * scale - this.mouse.y);
 
       var differenceX = this.points[i].options.x * scale - this.mouse.x;
       var differenceY = this.points[i].options.y * scale - this.mouse.y;
@@ -135,15 +141,19 @@ app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
           this.points[i].spray = null;
           this.points[i].pattern = null;
           this.points[i].decoration = null;
+          this.points[i].decorOffsetX = 0;
+          this.points[i].decorOffsetY = 0;
           hasChanged = true;
         }
+      }
 
-        if (tools.selectedTool.decoration && this.canPlaceDecoration) {
-          this.points[i].decoration = tools.selectedTool.decoration;
-          window.santaApp.fire('sound-trigger', 'selfie_item');
-          this.canPlaceDecoration = false;
-          hasChanged = true;
-          break;
+      if (tools.selectedTool.decoration) {
+        if (currentDist < 70 * scale) {
+          this.isPlacingDecor = true;
+          if (this.canPlaceDecoration && currentDist < closestDecorDist) {
+            closestDecorDist = currentDist;
+            closestDecorPoint = this.points[i];
+          }
         }
       }
 
@@ -153,6 +163,15 @@ app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
           closestPatternPoint = this.points[i];
         }
       }
+    }
+
+    if (closestDecorPoint && this.canPlaceDecoration) {
+      closestDecorPoint.decoration = tools.selectedTool.decoration;
+      closestDecorPoint.decorOffsetX = (this.mouse.x / scale) - closestDecorPoint.x;
+      closestDecorPoint.decorOffsetY = (this.mouse.y / scale) - closestDecorPoint.y;
+      window.santaApp.fire('sound-trigger', 'selfie_item');
+      this.canPlaceDecoration = false;
+      hasChanged = true;
     }
 
     if (closestPatternPoint) {
@@ -167,6 +186,10 @@ app.Cloth.prototype.mouseChanged = function(mouse, mouseCoords) {
     if (!anyNearBeard) {
       this.nearBeard = false;
     }
+  }
+
+  if (!mouseCoords.down) {
+    this.isPlacingDecor = false;
   }
 
   if (tools.selectedTool && tools.selectedTool.spray && mouseCoords.down && mouseCoords.x > app.Constants.NEAR_SANTA_DIM) {
