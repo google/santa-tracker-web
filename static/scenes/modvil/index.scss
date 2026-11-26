@@ -150,10 +150,6 @@ modvil-module {
   min-height: $module-min-height;
   pointer-events: none;
 
-  @media (max-width: 414px) {
-    min-width: 414px;
-  }
-
   &#movies {
     --module-ratio: 55.555555%;  // ~799.99999..., target is 800px
   }

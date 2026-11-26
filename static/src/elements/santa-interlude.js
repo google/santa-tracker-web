@@ -71,12 +71,13 @@ class SantaInterludeElement extends HTMLElement {
       }
     });
 
+    const isPortraitMobile = window.innerWidth <= 600 && window.innerHeight > window.innerWidth;
     this._interludeAnimation = loadAnimation(_static`img/interlude/loader.json`, {
       autoplay: true,
       loop: true,
       container: lastLayer,
       rendererSettings: {
-        preserveAspectRatio: 'xMidYMid meet',
+        preserveAspectRatio: isPortraitMobile ? 'xMidYMid slice' : 'xMidYMid meet',
       },
     });
     this._interludeAnimation.addEventListener('DOMLoaded', () => {
@@ -86,7 +87,16 @@ class SantaInterludeElement extends HTMLElement {
 
     this.shadowRoot.append(this._hostElement);
 
-    this._onWindowResize = buildSafeResize(this._interludeAnimation);
+    const safeResize = buildSafeResize(this._interludeAnimation);
+    this._onWindowResize = () => {
+      const portraitMobile = window.innerWidth <= 600 && window.innerHeight > window.innerWidth;
+      const ratio = portraitMobile ? 'xMidYMid slice' : 'xMidYMid meet';
+      const r = this._interludeAnimation.renderer;
+      if (r && r.renderConfig && r.renderConfig.preserveAspectRatio !== ratio) {
+        r.renderConfig.preserveAspectRatio = ratio;
+      }
+      safeResize();
+    };
   }
 
   connectedCallback() {

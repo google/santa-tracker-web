@@ -109,6 +109,7 @@ svg {
 .counter-box {
   width: 40px;
   position: relative;
+  overflow: hidden;
 
   &.large {
     width: 48px;
@@ -187,7 +188,7 @@ h2 {
   display: none;
 }
 
-@media (max-width: 386px) {
+@media (max-width: 458px) {
   .counter-box[data-order="3"] {
     display: none;
   }
@@ -197,7 +198,7 @@ h2 {
     display: none;
   }
 }
-@media (max-width: 458px) {
+@media (max-width: 350px) {
   .counter-box[data-order="1"] {
     display: none;
   }
