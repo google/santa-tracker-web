@@ -19,12 +19,9 @@ import styles from './modvil-tracker-mailbox.css';
 import {getPostcardForDestination, POSTCARD_SHARED_ASSETS, POSTCARD_UI_STRINGS} from './postcards-data.js';
 import './modvil-tracker-postcard.js';
 
-// Chevron pointing right; CSS flips it for "previous" / "back".
-const arrowSvg = html`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.6 5.4 10 4l8 8-8 8-1.4-1.4L15.2 12z"/></svg>`;
 // Rounded stroke chevron for the side tabs; CSS flips it for "previous".
 const tabChevronSvg = html`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 5.5 16 12l-6.5 6.5"/></svg>`;
 const flipSvg = html`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>`;
-const gridSvg = html`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zm9 0h7v7h-7zM4 13h7v7H4zm9 0h7v7h-7z"/></svg>`;
 const closeSvg = html`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12z"/></svg>`;
 
 export class ModvilTrackerMailbox extends LitElement {
@@ -40,7 +37,6 @@ export class ModvilTrackerMailbox extends LitElement {
       _selectedIndex: {type: Number},
       _flyInPostcard: {type: Object},
       _unreadCount: {type: Number},
-      _view: {type: String},
       _flipped: {type: Boolean},
     };
   }
@@ -54,7 +50,6 @@ export class ModvilTrackerMailbox extends LitElement {
     this._flyInPostcard = null;
     this._unreadCount = 0;
     this._lastSeenStopId = null;
-    this._view = 'carousel';  // 'carousel' | 'gallery'
     this._flipped = false;  // whether the carousel card shows its back (mirrors the postcard)
     this._onKeyDown = this._onKeyDown.bind(this);
   }
@@ -136,12 +131,35 @@ export class ModvilTrackerMailbox extends LitElement {
     if (this.open) {
       this._unreadCount = 0;
       this._selectedIndex = 0;
-      this._view = 'carousel';
       this._flipped = false;
       window.addEventListener('keydown', this._onKeyDown);
     } else {
       window.removeEventListener('keydown', this._onKeyDown);
     }
+  }
+
+  /**
+   * Opens the mailbox directly to the postcard for `stopId`, if one has been collected.
+   * @param {string} stopId
+   * @return {boolean} whether a matching postcard was found and opened
+   */
+  openForStop(stopId) {
+    if (!stopId) {
+      return false;
+    }
+    const cards = this.collectedPostcards;
+    const idx = cards.findIndex((card) => card.id === stopId);
+    if (idx === -1) {
+      return false;
+    }
+    this._unreadCount = 0;
+    this._selectedIndex = idx;
+    this._flipped = false;
+    if (!this.open) {
+      this.open = true;
+      window.addEventListener('keydown', this._onKeyDown);
+    }
+    return true;
   }
 
   disconnectedCallback() {
@@ -152,9 +170,9 @@ export class ModvilTrackerMailbox extends LitElement {
   _onKeyDown(ev) {
     if (ev.key === 'Escape') {
       this._toggleOpen();
-    } else if (this._view === 'carousel' && ev.key === 'ArrowLeft') {
+    } else if (ev.key === 'ArrowLeft') {
       this._step(-1);
-    } else if (this._view === 'carousel' && ev.key === 'ArrowRight') {
+    } else if (ev.key === 'ArrowRight') {
       this._step(+1);
     }
   }
@@ -185,16 +203,6 @@ export class ModvilTrackerMailbox extends LitElement {
     if (ev.target === ev.currentTarget) {
       this._toggleOpen();
     }
-  }
-
-  _openGallery() {
-    this._view = 'gallery';
-  }
-
-  _openFromGallery(idx) {
-    this._selectedIndex = idx;
-    this._flipped = false;
-    this._view = 'carousel';
   }
 
   _renderCarousel(cards) {
@@ -231,46 +239,15 @@ export class ModvilTrackerMailbox extends LitElement {
           <span class="badge">${flipSvg}</span>
           <span class="label">${POSTCARD_UI_STRINGS.flip()}</span>
         </button>
-        <button class="pill-btn secondary" @click=${this._openGallery}>
-          <span class="badge">${gridSvg}</span>
-          <span class="label">${POSTCARD_UI_STRINGS.viewAll()}</span>
-        </button>
-      </div>
-    `;
-  }
-
-  _renderGallery(cards) {
-    return html`
-      <div class="gallery-panel">
-        <div class="gallery-header">
-          <button class="icon-btn back-btn" aria-label=${POSTCARD_UI_STRINGS.back()} @click=${() => (this._view = 'carousel')}>${arrowSvg}</button>
-          <h2>${POSTCARD_UI_STRINGS.mailboxLabel()}</h2>
-          <span class="count">${cards.length}</span>
-        </div>
-        <div class="gallery-grid" role="list">
-          ${cards.map(
-            (card, idx) => html`
-              <button class="grid-card" role="listitem" @click=${() => this._openFromGallery(idx)}>
-                <img src=${card.frontUrl} alt="" loading="lazy" />
-                <span>${card.city}</span>
-              </button>
-            `
-          )}
-        </div>
       </div>
     `;
   }
 
   render() {
     const cards = this.collectedPostcards;
-    let body;
-    if (!cards.length) {
-      body = html`<p class="empty-msg">${POSTCARD_UI_STRINGS.emptyMailbox()}</p>`;
-    } else if (this._view === 'gallery') {
-      body = this._renderGallery(cards);
-    } else {
-      body = this._renderCarousel(cards);
-    }
+    const body = !cards.length
+      ? html`<p class="empty-msg">${POSTCARD_UI_STRINGS.emptyMailbox()}</p>`
+      : this._renderCarousel(cards);
 
     return html`
       <button

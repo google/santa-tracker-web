@@ -16,7 +16,7 @@
 
 :host {
   display: block;
-  font-family: 'Roboto', 'Google Sans', sans-serif;
+  font-family: 'Google Sans', 'Roboto', sans-serif;
   user-select: none;
 }
 
@@ -31,15 +31,15 @@
   container-type: inline-size;  // enables cqw units on the back side
   // Leaves room for the carousel arrows on both sides and the header/footer above and below.
   width: min(640px, calc(100vw - 200px), calc((100vh - 220px) * 4 / 3));
-
-  @media (max-width: 600px) {
-    width: min(calc(100vw - 132px), calc((100vh - 220px) * 4 / 3));
-  }
   aspect-ratio: 4 / 3;
   perspective: 1200px;
   cursor: pointer;
   position: relative;
   outline: none;
+
+  @media (max-width: 600px) {
+    width: min(calc(100vw - 132px), calc((100vh - 220px) * 4 / 3));
+  }
 
   &:focus-visible .postcard-face {
     box-shadow: 0 0 0 4px #ffeb3b, 0 12px 32px rgba(0, 0, 0, 0.35);
@@ -49,18 +49,18 @@
 .postcard-face {
   position: absolute;
   inset: 0;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
   background: #fffdf7;
-  border: 6px solid #fff;
   box-sizing: border-box;
 }
 
 .postcard-front {
+  border: 6px solid #fff;
   transform: rotateY(0deg);
 }
 
@@ -113,70 +113,102 @@
   }
 }
 
-// Back side, based on the "Santa's Travel Journal" template. Every word is live text (localized
-// via _msg / route data); only the stamp is an image. Sizes use container query units (cqw) so
-// the whole back scales with the card, from the small gallery tile up to the big carousel card.
-$back-paper: #e9dcc3;   // sampled from the template
-$back-ink: #2b2622;
-$back-rule: #b9ab93;
-$back-muted: #8a8174;
+// Physical cardstock back using Santa Tracker's official brand typography (Google Sans for body
+// and address copy, Lobster for the single-word "Santa" signature per Brand Guidelines slides 15-17).
+// Every word is live localized text; sizes use container query units (cqw) so the back scales cleanly.
+$back-paper-center: #efe4cf;
+$back-paper-edge: #e3d3b7;
+$back-rule: #b5a48a;
+$back-ink: #2f2923;
 
 .postcard-back {
   display: grid;
-  grid-template-columns: 1.12fr 1.5px 1fr;
-  column-gap: 4.5cqw;
-  padding: 5cqw 4.5cqw 3.6cqw;
-  background: $back-paper;
+  grid-template-columns: 1.14fr 0.2cqw 1fr;
+  column-gap: 4.4cqw;
+  padding: 6.2cqw 5.8cqw 5.8cqw 6.2cqw;
+  border: none;
+  border-radius: 7px;
+  background: radial-gradient(
+    ellipse at 48% 46%,
+    $back-paper-center 0%,
+    #eadbc2 68%,
+    $back-paper-edge 100%
+  );
+  box-shadow:
+    inset 0 0 0 1px rgba(125, 98, 64, 0.22),
+    inset 0 0 18px rgba(120, 90, 50, 0.08),
+    0 12px 28px rgba(0, 0, 0, 0.3);
   color: $back-ink;
+  isolation: isolate;
+
+  // Fine matte paper grain overlay (zero external requests).
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+// Classic double-hairline stationery border inset inside the cardstock margin.
+.inset-frame {
+  position: absolute;
+  inset: 2.3cqw;
+  border: 0.22cqw solid rgba(158, 138, 110, 0.55);
+  border-radius: 3px;
+  pointer-events: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0.55cqw;
+    border: 0.12cqw solid rgba(158, 138, 110, 0.32);
+    border-radius: 2px;
+  }
 }
 
 .back-left {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  padding-inline-end: 0.4cqw;
   min-height: 0;
 }
 
-.journal-title {
-  margin: 0 0 3.4cqw;
-  padding-bottom: 1.6cqw;
-  border-bottom: 0.35cqw solid $back-rule;
-  font: 500 2cqw / 1.2 'Roboto', 'Google Sans', sans-serif;
-  letter-spacing: 0.22em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-transform: uppercase;
-  color: #3d3731;
+.dispatch-message,
+.dispatch-next,
+.dispatch-signature {
+  margin: 0;
+  font-family: 'Google Sans', 'Roboto', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: var(--note-size, 3.55cqw);
+  line-height: var(--note-lh, 1.5);
+  color: $back-ink;
 }
 
 .dispatch-message,
 .dispatch-next {
-  margin: 0;
-  // Handwriting look where the font exists; other scripts (CJK, Arabic, ...) fall back cleanly.
-  font-family: 'Comic Neue', 'Comic Sans MS', 'Chalkboard SE', 'Patrick Hand', cursive, sans-serif;
-  font-size: 3.4cqw;
-  line-height: 1.4;
   white-space: pre-line;
   overflow-wrap: break-word;
 }
 
 .dispatch-next {
-  margin-top: 1.4em;  // one blank line, like a new paragraph in a handwritten note
+  margin-top: var(--note-gap, 1.05em);
 }
 
-// Sits just under the note (not pinned to the bottom of the card).
 .dispatch-signature {
-  margin: 3cqw 0 0;
-  text-align: end;
-  font-family: 'Lobster', 'Brush Script MT', cursive;
-  font-size: 3.8cqw;
-  color: $back-ink;
+  margin: 2cqw 0.6cqw 0 0;
+  align-self: flex-end;
 }
 
 .back-divider {
-  background: $back-ink;
-  opacity: 0.75;
-  margin: 8cqw 0 4cqw;
+  background: $back-rule;
+  margin: 1.4cqw 0 1.2cqw;
+  border-radius: 1px;
 }
 
 .back-right {
@@ -188,11 +220,11 @@ $back-muted: #8a8174;
 
 .stamp {
   position: absolute;
-  top: -3cqw;
-  inset-inline-end: -1cqw;
-  width: 15cqw;
+  top: 0;
+  inset-inline-end: 0;
+  width: 14.8cqw;
   aspect-ratio: 150 / 180;
-  transform: rotate(2deg);
+  z-index: 1;
 
   .stamp-frame {
     display: block;
@@ -204,71 +236,82 @@ $back-muted: #8a8174;
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 56%;
+    width: 52%;
     transform: translate(-50%, -50%);
   }
 }
 
 .postmark {
   position: absolute;
-  top: 7cqw;
-  inset-inline-end: 6cqw;
-  width: 31cqw;
+  top: 10.6cqw;
+  inset-inline-end: 8.6cqw;
+  width: 30.2cqw;
   height: auto;
-  color: #443a32;  // same ink as postcard_postmark.png
+  color: #443a32;  // matches postcard_postmark.png rubber-stamp ink
   overflow: visible;
-  transform: rotate(-4deg);
+  mix-blend-mode: multiply;
+  opacity: 0.86;
+  z-index: 2;
+  pointer-events: none;
 
   // Font sizes are in the SVG's own units (artwork is 965 wide), so they scale with it.
   .pm-arc {
-    font: 600 50px 'Roboto', sans-serif;
+    font: 500 58px 'Google Sans', 'Roboto', sans-serif;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     fill: currentColor;
   }
 
   .pm-brand {
-    font-size: 40px;
-    letter-spacing: 0.02em;
+    font-size: 60px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
     text-transform: none;
   }
 
   .pm-date {
-    font: 500 62px 'Roboto', sans-serif;
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    font-weight: 600;
     text-transform: uppercase;
     fill: currentColor;
+  }
+
+  .pm-month {
+    font-size: 50px;
+    letter-spacing: 0.08em;
+  }
+
+  .pm-day {
+    font-size: 62px;
   }
 }
 
 .address {
   margin-top: auto;
+  margin-bottom: 1.2cqw;
   display: flex;
   flex-direction: column;
 }
 
-// Text sits right on its ruled line, like handwriting on a real postcard.
+// Straight pre-printed horizontal rules, with clean Google Sans address lines resting above each rule.
 .address-line {
   display: flex;
   align-items: flex-end;
   height: 6.4cqw;
-  padding: 0 1.2cqw 0.5cqw;
+  padding: 0 1cqw 0.45cqw;
   box-sizing: border-box;
-  border-bottom: 0.25cqw solid $back-rule;
-  font-family: 'Comic Neue', 'Comic Sans MS', 'Chalkboard SE', 'Patrick Hand', cursive, sans-serif;
-  font-size: 3.1cqw;
-  line-height: 1.15;
+  border-bottom: 0.22cqw solid $back-rule;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
 
-.back-footer {
-  margin-top: 3cqw;
-  text-align: end;
-  font: 400 1.9cqw / 1.2 'Roboto', sans-serif;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: $back-muted;
+  span {
+    font-family: 'Google Sans', 'Roboto', 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 3.15cqw;
+    line-height: 1.15;
+    color: $back-ink;
+  }
 }
 
 .postcard-actions {
