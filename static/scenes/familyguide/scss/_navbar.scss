@@ -21,12 +21,15 @@
 
   &-inner {
     background-color: #6BB4FD;
-    padding: 18px 44px;
+    padding: 18px 36px;
     border-radius: 36px;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+    justify-content: center;
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 900px;
+    width: fit-content;
   }
 
   &__link {
@@ -42,6 +45,7 @@
       text-decoration: none;
       text-transform: uppercase;
       transition: color .3s linear;
+      white-space: nowrap;
 
       &::after {
         background: white;

@@ -21,6 +21,23 @@ import { rectify } from '../../src/scene/route.js';
 rectify(document.body);  // nb. Accordion does this to itself
 new Accordion(document.querySelector('[data-familyguide-accordion]'));
 
+const navbar = document.getElementById('familyguide-accordion');
+if (navbar) {
+  navbar.addEventListener('click', (ev) => {
+    const link = ev.target.closest('a[href^="#"]');
+    if (!link) {
+      return;
+    }
+    const id = link.getAttribute('href').slice(1);
+    const target = id ? document.getElementById(id) : null;
+    if (target) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      target.scrollIntoView({behavior: 'smooth'});
+    }
+  });
+}
+
 api.ready(async () => {
 
 });
