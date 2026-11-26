@@ -19,6 +19,8 @@ module.exports = defineConfig({
   use: {
     baseURL,
     trace: 'on-first-retry',
+    // The production service worker caches scene code between runs, which would hide local edits.
+    serviceWorkers: 'block',
   },
   projects: [
     {
