@@ -35,6 +35,7 @@ class ModvilTrackerPhotoElement extends LitElement {
       _href: {type: String},
       _author: {type: String},
       brand: {type: Boolean},
+      disabled: {type: Boolean},
     };
   }
 
@@ -59,7 +60,7 @@ class ModvilTrackerPhotoElement extends LitElement {
 <div class="inner">
   <slot></slot>
   <div class="attribution ${this.brand ? 'brand' : ''}">
-    <a target="_blank" href=${ifDefined(this._href)}>${this._author}</a>
+    <a aria-hidden="${this.disabled ? 'true' : 'false'}" tabindex="${this.disabled ? '-1' : '0'}" target="_blank" href=${ifDefined(this._href)}>${this._author}</a>
   </div>
 </div>
     `;
